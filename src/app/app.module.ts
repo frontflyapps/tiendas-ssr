@@ -4,15 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideClientHydration } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './core/services/interceptors/token-interceptor.service';
-import { BusinessConfigService } from './core/services/business-config/business-config.service';
-import { lastValueFrom, switchMap } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrModule } from 'ngx-toastr';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, TranslateModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    TranslateModule.forRoot(),
+    ToastrModule.forRoot(),
+    MatSnackBarModule,
+    HttpClientModule,
+  ],
   providers: [
     provideClientHydration(),
     {

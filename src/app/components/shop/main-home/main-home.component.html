@@ -1,0 +1,247 @@
+<!-- ------------------------------------------------------------ -->
+<!-- -- Offer promo ---------------------------------------------- -->
+<!--<ng-container *ngIf="allBicons.length > 0 && !loadingAllProduct">-->
+<!--  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem"-->
+<!--       class="text-msg-offer">-->
+<!--    <mat-icon>local_offer</mat-icon>-->
+<!--    <span>{{'Compra más de 1000 USD y obtenga un descuento del 5%'|translate}}</span>-->
+<!--  </div>-->
+<!--</ng-container>-->
+
+<!-- ------------------------------------------------------------ -->
+<!-- -- Carusel ---------------------------------------------- -->
+<!-- <app-main-carousel
+  *ngIf="!showStatic && slides.length > 0"
+  [slides]="slides"
+></app-main-carousel> -->
+
+<div class="container mt-3">
+  <!-- BANNER TEMPORAL -->
+  <!--  <div-->
+  <!--    style="-->
+  <!--      padding: 16px;-->
+  <!--      background-color: darkred;-->
+  <!--      color: white !important;-->
+  <!--      font-weight: bold;-->
+  <!--      width: 91%;-->
+  <!--      white-space: normal;-->
+  <!--      max-width: 91% !important;-->
+  <!--      margin: 0 auto;-->
+  <!--    "-->
+  <!--  >-->
+  <!--    <h1 style="color: white !important">-->
+  <!--      Esta tienda online se encuentra en proceso de desarrollo, está trabajando en MODO: Prueba. No están habilitadas-->
+  <!--      las compras. Disculpen las molestias-->
+  <!--    </h1>-->
+  <!--  </div>-->
+  <!-- BANNER TEMPORAL -->
+  <!-- <app-skeleton-loading-cards
+    *ngIf="showStatic"
+    [setConfiguration]="{ xs: 1, sm: 1, md: 1, lg: 1 }"
+  >
+  </app-skeleton-loading-cards> -->
+</div>
+
+<div class="home-1-wrap">
+  <div *ngIf="allBicons.length > 0" class="info-bar-four-wrapper">
+    <div class="container my-4">
+      <div
+        class="info-bar-four"
+        fxLayout="row wrap"
+        fxLayout.xs="column wrap"
+        fxLayoutAlign="center center"
+        fxLayoutAlign.xs="center start"
+      >
+        <div
+          *ngFor="let item of allBicons; let i = index"
+          class="card-wrap card-promo"
+          fxFlex="100"
+          fxFlex.xs="100"
+          fxFlex.gt-md="25"
+          fxFlex.gt-xs="50"
+        >
+          <mat-card
+            [ngClass]="{ 'no-bd': i === allBicons.length - 1 }"
+            class="light-block"
+            fxLayout="row"
+            fxLayoutAlign="start center"
+          >
+            <div fxFlex="20">
+              <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
+            </div>
+            <div class="content" fxFlex="80">
+              <p class="uppercase">
+                {{ item.title | parseLang : utilsService.getLang() }}
+              </p>
+              <span class="text-muted m-0 mt-2 word-break">{{
+                item.subTitle | parseLang : utilsService.getLang()
+              }}</span>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container
+    *ngIf="
+      arraySectionProducts.length == 0 && !loadingAllProduct && !loadingProducts
+    "
+  >
+    <h3 class="mat-title py-4" style="text-align: center">
+      {{ "No hay ningún producto disponible" | translate }}
+    </h3>
+  </ng-container>
+
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="0.8"
+    (scrolled)="loadProducts()"
+  >
+    <div *ngIf="arraySectionProducts.length >= 0">
+      <div
+        *ngFor="
+          let card of arraySectionProducts;
+          let i = index;
+          trackBy: identify
+        "
+      >
+        <!--BANNER-->
+        <!-- <div class='main-banner' *ngIf='card.visualType?.type === "businessPromotion"'>
+          <ng-container *ngIf='applyStyle && card?.imageXs; then bannerPromo1Xs; else bannerPromo1'>
+          </ng-container>
+          <ng-template #bannerPromo1>
+            <app-banner-promotion [ngClass]="{'banner-horizontal': visualizationSections[i] === 'slim',
+                                                 'banner-vertical': visualizationSections[i] === 'broad'}"
+                                  [_imageBigPromo]='imageUrl + card?.image'></app-banner-promotion>
+          </ng-template>
+          <ng-template #bannerPromo1Xs>
+            <app-banner-promotion [_imageBigPromo]='imageUrl + card?.imageXs'></app-banner-promotion>
+          </ng-template>
+        </div> -->
+        <!--CATEGORIES-->
+        <!-- <div *ngIf='card.visualType?.type === "categories"'>
+          <div class='container'>
+            <div class='products sec-padding'>
+              <div class='products-four' fxHide.xs fxHide.sm fxShow>
+                <h1 style='color: initial'>{{ card.name | i18nField: translateService.currentLang }}</h1>
+                <app-product-carousel *ngIf='card.value' [btnColor]="'accent'" [products]='card.value'>
+                </app-product-carousel>
+                <div *ngIf='loadingFeatured' class='my-3'>
+                  <app-skeleton-loading-cards *ngIf='!card.value' [setConfiguration]='{ xs: 1, sm: 2, md: 3, lg: 4 }'>
+                  </app-skeleton-loading-cards>
+                </div>
+              </div>
+              <div fxShow.xs fxHide.sm fxHide>
+                <app-product-grid *ngIf='card.value && card.visualType?.typeVisualization === "grid"'
+                                  [products]='card'>
+                </app-product-grid>
+                <div *ngIf='card.value && card.visualType?.typeVisualization === "carousel"'>
+                  <h1 style='color: initial'>{{ card.name | i18nField: translateService.currentLang }}</h1>
+                  <app-product-carousel [btnColor]="'accent'" [products]='card.value'>
+                  </app-product-carousel>
+                </div>
+                <app-product-list *ngIf='card.value && card.visualType?.typeVisualization === "list"'
+                                  [products]='card'>
+                </app-product-list>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!--DESTACADOS-->
+        <!-- <div *ngIf='card.visualType?.type === "featured"'>
+          <div class='container'>
+            <div class='products sec-padding'>
+              <div class='products-four'>
+                <h1 style='color: initial'>{{ card.name | i18nField: translateService.currentLang }}</h1>
+                <app-product-carousel *ngIf='card.value' [btnColor]="'accent'" [products]='card.value'>
+                </app-product-carousel>
+                <div *ngIf='loadingFeatured' class='my-3'>
+                  <app-skeleton-loading-cards *ngIf='!card.value' [setConfiguration]='{ xs: 1, sm: 2, md: 3, lg: 4 }'>
+                  </app-skeleton-loading-cards>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!--SUGERIDOS-->
+        <!-- <div *ngIf='card.visualType?.type === "suggested"'>
+          <div class='container'>
+            <div class='products sec-padding'>
+              <div class='products-four'>
+                <h1 style='color: initial'>{{ card.name | i18nField: translateService.currentLang }}</h1>
+                <app-product-carousel *ngIf='card.value' [btnColor]="'accent'" [products]='card.value'>
+                </app-product-carousel>
+                <div *ngIf='loadingFeatured' class='my-3'>
+                  <app-skeleton-loading-cards *ngIf='!card.value' [setConfiguration]='{ xs: 1, sm: 2, md: 3, lg: 4 }'>
+                  </app-skeleton-loading-cards>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- <app-skeleton-loading-cards *ngIf='loadingAllProduct' [setConfiguration]='{ xs: 1, sm: 1, md: 1, lg: 1 }'>
+    </app-skeleton-loading-cards> -->
+  </div>
+
+  <!-- <span *ngIf='loadingProducts' fxLayout='row' fxLayoutAlign='center center' class='mb-3 mt-3'>
+    <mat-spinner color='primary' diameter='25' fxLayoutAlign='center center'></mat-spinner>
+  </span> -->
+
+  <!-- ---------------------- Big promo --------------------------- -->
+  <section *ngIf="allArticles?.length">
+    <div class="featured-products-wrap">
+      <div class="container">
+        <div class="products sec-padding bg">
+          <div class="products-four">
+            <h3 class="uppercase">{{ "Latest From Our Blog" | translate }}</h3>
+            <section style="padding-top: 26px">
+              <!-- <app-blog-section></app-blog-section> -->
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------- APK Promo --------------------------- -->
+  <!--  <section id="apk-promo" style="width: 100%; position: relative">-->
+  <!--    <img *ngIf="!applyStyle" alt="APK Promo" class="img-apk-promo"-->
+  <!--         src="assets/images/mibulevar/apk-promo/desktop2.jpg">-->
+  <!--    <img *ngIf="applyStyle" alt="APK Promo" class="img-apk-promo" src="assets/images/mibulevar/apk-promo/movil.jpg">-->
+
+  <!--    <div class="container">-->
+  <!--      <div class="wrapper">-->
+  <!--        <div class="super-index mb-3">{{ 'Ahorra pasos' | translate }}</div>-->
+  <!--        <div class="big-text mb-4">-->
+  <!--          {{ 'Todas nuestras ofertas exclusivas a solo un' | translate }}-->
+  <!--          <span class="text-inner">click</span> {{ 'en la aplicación' | translate }}-->
+  <!--        </div>-->
+  <!--        <div class="text-paragraph mb-4">-->
+  <!--          {{-->
+  <!--            'Descubre las increíbles facilidades de más de 3 millones de usuarios de Transfermóvil.\n' +-->
+  <!--            'Descarga la aplicación y disfruta de las opciones que ofrece desde cualquier lugar y en cualquier momento.'-->
+  <!--              | translate-->
+  <!--          }}-->
+  <!--        </div>-->
+  <!--        <a-->
+  <!--          class="btn-wrapper px-4 py-2"-->
+  <!--          fxLayout="row"-->
+  <!--          fxLayoutGap="10px"-->
+  <!--          href="https://www.apklis.cu/application/cu.etecsa.cubacel.tr.tm"-->
+  <!--          target="_blank"-->
+  <!--        >-->
+  <!--          <img alt="Transfermovil" src="assets/images/mibulevar/apk-promo/transfermovil.png" />-->
+  <!--          <div fxLayout="column">-->
+  <!--            <div class="first-text">{{ 'Obtenla en' | translate }}</div>-->
+  <!--            <div class="second-text">Apklis.cu</div>-->
+  <!--          </div>-->
+  <!--        </a>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--  </section>-->
+</div>
