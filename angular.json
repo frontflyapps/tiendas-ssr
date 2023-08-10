@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tienda-v2": {
+    "VeoVeo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@ngx-env/builder:browser",
           "options": {
-            "outputPath": "dist/tienda-v2/browser",
+            "outputPath": "dist/VeoVeo/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -32,6 +32,12 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss/theme-VeoVeo",
+                "src/assets/scss/mixins"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -65,10 +71,10 @@
           "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tienda-v2:build:production"
+              "browserTarget": "VeoVeo:build:production"
             },
             "development": {
-              "browserTarget": "tienda-v2:build:development"
+              "browserTarget": "VeoVeo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +82,7 @@
         "extract-i18n": {
           "builder": "@ngx-env/builder:extract-i18n",
           "options": {
-            "browserTarget": "tienda-v2:build"
+            "browserTarget": "VeoVeo:build"
           }
         },
         "test": {
@@ -95,16 +101,28 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss/theme-VeoVeo",
+                "src/assets/scss/mixins"
+              ]
+            },
             "scripts": []
           }
         },
         "server": {
           "builder": "@ngx-env/builder:server",
           "options": {
-            "outputPath": "dist/tienda-v2/server",
+            "outputPath": "dist/VeoVeo/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-            "inlineStyleLanguage": "scss"
+            "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss/theme-VeoVeo",
+                "src/assets/scss/mixins"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -124,12 +142,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "tienda-v2:build:development",
-              "serverTarget": "tienda-v2:server:development"
+              "browserTarget": "VeoVeo:build:development",
+              "serverTarget": "VeoVeo:server:development"
             },
             "production": {
-              "browserTarget": "tienda-v2:build:production",
-              "serverTarget": "tienda-v2:server:production"
+              "browserTarget": "VeoVeo:build:production",
+              "serverTarget": "VeoVeo:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -143,12 +161,182 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "tienda-v2:build:production",
-              "serverTarget": "tienda-v2:server:production"
+              "browserTarget": "VeoVeo:build:production",
+              "serverTarget": "VeoVeo:server:production"
             },
             "development": {
-              "browserTarget": "tienda-v2:build:development",
-              "serverTarget": "tienda-v2:server:development"
+              "browserTarget": "VeoVeo:build:development",
+              "serverTarget": "VeoVeo:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "Umbralf": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@ngx-env/builder:browser",
+          "options": {
+            "outputPath": "dist/Umbralf/browser",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss/theme-Umbralf",
+                "src/assets/scss/mixins"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@ngx-env/builder:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Umbralf:build:production"
+            },
+            "development": {
+              "browserTarget": "Umbralf:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@ngx-env/builder:extract-i18n",
+          "options": {
+            "browserTarget": "Umbralf:build"
+          }
+        },
+        "test": {
+          "builder": "@ngx-env/builder:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss/theme-Umbralf",
+                "src/assets/scss/mixins"
+              ]
+            },
+            "scripts": []
+          }
+        },
+        "server": {
+          "builder": "@ngx-env/builder:server",
+          "options": {
+            "outputPath": "dist/Umbralf/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss/theme-Umbralf",
+                "src/assets/scss/mixins"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "Umbralf:build:development",
+              "serverTarget": "Umbralf:server:development"
+            },
+            "production": {
+              "browserTarget": "Umbralf:build:production",
+              "serverTarget": "Umbralf:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Umbralf:build:production",
+              "serverTarget": "Umbralf:server:production"
+            },
+            "development": {
+              "browserTarget": "Umbralf:build:development",
+              "serverTarget": "Umbralf:server:development"
             }
           },
           "defaultConfiguration": "production"

@@ -49,8 +49,6 @@
 * 1. General styles
 ****************************************/
 
-@import "./_variables";
-
 html,
 body {
   height: 100% !important;
@@ -59,7 +57,7 @@ body {
 body {
   padding: 0 !important;
   margin: 0 !important;
-  font-family: "Poppins", Helvetica, sans-serif !important;
+  font-family: 'Poppins', Helvetica, sans-serif !important;
   position: relative;
   font-size: 1rem;
   color: $font-color !important;
@@ -114,7 +112,7 @@ h6 {
   position: relative;
 }
 
-.mat-raised-button:not([class*="mat-elevation-z"]) {
+.mat-raised-button:not([class*='mat-elevation-z']) {
   box-shadow: none;
 }
 
@@ -130,9 +128,8 @@ h6 {
   background-color: $theme-main-red;
 }
 
-.mat-card:not([class*="mat-elevation-z"]) {
-  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0),
-    0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
+.mat-card:not([class*='mat-elevation-z']) {
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 // .overlay {
@@ -140,11 +137,11 @@ h6 {
 //   position: fixed;
 // }
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: $theme-main;
+  color: $theme-main
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: $theme-main;
+  background-color: $theme-main
 }
 
 .mat-expansion-indicator::after,
@@ -732,9 +729,8 @@ span {
     transition: 0.4s;
     padding: 26px 5px 5px 5px;
 
-    .mat-card:not([class*="mat-elevation-z"]) {
-      box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0),
-        0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    .mat-card:not([class*='mat-elevation-z']) {
+      box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
       padding: 0;
 
       .product-img {
@@ -992,7 +988,7 @@ span {
         font-weight: 500;
 
         &::before {
-          content: "";
+          content: '';
           left: 0;
           position: absolute;
           width: 100%;
@@ -1002,7 +998,7 @@ span {
         }
 
         &::after {
-          content: "";
+          content: '';
           left: 0;
           position: absolute;
           width: 2.5rem;
@@ -1684,7 +1680,7 @@ span {
 
         h4 {
           &::before {
-            content: "";
+            content: '';
             left: 0;
             position: absolute;
             width: 100%;
@@ -1694,7 +1690,7 @@ span {
           }
 
           &::after {
-            content: "";
+            content: '';
             left: 0;
             position: absolute;
             width: 2.5rem;
@@ -2094,7 +2090,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 
         h4 {
           &::before {
-            content: "";
+            content: '';
             left: 0;
             position: absolute;
             width: 100%;
@@ -2104,7 +2100,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
           }
 
           &::after {
-            content: "";
+            content: '';
             left: 0;
             position: absolute;
             width: 2.5rem;
@@ -2147,8 +2143,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
     padding: 8px 25px;
     background: $gray-lighter;
     margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0),
-      0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
   }
 
   .all-products {
@@ -2164,9 +2159,8 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
         padding: 0 10px;
         transition: 0.4s;
 
-        .mat-card:not([class*="mat-elevation-z"]) {
-          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1),
-            0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+        .mat-card:not([class*='mat-elevation-z']) {
+          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
           padding: 0;
 
           .product-img {
@@ -2724,7 +2718,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
         font-weight: 500;
 
         &::before {
-          content: "";
+          content: '';
           left: 0;
           position: absolute;
           width: 100%;
@@ -2734,7 +2728,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
         }
 
         &::after {
-          content: "";
+          content: '';
           left: 0;
           position: absolute;
           width: 2.5rem;
@@ -3019,7 +3013,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 
     h4 {
       &::before {
-        content: "";
+        content: '';
         left: 0;
         position: absolute;
         width: 100%;
@@ -3029,7 +3023,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
       }
 
       &::after {
-        content: "";
+        content: '';
         left: 0;
         position: absolute;
         width: 2.5rem;

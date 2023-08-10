@@ -10,9 +10,6 @@ export const environmentFactory = (
 
     production: false,
 
-    apiUrl: '',
-    imageUrl: '',
-
     defaultLanguage: '',
     currencyInternational: '',
     logo: '',
@@ -72,5 +69,11 @@ export const environmentFactory = (
       tslint: packageJson.devDependencies['tslint'],
     },
     ...overrides,
+
+    // apiUrl: '',
+    // imageUrl: '',
+
+    apiUrl: 'https://api.guajiritos.com/v1/',
+    imageUrl: 'https://cdntienda.guajiritos.com/',
   };
 };

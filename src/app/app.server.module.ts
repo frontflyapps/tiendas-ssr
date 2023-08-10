@@ -4,17 +4,21 @@ import { ServerModule } from '@angular/platform-server';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { BusinessConfigService } from './core/services/business-config/business-config.service';
-import { lastValueFrom, switchMap } from 'rxjs';
+import { switchMap } from 'rxjs';
+import { handleObservable } from './core/utils/api';
 
 function initializeAppConfig(businessConfigService: BusinessConfigService) {
   return () => {
-    lastValueFrom(
+    handleObservable<{ data: any }>(
       businessConfigService
         .requestCookie()
-        .pipe(switchMap(() => businessConfigService.getBusinessConfig()))
-    ).then((data) => {
-      businessConfigService.$businessConfig.next(data.data);
-    });
+        .pipe(switchMap(() => businessConfigService.getBusinessConfig())),
+      {
+        onAfterSuccess: (data) => {
+          businessConfigService.$businessConfig.next(data.data);
+        },
+      }
+    );
   };
 }
 
