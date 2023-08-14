@@ -7,9 +7,20 @@ function joinStr(...args) {
 }
 
 function getProject(name) {
-  const stylesPreprocessorIncludePaths = [
-    joinStr("src/assets/scss/theme-", name),
-    "src/assets/scss/mixins",
+  const assetsDir = joinStr("src/assets-", name);
+
+  const stylePreprocessorOptions = {
+    includePaths: [assetsDir, "/assets"],
+  };
+  const styles = [joinStr(assetsDir, "/app.scss")];
+
+  const assets = [
+    "src/favicon.ico",
+    {
+      glob: "**/*",
+      input: assetsDir,
+      output: "/assets/",
+    },
   ];
 
   return {
@@ -32,11 +43,9 @@ function getProject(name) {
           polyfills: ["zone.js"],
           tsConfig: "tsconfig.app.json",
           inlineStyleLanguage: "scss",
-          assets: ["src/favicon.ico", "src/assets"],
-          styles: ["src/styles.scss"],
-          stylePreprocessorOptions: {
-            includePaths: stylesPreprocessorIncludePaths,
-          },
+          assets,
+          styles,
+          stylePreprocessorOptions,
           scripts: [],
         },
         configurations: {
@@ -44,13 +53,7 @@ function getProject(name) {
             budgets: [
               {
                 type: "initial",
-                maximumWarning: "500kb",
-                maximumError: "1mb",
-              },
-              {
-                type: "anyComponentStyle",
-                maximumWarning: "2kb",
-                maximumError: "4kb",
+                maximumWarning: "1mb",
               },
             ],
             outputHashing: "all",
@@ -90,11 +93,9 @@ function getProject(name) {
           polyfills: ["zone.js", "zone.js/testing"],
           tsConfig: "tsconfig.spec.json",
           inlineStyleLanguage: "scss",
-          assets: ["src/favicon.ico", "src/assets"],
-          styles: ["src/styles.scss"],
-          stylePreprocessorOptions: {
-            includePaths: stylesPreprocessorIncludePaths,
-          },
+          assets,
+          styles,
+          stylePreprocessorOptions,
           scripts: [],
         },
       },
@@ -105,9 +106,7 @@ function getProject(name) {
           main: "server.ts",
           tsConfig: "tsconfig.server.json",
           inlineStyleLanguage: "scss",
-          stylePreprocessorOptions: {
-            includePaths: stylesPreprocessorIncludePaths,
-          },
+          stylePreprocessorOptions,
         },
         configurations: {
           production: {
@@ -164,8 +163,8 @@ function updateAngularJSON(data, name) {
 }
 
 function updatePackageJSON(data, name) {
-  delete data.scripts[joinStr("<<<<<<<<<<<<<<<",name,">>>>>>>>>>>>>>>")];
-  data.scripts[joinStr("<<<<<<<<<<<<<<<",name,">>>>>>>>>>>>>>>")] = ""
+  delete data.scripts[joinStr("<<<<<<<<<<<<<<<", name, ">>>>>>>>>>>>>>>")];
+  data.scripts[joinStr("<<<<<<<<<<<<<<<", name, ">>>>>>>>>>>>>>>")] = "";
 
   //start(CSR)
   delete data.scripts[joinStr("start:", name)];
@@ -201,7 +200,7 @@ function updatePackageJSON(data, name) {
 
   delete data.scripts[joinStr("build:ssr:", name)];
   data.scripts[joinStr("build:ssr:", name)] = joinStr(
-    "ng build:",
+    "ng build ",
     name,
     " && ng run ",
     name,

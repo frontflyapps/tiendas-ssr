@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "types": ["node"],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -22,6 +23,9 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "lib": [
       "ES2022",
       "dom"

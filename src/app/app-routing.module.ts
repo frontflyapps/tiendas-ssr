@@ -1,18 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// import { BecomeASellerGuard } from './components/become-a-seller/become-a-seller.guard';
 
-const routes: Routes = [
+const appRoutes: Routes = [
+  // {
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('./components/main/main.module').then((m) => m.MainModule),
+  // },
+  // {
+  //   path: 'become-a-seller',
+  //   loadChildren: () =>
+  //     import('./components/become-a-seller/become-a-seller.module').then(
+  //       (m) => m.BecomeASellerModule
+  //     ),
+  //   canActivate: [BecomeASellerGuard],
+  //   canLoad: [BecomeASellerGuard],
+  // },
   {
-    path: '',
+    path: 'error',
     loadChildren: () =>
-      import('./components/shop/shop.module').then((m) => m.ShopModule),
+      import('./components/error/error.module').then((m) => m.ErrorModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'error/404',
   },
 ];
 
 @NgModule({
+  declarations: [],
   imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledBlocking',
+    RouterModule.forRoot(appRoutes, {
+      onSameUrlNavigation: 'reload',
+      scrollPositionRestoration: 'enabled',
+      // relativeLinkResolution: 'legacy', // TODO
     }),
   ],
   exports: [RouterModule],

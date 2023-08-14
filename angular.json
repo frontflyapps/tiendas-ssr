@@ -27,15 +27,19 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets-VeoVeo",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets-VeoVeo/app.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/theme-VeoVeo",
-                "src/assets/scss/mixins"
+                "src/assets-VeoVeo",
+                "/assets"
               ]
             },
             "scripts": []
@@ -45,13 +49,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "1mb"
                 }
               ],
               "outputHashing": "all"
@@ -96,15 +94,19 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets-VeoVeo",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets-VeoVeo/app.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/theme-VeoVeo",
-                "src/assets/scss/mixins"
+                "src/assets-VeoVeo",
+                "/assets"
               ]
             },
             "scripts": []
@@ -119,8 +121,8 @@
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/theme-VeoVeo",
-                "src/assets/scss/mixins"
+                "src/assets-VeoVeo",
+                "/assets"
               ]
             }
           },
@@ -197,15 +199,19 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets-Umbralf",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets-Umbralf/app.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/theme-Umbralf",
-                "src/assets/scss/mixins"
+                "src/assets-Umbralf",
+                "/assets"
               ]
             },
             "scripts": []
@@ -215,13 +221,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "1mb"
                 }
               ],
               "outputHashing": "all"
@@ -266,15 +266,19 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets-Umbralf",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets-Umbralf/app.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/theme-Umbralf",
-                "src/assets/scss/mixins"
+                "src/assets-Umbralf",
+                "/assets"
               ]
             },
             "scripts": []
@@ -289,8 +293,8 @@
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/theme-Umbralf",
-                "src/assets/scss/mixins"
+                "src/assets-Umbralf",
+                "/assets"
               ]
             }
           },
