@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable()
 export class PreviousRouteService {
-  private previousUrl: string = '';
+  private previousUrl = '';
   private currentUrl: string;
 
   constructor(private router: Router) {

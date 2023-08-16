@@ -23,7 +23,7 @@ export class UtilsService {
   ) {}
 
   getAppConfig() {
-    let httpOptions = {};
+    const httpOptions = {};
     return this.httpClient.get<any>(
       environment.apiUrl + 'business-config',
       httpOptions
@@ -73,7 +73,7 @@ export class UtilsService {
     }
     this.showErrorState = true;
 
-    let alternative = nomenclator
+    const alternative = nomenclator
       ? action
         ? this.translateService.instant('Error ') + action + ' ' + nomenclator
         : this.translateService.instant('Error ') + action
@@ -135,7 +135,7 @@ export class UtilsService {
   }
 
   errorHandle2(error: any, nomenclator?: any, action?: any) {
-    let alternative = nomenclator
+    const alternative = nomenclator
       ? action
         ? this.translateService.instant('Error ') + action + ' ' + nomenclator
         : this.translateService.instant('Error ') + action
@@ -215,7 +215,7 @@ export class UtilsService {
       return false;
     }
 
-    for (let p in x) {
+    for (const p in x) {
       if (!x.hasOwnProperty(p)) {
         continue;
       }
@@ -236,7 +236,7 @@ export class UtilsService {
         return false;
       }
     }
-    for (let p in y) {
+    for (const p in y) {
       if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) {
         return false;
       }

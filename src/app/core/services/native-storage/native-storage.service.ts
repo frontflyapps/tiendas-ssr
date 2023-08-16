@@ -33,7 +33,7 @@ export class NativeStorageService implements Storage {
 
   [name: string]: any;
 
-  length: number = 0;
+  length = 0;
 
   clear(): void {
     this.storage.clear();

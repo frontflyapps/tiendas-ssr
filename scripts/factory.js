@@ -99,6 +99,12 @@ function getProject(name) {
           scripts: [],
         },
       },
+      lint: {
+        builder: "@angular-eslint/builder:lint",
+        options: {
+          lintFilePatterns: ["src/**/*.ts", "src/**/*.html"],
+        },
+      },
       server: {
         builder: "@ngx-env/builder:server",
         options: {

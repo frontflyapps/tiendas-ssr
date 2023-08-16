@@ -122,8 +122,8 @@ export class LoggedInUserService {
   }
 
   public hasRolUser(...args: any[]) {
-    let roleTypes = [...args];
-    for (let type of roleTypes) {
+    const roleTypes = [...args];
+    for (const type of roleTypes) {
       if (type.constructor != String) {
         return false;
       }
@@ -134,8 +134,8 @@ export class LoggedInUserService {
     }
     let flag = false;
     if (user?.roles) {
-      for (let role of user?.roles) {
-        let findIndex = roleTypes.findIndex((i) => i == role.type);
+      for (const role of user?.roles) {
+        const findIndex = roleTypes.findIndex((i) => i == role.type);
         if (findIndex > -1) {
           flag = true;
           return flag;
@@ -222,7 +222,7 @@ export class LoggedInUserService {
   }
 
   public isOwnerOfABussines(OwnerId: string) {
-    let flag = false;
+    const flag = false;
     const user = this.getLoggedInUser();
     if (!user) {
       return false;
@@ -235,26 +235,26 @@ export class LoggedInUserService {
   }
 
   public _getDataFromStorage(key: string) {
-    let data = localStorage.getItem(key);
+    const data = localStorage.getItem(key);
     if (data == undefined) {
       return undefined;
     }
-    var base64regex =
+    const base64regex =
       /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
     let base64data = data + '';
     if (!base64regex.test(data)) {
-      let buff = Buffer.from(data);
+      const buff = Buffer.from(data);
       base64data = buff.toString('base64');
       localStorage.setItem(key, base64data);
     }
-    let buff2 = Buffer.from(base64data, 'base64');
-    let userLogged = buff2.toString('utf-8');
+    const buff2 = Buffer.from(base64data, 'base64');
+    const userLogged = buff2.toString('utf-8');
     return JSON.parse(userLogged);
   }
 
   public _setDataToStorage(key: string, stringData: any) {
-    let buff = Buffer.from(stringData);
-    let base64data = buff.toString('base64');
+    const buff = Buffer.from(stringData);
+    const base64data = buff.toString('base64');
     localStorage.setItem(key, base64data);
   }
 }

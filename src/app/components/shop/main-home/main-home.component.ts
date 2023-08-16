@@ -126,7 +126,7 @@ export class MainHomeComponent implements OnInit {
   bigBanner1: LandignPageData['promotions'] = [];
   bigBanner2: LandignPageData['promotions'] = [];
 
-  public applyStyle: boolean = false;
+  public applyStyle = false;
 
   /////////////////////////////////////////////////////////////////////////////////
 

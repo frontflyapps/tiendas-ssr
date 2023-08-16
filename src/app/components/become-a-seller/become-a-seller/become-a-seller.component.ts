@@ -223,7 +223,7 @@ export class BecomeASellerComponent implements OnInit {
     this.saveInfo();
     this.spinner.show();
     console.log(this.ownerInfo);
-    let data = {
+    const data = {
       business: { ...this.basicForm.value },
       owner: { ...this.basicForm.get('owner').value },
     };

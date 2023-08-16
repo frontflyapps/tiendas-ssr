@@ -6,7 +6,7 @@ export class SafeHtmlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
 
   transform(innerHtml: any) {
-    let text = this.processForCKEditor(innerHtml);
+    const text = this.processForCKEditor(innerHtml);
     return this.sanitizer.bypassSecurityTrustHtml(text);
   }
 

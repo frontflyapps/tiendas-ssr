@@ -15,8 +15,8 @@ export class ForbiddenAccessComponent implements OnInit {
 
   ngOnInit() {
 
-    var lock = document.querySelector('#lock');
-    var key = document.querySelector('#key');
+    const lock = document.querySelector('#lock');
+    const key = document.querySelector('#key');
   }
 
   onBacktoHome() {

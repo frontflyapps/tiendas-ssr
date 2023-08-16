@@ -22,7 +22,7 @@ interface ImportMetaEnv {
  * @deprecated process.env usage
  * prefer using import.meta.env
  * */
-declare var process: {
+declare let process: {
   env: {
     NG_APP_ENV: string;
     [key: string]: any;

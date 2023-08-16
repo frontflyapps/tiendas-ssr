@@ -150,7 +150,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((cart: any) => {
         this.shoppingCartItems = this.cartService.getShoppingCars();
-        let navItemCart = this.navItems.find((item) => item.id == 'cart');
+        const navItemCart = this.navItems.find((item) => item.id == 'cart');
         navItemCart.badgeCount = this.shoppingCartItems.length;
       });
 
@@ -548,7 +548,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       .listen('business-accepted')
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((data) => {
-        let token = this.loggedInUserService.getTokenCookie();
+        const token = this.loggedInUserService.getTokenCookie();
         this.authService.getProfile(token).subscribe((user) => {
           const userData = { profile: user.data, Authorization: token };
           this.loggedInUserService.updateUserProfile(userData);
@@ -666,7 +666,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   public addAttention(attentionClass: string) {
     const dialog = this.dialog;
     const location = JSON.parse(this.nativeStorageService.getItem('location'));
-    let locationServ = this.locationService;
+    const locationServ = this.locationService;
 
     this.tour.addStep({
       id: 'example-step',
