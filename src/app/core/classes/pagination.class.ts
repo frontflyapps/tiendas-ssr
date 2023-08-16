@@ -1,10 +1,10 @@
 export interface IPagination {
-  limit?: number;
-  offset?: number;
+  limit: number;
+  offset: number;
   order?: string;
-  page?: number;
+  page: number;
   total?: number;
-  filter?: IFilter;
+  filter: IFilter;
 }
 
 export interface IFilter {

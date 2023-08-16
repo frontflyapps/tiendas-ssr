@@ -47,6 +47,20 @@ function getProject(name) {
           styles,
           stylePreprocessorOptions,
           scripts: [],
+          allowedCommonJsDependencies: [
+            "buffer",
+            "rxjs",
+            "rxjs/internal/observable/of",
+            "rxjs/internal/Subject",
+            "crypto-js",
+            "resize-observer",
+            "@angular/common/locales/es",
+            "socket.io-client",
+            "socket.io",
+            "socket.io-parser",
+            "jspdf",
+            "ngx-material-timepicker",
+          ],
         },
         configurations: {
           production: {

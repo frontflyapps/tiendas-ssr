@@ -1,5 +1,5 @@
 export interface IUser {
-  id?: number;
+  id?: string;
   name?: string;
   middleName?: string;
   lastName?: string;
@@ -15,11 +15,14 @@ export interface IUser {
   address?: string;
   phone?: any;
   token?: string;
-  roles?: any[];
+  roles?: Array<{
+    type: 'Messenger' | 'Client' | 'Owner' | 'Admin';
+  }>;
+  ci?: any;
 }
 
 export interface IMessenger {
-  id?: number;
+  id?: string;
   name?: string;
   middleName?: string;
   lastName?: string;

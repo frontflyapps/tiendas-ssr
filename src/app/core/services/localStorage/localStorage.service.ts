@@ -57,7 +57,7 @@ export class LocalStorageService {
       this.diffTimeSpan(v);
       this.actionsToClearSystem();
       this.setVersionOnLocalStorage();
-      return false;
+      return;
     }
     this.diffTimeSpan(v);
     this.setVersionOnLocalStorage();

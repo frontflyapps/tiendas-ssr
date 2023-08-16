@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { LocalStorageService } from '../localStorage/localStorage.service';
 import { environment } from 'environments/environment';
 import { NativeStorageService } from '../native-storage/native-storage.service';
-
+import { Buffer } from 'buffer';
 @Injectable({
   providedIn: 'root',
 })
@@ -32,13 +32,13 @@ export class LoggedInUserService {
     this.listNavItems = [...this.navigationService.getNavItems()];
 
     (window as any).global = window;
-    // @ts-ignore
-    window.Buffer = window.Buffer || require('buffer').Buffer;
+    window.Buffer = window.Buffer || Buffer;
     this.loggedInUser = this.getLoggedInUser();
   }
 
   public setNewProfile(profile: any) {
-    let dataValue = this.getLoggedInUser() ? this.getLoggedInUser() : {};
+    const loggedUser = this.getLoggedInUser();
+    let dataValue = loggedUser ? loggedUser : {};
     dataValue = Object.assign(dataValue, profile);
     this.updateUserProfile(dataValue);
     this.loggedInUser = dataValue;
@@ -49,7 +49,7 @@ export class LoggedInUserService {
     return JSON.parse(this.nativeStorageService.getItem('language'));
   }
 
-  public getLoggedInUser(): any {
+  public getLoggedInUser(): IUser | null {
     let user = localStorage.getItem('user');
     if (!user) {
       return null;
@@ -94,7 +94,7 @@ export class LoggedInUserService {
       this.cookieService.set(
         'account',
         hashedPass,
-        null,
+        undefined,
         '/',
         environment.mainDomain
       );
@@ -132,52 +132,33 @@ export class LoggedInUserService {
     if (!user) {
       return false;
     }
-    let flag = false;
-    if (user?.roles) {
-      for (const role of user?.roles) {
-        const findIndex = roleTypes.findIndex((i) => i == role.type);
-        if (findIndex > -1) {
-          flag = true;
-          return flag;
-        }
-      }
+    if (user?.roles?.some(({ type }) => roleTypes.includes(type))) {
+      return true;
     }
-    return flag;
+    return false;
   }
 
   public isAdminUser() {
-    let flag = false;
     const user = this.getLoggedInUser();
     if (!user) {
       return false;
     }
-    if (user?.roles) {
-      user.roles.map((item: any) => {
-        if (item.type === 'Admin') {
-          flag = true;
-          return true;
-        }
-      });
+    if (user?.roles?.some(({ type }) => type === 'Admin')) {
+      return true;
     }
-    return flag;
+    return false;
   }
 
   public isOwnerUser() {
-    let flag = false;
     const user = this.getLoggedInUser();
     if (!user) {
-      flag = true;
       return false;
     }
-    if (user?.roles) {
-      user.roles.forEach((item: any) => {
-        if (item.type === 'Owner') {
-          flag = true;
-          return true;
-        }
-      });
+    if (user?.roles?.some(({ type }) => type === 'Owner')) {
+      return true;
     }
-    return flag;
+
+    return false;
   }
 
   public isAdminOrOwnerUser() {
@@ -186,39 +167,27 @@ export class LoggedInUserService {
   }
 
   public isClientUser() {
-    let flag = false;
     const user = this.getLoggedInUser();
     if (!user) {
-      flag = true;
       return false;
     }
 
-    if (user?.roles) {
-      user.roles.forEach((item: any) => {
-        if (item.type === 'Client') {
-          flag = true;
-          return true;
-        }
-      });
+    if (user?.roles?.some(({ type }) => type === 'Client')) {
+      return true;
     }
-    return flag;
+
+    return false;
   }
 
   public isMessengerUser() {
-    let flag = false;
     const user = this.getLoggedInUser();
     if (!user) {
       return false;
     }
-    if (user?.roles) {
-      user.roles.forEach((item: any) => {
-        if (item.type === 'Messenger') {
-          flag = true;
-          return true;
-        }
-      });
+    if (user?.roles?.some(({ type }) => type === 'Messenger')) {
+      return true;
     }
-    return flag;
+    return false;
   }
 
   public isOwnerOfABussines(OwnerId: string) {

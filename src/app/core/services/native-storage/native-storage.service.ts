@@ -51,7 +51,12 @@ export class NativeStorageService implements Storage {
     return this.storage.removeItem(key);
   }
 
-  setItem(key: string, value: string): void {
+  setItem(key: string, value: any): void {
+    if (typeof value !== 'string') {
+      console.error('should save a right value as string'); // TODO remove this comment and check the types
+      return;
+    }
+
     return this.storage.setItem(key, value);
   }
 }

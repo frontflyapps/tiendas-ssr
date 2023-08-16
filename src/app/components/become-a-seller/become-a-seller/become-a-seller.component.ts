@@ -8,12 +8,19 @@ import { Router } from '@angular/router';
 import { RegionsService } from '../../../core/services/regions/regions.service';
 import { BusinessService } from '../../../core/services/business/business.service';
 import { ImagePickerConf } from 'guachos-image-picker';
-import { CUBAN_PHONE_START_5, EMAIL_REGEX, NIT, PHONE } from '../../../core/classes/regex.const';
+import {
+  CUBAN_PHONE_START_5,
+  EMAIL_REGEX,
+  NIT,
+  PHONE,
+} from '../../../core/classes/regex.const';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { BankService } from '../../../core/services/bank/bank.service';
-import { environment } from '../../../../environments/environment';
+import { environment } from 'environments/environment';
+import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { IUser } from 'src/app/core/classes/user.class';
 
 @Component({
   selector: 'app-become-a-seller',
@@ -57,9 +64,9 @@ export class BecomeASellerComponent implements OnInit {
     height: '150px',
   };
   imageBusinessChange = false;
-  imageBusiness = undefined;
+  imageBusiness?: string = undefined;
   imageSelected = false;
-  loggedInUser = undefined;
+  loggedInUser: IUser | null = null;
 
   _unsubscribeAll: Subject<any>;
 
@@ -92,18 +99,20 @@ export class BecomeASellerComponent implements OnInit {
     private showToastr: ShowToastrService,
     private translate: TranslateService,
     private router: Router,
-    @Inject(DOCUMENT) private document: Document,
+    private nativeStorageService: NativeStorageService,
+    @Inject(DOCUMENT) private document: Document
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
     if (localStorage.getItem('bs_image')) {
-      this.imageBusiness = localStorage.getItem('bs_image');
+      this.imageBusiness = this.nativeStorageService.getItem('bs_image');
       if (this.imageSelected !== undefined) {
-
       }
     }
-    this.firstStep = JSON.parse(localStorage.getItem('bs_step_one'));
-    this.ownerInfo = JSON.parse(localStorage.getItem('ownerInfo'));
+    this.firstStep = JSON.parse(
+      this.nativeStorageService.getItem('bs_step_one')
+    );
+    this.ownerInfo = JSON.parse(this.nativeStorageService.getItem('ownerInfo'));
 
     this.buildForm();
     this.fetchDaTa();
@@ -112,11 +121,14 @@ export class BecomeASellerComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if ((document.body.scrollTop > 64 ||
-      document.documentElement.scrollTop > 64) && window.innerWidth > 937) {
-      document.getElementById('questions-bar').classList.add('fixed-bar');
+    if (
+      (document.body.scrollTop > 64 ||
+        document.documentElement.scrollTop > 64) &&
+      window.innerWidth > 937
+    ) {
+      document.getElementById('questions-bar')?.classList.add('fixed-bar');
     } else {
-      document.getElementById('questions-bar').classList.remove('fixed-bar');
+      document.getElementById('questions-bar')?.classList.remove('fixed-bar');
     }
   }
 
@@ -128,41 +140,90 @@ export class BecomeASellerComponent implements OnInit {
 
   buildForm() {
     this.basicForm = this.fb.group({
-      name: [this.firstStep ? this.firstStep.name : null, [Validators.required]],
+      name: [
+        this.firstStep ? this.firstStep.name : null,
+        [Validators.required],
+      ],
       description: [this.firstStep ? this.firstStep.description : null],
 
-      selfEmployed: [this.firstStep ? this.firstStep.selfEmployed : null, [Validators.required]],
-      nit: [this.firstStep ? this.firstStep.nit : null, [Validators.pattern(NIT)]],
-      reuup: [this.firstStep ? this.firstStep?.reuup : null, [Validators.pattern(NIT)]],
+      selfEmployed: [
+        this.firstStep ? this.firstStep.selfEmployed : null,
+        [Validators.required],
+      ],
+      nit: [
+        this.firstStep ? this.firstStep.nit : null,
+        [Validators.pattern(NIT)],
+      ],
+      reuup: [
+        this.firstStep ? this.firstStep?.reuup : null,
+        [Validators.pattern(NIT)],
+      ],
 
-      cellphone: [this.firstStep ? this.firstStep.cellphone : null, [Validators.required, Validators.pattern(PHONE)]],
-      telephone: [this.firstStep ? this.firstStep.telephone : null, [Validators.pattern(PHONE)]],
-      email: [this.firstStep ? this.firstStep.email : null, [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-      CountryId: [this.firstStep ? this.firstStep.CountryId : 59, [Validators.required]],
+      cellphone: [
+        this.firstStep ? this.firstStep.cellphone : null,
+        [Validators.required, Validators.pattern(PHONE)],
+      ],
+      telephone: [
+        this.firstStep ? this.firstStep.telephone : null,
+        [Validators.pattern(PHONE)],
+      ],
+      email: [
+        this.firstStep ? this.firstStep.email : null,
+        [Validators.required, Validators.pattern(EMAIL_REGEX)],
+      ],
+      CountryId: [
+        this.firstStep ? this.firstStep.CountryId : 59,
+        [Validators.required],
+      ],
 
       // OwnerInfo
       owner: this.fb.group({
         name: [this.ownerInfo?.name, [Validators.required]],
         lastName: [this.ownerInfo?.lastName, [Validators.required]],
-        charge: [this.ownerInfo ? this.ownerInfo.charge : null, [Validators.required]],
-        phone: [this.ownerInfo ? this.ownerInfo.phone : null, [Validators.required, Validators.pattern(PHONE)]],
-        email: [this.ownerInfo ? this.ownerInfo.email : null, [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-        ci: [this.ownerInfo ? this.ownerInfo.ci : null, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+        charge: [
+          this.ownerInfo ? this.ownerInfo.charge : null,
+          [Validators.required],
+        ],
+        phone: [
+          this.ownerInfo ? this.ownerInfo.phone : null,
+          [Validators.required, Validators.pattern(PHONE)],
+        ],
+        email: [
+          this.ownerInfo ? this.ownerInfo.email : null,
+          [Validators.required, Validators.pattern(EMAIL_REGEX)],
+        ],
+        ci: [
+          this.ownerInfo ? this.ownerInfo.ci : null,
+          [
+            Validators.required,
+            Validators.minLength(11),
+            Validators.maxLength(11),
+          ],
+        ],
       }),
 
       // locationForm
-      ProvinceId: [this.firstStep ? this.firstStep.ProvinceId : null, [Validators.required]],
-      MunicipalityId: [this.firstStep ? this.firstStep.MunicipalityId : null, [Validators.required]],
-      address: [this.firstStep ? this.firstStep.address : null, [Validators.required]],
+      ProvinceId: [
+        this.firstStep ? this.firstStep.ProvinceId : null,
+        [Validators.required],
+      ],
+      MunicipalityId: [
+        this.firstStep ? this.firstStep.MunicipalityId : null,
+        [Validators.required],
+      ],
+      address: [
+        this.firstStep ? this.firstStep.address : null,
+        [Validators.required],
+      ],
       longitude: [this.firstStep ? this.firstStep.longitude : null, []],
       latitude: [this.firstStep ? this.firstStep.latitude : null, []],
-      checked: [false, [Validators.required]]
+      checked: [false, [Validators.required]],
     });
 
     console.log(this.basicForm.value);
   }
 
-  onImageChange(dataUri) {
+  onImageChange(dataUri: any) {
     this.imageBusinessChange = true;
     this.imageBusiness = dataUri;
     this.imageSelected = true;
@@ -172,9 +233,11 @@ export class BecomeASellerComponent implements OnInit {
     return f1?.name === f2?.name;
   }
 
-  onSelectProvince(provinceId) {
-    this.municipalities = this.allMunicipalities.filter((item) => item.ProvinceId == provinceId);
-    this.basicForm.get('MunicipalityId').setValue(null);
+  onSelectProvince(provinceId: any) {
+    this.municipalities = this.allMunicipalities.filter(
+      (item) => item.ProvinceId == provinceId
+    );
+    this.basicForm.get('MunicipalityId')?.setValue(null);
   }
 
   fetchDaTa() {
@@ -184,13 +247,12 @@ export class BecomeASellerComponent implements OnInit {
     this.regionService.getMunicipalities().subscribe((data) => {
       this.allMunicipalities = data.data;
       this.municipalities = this.allMunicipalities.filter(
-        (item) => item.ProvinceId == this.basicForm.get('ProvinceId').value,
+        (item) => item.ProvinceId == this.basicForm.get('ProvinceId')?.value
       );
     });
     this.bankService.getAllBank().subscribe((data) => {
       this.allBanks = [...data.data];
     });
-
   }
 
   // getBranchsByBank(id: any) {
@@ -200,23 +262,38 @@ export class BecomeASellerComponent implements OnInit {
   //   });
   // }
 
-  selectSelfEmployed(event) {
+  selectSelfEmployed(event: any) {
     console.log(event);
   }
 
   saveInfo() {
-    localStorage.setItem('bs_image', this.imageBusiness);
-    localStorage.setItem('bs_step_one', JSON.stringify(this.basicForm.value));
-    localStorage.setItem('ownerInfo', JSON.stringify(this.basicForm.get('owner').value));
+    this.nativeStorageService.setItem('bs_image', this.imageBusiness);
+    this.nativeStorageService.setItem(
+      'bs_step_one',
+      JSON.stringify(this.basicForm.value)
+    );
+    this.nativeStorageService.setItem(
+      'ownerInfo',
+      JSON.stringify(this.basicForm.get('owner')?.value)
+    );
   }
 
   fillLoggedInfo() {
-    this.basicForm.get('owner').get('name').setValue(this.loggedInUser?.name);
-    this.basicForm.get('owner').get('lastName').setValue(this.loggedInUser?.lastName);
-    this.basicForm.get('owner').get('phone').setValue(this.loggedInUser?.phone);
-    this.basicForm.get('owner').get('ci').setValue(this.loggedInUser?.ci);
-    this.basicForm.get('owner').get('email').setValue(this.loggedInUser?.email);
-    this.basicForm.get('owner').get('charge').setValue(null);
+    this.basicForm.get('owner')?.get('name')?.setValue(this.loggedInUser?.name);
+    this.basicForm
+      .get('owner')
+      ?.get('lastName')
+      ?.setValue(this.loggedInUser?.lastName);
+    this.basicForm
+      .get('owner')
+      ?.get('phone')
+      ?.setValue(this.loggedInUser?.phone);
+    this.basicForm.get('owner')?.get('ci')?.setValue(this.loggedInUser?.ci);
+    this.basicForm
+      .get('owner')
+      ?.get('email')
+      ?.setValue(this.loggedInUser?.email);
+    this.basicForm.get('owner')?.get('charge')?.setValue(null);
   }
 
   onCreateBusiness() {
@@ -225,7 +302,7 @@ export class BecomeASellerComponent implements OnInit {
     console.log(this.ownerInfo);
     const data = {
       business: { ...this.basicForm.value },
-      owner: { ...this.basicForm.get('owner').value },
+      owner: { ...this.basicForm.get('owner')?.value },
     };
     // data.business.card = data.owner.card;
     data.business.logo = this.imageBusiness;
@@ -235,10 +312,10 @@ export class BecomeASellerComponent implements OnInit {
       () => {
         this.showToastr.showSucces(
           this.translate.instant(
-            'Su solicitud de negocio ha sido creada exitosamente, nos pondremos en contacto con usted para comunicarle el proceso de aprobacion',
+            'Su solicitud de negocio ha sido creada exitosamente, nos pondremos en contacto con usted para comunicarle el proceso de aprobacion'
           ),
           'Éxito',
-          8000,
+          8000
         );
         localStorage.removeItem('bs_image');
         localStorage.removeItem('bs_step_one');
@@ -249,7 +326,7 @@ export class BecomeASellerComponent implements OnInit {
       },
       (e) => {
         this.spinner.hide();
-      },
+      }
     );
   }
 }
