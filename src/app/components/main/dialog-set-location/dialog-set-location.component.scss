@@ -1,0 +1,10 @@
+@import "app";
+
+.icon-info {
+  width: 40px !important;
+  height: 35px;
+  font-size: 25px;
+  @media (min-width: 320px) and (max-width: 1024px) {
+    width: 50px !important;
+  }
+}

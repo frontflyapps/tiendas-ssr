@@ -14,10 +14,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../../components/shop/shop.module').then((m) => m.ShopModule),
       },
-      // {
-      //   path: 'about',
-      //   loadChildren: () => import('../../components/about-us/about-us.module').then((m) => m.AboutUsModule),
-      // },
+      {
+        path: 'about',
+        loadChildren: () =>
+          import('../../components/about-us/about-us.module').then(
+            (m) => m.AboutUsModule
+          ),
+      },
       // {
       //   path: 'checkout',
       //   loadChildren: () => import('../../components/checkout/checkout.module').then((m) => m.CheckoutModule),

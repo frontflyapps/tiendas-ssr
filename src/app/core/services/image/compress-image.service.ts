@@ -1,0 +1,34 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CompressImageService {
+  constructor() {}
+
+  resizedataURL(datas, maxWidth, maxHeight, quality?): Promise<any> {
+    return new Promise(async function (resolve, reject) {
+      const img = document.createElement('img');
+      img.src = datas;
+      quality = quality ? quality : 0.7;
+
+      img.onload = function () {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let ratio = 1;
+        if (img.width > maxWidth) {
+          ratio = maxWidth / img.width;
+        } else if (img.height > maxHeight) {
+          ratio = maxHeight / img.height;
+        }
+        canvas.width = img.width * ratio;
+        canvas.height = img.height * ratio;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const dataURI = canvas.toDataURL('image/webp', quality);
+        resolve(dataURI);
+      };
+    });
+  }
+}

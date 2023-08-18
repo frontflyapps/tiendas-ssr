@@ -1,0 +1,45 @@
+@import "app";
+
+#shopping-widgets-cart {
+  .close-circle {
+    background: #1bc086;
+  }
+}
+
+.iconCart {
+  color: $white !important;
+
+  @media all and (max-width: 959px) {
+    color: $white !important;
+  }
+}
+.spCard-main .spCard-dropdown .new-product .item .desc span {
+  margin-top: 0px !important;
+}
+
+.deletePrice {
+  font-size: 10px !important;
+}
+
+.top-cart {
+  color: $white !important;
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+.name {
+  overflow: hidden;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.list-compare-link {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    color: #2196f3 !important;
+  }
+}

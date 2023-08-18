@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CategoryMenuNavService {
-  private _menuCategories: BehaviorSubject<never[]> = new BehaviorSubject([]);
+  private _menuCategories: BehaviorSubject<any[]> = new BehaviorSubject([]);
   menuCategories$ = this._menuCategories.asObservable();
 
   setCategories(data: any) {

@@ -50,7 +50,7 @@ export class LoggedInUserService {
   }
 
   public getLoggedInUser(): IUser | null {
-    let user = localStorage.getItem('user');
+    let user = this.nativeStorageService.getItem('user');
     if (!user) {
       return null;
     }
@@ -98,7 +98,7 @@ export class LoggedInUserService {
         '/',
         environment.mainDomain
       );
-      localStorage.setItem('token', hashedPass);
+      this.nativeStorageService.setItem('token', hashedPass);
     } catch (e) {
       console.warn('Error decrypt value', e);
       this.localStorageService.actionsToClearSystem();
@@ -109,7 +109,7 @@ export class LoggedInUserService {
     try {
       let dataString = JSON.stringify(user);
       dataString = this.encryptDecryptService.encrypt(dataString);
-      localStorage.setItem('user', dataString);
+      this.nativeStorageService.setItem('user', dataString);
       this.$loggedInUserUpdated.next(dataString);
     } catch (e) {
       console.warn('Error decrypt value', e);
@@ -204,7 +204,7 @@ export class LoggedInUserService {
   }
 
   public _getDataFromStorage(key: string) {
-    const data = localStorage.getItem(key);
+    const data = this.nativeStorageService.getItem(key);
     if (data == undefined) {
       return undefined;
     }
@@ -214,7 +214,7 @@ export class LoggedInUserService {
     if (!base64regex.test(data)) {
       const buff = Buffer.from(data);
       base64data = buff.toString('base64');
-      localStorage.setItem(key, base64data);
+      this.nativeStorageService.setItem(key, base64data);
     }
     const buff2 = Buffer.from(base64data, 'base64');
     const userLogged = buff2.toString('utf-8');
@@ -224,6 +224,6 @@ export class LoggedInUserService {
   public _setDataToStorage(key: string, stringData: any) {
     const buff = Buffer.from(stringData);
     const base64data = buff.toString('base64');
-    localStorage.setItem(key, base64data);
+    this.nativeStorageService.setItem(key, base64data);
   }
 }

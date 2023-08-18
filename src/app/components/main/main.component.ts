@@ -26,7 +26,6 @@ import { AuthenticationService } from '../../core/services/authentication/authen
 import { ShowSnackbarService } from '../../core/services/show-snackbar/show-snackbar.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CurrencyService } from '../../core/services/currency/currency.service';
-import { environment } from '../../../environments/environment';
 import { FormControl, UntypedFormControl } from '@angular/forms';
 import { SocketIoService } from '../../core/services/socket-io/socket-io.service';
 import { NotificationsService } from './notification/notifications.service';
@@ -46,12 +45,13 @@ import { MENU_DATA } from '../../core/classes/global.const';
 import { LocalStorageService } from '../../core/services/localStorage/localStorage.service';
 import { GlobalStateOfCookieService } from '../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import Shepherd from 'shepherd.js';
-import { compile } from 'sass';
+// import { compile } from 'sass';
 import { CategoryMenuNavService } from '../../core/services/category-menu-nav.service';
 import { Meta } from '@angular/platform-browser';
 // import { AppService } from '../../app.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-main',
@@ -91,7 +91,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public url: any;
   navItems: any[] = [];
-  loggedInUser: IUser;
+  loggedInUser: IUser | null = null;
   @ViewChild('start', { static: true })
   public sidenav?: MatSidenav;
   searchForm: UntypedFormControl;
@@ -264,7 +264,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
         } else {
           this.currency = this.currencies[0];
         }
-        localStorage.setItem('currency', JSON.stringify(this.currency));
+        this.nativeStorageService.setItem(
+          'currency',
+          JSON.stringify(this.currency)
+        );
 
         const defaultLanguage: any = {
           name: 'Español',
@@ -280,7 +283,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           this.translate.use(language.lang);
         } else {
           this.translate.setDefaultLang(defaultLanguage.lang);
-          localStorage.setItem('language', JSON.stringify(defaultLanguage));
+          this.nativeStorageService.setItem(
+            'language',
+            JSON.stringify(defaultLanguage)
+          );
         }
         if (this.loggedInUser) {
           // this._listenToSocketIO();
@@ -319,7 +325,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   setSubscriptionToCookie() {
     this.globalStateOfCookieService.stateOfCookie$
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((thereIsCookie) => {
+      .subscribe((thereIsCookie: any) => {
         if (thereIsCookie) {
           this.initComponent();
         }
@@ -364,7 +370,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   onSearch() {
     const searchValue = this.searchForm.value;
     console.log(this.searchForm.value);
-    localStorage.setItem('searchText', JSON.stringify(searchValue));
+    this.nativeStorageService.setItem(
+      'searchText',
+      JSON.stringify(searchValue)
+    );
     if (searchValue && searchValue.length > 1) {
       this.router
         .navigate(['/products/search'], {
@@ -399,8 +408,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onShowProfile(): void {
-    let dialogRef: MatDialogRef<EditProfileComponent, any>;
-    dialogRef = this.dialog.open(EditProfileComponent, {
+    const dialogRef = this.dialog.open(EditProfileComponent, {
       panelClass: 'app-edit-profile',
       maxWidth: '100vw',
       maxHeight: '100vh',
@@ -414,8 +422,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onShowMyContacts(): void {
-    let dialogRef: MatDialogRef<MyContactsComponent, any>;
-    dialogRef = this.dialog.open(MyContactsComponent, {
+    const dialogRef = this.dialog.open(MyContactsComponent, {
       panelClass: 'app-my-contacts',
       maxWidth: '100vw',
       maxHeight: '100vh',
@@ -507,7 +514,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('payment-confirmed')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         if (data?.tpv !== 'enzona') {
           this.showPaymentSuccess(data.Payment.id);
         }
@@ -518,7 +525,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('payment-cancelled')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         this.showPaymentCancellSuccess(data.Payment.id);
         console.log('payment-cancelled');
         this.cartService.$paymentUpdate.next('');
@@ -528,7 +535,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('new-notification')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         this.showToastr.showInfo(
           'Tienes nuevas notificaciones',
           'Notificación',
@@ -539,7 +546,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('user-logout')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         this.loggedInUserService.$loggedInUserUpdated.next(null);
         this.router.navigate(['']).then();
       });
@@ -547,17 +554,17 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('business-accepted')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         const token = this.loggedInUserService.getTokenCookie();
-        this.authService.getProfile(token).subscribe((user) => {
+        this.authService.getProfile(token).subscribe((user: any) => {
           const userData = { profile: user.data, Authorization: token };
           this.loggedInUserService.updateUserProfile(userData);
         });
       });
   }
 
-  showPaymentSuccess(id) {
-    this.orderService.getPayment(id).subscribe((data) => {
+  showPaymentSuccess(id: string) {
+    this.orderService.getPayment(id).subscribe((data: any) => {
       const dialogRef = this.dialog.open(ConfirmPaymentOkComponent, {
         panelClass: 'app-reservation-payment-ok',
         maxWidth: '100vw',
@@ -567,14 +574,14 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           action: 'confirmed',
         },
       });
-      dialogRef.afterClosed().subscribe((result) => {
+      dialogRef.afterClosed().subscribe((result: any) => {
         window.location.reload();
       });
     });
   }
 
-  showPaymentCancellSuccess(id) {
-    this.orderService.getPayment(id).subscribe((data) => {
+  showPaymentCancellSuccess(id: string) {
+    this.orderService.getPayment(id).subscribe((data: any) => {
       const dialogRef = this.dialog.open(ConfirmPaymentOkComponent, {
         panelClass: 'app-reservation-payment-ok',
         maxWidth: '100vw',
@@ -584,7 +591,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           action: 'cancelled',
         },
       });
-      dialogRef.afterClosed().subscribe((result) => {
+      dialogRef.afterClosed().subscribe((result: any) => {
         window.location.reload();
       });
     });

@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { BecomeASellerGuard } from './components/become-a-seller/become-a-seller.guard';
 
 const appRoutes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () =>
-  //     import('./components/main/main.module').then((m) => m.MainModule),
-  // },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./components/main/main.module').then((m) => m.MainModule),
+  },
   {
     path: 'become-a-seller',
     loadChildren: () =>

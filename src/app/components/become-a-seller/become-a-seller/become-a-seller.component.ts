@@ -104,7 +104,7 @@ export class BecomeASellerComponent implements OnInit {
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-    if (localStorage.getItem('bs_image')) {
+    if (this.nativeStorageService.getItem('bs_image')) {
       this.imageBusiness = this.nativeStorageService.getItem('bs_image');
       if (this.imageSelected !== undefined) {
       }
@@ -317,10 +317,10 @@ export class BecomeASellerComponent implements OnInit {
           'Éxito',
           8000
         );
-        localStorage.removeItem('bs_image');
-        localStorage.removeItem('bs_step_one');
-        localStorage.removeItem('bs_step_two');
-        localStorage.removeItem('bs_step_three');
+        this.nativeStorageService.removeItem('bs_image');
+        this.nativeStorageService.removeItem('bs_step_one');
+        this.nativeStorageService.removeItem('bs_step_two');
+        this.nativeStorageService.removeItem('bs_step_three');
         this.spinner.hide();
         this.router.navigate(['']).then();
       },

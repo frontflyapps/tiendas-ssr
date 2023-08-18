@@ -47,7 +47,7 @@ export class BusinessService {
         query.filter.properties.forEach((item) => {
           httpParams = httpParams.append(
             item,
-            '%' + query.filter.filterText + '%'
+            '%' + query.filter?.filterText + '%'
           );
         });
       }

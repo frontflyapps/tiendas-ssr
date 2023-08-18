@@ -82,7 +82,7 @@ export class LocalStorageService {
       version: environment.versions.app,
       timespan: new Date().getTime(),
     };
-    localStorage.setItem('_v', JSON.stringify(v));
+    this.nativeStorageService.setItem('_v', JSON.stringify(v));
   }
 
   setOnStorage(key: string, data: any): void | boolean {
@@ -90,7 +90,7 @@ export class LocalStorageService {
       return false;
     }
 
-    localStorage.setItem(key, JSON.stringify(data));
+    this.nativeStorageService.setItem(key, JSON.stringify(data));
   }
 
   getFromStorage(key: string): any {
@@ -102,7 +102,7 @@ export class LocalStorageService {
   }
 
   clearLocalStorage() {
-    localStorage.clear();
+    this.nativeStorageService.clear();
   }
 
   removeCookies() {

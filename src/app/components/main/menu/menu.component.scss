@@ -1,0 +1,65 @@
+@import "app";
+
+.router-link-active {
+  color: white !important;
+}
+
+.menu-container1 {
+  background-color: $theme-main-400 !important;
+  //background: $theme-main-400 !important;
+}
+
+#toolbar-menu {
+  height: 48px !important;
+}
+
+.showCategoriesMenu {
+  width: 100%;
+  min-height: 40px;
+  overflow-x: auto;
+  padding: 0 10px;
+  // margin-top: 8px;
+
+  @media (max-width: 1024px) {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .itemCategory {
+    min-width: unset !important;
+    margin: 6px 0 !important;
+    font-weight: 400;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: all 0.342s ease-out;
+    //padding: 8px 16px !important;
+
+    &:hover {
+      border: 1px solid #8a8a8a;
+      transition: all 0.258s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .showCategoriesMenu::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#showCategoriesMenu::-webkit-scrollbar {
+  width: 0px !important;
+  height: 6px !important;
+  background: transparent !important;
+  /* make scrollbar transparent */
+}
+
+#showCategoriesMenu::-webkit-scrollbar-thumb {
+  background-color: unset !important;
+}
+
+#showCategoriesMenu::-webkit-scrollbar-thumb:hover {
+  background-color: $theme-main-400 !important;
+}

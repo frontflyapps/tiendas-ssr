@@ -1,0 +1,74 @@
+import { Injectable } from '@angular/core';
+import { Product } from '../../../modals/product.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, Subscriber } from 'rxjs';
+import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class WishlistService {
+  observer: Subscriber<{}>;
+  // Get product from Localstorage
+  products =
+    JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
+
+  constructor(
+    public snackBar: MatSnackBar,
+    private nativeStorageService: NativeStorageService
+  ) {}
+
+  // Get  wishlist Products
+  public getProducts(): Observable<Product[]> {
+    this.products = this.nativeStorageService.getItem('wishlistItem') || [];
+    const itemsStream = new Observable((observer) => {
+      observer.next(this.products);
+      observer.complete();
+    });
+    return <Observable<Product[]>>itemsStream;
+  }
+
+  // If item is aleready added In wishlist
+  public hasProduct(product: Product): boolean {
+    const item = products.find((item) => item.id === product.id);
+    return item !== undefined;
+  }
+
+  // Add to wishlist
+  public addToWishlist(product: Product): Product | boolean {
+    let message, status;
+    let item: Product | boolean = false;
+    if (this.hasProduct(product)) {
+      item = products.filter((item) => item.id === product.id)[0];
+      const index = products.indexOf(item);
+    } else {
+      products.push(product);
+    }
+    message =
+      'El producto ' + product.name + ' ha sido añadido a la lista de deseos.';
+    status = 'éxito';
+    this.snackBar.open(message, '×', {
+      panelClass: [status],
+      verticalPosition: 'top',
+      duration: 3000,
+    });
+    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(products));
+    return item;
+  }
+
+  // Removed Product
+  public removeFromWishlist(product: Product) {
+    if (product === undefined) {
+      return;
+    }
+    const index = products.indexOf(product);
+    products.splice(index, 1);
+    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(products));
+  }
+
+  public getWishlistCount() {
+    const data: any[] =
+      JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
+    return data.length;
+  }
+}
