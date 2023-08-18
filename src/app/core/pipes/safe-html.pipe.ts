@@ -15,10 +15,7 @@ export class SafeHtmlPipe implements PipeTransform {
     html = html.replace(/<oembed url=/g, '<iframe src=');
     html = html.replace(/<\/oembed>/g, '</iframe>');
     /** Preparo las url de los videos de youtube con cada una de sus posibilidades */
-    html = html.replace(
-      /www.youtube.com\/watch\?v=/g,
-      'www.youtube.com/embed/'
-    );
+    html = html.replace(/www.youtube.com\/watch\?v=/g, 'www.youtube.com/embed/');
     html = html.replace(/youtu.be\//g, 'www.youtube.com/embed/');
     return html;
   }

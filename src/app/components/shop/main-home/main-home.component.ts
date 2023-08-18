@@ -7,10 +7,7 @@ import { environment } from 'environments/environment';
 
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { LandingPageService } from 'src/app/core/services/landing-page/landing-page.service';
-import {
-  LandignPageData,
-  LandingPagePromotion,
-} from 'src/app/core/classes/landing-page.class';
+import { LandignPageData, LandingPagePromotion } from 'src/app/core/classes/landing-page.class';
 
 export interface ProductInterface {
   name: string;
@@ -132,7 +129,7 @@ export class MainHomeComponent implements OnInit {
 
   constructor(
     public utilsService: UtilsService,
-    private landingPageService: LandingPageService
+    private landingPageService: LandingPageService,
   ) {}
 
   ngOnInit() {
@@ -183,12 +180,8 @@ export class MainHomeComponent implements OnInit {
     this.allArticles = data.blogRecents;
     this.countProducts = data.countProducts;
     this.servicesProducts = data.ourServices;
-    this.bigBanner1 = data.promotions.filter(
-      (promotion) => promotion.type === 'bigBannerPromo1'
-    );
-    this.bigBanner2 = data.promotions.filter(
-      (promotion) => promotion.type === 'bigBannerPromo2'
-    );
+    this.bigBanner1 = data.promotions.filter((promotion) => promotion.type === 'bigBannerPromo1');
+    this.bigBanner2 = data.promotions.filter((promotion) => promotion.type === 'bigBannerPromo2');
     this.loadingServices = false;
     this.getDataProducts();
     this.loadingPopular = false;

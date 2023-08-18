@@ -23,9 +23,8 @@ import { DebounceClickModule } from 'src/app/core/directives/debounce-click/debo
     MatTooltipModule,
     PipesModule,
     GuachosRatingModule,
-    DebounceClickModule
+    DebounceClickModule,
   ],
   exports: [FooterProductCardComponent],
 })
-export class FooterProductCardModule {
-}
+export class FooterProductCardModule {}

@@ -47,7 +47,9 @@ export class EditOrderComponent implements OnInit {
     public dialogRef: MatDialogRef<EditOrderComponent>,
     private translate: TranslateService,
   ) {
-    this.language = this.loggedInUserService.getLanguage() ? this.loggedInUserService.getLanguage().lang : 'es';
+    this.language = this.loggedInUserService.getLanguage()
+      ? this.loggedInUserService.getLanguage().lang
+      : 'es';
     this.order = data.order;
   }
 
@@ -68,7 +70,6 @@ export class EditOrderComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-
       id: this.order.id,
       name: [this.order.name, [Validators.required]],
       lastName: [this.order.lastName, [Validators.required]],
@@ -86,7 +87,6 @@ export class EditOrderComponent implements OnInit {
       address2: [this.order ? this.order.address2 : null],
       phone: [this.order.phone],
       info: [this.order.info],
-
     });
     this.onlyCubanPeople = this.form.get('isForCuban').value;
     if (this.onlyCubanPeople) {
@@ -99,9 +99,7 @@ export class EditOrderComponent implements OnInit {
           Validators.pattern(/^\d+$/),
         ]);
     }
-    this.form.valueChanges.subscribe(() => {
-    });
-
+    this.form.valueChanges.subscribe(() => {});
   }
 
   onSelectProvince(provinceId) {
@@ -113,7 +111,7 @@ export class EditOrderComponent implements OnInit {
     this.regionService.getAllCountries(this.queryCountries).subscribe(
       (data) => {
         this.allCountries = data.data.filter((item) => item.name.es != undefined);
-        this.allCountries = this.allCountries.sort(function(a, b) {
+        this.allCountries = this.allCountries.sort(function (a, b) {
           if (a.name['es'] > b.name['es']) {
             return 1;
           } else if (a.name['es'] < b.name['es']) {
@@ -140,13 +138,13 @@ export class EditOrderComponent implements OnInit {
 
   onUpdateOrder(): void {
     const data = this.form.value;
-    this.ordersService.editPayment(data).subscribe(() => {
-        this.showToastr.showSucces(this.translate.instant('Orden actualizada con éxito'), 'Success');
-        this.showToastr.showInfo(
-          'Se actualizado la orden',
-          'Info',
-          8000,
+    this.ordersService.editPayment(data).subscribe(
+      () => {
+        this.showToastr.showSucces(
+          this.translate.instant('Orden actualizada con éxito'),
+          'Success',
         );
+        this.showToastr.showInfo('Se actualizado la orden', 'Info', 8000);
         this.dialogRef.close(true);
       },
       (error) => {
@@ -159,5 +157,4 @@ export class EditOrderComponent implements OnInit {
     const innerWidth = window.innerWidth;
     this.applyStyle = innerWidth <= 600;
   }
-
 }

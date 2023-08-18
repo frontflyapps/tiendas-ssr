@@ -22,7 +22,7 @@ export class BlogService {
     return this.httpClient.patch<any>(
       this.urlId.replace(':blogId', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
@@ -40,10 +40,7 @@ export class BlogService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -61,15 +58,9 @@ export class BlogService {
 
   getBlog(data: any): Observable<any> {
     if (data.constructor === 'Object') {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':blogId', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':blogId', data.id), this.httpOptions);
     } else {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':blogId', data + ''),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':blogId', data + ''), this.httpOptions);
     }
   }
 }

@@ -1,8 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {
-  ProductDataService,
-  ProductService,
-} from '../../../shared/services/product.service';
+import { ProductDataService, ProductService } from '../../../shared/services/product.service';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -39,11 +36,10 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
     public productDataService: ProductDataService,
     public currencyService: CurrencyService,
     public loggedInUserService: LoggedInUserService,
-    private globalStateOfCookieService: GlobalStateOfCookieService
+    private globalStateOfCookieService: GlobalStateOfCookieService,
   ) {
     this._unsubscribeAll = new Subject<any>();
-    this.businessConfig =
-      this.localStorageService.getFromStorage('business-config');
+    this.businessConfig = this.localStorageService.getFromStorage('business-config');
     this.language = this.loggedInUserService.getLanguage()
       ? this.loggedInUserService.getLanguage().lang
       : 'es';
@@ -106,10 +102,7 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
       }
 
       if (
-        this.localStorageService.iMostReSearch(
-          pfd?.timespan,
-          environment.timeToResearchProductData
-        )
+        this.localStorageService.iMostReSearch(pfd?.timespan, environment.timeToResearchProductData)
       ) {
         this.getProducts();
       } else {
@@ -132,10 +125,7 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
       }
 
       if (
-        this.localStorageService.iMostReSearch(
-          pfd?.timespan,
-          environment.timeToResearchProductData
-        )
+        this.localStorageService.iMostReSearch(pfd?.timespan, environment.timeToResearchProductData)
       ) {
         this.getProducts();
       } else {
@@ -147,26 +137,22 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
   }
 
   setValuesFromResponse(response) {
-    this.productDataService.popularProducts =
-      UtilsService.getAnArrayFromIdsAndArray(
-        response.products,
-        response.rating
-      );
-    this.productDataService.featuredProducts =
-      UtilsService.getAnArrayFromIdsAndArray(
-        response.products,
-        response.isFeatured
-      );
-    this.productDataService.bestSellerProducts =
-      UtilsService.getAnArrayFromIdsAndArray(
-        response.products,
-        response.bestSell
-      );
-    this.productDataService.allProducts =
-      UtilsService.getAnArrayFromIdsAndArray(
-        response.products,
-        response.lastCreated
-      );
+    this.productDataService.popularProducts = UtilsService.getAnArrayFromIdsAndArray(
+      response.products,
+      response.rating,
+    );
+    this.productDataService.featuredProducts = UtilsService.getAnArrayFromIdsAndArray(
+      response.products,
+      response.isFeatured,
+    );
+    this.productDataService.bestSellerProducts = UtilsService.getAnArrayFromIdsAndArray(
+      response.products,
+      response.bestSell,
+    );
+    this.productDataService.allProducts = UtilsService.getAnArrayFromIdsAndArray(
+      response.products,
+      response.lastCreated,
+    );
   }
 
   ngOnDestroy() {

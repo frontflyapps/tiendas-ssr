@@ -27,7 +27,7 @@ export class AboutUsComponent implements OnInit, OnDestroy {
     private contactUsService: ContactUsService,
     private translate: TranslateService,
     private loggedInUserService: LoggedInUserService,
-    private metaService: MetaService
+    private metaService: MetaService,
   ) {
     this._unsubscribeAll = new Subject();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();

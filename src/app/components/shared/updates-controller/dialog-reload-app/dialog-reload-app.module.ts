@@ -18,5 +18,4 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   declarations: [DialogReloadAppComponent],
 })
-export class DialogReloadAppModule {
-}
+export class DialogReloadAppModule {}

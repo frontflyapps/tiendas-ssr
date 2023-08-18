@@ -3,11 +3,7 @@ import { SwUpdate } from '@angular/service-worker';
 import Cookies from 'js-cookie';
 
 import { concat, interval, Subject } from 'rxjs';
-import {
-  MatDialog,
-  MatDialogConfig,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { DialogReloadAppComponent } from './dialog-reload-app/dialog-reload-app.component';
 import { first } from 'rxjs/operators';
 import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
@@ -20,13 +16,11 @@ export class ServiceWorkerUpdateService {
     private appRef: ApplicationRef,
     public updates: SwUpdate,
     public dialog: MatDialog,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
     // Allow the app to stabilize first, before starting
     // polling for updates with `interval()`.
-    const appIsStable$ = appRef.isStable.pipe(
-      first((isStable) => isStable === true)
-    );
+    const appIsStable$ = appRef.isStable.pipe(first((isStable) => isStable === true));
     const everySixHours$ = interval(60 * 1000);
     const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
 
@@ -38,9 +32,7 @@ export class ServiceWorkerUpdateService {
   }
 
   private static importDialogReloadModule(): void {
-    import('./dialog-reload-app/dialog-reload-app.module').then(
-      (m) => m.DialogReloadAppModule
-    );
+    import('./dialog-reload-app/dialog-reload-app.module').then((m) => m.DialogReloadAppModule);
   }
 
   public checkForUpdates(): void {
@@ -73,7 +65,7 @@ export class ServiceWorkerUpdateService {
 
     const dialogRef: MatDialogRef<DialogReloadAppComponent> = this.dialog.open(
       DialogReloadAppComponent,
-      config
+      config,
     );
 
     dialogRef.afterClosed().subscribe(() => {

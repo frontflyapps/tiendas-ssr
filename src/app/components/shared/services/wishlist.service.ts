@@ -10,12 +10,11 @@ import { NativeStorageService } from 'src/app/core/services/native-storage/nativ
 export class WishlistService {
   observer: Subscriber<{}>;
   // Get product from Localstorage
-  products =
-    JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
+  products = JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
 
   constructor(
     public snackBar: MatSnackBar,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {}
 
   // Get  wishlist Products
@@ -44,8 +43,7 @@ export class WishlistService {
     } else {
       products.push(product);
     }
-    message =
-      'El producto ' + product.name + ' ha sido añadido a la lista de deseos.';
+    message = 'El producto ' + product.name + ' ha sido añadido a la lista de deseos.';
     status = 'éxito';
     this.snackBar.open(message, '×', {
       panelClass: [status],
@@ -67,8 +65,7 @@ export class WishlistService {
   }
 
   public getWishlistCount() {
-    const data: any[] =
-      JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
+    const data: any[] = JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
     return data.length;
   }
 }

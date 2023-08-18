@@ -18,7 +18,7 @@ function initializeAppConfig(businessConfigService: BusinessConfigService) {
         onAfterSuccess: (data) => {
           businessConfigService.$businessConfig.next(data.data);
         },
-      }
+      },
     );
   };
 }

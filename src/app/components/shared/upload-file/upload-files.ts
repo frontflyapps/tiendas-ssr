@@ -26,7 +26,7 @@ export class UploadFilesService {
 
   constructor(
     private httpClient: HttpClient,
-    private loggedInUserService: LoggedInUserService
+    private loggedInUserService: LoggedInUserService,
   ) {
     this.loggedInUserService = loggedInUserService;
 
@@ -68,19 +68,12 @@ export class UploadFilesService {
   }
 
   edit(id, data) {
-    return this.httpClient.patch<any>(
-      this.urlId.replace(':id', id),
-      data,
-      this.httpOptions
-    );
+    return this.httpClient.patch<any>(this.urlId.replace(':id', id), data, this.httpOptions);
   }
 
   remove(id) {
     console.log(id);
-    return this.httpClient.delete<any>(
-      this.urlId.replace(':id', id),
-      this.httpOptions
-    );
+    return this.httpClient.delete<any>(this.urlId.replace(':id', id), this.httpOptions);
   }
 
   get(data): Observable<any> {
@@ -101,10 +94,7 @@ export class UploadFilesService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -119,55 +109,37 @@ export class UploadFilesService {
     if (params) {
       if (params.endDate && params.startDate) {
         endDate =
-          moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') +
-          'T23:59:59.999Z';
+          moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T23:59:59.999Z';
         startDate =
-          moment(params.startDate.toISOString())
-            .utc(true)
-            .format('YYYY-MM-DD') + 'T00:00:00.000Z';
-        httpParams = httpParams.append(
-          'filter[$and][createdAt][$gte]',
-          startDate
-        );
+          moment(params.startDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T00:00:00.000Z';
+        httpParams = httpParams.append('filter[$and][createdAt][$gte]', startDate);
         httpParams = httpParams.append(
           'filter[$and][createdAt][$lte]',
-          endDate ? endDate : startDate
+          endDate ? endDate : startDate,
         );
       }
 
       if (params.name) {
-        httpParams = httpParams.append(
-          'filter[$and][name][$like]',
-          '%' + params.name + '%'
-        );
+        httpParams = httpParams.append('filter[$and][name][$like]', '%' + params.name + '%');
       }
       if (params.mimeType) {
         httpParams = httpParams.append(
           'filter[$and][mimeType][$like]',
-          '%' + params.mimeType + '%'
+          '%' + params.mimeType + '%',
         );
       }
 
       if (params.minValue !== undefined && params.maxValue !== undefined) {
-        httpParams = httpParams.append(
-          'filter[$and][size][$gte]',
-          params.minValue
-        );
-        httpParams = httpParams.append(
-          'filter[$and][size][$lte]',
-          params.maxValue
-        );
+        httpParams = httpParams.append('filter[$and][size][$gte]', params.minValue);
+        httpParams = httpParams.append('filter[$and][size][$lte]', params.maxValue);
       }
       if (params.Creator) {
-        httpParams = httpParams.append(
-          'filter[$and][CreatorId]',
-          params.Creator
-        );
+        httpParams = httpParams.append('filter[$and][CreatorId]', params.Creator);
       }
       if (params.description) {
         httpParams = httpParams.append(
           'filter[$and][description][$like]',
-          '%' + params.description + '%'
+          '%' + params.description + '%',
         );
       }
     }
@@ -185,10 +157,7 @@ export class UploadFilesService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -203,55 +172,37 @@ export class UploadFilesService {
     if (params) {
       if (params.endDate && params.startDate) {
         endDate =
-          moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') +
-          'T23:59:59.999Z';
+          moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T23:59:59.999Z';
         startDate =
-          moment(params.startDate.toISOString())
-            .utc(true)
-            .format('YYYY-MM-DD') + 'T00:00:00.000Z';
-        httpParams = httpParams.append(
-          'filter[$and][createdAt][$gte]',
-          startDate
-        );
+          moment(params.startDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T00:00:00.000Z';
+        httpParams = httpParams.append('filter[$and][createdAt][$gte]', startDate);
         httpParams = httpParams.append(
           'filter[$and][createdAt][$lte]',
-          endDate ? endDate : startDate
+          endDate ? endDate : startDate,
         );
       }
 
       if (params.name) {
-        httpParams = httpParams.append(
-          'filter[$and][File][name][$like]',
-          '%' + params.name + '%'
-        );
+        httpParams = httpParams.append('filter[$and][File][name][$like]', '%' + params.name + '%');
       }
       if (params.mimeType) {
         httpParams = httpParams.append(
           'filter[$and][File][mimeType][$like]',
-          '%' + params.mimeType + '%'
+          '%' + params.mimeType + '%',
         );
       }
 
       if (params.minValue !== undefined && params.maxValue !== undefined) {
-        httpParams = httpParams.append(
-          'filter[$and][File][size][$gte]',
-          params.minValue
-        );
-        httpParams = httpParams.append(
-          'filter[$and][File][size][$lte]',
-          params.maxValue
-        );
+        httpParams = httpParams.append('filter[$and][File][size][$gte]', params.minValue);
+        httpParams = httpParams.append('filter[$and][File][size][$lte]', params.maxValue);
       }
       if (params.Creator) {
-        httpParams = httpParams.append(
-          'filter[$and][CreatorId]',
-          params.Creator
-        );
+        httpParams = httpParams.append('filter[$and][CreatorId]', params.Creator);
       }
       if (params.description) {
         httpParams = httpParams.append(
           'filter[$and][File][description][$like]',
-          '%' + params.description + '%'
+          '%' + params.description + '%',
         );
       }
     }
@@ -269,10 +220,7 @@ export class UploadFilesService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -287,55 +235,37 @@ export class UploadFilesService {
     if (params) {
       if (params.endDate && params.startDate) {
         endDate =
-          moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') +
-          'T23:59:59.999Z';
+          moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T23:59:59.999Z';
         startDate =
-          moment(params.startDate.toISOString())
-            .utc(true)
-            .format('YYYY-MM-DD') + 'T00:00:00.000Z';
-        httpParams = httpParams.append(
-          'filter[$and][createdAt][$gte]',
-          startDate
-        );
+          moment(params.startDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T00:00:00.000Z';
+        httpParams = httpParams.append('filter[$and][createdAt][$gte]', startDate);
         httpParams = httpParams.append(
           'filter[$and][createdAt][$lte]',
-          endDate ? endDate : startDate
+          endDate ? endDate : startDate,
         );
       }
 
       if (params.name) {
-        httpParams = httpParams.append(
-          'filter[$and][name][$like]',
-          '%' + params.name + '%'
-        );
+        httpParams = httpParams.append('filter[$and][name][$like]', '%' + params.name + '%');
       }
       if (params.mimeType) {
         httpParams = httpParams.append(
           'filter[$and][mimeType][$like]',
-          '%' + params.mimeType + '%'
+          '%' + params.mimeType + '%',
         );
       }
 
       if (params.minValue !== undefined && params.maxValue !== undefined) {
-        httpParams = httpParams.append(
-          'filter[$and][size][$gte]',
-          params.minValue
-        );
-        httpParams = httpParams.append(
-          'filter[$and][size][$lte]',
-          params.maxValue
-        );
+        httpParams = httpParams.append('filter[$and][size][$gte]', params.minValue);
+        httpParams = httpParams.append('filter[$and][size][$lte]', params.maxValue);
       }
       if (params.Creator) {
-        httpParams = httpParams.append(
-          'filter[$and][CreatorId]',
-          params.Creator
-        );
+        httpParams = httpParams.append('filter[$and][CreatorId]', params.Creator);
       }
       if (params.description) {
         httpParams = httpParams.append(
           'filter[$and][description][$like]',
-          '%' + params.description + '%'
+          '%' + params.description + '%',
         );
       }
     }
@@ -351,43 +281,29 @@ export class UploadFilesService {
     httpParams = httpParams.set('offset', '0');
     if (params) {
       if (params.name) {
-        httpParams = httpParams.append(
-          'filter[$and][name][$like]',
-          '%' + params.name + '%'
-        );
+        httpParams = httpParams.append('filter[$and][name][$like]', '%' + params.name + '%');
       }
       if (params.domain) {
-        httpParams = httpParams.append(
-          'filter[$and][domain][$like]',
-          '%' + params.domain + '%'
-        );
+        httpParams = httpParams.append('filter[$and][domain][$like]', '%' + params.domain + '%');
       }
       if (params.syncUrl) {
-        httpParams = httpParams.append(
-          'filter[$and][syncUrl][$like]',
-          '%' + params.syncUrl + '%'
-        );
+        httpParams = httpParams.append('filter[$and][syncUrl][$like]', '%' + params.syncUrl + '%');
       }
       if (params.description) {
         httpParams = httpParams.append(
           'filter[$and][description][$like]',
-          '%' + params.description + '%'
+          '%' + params.description + '%',
         );
       }
 
       endDate =
-        moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') +
-        'T23:59:59.999Z';
+        moment(params.endDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T23:59:59.999Z';
       startDate =
-        moment(params.startDate.toISOString()).utc(true).format('YYYY-MM-DD') +
-        'T00:00:00.000Z';
-      httpParams = httpParams.append(
-        'filter[$and][createdAt][$gte]',
-        startDate
-      );
+        moment(params.startDate.toISOString()).utc(true).format('YYYY-MM-DD') + 'T00:00:00.000Z';
+      httpParams = httpParams.append('filter[$and][createdAt][$gte]', startDate);
       httpParams = httpParams.append(
         'filter[$and][createdAt][$lte]',
-        endDate ? endDate : startDate
+        endDate ? endDate : startDate,
       );
     }
     return this.httpClient.get<any>(this.url, { params: httpParams });

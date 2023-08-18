@@ -20,7 +20,7 @@ export class CaptchaService {
     return this.httpClient.post<any>(
       this.urlUuid.replace(':uuid', data.uuid),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 

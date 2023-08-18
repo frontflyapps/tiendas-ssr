@@ -40,7 +40,7 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
     public loggedInUserService: LoggedInUserService,
     private globalFacadeService: GlobalFacadeService,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
@@ -49,32 +49,28 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.cartService.$cartItemsUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
-        this.shoppingCarts = data;
-        this.shoppingCartItems = this.cartService.getShoppingCars();
+    this.cartService.$cartItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe((data) => {
+      this.shoppingCarts = data;
+      this.shoppingCartItems = this.cartService.getShoppingCars();
 
-        if (Array.isArray(data) && data.length > 0 && this.loggedInUser) {
-          this.cartService.dateCreatedAtCart = data[0].createdAt;
+      if (Array.isArray(data) && data.length > 0 && this.loggedInUser) {
+        this.cartService.dateCreatedAtCart = data[0].createdAt;
 
-          this.cartService.setCartInPaying(data[0].status);
+        this.cartService.setCartInPaying(data[0].status);
 
-          // this.getCartTime();
-        }
+        // this.getCartTime();
+      }
 
-        if (Array.isArray(data) && data.length == 0) {
-          this.cartService.dateCreatedAtCart = '';
-          this.cartService.cartExpiredTime = '';
-          this.cartService.setCartInPaying(false);
-        }
-      });
+      if (Array.isArray(data) && data.length == 0) {
+        this.cartService.dateCreatedAtCart = '';
+        this.cartService.cartExpiredTime = '';
+        this.cartService.setCartInPaying(false);
+      }
+    });
 
-    this.cartService.$paymentUpdate
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(() => {
-        this.fillShoppingCart();
-      });
+    this.cartService.$paymentUpdate.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      this.fillShoppingCart();
+    });
 
     this.loggedInUserService.$languageChanged
       .pipe(takeUntil(this._unsubscribeAll))
@@ -121,7 +117,7 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
       this.cartService.cartDurationTime = dataRes.time;
       this.cartService.calcExpiredTime(
         this.cartService.dateCreatedAtCart,
-        this.cartService.cartDurationTime
+        this.cartService.cartDurationTime,
       );
     });
   }
@@ -155,10 +151,7 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
   }
 
   public getTotalPricePerItem(item: CartItem) {
-    const price = this.cartService.getPriceofProduct(
-      item.Product,
-      item.quantity
-    );
+    const price = this.cartService.getPriceofProduct(item.Product, item.quantity);
     return price * item.quantity;
   }
 

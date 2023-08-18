@@ -6,9 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./skeleton-loading-cards.component.scss'],
 })
 export class SkeletonLoadingCardsComponent implements OnInit {
-
   grid = {
-    xs: 1, sm: 2, md: 3, lg: 4,
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
   };
 
   arrayItems = {
@@ -18,22 +20,19 @@ export class SkeletonLoadingCardsComponent implements OnInit {
     lg: [1, 1, 1, 1],
   };
 
-  constructor() {
-  }
+  constructor() {}
 
   @Input()
   set setConfiguration(data) {
     this.grid = Object.assign({}, data);
-    Object.keys(this.arrayItems).map(key => {
+    Object.keys(this.arrayItems).map((key) => {
       this.arrayItems[key] = Array(this.grid[key]).fill(1, 0, this.grid[key] - 1);
     });
   }
 
   ngOnInit() {
-    Object.keys(this.arrayItems).map(key => {
+    Object.keys(this.arrayItems).map((key) => {
       this.arrayItems[key] = Array(this.grid[key]).fill(1, 0, this.grid[key] - 1);
     });
-
   }
-
 }

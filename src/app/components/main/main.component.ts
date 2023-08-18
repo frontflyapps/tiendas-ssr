@@ -97,9 +97,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   searchForm: UntypedFormControl;
   categories: any[] = [];
   _language = 'es';
-  businessConfig = JSON.parse(
-    this.nativeStorageService.getItem('business-config')
-  );
+  businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
 
   tour = new Shepherd.Tour({
     useModalOverlay: false,
@@ -139,7 +137,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     private globalStateOfCookieService: GlobalStateOfCookieService,
     private categoryMenuServ: CategoryMenuNavService,
     public spinner: NgxSpinnerService,
-    public nativeStorageService: NativeStorageService
+    public nativeStorageService: NativeStorageService,
   ) {
     this.metaAdd();
     this._unsubscribeAll = new Subject<any>();
@@ -253,21 +251,14 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       .subscribe((data) => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
 
-        let tempCurrency = JSON.parse(
-          this.nativeStorageService.getItem('currency')
-        );
+        let tempCurrency = JSON.parse(this.nativeStorageService.getItem('currency'));
         if (tempCurrency) {
-          tempCurrency = this.currencies.find(
-            (item) => item.name == tempCurrency.name
-          );
+          tempCurrency = this.currencies.find((item) => item.name == tempCurrency.name);
           this.currency = tempCurrency ? tempCurrency : this.currencies[0];
         } else {
           this.currency = this.currencies[0];
         }
-        this.nativeStorageService.setItem(
-          'currency',
-          JSON.stringify(this.currency)
-        );
+        this.nativeStorageService.setItem('currency', JSON.stringify(this.currency));
 
         const defaultLanguage: any = {
           name: 'Español',
@@ -275,18 +266,13 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           lang: 'es',
         };
         if ('language' in localStorage) {
-          let language = JSON.parse(
-            this.nativeStorageService.getItem('language')
-          );
+          let language = JSON.parse(this.nativeStorageService.getItem('language'));
           language = language ? language : defaultLanguage;
           this.translate.setDefaultLang(language.lang);
           this.translate.use(language.lang);
         } else {
           this.translate.setDefaultLang(defaultLanguage.lang);
-          this.nativeStorageService.setItem(
-            'language',
-            JSON.stringify(defaultLanguage)
-          );
+          this.nativeStorageService.setItem('language', JSON.stringify(defaultLanguage));
         }
         if (this.loggedInUser) {
           // this._listenToSocketIO();
@@ -344,7 +330,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       if (
         this.localStorageService.iMostReSearch(
           menuData?.timespan,
-          environment.timeToResearchMenuData
+          environment.timeToResearchMenuData,
         )
       ) {
         this.getMenu();
@@ -370,10 +356,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   onSearch() {
     const searchValue = this.searchForm.value;
     console.log(this.searchForm.value);
-    this.nativeStorageService.setItem(
-      'searchText',
-      JSON.stringify(searchValue)
-    );
+    this.nativeStorageService.setItem('searchText', JSON.stringify(searchValue));
     if (searchValue && searchValue.length > 1) {
       this.router
         .navigate(['/products/search'], {
@@ -462,9 +445,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           this.socketIoService.disconnect();
         },
         (err: any) => {
-          const message = this.translate.instant(
-            'User sing out unsuccessfully'
-          );
+          const message = this.translate.instant('User sing out unsuccessfully');
           this.showSnackbBar.showError(message, 8000);
           this.spinner.hide();
           /*this.loggedInUserService.removeCookies();
@@ -473,7 +454,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           localStorage.clear();
           this.loggedInUserService.$loggedInUserUpdated.next(null);
           this.router.navigate(['']);*/
-        }
+        },
       );
   }
 
@@ -536,11 +517,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       .listen('new-notification')
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((data: any) => {
-        this.showToastr.showInfo(
-          'Tienes nuevas notificaciones',
-          'Notificación',
-          5000
-        );
+        this.showToastr.showInfo('Tienes nuevas notificaciones', 'Notificación', 5000);
       });
 
     this.socketIoService
@@ -619,9 +596,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   getLocationOnLocalStorage() {
     let locationOnLocalStorage;
     try {
-      locationOnLocalStorage = JSON.parse(
-        this.nativeStorageService.getItem(LOCATION)
-      );
+      locationOnLocalStorage = JSON.parse(this.nativeStorageService.getItem(LOCATION));
       if (locationOnLocalStorage) {
         this.locationService.updateLocation(locationOnLocalStorage);
       }
@@ -641,10 +616,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       .pipe(distinctUntilChanged(), takeUntil(this._unsubscribeAll))
       .subscribe((newLocation: any) => {
         this.setLocationData(newLocation);
-        this.nativeStorageService.setItem(
-          LOCATION,
-          JSON.stringify(newLocation)
-        );
+        this.nativeStorageService.setItem(LOCATION, JSON.stringify(newLocation));
       });
   }
 
@@ -677,9 +649,8 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.tour.addStep({
       id: 'example-step',
-      text: `Los primeros resultados de búsqueda serán los productos de tiendas más cercanas a:<br><br><strong>${
-        location?.province?.name
-      }</strong> &nbsp; ${
+      text: `Los primeros resultados de búsqueda serán los productos de tiendas más cercanas a:<br><br><strong>${location
+        ?.province?.name}</strong> &nbsp; ${
         location?.municipality ? location?.municipality.name : ''
       }`,
       attachTo: {
@@ -732,10 +703,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     // Initiate the tour
-    if (
-      !localStorage.getItem('location-attention') &&
-      location?.province != null
-    ) {
+    if (!localStorage.getItem('location-attention') && location?.province != null) {
       this.tour.start();
     }
   }

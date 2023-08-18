@@ -2,8 +2,17 @@
 export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 
 // Product Colors
-export type ProductColor = 'white' | 'black' | 'red' | 'green' | 'purple' | 'yellow' | 'blue' | 'gray' | 'orange' | 'pink';
-
+export type ProductColor =
+  | 'white'
+  | 'black'
+  | 'red'
+  | 'green'
+  | 'purple'
+  | 'yellow'
+  | 'blue'
+  | 'gray'
+  | 'orange'
+  | 'pink';
 
 export class Product {
   id?: number;
@@ -57,7 +66,6 @@ export class Product {
     this.tags = tags;
     this.colors = colors;
   }
-
 }
 
 // Color Filter

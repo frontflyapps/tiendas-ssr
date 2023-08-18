@@ -10,7 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { LostConexionComponent } from './lost-conexion/lost-conexion.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-
 @NgModule({
   declarations: [
     ForbiddenAccessComponent,
@@ -27,5 +26,4 @@ import { NotFoundComponent } from './not-found/not-found.component';
     TranslateModule,
   ],
 })
-export class ErrorModule {
-}
+export class ErrorModule {}

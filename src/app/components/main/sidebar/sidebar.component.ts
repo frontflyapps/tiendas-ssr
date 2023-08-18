@@ -1,19 +1,7 @@
 import { LoggedInUserService } from './../../../core/services/loggedInUser/logged-in-user.service';
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SidebarMenuService } from './sidebar-menu.service';
@@ -28,10 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
     trigger('indicatorRotate', [
       state('collapsed', style({ transform: 'rotate(0deg)' })),
       state('expanded', style({ transform: 'rotate(180deg)' })),
-      transition(
-        'expanded <=> collapsed',
-        animate('250ms cubic-bezier(0.4,0.0,0.2,1)')
-      ),
+      transition('expanded <=> collapsed', animate('250ms cubic-bezier(0.4,0.0,0.2,1)')),
     ]),
   ],
 })
@@ -50,7 +35,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     public previousRouteService: PreviousRouteService,
     public loggedInUserService: LoggedInUserService,
     public router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
   ) {
     this.ariaExpanded = this.expanded;
     if (this.depth === undefined) {
@@ -60,19 +45,17 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.navService.currentUrl
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((url: string) => {
-        if (this.item.route && url) {
-          // this.isChildOfMeFlag = false;
-          // this.isRuteChildofMy(this.item, url);
-          // this.expanded = this.isChildOfMeFlag;
-          // this.ariaExpanded = this.expanded;
-          if (this.compareUrl(this.item.route, url)) {
-            // this.ngProgress.done();
-          }
+    this.navService.currentUrl.pipe(takeUntil(this._unsubscribeAll)).subscribe((url: string) => {
+      if (this.item.route && url) {
+        // this.isChildOfMeFlag = false;
+        // this.isRuteChildofMy(this.item, url);
+        // this.expanded = this.isChildOfMeFlag;
+        // this.ariaExpanded = this.expanded;
+        if (this.compareUrl(this.item.route, url)) {
+          // this.ngProgress.done();
         }
-      });
+      }
+    });
   }
 
   ngOnDestroy(): void {

@@ -7,6 +7,5 @@ import { ServiceWorkerUpdateService } from './service-worker-update.service';
   providers: [ServiceWorkerUpdateService],
 })
 export class UpdateControllerModule {
-  constructor(private sws: ServiceWorkerUpdateService) {
-  }
+  constructor(private sws: ServiceWorkerUpdateService) {}
 }

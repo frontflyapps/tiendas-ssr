@@ -51,5 +51,4 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   ],
   providers: [BankService],
 })
-export class BecomeASellerModule {
-}
+export class BecomeASellerModule {}

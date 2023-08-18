@@ -18,7 +18,7 @@ export class LandingPageService {
   getFrontData(options?: ApiOptions<LandignPageData>): void {
     handleObservable<LandignPageData>(
       this.httpClient.get<ApiResponse<LandignPageData>>(this.url),
-      options
+      options,
     );
   }
 }

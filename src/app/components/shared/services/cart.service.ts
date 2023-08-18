@@ -54,7 +54,7 @@ export class CartService implements OnDestroy {
     private translate: TranslateService,
     private showToastr: ShowToastrService,
     private showSnackbar: ShowSnackbarService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
   ) {
     // Get product from Localstorage
     this.carts = this.loggedInUserService._getDataFromStorage('cartItem') || [];
@@ -99,12 +99,8 @@ export class CartService implements OnDestroy {
   public goToCheckout(cart: Cart, cartITems?) {
     const cartId = cart.id;
     const BusinessId = cart.BusinessId;
-    const cartIds = cartITems
-      ? cartITems.map((i) => i.id)
-      : cart.CartItems.map((i) => i.id);
-    this.router
-      .navigate(['/checkout'], { queryParams: { cartId, cartIds, BusinessId } })
-      .then();
+    const cartIds = cartITems ? cartITems.map((i) => i.id) : cart.CartItems.map((i) => i.id);
+    this.router.navigate(['/checkout'], { queryParams: { cartId, cartIds, BusinessId } }).then();
   }
 
   public getShoppingCars(): CartItem[] {
@@ -143,7 +139,7 @@ export class CartService implements OnDestroy {
     quantity: number,
     goToPay?: boolean,
     supplementIds?: any,
-    prescription?: any
+    prescription?: any,
   ) {
     this.spinner.show();
 
@@ -223,24 +219,19 @@ export class CartService implements OnDestroy {
         // this.snackBar.open(message, '×', { panelClass: ['succes'], verticalPosition: 'top', duration: 5000 });
         this.showToastr.showSucces(
           this.translate.instant(
-            'El producto ' +
-              productName +
-              ' ha sido agregado correctamente al carrito'
+            'El producto ' + productName + ' ha sido agregado correctamente al carrito',
           ),
           'Éxito',
-          5000
+          5000,
         );
-        this.loggedInUserService._setDataToStorage(
-          'cartItem',
-          JSON.stringify(this.carts)
-        );
+        this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
         if (data.existGift) {
           this.showToastr.showSucces(
             this.translate.instant(
-              'Se ha añadido un producto gratis por tener más de 75€ en su compra'
+              'Se ha añadido un producto gratis por tener más de 75€ en su compra',
             ),
             'Éxito',
-            5000
+            5000,
           );
         }
         this.$cartItemsUpdated.next(this.carts);
@@ -324,9 +315,7 @@ export class CartService implements OnDestroy {
   }
 
   _setSimpleCart(cart: Cart) {
-    const index = this.carts.findIndex(
-      (item) => item.BusinessId == cart.BusinessId
-    );
+    const index = this.carts.findIndex((item) => item.BusinessId == cart.BusinessId);
     if (index == -1) {
       /*A new Cart to be added*/
       this.carts.push(cart);
@@ -336,9 +325,7 @@ export class CartService implements OnDestroy {
   }
 
   _removeSimpleCart(cart: Cart) {
-    const index = this.carts.findIndex(
-      (item) => item.BusinessId == cart.BusinessId
-    );
+    const index = this.carts.findIndex((item) => item.BusinessId == cart.BusinessId);
     if (index != -1) {
       this.carts.splice(index, 1);
     }
@@ -386,33 +373,27 @@ export class CartService implements OnDestroy {
               verticalPosition: 'top',
               duration: 5000,
             });
-            this.loggedInUserService._setDataToStorage(
-              'cartItem',
-              JSON.stringify(this.carts)
-            );
+            this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
             this.$cartItemsUpdated.next(this.carts);
           })
           .catch((err) => {
             console.warn(err);
           });
       } else {
-        this.carts =
-          this.loggedInUserService._getDataFromStorage('cartItem') || [];
+        this.carts = this.loggedInUserService._getDataFromStorage('cartItem') || [];
         let cart = this._getSimpleCart(product.BusinessId);
         cart = cart ? cart : this._newSimpleCart(product, product.Business);
         if (!this.isSameMarket(cart, product)) {
           this.showToastr.showError(
             'Usted solo puede tener en su carrito elementos con la misma moneda a pagar',
             'Error',
-            5000
+            5000,
           );
           return;
         }
 
         const shoppingCartItems = cart.CartItems;
-        const index = shoppingCartItems.findIndex(
-          (item) => item.ProductId == product.id
-        );
+        const index = shoppingCartItems.findIndex((item) => item.ProductId == product.id);
         if (index > -1) {
           // shoppingCartItems[index].quantity += quantity;
           if (quantity != -1) {
@@ -447,10 +428,7 @@ export class CartService implements OnDestroy {
           duration: 5000,
         });
         this._setSimpleCart(cart);
-        this.loggedInUserService._setDataToStorage(
-          'cartItem',
-          JSON.stringify(this.carts)
-        );
+        this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
         this.$cartItemsUpdated.next(this.carts);
       }
     } else if (this.isCanStock(product, quantity)) {
@@ -477,32 +455,26 @@ export class CartService implements OnDestroy {
               verticalPosition: 'top',
               duration: 5000,
             });
-            this.loggedInUserService._setDataToStorage(
-              'cartItem',
-              JSON.stringify(this.carts)
-            );
+            this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
             this.$cartItemsUpdated.next(this.carts);
           })
           .catch((err) => {
             console.warn(err);
           });
       } else {
-        this.carts =
-          this.loggedInUserService._getDataFromStorage('cartItem') || [];
+        this.carts = this.loggedInUserService._getDataFromStorage('cartItem') || [];
         let cart = this._getSimpleCart(product.BusinessId);
         cart = cart ? cart : this._newSimpleCart(product, product.Business);
         if (!this.isSameMarket(cart, product)) {
           this.showToastr.showError(
             'Usted solo puede tener en su carrito elementos con la misma moneda a pagar',
             'Error',
-            5000
+            5000,
           );
           return;
         }
         const shoppingCartItems = cart.CartItems;
-        const index = shoppingCartItems.findIndex(
-          (item) => item.ProductId == product.id
-        );
+        const index = shoppingCartItems.findIndex((item) => item.ProductId == product.id);
         if (index > -1) {
           // shoppingCartItems[index].quantity += quantity;
           if (quantity != -1) {
@@ -537,10 +509,7 @@ export class CartService implements OnDestroy {
           duration: 5000,
         });
         this._setSimpleCart(cart);
-        this.loggedInUserService._setDataToStorage(
-          'cartItem',
-          JSON.stringify(this.carts)
-        );
+        this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
         this.$cartItemsUpdated.next(this.carts);
       }
     }
@@ -560,9 +529,7 @@ export class CartService implements OnDestroy {
       return false;
     }
     const shoppingCart = cart.CartItems;
-    const searchResult = shoppingCart.find(
-      (item) => item.ProductId == product.id
-    );
+    const searchResult = shoppingCart.find((item) => item.ProductId == product.id);
     return searchResult != undefined;
   }
 
@@ -574,9 +541,7 @@ export class CartService implements OnDestroy {
     }
     let total = 0;
     for (const cartItem of cart.CartItems) {
-      total +=
-        this.getPriceofProduct(cartItem.Product, cartItem.quantity) *
-        cartItem.quantity;
+      total += this.getPriceofProduct(cartItem.Product, cartItem.quantity) * cartItem.quantity;
     }
     return total;
   }
@@ -588,15 +553,13 @@ export class CartService implements OnDestroy {
     if (stock < qty) {
       // this.toastrService.error('You can not add more items than available. In stock '+ stock +' items.');
       this.snackBar.open(
-        'You can not choose more items than available. In stock ' +
-          stock +
-          ' items. ',
+        'You can not choose more items than available. In stock ' + stock + ' items. ',
         '×',
         {
           panelClass: 'error',
           verticalPosition: 'top',
           duration: 5000,
-        }
+        },
       );
       return false;
     }
@@ -614,15 +577,12 @@ export class CartService implements OnDestroy {
       if (this.loggedInUser) {
         return true;
       }
-      this.carts =
-        this.loggedInUserService._getDataFromStorage('cartItem') || [];
+      this.carts = this.loggedInUserService._getDataFromStorage('cartItem') || [];
       let cart = this._getSimpleCart(product.BusinessId);
       cart = cart ? cart : this._newSimpleCart(product, product.Business);
 
       const shoppingCart = cart.CartItems;
-      const searchResult = shoppingCart.find(
-        (item) => item.ProductId == product.id
-      );
+      const searchResult = shoppingCart.find((item) => item.ProductId == product.id);
       let qty;
       if (searchResult == undefined) {
         qty = quantity;
@@ -633,9 +593,7 @@ export class CartService implements OnDestroy {
       const limit = product.maxSale;
       if (stock < qty) {
         const message =
-          this.translate.instant(
-            'You can not choose more items than available. In stock '
-          ) +
+          this.translate.instant('You can not choose more items than available. In stock ') +
           stock +
           this.translate.instant(' items.');
         this.snackBar.open(message, '×', {
@@ -649,7 +607,7 @@ export class CartService implements OnDestroy {
       if (limit < qty) {
         const message =
           this.translate.instant(
-            'You can not choose more items than its max limit. Max limit is '
+            'You can not choose more items than its max limit. Max limit is ',
           ) +
           limit +
           ' ' +
@@ -663,10 +621,7 @@ export class CartService implements OnDestroy {
       }
       return true;
     } catch (error: any) {
-      this.showSnackbar.showError(
-        this.translate.instant('Error', error.message),
-        8000
-      );
+      this.showSnackbar.showError(this.translate.instant('Error', error.message), 8000);
       return false;
     }
   }
@@ -679,9 +634,7 @@ export class CartService implements OnDestroy {
     }
     this.carts = this.loggedInUserService._getDataFromStorage('cartItem') || [];
     let cart = this._getSimpleCart(item?.Product?.BusinessId);
-    cart = cart
-      ? cart
-      : this._newSimpleCart(item?.Product, item?.Product?.Business);
+    cart = cart ? cart : this._newSimpleCart(item?.Product, item?.Product?.Business);
     if (item.id) {
       try {
         const data = await this.deleteCartItem(item);
@@ -698,9 +651,7 @@ export class CartService implements OnDestroy {
         return;
       }
     } else {
-      const index = cart.CartItems.findIndex(
-        (itemX) => itemX.ProductId == item.ProductId
-      );
+      const index = cart.CartItems.findIndex((itemX) => itemX.ProductId == item.ProductId);
 
       if (index > -1) {
         const product = cart.CartItems[index].Product;
@@ -713,10 +664,7 @@ export class CartService implements OnDestroy {
         }
       }
     }
-    this.loggedInUserService._setDataToStorage(
-      'cartItem',
-      JSON.stringify(this.carts)
-    );
+    this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
     this.spinner.hide();
     this.$cartItemsUpdated.next(this.carts);
   }
@@ -776,10 +724,7 @@ export class CartService implements OnDestroy {
         }
         const tempCart = await this.getCart();
         this.carts = tempCart.data || [];
-        this.loggedInUserService._setDataToStorage(
-          'cartItem',
-          JSON.stringify(this.carts)
-        );
+        this.loggedInUserService._setDataToStorage('cartItem', JSON.stringify(this.carts));
         this.$cartItemsUpdated.next(this.carts);
       } catch (error) {
         this.utilsService.errorHandle2(error);

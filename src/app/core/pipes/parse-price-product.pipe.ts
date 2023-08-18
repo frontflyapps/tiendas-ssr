@@ -37,32 +37,16 @@ export class ParsePriceProduct implements PipeTransform {
     }
 
     if (type) {
-      const minPrice = this.currency.transform(
-        product.limitMinOffersPrice,
-        currency,
-        'code'
-      );
-      const maxPrice = this.currency.transform(
-        product.limitMaxOffersPrice,
-        currency,
-        'code'
-      );
+      const minPrice = this.currency.transform(product.limitMinOffersPrice, currency, 'code');
+      const maxPrice = this.currency.transform(product.limitMaxOffersPrice, currency, 'code');
       if (product.limitMinPrice == product.limitMaxPrice) {
         return `${minPrice}`;
       } else {
         return `(${minPrice} - ${maxPrice})`;
       }
     } else {
-      const minPrice = this.currency.transform(
-        product.limitMinPrice,
-        currency,
-        'code'
-      );
-      const maxPrice = this.currency.transform(
-        product.limitMaxPrice,
-        currency,
-        'code'
-      );
+      const minPrice = this.currency.transform(product.limitMinPrice, currency, 'code');
+      const maxPrice = this.currency.transform(product.limitMaxPrice, currency, 'code');
       if (product.limitMinPrice == product.limitMaxPrice) {
         return `${minPrice}`;
       } else {

@@ -1,9 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialog,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'environments/environment';
 
@@ -25,7 +21,7 @@ export class DialogReloadAppComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<DialogReloadAppComponent>,
     public dialog: MatDialog,
-    public translateService: TranslateService
+    public translateService: TranslateService,
   ) {
     this.dialogRef.disableClose = true;
     this.unsubscribeAll = new Subject<any>();

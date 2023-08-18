@@ -5,8 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'currencyCheckout',
 })
 export class CurrencyCheckoutPipe implements PipeTransform {
-  constructor(private currency: CurrencyPipe) {
-  }
+  constructor(private currency: CurrencyPipe) {}
 
   transform(data: any): number {
     return data.value * data.rate;

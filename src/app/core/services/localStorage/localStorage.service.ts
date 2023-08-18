@@ -26,11 +26,11 @@ export interface ISessionStorageItems {
 export class LocalStorageService {
   constructor(
     private cookieService: CookieService,
-    public nativeStorageService: NativeStorageService
+    public nativeStorageService: NativeStorageService,
   ) {
     sessionStorage.setItem(
       SESSION_STORAGE_KEY,
-      JSON.stringify(LocalStorageService.initStateSession())
+      JSON.stringify(LocalStorageService.initStateSession()),
     );
   }
 
@@ -47,9 +47,7 @@ export class LocalStorageService {
   }
 
   setVersion() {
-    const v: IVersionSystem = JSON.parse(
-      this.nativeStorageService.getItem('_v')
-    );
+    const v: IVersionSystem = JSON.parse(this.nativeStorageService.getItem('_v'));
     console.log('v', v?.version || 'No version');
     console.log('v env', environment.versions.app);
     const evaluateVersion = v?.version !== environment.versions.app;

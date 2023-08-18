@@ -8,23 +8,23 @@ export class LazyLoadContentDirective {
 
   private _intersectionObserver?: IntersectionObserver;
 
-  constructor(
-    private _element: ElementRef,
-  ) {
-  }
+  constructor(private _element: ElementRef) {}
 
   public ngAfterViewInit() {
-    this._intersectionObserver = new IntersectionObserver(entries => {
-      this.checkForIntersection(entries);
-    }, { 'threshold': 0.5 });
-    this._intersectionObserver.observe(<Element>(this._element.nativeElement));
+    this._intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        this.checkForIntersection(entries);
+      },
+      { threshold: 0.5 },
+    );
+    this._intersectionObserver.observe(<Element>this._element.nativeElement);
   }
 
   private checkForIntersection = (entries: Array<IntersectionObserverEntry>) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (this.checkIfIntersecting(entry)) {
         this.deferLoad.emit();
-        this._intersectionObserver.unobserve(<Element>(this._element.nativeElement));
+        this._intersectionObserver.unobserve(<Element>this._element.nativeElement);
         this._intersectionObserver.disconnect();
       }
     });
@@ -33,9 +33,4 @@ export class LazyLoadContentDirective {
   private checkIfIntersecting(entry: IntersectionObserverEntry) {
     return (<any>entry).isIntersecting && entry.target === this._element.nativeElement;
   }
-
-
 }
-
-
-

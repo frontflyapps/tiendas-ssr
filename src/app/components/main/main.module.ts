@@ -91,10 +91,6 @@ import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module
     GuachosGeneralAutocompleteModule,
     GuachosImageModule,
   ],
-  providers: [
-    SidebarMenuService,
-    PreviousRouteService,
-    ConfirmCreateBusinessService,
-  ],
+  providers: [SidebarMenuService, PreviousRouteService, ConfirmCreateBusinessService],
 })
 export class MainModule {}

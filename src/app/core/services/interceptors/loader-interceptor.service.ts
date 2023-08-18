@@ -1,14 +1,19 @@
 // loader.interceptors.ts
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoaderInterceptorService implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
 
-  constructor() {
-  }
+  constructor() {}
 
   removeRequest(req: HttpRequest<any>) {
     const i = this.requests.indexOf(req);
@@ -26,7 +31,6 @@ export class LoaderInterceptorService implements HttpInterceptor {
     this.requests.push(req);
     // this.ngProgress.start();
     return Observable.create((observer) => {
-
       const subscription = next.handle(req).subscribe(
         (event) => {
           if (event instanceof HttpResponse) {

@@ -46,7 +46,7 @@ export class FooterProductCardComponent implements OnDestroy {
     public translate: TranslateService,
     public utilsService: UtilsService,
     private route: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
     this.loggedInUserService.$loggedInUserUpdated
@@ -115,7 +115,7 @@ export class FooterProductCardComponent implements OnDestroy {
             } else {
               this.cartService.redirectToLoginWithOrigin(
                 this.pathToRedirect,
-                this.paramsToUrlRedirect
+                this.paramsToUrlRedirect,
               );
             }
             // }
@@ -132,10 +132,7 @@ export class FooterProductCardComponent implements OnDestroy {
           });
       }
     } else {
-      this.cartService.redirectToLoginWithOrigin(
-        this.pathToRedirect,
-        this.paramsToUrlRedirect
-      );
+      this.cartService.redirectToLoginWithOrigin(this.pathToRedirect, this.paramsToUrlRedirect);
     }
   }
 }

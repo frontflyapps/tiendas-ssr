@@ -30,7 +30,7 @@ export class UserService {
     return this.httpClient.patch<any>(
       this.urlId.replace(':personId', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
@@ -49,10 +49,7 @@ export class UserService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -75,13 +72,10 @@ export class UserService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlId.replace(':personId', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':personId', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':personId', data.id), this.httpOptions);
     }
   }
 
@@ -95,16 +89,13 @@ export class UserService {
     return this.httpClient.patch<any>(
       this.urlMessengerId.replace(':Id', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
   removeMEssenger(data): Promise<any> {
     return this.httpClient
-      .delete<any>(
-        this.urlMessengerId.replace(':Id', data.id),
-        this.httpOptions
-      )
+      .delete<any>(this.urlMessengerId.replace(':Id', data.id), this.httpOptions)
       .toPromise();
   }
 
@@ -117,10 +108,7 @@ export class UserService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -143,12 +131,12 @@ export class UserService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlMessengerId.replace(':Id', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
       return this.httpClient.get<any>(
         this.urlMessengerId.replace(':Id', data.id),
-        this.httpOptions
+        this.httpOptions,
       );
     }
   }

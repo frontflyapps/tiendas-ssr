@@ -14,19 +14,17 @@ export class SidebarMenuService implements OnDestroy {
 
   constructor(
     private router: Router,
-    public loggedInUserService: LoggedInUserService
+    public loggedInUserService: LoggedInUserService,
   ) {
     this._unsubscribeAll = new Subject<any>();
 
-    this.router.events
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((event: Event) => {
-        if (event instanceof NavigationEnd) {
-          this.lastUrlNav = this.currentUrlNav + '';
-          this.currentUrlNav = event.urlAfterRedirects + '';
-          this.currentUrl.next(event.urlAfterRedirects);
-        }
-      });
+    this.router.events.pipe(takeUntil(this._unsubscribeAll)).subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.lastUrlNav = this.currentUrlNav + '';
+        this.currentUrlNav = event.urlAfterRedirects + '';
+        this.currentUrl.next(event.urlAfterRedirects);
+      }
+    });
   }
 
   ngOnDestroy(): void {

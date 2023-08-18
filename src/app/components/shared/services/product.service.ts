@@ -35,10 +35,8 @@ export class ProductService {
   urlProductidImage = environment.apiUrl + 'product/:id/image';
   urlProductidImageId = environment.apiUrl + 'product/:id/image/:imageId';
   urlRecomendedProduct = environment.apiUrl + 'product/:id/recomended';
-  urlNewRecomendedProduct =
-    environment.apiUrl + 'product/:id/carrusel-recommended';
-  urlRecomendedProductId =
-    environment.apiUrl + 'product/:id/recomended/:recomendedId';
+  urlNewRecomendedProduct = environment.apiUrl + 'product/:id/carrusel-recommended';
+  urlRecomendedProductId = environment.apiUrl + 'product/:id/recomended/:recomendedId';
   urlPromotion = environment.apiUrl + 'product-promotion/:id';
   urlPreview = environment.apiUrl + 'review';
   // -----ADMIN RUTES-------------
@@ -70,11 +68,9 @@ export class ProductService {
     private httpClient: HttpClient,
     private localStorageService: LocalStorageService,
     public snackBar: MatSnackBar,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
-    this.compareProducts.subscribe(
-      (comProducts) => (this.products = comProducts)
-    );
+    this.compareProducts.subscribe((comProducts) => (this.products = comProducts));
 
     this.getProduct = new Subject<any>();
     // this.setGetProductPromise();
@@ -107,11 +103,7 @@ export class ProductService {
   // //////////////////////////////////////////////////////////////
   // ///////////////////////////////////////////////////////////////
 
-  public getProductsByBusiness(
-    businessId,
-    query?: IPagination,
-    params?: any
-  ): Observable<any> {
+  public getProductsByBusiness(businessId, query?: IPagination, params?: any): Observable<any> {
     let httpParams = new HttpParams();
     httpParams = this.setHttpParams(httpParams, query, params);
     if (businessId) {
@@ -122,14 +114,12 @@ export class ProductService {
 
   public getSections() {
     const httpParams = new HttpParams();
-    return this.httpClient
-      .get<any>(this.urlSections, { params: httpParams })
-      .pipe(
-        tap((response) => {
-          this.localStorageService.setOnStorage('sectionsIds', response);
-          this.updatedSections$.next(true);
-        })
-      );
+    return this.httpClient.get<any>(this.urlSections, { params: httpParams }).pipe(
+      tap((response) => {
+        this.localStorageService.setOnStorage('sectionsIds', response);
+        this.updatedSections$.next(true);
+      }),
+    );
   }
 
   public getSectionsIds() {
@@ -144,17 +134,14 @@ export class ProductService {
         }
       }
       this.offset = this.offset + 3;
-      return this.httpClient
-        .get<any>(this.urlSectionsIds, { params: httpParams })
-        .pipe(
-          tap((response) => {
-            let temp =
-              this.localStorageService.getFromStorage('sections') || [];
-            temp = temp.concat(response.data);
-            this.localStorageService.setOnStorage('sections', temp);
-            this.updatedSectionsProduct$.next(true);
-          })
-        );
+      return this.httpClient.get<any>(this.urlSectionsIds, { params: httpParams }).pipe(
+        tap((response) => {
+          let temp = this.localStorageService.getFromStorage('sections') || [];
+          temp = temp.concat(response.data);
+          this.localStorageService.setOnStorage('sections', temp);
+          this.updatedSectionsProduct$.next(true);
+        }),
+      );
     } else {
       return of({});
     }
@@ -167,10 +154,7 @@ export class ProductService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -183,17 +167,11 @@ export class ProductService {
     }
     if (params) {
       if (params.filterText) {
-        httpParams = httpParams.append(
-          'filter[$or][name][$like]',
-          '%' + params.filterText + '%'
-        );
-        httpParams = httpParams.append(
-          'filter[$or][tags][$like]',
-          '%' + params.filterText + '%'
-        );
+        httpParams = httpParams.append('filter[$or][name][$like]', '%' + params.filterText + '%');
+        httpParams = httpParams.append('filter[$or][tags][$like]', '%' + params.filterText + '%');
         httpParams = httpParams.append(
           'filter[$or][description][$like]',
-          '%' + params.filterText + '%'
+          '%' + params.filterText + '%',
         );
       }
       if (params.brandIds && params.brandIds.length) {
@@ -202,14 +180,8 @@ export class ProductService {
             httpParams = httpParams.append('filter[$and][BrandId][$in]', item);
           });
         } else {
-          httpParams = httpParams.append(
-            'filter[$and][BrandId][$in]',
-            params.brandIds[0]
-          );
-          httpParams = httpParams.append(
-            'filter[$and][BrandId][$in]',
-            params.brandIds[0]
-          );
+          httpParams = httpParams.append('filter[$and][BrandId][$in]', params.brandIds[0]);
+          httpParams = httpParams.append('filter[$and][BrandId][$in]', params.brandIds[0]);
         }
       }
       if (params.categoryIds && params.categoryIds.length) {
@@ -223,14 +195,8 @@ export class ProductService {
         }
       }
       if (params.minPrice && params.maxPrice) {
-        httpParams = httpParams.set(
-          'filter[$and][price][$gte]',
-          params.minPrice
-        );
-        httpParams = httpParams.set(
-          'filter[$and][price][$lte]',
-          params.maxPrice
-        );
+        httpParams = httpParams.set('filter[$and][price][$gte]', params.minPrice);
+        httpParams = httpParams.set('filter[$and][price][$lte]', params.maxPrice);
       }
 
       if (params.type) {
@@ -260,10 +226,7 @@ export class ProductService {
   }*/
 
   // ///////////////RUTAS DE ADMINISTRADOR///////////////////////
-  public getAllAdminProducts(
-    query?: IPagination,
-    params?: any
-  ): Observable<any> {
+  public getAllAdminProducts(query?: IPagination, params?: any): Observable<any> {
     let httpParams = new HttpParams();
     if (query) {
       httpParams = httpParams.append('limit', query.limit.toString());
@@ -271,10 +234,7 @@ export class ProductService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -309,64 +269,42 @@ export class ProductService {
   // //////////////////////////////////////////////////
 
   removeProduct(data): Promise<any> {
-    return this.httpClient
-      .delete<any>(this.urlProductId.replace(':id', data.id))
-      .toPromise();
+    return this.httpClient.delete<any>(this.urlProductId.replace(':id', data.id)).toPromise();
   }
 
   public editProduct(data): Observable<any> {
-    return this.httpClient.patch<any>(
-      this.urlProductId.replace(':id', data.id),
-      data
-    );
+    return this.httpClient.patch<any>(this.urlProductId.replace(':id', data.id), data);
   }
 
   public createImageProduct(data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlProductidImage.replace(':id', data.fkId),
-      data
-    );
+    return this.httpClient.post<any>(this.urlProductidImage.replace(':id', data.fkId), data);
   }
 
   public getImageProduct(data): Observable<any> {
-    return this.httpClient.get<any>(
-      this.urlProductidImage.replace(':id', data.fkId),
-      data
-    );
+    return this.httpClient.get<any>(this.urlProductidImage.replace(':id', data.fkId), data);
   }
 
   public editImageProduct(data): Promise<any> {
     return this.httpClient
       .patch<any>(
-        this.urlProductidImageId
-          .replace(':id', data.fkId)
-          .replace(':imageId', data.id),
-        data
+        this.urlProductidImageId.replace(':id', data.fkId).replace(':imageId', data.id),
+        data,
       )
       .toPromise();
   }
 
   public deleteImageProduct(data): Promise<any> {
     return this.httpClient
-      .delete<any>(
-        this.urlProductidImageId
-          .replace(':id', data.fkId)
-          .replace(':imageId', data.id)
-      )
+      .delete<any>(this.urlProductidImageId.replace(':id', data.fkId).replace(':imageId', data.id))
       .toPromise();
   }
 
   public createRecomendedProduct(productId, data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlRecomendedProduct.replace(':id', productId),
-      data
-    );
+    return this.httpClient.post<any>(this.urlRecomendedProduct.replace(':id', productId), data);
   }
 
   public getRecomendedProduct(productId): Observable<any> {
-    return this.httpClient.get<any>(
-      this.urlRecomendedProduct.replace(':id', productId)
-    );
+    return this.httpClient.get<any>(this.urlRecomendedProduct.replace(':id', productId));
   }
 
   public getNewRecomendedProduct(productId, type): Observable<any> {
@@ -374,10 +312,9 @@ export class ProductService {
     if (type) {
       httpParams = httpParams.append('type', type);
     }
-    return this.httpClient.get<any>(
-      this.urlNewRecomendedProduct.replace(':id', productId),
-      { params: httpParams }
-    );
+    return this.httpClient.get<any>(this.urlNewRecomendedProduct.replace(':id', productId), {
+      params: httpParams,
+    });
   }
 
   public getPopularProduct(query?: IPagination): Observable<any> {
@@ -415,29 +352,24 @@ export class ProductService {
   }
 
   public productPromotion(data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlPromotion.replace(':id', data.id),
-      {}
-    );
+    return this.httpClient.post<any>(this.urlPromotion.replace(':id', data.id), {});
   }
 
   public getFrontProductsData(): Observable<any> {
     const httpParams = new HttpParams();
-    return this.httpClient
-      .get<any>(this.urlFrontProductsData, { params: httpParams })
-      .pipe(
-        tap((response) => {
-          response.categories = Object.fromEntries(
-            Object.entries(response.categories).sort(() => Math.random() - 0.5)
-          );
-          const _response: any = JSON.parse(JSON.stringify(response));
-          _response.timespan = new Date().getTime();
-          console.warn('Entro a pedir los productos');
-          this.localStorageService.setOnStorage(FRONT_PRODUCT_DATA, _response);
-          this.updatedProducts$.next(true);
-          return response;
-        })
-      );
+    return this.httpClient.get<any>(this.urlFrontProductsData, { params: httpParams }).pipe(
+      tap((response) => {
+        response.categories = Object.fromEntries(
+          Object.entries(response.categories).sort(() => Math.random() - 0.5),
+        );
+        const _response: any = JSON.parse(JSON.stringify(response));
+        _response.timespan = new Date().getTime();
+        console.warn('Entro a pedir los productos');
+        this.localStorageService.setOnStorage(FRONT_PRODUCT_DATA, _response);
+        this.updatedProducts$.next(true);
+        return response;
+      }),
+    );
   }
 
   createReview(data): Observable<any> {
@@ -504,24 +436,19 @@ export class ProductService {
       item = this.products.filter((itemF) => itemF.id === product.id)[0];
       const index = this.products.indexOf(item);
       this.snackBar.open(
-        'El producto ' +
-          product.name['es'] +
-          ' ya está en la lista de comparación.',
+        'El producto ' + product.name['es'] + ' ya está en la lista de comparación.',
         '×',
         {
           panelClass: 'error',
           verticalPosition: 'top',
           duration: 3000,
-        }
+        },
       );
     } else {
       if (this.products.length < 4) {
         this.products.push(product);
       }
-      message =
-        'El producto ' +
-        product.name['es'] +
-        ' ha sido agregado a la lista de comparación';
+      message = 'El producto ' + product.name['es'] + ' ha sido agregado a la lista de comparación';
       status = 'success';
       this.snackBar.open(message, '×', {
         panelClass: [status],
@@ -529,10 +456,7 @@ export class ProductService {
         duration: 3000,
       });
     }
-    this.nativeStorageService.setItem(
-      'compareItem',
-      JSON.stringify(this.products)
-    );
+    this.nativeStorageService.setItem('compareItem', JSON.stringify(this.products));
     return item;
   }
 
@@ -543,15 +467,10 @@ export class ProductService {
     }
     const index = this.products.indexOf(product);
     this.products.splice(index, 1);
-    this.nativeStorageService.setItem(
-      'compareItem',
-      JSON.stringify(this.products)
-    );
+    this.nativeStorageService.setItem('compareItem', JSON.stringify(this.products));
   }
 
   public setGetProductPromise() {
-    this.productsData$ = this.getProduct.pipe(
-      switchMap(() => this.getFrontProductsData())
-    );
+    this.productsData$ = this.getProduct.pipe(switchMap(() => this.getFrontProductsData()));
   }
 }

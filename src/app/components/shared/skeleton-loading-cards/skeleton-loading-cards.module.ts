@@ -5,21 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { SkeletonLoadingCardsComponent } from './skeleton-loading-cards.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 @NgModule({
-  declarations: [
-    SkeletonLoadingCardsComponent,
-  ],
-  imports: [
-    CommonModule,
-    NgxSkeletonLoaderModule,
-    MatCardModule,
-    FlexLayoutModule,
-  ],
-  exports: [
-    NgxSkeletonLoaderModule,
-    SkeletonLoadingCardsComponent,
-  ],
+  declarations: [SkeletonLoadingCardsComponent],
+  imports: [CommonModule, NgxSkeletonLoaderModule, MatCardModule, FlexLayoutModule],
+  exports: [NgxSkeletonLoaderModule, SkeletonLoadingCardsComponent],
 })
-export class SkeletonLoadingCardsModule {
-}
+export class SkeletonLoadingCardsModule {}

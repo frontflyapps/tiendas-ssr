@@ -171,7 +171,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
     private activateRoute: ActivatedRoute,
     private showToastr: ShowToastrService,
     private metaService: MetaService,
-    private router: Router
+    private router: Router,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
@@ -222,9 +222,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
         this.query.filter.filterText = searchValue;
         this.query.filter.properties.push('filter[$or][Country][name][$like]');
         this.query.filter.properties.push('filter[$or][Province][name][$like]');
-        this.query.filter.properties.push(
-          'filter[$or][Municipality][name][$like]'
-        );
+        this.query.filter.properties.push('filter[$or][Municipality][name][$like]');
         this.query.filter.properties.push('filter[$or][Product][name][$like]');
         // this.query.filter.properties.push('filter[$or][Category][name][$like]');
         this.query.total = 0;
@@ -274,7 +272,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
       },
       (error) => {
         this.loadingSearch = false;
-      }
+      },
     );
   }
 
@@ -289,7 +287,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
       },
       (e) => {
         this.loadingSearch = false;
-      }
+      },
     );
   }
 
@@ -301,12 +299,10 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
         switchMap((data: any) => {
           this.selectedOrder = data.data;
           this.canCancel = this.selectedOrder.PaymentItems.some(
-            (ele: any) => ele.type === 'physical'
+            (ele: any) => ele.type === 'physical',
           );
-          return this.ordersService.getBusinessConfig(
-            this.selectedOrder.BusinessId
-          );
-        })
+          return this.ordersService.getBusinessConfig(this.selectedOrder.BusinessId);
+        }),
       )
       .subscribe((resp) => {
         console.log(resp);
@@ -327,9 +323,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
   processTransactionData(data) {
     return data.map((item) => {
       delete item.fullConfirmResponse;
-      item.Transaction = item.PaymentTransactions.map(
-        (item) => item.Transaction
-      );
+      item.Transaction = item.PaymentTransactions.map((item) => item.Transaction);
       item.countTypeProducts = item.Transaction.length;
       item.fullAddress =
         item.address +
@@ -417,10 +411,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onDownloadDigitalProduct(url) {
     const urlDownload =
-      environment.imageUrl +
-      url +
-      '?Authorization=' +
-      this.loggedInUserService.getTokenCookie();
+      environment.imageUrl + url + '?Authorization=' + this.loggedInUserService.getTokenCookie();
     const link = document.createElement('a');
     link.href = urlDownload;
     link.download = 'data';

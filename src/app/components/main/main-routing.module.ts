@@ -11,15 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('../../components/shop/shop.module').then((m) => m.ShopModule),
+        loadChildren: () => import('../../components/shop/shop.module').then((m) => m.ShopModule),
       },
       {
         path: 'about',
         loadChildren: () =>
-          import('../../components/about-us/about-us.module').then(
-            (m) => m.AboutUsModule
-          ),
+          import('../../components/about-us/about-us.module').then((m) => m.AboutUsModule),
       },
       // {
       //   path: 'checkout',

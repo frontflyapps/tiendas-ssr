@@ -29,15 +29,15 @@ export class SplashScreenService {
    * Show the splash screen
    */
   show(): void {
-    this.player =
-      this._animationBuilder
-        .build([
-          style({
-            opacity: '0',
-            zIndex: '99999',
-          }),
-          animate('400ms ease', style({ opacity: '1' })),
-        ]).create(this.splashScreenEl);
+    this.player = this._animationBuilder
+      .build([
+        style({
+          opacity: '0',
+          zIndex: '99999',
+        }),
+        animate('400ms ease', style({ opacity: '1' })),
+      ])
+      .create(this.splashScreenEl);
 
     setTimeout(() => {
       this.player.play();
@@ -52,15 +52,18 @@ export class SplashScreenService {
    * Hide the splash screen
    */
   hide(): void {
-    this.player =
-      this._animationBuilder
-        .build([
-          style({ opacity: '1' }),
-          animate('400ms ease', style({
+    this.player = this._animationBuilder
+      .build([
+        style({ opacity: '1' }),
+        animate(
+          '400ms ease',
+          style({
             opacity: '0',
             zIndex: '-10',
-          })),
-        ]).create(this.splashScreenEl);
+          }),
+        ),
+      ])
+      .create(this.splashScreenEl);
 
     setTimeout(() => {
       this.player.play();
@@ -81,7 +84,7 @@ export class SplashScreenService {
       // Hide it on the first NavigationEnd event
       this._router.events
         .pipe(
-          filter((event => event instanceof NavigationEnd)),
+          filter((event) => event instanceof NavigationEnd),
           take(1),
         )
         .subscribe(() => {

@@ -10,18 +10,14 @@ export class MetaService {
     description = '',
     shareImg = '',
     keywords = '',
-    url = environment?.meta?.mainPage?.url
+    url = environment?.meta?.mainPage?.url,
   ) {
     const titleTag = document.querySelector('title');
-    const metaDescriptionTag = document.querySelector(
-      `meta[name="description"]`
-    );
+    const metaDescriptionTag = document.querySelector(`meta[name="description"]`);
     const metaKeyWords = document.querySelector(`meta[name="keywords"]`);
     const ogSiteName = document.querySelector(`meta[property="og:site_name"]`);
     const ogTitle = document.querySelector(`meta[property="og:title"]`);
-    const ogDescription = document.querySelector(
-      `meta[property="og:description"]`
-    );
+    const ogDescription = document.querySelector(`meta[property="og:description"]`);
     const ogImage = document.querySelector(`meta[property="og:image"]`);
     const ogUrl = document.querySelector(`meta[property="og:url"]`);
 

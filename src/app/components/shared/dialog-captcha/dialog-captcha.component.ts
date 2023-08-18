@@ -1,11 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {
-  FormBuilder,
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CaptchaService } from '../../../core/services/captcha/captcha.service';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
@@ -37,7 +32,7 @@ export class DialogCaptchaComponent implements OnInit {
     private route: ActivatedRoute,
     public spinner: NgxSpinnerService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
   ) {
     // this.data = this.localStorageService.getFromStorage('captcha');
     console.log(this.data);
@@ -76,7 +71,7 @@ export class DialogCaptchaComponent implements OnInit {
         this.inLoading = false;
         console.log(error);
         this.utilsService.errorHandle(error);
-      }
+      },
     );
   }
 
@@ -99,7 +94,7 @@ export class DialogCaptchaComponent implements OnInit {
               this.cartService.dataAddToCart.quantity,
               this.cartService.dataAddToCart.goToPay,
               this.cartService.dataAddToCart.supplementIds,
-              this.cartService.dataAddToCart.prescription
+              this.cartService.dataAddToCart.prescription,
             )
             .then((item) => {
               this.router.navigate(['cart']);
@@ -124,7 +119,7 @@ export class DialogCaptchaComponent implements OnInit {
         // this.data = this.localStorageService.getFromStorage('captcha');
         this.showToastr.showError(error.error.title);
         // this.utilsService.errorHandle(error);
-      }
+      },
     );
     console.log('sendData');
   }

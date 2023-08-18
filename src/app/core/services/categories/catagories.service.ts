@@ -32,7 +32,7 @@ export class CategoriesService {
     return this.httpClient.patch<any>(
       this.urlId.replace(':categoryId', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
@@ -51,10 +51,7 @@ export class CategoriesService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -67,10 +64,7 @@ export class CategoriesService {
     }
     if (params) {
       if (params.ParentCategoryId) {
-        httpParams = httpParams.set(
-          'filter[$and][ParentCategoryId]',
-          params.ParentCategoryId
-        );
+        httpParams = httpParams.set('filter[$and][ParentCategoryId]', params.ParentCategoryId);
       }
     }
     return this.httpClient.get<any>(this.url, { params: httpParams });
@@ -85,13 +79,10 @@ export class CategoriesService {
     if (data.constructor != Object) {
       return this.httpClient.get<any>(
         this.urlId.replace(':categoryId', data + ''),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':categoryId', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':categoryId', data.id), this.httpOptions);
     }
   }
 
@@ -104,16 +95,13 @@ export class CategoriesService {
     return this.httpClient.patch<any>(
       this.urlBrandId.replace(':brandId', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
   removeBrand(data): Promise<any> {
     return this.httpClient
-      .delete<any>(
-        this.urlBrandId.replace(':brandId', data.id),
-        this.httpOptions
-      )
+      .delete<any>(this.urlBrandId.replace(':brandId', data.id), this.httpOptions)
       .toPromise();
   }
 
@@ -126,10 +114,7 @@ export class CategoriesService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -155,12 +140,12 @@ export class CategoriesService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlBrandId.replace(':brandId', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
       return this.httpClient.get<any>(
         this.urlBrandId.replace(':brandId', data.id),
-        this.httpOptions
+        this.httpOptions,
       );
     }
   }

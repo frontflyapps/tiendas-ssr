@@ -18,10 +18,8 @@ export class PayService {
   urlPaymentTropipay = environment.apiUrl + 'payment/tropipay';
   urlBidaiondoCards = environment.apiUrl + 'payment/bidaiondo/get-card';
   urlPaymentPeopleGoTo = environment.apiUrl + 'payment/peoplegoto';
-  urlPaymentBidaiondoNew =
-    'https://apibidpay.guajitech.com/v1/to-bidaiondo-redirect';
-  urlPaymentPeopleGoToNew =
-    'https://apibidpay.peoplegoto.com/v1/to-pgt-redirect';
+  urlPaymentBidaiondoNew = 'https://apibidpay.guajitech.com/v1/to-bidaiondo-redirect';
+  urlPaymentPeopleGoToNew = 'https://apibidpay.peoplegoto.com/v1/to-pgt-redirect';
   ///////////////////////////////////////////////////////////////////////////
   urlPaySucces = environment.apiUrl + 'pay-success';
   urlPayCancelled = environment.apiUrl + 'pay-cancelled';
@@ -52,21 +50,15 @@ export class PayService {
   }
 
   makePaymentBidaiondo(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentBidaiondo, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentBidaiondo, data).pipe(timeout(60000));
   }
 
   makePaymentAuthorize(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentAuthorize, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentAuthorize, data).pipe(timeout(60000));
   }
 
   makePaymentPaypal(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentPaypal, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentPaypal, data).pipe(timeout(60000));
   }
 
   confirmPaymentPaypal(data): Observable<any> {
@@ -88,21 +80,15 @@ export class PayService {
   }
 
   makePaymentMultisafepay(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentMultisafepay, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentMultisafepay, data).pipe(timeout(60000));
   }
 
   makePaymentTropipay(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentTropipay, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentTropipay, data).pipe(timeout(60000));
   }
 
   makePaymentBidaiondoNew(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentBidaiondoNew, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentBidaiondoNew, data).pipe(timeout(60000));
   }
 
   setCompleteTranferPayment(data): Observable<any> {
@@ -110,46 +96,29 @@ export class PayService {
   }
 
   cancelPaymentBidaiondo(data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlPaymentBidaiondo + `/${data.id}/cancel`,
-      data
-    );
+    return this.httpClient.post<any>(this.urlPaymentBidaiondo + `/${data.id}/cancel`, data);
   }
 
   /*******************PeopleGoTo*****************/
   makePaymentPeopleGoTo(data): Observable<any> {
-    return this.httpClient
-      .post<any>(this.urlPaymentPeopleGoTo, data)
-      .pipe(timeout(60000));
+    return this.httpClient.post<any>(this.urlPaymentPeopleGoTo, data).pipe(timeout(60000));
   }
 
   cancelPaymentPeopleGoTo(data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlPaymentPeopleGoTo + `/${data.id}/cancel`,
-      data
-    );
+    return this.httpClient.post<any>(this.urlPaymentPeopleGoTo + `/${data.id}/cancel`, data);
   }
 
   /**********************************************/
 
   cancelPaymentTranfermovil(data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlPaymentTransfermovil + `/${data.id}/cancel`,
-      data
-    );
+    return this.httpClient.post<any>(this.urlPaymentTransfermovil + `/${data.id}/cancel`, data);
   }
 
   cancelOrder(paymentType, data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.paymentUrls[paymentType].replace(':id', data.id),
-      data
-    );
+    return this.httpClient.post<any>(this.paymentUrls[paymentType].replace(':id', data.id), data);
   }
 
   cancelPaymentEnzona(data): Observable<any> {
-    return this.httpClient.post<any>(
-      this.urlPaymentEnzona + `/${data.id}/cancel`,
-      data
-    );
+    return this.httpClient.post<any>(this.urlPaymentEnzona + `/${data.id}/cancel`, data);
   }
 }

@@ -24,36 +24,29 @@ export class BecomeASellerGuard implements CanActivate, CanLoad {
     private translateService: TranslateService,
     private route: Router,
     private showSnackBar: ShowSnackbarService,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+    state: RouterStateSnapshot,
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
       this.nativeStorageService.setItem('isRegisterToBecomeASeller', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
-          'Debe iniciar sesión para entrar en la creación de cuenta de vendedor'
+          'Debe iniciar sesión para entrar en la creación de cuenta de vendedor',
         ),
-        8000
+        8000,
       );
       this.route.navigate(['/my-account']);
       return false;
     }
   }
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]
-  ): Observable<boolean> | Promise<boolean> | boolean {
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     console.log(this.loggedInUserService.getLoggedInUser());
     if (this.loggedInUserService.getLoggedInUser()) {
       console.log('entra aqui');
@@ -62,9 +55,9 @@ export class BecomeASellerGuard implements CanActivate, CanLoad {
       this.nativeStorageService.setItem('isRegisterToBecomeASeller', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
-          'Debe iniciar sesión para entrar en la creación de cuenta de vendedor'
+          'Debe iniciar sesión para entrar en la creación de cuenta de vendedor',
         ),
-        8000
+        8000,
       );
       this.route.navigate(['/my-account']);
       return false;

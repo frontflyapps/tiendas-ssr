@@ -46,23 +46,18 @@ let fullConfig = {
       '|',
       'imageTextAlternative',
     ],
-    styles: [
-      'full',
-      'side',
-      'alignLeft',
-      'alignCenter',
-      'alignRight',
-    ],
+    styles: ['full', 'side', 'alignLeft', 'alignCenter', 'alignRight'],
     upload: {
       panel: {
         items: ['insertImageViaUrl'],
       },
     },
-    resizeOptions: [{
-      name: 'imageResize:original',
-      label: 'Original',
-      value: null,
-    },
+    resizeOptions: [
+      {
+        name: 'imageResize:original',
+        label: 'Original',
+        value: null,
+      },
       {
         name: 'imageResize:50',
         label: '50%',
@@ -76,20 +71,7 @@ let fullConfig = {
     ],
   },
   fontSize: {
-    options: [
-      9,
-      10,
-      11,
-      12,
-      13,
-      'default',
-      15,
-      17,
-      19,
-      21,
-      24,
-      32,
-    ],
+    options: [9, 10, 11, 12, 13, 'default', 15, 17, 19, 21, 24, 32],
   },
   table: {
     contentToolbar: [
@@ -133,11 +115,7 @@ let mediumConfig = {
   },
   language: 'es',
   image: {
-    toolbar: [
-      'imageTextAlternative',
-      'imageStyle:full',
-      'imageStyle:side',
-    ],
+    toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
   },
   table: {
     contentToolbar: [
@@ -191,23 +169,18 @@ let basicConfig = {
       '|',
       'imageTextAlternative',
     ],
-    styles: [
-      'full',
-      'side',
-      'alignLeft',
-      'alignCenter',
-      'alignRight',
-    ],
+    styles: ['full', 'side', 'alignLeft', 'alignCenter', 'alignRight'],
     upload: {
       panel: {
         items: ['insertImageViaUrl'],
       },
     },
-    resizeOptions: [{
-      name: 'imageResize:original',
-      label: 'Original',
-      value: null,
-    },
+    resizeOptions: [
+      {
+        name: 'imageResize:original',
+        label: 'Original',
+        value: null,
+      },
       {
         name: 'imageResize:50',
         label: '50%',
@@ -221,20 +194,7 @@ let basicConfig = {
     ],
   },
   fontSize: {
-    options: [
-      9,
-      10,
-      11,
-      12,
-      13,
-      'default',
-      15,
-      17,
-      19,
-      21,
-      24,
-      32,
-    ],
+    options: [9, 10, 11, 12, 13, 'default', 15, 17, 19, 21, 24, 32],
   },
   table: {
     contentToolbar: [

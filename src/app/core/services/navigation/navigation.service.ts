@@ -287,7 +287,7 @@ export class NavigationService {
   ];
   constructor(
     private router: Router,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {}
 
   public getNavItems() {
@@ -300,9 +300,7 @@ export class NavigationService {
 
   public navigateToMyAccount(param?: any) {
     debugger;
-    const config = JSON.parse(
-      this.nativeStorageService.getItem('business-config')
-    );
+    const config = JSON.parse(this.nativeStorageService.getItem('business-config'));
 
     if (config && config.signUpType == 'tcp') {
       if (param) {

@@ -27,8 +27,7 @@ export abstract class RestFullService<T> {
     return this.httpClient;
   }
 
-  protected constructor(private injector: Injector) {
-  }
+  protected constructor(private injector: Injector) {}
 
   create(body: any): Observable<T> {
     return this.http.post<T>(this.url, body);
@@ -41,22 +40,19 @@ export abstract class RestFullService<T> {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'return_url': body?.paymentData?.returnUrl,
+          return_url: body?.paymentData?.returnUrl,
         }),
       };
     }
     return this.http.patch<any>(
       this.urlId.replace(':id', id),
       body,
-      body?.paymentData?.gateway === 'come2pay' ? httpOptions : this.httpOptions
+      body?.paymentData?.gateway === 'come2pay' ? httpOptions : this.httpOptions,
     );
   }
 
   remove(item) {
-    return this.http.delete(
-      this.urlId.replace(':id', item.id),
-      this.httpOptions
-    );
+    return this.http.delete(this.urlId.replace(':id', item.id), this.httpOptions);
   }
 
   get(id) {
@@ -66,18 +62,18 @@ export abstract class RestFullService<T> {
   getAll(query?: IPagination, params?: any): any {
     this.deleteKeysHttpParams();
     if (query) {
-      console.log('dfdfff', query)
-      this.httpParams = this.httpParams.append('limit', query?.limit ? query?.limit.toString() : '10');
+      console.log('dfdfff', query);
+      this.httpParams = this.httpParams.append(
+        'limit',
+        query?.limit ? query?.limit.toString() : '10',
+      );
       this.httpParams = this.httpParams.append(
         'offset',
-        query.offset ? query.offset.toString() : 0
+        query.offset ? query.offset.toString() : 0,
       );
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          this.httpParams = this.httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          this.httpParams = this.httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -87,11 +83,11 @@ export abstract class RestFullService<T> {
     } else {
       this.httpParams = this.httpParams.set('limit', '0');
       this.httpParams = this.httpParams.set('offset', '0');
-      console.log('dfdfff')
+      console.log('dfdfff');
     }
 
     if (params) {
-      console.log(params)
+      console.log(params);
       const keys = Object.keys(params);
       keys.forEach((key) => {
         if (params[key].type === 'range-date') {
@@ -99,13 +95,13 @@ export abstract class RestFullService<T> {
             this.httpParams = this.httpParams.append(
               params[key].stringFilter,
               // UtilsService.buildInitialDate(params[key].value).toISOString()
-              params[key].value
+              params[key].value,
             );
           } else {
             this.httpParams = this.httpParams.append(
               params[key].stringFilter,
               // UtilsService.buildEndDate(params[key].value).toISOString()
-              params[key].value
+              params[key].value,
             );
           }
         } else if (
@@ -115,14 +111,11 @@ export abstract class RestFullService<T> {
           params[key].type === 'autocomplete' ||
           params[key].type === 'boolean'
         ) {
-          this.httpParams = this.httpParams.append(
-            params[key].stringFilter,
-            params[key].value
-          );
+          this.httpParams = this.httpParams.append(params[key].stringFilter, params[key].value);
         } else {
           this.httpParams = this.httpParams.append(
             params[key].stringFilter,
-            '%' + params[key].value + '%'
+            '%' + params[key].value + '%',
           );
         }
       });
@@ -138,7 +131,7 @@ export abstract class RestFullService<T> {
       if (params.name) {
         this.httpParams = this.httpParams.append(
           'filter[$and][name][$like]',
-          '%' + params.name + '%'
+          '%' + params.name + '%',
         );
       }
     }
@@ -157,13 +150,13 @@ export abstract class RestFullService<T> {
             this.httpParams = this.httpParams.append(
               params[key].stringFilter,
               // UtilsService.buildInitialDate(params[key].value).toISOString()
-              params[key].value
+              params[key].value,
             );
           } else {
             this.httpParams = this.httpParams.append(
               params[key].stringFilter,
               // UtilsService.buildEndDate(params[key].value).toISOString()
-              params[key].value
+              params[key].value,
             );
           }
         } else if (
@@ -173,14 +166,11 @@ export abstract class RestFullService<T> {
           params[key].type === 'autocomplete' ||
           params[key].type === 'boolean'
         ) {
-          this.httpParams = this.httpParams.append(
-            params[key].stringFilter,
-            params[key].value
-          );
+          this.httpParams = this.httpParams.append(params[key].stringFilter, params[key].value);
         } else {
           this.httpParams = this.httpParams.append(
             params[key].stringFilter,
-            '%' + params[key].value + '%'
+            '%' + params[key].value + '%',
           );
         }
       });

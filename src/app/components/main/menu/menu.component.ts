@@ -1,12 +1,6 @@
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import {
-  Component,
-  HostListener,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { Subject } from 'rxjs';
 import { CartService } from '../../shared/services/cart.service';
@@ -29,9 +23,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   shoppingCartItems: any[] = [];
   language;
   ordersPayment: any[] = [];
-  businessConfig = JSON.parse(
-    this.nativeStorageService.getItem('business-config')
-  );
+  businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
   categories: any[] = [];
   query: IPagination = {
     limit: 20,
@@ -52,23 +44,17 @@ export class MenuComponent implements OnInit, OnDestroy {
     private categoryMenuServ: CategoryMenuNavService,
     private activatedRute: ActivatedRoute,
     private router: Router,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
     this.router.events
       .pipe(
         // identify navigation end
-        filter(
-          (event) =>
-            event instanceof NavigationEnd &&
-            event.url.includes('products/search')
-        ),
+        filter((event) => event instanceof NavigationEnd && event.url.includes('products/search')),
         // now query the activated route
-        map(() => this.activatedRute)
+        map(() => this.activatedRute),
       )
       .subscribe((route: ActivatedRoute) => {
-        this.searchUrlParams = route.snapshot.queryParams
-          ? route.snapshot.queryParams
-          : '';
+        this.searchUrlParams = route.snapshot.queryParams ? route.snapshot.queryParams : '';
         this.getCategoriesForMenu();
       });
     this.language = this.loggedInUserService.getLanguage()
@@ -109,19 +95,15 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     this.shoppingCartItems = this.cartService.getShoppingCars();
 
-    this.cartService.$cartItemsUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(() => {
-        this.shoppingCartItems = this.cartService.getShoppingCars();
-      });
+    this.cartService.$cartItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      this.shoppingCartItems = this.cartService.getShoppingCars();
+    });
 
-    this.ordersService.$orderItemsUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(() => {
-        if (this.loggedInUser) {
-          this.getOrdersPayment();
-        }
-      });
+    this.ordersService.$orderItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      if (this.loggedInUser) {
+        this.getOrdersPayment();
+      }
+    });
 
     this.loggedInUserService.$languageChanged
       .pipe(takeUntil(this._unsubscribeAll))
@@ -135,7 +117,7 @@ export class MenuComponent implements OnInit, OnDestroy {
       if (this.searchUrlParams) {
         this.categories = this.categoryMenuServ.updateCategories(
           data,
-          parseInt(this.searchUrlParams.CategoryId)
+          parseInt(this.searchUrlParams.CategoryId),
         );
       } else {
         this.categories = this.categoryMenuServ.updateCategories(data);

@@ -28,20 +28,23 @@ export class MatPaginatorI18nService extends MatPaginatorIntl {
     length = Math.max(length, 0);
 
     const startIndex: number = page * pageSize;
-    const endIndex: number = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+    const endIndex: number =
+      startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
 
     return `${startIndex + 1} - ${endIndex} / ${length}`;
   };
 
   public getAndInitTranslations(): void {
-    this.translate.get([ITEMS_PER_PAGE, NEXT_PAGE, PREV_PAGE, FIRST_PAGE, LAST_PAGE]).subscribe((translation: any) => {
-      this.itemsPerPageLabel = this.translate.instant(translation[ITEMS_PER_PAGE]);
-      this.nextPageLabel = this.translate.instant(translation[NEXT_PAGE]);
-      this.previousPageLabel = this.translate.instant(translation[PREV_PAGE]);
-      this.firstPageLabel = this.translate.instant(translation[FIRST_PAGE]);
-      this.lastPageLabel = this.translate.instant(translation[LAST_PAGE]);
+    this.translate
+      .get([ITEMS_PER_PAGE, NEXT_PAGE, PREV_PAGE, FIRST_PAGE, LAST_PAGE])
+      .subscribe((translation: any) => {
+        this.itemsPerPageLabel = this.translate.instant(translation[ITEMS_PER_PAGE]);
+        this.nextPageLabel = this.translate.instant(translation[NEXT_PAGE]);
+        this.previousPageLabel = this.translate.instant(translation[PREV_PAGE]);
+        this.firstPageLabel = this.translate.instant(translation[FIRST_PAGE]);
+        this.lastPageLabel = this.translate.instant(translation[LAST_PAGE]);
 
-      this.changes.next();
-    });
+        this.changes.next();
+      });
   }
 }

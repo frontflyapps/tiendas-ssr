@@ -18,17 +18,13 @@ import { LoggedInUserService } from './../../core/services/loggedInUser/logged-i
 export class MyOrdersGuard implements CanActivate, CanLoad {
   constructor(
     private loggedInUserService: LoggedInUserService,
-    private route: Router
+    private route: Router,
   ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+    state: RouterStateSnapshot,
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
@@ -41,10 +37,7 @@ export class MyOrdersGuard implements CanActivate, CanLoad {
     }
   }
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]
-  ): Observable<boolean> | Promise<boolean> | boolean {
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {

@@ -22,9 +22,7 @@ export interface IFooterContacts {
 export class FooterComponent implements OnInit {
   language: string;
   currency: string;
-  businessConfig = JSON.parse(
-    this.nativeStorageService.getItem('business-config')
-  );
+  businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
   public version = environment.versions.app;
 
   public contacts: IFooterContacts;
@@ -56,7 +54,7 @@ export class FooterComponent implements OnInit {
     public dialog: MatDialog,
     public loggedInUserService: LoggedInUserService,
     public translate: TranslateService,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
     const tempFlag = JSON.parse(this.nativeStorageService.getItem('language'));

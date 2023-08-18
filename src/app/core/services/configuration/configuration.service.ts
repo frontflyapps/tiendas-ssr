@@ -21,10 +21,7 @@ export class ConfigurationService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -39,20 +36,14 @@ export class ConfigurationService {
       if (params.currencyDestination) {
         httpParams = httpParams.set(
           'filter[$and][currencyDestination]',
-          params.currencyDestination
+          params.currencyDestination,
         );
       }
       if (params.currencyTarget) {
-        httpParams = httpParams.set(
-          'filter[$and][currencyTarget]',
-          params.currencyTarget
-        );
+        httpParams = httpParams.set('filter[$and][currencyTarget]', params.currencyTarget);
       }
       if (params.BusinessId) {
-        httpParams = httpParams.set(
-          'filter[$and][BusinessId]',
-          params.BusinessId
-        );
+        httpParams = httpParams.set('filter[$and][BusinessId]', params.BusinessId);
       }
     }
     return this.httpClient.get<any>(this.url, { params: httpParams });

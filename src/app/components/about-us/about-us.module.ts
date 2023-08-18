@@ -31,5 +31,4 @@ import { MatListModule } from '@angular/material/list';
     PipesModule,
   ],
 })
-export class AboutUsModule {
-}
+export class AboutUsModule {}

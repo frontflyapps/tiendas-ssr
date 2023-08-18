@@ -1,17 +1,7 @@
 import { CompressImageService } from '../../../core/services/image/compress-image.service';
-import {
-  Component,
-  HostListener,
-  Inject,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-snackbar.service';
 import { AuthenticationService } from '../../../core/services/authentication/authentication.service';
@@ -74,7 +64,7 @@ export class EditProfileComponent implements OnInit {
     private translate: TranslateService,
     private showSnackbar: ShowSnackbarService,
     private compressImage: CompressImageService,
-    public phoneCodesService: PhoneCodeService
+    public phoneCodesService: PhoneCodeService,
   ) {
     this.urlImage = environment.imageUrl;
     this.dialogRef.disableClose = true;
@@ -94,9 +84,7 @@ export class EditProfileComponent implements OnInit {
   createForm(): void {
     this.form = this.fb.group({
       name: [
-        this.loggedInUser && this.loggedInUser.name
-          ? this.loggedInUser.name
-          : null,
+        this.loggedInUser && this.loggedInUser.name ? this.loggedInUser.name : null,
         [Validators.required],
       ],
       // username: [
@@ -104,36 +92,23 @@ export class EditProfileComponent implements OnInit {
       //   [Validators.required],
       // ],
       lastName: [
-        this.loggedInUser && this.loggedInUser.lastName
-          ? this.loggedInUser.lastName
-          : null,
+        this.loggedInUser && this.loggedInUser.lastName ? this.loggedInUser.lastName : null,
         [Validators.required],
       ],
       // address: [this.loggedInUser && this.loggedInUser.address ? this.loggedInUser.address : null, []],
       street: [
-        this.loggedInUser && this.loggedInUser.address
-          ? this.loggedInUser.address.street
-          : null,
+        this.loggedInUser && this.loggedInUser.address ? this.loggedInUser.address.street : null,
         [],
       ],
       number: [
-        this.loggedInUser && this.loggedInUser.address
-          ? this.loggedInUser.address.number
-          : null,
+        this.loggedInUser && this.loggedInUser.address ? this.loggedInUser.address.number : null,
         [],
       ],
       between: [
-        this.loggedInUser && this.loggedInUser.address
-          ? this.loggedInUser.address.between
-          : null,
+        this.loggedInUser && this.loggedInUser.address ? this.loggedInUser.address.between : null,
         [],
       ],
-      phone: [
-        this.loggedInUser && this.loggedInUser.phone
-          ? this.loggedInUser.phone
-          : null,
-        [],
-      ],
+      phone: [this.loggedInUser && this.loggedInUser.phone ? this.loggedInUser.phone : null, []],
       PhoneCallingCodeId: [
         this.loggedInUser && this.loggedInUser?.PhoneCallingCodeId
           ? this.loggedInUser?.PhoneCallingCodeId
@@ -141,28 +116,18 @@ export class EditProfileComponent implements OnInit {
         [],
       ],
       email: [
-        this.loggedInUser && this.loggedInUser.email
-          ? this.loggedInUser.email
-          : null,
+        this.loggedInUser && this.loggedInUser.email ? this.loggedInUser.email : null,
         [Validators.required, Validators.email],
       ],
       birthday: [
-        this.loggedInUser && this.loggedInUser.birthday
-          ? this.loggedInUser.birthday
-          : null,
+        this.loggedInUser && this.loggedInUser.birthday ? this.loggedInUser.birthday : null,
       ],
       description: [
-        this.loggedInUser && this.loggedInUser.description
-          ? this.loggedInUser.description
-          : null,
+        this.loggedInUser && this.loggedInUser.description ? this.loggedInUser.description : null,
       ],
       ci: [
         this.loggedInUser && this.loggedInUser.ci ? this.loggedInUser.ci : null,
-        [
-          Validators.pattern(IDENTITY_PASSPORT),
-          Validators.minLength(11),
-          Validators.maxLength(11),
-        ],
+        [Validators.pattern(IDENTITY_PASSPORT), Validators.minLength(11), Validators.maxLength(11)],
       ],
     });
   }
@@ -189,7 +154,7 @@ export class EditProfileComponent implements OnInit {
           password: [null, [Validators.required]],
           repeat: [null, [Validators.required]],
         },
-        { validator: this.matchValidator.bind(this) }
+        { validator: this.matchValidator.bind(this) },
       );
       this.form.addControl('password', this.formPass);
     }
@@ -222,9 +187,7 @@ export class EditProfileComponent implements OnInit {
     this.authService.editProfile(data).subscribe(
       (newProfile) => {
         this.loggedInUserService.setNewProfile(newProfile.data);
-        this.showSnackbar.showSucces(
-          this.translate.instant('Profile updated successfully')
-        );
+        this.showSnackbar.showSucces(this.translate.instant('Profile updated successfully'));
         this.spinner.hide();
         this.dialogRef.close(true);
       },
@@ -232,7 +195,7 @@ export class EditProfileComponent implements OnInit {
         console.warn(error);
         this.utilsService.errorHandle(error, 'User', 'Editing');
         this.spinner.hide();
-      }
+      },
     );
   }
 

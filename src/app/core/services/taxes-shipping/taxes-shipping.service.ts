@@ -36,10 +36,7 @@ export class TaxesShippingService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -52,10 +49,7 @@ export class TaxesShippingService {
     }
     if (params) {
       if (params.ProductId) {
-        httpParams = httpParams.set(
-          'filter[$and][ProductId]',
-          params.ProductId
-        );
+        httpParams = httpParams.set('filter[$and][ProductId]', params.ProductId);
       }
     }
     return this.httpClient.get<any>(this.urlTax, { params: httpParams });
@@ -65,13 +59,10 @@ export class TaxesShippingService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlTaxId.replace(':taxId', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
-      return this.httpClient.get<any>(
-        this.urlTaxId.replace(':taxId', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlTaxId.replace(':taxId', data.id), this.httpOptions);
     }
   }
 
@@ -84,16 +75,13 @@ export class TaxesShippingService {
     return this.httpClient.patch<any>(
       this.urlShippingId.replace(':shippingId', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
   removeShipping(data): Promise<any> {
     return this.httpClient
-      .delete<any>(
-        this.urlShippingId.replace(':shippingId', data.id),
-        this.httpOptions
-      )
+      .delete<any>(this.urlShippingId.replace(':shippingId', data.id), this.httpOptions)
       .toPromise();
   }
 
@@ -105,10 +93,7 @@ export class TaxesShippingService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -121,10 +106,7 @@ export class TaxesShippingService {
     }
     if (params) {
       if (params.ProductId) {
-        httpParams = httpParams.set(
-          'filter[$and][ProductId]',
-          params.ProductId
-        );
+        httpParams = httpParams.set('filter[$and][ProductId]', params.ProductId);
       }
     }
     return this.httpClient.get<any>(this.urlShipping, { params: httpParams });
@@ -139,12 +121,12 @@ export class TaxesShippingService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlShippingId.replace(':shippingId', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
       return this.httpClient.get<any>(
         this.urlShippingId.replace(':shippingId', data.id),
-        this.httpOptions
+        this.httpOptions,
       );
     }
   }

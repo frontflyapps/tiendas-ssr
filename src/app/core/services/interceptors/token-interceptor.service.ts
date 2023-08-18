@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-} from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { LoggedInUserService } from '../loggedInUser/logged-in-user.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -17,15 +12,12 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   constructor(
     // private loggedInUserService: LoggedInUserService,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {
     // this.token = loggedInUserService.getTokenCookie();
   }
 
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // this.token = this.loggedInUserService.getTokenCookie();
     const tokenBusiness: any = environment.tokenBusiness;
     const language = this.translate.currentLang;
@@ -34,10 +26,7 @@ export class TokenInterceptorService implements HttpInterceptor {
       withCredentials: true,
     });
 
-    if (
-      request.url.includes('v1/auth/cookies') ||
-      request.url.includes('/assets/i18n')
-    ) {
+    if (request.url.includes('v1/auth/cookies') || request.url.includes('/assets/i18n')) {
       return next.handle(request);
     }
 

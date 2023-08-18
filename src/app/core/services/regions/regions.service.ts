@@ -26,7 +26,7 @@ export class RegionsService {
     return this.httpClient.patch<any>(
       this.urlId.replace(':regionId', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
@@ -44,10 +44,7 @@ export class RegionsService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter?.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter?.filterText + '%');
         });
       }
 
@@ -67,13 +64,10 @@ export class RegionsService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlId.replace(':regionId', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':regionId', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':regionId', data.id), this.httpOptions);
     }
   }
 
@@ -86,10 +80,7 @@ export class RegionsService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter?.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter?.filterText + '%');
         });
       }
 
@@ -110,12 +101,12 @@ export class RegionsService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlCountryId.replace(':countryId', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
       return this.httpClient.get<any>(
         this.urlCountryId.replace(':countryId', data.id),
-        this.httpOptions
+        this.httpOptions,
       );
     }
   }
@@ -129,10 +120,7 @@ export class RegionsService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter?.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter?.filterText + '%');
         });
       }
 
@@ -145,10 +133,7 @@ export class RegionsService {
     }
     if (params) {
       if (params.CountryId) {
-        httpParams = httpParams.set(
-          'filter[$and][CountryId]',
-          params.CountryId
-        );
+        httpParams = httpParams.set('filter[$and][CountryId]', params.CountryId);
       }
     }
 
@@ -159,13 +144,10 @@ export class RegionsService {
     if (typeof data === 'number') {
       return this.httpClient.get<any>(
         this.urlCityId.replace(':id', data.toFixed()),
-        this.httpOptions
+        this.httpOptions,
       );
     } else {
-      return this.httpClient.get<any>(
-        this.urlCityId.replace(':id', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlCityId.replace(':id', data.id), this.httpOptions);
     }
   }
 
@@ -177,7 +159,7 @@ export class RegionsService {
     return this.httpClient.patch<any>(
       this.urlCityId.replace(':id', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 

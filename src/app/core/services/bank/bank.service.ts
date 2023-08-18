@@ -15,18 +15,13 @@ export class BankService {
   getAllBank(query?: IPagination, params?: any) {
     let httpParams = new HttpParams();
     if (query) {
-      if (query.limit)
-        httpParams = httpParams.append('limit', query.limit.toString());
+      if (query.limit) httpParams = httpParams.append('limit', query.limit.toString());
 
-      if (query.offset)
-        httpParams = httpParams.append('offset', query.offset.toString());
+      if (query.offset) httpParams = httpParams.append('offset', query.offset.toString());
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query?.filter?.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query?.filter?.filterText + '%');
         });
       }
 

@@ -21,7 +21,7 @@ export class AuthenticationService {
 
   constructor(
     private httpClient: HttpClient,
-    private loggedInUserService: LoggedInUserService
+    private loggedInUserService: LoggedInUserService,
   ) {}
 
   login(user: string, password: string) {

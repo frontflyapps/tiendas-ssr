@@ -14,12 +14,7 @@ import { environment } from 'environments/environment';
 export class LostConexionComponent implements OnInit {
   apiUrl = environment.apiUrl;
 
-  constructor() // private httpClient: HttpClient,
-  // private previousRouteService: PreviousRouteService,
-  // private utilsService: UtilsService,
-  // private showToastrService: ShowToastrService,
-  // private router: Router
-  {}
+  constructor() {} // private router: Router // private showToastrService: ShowToastrService, // private utilsService: UtilsService, // private previousRouteService: PreviousRouteService, // private httpClient: HttpClient,
 
   ngOnInit() {
     // const interVal = setInterval(()=>{

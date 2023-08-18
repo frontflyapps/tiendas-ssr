@@ -25,7 +25,7 @@ export class LocationService {
 
   constructor(
     private httpClient: HttpClient,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
     this.getLocationOnLocalStorage();
   }
@@ -53,9 +53,7 @@ export class LocationService {
   private getLocationOnLocalStorage() {
     let locationOnLocalStorage;
     try {
-      locationOnLocalStorage = JSON.parse(
-        this.nativeStorageService.getItem(LOCATION)
-      );
+      locationOnLocalStorage = JSON.parse(this.nativeStorageService.getItem(LOCATION));
       if (locationOnLocalStorage) {
         this.updateLocation(locationOnLocalStorage);
       }

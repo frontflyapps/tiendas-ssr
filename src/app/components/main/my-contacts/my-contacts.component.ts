@@ -7,11 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
@@ -62,7 +58,7 @@ export class MyContactsComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     private regionService: RegionsService,
     private localStorageService: LocalStorageService,
-    public contactsService: ContactsService
+    public contactsService: ContactsService,
   ) {
     this.dialogRef.disableClose = true;
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
@@ -84,15 +80,13 @@ export class MyContactsComponent implements OnInit, OnDestroy {
   }
 
   setObsContact() {
-    this.contactsService.allContacts$
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(
-        (response) => {
-          this.contactsService.allContacts = response.data;
-          this.isLoading = false;
-        },
-        () => (this.isLoading = false)
-      );
+    this.contactsService.allContacts$.pipe(takeUntil(this._unsubscribeAll)).subscribe(
+      (response) => {
+        this.contactsService.allContacts = response.data;
+        this.isLoading = false;
+      },
+      () => (this.isLoading = false),
+    );
   }
 
   getContacts() {
@@ -106,7 +100,7 @@ export class MyContactsComponent implements OnInit, OnDestroy {
     if (
       this.localStorageService.iMostReSearch(
         locationData?.timespan,
-        environment.timeToResetSession
+        environment.timeToResetSession,
       ) ||
       locationData?.allMunicipalities.length < 1 ||
       locationData?.allProvinces.length < 1
@@ -141,7 +135,7 @@ export class MyContactsComponent implements OnInit, OnDestroy {
   setMunicipalitiesFromResponse(res) {
     this.allMunicipalities = res;
     this.municipalities = this.allMunicipalities.filter(
-      (item) => item.ProvinceId == this.form.get('ProvinceId').value
+      (item) => item.ProvinceId == this.form.get('ProvinceId').value,
     );
   }
 
@@ -252,9 +246,7 @@ export class MyContactsComponent implements OnInit, OnDestroy {
 
   setEditingContact(data) {
     this.contactsService.edit(data).subscribe((contactRes) => {
-      const idx = this.contactsService.allContacts.findIndex(
-        (item) => item.id === data.id
-      );
+      const idx = this.contactsService.allContacts.findIndex((item) => item.id === data.id);
 
       if (idx >= 0) {
         this.contactsService.allContacts[idx] = { ...contactRes.data };
@@ -266,16 +258,13 @@ export class MyContactsComponent implements OnInit, OnDestroy {
 
   setEditingContactDefault(data) {
     this.contactsService.edit(data).subscribe((contactRes) => {
-      const idx = this.contactsService.allContacts.findIndex(
-        (item) => item.id === data.id
-      );
+      const idx = this.contactsService.allContacts.findIndex((item) => item.id === data.id);
       let index = 0;
       this.contactsService.allContacts.forEach(() => {
         if (idx === index) {
           this.contactsService.allContacts[idx] = contactRes.data;
         } else {
-          this.contactsService.allContacts[index].selected =
-            !contactRes.data.selected;
+          this.contactsService.allContacts[index].selected = !contactRes.data.selected;
         }
         index++;
       });
@@ -307,9 +296,7 @@ export class MyContactsComponent implements OnInit, OnDestroy {
 
   removeContact(contact) {
     this.contactsService.remove(contact).then(() => {
-      const indexC = this.contactsService.allContacts.findIndex(
-        (item) => item.id == contact.id
-      );
+      const indexC = this.contactsService.allContacts.findIndex((item) => item.id == contact.id);
       this.contactsService.allContacts.splice(indexC, 1);
     });
   }
@@ -320,9 +307,7 @@ export class MyContactsComponent implements OnInit, OnDestroy {
   }
 
   onFillMunicipalities(provinceId) {
-    this.municipalities = this.allMunicipalities.filter(
-      (item) => item.ProvinceId == provinceId
-    );
+    this.municipalities = this.allMunicipalities.filter((item) => item.ProvinceId == provinceId);
   }
 
   ngOnDestroy() {

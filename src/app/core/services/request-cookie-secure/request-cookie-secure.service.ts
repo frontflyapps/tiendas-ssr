@@ -18,7 +18,7 @@ export class RequestCookieSecureService {
 
   constructor(
     private httpClient: HttpClient,
-    private globalStateOfCookieService: GlobalStateOfCookieService
+    private globalStateOfCookieService: GlobalStateOfCookieService,
   ) {
     this.httpOptions = {};
   }

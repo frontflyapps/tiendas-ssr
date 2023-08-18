@@ -19,15 +19,12 @@ export class UtilsService {
     private showToastr: ShowToastrService,
     private translateService: TranslateService,
     private showSnackbar: ShowSnackbarService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {}
 
   getAppConfig() {
     const httpOptions = {};
-    return this.httpClient.get<any>(
-      environment.apiUrl + 'business-config',
-      httpOptions
-    );
+    return this.httpClient.get<any>(environment.apiUrl + 'business-config', httpOptions);
   }
 
   /**
@@ -42,9 +39,7 @@ export class UtilsService {
       return [];
     }
 
-    return arrayIds.map((itemId) =>
-      arrayBase.find((itemProduct) => itemProduct.id === itemId)
-    );
+    return arrayIds.map((itemId) => arrayBase.find((itemProduct) => itemProduct.id === itemId));
   }
 
   public getUrlImages(): string {
@@ -78,38 +73,32 @@ export class UtilsService {
         ? this.translateService.instant('Error ') + action + ' ' + nomenclator
         : this.translateService.instant('Error ') + action
       : this.translateService.instant(
-          `Server response failed, check your connection to the network, or contact the administrators`
+          `Server response failed, check your connection to the network, or contact the administrators`,
         );
     let msg = alternative;
     if (error.errors && error.errors?.length) {
       msg = error.errors.map(
         //@ts-ignore
         (item) =>
-          (item.field
-            ? this.translateService.instant(item.field) + ':  '
-            : '') +
+          (item.field ? this.translateService.instant(item.field) + ':  ' : '') +
           ' ' +
-          (this.translateService.instant(item.title || item.message) + ' ')
+          (this.translateService.instant(item.title || item.message) + ' '),
       );
     } else if (error.error.errors) {
       msg = error.error.errors.map(
         //@ts-ignore
         (item) =>
-          (item.field
-            ? this.translateService.instant(item.field) + ':  '
-            : '') +
+          (item.field ? this.translateService.instant(item.field) + ':  ' : '') +
           ' ' +
-          (this.translateService.instant(item.title || item.message) + ' ')
+          (this.translateService.instant(item.title || item.message) + ' '),
       );
     } else if (error.error && error.error?.length) {
       msg = error.error.map(
         //@ts-ignore
         (item) =>
-          (item.field
-            ? this.translateService.instant(item.field) + ':  '
-            : '') +
+          (item.field ? this.translateService.instant(item.field) + ':  ' : '') +
           ' ' +
-          (this.translateService.instant(item.title || item.message) + ' ')
+          (this.translateService.instant(item.title || item.message) + ' '),
       );
     } else {
       msg = error.error.message;
@@ -140,32 +129,23 @@ export class UtilsService {
         ? this.translateService.instant('Error ') + action + ' ' + nomenclator
         : this.translateService.instant('Error ') + action
       : this.translateService.instant(
-          `Server response failed, check your connection to the network, or contact the administrators`
+          `Server response failed, check your connection to the network, or contact the administrators`,
         );
     let msg = alternative;
     if (error.errors && error.errors?.length) {
       msg = error.errors.map(
         //@ts-ignore
-        (item) =>
-          (item.field ? item.field + ' : ' : '') +
-          ' ' +
-          (item.title || item.message + ' ')
+        (item) => (item.field ? item.field + ' : ' : '') + ' ' + (item.title || item.message + ' '),
       );
     } else if (error.error.errors) {
       msg = error.error.errors.map(
         //@ts-ignore
-        (item) =>
-          (item.field ? item.field + ' : ' : '') +
-          ' ' +
-          (item.title || item.message + ' ')
+        (item) => (item.field ? item.field + ' : ' : '') + ' ' + (item.title || item.message + ' '),
       );
     } else if (error.error && error.error?.length) {
       msg = error.error.map(
         //@ts-ignore
-        (item) =>
-          (item.field ? item.field + ' : ' : '') +
-          ' ' +
-          (item.title || item.message + ' ')
+        (item) => (item.field ? item.field + ' : ' : '') + ' ' + (item.title || item.message + ' '),
       );
     } else {
       msg = error.error.message;

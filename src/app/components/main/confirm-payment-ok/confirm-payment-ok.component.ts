@@ -3,13 +3,7 @@ import { UtilsService } from './../../../core/services/utils/utils.service';
 import { LoggedInUserService } from './../../../core/services/loggedInUser/logged-in-user.service';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { IUser } from '../../../core/classes/user.class';
-import {
-  Component,
-  HostListener,
-  Inject,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -97,7 +91,7 @@ export class ConfirmPaymentOkComponent implements OnInit {
     private showToastr: ShowToastrService,
     private translateService: TranslateService,
     private router: Router,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {
     this.urlImage = utilsService.getUrlImages();
     this.dialogRef.disableClose = true;
@@ -118,13 +112,13 @@ export class ConfirmPaymentOkComponent implements OnInit {
       this.showToastr.showInfo(
         this.translateService.instant('Pago confirmado correctamente'),
         this.translateService.instant('Confirmación exitósa'),
-        8000
+        8000,
       );
     } else {
       this.showToastr.showInfo(
         this.translateService.instant('Pago cancelado correctamente'),
         this.translateService.instant('Confirmación exitósa'),
-        8000
+        8000,
       );
     }
   }
@@ -132,8 +126,7 @@ export class ConfirmPaymentOkComponent implements OnInit {
   ngOnDestroy(): void {}
 
   onGetVoucher(payment): void {
-    const urlDownload =
-      environment.apiUrl + 'payment/' + payment.id + '/voucher';
+    const urlDownload = environment.apiUrl + 'payment/' + payment.id + '/voucher';
 
     const httpOptions = {
       responseType: 'blob' as 'json',
@@ -151,9 +144,7 @@ export class ConfirmPaymentOkComponent implements OnInit {
   }
 
   onAccept(payment): void {
-    this.router
-      .navigate(['/my-orders'], { queryParams: { orderId: payment.id } })
-      .then();
+    this.router.navigate(['/my-orders'], { queryParams: { orderId: payment.id } }).then();
     this.dialogRef.close(true);
   }
 }

@@ -35,7 +35,7 @@ export class ContactsService {
   setObsContact() {
     this.allContacts$ = this.getContact.pipe(
       distinctUntilChanged(),
-      switchMap(() => this.get())
+      switchMap(() => this.get()),
     );
   }
 
@@ -55,16 +55,13 @@ export class ContactsService {
     return this.httpClient.patch<any>(
       this.urlId.replace(':contactId', JSON.stringify(data.id)),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
   remove(data: IContactBody): Promise<any> {
     return this.httpClient
-      .delete<any>(
-        this.urlId.replace(':contactId', JSON.stringify(data.id)),
-        this.httpOptions
-      )
+      .delete<any>(this.urlId.replace(':contactId', JSON.stringify(data.id)), this.httpOptions)
       .toPromise();
   }
 }

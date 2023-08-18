@@ -35,7 +35,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     private localStorageService: LocalStorageService,
     private router: Router,
     private route: ActivatedRoute,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -44,10 +44,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     });
   }
 
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = '';
@@ -60,7 +57,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
           this.processingBackendError(error);
         }
         return throwError(error);
-      })
+      }),
     );
   }
 
@@ -114,9 +111,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     } else if (err.status == 400 || err.status == 500) {
       console.log(err);
       if (err.error.code === 418) {
-        this.showToastr.showInfo(
-          this.translate.instant(err.error.errors[0].title)
-        );
+        this.showToastr.showInfo(this.translate.instant(err.error.errors[0].title));
         setTimeout(() => {
           window.location.reload();
         }, 1500);
@@ -127,8 +122,8 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
       // this.router.navigate(['/error/conexion-perdida']);
       this.showSnackbar.showError(
         this.translate.instant(
-          `Server response failed, check your connection to the network, or contact the administrators`
-        )
+          `Server response failed, check your connection to the network, or contact the administrators`,
+        ),
       );
     }
   }

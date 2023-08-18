@@ -7,13 +7,9 @@ import { GuachosImagePickerModule } from 'guachos-image-picker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-
-
 @NgModule({
   declarations: [GuachosImageComponent],
-  exports: [
-    GuachosImageComponent,
-  ],
+  exports: [GuachosImageComponent],
   imports: [
     CommonModule,
     TranslateModule,
@@ -23,4 +19,4 @@ import { MatIconModule } from '@angular/material/icon';
     GuachosImagePickerModule,
   ],
 })
-export class GuachosImageModule { }
+export class GuachosImageModule {}

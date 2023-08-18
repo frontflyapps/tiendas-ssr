@@ -1,10 +1,4 @@
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  Input,
-  Output,
-} from '@angular/core';
+import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -21,12 +15,10 @@ export class DebounceClickDirective {
   constructor() {}
 
   ngOnInit() {
-    this.subscription = this.clicks
-      .pipe(debounceTime(this.debounceTime))
-      .subscribe((e) => {
-        this.debounceClick.emit(e);
-        this.countClicks = 0;
-      });
+    this.subscription = this.clicks.pipe(debounceTime(this.debounceTime)).subscribe((e) => {
+      this.debounceClick.emit(e);
+      this.countClicks = 0;
+    });
   }
 
   ngOnDestroy() {

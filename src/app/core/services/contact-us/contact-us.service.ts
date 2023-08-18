@@ -22,7 +22,7 @@ export class ContactUsService {
     return this.httpClient.get<any>(environment.apiUrl + 'about-us').pipe(
       map((data) => {
         return data?.data[0];
-      })
+      }),
     );
   }
 }

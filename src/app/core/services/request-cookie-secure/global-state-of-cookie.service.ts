@@ -4,9 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-
 export class GlobalStateOfCookieService {
-
   stateOfCookie: BehaviorSubject<boolean>;
   stateOfCookie$: Observable<boolean>;
 

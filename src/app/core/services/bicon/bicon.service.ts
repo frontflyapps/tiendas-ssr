@@ -19,11 +19,7 @@ export class BiconService {
   }
 
   editBicon(data) {
-    return this.httpClient.patch<any>(
-      this.urlId.replace(':id', data.id),
-      data,
-      this.httpOptions
-    );
+    return this.httpClient.patch<any>(this.urlId.replace(':id', data.id), data, this.httpOptions);
   }
 
   removeBicon(data): Promise<any> {
@@ -40,10 +36,7 @@ export class BiconService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -56,10 +49,7 @@ export class BiconService {
     }
     if (params) {
       if (params.isActive !== undefined) {
-        httpParams = httpParams.set(
-          'filter[$and][isActive]',
-          params.isActive ? '1' : '0'
-        );
+        httpParams = httpParams.set('filter[$and][isActive]', params.isActive ? '1' : '0');
       }
     }
     return this.httpClient.get<any>(this.url, { params: httpParams });
@@ -67,15 +57,9 @@ export class BiconService {
 
   getBicon(data: any): Observable<any> {
     if (data.constructor === Object) {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':id', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':id', data.id), this.httpOptions);
     } else {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':id', data + ''),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':id', data + ''), this.httpOptions);
     }
   }
 }

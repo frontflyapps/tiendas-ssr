@@ -26,7 +26,7 @@ export class BusinessConfigService {
   getBusinessConfigId(data: any): Observable<any> {
     return this.httpClient.get<any>(
       this.urlBusinessConfigId.replace(':id', data),
-      this.httpOptions
+      this.httpOptions,
     );
   }
 }

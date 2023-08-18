@@ -7,12 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: DialogCaptchaComponent,
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DialogCaptchaRoutingModule {
-}
+export class DialogCaptchaRoutingModule {}

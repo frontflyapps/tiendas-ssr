@@ -27,7 +27,7 @@ export class LoggedInUserService {
     private navigationService: NavigationService,
     private localStorageService: LocalStorageService,
     private encryptDecryptService: EncryptDecryptService,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
     this.listNavItems = [...this.navigationService.getNavItems()];
 
@@ -71,14 +71,10 @@ export class LoggedInUserService {
   public getTokenCookie(): string {
     try {
       if (this.cookieService.get('account')) {
-        return this.encryptDecryptService.decrypt(
-          this.cookieService.get('account')
-        );
+        return this.encryptDecryptService.decrypt(this.cookieService.get('account'));
       }
       if (this.nativeStorageService.getItem('token')) {
-        return this.encryptDecryptService.decrypt(
-          this.nativeStorageService.getItem('token')
-        );
+        return this.encryptDecryptService.decrypt(this.nativeStorageService.getItem('token'));
       }
       return '';
     } catch (e) {
@@ -91,13 +87,7 @@ export class LoggedInUserService {
   public saveAccountCookie(token: string) {
     try {
       const hashedPass = this.encryptDecryptService.encrypt(token);
-      this.cookieService.set(
-        'account',
-        hashedPass,
-        undefined,
-        '/',
-        environment.mainDomain
-      );
+      this.cookieService.set('account', hashedPass, undefined, '/', environment.mainDomain);
       this.nativeStorageService.setItem('token', hashedPass);
     } catch (e) {
       console.warn('Error decrypt value', e);
@@ -208,8 +198,7 @@ export class LoggedInUserService {
     if (data == undefined) {
       return undefined;
     }
-    const base64regex =
-      /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+    const base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
     let base64data = data + '';
     if (!base64regex.test(data)) {
       const buff = Buffer.from(data);

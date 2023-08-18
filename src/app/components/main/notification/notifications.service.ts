@@ -34,7 +34,7 @@ export class NotificationsService {
   constructor(
     private httpClient: HttpClient,
     private loggedInUserService: LoggedInUserService,
-    private socketIoService: SocketIoService
+    private socketIoService: SocketIoService,
   ) {
     this._unsubscribeAll = new Subject<any>();
 
@@ -104,9 +104,7 @@ export class NotificationsService {
     this._getNotifications(this.queryNotification, {
       status: 'not-read',
     }).subscribe((data) => {
-      this.Notificaciones = JSON.parse(
-        JSON.stringify(this.Notificaciones.concat(data.data))
-      );
+      this.Notificaciones = JSON.parse(JSON.stringify(this.Notificaciones.concat(data.data)));
       this.count += data.meta.pagination.count;
       this.Total = data.meta.pagination.total;
       this.notificacionesNoLeidas = data.meta.pagination.total;
@@ -168,16 +166,13 @@ export class NotificationsService {
   }
 
   private _editNotifications(body): Observable<any> {
-    return this.httpClient.patch<any>(
-      this.urlNotificationId.replace(':id', body.id),
-      { status: 'read' }
-    );
+    return this.httpClient.patch<any>(this.urlNotificationId.replace(':id', body.id), {
+      status: 'read',
+    });
   }
 
   private _deleteNotification(body): Observable<any> {
-    return this.httpClient.delete<any>(
-      this.urlNotificationId.replace(':id', body.id)
-    );
+    return this.httpClient.delete<any>(this.urlNotificationId.replace(':id', body.id));
   }
 
   private _listenToSocketIO() {

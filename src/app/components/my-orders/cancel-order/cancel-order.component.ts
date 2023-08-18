@@ -1,20 +1,12 @@
 import { UtilsService } from './../../../core/services/utils/utils.service';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PayService } from 'src/app/core/services/pay/pay.service';
 import { MatTableDataSource } from '@angular/material/table';
 import * as moment from 'moment';
-import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cancel-order',
@@ -51,7 +43,7 @@ export class CancelOrderComponent implements OnInit {
     private fb: UntypedFormBuilder,
     public utilsFront: UtilsService,
     private dialog: MatDialog,
-    public dialogRef: MatDialogRef<CancelOrderComponent>
+    public dialogRef: MatDialogRef<CancelOrderComponent>,
   ) {
     this.order = data.order;
     this.businessConfig = data.businessConfig;
@@ -113,7 +105,7 @@ export class CancelOrderComponent implements OnInit {
         this.showToastr.showSucces(
           `Su reserva esta en proceso de cancelacion. Le notificaremos la respuesta.`,
           'Ok',
-          8000
+          8000,
         );
         this.dialogRef.close(true);
       },
@@ -123,7 +115,7 @@ export class CancelOrderComponent implements OnInit {
         if (error.status == 403 || error.status == 401) {
           this.dialogRef.close(true);
         }
-      }
+      },
     );
     // }
     // if (this.order.paymentType == 'transfermovil') {

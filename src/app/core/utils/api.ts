@@ -4,7 +4,7 @@ import { AnyRecord } from '../classes/general.class';
 
 export const handleObservable = <T extends AnyRecord>(
   obs: Observable<ApiResponse<T>>,
-  options?: ApiOptions<T>
+  options?: ApiOptions<T>,
 ): void => {
   const { onAfterFailed, onAfterSuccess, onBusy } = options || {};
 

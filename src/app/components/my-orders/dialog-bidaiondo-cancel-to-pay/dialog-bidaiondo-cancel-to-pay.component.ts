@@ -12,8 +12,7 @@ export class DialogBidaiondoCancelToPayComponent implements AfterViewInit {
   constructor(
     public dialogRef: MatDialogRef<DialogBidaiondoCancelToPayComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {
-  }
+  ) {}
 
   ngAfterViewInit() {
     this.templateInputs = document.getElementById('inputsHiddenBid');

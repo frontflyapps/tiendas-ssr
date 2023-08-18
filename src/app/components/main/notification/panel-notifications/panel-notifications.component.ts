@@ -1,7 +1,14 @@
 import { UtilsService } from './../../../../core/services/utils/utils.service';
 import { LoggedInUserService } from './../../../../core/services/loggedInUser/logged-in-user.service';
 import { ShowToastrService } from './../../../../core/services/show-toastr/show-toastr.service';
-import { Component, EventEmitter, HostListener, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { NotificationsService } from '../notifications.service';
 
 @Component({
@@ -37,11 +44,9 @@ export class PanelNotificationsComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-  }
+  ngOnDestroy(): void {}
 
   onEliminarNotification(event): void {
     this.notificationsService.onEliminarNotification(event);
@@ -56,6 +61,5 @@ export class PanelNotificationsComponent implements OnInit {
     this.notificationsService.onCargarMasNotificaciones();
   }
 
-  onClosePanel(data) {
-  }
+  onClosePanel(data) {}
 }

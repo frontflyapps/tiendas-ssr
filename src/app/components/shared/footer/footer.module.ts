@@ -31,5 +31,4 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
   ],
 })
-export class FooterModule {
-}
+export class FooterModule {}

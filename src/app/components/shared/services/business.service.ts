@@ -22,10 +22,7 @@ export class BusinessService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -41,7 +38,7 @@ export class BusinessService {
       if (params.name) {
         httpParams = httpParams.set(
           'filter[$and][name][$like]',
-          '%' + params.name.toString() + '%'
+          '%' + params.name.toString() + '%',
         );
       }
 
@@ -65,14 +62,11 @@ export class BusinessService {
 
   getBussines(data: any): Observable<any> {
     if (data.constructor === Object) {
-      return this.httpClient.get<any>(
-        this.urlId.replace(':businessId', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlId.replace(':businessId', data.id), this.httpOptions);
     } else {
       return this.httpClient.get<any>(
         this.urlId.replace(':businessId', data + ''),
-        this.httpOptions
+        this.httpOptions,
       );
     }
   }

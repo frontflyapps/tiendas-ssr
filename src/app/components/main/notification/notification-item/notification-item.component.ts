@@ -12,13 +12,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
 
 @Component({
@@ -30,10 +24,7 @@ import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-i
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
       state('expanded', style({ height: '*' })),
-      transition(
-        'expanded <=> collapsed',
-        animate('500ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      ),
+      transition('expanded <=> collapsed', animate('500ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
   encapsulation: ViewEncapsulation.None,
@@ -129,7 +120,7 @@ export class NotificationItemComponent implements OnInit, OnChanges, OnDestroy {
     private loggedInUserServ: LoggedInUserService,
     private translate: TranslateService,
     public utilsService: UtilsService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -138,9 +129,7 @@ export class NotificationItemComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['notificacion']) {
-      this.notificacion = JSON.parse(
-        JSON.stringify(changes['notificacion'].currentValue)
-      );
+      this.notificacion = JSON.parse(JSON.stringify(changes['notificacion'].currentValue));
       this.order = this.notificacion.data;
     }
   }

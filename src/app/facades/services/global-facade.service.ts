@@ -13,13 +13,11 @@ export class GlobalFacadeService {
   private state = new FacadeStateModel();
   private dispatch = new BehaviorSubject<FacadeStateModel>(this.state);
 
-  cartState$: Observable<Cart[]> = this.dispatch.asObservable().pipe(
-    map(state => state.Carts),
-  );
+  cartState$: Observable<Cart[]> = this.dispatch.asObservable().pipe(map((state) => state.Carts));
 
-  businessState$: Observable<IBusiness> = this.dispatch.asObservable().pipe(
-    map(state => state.Business),
-  );
+  businessState$: Observable<IBusiness> = this.dispatch
+    .asObservable()
+    .pipe(map((state) => state.Business));
 
   updateCartState(cart: Cart[]) {
     this.dispatch.next(

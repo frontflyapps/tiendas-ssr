@@ -19,23 +19,16 @@ export class CurrencyService {
 
   constructor(
     private currencyPipe: CurrencyPipe,
-    private nativeStorageService: NativeStorageService
+    private nativeStorageService: NativeStorageService,
   ) {
-    let tempCurrency = JSON.parse(
-      this.nativeStorageService.getItem('currency')
-    );
+    let tempCurrency = JSON.parse(this.nativeStorageService.getItem('currency'));
     if (tempCurrency) {
-      tempCurrency = this.currencies.find(
-        (item) => item.name == tempCurrency.name
-      );
+      tempCurrency = this.currencies.find((item) => item.name == tempCurrency.name);
       this.currency = tempCurrency ? tempCurrency : this.currencies[0];
     } else {
       this.currency = this.currencies[0];
     }
-    this.nativeStorageService.setItem(
-      'currency',
-      JSON.stringify(this.currency)
-    );
+    this.nativeStorageService.setItem('currency', JSON.stringify(this.currency));
   }
 
   public setCurrency(currency) {
@@ -45,9 +38,7 @@ export class CurrencyService {
   }
 
   public getCurrency() {
-    const tempCurrency = JSON.parse(
-      this.nativeStorageService.getItem('currency')
-    );
+    const tempCurrency = JSON.parse(this.nativeStorageService.getItem('currency'));
     this.currency = tempCurrency ? tempCurrency : this.currencies[0];
     return this.currency;
   }
@@ -58,16 +49,8 @@ export class CurrencyService {
 
   public getPriceLabel(product) {
     const currencyCode = this.getCurrency();
-    const minPrice = this.currencyPipe.transform(
-      product.limitMinPrice,
-      currencyCode.code,
-      'code'
-    );
-    const maxPrice = this.currencyPipe.transform(
-      product.limitMaxPrice,
-      currencyCode.code,
-      'code'
-    );
+    const minPrice = this.currencyPipe.transform(product.limitMinPrice, currencyCode.code, 'code');
+    const maxPrice = this.currencyPipe.transform(product.limitMaxPrice, currencyCode.code, 'code');
     if (product.limitMinPrice == product.limitMaxPrice) {
       return minPrice;
     } else {
@@ -80,12 +63,12 @@ export class CurrencyService {
     const minPrice = this.currencyPipe.transform(
       product.limitMinOffersPrice,
       currencyCode.code,
-      'code'
+      'code',
     );
     const maxPrice = this.currencyPipe.transform(
       product.limitMaxOffersPrice,
       currencyCode.code,
-      'code'
+      'code',
     );
     if (product.limitMinOffersPrice == product.limitMaxOffersPrice) {
       return minPrice;

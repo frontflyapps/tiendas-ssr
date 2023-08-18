@@ -22,12 +22,10 @@ const routes: Routes = [
     path: '404',
     component: NotFoundComponent,
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ErrorRoutingModule {
-}
+export class ErrorRoutingModule {}

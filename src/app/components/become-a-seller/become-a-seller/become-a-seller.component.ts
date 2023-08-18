@@ -8,12 +8,7 @@ import { Router } from '@angular/router';
 import { RegionsService } from '../../../core/services/regions/regions.service';
 import { BusinessService } from '../../../core/services/business/business.service';
 import { ImagePickerConf } from 'guachos-image-picker';
-import {
-  CUBAN_PHONE_START_5,
-  EMAIL_REGEX,
-  NIT,
-  PHONE,
-} from '../../../core/classes/regex.const';
+import { CUBAN_PHONE_START_5, EMAIL_REGEX, NIT, PHONE } from '../../../core/classes/regex.const';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
@@ -100,7 +95,7 @@ export class BecomeASellerComponent implements OnInit {
     private translate: TranslateService,
     private router: Router,
     private nativeStorageService: NativeStorageService,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
@@ -109,9 +104,7 @@ export class BecomeASellerComponent implements OnInit {
       if (this.imageSelected !== undefined) {
       }
     }
-    this.firstStep = JSON.parse(
-      this.nativeStorageService.getItem('bs_step_one')
-    );
+    this.firstStep = JSON.parse(this.nativeStorageService.getItem('bs_step_one'));
     this.ownerInfo = JSON.parse(this.nativeStorageService.getItem('ownerInfo'));
 
     this.buildForm();
@@ -122,8 +115,7 @@ export class BecomeASellerComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (
-      (document.body.scrollTop > 64 ||
-        document.documentElement.scrollTop > 64) &&
+      (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) &&
       window.innerWidth > 937
     ) {
       document.getElementById('questions-bar')?.classList.add('fixed-bar');
@@ -140,50 +132,29 @@ export class BecomeASellerComponent implements OnInit {
 
   buildForm() {
     this.basicForm = this.fb.group({
-      name: [
-        this.firstStep ? this.firstStep.name : null,
-        [Validators.required],
-      ],
+      name: [this.firstStep ? this.firstStep.name : null, [Validators.required]],
       description: [this.firstStep ? this.firstStep.description : null],
 
-      selfEmployed: [
-        this.firstStep ? this.firstStep.selfEmployed : null,
-        [Validators.required],
-      ],
-      nit: [
-        this.firstStep ? this.firstStep.nit : null,
-        [Validators.pattern(NIT)],
-      ],
-      reuup: [
-        this.firstStep ? this.firstStep?.reuup : null,
-        [Validators.pattern(NIT)],
-      ],
+      selfEmployed: [this.firstStep ? this.firstStep.selfEmployed : null, [Validators.required]],
+      nit: [this.firstStep ? this.firstStep.nit : null, [Validators.pattern(NIT)]],
+      reuup: [this.firstStep ? this.firstStep?.reuup : null, [Validators.pattern(NIT)]],
 
       cellphone: [
         this.firstStep ? this.firstStep.cellphone : null,
         [Validators.required, Validators.pattern(PHONE)],
       ],
-      telephone: [
-        this.firstStep ? this.firstStep.telephone : null,
-        [Validators.pattern(PHONE)],
-      ],
+      telephone: [this.firstStep ? this.firstStep.telephone : null, [Validators.pattern(PHONE)]],
       email: [
         this.firstStep ? this.firstStep.email : null,
         [Validators.required, Validators.pattern(EMAIL_REGEX)],
       ],
-      CountryId: [
-        this.firstStep ? this.firstStep.CountryId : 59,
-        [Validators.required],
-      ],
+      CountryId: [this.firstStep ? this.firstStep.CountryId : 59, [Validators.required]],
 
       // OwnerInfo
       owner: this.fb.group({
         name: [this.ownerInfo?.name, [Validators.required]],
         lastName: [this.ownerInfo?.lastName, [Validators.required]],
-        charge: [
-          this.ownerInfo ? this.ownerInfo.charge : null,
-          [Validators.required],
-        ],
+        charge: [this.ownerInfo ? this.ownerInfo.charge : null, [Validators.required]],
         phone: [
           this.ownerInfo ? this.ownerInfo.phone : null,
           [Validators.required, Validators.pattern(PHONE)],
@@ -194,27 +165,17 @@ export class BecomeASellerComponent implements OnInit {
         ],
         ci: [
           this.ownerInfo ? this.ownerInfo.ci : null,
-          [
-            Validators.required,
-            Validators.minLength(11),
-            Validators.maxLength(11),
-          ],
+          [Validators.required, Validators.minLength(11), Validators.maxLength(11)],
         ],
       }),
 
       // locationForm
-      ProvinceId: [
-        this.firstStep ? this.firstStep.ProvinceId : null,
-        [Validators.required],
-      ],
+      ProvinceId: [this.firstStep ? this.firstStep.ProvinceId : null, [Validators.required]],
       MunicipalityId: [
         this.firstStep ? this.firstStep.MunicipalityId : null,
         [Validators.required],
       ],
-      address: [
-        this.firstStep ? this.firstStep.address : null,
-        [Validators.required],
-      ],
+      address: [this.firstStep ? this.firstStep.address : null, [Validators.required]],
       longitude: [this.firstStep ? this.firstStep.longitude : null, []],
       latitude: [this.firstStep ? this.firstStep.latitude : null, []],
       checked: [false, [Validators.required]],
@@ -234,9 +195,7 @@ export class BecomeASellerComponent implements OnInit {
   }
 
   onSelectProvince(provinceId: any) {
-    this.municipalities = this.allMunicipalities.filter(
-      (item) => item.ProvinceId == provinceId
-    );
+    this.municipalities = this.allMunicipalities.filter((item) => item.ProvinceId == provinceId);
     this.basicForm.get('MunicipalityId')?.setValue(null);
   }
 
@@ -247,7 +206,7 @@ export class BecomeASellerComponent implements OnInit {
     this.regionService.getMunicipalities().subscribe((data) => {
       this.allMunicipalities = data.data;
       this.municipalities = this.allMunicipalities.filter(
-        (item) => item.ProvinceId == this.basicForm.get('ProvinceId')?.value
+        (item) => item.ProvinceId == this.basicForm.get('ProvinceId')?.value,
       );
     });
     this.bankService.getAllBank().subscribe((data) => {
@@ -268,18 +227,18 @@ export class BecomeASellerComponent implements OnInit {
 
   saveInfo() {
     this.nativeStorageService.setItem('bs_image', this.imageBusiness);
-    this.nativeStorageService.setItem(
-      'bs_step_one',
-      JSON.stringify(this.basicForm.value)
-    );
+    this.nativeStorageService.setItem('bs_step_one', JSON.stringify(this.basicForm.value));
     this.nativeStorageService.setItem(
       'ownerInfo',
-      JSON.stringify(this.basicForm.get('owner')?.value)
+      JSON.stringify(this.basicForm.get('owner')?.value),
     );
   }
 
   fillLoggedInfo() {
-    this.basicForm.get('owner')?.get('name')?.setValue(this.loggedInUser?.name);
+    this.basicForm
+      .get('owner')
+      ?.get('name')
+      ?.setValue(this.loggedInUser?.name);
     this.basicForm
       .get('owner')
       ?.get('lastName')
@@ -288,7 +247,10 @@ export class BecomeASellerComponent implements OnInit {
       .get('owner')
       ?.get('phone')
       ?.setValue(this.loggedInUser?.phone);
-    this.basicForm.get('owner')?.get('ci')?.setValue(this.loggedInUser?.ci);
+    this.basicForm
+      .get('owner')
+      ?.get('ci')
+      ?.setValue(this.loggedInUser?.ci);
     this.basicForm
       .get('owner')
       ?.get('email')
@@ -312,10 +274,10 @@ export class BecomeASellerComponent implements OnInit {
       () => {
         this.showToastr.showSucces(
           this.translate.instant(
-            'Su solicitud de negocio ha sido creada exitosamente, nos pondremos en contacto con usted para comunicarle el proceso de aprobacion'
+            'Su solicitud de negocio ha sido creada exitosamente, nos pondremos en contacto con usted para comunicarle el proceso de aprobacion',
           ),
           'Éxito',
-          8000
+          8000,
         );
         this.nativeStorageService.removeItem('bs_image');
         this.nativeStorageService.removeItem('bs_step_one');
@@ -326,7 +288,7 @@ export class BecomeASellerComponent implements OnInit {
       },
       (e) => {
         this.spinner.hide();
-      }
+      },
     );
   }
 }

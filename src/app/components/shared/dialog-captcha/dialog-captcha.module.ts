@@ -18,11 +18,8 @@ import { PipesModule } from '../../../core/pipes/pipes.module';
 import { DialogCaptchaRoutingModule } from './dialog-captcha-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 @NgModule({
-  declarations: [
-    DialogCaptchaComponent
-  ],
+  declarations: [DialogCaptchaComponent],
   imports: [
     CommonModule,
     DialogCaptchaRoutingModule,
@@ -43,8 +40,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     PipesModule,
     MatProgressSpinnerModule,
   ],
-  exports: [
-    DialogCaptchaComponent
-  ],
+  exports: [DialogCaptchaComponent],
 })
-export class DialogCaptchaModule { }
+export class DialogCaptchaModule {}

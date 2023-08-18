@@ -16,13 +16,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { LocationService } from '../../../core/services/location/location.service';
-import {
-  debounceTime,
-  filter,
-  map,
-  startWith,
-  takeUntil,
-} from 'rxjs/operators';
+import { debounceTime, filter, map, startWith, takeUntil } from 'rxjs/operators';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { BusinessService } from 'src/app/core/services/business/business.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -44,7 +38,7 @@ export class DialogSetLocationComponent implements OnInit, OnDestroy {
     public dialogRef: MatDialogRef<DialogSetLocationComponent>,
     private fb: UntypedFormBuilder,
     private locationService: LocationService,
-    public translate: TranslateService
+    public translate: TranslateService,
   ) {
     this.storageLocation = data;
   }

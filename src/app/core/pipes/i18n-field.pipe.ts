@@ -13,8 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
  */
 @Pipe({ name: 'i18nField' })
 export class I18nFieldPipe implements PipeTransform {
-  constructor(public translate: TranslateService) {
-  }
+  constructor(public translate: TranslateService) {}
 
   transform(value: any, lang: string): any {
     if (!value) {

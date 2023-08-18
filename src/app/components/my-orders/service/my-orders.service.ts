@@ -26,10 +26,7 @@ export class MyOrdersService {
 
       if (query.filter && query.filter.properties) {
         query.filter.properties.forEach((item) => {
-          httpParams = httpParams.append(
-            item,
-            '%' + query.filter.filterText + '%'
-          );
+          httpParams = httpParams.append(item, '%' + query.filter.filterText + '%');
         });
       }
 
@@ -42,26 +39,14 @@ export class MyOrdersService {
     }
     if (params) {
       if (params.ProductId) {
-        httpParams = httpParams.set(
-          'filter[$and][ProductId]',
-          params.ProductId
-        );
+        httpParams = httpParams.set('filter[$and][ProductId]', params.ProductId);
       }
       if (params.CountryId) {
-        httpParams = httpParams.set(
-          'filter[$and][CountryId]',
-          params.CountryId
-        );
+        httpParams = httpParams.set('filter[$and][CountryId]', params.CountryId);
       }
       if (params.startDate && params.endDate) {
-        httpParams = httpParams.set(
-          'filter[$and][createdAt][$gte]',
-          params.startDate
-        );
-        httpParams = httpParams.set(
-          'filter[$and][createdAt][$lte]',
-          params.endDate
-        );
+        httpParams = httpParams.set('filter[$and][createdAt][$gte]', params.startDate);
+        httpParams = httpParams.set('filter[$and][createdAt][$lte]', params.endDate);
       }
       if (params.status && params.status.constructor != Array) {
         httpParams = httpParams.set('filter[$and][status]', params.status);
@@ -77,14 +62,11 @@ export class MyOrdersService {
 
   getPayment(data) {
     if (data.constructor == Object) {
-      return this.httpClient.get<any>(
-        this.urlPaymentId.replace(':id', data.id),
-        this.httpOptions
-      );
+      return this.httpClient.get<any>(this.urlPaymentId.replace(':id', data.id), this.httpOptions);
     } else {
       return this.httpClient.get<any>(
         this.urlPaymentId.replace(':id', data + ''),
-        this.httpOptions
+        this.httpOptions,
       );
     }
   }
@@ -93,7 +75,7 @@ export class MyOrdersService {
     return this.httpClient.patch<any>(
       this.urlPaymentId.replace(':id', data.id),
       data,
-      this.httpOptions
+      this.httpOptions,
     );
   }
 
