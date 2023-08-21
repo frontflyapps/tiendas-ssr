@@ -20,13 +20,17 @@ const routes: Routes = [
       },
       // {
       //   path: 'checkout',
-      //   loadChildren: () => import('../../components/checkout/checkout.module').then((m) => m.CheckoutModule),
+      //   loadChildren: () =>
+      //     import('../../components/checkout/checkout.module').then((m) => m.CheckoutModule),
       //   canActivate: [CheckoutGuard],
       //   canLoad: [CheckoutGuard],
       // },
       // {
       //   path: 'confirm-payment',
-      //   loadChildren: () => import('../../components/checkout/paypal-redirect-payment/paypal-redirect-payment.module').then((m) => m.PaypalRedirectPaymentModule)
+      //   loadChildren: () =>
+      //     import(
+      //       '../../components/checkout/paypal-redirect-payment/paypal-redirect-payment.module'
+      //     ).then((m) => m.PaypalRedirectPaymentModule),
       // },
       // {
       //   path: 'cart',
@@ -34,11 +38,13 @@ const routes: Routes = [
       // },
       // {
       //   path: 'pages',
-      //   loadChildren: () => import('../../components/pages/pages.module').then((m) => m.PagesModule),
+      //   loadChildren: () =>
+      //     import('../../components/pages/pages.module').then((m) => m.PagesModule),
       // },
       // {
       //   path: 'my-orders',
-      //   loadChildren: () => import('../../components/my-orders/my-orders.module').then((m) => m.MyOrdersModule),
+      //   loadChildren: () =>
+      //     import('../../components/my-orders/my-orders.module').then((m) => m.MyOrdersModule),
       //   canActivate: [MyOrdersGuard],
       //   canLoad: [MyOrdersGuard],
       // },
@@ -52,21 +58,29 @@ const routes: Routes = [
       // },
       // {
       //   path: 'my-account',
-      //   loadChildren: () => import('../../components/my-account/my-account.module').then((m) => m.MyAccountModule),
+      //   loadChildren: () =>
+      //     import('../../components/my-account/my-account.module').then((m) => m.MyAccountModule),
       // },
       // {
       //   path: 'captcha',
-      //   loadChildren: () => import('../../components/shared/dialog-captcha/dialog-captcha.module').then((m) => m.DialogCaptchaModule),
+      //   loadChildren: () =>
+      //     import('../../components/shared/dialog-captcha/dialog-captcha.module').then(
+      //       (m) => m.DialogCaptchaModule,
+      //     ),
       // },
       // {
       //   path: 'privacy-policy',
       //   loadChildren: () =>
-      //     import('../../components/privacy-policy/privacy-policy.module').then((m) => m.PrivacyPolicyModule),
+      //     import('../../components/privacy-policy/privacy-policy.module').then(
+      //       (m) => m.PrivacyPolicyModule,
+      //     ),
       // },
       // {
       //   path: 'term-conditions',
       //   loadChildren: () =>
-      //     import('../../components/terms-conditions/terms-conditions.module').then((m) => m.TermsConditionsModule),
+      //     import('../../components/terms-conditions/terms-conditions.module').then(
+      //       (m) => m.TermsConditionsModule,
+      //     ),
       // },
       // {
       //   path: 'consumer-protection',
@@ -77,11 +91,13 @@ const routes: Routes = [
       // },
       // {
       //   path: 'contact-us',
-      //   loadChildren: () => import('../../components/contact-us/contact-us.module').then((m) => m.ContactUsModule),
+      //   loadChildren: () =>
+      //     import('../../components/contact-us/contact-us.module').then((m) => m.ContactUsModule),
       // },
       // {
       //   path: 'shops-list',
-      //   loadChildren: () => import('../../components/shops-list/shops-list.module').then((m) => m.ShopsListModule),
+      //   loadChildren: () =>
+      //     import('../../components/shops-list/shops-list.module').then((m) => m.ShopsListModule),
       // },
     ],
   },

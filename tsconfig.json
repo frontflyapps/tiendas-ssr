@@ -8,7 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false, //TODO revert and fix all strict checks
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": false, //TODO revert and fix all return checks
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
