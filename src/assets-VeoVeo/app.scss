@@ -1,2 +1,8 @@
+// Common
+@import 'ngx-toastr/toastr';
+//
+@import './scss/helpers/helpers';
+@import './scss/mixins/breakpoints';
 // Color 1 scss
-@import 'scss/color1';
+@import './scss/color1';
+// @import './scss/css/ckeditor-style.css';

@@ -1,0 +1,46 @@
+<mat-dialog-content style="position: relative">
+  <div fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-md="start start" fxLayoutGap="gappx">
+    <p ngClass.gt-sm="mat-body-2" ngClass.lt-md="mat-body-2">
+      {{ 'Confirmación de pago usando Transfermóvil.' | translate }}
+    </p>
+    <ul>
+      <div fxHide.lt-md>
+        <li>
+          {{ 'a. Abra la App de Transfermovil' | translate }}
+        </li>
+        <li>
+          {{ 'b. Busque la opción Pago en Línea.' | translate }}
+        </li>
+        <li>
+          {{ 'c. Escanee el QR.' | translate }}
+        </li>
+        <li>
+          {{ 'd. Proceda a ingresar los datos que la App solicita.' | translate }}
+        </li>
+        <li>
+          {{ 'e. Cuando concluya el pago, de clic en el botón LISTO.' | translate }}
+        </li>
+      </div>
+      <a [href]="domSanitizer.bypassSecurityTrustUrl(this.launchTM)" class="mt-2" color="primary" mat-flat-button>
+        {{ 'Abrir la app de Transfermóvil' | translate }}</a
+      >
+    </ul>
+  </div>
+  <div fxFlexFill fxLayout="column" fxLayoutAlign="start center">
+    <img [src]="this.imgQR" class="mt-4" />
+    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="gappx" style="max-width: 20rem">
+      <span class="mat-title mt-3"> {{ 'Total' | translate }}: &nbsp;{{ finalPrice | currencyMarket: currency }} </span>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    (click)="onCancelarTranfermovilPayment()"
+    color="warn"
+    mat-button
+    mat-dialog-close
+    title="{{ 'Pago listo, cerrar modal' | translate }}"
+  >
+    {{ 'Listo' | translate | uppercase }}
+  </button>
+</mat-dialog-actions>

@@ -29,7 +29,7 @@ export class WishlistService {
 
   // If item is aleready added In wishlist
   public hasProduct(product: Product): boolean {
-    const item = products.find((item) => item.id === product.id);
+    const item = this.products.find((item) => item.id === product.id);
     return item !== undefined;
   }
 
@@ -38,10 +38,10 @@ export class WishlistService {
     let message, status;
     let item: Product | boolean = false;
     if (this.hasProduct(product)) {
-      item = products.filter((item) => item.id === product.id)[0];
-      const index = products.indexOf(item);
+      item = this.products.filter((item) => item.id === product.id)[0];
+      const index = this.products.indexOf(item);
     } else {
-      products.push(product);
+      this.products.push(product);
     }
     message = 'El producto ' + product.name + ' ha sido añadido a la lista de deseos.';
     status = 'éxito';
@@ -50,7 +50,7 @@ export class WishlistService {
       verticalPosition: 'top',
       duration: 3000,
     });
-    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(products));
+    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(this.products));
     return item;
   }
 
@@ -59,9 +59,9 @@ export class WishlistService {
     if (product === undefined) {
       return;
     }
-    const index = products.indexOf(product);
-    products.splice(index, 1);
-    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(products));
+    const index = this.products.indexOf(product);
+    this.products.splice(index, 1);
+    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(this.products));
   }
 
   public getWishlistCount() {
