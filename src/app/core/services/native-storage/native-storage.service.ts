@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { PlatformService } from '../platform/platform.service';
 
 class LocalStorage implements Storage {
   [name: string]: any;
@@ -34,10 +34,10 @@ class LocalStorage implements Storage {
 export class NativeStorageService implements Storage {
   private storage: Storage;
 
-  constructor() {
+  constructor(public platformService: PlatformService) {
     this.storage = new LocalStorage();
 
-    AppComponent.isBrowser.subscribe((isBrowser) => {
+    this.platformService.isBrowser.subscribe((isBrowser) => {
       if (isBrowser) {
         this.storage = localStorage;
       }

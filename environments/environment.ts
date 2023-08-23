@@ -10,6 +10,4 @@ const envRecord: Record<AppName, Partial<Environment>> = {
   Umbralf: devOverridesUmbralf,
 };
 
-export const environment: Environment = environmentFactory(
-  appName ? envRecord[appName] : {}
-);
+export const environment: Environment = environmentFactory(appName ? envRecord[appName] : {});

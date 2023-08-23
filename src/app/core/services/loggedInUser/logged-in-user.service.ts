@@ -31,8 +31,8 @@ export class LoggedInUserService {
   ) {
     this.listNavItems = [...this.navigationService.getNavItems()];
 
-    (window as any).global = window;
-    window.Buffer = window.Buffer || Buffer;
+    // (window as any).global = window; //TODO Fix later
+    // window.Buffer = window.Buffer || Buffer; //TODO Fix later
     this.loggedInUser = this.getLoggedInUser();
   }
 

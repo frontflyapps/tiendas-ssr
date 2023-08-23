@@ -2,9 +2,7 @@ import { Environment } from './types';
 
 import packageJson from '../package.json';
 
-export const environmentFactory = (
-  overrides: Partial<Environment>
-): Environment => {
+export const environmentFactory = (overrides: Partial<Environment>): Environment => {
   return {
     pasarelaBase: '',
 
@@ -68,12 +66,12 @@ export const environmentFactory = (
       // @ts-ignore
       tslint: packageJson.devDependencies['tslint'],
     },
+    apiUrl: '',
+    imageUrl: '',
+
     ...overrides,
 
-    // apiUrl: '',
-    // imageUrl: '',
-
-    apiUrl: 'https://api.guajiritos.com/v1/',
-    imageUrl: 'https://cdntienda.guajiritos.com/',
+    // apiUrl: 'https://api.guajiritos.com/v1/',
+    // imageUrl: 'https://cdntienda.guajiritos.com/',
   };
 };

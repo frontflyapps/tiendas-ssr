@@ -5,17 +5,11 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
-import { IProductCard } from '../../../../core/classes/product-card.class';
+
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
 import { FRONT_PRODUCT_DATA } from '../../../../core/classes/global.const';
 import { GlobalStateOfCookieService } from '../../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { environment } from 'environments/environment';
-
-export interface IProductData {
-  lastCreated: IProductCard[];
-  rating: IProductCard[];
-  isFeatured: IProductCard[];
-}
 
 @Component({
   selector: 'app-product-vertical',

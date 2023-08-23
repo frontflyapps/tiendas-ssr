@@ -28,13 +28,10 @@ export class LocalStorageService {
     private cookieService: CookieService,
     public nativeStorageService: NativeStorageService,
   ) {
-    sessionStorage.setItem(
-      SESSION_STORAGE_KEY,
-      JSON.stringify(LocalStorageService.initStateSession()),
-    );
+    // sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(this.initStateSession())); //TODO Cupull fix later
   }
 
-  static initStateSession(): ISessionStorageItems {
+  private initStateSession(): ISessionStorageItems {
     const today = new Date().getTime();
     return {
       landingPage: false,

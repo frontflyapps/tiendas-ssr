@@ -16,3 +16,9 @@ export interface IProductCard {
   minSale: number;
   type: string;
 }
+
+export interface IProductData {
+  lastCreated: IProductCard[];
+  rating: IProductCard[];
+  isFeatured: IProductCard[];
+}

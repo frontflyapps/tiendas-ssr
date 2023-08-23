@@ -5,10 +5,10 @@ import { Product } from '../../../modals/product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IPagination } from '../../../core/classes/pagination.class';
 import { distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
-import { IProductData } from '../../shop/products/product-vertical/product-vertical.component';
+
 import { FRONT_PRODUCT_DATA } from '../../../core/classes/global.const';
 import { LocalStorageService } from '../../../core/services/localStorage/localStorage.service';
-import { IProductCard } from '../../../core/classes/product-card.class';
+import { IProductCard, IProductData } from '../../../core/classes/product-card.class';
 import { environment } from 'environments/environment';
 import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
 

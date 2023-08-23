@@ -21,6 +21,7 @@ import { environment } from 'environments/environment';
 import { CuDownloadListModule } from 'guachos-cu-down-list';
 import { HttpErrorInterceptorService } from './core/services/interceptors/http-error-interceptor.service';
 import { CurrencyPipe } from '@angular/common';
+import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-ssr-log-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -62,6 +63,11 @@ import { CurrencyPipe } from '@angular/common';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpSSRLogInterceptorService,
       multi: true,
     },
     {

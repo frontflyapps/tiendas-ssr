@@ -61,8 +61,7 @@ export const devOverrides: Partial<Environment> = {
       title: 'Veo Veo Fashion',
       description:
         'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
-      keywords:
-        'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
+      keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
       shareImg: 'https://www.veoveofashion.com/assets/images/share-img.png',
       url: 'https://www.veoveofashion.com/',
     },
@@ -118,8 +117,7 @@ export const prodOverrides: Partial<Environment> = {
       title: 'Veo Veo Fashion',
       description:
         'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
-      keywords:
-        'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
+      keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
       shareImg: 'https://www.veoveofashion.com/assets/images/share-img.png',
       url: 'https://www.veoveofashion.com/',
     },

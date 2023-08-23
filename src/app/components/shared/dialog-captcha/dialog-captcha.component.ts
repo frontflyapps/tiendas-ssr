@@ -5,7 +5,6 @@ import { CaptchaService } from '../../../core/services/captcha/captcha.service';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { TranslateService } from '@ngx-translate/core';
-import { DialogCaptchaModule } from './dialog-captcha.module';
 import { LocalStorageService } from '../../../core/services/localStorage/localStorage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
