@@ -25,7 +25,7 @@ export class HttpSSRLogInterceptorService implements HttpInterceptor {
               { depth: null },
             ),
           );
-          console.warn('--------------------------------------------');
+          console.log('--------------------------------------------');
 
           console.log(
             inspect(

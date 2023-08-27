@@ -20,7 +20,7 @@ export class MatPaginatorI18nService extends MatPaginatorIntl {
     this.getAndInitTranslations();
   }
 
-  public getRangeLabel = (page: number, pageSize: number, length: number): string => {
+  override getRangeLabel = (page: number, pageSize: number, length: number): string => {
     if (length === 0 || pageSize === 0) {
       return `0 / ${length}`;
     }

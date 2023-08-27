@@ -1,0 +1,128 @@
+.main-slider {
+  height: 265px;
+  max-width: 1300px !important;
+  width: 100% !important;
+  margin: 0px auto;
+  box-sizing: border-box !important;
+
+  @media (max-width: 1024px) {
+    height: 265px;
+  }
+
+  @media (max-width: 799px) {
+    height: 150px;
+    padding: 0px !important;
+  }
+
+  @media (max-width: 500px) {
+    height: 150px;
+  }
+}
+
+.main-slider .slide-item {
+  @media (max-width: 500px) {
+    height: 180px !important;
+    background-size: contain !important;
+    background-position: top;
+    background-repeat: no-repeat !important;
+  }
+}
+
+.main-slider {
+  @media (max-width: 500px) {
+    height: 180px !important;
+  }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  @media (max-width: 500px) {
+    bottom: 0px !important;
+  }
+}
+
+.myBtn {
+  background-color: #fff;
+  color: #000000;
+  padding: 5px 24px;
+  width: 180px !important;
+
+  @media (max-width: 900px) {
+    padding: 5px 8px !important;
+    width: 90px !important;
+  }
+
+  @media (max-width: 599px) {
+    padding: 0px 8px !important;
+    width: 90px !important;
+  }
+}
+
+.content {
+  max-width: 60% !important;
+}
+
+.container-carrusel {
+  margin: 0 auto;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .box {
+    position: absolute;
+    min-height: 200px;
+    width: 360px;
+    color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.92);
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+
+    .title {
+      font-size: 26px;
+      font-weight: 600;
+      margin: 1rem 0px !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 1 !important;
+      -webkit-box-orient: vertical !important;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: normal;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important;
+      -webkit-box-orient: vertical !important;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 1rem !important;
+    }
+
+    @media (max-width: 599px) {
+      width: 237px;
+      min-height: 120px;
+      left: 8px;
+      padding: 12px;
+
+      .title {
+        font-size: 14px;
+        margin: 0.25rem 0px !important;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        margin-bottom: 8px !important;
+      }
+    }
+  }
+}
