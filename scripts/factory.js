@@ -167,6 +167,24 @@ function getProject(name) {
         },
         defaultConfiguration: 'production',
       },
+      storybook: {
+        builder: '@storybook/angular:start-storybook',
+        options: {
+          configDir: '.storybook',
+          browserTarget: joinStr(name, ':build'),
+          compodoc: false,
+          port: 4308,
+        },
+      },
+      'build-storybook': {
+        builder: '@storybook/angular:build-storybook',
+        options: {
+          configDir: '.storybook',
+          browserTarget: joinStr(name, ':build'),
+          compodoc: false,
+          outputDir: joinStr('dist/storybook/', name),
+        },
+      },
     },
   };
 }
@@ -219,6 +237,15 @@ function updatePackageJSON(data, name) {
 
   delete data.scripts[joinStr('prerender:', name)];
   data.scripts[joinStr('prerender:', name)] = joinStr('ng run ', name, ':prerender');
+
+  delete data.scripts[joinStr('storybook:', name)];
+  data.scripts[joinStr('storybook:', name)] = joinStr(
+    'STORYBOOK_APP_NAME=',
+    name,
+    ' ng run ',
+    name,
+    ':storybook',
+  );
 
   return data;
 }

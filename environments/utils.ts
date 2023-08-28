@@ -2,6 +2,8 @@ import { Environment } from './types';
 
 import packageJson from '../package.json';
 
+const useApiTest = true;
+
 export const environmentFactory = (overrides: Partial<Environment>): Environment => {
   return {
     pasarelaBase: '',
@@ -56,14 +58,11 @@ export const environmentFactory = (overrides: Partial<Environment>): Environment
     versions: {
       app: packageJson.version,
       angular: packageJson.dependencies['@angular/core'],
-      // @ts-ignore
       material: packageJson.dependencies['@angular/material'],
       rxjs: packageJson.dependencies.rxjs,
-      // @ts-ignore
       ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
       angularCli: packageJson.devDependencies['@angular/cli'],
       typescript: packageJson.devDependencies['typescript'],
-      // @ts-ignore
       tslint: packageJson.devDependencies['tslint'],
     },
     apiUrl: '',
@@ -71,7 +70,11 @@ export const environmentFactory = (overrides: Partial<Environment>): Environment
 
     ...overrides,
 
-    // apiUrl: 'https://api.guajiritos.com/v1/',
-    // imageUrl: 'https://cdntienda.guajiritos.com/',
+    ...(useApiTest
+      ? {
+          apiUrl: 'https://api.guajiritos.com/v1/',
+          imageUrl: 'https://cdntienda.guajiritos.com/',
+        }
+      : {}),
   };
 };

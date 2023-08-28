@@ -186,6 +186,24 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "VeoVeo:build",
+            "compodoc": false,
+            "port": 4308
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "VeoVeo:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/VeoVeo"
+          }
         }
       }
     },
@@ -372,6 +390,24 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "Umbralf:build",
+            "compodoc": false,
+            "port": 4308
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "Umbralf:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/Umbralf"
+          }
         }
       }
     }
