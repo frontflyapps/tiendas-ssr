@@ -173,7 +173,7 @@ function getProject(name) {
           configDir: '.storybook',
           browserTarget: joinStr(name, ':build'),
           compodoc: false,
-          port: 4308,
+          port: 6006,
         },
       },
       'build-storybook': {

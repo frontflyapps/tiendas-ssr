@@ -193,7 +193,7 @@
             "configDir": ".storybook",
             "browserTarget": "VeoVeo:build",
             "compodoc": false,
-            "port": 4308
+            "port": 6006
           }
         },
         "build-storybook": {
@@ -397,7 +397,7 @@
             "configDir": ".storybook",
             "browserTarget": "Umbralf:build",
             "compodoc": false,
-            "port": 4308
+            "port": 6006
           }
         },
         "build-storybook": {
