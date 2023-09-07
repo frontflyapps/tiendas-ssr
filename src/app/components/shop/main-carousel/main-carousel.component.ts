@@ -3,8 +3,8 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 import { UtilsService } from '../../../core/services/utils/utils.service';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'app-main-carousel',
@@ -14,12 +14,7 @@ import { UtilsService } from '../../../core/services/utils/utils.service';
 export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   _unsubscribeAll: Subject<any>;
   language: any;
-  public config: SwiperConfigInterface = {};
   show = false;
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination',
-    clickable: true,
-  };
 
   constructor(
     private translate: TranslateService,
@@ -64,22 +59,35 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   initConfig() {
-    this.config = {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      keyboard: true,
-      navigation: true,
-      pagination: this.pagination,
-      grabCursor: true,
-      loop: false,
-      preloadImages: false,
-      lazy: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      speed: 500,
-      effect: 'fade',
-    };
+    const swiperEl = document.querySelector('#app-main-carousel-swiper-container');
+
+    if (swiperEl) {
+      // swiper parameters
+      const swiperOptions: SwiperOptions = {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        keyboard: true,
+        navigation: true,
+        pagination: false,
+        // pagination: {
+        //   clickable: true,
+        //   el: '.swiper-pagination',
+        // },
+        grabCursor: true,
+        loop: false,
+        // preloadImages: false,
+        // lazy: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        speed: 500,
+        effect: 'fade',
+      };
+      Object.assign(swiperEl, swiperOptions);
+
+      // @ts-expect-error necessarCheck the docs
+      swiperEl.initialize();
+    }
   }
 }

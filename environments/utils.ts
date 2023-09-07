@@ -72,6 +72,8 @@ export const environmentFactory = (overrides: Partial<Environment>): Environment
 
     ...(useApiTest
       ? {
+          tokenBusiness:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjEsImlkIjoxLCJkYXRlIjoiMjAyMS0wOS0xM1QwMTo0NToxOC4wMDBaIiwibmFtZSI6IlRpZW5kYSIsImVtYWlsIjoidGllbmRhQGxvY2FsaG9zdC5jb20ifSwiaWF0IjoxNjMxNDk3NTkxfQ.FF5-276rI9SJmtebVo0spV8Y2wdOZPok7LlUxtTDwh0',
           apiUrl: 'https://api.guajiritos.com/v1/',
           imageUrl: 'https://cdntienda.guajiritos.com/',
         }

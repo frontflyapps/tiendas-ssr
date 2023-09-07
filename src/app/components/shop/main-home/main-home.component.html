@@ -10,10 +10,7 @@
 
 <!-- ------------------------------------------------------------ -->
 <!-- -- Carusel ---------------------------------------------- -->
-<!-- <app-main-carousel
-  *ngIf="!showStatic && slides.length > 0"
-  [slides]="slides"
-></app-main-carousel> -->
+<app-main-carousel *ngIf="!showStatic && slides.length > 0" [slides]="slides"></app-main-carousel>
 
 <div class="container mt-3">
   <!-- BANNER TEMPORAL -->
@@ -71,10 +68,10 @@
             </div>
             <div class="content" fxFlex="80">
               <p class="uppercase">
-                {{ item.title | parseLang : utilsService.getLang() }}
+                {{ item.title | parseLang: utilsService.getLang() }}
               </p>
               <span class="text-muted m-0 mt-2 word-break">{{
-                item.subTitle | parseLang : utilsService.getLang()
+                item.subTitle | parseLang: utilsService.getLang()
               }}</span>
             </div>
           </mat-card>
@@ -83,13 +80,9 @@
     </div>
   </div>
 
-  <ng-container
-    *ngIf="
-      arraySectionProducts.length == 0 && !loadingAllProduct && !loadingProducts
-    "
-  >
+  <ng-container *ngIf="arraySectionProducts.length == 0 && !loadingAllProduct && !loadingProducts">
     <h3 class="mat-title py-4" style="text-align: center">
-      {{ "No hay ningún producto disponible" | translate }}
+      {{ 'No hay ningún producto disponible' | translate }}
     </h3>
   </ng-container>
 
@@ -100,13 +93,7 @@
     (scrolled)="loadProducts()"
   >
     <div *ngIf="arraySectionProducts.length >= 0">
-      <div
-        *ngFor="
-          let card of arraySectionProducts;
-          let i = index;
-          trackBy: identify
-        "
-      >
+      <div *ngFor="let card of arraySectionProducts; let i = index; trackBy: identify">
         <!--BANNER-->
         <!-- <div class='main-banner' *ngIf='card.visualType?.type === "businessPromotion"'>
           <ng-container *ngIf='applyStyle && card?.imageXs; then bannerPromo1Xs; else bannerPromo1'>
@@ -121,34 +108,49 @@
           </ng-template>
         </div> -->
         <!--CATEGORIES-->
-        <!-- <div *ngIf='card.visualType?.type === "categories"'>
-          <div class='container'>
-            <div class='products sec-padding'>
-              <div class='products-four' fxHide.xs fxHide.sm fxShow>
-                <h1 style='color: initial'>{{ card.name | i18nField: translateService.currentLang }}</h1>
-                <app-product-carousel *ngIf='card.value' [btnColor]="'accent'" [products]='card.value'>
+        <div *ngIf="card.visualType?.type === 'categories'">
+          <div class="container">
+            <div class="products sec-padding">
+              <div class="products-four" fxHide.xs fxHide.sm fxShow>
+                <h1 style="color: initial">
+                  {{ card.name | i18nField: translateService.currentLang }}
+                </h1>
+                <app-product-carousel
+                  *ngIf="card.value"
+                  [btnColor]="'accent'"
+                  [products]="card.value"
+                >
                 </app-product-carousel>
-                <div *ngIf='loadingFeatured' class='my-3'>
-                  <app-skeleton-loading-cards *ngIf='!card.value' [setConfiguration]='{ xs: 1, sm: 2, md: 3, lg: 4 }'>
+                <div *ngIf="loadingFeatured" class="my-3">
+                  <app-skeleton-loading-cards
+                    *ngIf="!card.value"
+                    [setConfiguration]="{ xs: 1, sm: 2, md: 3, lg: 4 }"
+                  >
                   </app-skeleton-loading-cards>
                 </div>
               </div>
               <div fxShow.xs fxHide.sm fxHide>
-                <app-product-grid *ngIf='card.value && card.visualType?.typeVisualization === "grid"'
-                                  [products]='card'>
+                <app-product-grid
+                  *ngIf="card.value && card.visualType?.typeVisualization === 'grid'"
+                  [products]="card"
+                >
                 </app-product-grid>
-                <div *ngIf='card.value && card.visualType?.typeVisualization === "carousel"'>
-                  <h1 style='color: initial'>{{ card.name | i18nField: translateService.currentLang }}</h1>
-                  <app-product-carousel [btnColor]="'accent'" [products]='card.value'>
+                <div *ngIf="card.value && card.visualType?.typeVisualization === 'carousel'">
+                  <h1 style="color: initial">
+                    {{ card.name | i18nField: translateService.currentLang }}
+                  </h1>
+                  <app-product-carousel [btnColor]="'accent'" [products]="card.value">
                   </app-product-carousel>
                 </div>
-                <app-product-list *ngIf='card.value && card.visualType?.typeVisualization === "list"'
-                                  [products]='card'>
+                <app-product-list
+                  *ngIf="card.value && card.visualType?.typeVisualization === 'list'"
+                  [products]="card"
+                >
                 </app-product-list>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <!--DESTACADOS-->
         <!-- <div *ngIf='card.visualType?.type === "featured"'>
           <div class='container'>
@@ -197,7 +199,7 @@
       <div class="container">
         <div class="products sec-padding bg">
           <div class="products-four">
-            <h3 class="uppercase">{{ "Latest From Our Blog" | translate }}</h3>
+            <h3 class="uppercase">{{ 'Latest From Our Blog' | translate }}</h3>
             <section style="padding-top: 26px">
               <!-- <app-blog-section></app-blog-section> -->
             </section>

@@ -20,8 +20,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'environments/environment';
 import { CuDownloadListModule } from 'guachos-cu-down-list';
 import { HttpErrorInterceptorService } from './core/services/interceptors/http-error-interceptor.service';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, registerLocaleData } from '@angular/common';
 import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-ssr-log-interceptor.service';
+import localeEs from '@angular/common/locales/es';
+import { register as swiperRegister } from 'swiper/element/bundle';
+
+swiperRegister();
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [AppComponent],
@@ -65,11 +70,11 @@ import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-
       useClass: HttpErrorInterceptorService,
       multi: true,
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpSSRLogInterceptorService,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpSSRLogInterceptorService,
+    //   multi: true,
+    // },
     {
       provide: LOCALE_ID,
       useValue: 'es',

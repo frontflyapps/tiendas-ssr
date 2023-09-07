@@ -11,8 +11,6 @@ export class GlobalStateOfCookieService {
   constructor() {
     this.stateOfCookie = new BehaviorSubject<boolean>(false);
     this.stateOfCookie$ = this.stateOfCookie.asObservable();
-
-    console.log('ya service');
   }
 
   getCookieState() {

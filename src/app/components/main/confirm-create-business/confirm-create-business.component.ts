@@ -20,8 +20,9 @@ export class ConfirmCreateBusinessComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
-    this.innerWidth = window.innerWidth;
-    this.applyStyle = this.innerWidth <= 600;
+    // TODO fix this comment (Cupull)
+    // this.innerWidth = window.innerWidth;
+    // this.applyStyle = this.innerWidth <= 600;
   }
 
   ngOnInit(): void {

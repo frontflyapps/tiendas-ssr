@@ -8,7 +8,7 @@ import { MatLegacyChipsModule as MatChipsModule } from '@angular/material/legacy
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PipesModule } from '../../core/pipes/pipes.module';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { PriceComponent } from './products/price/price.component';
@@ -19,7 +19,6 @@ import { ProductLeftSidebarComponent } from './products/product-left-sidebar/pro
 import { ProductVerticalComponent } from './products/product-vertical/product-vertical.component';
 import { CommonModule } from '@angular/common';
 import { ShopRoutingModule } from './shop-routing.module';
-import { SwiperModule } from 'ngx-swiper-wrapper';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatPaginatorI18nService } from '../../core/classes/PaginatorI18n.class';
@@ -102,7 +101,6 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [
     CommonModule,
     ShopRoutingModule,
-    // SwiperModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
@@ -152,5 +150,6 @@ import { MatRadioModule } from '@angular/material/radio';
     },
     Meta,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShopModule {}
