@@ -1,13 +1,21 @@
 <mat-dialog-content>
   <blockquote>
     <p>
-      {{"Usted saldrá de nuestro sistema para la pasarela online ENZONA, marque CONFIRMAR para proseguir con su pago online"|translate}}
+      {{
+        'Usted saldrá de nuestro sistema para la pasarela online ENZONA, marque CONFIRMAR para proseguir con su pago online'
+          | translate
+      }}
     </p>
   </blockquote>
-
 </mat-dialog-content>
-<mat-dialog-actions align='end'>
-  <button mat-button mat-dialog-close>{{'Cancelar'|translate}}</button>
-  <a (click)='onEnzonaLoad()' [disabled]='loading' color='primary' id='inputsHiddenBid'
-     mat-flat-button>{{'CONFIRMAR'| translate}}</a>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'Cancelar' | translate }}</button>
+  <a
+    (click)="onEnzonaLoad()"
+    [disabled]="loading"
+    color="primary"
+    id="inputsHiddenBid"
+    mat-flat-button
+    >{{ 'CONFIRMAR' | translate }}</a
+  >
 </mat-dialog-actions>

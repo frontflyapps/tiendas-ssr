@@ -7,8 +7,13 @@
         <mat-icon> arrow_back </mat-icon>
       </a>
 
-      <h1 class="mat-title mb-0 color-grey-800 uppercase ml-2">{{ 'PROTECCIÓN AL CONSUMIDOR' | translate }}</h1>
+      <h1 class="mat-title mb-0 color-grey-800 uppercase ml-2">
+        {{ 'PROTECCIÓN AL CONSUMIDOR' | translate }}
+      </h1>
     </div>
   </div>
 </section>
-<div class="ck-content container-Term py-4" [innerHTML]="text | parseLang: language | safeHtml"></div>
+<div
+  class="ck-content container-Term py-4"
+  [innerHTML]="text | parseLang: language | safeHtml"
+></div>

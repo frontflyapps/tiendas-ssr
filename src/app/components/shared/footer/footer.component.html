@@ -1,6 +1,6 @@
-<footer class='pt-3'>
-    <div fxLayout='column' fxLayoutAlign='center center' fxLayoutAlign.xs='start center'>
-        <!--<a
+<footer class="pt-3">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start center">
+    <!--<a
       class="item-selector mx-3 my-2"
       fxLayoutAlign="start center"
       mat-button
@@ -17,169 +17,296 @@
         </button>
       </span>
     </mat-menu>-->
-        <div class='col' fxLayout='row' fxLayout.xs='column'>
-            <div class='col-1' fxLayout='column' fxLayoutAlign=' start'>
-                <a [routerLink]="['']" class='mat-button' mat-button>
-                    <span>{{ 'Inicio' | translate }}</span>
-                </a>
-                <a [routerLink]="['about']" class="mat-button" mat-button>
-                    <span>{{ 'Quiénes somos' | translate }}</span>
-                </a>
-                <a (click)="onShowProfile()" *ngIf="loggedInUser" class="mat-button" mat-button>
-                    <span>{{ 'Tu cuenta' | translate }}</span>
-                </a>
-                <a [routerLink]="['shops-list']" *ngIf='businessConfig?.canShowOurBussiness' fxLayoutAlign="start center" mat-button>
-                    <span>{{ 'Nuestras tiendas' | translate }}</span>
-                </a>
-            </div>
-            <div class='col-2' fxLayout='column' fxLayoutAlign=' start'>
-                <a [routerLink]="['/faq']" class='mat-button' mat-button>
-                    <span>{{ 'Ayuda' | translate }}</span>
-                </a>
-                <a *ngIf='loggedInUser' [routerLink]="['my-orders']" class='mat-button' mat-button>
-                    <span>{{ 'Tus pedidos' | translate }}</span>
-                </a>
-                <a [routerLink]="['privacy-policy']" fxLayoutAlign='start center' mat-button>
-                    <span>{{ 'Políticas de privacidad' | translate }}</span>
-                </a>
-                <a [routerLink]="['term-conditions']" fxLayoutAlign="start center" mat-button>
-                    <span>{{ 'Términos y condiciones' | translate }}</span>
-                </a>
-            </div>
-        </div>
-
-        <div fxLayout="row">
-            <!--      <a #langMenuTrigger="matMenuTrigger"-->
-            <!--         [matMenuTriggerFor]="langMenu"-->
-            <!--         class="item-selector mx-3 my-2"-->
-            <!--         fxLayoutAlign="start center"-->
-            <!--         mat-button>-->
-            <!--        <img [src]="flag?.image" alt="flag image" width="18" />-->
-            <!--        <mat-icon>arrow_drop_down</mat-icon>-->
-            <!--        <span>{{ flag?.name }}</span>-->
-            <!--      </a>-->
-            <!--      <mat-menu #langMenu="matMenu" [overlapTrigger]="false" class="app-dropdown" xPosition="before">-->
-            <!--      <span>-->
-            <!--        <button (click)="changeLang(flag)" *ngFor="let flag of flags" mat-menu-item>-->
-            <!--          <img [src]="flag.image" alt="flag image" width="18" /> {{ flag.name }}-->
-            <!--        </button>-->
-            <!--      </span>-->
-            <!--      </mat-menu>-->
-
-            <a [routerLink]="['/contact-us']" class="item-selector mx-3 my-2" mat-button>
-        {{'Contact us'|translate}}
-      </a>
-        </div>
-
-        <div style="padding-bottom: 16px"></div>
+    <div class="col" fxLayout="row" fxLayout.xs="column">
+      <div class="col-1" fxLayout="column" fxLayoutAlign=" start">
+        <a [routerLink]="['']" class="mat-button" mat-button>
+          <span>{{ 'Inicio' | translate }}</span>
+        </a>
+        <a [routerLink]="['about']" class="mat-button" mat-button>
+          <span>{{ 'Quiénes somos' | translate }}</span>
+        </a>
+        <a (click)="onShowProfile()" *ngIf="loggedInUser" class="mat-button" mat-button>
+          <span>{{ 'Tu cuenta' | translate }}</span>
+        </a>
+        <a
+          [routerLink]="['shops-list']"
+          *ngIf="businessConfig?.canShowOurBussiness"
+          fxLayoutAlign="start center"
+          mat-button
+        >
+          <span>{{ 'Nuestras tiendas' | translate }}</span>
+        </a>
+      </div>
+      <div class="col-2" fxLayout="column" fxLayoutAlign=" start">
+        <a [routerLink]="['/faq']" class="mat-button" mat-button>
+          <span>{{ 'Ayuda' | translate }}</span>
+        </a>
+        <a *ngIf="loggedInUser" [routerLink]="['my-orders']" class="mat-button" mat-button>
+          <span>{{ 'Tus pedidos' | translate }}</span>
+        </a>
+        <a [routerLink]="['privacy-policy']" fxLayoutAlign="start center" mat-button>
+          <span>{{ 'Políticas de privacidad' | translate }}</span>
+        </a>
+        <a [routerLink]="['term-conditions']" fxLayoutAlign="start center" mat-button>
+          <span>{{ 'Términos y condiciones' | translate }}</span>
+        </a>
+      </div>
     </div>
 
-    <div class="footer-bottom-color" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem">
-        <div fxLayout='row' fxLayoutAlign='center center' fxLayoutGap='20px'>
-            <div class='image-footer' ngClass.lt-sm="img-footer">
-                <img alt="footer logo" class="mt-4 footer-logo" [src]="logo">
-            </div>
-            <!--      <div class='etecsa-footer' ngClass.lt-sm="etecsa-img-footer">-->
-            <!--        <img alt='etecsa logo' class="mt-4"  src='assets/images/logo-etecsa.svg'>-->
-            <!--      </div>-->
-        </div>
+    <div fxLayout="row">
+      <!--      <a #langMenuTrigger="matMenuTrigger"-->
+      <!--         [matMenuTriggerFor]="langMenu"-->
+      <!--         class="item-selector mx-3 my-2"-->
+      <!--         fxLayoutAlign="start center"-->
+      <!--         mat-button>-->
+      <!--        <img [src]="flag?.image" alt="flag image" width="18" />-->
+      <!--        <mat-icon>arrow_drop_down</mat-icon>-->
+      <!--        <span>{{ flag?.name }}</span>-->
+      <!--      </a>-->
+      <!--      <mat-menu #langMenu="matMenu" [overlapTrigger]="false" class="app-dropdown" xPosition="before">-->
+      <!--      <span>-->
+      <!--        <button (click)="changeLang(flag)" *ngFor="let flag of flags" mat-menu-item>-->
+      <!--          <img [src]="flag.image" alt="flag image" width="18" /> {{ flag.name }}-->
+      <!--        </button>-->
+      <!--      </span>-->
+      <!--      </mat-menu>-->
 
-        <div class="py-3" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="1rem" fxLayoutGap.xs="10px" id="footer-contacts">
-            <div *ngIf='businessConfig?.contactsFooter.phone' fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
-                <mat-icon>phone</mat-icon>
-                <span>{{businessConfig?.contactsFooter?.phone}}</span>
-            </div>
+      <a [routerLink]="['/contact-us']" class="item-selector mx-3 my-2" mat-button>
+        {{ 'Contact us' | translate }}
+      </a>
+    </div>
 
-            <div *ngIf='businessConfig?.contactsFooter.email' fxLayout='row' fxLayoutAlign='center center' fxLayoutGap='4px'>
-                <mat-icon>email</mat-icon>
-                <a class='email-text' href="mailto:{{businessConfig?.contactsFooter.email}}">{{ businessConfig?.contactsFooter?.email }}</a>
-            </div>
+    <div style="padding-bottom: 16px"></div>
+  </div>
 
-            <div *ngIf='businessConfig?.contactsFooter.address' fxLayout='row' fxLayoutAlign='center center' fxLayoutGap='4px'>
-                <mat-icon>location_on</mat-icon>
-                <span>{{ businessConfig?.contactsFooter?.address }}</span>
-            </div>
-        </div>
+  <div
+    class="footer-bottom-color"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="1rem"
+  >
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <div class="image-footer" ngClass.lt-sm="img-footer">
+        <img alt="footer logo" class="mt-4 footer-logo" [src]="logo" />
+      </div>
+      <!--      <div class='etecsa-footer' ngClass.lt-sm="etecsa-img-footer">-->
+      <!--        <img alt='etecsa logo' class="mt-4"  src='assets/images/logo-etecsa.svg'>-->
+      <!--      </div>-->
+    </div>
 
-      <div fxFlex="75" fxHide fxShow.lt-md fxLayout="row" fxLayoutAlign="end center">
-        <div class="widget-text mx-2">
-          <a #langMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="langMenu" mat-icon-button
-             matTooltip="{{ 'Change language' | translate }}">
-            <img [src]="flag?.image" height="24" width="24" />
-            <span class="flag-menu-title" fxShow="false" fxShow.gt-sm></span>
-            <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
-          </a>
-          <mat-menu #langMenu="matMenu" [overlapTrigger]="false" class="app-dropdown" xPosition="before">
-                <span>
-                  <button (click)="changeLang(flag)" *ngFor="let flag of flags" mat-menu-item>
-                    <img [src]="flag.image" width="18" /> {{ flag?.name }}
-                  </button>
-                </span>
-          </mat-menu>
-        </div>
+    <div
+      class="py-3"
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="1rem"
+      fxLayoutGap.xs="10px"
+      id="footer-contacts"
+    >
+      <div
+        *ngIf="businessConfig?.contactsFooter.phone"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="4px"
+      >
+        <mat-icon>phone</mat-icon>
+        <span>{{ businessConfig?.contactsFooter?.phone }}</span>
       </div>
 
-        <ul class='network-icons' fxLayout='row' *ngIf='businessConfig?.contactsFooter?.socialNetworks?.facebook ||
-                                                        businessConfig?.contactsFooter?.socialNetworks?.twitter ||
-                                                        businessConfig?.contactsFooter?.socialNetworks?.linkedin ||
-                                                        businessConfig?.contactsFooter?.socialNetworks?.youtube ||
-                                                        businessConfig?.contactsFooter?.socialNetworks?.instagram ||
-                                                        businessConfig?.contactsFooter?.socialNetworks?.telegram'>
-            <li fxLayoutAlign='center center' *ngIf='businessConfig?.contactsFooter?.socialNetworks?.facebook'>
-                <a class='icon-redes' fxLayoutAlign='center center' [href]='businessConfig?.contactsFooter?.socialNetworks?.facebook' target='_blank'>
-                    <!--          <i class="fab fa-facebook-f" style="font-size: 18px"></i>-->
-                    <img alt="Facebook logo" src="assets/images/social-media/outline/logo-facebook.svg" style="filter: invert(1); border-radius: 50%">
-                </a>
-            </li>
+      <div
+        *ngIf="businessConfig?.contactsFooter.email"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="4px"
+      >
+        <mat-icon>email</mat-icon>
+        <a class="email-text" href="mailto:{{ businessConfig?.contactsFooter.email }}">{{
+          businessConfig?.contactsFooter?.email
+        }}</a>
+      </div>
 
-            <li fxLayoutAlign="center center" *ngIf='businessConfig?.contactsFooter?.socialNetworks?.twitter'>
-                <a class="icon-redes" fxLayoutAlign="center center" [href]="businessConfig?.contactsFooter?.socialNetworks?.twitter" target="_blank">
-                    <!--          <i class="fab fa-twitter" style="font-size: 18px"></i>-->
-                    <img alt="Facebook logo" src="assets/images/social-media/outline/logo-twitter.svg" style="filter: invert(1); border-radius: 50%">
-                </a>
-            </li>
-
-            <li fxLayoutAlign="center center" *ngIf='businessConfig?.contactsFooter?.socialNetworks?.linkedin'>
-                <a class="icon-redes" fxLayoutAlign="center center" [href]="businessConfig?.contactsFooter?.socialNetworks?.linkedin" target="_blank">
-                    <!--          <i class="fab fa-linkedin-in" style="font-size: 18px"></i>-->
-                    <img alt="Facebook logo" src="assets/images/social-media/outline/logo-linkedin.svg" style="filter: invert(1); border-radius: 50%">
-                </a>
-            </li>
-
-            <li fxLayoutAlign="center center" *ngIf='businessConfig?.contactsFooter?.socialNetworks?.youtube'>
-                <a class="icon-redes" fxLayoutAlign="center center" [href]="businessConfig?.contactsFooter?.socialNetworks?.youtube" target="_blank">
-                    <!--          <i class="fab fa-youtube" style="font-size: 18px"></i>-->
-                    <img alt="Facebook logo" src="assets/images/social-media/outline/logo-youtube.svg" style="filter: invert(1); border-radius: 50%">
-                </a>
-            </li>
-
-            <li fxLayoutAlign="center center" *ngIf='businessConfig?.contactsFooter?.socialNetworks?.instagram'>
-                <a class="icon-redes" fxLayoutAlign="center center" [href]="businessConfig?.contactsFooter?.socialNetworks?.instagram" target="_blank">
-                    <!--          <i class="fab fa-instagram" style="font-size: 18px"></i>-->
-                    <img alt="Facebook logo" src="assets/images/social-media/outline/logo-instagram.svg" style="filter: invert(1); border-radius: 50%">
-                </a>
-            </li>
-
-            <li fxLayoutAlign="center center" *ngIf='businessConfig?.contactsFooter?.socialNetworks?.telegram'>
-                <a class="icon-redes" fxLayoutAlign="center center" [href]="businessConfig?.contactsFooter?.socialNetworks?.telegram" target="_blank">
-<!--                              <i class="fab fa-facebook" style="font-size: 18px"></i>-->
-                    <img alt="Facebook logo" src="assets/images/social-media/outline/logo-telegram.svg" style="filter: invert(1); border-radius: 50%">
-                </a>
-            </li>
-
-        </ul>
-
-        <div class="mb-3" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="4px">
-            <span>Copyright© {{ year }}.</span>
-
-            <span>{{ 'Todos los derechos reservados' | translate }}.</span>
-
-            <span>{{ 'v' | translate }}{{ version }}</span>
-        </div>
-
-<!--      <div class="mb-3" *ngIf='showPoweredBy' fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="4px">-->
-<!--        <span>{{'Powered By: Guajiritos S.R.L.' | translate}}</span>-->
-<!--      </div>-->
-
+      <div
+        *ngIf="businessConfig?.contactsFooter.address"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="4px"
+      >
+        <mat-icon>location_on</mat-icon>
+        <span>{{ businessConfig?.contactsFooter?.address }}</span>
+      </div>
     </div>
+
+    <div fxFlex="75" fxHide fxShow.lt-md fxLayout="row" fxLayoutAlign="end center">
+      <div class="widget-text mx-2">
+        <a
+          #langMenuTrigger="matMenuTrigger"
+          [matMenuTriggerFor]="langMenu"
+          mat-icon-button
+          matTooltip="{{ 'Change language' | translate }}"
+        >
+          <img [src]="flag?.image" height="24" width="24" />
+          <span class="flag-menu-title" fxShow="false" fxShow.gt-sm></span>
+          <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+        </a>
+        <mat-menu
+          #langMenu="matMenu"
+          [overlapTrigger]="false"
+          class="app-dropdown"
+          xPosition="before"
+        >
+          <span>
+            <button (click)="changeLang(flag)" *ngFor="let flag of flags" mat-menu-item>
+              <img [src]="flag.image" width="18" /> {{ flag?.name }}
+            </button>
+          </span>
+        </mat-menu>
+      </div>
+    </div>
+
+    <ul
+      class="network-icons"
+      fxLayout="row"
+      *ngIf="
+        businessConfig?.contactsFooter?.socialNetworks?.facebook ||
+        businessConfig?.contactsFooter?.socialNetworks?.twitter ||
+        businessConfig?.contactsFooter?.socialNetworks?.linkedin ||
+        businessConfig?.contactsFooter?.socialNetworks?.youtube ||
+        businessConfig?.contactsFooter?.socialNetworks?.instagram ||
+        businessConfig?.contactsFooter?.socialNetworks?.telegram
+      "
+    >
+      <li
+        fxLayoutAlign="center center"
+        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.facebook"
+      >
+        <a
+          class="icon-redes"
+          fxLayoutAlign="center center"
+          [href]="businessConfig?.contactsFooter?.socialNetworks?.facebook"
+          target="_blank"
+        >
+          <!--          <i class="fab fa-facebook-f" style="font-size: 18px"></i>-->
+          <img
+            alt="Facebook logo"
+            src="assets/images/social-media/outline/logo-facebook.svg"
+            style="filter: invert(1); border-radius: 50%"
+          />
+        </a>
+      </li>
+
+      <li
+        fxLayoutAlign="center center"
+        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.twitter"
+      >
+        <a
+          class="icon-redes"
+          fxLayoutAlign="center center"
+          [href]="businessConfig?.contactsFooter?.socialNetworks?.twitter"
+          target="_blank"
+        >
+          <!--          <i class="fab fa-twitter" style="font-size: 18px"></i>-->
+          <img
+            alt="Facebook logo"
+            src="assets/images/social-media/outline/logo-twitter.svg"
+            style="filter: invert(1); border-radius: 50%"
+          />
+        </a>
+      </li>
+
+      <li
+        fxLayoutAlign="center center"
+        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.linkedin"
+      >
+        <a
+          class="icon-redes"
+          fxLayoutAlign="center center"
+          [href]="businessConfig?.contactsFooter?.socialNetworks?.linkedin"
+          target="_blank"
+        >
+          <!--          <i class="fab fa-linkedin-in" style="font-size: 18px"></i>-->
+          <img
+            alt="Facebook logo"
+            src="assets/images/social-media/outline/logo-linkedin.svg"
+            style="filter: invert(1); border-radius: 50%"
+          />
+        </a>
+      </li>
+
+      <li
+        fxLayoutAlign="center center"
+        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.youtube"
+      >
+        <a
+          class="icon-redes"
+          fxLayoutAlign="center center"
+          [href]="businessConfig?.contactsFooter?.socialNetworks?.youtube"
+          target="_blank"
+        >
+          <!--          <i class="fab fa-youtube" style="font-size: 18px"></i>-->
+          <img
+            alt="Facebook logo"
+            src="assets/images/social-media/outline/logo-youtube.svg"
+            style="filter: invert(1); border-radius: 50%"
+          />
+        </a>
+      </li>
+
+      <li
+        fxLayoutAlign="center center"
+        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.instagram"
+      >
+        <a
+          class="icon-redes"
+          fxLayoutAlign="center center"
+          [href]="businessConfig?.contactsFooter?.socialNetworks?.instagram"
+          target="_blank"
+        >
+          <!--          <i class="fab fa-instagram" style="font-size: 18px"></i>-->
+          <img
+            alt="Facebook logo"
+            src="assets/images/social-media/outline/logo-instagram.svg"
+            style="filter: invert(1); border-radius: 50%"
+          />
+        </a>
+      </li>
+
+      <li
+        fxLayoutAlign="center center"
+        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.telegram"
+      >
+        <a
+          class="icon-redes"
+          fxLayoutAlign="center center"
+          [href]="businessConfig?.contactsFooter?.socialNetworks?.telegram"
+          target="_blank"
+        >
+          <!--                              <i class="fab fa-facebook" style="font-size: 18px"></i>-->
+          <img
+            alt="Facebook logo"
+            src="assets/images/social-media/outline/logo-telegram.svg"
+            style="filter: invert(1); border-radius: 50%"
+          />
+        </a>
+      </li>
+    </ul>
+
+    <div
+      class="mb-3"
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="10px"
+      fxLayoutGap.xs="4px"
+    >
+      <span>Copyright© {{ year }}.</span>
+
+      <span>{{ 'Todos los derechos reservados' | translate }}.</span>
+
+      <span>{{ 'v' | translate }}{{ version }}</span>
+    </div>
+
+    <!--      <div class="mb-3" *ngIf='showPoweredBy' fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="4px">-->
+    <!--        <span>{{'Powered By: Guajiritos S.R.L.' | translate}}</span>-->
+    <!--      </div>-->
+  </div>
 </footer>

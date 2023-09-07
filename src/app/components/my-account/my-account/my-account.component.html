@@ -9,11 +9,22 @@
         <img *ngIf="!showRegistrationForm" [src]="logo" class="login-logo mx-auto" />
       </div>
 
-      <div class="mat-elevation-z8" fxLayout="column" fxLayoutAlign="start stretch" id="CardBodyLoggin">
+      <div
+        class="mat-elevation-z8"
+        fxLayout="column"
+        fxLayoutAlign="start stretch"
+        id="CardBodyLoggin"
+      >
         <div class="w-100 p-2 mt-3" fxLayout="row" fxLayoutAlign="center center">
           <button
             (click)="onGoBefore()"
-            *ngIf="showRegistrationForm || showResetPassForm || showNewPassForm || showPinForm || showActivateForm"
+            *ngIf="
+              showRegistrationForm ||
+              showResetPassForm ||
+              showNewPassForm ||
+              showPinForm ||
+              showActivateForm
+            "
             [routerLink]="['/my-account']"
             mat-icon-button
           >
@@ -41,7 +52,12 @@
 
         <!-- =========================================================================== -->
         <!-- LOGIN -->
-        <div *ngIf="showLoginForm" class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+        <div
+          *ngIf="showLoginForm"
+          class="FormLayout"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
           <form [formGroup]="loginForm" class="login-form">
             <mat-form-field appearance="outline" class="example-full-width mt-2">
               <mat-label>{{ 'Email' | translate }}</mat-label>
@@ -83,7 +99,9 @@
 
             <div class="mb-3" fxLayout="row" fxLayoutAlign="center center">
               <button
-                (click)="login(loginForm.controls['username'].value, loginForm.controls['password'].value)"
+                (click)="
+                  login(loginForm.controls['username'].value, loginForm.controls['password'].value)
+                "
                 [disabled]="!loginForm.valid || inLoading"
                 class="mx-3 w-70"
                 color="primary"
@@ -99,7 +117,12 @@
                 class="uppercase mat-subheading-1 my-1  grey-700 span-link">{{'Forgot my passsword'|translate}}</a>
             </div> -->
 
-            <div *ngIf="localDatabaseUsers" class="my-1" fxLayout="row" fxLayoutAlign="center center">
+            <div
+              *ngIf="localDatabaseUsers"
+              class="my-1"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+            >
               <a
                 [queryParams]="{ modal: 'password' }"
                 [routerLink]="['/my-account']"
@@ -122,7 +145,12 @@
               >
             </div>
 
-            <div *ngIf="localDatabaseUsers" class="my-1" fxLayout="row" fxLayoutAlign="center center">
+            <div
+              *ngIf="localDatabaseUsers"
+              class="my-1"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+            >
               <a
                 [queryParams]="{ modal: 'registration' }"
                 [routerLink]="['/my-account']"
@@ -147,17 +175,39 @@
 
         <!-- =========================================================================== -->
         <!-- REGISTRATION -->
-        <ng-container *ngIf='showRegistrationForm'>
-          <ng-container *ngIf='businessConfig?.signUpType == "multiple" && showRegistrationForm; else noMultiple'>
-            <div fxLayout='column' class='mx-3'>
-              <mat-button-toggle-group [formControl]='signUpTypesForm.get("signUpType")' name="toggle" aria-label="Favorite Color" fxFlex='50'>
-                <mat-button-toggle fxFlex='50' class='toggle-button' *ngFor='let type of signUpTypes' [value]="type.value">{{type.viewValue}}</mat-button-toggle>
+        <ng-container *ngIf="showRegistrationForm">
+          <ng-container
+            *ngIf="
+              businessConfig?.signUpType == 'multiple' && showRegistrationForm;
+              else noMultiple
+            "
+          >
+            <div fxLayout="column" class="mx-3">
+              <mat-button-toggle-group
+                [formControl]="signUpTypesForm.get('signUpType')"
+                name="toggle"
+                aria-label="Favorite Color"
+                fxFlex="50"
+              >
+                <mat-button-toggle
+                  fxFlex="50"
+                  class="toggle-button"
+                  *ngFor="let type of signUpTypes"
+                  [value]="type.value"
+                  >{{ type.viewValue }}</mat-button-toggle
+                >
               </mat-button-toggle-group>
-              <ng-container *ngIf='signUpTypesForm.get("signUpType").value === "normal", else tcpRegistration'>
+              <ng-container
+                *ngIf="signUpTypesForm.get('signUpType').value === 'normal'; else tcpRegistration"
+              >
                 <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
                   <form class="example-full-width">
                     <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
-                      <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="gappx">
+                      <div
+                        fxLayout="row wrap"
+                        fxLayoutAlign="space-between start"
+                        fxLayoutGap="gappx"
+                      >
                         <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
                           <mat-label>{{ 'Name' | translate }}</mat-label>
                           <input
@@ -167,7 +217,9 @@
                             required
                           />
                           <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
-                            {{ 'Name' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                            {{ 'Name' | translate }}&nbsp;<strong>{{
+                              'is required' | translate
+                            }}</strong>
                           </mat-error>
                           <mat-error *ngIf="registrationForm.controls['name'].hasError('pattern')">
                             {{ 'El nombre debe contener carateres alfanuméricos' | translate }}
@@ -182,10 +234,16 @@
                             placeholder="{{ 'Lastname' | translate }}"
                             required
                           />
-                          <mat-error *ngIf="registrationForm.controls['lastname'].hasError('required')">
-                            {{ 'Lastname' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                          <mat-error
+                            *ngIf="registrationForm.controls['lastname'].hasError('required')"
+                          >
+                            {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                              'is required' | translate
+                            }}</strong>
                           </mat-error>
-                          <mat-error *ngIf="registrationForm.controls['lastname'].hasError('pattern')">
+                          <mat-error
+                            *ngIf="registrationForm.controls['lastname'].hasError('pattern')"
+                          >
                             {{ 'El apellido debe contener carateres alfanuméricos' | translate }}
                           </mat-error>
                         </mat-form-field>
@@ -211,7 +269,12 @@
                         </mat-error>
                       </mat-form-field>
 
-                      <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100" id="phone">
+                      <mat-form-field
+                        appearance="outline"
+                        fxFlex="48"
+                        fxFlex.lt-md="100"
+                        id="phone"
+                      >
                         <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
                         <span class="mr-2" matPrefix>+ 53</span>
                         <input
@@ -224,23 +287,28 @@
                         <mat-hint *ngIf="!registrationForm.get('phone').value">
                           {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
                         </mat-hint>
-                        <mat-hint *ngIf="registrationForm.get('phone').value && registrationForm.get('phone').valid">
+                        <mat-hint
+                          *ngIf="
+                            registrationForm.get('phone').value &&
+                            registrationForm.get('phone').valid
+                          "
+                        >
                           {{ 'Número válido' | translate }}
                         </mat-hint>
                         <mat-error
                           *ngIf="
-                      (registrationForm.controls['phone'].hasError('minlength') ||
-                        registrationForm.controls['phone'].hasError('maxlength')) &&
-                      !registrationForm.controls['phone'].hasError('pattern')
-                    "
+                            (registrationForm.controls['phone'].hasError('minlength') ||
+                              registrationForm.controls['phone'].hasError('maxlength')) &&
+                            !registrationForm.controls['phone'].hasError('pattern')
+                          "
                         >
                           {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                          '8 caracteres, Ex: 51234567' | translate
+                            '8 caracteres, Ex: 51234567' | translate
                           }}</strong>
                         </mat-error>
                         <mat-error *ngIf="registrationForm.controls['phone'].hasError('pattern')">
                           {{ 'El número' | translate }}&nbsp;<strong>{{
-                          'debe empezar con 5, Ex: 51234567' | translate
+                            'debe empezar con 5, Ex: 51234567' | translate
                           }}</strong>
                         </mat-error>
                       </mat-form-field>
@@ -260,27 +328,33 @@
                             required
                             type="{{ passType }}"
                           />
-                          <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
-                          <mat-error *ngIf="fromPassRegister.controls['password'].hasError('required')">
-                            {{ 'Password' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                          <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                            >remove_red_eye</mat-icon
+                          >
+                          <mat-error
+                            *ngIf="fromPassRegister.controls['password'].hasError('required')"
+                          >
+                            {{ 'Password' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
 
                           <mat-error
                             *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                              fromPassRegister.hasError('mismatch') &&
+                              !fromPassRegister.controls['password'].hasError('pattern')
+                            "
                           >
-                            {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                            {{ 'Password' | translate }}
+                            <strong>{{ 'most be equals' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
                         <mat-form-field
                           [ngClass]="{
-                      'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-valid': !fromPassRegister.hasError('mismatch')
-                    }"
+                            'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
+                            'ng-invalid': fromPassRegister.hasError('mismatch'),
+                            'ng-valid': !fromPassRegister.hasError('mismatch')
+                          }"
                           appearance="outline"
                           class="example-full-width"
                           fxFlex="48"
@@ -294,21 +368,24 @@
                             required
                             type="{{ passType }}"
                           />
-                          <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                          <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                            >remove_red_eye</mat-icon
+                          >
                           <mat-error
                             *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                              fromPassRegister.hasError('mismatch') &&
+                              !fromPassRegister.controls['password'].hasError('pattern')
+                            "
                           >
-                            {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                            {{ 'Password' | translate }}
+                            <strong>{{ 'most be equals' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
                       </div>
                       <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
                         {{
-                        'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
-                          | translate
+                          'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                            | translate
                         }}
                       </mat-error>
 
@@ -339,7 +416,11 @@
                   <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
                     <form class="example-full-width">
                       <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
-                        <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="gappx">
+                        <div
+                          fxLayout="row wrap"
+                          fxLayoutAlign="space-between start"
+                          fxLayoutGap="gappx"
+                        >
                           <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
                             <mat-label>{{ 'Name' | translate }}</mat-label>
                             <input
@@ -349,7 +430,9 @@
                               required
                             />
                             <mat-error *ngIf="regTcpForm.controls['name'].hasError('required')">
-                              {{ 'Name' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                              {{ 'Name' | translate }}&nbsp;<strong>{{
+                                'is required' | translate
+                              }}</strong>
                             </mat-error>
                             <mat-error *ngIf="regTcpForm.controls['name'].hasError('pattern')">
                               {{ 'El nombre debe contener solo letras' | translate }}
@@ -365,7 +448,9 @@
                               required
                             />
                             <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('required')">
-                              {{ 'Lastname' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                              {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                                'is required' | translate
+                              }}</strong>
                             </mat-error>
                             <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('pattern')">
                               {{ 'El apellido debe contener solo letras' | translate }}
@@ -386,10 +471,12 @@
                             required
                           />
                           <mat-error *ngIf="regTcpForm.controls['email'].hasError('required')">
-                            {{ 'Email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            {{ 'Email' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error *ngIf="regTcpForm.controls['email'].hasError('pattern')">
-                            {{ 'Email' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+                            {{ 'Email' | translate }}
+                            <strong>{{ 'incorrecto' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
@@ -403,12 +490,14 @@
                             [formControl]="regTcpForm.controls['ci']"
                           />
                           <mat-error *ngIf="regTcpForm.controls['ci'].hasError('required')">
-                            {{ 'No. de Identidad' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            {{ 'No. de Identidad' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
-                      regTcpForm.controls['ci'].hasError('minlength') || regTcpForm.controls['ci'].hasError('maxlength')
-                    "
+                              regTcpForm.controls['ci'].hasError('minlength') ||
+                              regTcpForm.controls['ci'].hasError('maxlength')
+                            "
                           >
                             {{ 'El número de identidad debe contener 11 dígitos' | translate }}
                           </mat-error>
@@ -426,13 +515,14 @@
                           />
 
                           <mat-error *ngIf="regTcpForm.controls['licenceTCP'].hasError('required')">
-                            {{ 'No. de Licencia TCP' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            {{ 'No. de Licencia TCP' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
-                      regTcpForm.controls['licenceTCP'].hasError('minlength') ||
-                      regTcpForm.controls['licenceTCP'].hasError('maxlength')
-                    "
+                              regTcpForm.controls['licenceTCP'].hasError('minlength') ||
+                              regTcpForm.controls['licenceTCP'].hasError('maxlength')
+                            "
                           >
                             {{ 'El No. de Licencia TCP debe contener 11 dígitos' | translate }}
                           </mat-error>
@@ -450,15 +540,25 @@
                           />
 
                           <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('required')">
-                            {{ 'No. carnet ONAT' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            {{ 'No. carnet ONAT' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('pattern')">
                             {{ 'No. carnet ONAT debe contener 11 números' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="gappx">
-                          <mat-form-field id="phone" fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                        <div
+                          fxLayout="row wrap"
+                          fxLayoutAlign="space-between start"
+                          fxLayoutGap="gappx"
+                        >
+                          <mat-form-field
+                            id="phone"
+                            fxFlex="48"
+                            fxFlex.lt-md="100"
+                            appearance="outline"
+                          >
                             <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                             <span matPrefix class="mr-2">+ 53</span>
                             <input
@@ -471,23 +571,27 @@
                             <mat-hint *ngIf="!regTcpForm.get('phoneCel').value">
                               {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
                             </mat-hint>
-                            <mat-hint *ngIf="regTcpForm.get('phoneCel').value && regTcpForm.get('phoneCel').valid">
+                            <mat-hint
+                              *ngIf="
+                                regTcpForm.get('phoneCel').value && regTcpForm.get('phoneCel').valid
+                              "
+                            >
                               {{ 'Número válido' | translate }}
                             </mat-hint>
                             <mat-error
                               *ngIf="
-                        (regTcpForm.controls['phoneCel'].hasError('minlength') ||
-                          regTcpForm.controls['phoneCel'].hasError('maxlength')) &&
-                        !regTcpForm.controls['phoneCel'].hasError('pattern')
-                      "
+                                (regTcpForm.controls['phoneCel'].hasError('minlength') ||
+                                  regTcpForm.controls['phoneCel'].hasError('maxlength')) &&
+                                !regTcpForm.controls['phoneCel'].hasError('pattern')
+                              "
                             >
                               {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                              '8 caracteres, Ex: 51234567' | translate
+                                '8 caracteres, Ex: 51234567' | translate
                               }}</strong>
                             </mat-error>
                             <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
                               {{ 'El número' | translate }}&nbsp;<strong>{{
-                              'debe empezar con 5, Ex: 51234567' | translate
+                                'debe empezar con 5, Ex: 51234567' | translate
                               }}</strong>
                             </mat-error>
                           </mat-form-field>
@@ -503,12 +607,19 @@
                             />
 
                             <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                              {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                              {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
+                                'is required' | translate
+                              }}</strong>
                             </mat-error>
                           </mat-form-field>
                         </div>
 
-                        <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline" class="mt-2">
+                        <mat-form-field
+                          fxFlex="48"
+                          fxFlex.lt-md="100"
+                          appearance="outline"
+                          class="mt-2"
+                        >
                           <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
 
                           <textarea
@@ -519,7 +630,8 @@
                           ></textarea>
 
                           <mat-error *ngIf="regTcpForm.controls['activity'].hasError('required')">
-                            {{ 'Actividad que desarrolla' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            {{ 'Actividad que desarrolla' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
@@ -532,7 +644,8 @@
                             [formControl]="regTcpForm.controls['address']"
                           />
                           <mat-error *ngIf="regTcpForm.controls['address'].hasError('required')">
-                            {{ 'Dirección' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            {{ 'Dirección' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
@@ -542,7 +655,11 @@
                           fxLayout.xs="column"
                           fxLayoutAlign.xs="stretch start"
                         >
-                          <mat-form-field class="example-full-width" appearance="outline" fxFlex="48">
+                          <mat-form-field
+                            class="example-full-width"
+                            appearance="outline"
+                            fxFlex="48"
+                          >
                             <mat-label>{{ 'Password' | translate }}</mat-label>
                             <input
                               [formControl]="fromPassRegister.controls['password']"
@@ -551,27 +668,33 @@
                               required
                               type="{{ passType }}"
                             />
-                            <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
-                            <mat-error *ngIf="fromPassRegister.controls['password'].hasError('required')">
-                              {{ 'Password' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                            <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                              >remove_red_eye</mat-icon
+                            >
+                            <mat-error
+                              *ngIf="fromPassRegister.controls['password'].hasError('required')"
+                            >
+                              {{ 'Password' | translate }}
+                              <strong>{{ 'is required' | translate }}</strong>
                             </mat-error>
 
                             <mat-error
                               *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                                fromPassRegister.hasError('mismatch') &&
+                                !fromPassRegister.controls['password'].hasError('pattern')
+                              "
                             >
-                              {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                              {{ 'Password' | translate }}
+                              <strong>{{ 'most be equals' | translate }}</strong>
                             </mat-error>
                           </mat-form-field>
 
                           <mat-form-field
                             [ngClass]="{
-                      'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-valid': !fromPassRegister.hasError('mismatch')
-                    }"
+                              'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
+                              'ng-invalid': fromPassRegister.hasError('mismatch'),
+                              'ng-valid': !fromPassRegister.hasError('mismatch')
+                            }"
                             appearance="outline"
                             class="example-full-width"
                             fxFlex="48"
@@ -585,21 +708,26 @@
                               required
                               type="{{ passType }}"
                             />
-                            <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                            <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                              >remove_red_eye</mat-icon
+                            >
                             <mat-error
                               *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                                fromPassRegister.hasError('mismatch') &&
+                                !fromPassRegister.controls['password'].hasError('pattern')
+                              "
                             >
-                              {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                              {{ 'Password' | translate }}
+                              <strong>{{ 'most be equals' | translate }}</strong>
                             </mat-error>
                           </mat-form-field>
                         </div>
-                        <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
+                        <mat-error
+                          *ngIf="fromPassRegister.controls['password'].hasError('pattern')"
+                        >
                           {{
-                          'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
-                            | translate
+                            'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                              | translate
                           }}
                         </mat-error>
 
@@ -621,15 +749,18 @@
                             (keypress)="utilsService.keyPressNumbers($event)"
                             [formControl]="regTcpForm.controls['bankAccountCard26']"
                           />
-                          <mat-error *ngIf="regTcpForm.controls['bankAccountCard26'].hasError('required')">
-                            {{ 'Cuenta bancaria MLC' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                          <mat-error
+                            *ngIf="regTcpForm.controls['bankAccountCard26'].hasError('required')"
+                          >
+                            {{ 'Cuenta bancaria MLC' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
 
                           <mat-error
                             *ngIf="
-                      regTcpForm.controls['bankAccountCard26'].hasError('minlength') ||
-                      regTcpForm.controls['bankAccountCard26'].hasError('maxlength')
-                    "
+                              regTcpForm.controls['bankAccountCard26'].hasError('minlength') ||
+                              regTcpForm.controls['bankAccountCard26'].hasError('maxlength')
+                            "
                           >
                             {{ 'Cuenta bancaria MLC debe tener 16 números' | translate }}
                           </mat-error>
@@ -643,15 +774,18 @@
                             required
                             [formControl]="regTcpForm.controls['bankNameCard26']"
                           />
-                          <mat-error *ngIf="regTcpForm.controls['bankNameCard26'].hasError('required')">
-                            {{ 'Banco' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                          <mat-error
+                            *ngIf="regTcpForm.controls['bankNameCard26'].hasError('required')"
+                          >
+                            {{ 'Banco' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
-                      regTcpForm.controls['bankNameCard26'].hasError('minlength') ||
-                      regTcpForm.controls['bankNameCard26'].hasError('maxlength') ||
-                      regTcpForm.controls['bankNameCard26'].hasError('pattern')
-                    "
+                              regTcpForm.controls['bankNameCard26'].hasError('minlength') ||
+                              regTcpForm.controls['bankNameCard26'].hasError('maxlength') ||
+                              regTcpForm.controls['bankNameCard26'].hasError('pattern')
+                            "
                           >
                             {{ 'Nombre del Banco inválido' | translate }}
                           </mat-error>
@@ -666,14 +800,17 @@
                             (keypress)="utilsService.keyPressNumbers($event)"
                             [formControl]="regTcpForm.controls['bankOfficeCard26']"
                           />
-                          <mat-error *ngIf="regTcpForm.controls['bankOfficeCard26'].hasError('required')">
-                            {{ 'Sucursal' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                          <mat-error
+                            *ngIf="regTcpForm.controls['bankOfficeCard26'].hasError('required')"
+                          >
+                            {{ 'Sucursal' | translate }}
+                            <strong>{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
-                      regTcpForm.controls['bankOfficeCard26'].hasError('minlength') ||
-                      regTcpForm.controls['bankOfficeCard26'].hasError('maxlength')
-                    "
+                              regTcpForm.controls['bankOfficeCard26'].hasError('minlength') ||
+                              regTcpForm.controls['bankOfficeCard26'].hasError('maxlength')
+                            "
                           >
                             {{ 'Sucursal debe tener 4 números como máximo' | translate }}
                           </mat-error>
@@ -682,9 +819,9 @@
                         <div fxLayout="column" fxLayoutGap=".3rem">
                           <span class="section-title mb-2" translate>Documentos adjuntos</span>
                           <span class="mat-caption section-sub-title" translate>
-                    Estos documentos serán usados para validar su registro en nuestra tienda. (Se admiten fotos o pdf de
-                    sus documentos TCP)
-                  </span>
+                            Estos documentos serán usados para validar su registro en nuestra
+                            tienda. (Se admiten fotos o pdf de sus documentos TCP)
+                          </span>
                         </div>
 
                         <app-upload-file
@@ -709,11 +846,9 @@
                       </div>
                     </form>
                   </div>
-
                 </ng-container>
               </ng-template>
             </div>
-
           </ng-container>
         </ng-container>
 
@@ -732,7 +867,9 @@
                         required
                       />
                       <mat-error *ngIf="regTcpForm.controls['name'].hasError('required')">
-                        {{ 'Name' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Name' | translate }}&nbsp;<strong>{{
+                          'is required' | translate
+                        }}</strong>
                       </mat-error>
                       <mat-error *ngIf="regTcpForm.controls['name'].hasError('pattern')">
                         {{ 'El nombre debe contener solo letras' | translate }}
@@ -748,7 +885,9 @@
                         required
                       />
                       <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('required')">
-                        {{ 'Lastname' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                          'is required' | translate
+                        }}</strong>
                       </mat-error>
                       <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('pattern')">
                         {{ 'El apellido debe contener solo letras' | translate }}
@@ -786,12 +925,14 @@
                       [formControl]="regTcpForm.controls['ci']"
                     />
                     <mat-error *ngIf="regTcpForm.controls['ci'].hasError('required')">
-                      {{ 'No. de Identidad' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ 'No. de Identidad' | translate }}
+                      <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="
-                      regTcpForm.controls['ci'].hasError('minlength') || regTcpForm.controls['ci'].hasError('maxlength')
-                    "
+                        regTcpForm.controls['ci'].hasError('minlength') ||
+                        regTcpForm.controls['ci'].hasError('maxlength')
+                      "
                     >
                       {{ 'El número de identidad debe contener 11 dígitos' | translate }}
                     </mat-error>
@@ -809,13 +950,14 @@
                     />
 
                     <mat-error *ngIf="regTcpForm.controls['licenceTCP'].hasError('required')">
-                      {{ 'No. de Licencia TCP' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ 'No. de Licencia TCP' | translate }}
+                      <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="
-                      regTcpForm.controls['licenceTCP'].hasError('minlength') ||
-                      regTcpForm.controls['licenceTCP'].hasError('maxlength')
-                    "
+                        regTcpForm.controls['licenceTCP'].hasError('minlength') ||
+                        regTcpForm.controls['licenceTCP'].hasError('maxlength')
+                      "
                     >
                       {{ 'El No. de Licencia TCP debe contener 11 dígitos' | translate }}
                     </mat-error>
@@ -833,7 +975,8 @@
                     />
 
                     <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('required')">
-                      {{ 'No. carnet ONAT' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ 'No. carnet ONAT' | translate }}
+                      <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('pattern')">
                       {{ 'No. carnet ONAT debe contener 11 números' | translate }}
@@ -854,23 +997,25 @@
                       <mat-hint *ngIf="!regTcpForm.get('phoneCel').value">
                         {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
                       </mat-hint>
-                      <mat-hint *ngIf="regTcpForm.get('phoneCel').value && regTcpForm.get('phoneCel').valid">
+                      <mat-hint
+                        *ngIf="regTcpForm.get('phoneCel').value && regTcpForm.get('phoneCel').valid"
+                      >
                         {{ 'Número válido' | translate }}
                       </mat-hint>
                       <mat-error
                         *ngIf="
-                        (regTcpForm.controls['phoneCel'].hasError('minlength') ||
-                          regTcpForm.controls['phoneCel'].hasError('maxlength')) &&
-                        !regTcpForm.controls['phoneCel'].hasError('pattern')
-                      "
+                          (regTcpForm.controls['phoneCel'].hasError('minlength') ||
+                            regTcpForm.controls['phoneCel'].hasError('maxlength')) &&
+                          !regTcpForm.controls['phoneCel'].hasError('pattern')
+                        "
                       >
                         {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                        '8 caracteres, Ex: 51234567' | translate
+                          '8 caracteres, Ex: 51234567' | translate
                         }}</strong>
                       </mat-error>
                       <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
                         {{ 'El número' | translate }}&nbsp;<strong>{{
-                        'debe empezar con 5, Ex: 51234567' | translate
+                          'debe empezar con 5, Ex: 51234567' | translate
                         }}</strong>
                       </mat-error>
                     </mat-form-field>
@@ -886,7 +1031,9 @@
                       />
 
                       <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                        {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
+                          'is required' | translate
+                        }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -902,7 +1049,8 @@
                     ></textarea>
 
                     <mat-error *ngIf="regTcpForm.controls['activity'].hasError('required')">
-                      {{ 'Actividad que desarrolla' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ 'Actividad que desarrolla' | translate }}
+                      <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
 
@@ -934,27 +1082,31 @@
                         required
                         type="{{ passType }}"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                        >remove_red_eye</mat-icon
+                      >
                       <mat-error *ngIf="fromPassRegister.controls['password'].hasError('required')">
-                        {{ 'Password' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Password' | translate }}
+                        <strong>{{ 'is required' | translate }}</strong>
                       </mat-error>
 
                       <mat-error
                         *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                          fromPassRegister.hasError('mismatch') &&
+                          !fromPassRegister.controls['password'].hasError('pattern')
+                        "
                       >
-                        {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                        {{ 'Password' | translate }}
+                        <strong>{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
 
                     <mat-form-field
                       [ngClass]="{
-                      'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-valid': !fromPassRegister.hasError('mismatch')
-                    }"
+                        'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
+                        'ng-invalid': fromPassRegister.hasError('mismatch'),
+                        'ng-valid': !fromPassRegister.hasError('mismatch')
+                      }"
                       appearance="outline"
                       class="example-full-width"
                       fxFlex="48"
@@ -968,21 +1120,24 @@
                         required
                         type="{{ passType }}"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                        >remove_red_eye</mat-icon
+                      >
                       <mat-error
                         *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                          fromPassRegister.hasError('mismatch') &&
+                          !fromPassRegister.controls['password'].hasError('pattern')
+                        "
                       >
-                        {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                        {{ 'Password' | translate }}
+                        <strong>{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
                   <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
                     {{
-                    'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
-                      | translate
+                      'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                        | translate
                     }}
                   </mat-error>
 
@@ -1004,15 +1159,18 @@
                       (keypress)="utilsService.keyPressNumbers($event)"
                       [formControl]="regTcpForm.controls['bankAccountCard26']"
                     />
-                    <mat-error *ngIf="regTcpForm.controls['bankAccountCard26'].hasError('required')">
-                      {{ 'Cuenta bancaria MLC' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                    <mat-error
+                      *ngIf="regTcpForm.controls['bankAccountCard26'].hasError('required')"
+                    >
+                      {{ 'Cuenta bancaria MLC' | translate }}
+                      <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
 
                     <mat-error
                       *ngIf="
-                      regTcpForm.controls['bankAccountCard26'].hasError('minlength') ||
-                      regTcpForm.controls['bankAccountCard26'].hasError('maxlength')
-                    "
+                        regTcpForm.controls['bankAccountCard26'].hasError('minlength') ||
+                        regTcpForm.controls['bankAccountCard26'].hasError('maxlength')
+                      "
                     >
                       {{ 'Cuenta bancaria MLC debe tener 16 números' | translate }}
                     </mat-error>
@@ -1031,10 +1189,10 @@
                     </mat-error>
                     <mat-error
                       *ngIf="
-                      regTcpForm.controls['bankNameCard26'].hasError('minlength') ||
-                      regTcpForm.controls['bankNameCard26'].hasError('maxlength') ||
-                      regTcpForm.controls['bankNameCard26'].hasError('pattern')
-                    "
+                        regTcpForm.controls['bankNameCard26'].hasError('minlength') ||
+                        regTcpForm.controls['bankNameCard26'].hasError('maxlength') ||
+                        regTcpForm.controls['bankNameCard26'].hasError('pattern')
+                      "
                     >
                       {{ 'Nombre del Banco inválido' | translate }}
                     </mat-error>
@@ -1054,9 +1212,9 @@
                     </mat-error>
                     <mat-error
                       *ngIf="
-                      regTcpForm.controls['bankOfficeCard26'].hasError('minlength') ||
-                      regTcpForm.controls['bankOfficeCard26'].hasError('maxlength')
-                    "
+                        regTcpForm.controls['bankOfficeCard26'].hasError('minlength') ||
+                        regTcpForm.controls['bankOfficeCard26'].hasError('maxlength')
+                      "
                     >
                       {{ 'Sucursal debe tener 4 números como máximo' | translate }}
                     </mat-error>
@@ -1065,9 +1223,9 @@
                   <div fxLayout="column" fxLayoutGap=".3rem">
                     <span class="section-title mb-2" translate>Documentos adjuntos</span>
                     <span class="mat-caption section-sub-title" translate>
-                    Estos documentos serán usados para validar su registro en nuestra tienda. (Se admiten fotos o pdf de
-                    sus documentos TCP)
-                  </span>
+                      Estos documentos serán usados para validar su registro en nuestra tienda. (Se
+                      admiten fotos o pdf de sus documentos TCP)
+                    </span>
                   </div>
 
                   <app-upload-file
@@ -1092,7 +1250,6 @@
                 </div>
               </form>
             </div>
-
           </ng-container>
           <ng-template #normalRegitretion>
             <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
@@ -1108,7 +1265,9 @@
                         required
                       />
                       <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
-                        {{ 'Name' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Name' | translate }}&nbsp;<strong>{{
+                          'is required' | translate
+                        }}</strong>
                       </mat-error>
                       <mat-error *ngIf="registrationForm.controls['name'].hasError('pattern')">
                         {{ 'El nombre debe contener carateres alfanuméricos' | translate }}
@@ -1124,7 +1283,9 @@
                         required
                       />
                       <mat-error *ngIf="registrationForm.controls['lastname'].hasError('required')">
-                        {{ 'Lastname' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                          'is required' | translate
+                        }}</strong>
                       </mat-error>
                       <mat-error *ngIf="registrationForm.controls['lastname'].hasError('pattern')">
                         {{ 'El apellido debe contener carateres alfanuméricos' | translate }}
@@ -1166,18 +1327,29 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <div fxLayout='row' fxLayoutGap='8px' fxFlex="48" class='w-100' fxFlex.lt-md="100">
-                    <guachos-general-autocomplete fxFlex="28" [withoutPaddingBottom]="false" [label]="'Código'"
-                                                  [valueId]="true"
-                                                  fxFlex.lt-md="28"
-                                                  [displayOptions]="callingCodeDisplayOptions" [field]="['code']"
-                                                  [filterString]="['filter[$and][code][$like]']"
-                                                  [url]="phoneCodesService.url"
-                                                  [formControl]="registrationForm.get('PhoneCallingCodeId')"></guachos-general-autocomplete>
+                  <div
+                    fxLayout="row"
+                    fxLayoutGap="8px"
+                    fxFlex="48"
+                    class="w-100"
+                    fxFlex.lt-md="100"
+                  >
+                    <guachos-general-autocomplete
+                      fxFlex="28"
+                      [withoutPaddingBottom]="false"
+                      [label]="'Código'"
+                      [valueId]="true"
+                      fxFlex.lt-md="28"
+                      [displayOptions]="callingCodeDisplayOptions"
+                      [field]="['code']"
+                      [filterString]="['filter[$and][code][$like]']"
+                      [url]="phoneCodesService.url"
+                      [formControl]="registrationForm.get('PhoneCallingCodeId')"
+                    ></guachos-general-autocomplete>
 
                     <mat-form-field appearance="outline" fxFlex="70" fxFlex.lt-md="70" id="phone">
                       <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
-<!--                      <span class="mr-2" matPrefix>+ 53</span>-->
+                      <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                       <input
                         (keypress)="utilsService.keyPressNumbers($event)"
                         [formControl]="registrationForm.get('phone')"
@@ -1185,24 +1357,26 @@
                         autocomplete="off"
                         placeholder="{{ 'Teléfono...' | translate }}"
                       />
-                      <mat-hint *ngIf="registrationForm.get('phone').value && registrationForm.get('phone').valid">
+                      <mat-hint
+                        *ngIf="
+                          registrationForm.get('phone').value && registrationForm.get('phone').valid
+                        "
+                      >
                         {{ 'Número válido' | translate }}
                       </mat-hint>
                       <mat-error
                         *ngIf="
-                      (registrationForm.controls['phone'].hasError('minlength') ||
-                        registrationForm.controls['phone'].hasError('maxlength')) &&
-                      !registrationForm.controls['phone'].hasError('pattern')
-                    "
+                          (registrationForm.controls['phone'].hasError('minlength') ||
+                            registrationForm.controls['phone'].hasError('maxlength')) &&
+                          !registrationForm.controls['phone'].hasError('pattern')
+                        "
                       >
                         {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                        '8 caracteres, Ex: 51234567' | translate
+                          '8 caracteres, Ex: 51234567' | translate
                         }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
-
-
 
                   <div
                     fxLayout="row"
@@ -1219,27 +1393,31 @@
                         required
                         type="{{ passType }}"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                        >remove_red_eye</mat-icon
+                      >
                       <mat-error *ngIf="fromPassRegister.controls['password'].hasError('required')">
-                        {{ 'Password' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                        {{ 'Password' | translate }}
+                        <strong>{{ 'is required' | translate }}</strong>
                       </mat-error>
 
                       <mat-error
                         *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                          fromPassRegister.hasError('mismatch') &&
+                          !fromPassRegister.controls['password'].hasError('pattern')
+                        "
                       >
-                        {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                        {{ 'Password' | translate }}
+                        <strong>{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
 
                     <mat-form-field
                       [ngClass]="{
-                      'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-invalid': fromPassRegister.hasError('mismatch'),
-                      'ng-valid': !fromPassRegister.hasError('mismatch')
-                    }"
+                        'mat-form-field-invalid': fromPassRegister.hasError('mismatch'),
+                        'ng-invalid': fromPassRegister.hasError('mismatch'),
+                        'ng-valid': !fromPassRegister.hasError('mismatch')
+                      }"
                       appearance="outline"
                       class="example-full-width"
                       fxFlex="48"
@@ -1253,21 +1431,24 @@
                         required
                         type="{{ passType }}"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                        >remove_red_eye</mat-icon
+                      >
                       <mat-error
                         *ngIf="
-                        fromPassRegister.hasError('mismatch') &&
-                        !fromPassRegister.controls['password'].hasError('pattern')
-                      "
+                          fromPassRegister.hasError('mismatch') &&
+                          !fromPassRegister.controls['password'].hasError('pattern')
+                        "
                       >
-                        {{ 'Password' | translate }} <strong>{{ 'most be equals' | translate }}</strong>
+                        {{ 'Password' | translate }}
+                        <strong>{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
                   <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
                     {{
-                    'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
-                      | translate
+                      'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                        | translate
                     }}
                   </mat-error>
 
@@ -1295,7 +1476,6 @@
           </ng-template>
         </ng-template>
 
-
         <!--SEND PIN-->
         <div *ngIf="showPinForm" class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
           <form class="example-full-width">
@@ -1313,7 +1493,9 @@
                   required
                 />
                 <mat-error *ngIf="pinForm.controls['pin'].hasError('required')">
-                  {{ 'Authentication pin' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                  {{ 'Authentication pin' | translate }}&nbsp;<strong>{{
+                    'is required' | translate
+                  }}</strong>
                 </mat-error>
               </mat-form-field>
 
@@ -1338,7 +1520,12 @@
           </div>-->
         </div>
 
-        <div *ngIf="showActivateForm" class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+        <div
+          *ngIf="showActivateForm"
+          class="FormLayout"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
           <form class="example-full-width">
             <div fxLayout="column" fxLayoutAlign="space-around stretch">
               <mat-form-field appearance="outline" class="example-full-width">
@@ -1363,7 +1550,9 @@
                   required
                 />
                 <mat-error *ngIf="activateForm.controls['pin'].hasError('required')">
-                  {{ 'Authentication pin' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                  {{ 'Authentication pin' | translate }}&nbsp;<strong>{{
+                    'is required' | translate
+                  }}</strong>
                 </mat-error>
               </mat-form-field>
 
@@ -1382,10 +1571,17 @@
           </form>
         </div>
 
-        <div *ngIf="showResetPassForm" class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+        <div
+          *ngIf="showResetPassForm"
+          class="FormLayout"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
           <form class="example-full-width">
             <div fxLayout="column" fxLayoutAlign="space-around stretch">
-              <span class="mat-subheader color-grey-700 mb-1">{{ 'Insert your email' | translate }}</span>
+              <span class="mat-subheader color-grey-700 mb-1">{{
+                'Insert your email' | translate
+              }}</span>
 
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>{{ 'Email' | translate }}</mat-label>
@@ -1464,10 +1660,14 @@
                   {{ 'Password' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
                 </mat-error>
                 <mat-error *ngIf="formPass.hasError('mismatch')">
-                  {{ 'Password' | translate }}&nbsp;<strong>{{ 'must be equals' | translate }}.</strong>
+                  {{ 'Password' | translate }}&nbsp;<strong
+                    >{{ 'must be equals' | translate }}.</strong
+                  >
                 </mat-error>
                 <mat-error *ngIf="formPass.controls['password'].hasError('minLength')">
-                  {{ 'Password' | translate }}&nbsp;<strong>{{ 'must be at least 6 characters' | translate }}</strong>
+                  {{ 'Password' | translate }}&nbsp;<strong>{{
+                    'must be at least 6 characters' | translate
+                  }}</strong>
                 </mat-error>
               </mat-form-field>
 
@@ -1496,7 +1696,12 @@
 
             <div class="mb-3" fxLayout="row" fxLayoutAlign="center center">
               <button
-                (click)="onNewPass(changeToNewPassForm.controls['pin'].value, formPass.controls['password'].value)"
+                (click)="
+                  onNewPass(
+                    changeToNewPassForm.controls['pin'].value,
+                    formPass.controls['password'].value
+                  )
+                "
                 [disabled]="!changeToNewPassForm.valid || inLoading"
                 class="mx-3 w-70"
                 color="primary"

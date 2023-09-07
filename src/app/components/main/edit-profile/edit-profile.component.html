@@ -1,24 +1,15 @@
 <div class="dialog-content-wrapper">
   <mat-toolbar color="primary" id="toolbarHeader" matDialogTitle>
     <mat-toolbar-row fxLayoutAlign="space-between center">
-      {{ "Editar perfil" | translate }}
-      <button
-        (click)="dialogRef.close()"
-        aria-label="Close dialog"
-        mat-icon-button
-      >
+      {{ 'Editar perfil' | translate }}
+      <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 
   <div class="my-dialog-content" mat-dialog-content>
-    <div
-      class="imagePickerRow"
-      fxLayout="row"
-      fxLayoutAlign="center center"
-      fxLayoutGap="gappx"
-    >
+    <div class="imagePickerRow" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="gappx">
       <app-guachos-image
         [create]="!loggedInUser.avatar"
         [imageSrc]="urlImage + loggedInUser.avatar"
@@ -30,23 +21,15 @@
     <form [formGroup]="form">
       <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
         <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="gappx">
-          <span
-            *ngIf="this.loggedInUser"
-            class="mat-title my-2"
-            style="font-size: 24px"
-          >
+          <span *ngIf="this.loggedInUser" class="mat-title my-2" style="font-size: 24px">
             {{ this.loggedInUser.username }}
           </span>
-          <span
-            *ngIf="!this.loggedInUser"
-            class="mat-title my-2"
-            style="font-size: 24px"
-          >
-            {{ "Username" }}
+          <span *ngIf="!this.loggedInUser" class="mat-title my-2" style="font-size: 24px">
+            {{ 'Username' }}
           </span>
         </div>
         <mat-form-field appearance="outline">
-          <mat-label>{{ "Name" | translate }}</mat-label>
+          <mat-label>{{ 'Name' | translate }}</mat-label>
           <input
             [formControl]="form.controls['name']"
             matInput
@@ -55,12 +38,12 @@
           />
           <mat-icon class="greyIcon" matSuffix>person</mat-icon>
           <mat-error *ngIf="form.controls['name'].hasError('required')">
-            {{ "Name" | translate }}
-            <strong>{{ "is required" | translate }}</strong>
+            {{ 'Name' | translate }}
+            <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>{{ "Lastname" | translate }}</mat-label>
+          <mat-label>{{ 'Lastname' | translate }}</mat-label>
           <input
             [formControl]="form.controls['lastName']"
             matInput
@@ -69,8 +52,8 @@
           />
           <mat-icon class="greyIcon" matSuffix>person</mat-icon>
           <mat-error *ngIf="form.controls['lastName'].hasError('required')">
-            {{ "lastName" | translate }}
-            <strong>{{ "is required" | translate }}</strong>
+            {{ 'lastName' | translate }}
+            <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
@@ -83,9 +66,7 @@
         <!--        </mat-form-field>-->
 
         <mat-form-field appearance="outline">
-          <mat-label
-            >{{ "Email" | translate }} ({{ "Username" | translate }})</mat-label
-          >
+          <mat-label>{{ 'Email' | translate }} ({{ 'Username' | translate }})</mat-label>
           <input
             [formControl]="form.controls['email']"
             matInput
@@ -94,17 +75,11 @@
           />
           <mat-icon class="greyIcon" matSuffix>mail</mat-icon>
           <mat-error *ngIf="form.controls['email'].hasError('required')">
-            {{ "email" | translate }}
-            <strong>{{ "is required" | translate }}</strong>
+            {{ 'email' | translate }}
+            <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <div
-          fxLayout="row"
-          fxLayoutGap="8px"
-          fxFlex="48"
-          class="w-100"
-          fxFlex.lt-md="100"
-        >
+        <div fxLayout="row" fxLayoutGap="8px" fxFlex="48" class="w-100" fxFlex.lt-md="100">
           <guachos-general-autocomplete
             fxFlex="28"
             [withoutPaddingBottom]="false"
@@ -118,13 +93,8 @@
             [formControl]="form.get('PhoneCallingCodeId')"
           ></guachos-general-autocomplete>
 
-          <mat-form-field
-            appearance="outline"
-            fxFlex="70"
-            fxFlex.lt-md="70"
-            id="phone"
-          >
-            <mat-label>{{ "Teléfono (opcional)" | translate }}</mat-label>
+          <mat-form-field appearance="outline" fxFlex="70" fxFlex.lt-md="70" id="phone">
+            <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
             <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
             <mat-icon class="greyIcon" matSuffix>call</mat-icon>
             <input
@@ -134,10 +104,8 @@
               autocomplete="off"
               placeholder="{{ 'Teléfono...' | translate }}"
             />
-            <mat-hint
-              *ngIf="form.get('phone').value && form.get('phone').valid"
-            >
-              {{ "Número válido" | translate }}
+            <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid">
+              {{ 'Número válido' | translate }}
             </mat-hint>
             <mat-error
               *ngIf="
@@ -146,14 +114,14 @@
                 !form.controls['phone'].hasError('pattern')
               "
             >
-              {{ "Longitud del número" | translate }}&nbsp;<strong>{{
-                "8 caracteres, Ex: 51234567" | translate
+              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+                '8 caracteres, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <mat-form-field appearance="outline">
-          <mat-label>{{ "Documento de identidad" | translate }}</mat-label>
+          <mat-label>{{ 'Documento de identidad' | translate }}</mat-label>
           <input
             [formControl]="form.controls['ci']"
             matInput
@@ -163,24 +131,23 @@
           />
           <mat-icon class="greyIcon" matSuffix>contact_page</mat-icon>
           <mat-hint>{{
-            "Formato de documento de identidad de 11 dígitos mínimo" | translate
+            'Formato de documento de identidad de 11 dígitos mínimo' | translate
           }}</mat-hint>
           <mat-error *ngIf="form.controls['ci'].hasError('required')">
-            {{ "phone" | translate }}
-            <strong>{{ "is required" | translate }}</strong>
+            {{ 'phone' | translate }}
+            <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
           <mat-error *ngIf="form.controls['ci'].hasError('pattern')">
-            {{ "Identification" | translate }}
-            <strong>{{ "incorrecto" | translate }}</strong>
+            {{ 'Identification' | translate }}
+            <strong>{{ 'incorrecto' | translate }}</strong>
           </mat-error>
           <mat-error
             *ngIf="
-              form.controls['ci'].hasError('minlength') ||
-              form.controls['ci'].hasError('maxlength')
+              form.controls['ci'].hasError('minlength') || form.controls['ci'].hasError('maxlength')
             "
           >
-            {{ "Identification" | translate }}
-            <strong>{{ "must have 11 characters" | translate }}</strong>
+            {{ 'Identification' | translate }}
+            <strong>{{ 'must have 11 characters' | translate }}</strong>
           </mat-error>
         </mat-form-field>
         <!-- <mat-form-field appearance="outline">
@@ -252,7 +219,7 @@
       color="primary"
       mat-flat-button
     >
-      {{ "Save" | translate }}
+      {{ 'Save' | translate }}
     </button>
   </div>
 </div>

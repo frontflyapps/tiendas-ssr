@@ -1,16 +1,16 @@
-<h2 mat-dialog-title>{{data.title}}</h2>
+<h2 mat-dialog-title>{{ data.title }}</h2>
 
 <div mat-dialog-content>
-  <span>{{data.question}}</span>
-  <div id='textHtml'></div>
+  <span>{{ data.question }}</span>
+  <div id="textHtml"></div>
 </div>
 
-<div fxLayout='row' fxLayoutAlign='space-between center' mat-dialog-actions>
+<div fxLayout="row" fxLayoutAlign="space-between center" mat-dialog-actions>
   <button fxFlex mat-button mat-dialog-close>
-    {{'CANCELAR'}}
+    {{ 'CANCELAR' }}
   </button>
 
-  <button (click)='onSave()' color='primary' fxFlex mat-raised-button>
-    <span>{{'ACEPTAR'}}</span>
+  <button (click)="onSave()" color="primary" fxFlex mat-raised-button>
+    <span>{{ 'ACEPTAR' }}</span>
   </button>
 </div>

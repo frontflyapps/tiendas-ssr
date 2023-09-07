@@ -1,4 +1,9 @@
-<div *ngIf='product?.Business?.Province && showLocationSpan' class="location-label-sm" fxShow.lt-md fxHide>
+<div
+  *ngIf="product?.Business?.Province && showLocationSpan"
+  class="location-label-sm"
+  fxShow.lt-md
+  fxHide
+>
   <span>
     <mat-icon>room</mat-icon>&nbsp;<strong>{{
       product.Business?.Province?.name | parseLang: utilsService.getLang()
@@ -19,43 +24,64 @@
     <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
   </div>
   <div class="image-layout" fxFlex.lt-md="35" fxLayoutAlign="center center">
-    <a [queryParams]="{
+    <a
+      [queryParams]="{
         productId: product?.id,
         stockId: product?.Stock?.id,
-                name: product?.name?.es,
-                sharedImage: product?.sharedImage
-      }" [routerLink]="['/product']" class="product-link" fxFlex="row" fxLayoutAlign="center center">
-      <img *ngIf="product.Images && product.Images.length" [src]="imageUrl + product.Images[0].image"
-           alt="{{product?.name?.es}}" class="image"
-           lazyImg
-
-           onerror="this.onerror=null;this.src='../../../../assets/images/noImage.jpg';" />
-      <img *ngIf="!(product.Images && product.Images.length)" alt="{{product?.name?.es}}" class="image" lazy
-            src="assets/images/noImage.jpg" />
+        name: product?.name?.es,
+        sharedImage: product?.sharedImage
+      }"
+      [routerLink]="['/product']"
+      class="product-link"
+      fxFlex="row"
+      fxLayoutAlign="center center"
+    >
+      <img
+        *ngIf="product.Images && product.Images.length"
+        [src]="imageUrl + product.Images[0].image"
+        alt="{{ product?.name?.es }}"
+        class="image"
+        lazyImg
+        onerror="this.onerror=null;this.src='../../../../assets/images/noImage.jpg';"
+      />
+      <img
+        *ngIf="!(product.Images && product.Images.length)"
+        alt="{{ product?.name?.es }}"
+        class="image"
+        lazy
+        src="assets/images/noImage.jpg"
+      />
     </a>
   </div>
 
-  <div (click)="onGoToProduct(product)" class="product-info-wrapper"
-       fxLayout="column" ngClass.gt-sm="p-3" ngClass.lt-md="p-2 w-100">
-    <div fxLayout='row' fxLayoutAlign='space-between center'>
+  <div
+    (click)="onGoToProduct(product)"
+    class="product-info-wrapper"
+    fxLayout="column"
+    ngClass.gt-sm="p-3"
+    ngClass.lt-md="p-2 w-100"
+  >
+    <div fxLayout="row" fxLayoutAlign="space-between center">
       <span class="category">
-      {{ utilsService.parserLanguage(product?.Category?.name, language) }}
-    </span>
-      <span *ngIf='product?.justPublished' class="just-published">
-      {{ 'NUEVO'  | translate}}
-    </span>
+        {{ utilsService.parserLanguage(product?.Category?.name, language) }}
+      </span>
+      <span *ngIf="product?.justPublished" class="just-published">
+        {{ 'NUEVO' | translate }}
+      </span>
     </div>
 
-
-
     <div class="title">
-      <a [queryParams]="{
+      <a
+        [queryParams]="{
           productId: product?.id,
           stockId: product?.Stock?.id,
-                name: product?.name?.es,
-                sharedImage: product?.sharedImage
-        }" [routerLink]="['/product']"
-         class="link-nav-a">{{ product.name[language] ? product.name[language] : product.name['es'] }}</a>
+          name: product?.name?.es,
+          sharedImage: product?.sharedImage
+        }"
+        [routerLink]="['/product']"
+        class="link-nav-a"
+        >{{ product.name[language] ? product.name[language] : product.name['es'] }}</a
+      >
     </div>
 
     <!-- <div style="flex: 1 1 100%"></div> -->
@@ -66,24 +92,35 @@
     <!-- <p fxHide.xs class="module line-clamp mt-1 mb-2">
       {{(product?.shortDescription[language])?product?.shortDescription[language]:product?.shortDescription['es']}}</p> -->
     <div fxLayout="row" fxLayoutAlign="end end">
-      <span class='coming-soon-text' *ngIf='product.status === "comingSoon"'>{{ 'Próximamente' | translate }}</span>
+      <span class="coming-soon-text" *ngIf="product.status === 'comingSoon'">{{
+        'Próximamente' | translate
+      }}</span>
     </div>
 
-    <div class="price mt-2" fxLayout="row" fxLayoutAlign="space-between start" *ngIf='product.status !== "comingSoon"'>
-      <button (click)="$event.stopPropagation();onAddToCart(product)" class="btnAddCart" mat-mini-fab
-              matTooltip="{{ 'Añadir al carrito' | translate }}"
-              style="z-index: 10">
+    <div
+      class="price mt-2"
+      fxLayout="row"
+      fxLayoutAlign="space-between start"
+      *ngIf="product.status !== 'comingSoon'"
+    >
+      <button
+        (click)="$event.stopPropagation(); onAddToCart(product)"
+        class="btnAddCart"
+        mat-mini-fab
+        matTooltip="{{ 'Añadir al carrito' | translate }}"
+        style="z-index: 10"
+      >
         <mat-icon>shopping_cart</mat-icon>
       </button>
       <div>
         <div *ngIf="product.offerValue">
           <p class="m-0" style="font-size: 12px">
             <del style="color: #616161">{{ product | parsePriceProduct }}</del>
-            <span class='offer ml-2'>
-                    <span class="mx-0 px-0">-</span>
-                    <span *ngIf="product.isPercent" class="mx-0 px-0">{{ product.offerValue }}% </span>
-                    <span *ngIf="!product.isPercent" class="mx-0 px-0">${{ product.offerValue }}</span>
-                  </span>
+            <span class="offer ml-2">
+              <span class="mx-0 px-0">-</span>
+              <span *ngIf="product.isPercent" class="mx-0 px-0">{{ product.offerValue }}% </span>
+              <span *ngIf="!product.isPercent" class="mx-0 px-0">${{ product.offerValue }}</span>
+            </span>
             <!-- <span style="color: #e53935; font-size: 12px;" class="ml-2 px-0">{{product?.offerValue}}<span
                 style="color: #e53935; font-size: 12px;" *ngIf="product?.isPercent">% </span>off</span> -->
           </p>
@@ -117,7 +154,12 @@
         </a> -->
     </div>
   </div>
-  <div *ngIf='product.Business?.Province && showLocationSpan' class="location-label" fxShow fxHide.lt-md>
+  <div
+    *ngIf="product.Business?.Province && showLocationSpan"
+    class="location-label"
+    fxShow
+    fxHide.lt-md
+  >
     <span>
       <mat-icon>room</mat-icon>&nbsp;<strong>{{
         product.Business?.Province?.name | parseLang: utilsService.getLang()

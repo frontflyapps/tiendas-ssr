@@ -1,46 +1,83 @@
-<div class='list-header'>
-<!--  <img fxHide.xs fxHide.sm class='banner-shop-img' [src]='bannerDefault'>-->
-  <img fxShow.xs fxShow.sm  class='banner-shop-img' fxHide.xs fxHide.sm [src]='businessConfig?.imageBanner1 ? apiURL + businessConfig?.imageBanner1 : bannerDefault'>
-  <img fxShow.xs fxShow.sm  class='banner-shop-img' fxHide fxShow.xs fxShow.sm [src]='businessConfig?.imageBanner1Xs ? apiURL + businessConfig?.imageBanner1Xs : bannerDefault'>
+<div class="list-header">
+  <!--  <img fxHide.xs fxHide.sm class='banner-shop-img' [src]='bannerDefault'>-->
+  <img
+    fxShow.xs
+    fxShow.sm
+    class="banner-shop-img"
+    fxHide.xs
+    fxHide.sm
+    [src]="businessConfig?.imageBanner1 ? apiURL + businessConfig?.imageBanner1 : bannerDefault"
+  />
+  <img
+    fxShow.xs
+    fxShow.sm
+    class="banner-shop-img"
+    fxHide
+    fxShow.xs
+    fxShow.sm
+    [src]="businessConfig?.imageBanner1Xs ? apiURL + businessConfig?.imageBanner1Xs : bannerDefault"
+  />
 </div>
-<div class='container mt-5'>
-  <div class='search-shops' fxLayout='column' fxLayoutAlign='center center'>
-    <h2 class='mb-3'>{{ 'Buscar' | translate }}</h2>
+<div class="container mt-5">
+  <div class="search-shops" fxLayout="column" fxLayoutAlign="center center">
+    <h2 class="mb-3">{{ 'Buscar' | translate }}</h2>
     <!-- SEARCHING -->
-    <div class='input-search' fxLayout='row' fxFlex='grow'>
-      <input [formControl]='businessName'  (keyup.enter)='onSearchBusiness()' placeholder="{{ 'Buscar tienda...' | translate }}" type='text' />
-      <button class='btn-search' (click)='onSearchBusiness()'>
+    <div class="input-search" fxLayout="row" fxFlex="grow">
+      <input
+        [formControl]="businessName"
+        (keyup.enter)="onSearchBusiness()"
+        placeholder="{{ 'Buscar tienda...' | translate }}"
+        type="text"
+      />
+      <button class="btn-search" (click)="onSearchBusiness()">
         <mat-icon>search</mat-icon>
       </button>
     </div>
   </div>
 
-  <div fxLayout='row wrap' fxLayoutAlign='center center' class='pt-5'>
-    <ng-container *ngFor='let business of allBusiness;let i=index'>
-      <a *ngIf='business.url' [href]='business?.url' target="_blank">
-        <div class='shop-card' [ngClass.gt-xs]="{'mr-5': (i != 2 || i != 5 || i != 8)}">
-          <div class='card-content'>
-            <img class='mb-3' style='object-fit: contain' [src]='apiURL + business.logo' lazyImg  onerror="this.onerror=null;this.src='assets/images/noImage.jpg';">
-            <h2 class='mb-3 link line-clamp2'>{{ business.name }}</h2>
-            <p class='line-clamp8'>{{ business.description }}</p>
-            <button style='margin-top: 1rem' mat-stroked-button>{{'Ir a tienda' | translate}}</button>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" class="pt-5">
+    <ng-container *ngFor="let business of allBusiness; let i = index">
+      <a *ngIf="business.url" [href]="business?.url" target="_blank">
+        <div class="shop-card" [ngClass.gt-xs]="{ 'mr-5': i != 2 || i != 5 || i != 8 }">
+          <div class="card-content">
+            <img
+              class="mb-3"
+              style="object-fit: contain"
+              [src]="apiURL + business.logo"
+              lazyImg
+              onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+            />
+            <h2 class="mb-3 link line-clamp2">{{ business.name }}</h2>
+            <p class="line-clamp8">{{ business.description }}</p>
+            <button style="margin-top: 1rem" mat-stroked-button>
+              {{ 'Ir a tienda' | translate }}
+            </button>
           </div>
         </div>
       </a>
-      <a *ngIf='!business.url' target="_blank">
-        <div class='shop-card' [ngClass.gt-xs]="{'mr-5': (i != 2 || i != 5 || i != 8)}">
-          <div class='card-content'>
-            <img class='mb-3' style='object-fit: contain' [src]='apiURL + business.logo' lazyImg  onerror="this.onerror=null;this.src='assets/images/noImage.jpg';">
-            <h2 class='mb-3 link line-clamp2'>{{ business.name }}</h2>
-            <p class='line-clamp8'>{{ business.description }}</p>
-            <p style='margin-top: 1rem'>{{'Tienda en construcción' | translate}}</p>
+      <a *ngIf="!business.url" target="_blank">
+        <div class="shop-card" [ngClass.gt-xs]="{ 'mr-5': i != 2 || i != 5 || i != 8 }">
+          <div class="card-content">
+            <img
+              class="mb-3"
+              style="object-fit: contain"
+              [src]="apiURL + business.logo"
+              lazyImg
+              onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+            />
+            <h2 class="mb-3 link line-clamp2">{{ business.name }}</h2>
+            <p class="line-clamp8">{{ business.description }}</p>
+            <p style="margin-top: 1rem">{{ 'Tienda en construcción' | translate }}</p>
           </div>
         </div>
       </a>
     </ng-container>
   </div>
 
-  <mat-paginator (page)="OnPaginatorChange($event)" [length]="this.query.total" [pageSizeOptions]="pageSizeOptions"
-                 [pageSize]="query.limit"></mat-paginator>
-
+  <mat-paginator
+    (page)="OnPaginatorChange($event)"
+    [length]="this.query.total"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageSize]="query.limit"
+  ></mat-paginator>
 </div>

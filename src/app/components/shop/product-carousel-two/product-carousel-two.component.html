@@ -20,7 +20,6 @@
                 [src]="imageUrl + product.Images[0].image"
                 class="imageProduct"
                 lazyImg
-
                 onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
               />
               <img
@@ -28,7 +27,6 @@
                 alt="No Image"
                 class="imageProduct"
                 lazyImg
-
                 src="../../../../assets/images/noImage.jpg"
               />
             </a>
@@ -44,21 +42,26 @@
               [routerLink]="['/product']"
               class="product-link"
             >
-              <div fxLayout='row' fxLayoutAlign='space-between center'>
+              <div fxLayout="row" fxLayoutAlign="space-between center">
                 <span class="category">
                   {{ utilsService.parserLanguage(product?.Category?.name, language) }}
                 </span>
-                <span *ngIf='product?.justPublished' class="just-published">
-                  {{ 'NUEVO'  | translate}}
+                <span *ngIf="product?.justPublished" class="just-published">
+                  {{ 'NUEVO' | translate }}
                 </span>
               </div>
 
               <div class="moduleTitle line-clampTitle">
-                <h4 class="mat-body-2">{{ utilsService.parserLanguage(product.name, language) }}</h4>
+                <h4 class="mat-body-2">
+                  {{ utilsService.parserLanguage(product.name, language) }}
+                </h4>
               </div>
 
               <div class="mt-2">
-                <guachos-rating [config]="{ readOnly: true }" [value]="product.rating"></guachos-rating>
+                <guachos-rating
+                  [config]="{ readOnly: true }"
+                  [value]="product.rating"
+                ></guachos-rating>
               </div>
               <!-- <p class="module line-clamp mt-1 mb-2">
                 {{utilsService.parserLanguage(product.shortDescription,language)}}</p> -->
@@ -68,13 +71,20 @@
               <ng-container *ngIf="product.offerValue">
                 <p class="deletePrice m-0">
                   <del>{{ product | parsePriceProduct }}</del>
-                  <span class='offer ml-2'>
+                  <span class="offer ml-2">
                     <span class="mx-0 px-0">-</span>
-                    <span *ngIf="product.isPercent" class="mx-0 px-0">{{ product.offerValue }}% </span>
-                    <span *ngIf="!product.isPercent" class="mx-0 px-0">${{ product.offerValue }}</span>
+                    <span *ngIf="product.isPercent" class="mx-0 px-0"
+                      >{{ product.offerValue }}%
+                    </span>
+                    <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                      >${{ product.offerValue }}</span
+                    >
                   </span>
                 </p>
-                <p class="mat-body-2 m-0" matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}">
+                <p
+                  class="mat-body-2 m-0"
+                  matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+                >
                   {{ product | parsePriceProduct: 'offert' }}
                 </p>
               </ng-container>
@@ -127,7 +137,12 @@
 </ng-container>
 
 <ng-container *ngIf="products.length == 2 && !isHandset">
-  <div class="product-item swiper-container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
+  <div
+    class="product-item swiper-container"
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+    fxLayoutGap="gappx"
+  >
     <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="gappx">
       <div *ngFor="let product of products" class="pr-3">
         <mat-card class="cardProduct2" fxLayout="column">
@@ -148,7 +163,6 @@
                 alt=""
                 class="imageProduct"
                 lazyImg
-
                 onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
               />
 
@@ -157,7 +171,6 @@
                 alt=""
                 class="imageProduct"
                 lazyImg
-
                 src="../../../../assets/images/noImage.jpg"
               />
             </a>
@@ -178,11 +191,16 @@
               </span>
 
               <div class="moduleTitle line-clampTitle">
-                <h4 class="mat-body-2">{{ utilsService.parserLanguage(product.name, language) }}</h4>
+                <h4 class="mat-body-2">
+                  {{ utilsService.parserLanguage(product.name, language) }}
+                </h4>
               </div>
 
               <div class="mt-2">
-                <guachos-rating [config]="{ readOnly: true }" [value]="product.rating"></guachos-rating>
+                <guachos-rating
+                  [config]="{ readOnly: true }"
+                  [value]="product.rating"
+                ></guachos-rating>
               </div>
               <!-- <p class="module line-clamp mt-1 mb-2">
                 {{utilsService.parserLanguage(product.shortDescription,language)}}</p> -->
@@ -192,13 +210,20 @@
               <ng-container *ngIf="product.offerValue">
                 <p class="deletePrice m-0">
                   <del>{{ product | parsePriceProduct }}</del>
-                  <span class='offer ml-2'>
+                  <span class="offer ml-2">
                     <span class="mx-0 px-0">-</span>
-                    <span *ngIf="product.isPercent" class="mx-0 px-0">{{ product.offerValue }}% </span>
-                    <span *ngIf="!product.isPercent" class="mx-0 px-0">${{ product.offerValue }}</span>
+                    <span *ngIf="product.isPercent" class="mx-0 px-0"
+                      >{{ product.offerValue }}%
+                    </span>
+                    <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                      >${{ product.offerValue }}</span
+                    >
                   </span>
                 </p>
-                <p class="mat-body-2 m-0" matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}">
+                <p
+                  class="mat-body-2 m-0"
+                  matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+                >
                   {{ product | parsePriceProduct: 'offert' }}
                 </p>
               </ng-container>
@@ -245,7 +270,12 @@
 </ng-container>
 
 <ng-container *ngIf="products.length == 1">
-  <div class="product-item swiper-container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
+  <div
+    class="product-item swiper-container"
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+    fxLayoutGap="gappx"
+  >
     <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="gappx">
       <mat-card *ngFor="let product of products" class="cardProduct3" fxLayout="column">
         <div class="product-img">
@@ -253,8 +283,8 @@
             [queryParams]="{
               productId: product?.id,
               stockId: product?.Stock?.id,
-                name: product?.name?.es,
-                sharedImage: product?.sharedImage
+              name: product?.name?.es,
+              sharedImage: product?.sharedImage
             }"
             [routerLink]="['/product']"
             class="product-link"
@@ -265,7 +295,6 @@
               alt=""
               class="imageProduct"
               lazyImg
-
               onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
             />
 
@@ -274,7 +303,6 @@
               alt=""
               class="imageProduct"
               lazyImg
-
               src="../../../../assets/images/noImage.jpg"
             />
           </a>
@@ -284,8 +312,8 @@
             [queryParams]="{
               productId: product?.id,
               stockId: product?.Stock?.id,
-                name: product?.name?.es,
-                sharedImage: product?.sharedImage
+              name: product?.name?.es,
+              sharedImage: product?.sharedImage
             }"
             [routerLink]="['/product']"
             class="product-link"
@@ -299,7 +327,10 @@
             </div>
 
             <div class="mt-2">
-              <guachos-rating [config]="{ readOnly: true }" [value]="product.rating"></guachos-rating>
+              <guachos-rating
+                [config]="{ readOnly: true }"
+                [value]="product.rating"
+              ></guachos-rating>
             </div>
             <!-- <p class="module line-clamp mt-1 mb-2">
               {{utilsService.parserLanguage(product.shortDescription,language)}}</p> -->
@@ -309,13 +340,20 @@
             <ng-container *ngIf="product.offerValue">
               <p class="deletePrice m-0">
                 <del>{{ product | parsePriceProduct }}</del>
-                <span class='offer ml-2'>
-                    <span class="mx-0 px-0">-</span>
-                    <span *ngIf="product.isPercent" class="mx-0 px-0">{{ product.offerValue }}% </span>
-                    <span *ngIf="!product.isPercent" class="mx-0 px-0">${{ product.offerValue }}</span>
+                <span class="offer ml-2">
+                  <span class="mx-0 px-0">-</span>
+                  <span *ngIf="product.isPercent" class="mx-0 px-0"
+                    >{{ product.offerValue }}%
                   </span>
+                  <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                    >${{ product.offerValue }}</span
+                  >
+                </span>
               </p>
-              <p class="mat-body-2 m-0" matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}">
+              <p
+                class="mat-body-2 m-0"
+                matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+              >
                 {{ product | parsePriceProduct: 'offert' }}
               </p>
             </ng-container>

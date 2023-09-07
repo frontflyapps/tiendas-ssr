@@ -1,5 +1,10 @@
 <mat-dialog-content style="position: relative">
-  <div fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-md="start start" fxLayoutGap="gappx">
+  <div
+    fxLayout="column"
+    fxLayoutAlign="start center"
+    fxLayoutAlign.lt-md="start start"
+    fxLayoutGap="gappx"
+  >
     <p ngClass.gt-sm="mat-body-2" ngClass.lt-md="mat-body-2">
       {{ 'Confirmación de pago usando Transfermóvil.' | translate }}
     </p>
@@ -21,7 +26,12 @@
           {{ 'e. Cuando concluya el pago, de clic en el botón LISTO.' | translate }}
         </li>
       </div>
-      <a [href]="domSanitizer.bypassSecurityTrustUrl(this.launchTM)" class="mt-2" color="primary" mat-flat-button>
+      <a
+        [href]="domSanitizer.bypassSecurityTrustUrl(this.launchTM)"
+        class="mt-2"
+        color="primary"
+        mat-flat-button
+      >
         {{ 'Abrir la app de Transfermóvil' | translate }}</a
       >
     </ul>
@@ -29,7 +39,9 @@
   <div fxFlexFill fxLayout="column" fxLayoutAlign="start center">
     <img [src]="this.imgQR" class="mt-4" />
     <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="gappx" style="max-width: 20rem">
-      <span class="mat-title mt-3"> {{ 'Total' | translate }}: &nbsp;{{ finalPrice | currencyMarket: currency }} </span>
+      <span class="mat-title mt-3">
+        {{ 'Total' | translate }}: &nbsp;{{ finalPrice | currencyMarket: currency }}
+      </span>
     </div>
   </div>
 </mat-dialog-content>

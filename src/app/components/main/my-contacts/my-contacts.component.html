@@ -15,7 +15,11 @@
 
       <ng-template #contentLoaded>
         <ng-container
-          *ngIf="contactsService.allContacts.length > 0; then thereIsContacts; else thereIsNoContacts"
+          *ngIf="
+            contactsService.allContacts.length > 0;
+            then thereIsContacts;
+            else thereIsNoContacts
+          "
         ></ng-container>
       </ng-template>
 
@@ -46,7 +50,9 @@
               >
                 <mat-icon style="color: #ffeb3b !important">star</mat-icon>
               </button>
-              <span class="contact-title" fxFlex="grow">{{ contact?.name }}&nbsp;{{ contact?.lastName }} </span>
+              <span class="contact-title" fxFlex="grow"
+                >{{ contact?.name }}&nbsp;{{ contact?.lastName }}
+              </span>
 
               <div
                 (click)="editContact(contact)"
@@ -77,7 +83,9 @@
       <ng-template #thereIsNoContacts>
         <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
           <span>{{ 'No tiene contactos' | translate }}</span>
-          <small>{{ 'Esta información se usan para tener acceso rápidos a ella para el pago' | translate }}</small>
+          <small>{{
+            'Esta información se usan para tener acceso rápidos a ella para el pago' | translate
+          }}</small>
         </div>
       </ng-template>
     </ng-container>
@@ -86,8 +94,9 @@
     <ng-container *ngIf="onCreateContact">
       <div [formGroup]="form" fxFlex="100">
         <div fxFlex="100" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
-
-          <mat-slide-toggle class='mt-3 mb-3' [formControl]="form.controls['selected']">{{'Marcar como contacto por defecto'}}</mat-slide-toggle>
+          <mat-slide-toggle class="mt-3 mb-3" [formControl]="form.controls['selected']">{{
+            'Marcar como contacto por defecto'
+          }}</mat-slide-toggle>
 
           <mat-form-field appearance="outline">
             <mat-label>{{ 'Name' | translate }}</mat-label>
@@ -141,7 +150,12 @@
               <mat-error *ngIf="form.controls['email'].hasError('required')">
                 {{ 'email' | translate }} <strong>{{ 'is required' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="form.controls['email'].hasError('email') || form.controls['email'].hasError('pattern')">
+              <mat-error
+                *ngIf="
+                  form.controls['email'].hasError('email') ||
+                  form.controls['email'].hasError('pattern')
+                "
+              >
                 {{ 'email' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
               </mat-error>
             </mat-form-field>
@@ -162,8 +176,14 @@
               <mat-error *ngIf="form.controls['identification'].hasError('pattern')">
                 {{ 'Identification' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="form.controls['identification'].hasError('minlength') || form.controls['identification'].hasError('maxlength')">
-                {{ 'Identification' | translate }} <strong>{{ 'must have 11 characters' | translate }}</strong>
+              <mat-error
+                *ngIf="
+                  form.controls['identification'].hasError('minlength') ||
+                  form.controls['identification'].hasError('maxlength')
+                "
+              >
+                {{ 'Identification' | translate }}
+                <strong>{{ 'must have 11 characters' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -184,7 +204,8 @@
             </mat-error>
             <mat-error
               *ngIf="
-                (form.controls['phone'].hasError('minlength') || form.controls['phone'].hasError('maxlength')) &&
+                (form.controls['phone'].hasError('minlength') ||
+                  form.controls['phone'].hasError('maxlength')) &&
                 !form.controls['phone'].hasError('pattern')
               "
             >
@@ -193,7 +214,9 @@
               }}</strong>
             </mat-error>
             <mat-error *ngIf="form.controls['phone'].hasError('pattern')">
-              {{ 'El número' | translate }}&nbsp;<strong>{{ 'debe empezar con 5, Ex: 51234567' | translate }}</strong>
+              {{ 'El número' | translate }}&nbsp;<strong>{{
+                'debe empezar con 5, Ex: 51234567' | translate
+              }}</strong>
             </mat-error>
           </mat-form-field>
 
@@ -206,7 +229,11 @@
               {{ 'Dirección' | translate }} <strong>{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field> -->
-          <p class="mat-body-2 my-2" style="text-transform: uppercase" title="{{ 'Dirección' | translate }}">
+          <p
+            class="mat-body-2 my-2"
+            style="text-transform: uppercase"
+            title="{{ 'Dirección' | translate }}"
+          >
             {{ 'Dirección' | translate }}
           </p>
           <div fxLayout="row" fxLayoutGap="10px">
@@ -313,8 +340,15 @@
 
   <ng-container *ngIf="onCreateContact">
     <div fxLayout="row" fxLayoutAlign="end start" mat-dialog-actions>
-      <button (click)="onSetBack()" color="primary" mat-flat-button>{{ 'Atrás' | translate }}</button>
-      <button (click)="onSetUpdateContact()" [disabled]="this.form.invalid" color="primary" mat-flat-button>
+      <button (click)="onSetBack()" color="primary" mat-flat-button>
+        {{ 'Atrás' | translate }}
+      </button>
+      <button
+        (click)="onSetUpdateContact()"
+        [disabled]="this.form.invalid"
+        color="primary"
+        mat-flat-button
+      >
         {{ 'Save' | translate }}
       </button>
     </div>
