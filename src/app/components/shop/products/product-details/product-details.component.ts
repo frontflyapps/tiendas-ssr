@@ -34,7 +34,7 @@ import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-presc
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
-
+import { SwiperOptions } from 'swiper/types';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -65,7 +65,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   changeImage = false;
   language: any;
   _unsubscribeAll: Subject<any>;
-  public config: SwiperConfigInterface = {};
   public configVariants: SwiperConfigInterface = {};
   loggedInUser: any = null;
   reviewForm: UntypedFormGroup;
@@ -194,6 +193,56 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         },
       );
     });
+  }
+
+  initSwiperXsSm() {
+    const swiperEl = document.querySelector('#app-product-details-sm-xs');
+
+    if (swiperEl) {
+      // swiper parameters
+      const swiperOptions: SwiperOptions = {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        keyboard: true,
+        navigation: true,
+        pagination: this.pagination,
+        grabCursor: true,
+        loop: false,
+        // preloadImages: false,
+        // lazy: true,
+        autoplay: false,
+        effect: 'fade',
+      };
+      Object.assign(swiperEl, swiperOptions);
+
+      // @ts-expect-error necessarCheck the docs
+      swiperEl.initialize();
+    }
+  }
+
+  initSmXsSwiper() {
+    const swiperEl = document.querySelector('#app-product-details-sm-xs');
+
+    if (swiperEl) {
+      // swiper parameters
+      const swiperOptions: SwiperOptions = {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        keyboard: true,
+        navigation: true,
+        pagination: this.pagination,
+        grabCursor: true,
+        loop: false,
+        // preloadImages: false,
+        // lazy: true,
+        autoplay: false,
+        effect: 'fade',
+      };
+      Object.assign(swiperEl, swiperOptions);
+
+      // @ts-expect-error necessarCheck the docs
+      swiperEl.initialize();
+    }
   }
 
   checkMinMaxValues(event, product): boolean {
@@ -439,6 +488,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngAfterViewInit(): void {
     this.initConfig();
+    this.initSwiperXsSm();
   }
 
   goProduct(product) {
@@ -465,19 +515,19 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   initConfig() {
-    this.config = {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      keyboard: true,
-      navigation: true,
-      pagination: this.pagination,
-      grabCursor: true,
-      loop: false,
-      preloadImages: false,
-      lazy: true,
-      autoplay: false,
-      effect: 'fade',
-    };
+    // this.config = {
+    //   slidesPerView: 1,
+    //   spaceBetween: 0,
+    //   keyboard: true,
+    //   navigation: true,
+    //   pagination: this.pagination,
+    //   grabCursor: true,
+    //   loop: false,
+    //   preloadImages: false,
+    //   lazy: true,
+    //   autoplay: false,
+    //   effect: 'fade',
+    // };
     this.configVariants = {
       slidesPerView: 7,
       spaceBetween: 20,

@@ -12,7 +12,11 @@ function getProject(name) {
   const stylePreprocessorOptions = {
     includePaths: [assetsDir, '/assets'],
   };
-  const styles = [joinStr(assetsDir, '/app.scss')];
+  const styles = [
+    joinStr(assetsDir, '/app.scss'),
+    // fixing the issue "Could not find Angular Material core theme"
+    'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css',
+  ];
 
   const assets = [
     'src/favicon.ico',

@@ -158,22 +158,19 @@
             </button>
             <div fxLayoutAlign="center center">
               <div class="main-slider">
-                <div [swiper]="config" class="swiper-container h-100">
-                  <div class="swiper-wrapper h-100">
-                    <div
-                      *ngFor="let image of arrayImages; let i = index"
-                      class="swiper-slide"
-                      fxLayoutAlign="center center"
-                    >
-                      <div class="slide-item swiper-lazy" fxLayoutAlign="center center">
-                        <div class="container-carrusel" fxLayoutAlign="center center">
-                          <img [src]="image.image" class="img-swiper" />
-                        </div>
+                <swiper-container init="false" id="app-product-details-sm-xs" class="h-100">
+                  <swiper-slide
+                    *ngFor="let image of arrayImages; let i = index"
+                    fxLayoutAlign="center center"
+                  >
+                    <div class="slide-item swiper-lazy" fxLayoutAlign="center center">
+                      <div class="container-carrusel" fxLayoutAlign="center center">
+                        <img [src]="image.image" class="img-swiper" />
                       </div>
                     </div>
-                  </div>
+                  </swiper-slide>
                   <div class="swiper-pagination white"></div>
-                </div>
+                </swiper-container>
               </div>
               <img
                 lazyImg

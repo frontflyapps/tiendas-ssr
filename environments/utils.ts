@@ -1,8 +1,12 @@
-import { Environment } from './types';
+import { AppName, Environment } from './types';
 
 import packageJson from '../package.json';
 
 const useApiTest = true;
+
+export const appName = (process.env.NG_APP_NAME || process.env.STORYBOOK_APP_NAME) as
+  | AppName
+  | undefined;
 
 export const environmentFactory = (overrides: Partial<Environment>): Environment => {
   return {
