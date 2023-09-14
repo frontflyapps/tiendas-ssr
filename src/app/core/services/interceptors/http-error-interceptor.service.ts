@@ -63,6 +63,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
 
   // /////////////////////Procesing Error////////////////////////////////
   processingBackendError(err) {
+    console.warn('processingBackendError', err);
     if (err.status == 401) {
       this.utilsService.errorHandle(err);
       if (this.router.url.includes('my-account')) {

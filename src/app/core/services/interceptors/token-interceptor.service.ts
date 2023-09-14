@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { LoggedInUserService } from '../loggedInUser/logged-in-user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'environments/environment';
+import { LoggedInUserService } from '../loggedInUser/logged-in-user.service';
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
@@ -11,14 +11,14 @@ export class TokenInterceptorService implements HttpInterceptor {
   currency: any = null;
 
   constructor(
-    // private loggedInUserService: LoggedInUserService,
+    private loggedInUserService: LoggedInUserService,
     private translate: TranslateService,
   ) {
-    // this.token = loggedInUserService.getTokenCookie();
+    this.token = this.loggedInUserService.getTokenCookie();
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // this.token = this.loggedInUserService.getTokenCookie();
+    this.token = this.loggedInUserService.getTokenCookie();
     const tokenBusiness: any = environment.tokenBusiness;
     const language = this.translate.currentLang;
 
