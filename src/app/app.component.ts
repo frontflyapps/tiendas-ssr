@@ -14,7 +14,7 @@ import { RequestCookieSecureService } from './core/services/request-cookie-secur
 import { SplashScreenService } from './core/services/splash-screen/splash-screen.service';
 import { Meta } from '@angular/platform-browser';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from './core/services/native-storage/native-storage.service';
+import { StorageService } from './core/services/storage/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +42,7 @@ export class AppComponent {
     private authService: AuthenticationService,
     private encryptDecryptService: EncryptDecryptService,
     private localStorageService: LocalStorageService,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
     private meta: Meta,
     private splashService: SplashScreenService,
   ) {
@@ -55,14 +55,14 @@ export class AppComponent {
       image: 'assets/images/flags/es.svg',
       lang: 'es',
     };
-    if ('language' in this.nativeStorageService) {
-      let language = JSON.parse(this.nativeStorageService.getItem('language'));
+    if ('language' in this.storageService) {
+      let language = JSON.parse(this.storageService.getItem('language'));
       language = language ? language : defaultLanguage;
       this.translate.setDefaultLang(language.lang);
       this.translate.use(language.lang);
     } else {
       this.translate.setDefaultLang(defaultLanguage.lang);
-      this.nativeStorageService.setItem('language', JSON.stringify(defaultLanguage));
+      this.storageService.setItem('language', JSON.stringify(defaultLanguage));
     }
     this.initSystem();
   }

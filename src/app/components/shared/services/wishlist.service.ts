@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../../../modals/product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, Subscriber } from 'rxjs';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,16 +10,16 @@ import { NativeStorageService } from 'src/app/core/services/native-storage/nativ
 export class WishlistService {
   observer: Subscriber<{}>;
   // Get product from Localstorage
-  products = JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
+  products = JSON.parse(this.storageService.getItem('wishlistItem')) || [];
 
   constructor(
     public snackBar: MatSnackBar,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {}
 
   // Get  wishlist Products
   public getProducts(): Observable<Product[]> {
-    this.products = this.nativeStorageService.getItem('wishlistItem') || [];
+    this.products = this.storageService.getItem('wishlistItem') || [];
     const itemsStream = new Observable((observer) => {
       observer.next(this.products);
       observer.complete();
@@ -50,7 +50,7 @@ export class WishlistService {
       verticalPosition: 'top',
       duration: 3000,
     });
-    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(this.products));
+    this.storageService.setItem('wishlistItem', JSON.stringify(this.products));
     return item;
   }
 
@@ -61,11 +61,11 @@ export class WishlistService {
     }
     const index = this.products.indexOf(product);
     this.products.splice(index, 1);
-    this.nativeStorageService.setItem('wishlistItem', JSON.stringify(this.products));
+    this.storageService.setItem('wishlistItem', JSON.stringify(this.products));
   }
 
   public getWishlistCount() {
-    const data: any[] = JSON.parse(this.nativeStorageService.getItem('wishlistItem')) || [];
+    const data: any[] = JSON.parse(this.storageService.getItem('wishlistItem')) || [];
     return data.length;
   }
 }

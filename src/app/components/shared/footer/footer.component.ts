@@ -5,7 +5,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { IUser } from '../../../core/classes/user.class';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 export interface IFooterContacts {
   phone: string;
@@ -22,7 +22,7 @@ export interface IFooterContacts {
 export class FooterComponent implements OnInit {
   language: string;
   currency: string;
-  businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
+  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
   public version = environment.versions.app;
 
   public contacts: IFooterContacts;
@@ -54,10 +54,10 @@ export class FooterComponent implements OnInit {
     public dialog: MatDialog,
     public loggedInUserService: LoggedInUserService,
     public translate: TranslateService,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-    const tempFlag = JSON.parse(this.nativeStorageService.getItem('language'));
+    const tempFlag = JSON.parse(this.storageService.getItem('language'));
     this.flag = tempFlag ? tempFlag : this.flags[0];
   }
 
@@ -69,14 +69,14 @@ export class FooterComponent implements OnInit {
 
   public changeLang(flag) {
     this.translate.use(flag.lang);
-    this.nativeStorageService.setItem('language', JSON.stringify(flag));
+    this.storageService.setItem('language', JSON.stringify(flag));
     this.flag = flag;
     // this.loggedInUserService.$languageChanged.next(flag);
   }
 
   onSwitchLanguage(): void {
     this.translate.use(this.language);
-    this.nativeStorageService.setItem('language', this.language);
+    this.storageService.setItem('language', this.language);
     // this.loggedInUserService.languageChange(this.language);
   }
 

@@ -10,7 +10,7 @@ import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-s
 import { TranslateService } from '@ngx-translate/core';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Component({
   selector: 'app-footer-two',
@@ -44,14 +44,14 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
     private router: Router,
     private translate: TranslateService,
     private currencyService: CurrencyService,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     //isSubscribed//
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
 
     // const tempStorage = JSON.parse(localStorage.getItem('subscribeState'));
     this.subscribeState = this.loggedInUser ? this.loggedInUser.isSubscribed : false;
-    this.nativeStorageService.setItem('subscribeState', JSON.stringify(this.subscribeState));
+    this.storageService.setItem('subscribeState', JSON.stringify(this.subscribeState));
     this.address = environment.address;
 
     this.form = this.fb.group({
@@ -60,7 +60,7 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const tempFlag = JSON.parse(this.nativeStorageService.getItem('language'));
+    const tempFlag = JSON.parse(this.storageService.getItem('language'));
     this.flag = tempFlag ? tempFlag : this.flags[0];
     this.currencies = this.currencyService.getCurrencies();
     this.currency = this.currencyService.getCurrency();
@@ -70,30 +70,30 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
         this.subscribeState = this.loggedInUser ? this.loggedInUser.isSubscribed : false;
-        this.nativeStorageService.setItem('subscribeState', JSON.stringify(this.subscribeState));
+        this.storageService.setItem('subscribeState', JSON.stringify(this.subscribeState));
         ///////////////////////////////////////////////////////
-        let tempCurrency = JSON.parse(this.nativeStorageService.getItem('currency'));
+        let tempCurrency = JSON.parse(this.storageService.getItem('currency'));
         if (tempCurrency) {
           tempCurrency = this.currencies.find((item) => item.name == tempCurrency.name);
           this.currency = tempCurrency ? tempCurrency : this.currencies[0];
         } else {
           this.currency = this.currencies[0];
         }
-        this.nativeStorageService.setItem('currency', JSON.stringify(this.currency));
+        this.storageService.setItem('currency', JSON.stringify(this.currency));
 
         const defaultLanguage: any = {
           name: 'Español',
           image: 'assets/images/flags/es.svg',
           lang: 'es',
         };
-        if (this.nativeStorageService.has('language')) {
-          let language = JSON.parse(this.nativeStorageService.getItem('language'));
+        if (this.storageService.has('language')) {
+          let language = JSON.parse(this.storageService.getItem('language'));
           language = language ? language : defaultLanguage;
           this.translate.setDefaultLang(language.lang);
           this.translate.use(language.lang);
         } else {
           this.translate.setDefaultLang(defaultLanguage.lang);
-          this.nativeStorageService.setItem('language', JSON.stringify(defaultLanguage));
+          this.storageService.setItem('language', JSON.stringify(defaultLanguage));
         }
 
         ////////////////////////////////////////////////////
@@ -152,7 +152,7 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
 
   public changeLang(flag) {
     this.translate.use(flag.lang);
-    this.nativeStorageService.setItem('language', JSON.stringify(flag));
+    this.storageService.setItem('language', JSON.stringify(flag));
     this.flag = flag;
     this.loggedInUserService.$languageChanged.next(flag);
   }

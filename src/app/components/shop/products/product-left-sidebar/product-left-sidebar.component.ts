@@ -21,7 +21,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { DialogSetLocationComponent } from '../../../main/dialog-set-location/dialog-set-location.component';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Component({
   selector: 'app-product-left-sidebar',
@@ -96,7 +96,7 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
     private locationService: LocationService,
     public translate: TranslateService,
     public utilsService: UtilsService,
-    public nativeStorageService: NativeStorageService,
+    public storageService: StorageService,
   ) {
     // this.metaService.setMeta(
     //   'Todos los productos',
@@ -796,7 +796,7 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   // ============= LOCATION ==================================
   initSubsLocation() {
     this.locationService.location$.subscribe((newLocation) => {
-      const nowLocation = JSON.parse(this.nativeStorageService.getItem('location'));
+      const nowLocation = JSON.parse(this.storageService.getItem('location'));
       this.setLocationData(newLocation);
       if (newLocation) {
         if (

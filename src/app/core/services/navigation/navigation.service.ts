@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NativeStorageService } from '../native-storage/native-storage.service';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -287,7 +287,7 @@ export class NavigationService {
   ];
   constructor(
     private router: Router,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {}
 
   public getNavItems() {
@@ -300,7 +300,7 @@ export class NavigationService {
 
   public navigateToMyAccount(param?: any) {
     debugger;
-    const config = JSON.parse(this.nativeStorageService.getItem('business-config'));
+    const config = JSON.parse(this.storageService.getItem('business-config'));
 
     if (config && config.signUpType == 'tcp') {
       if (param) {

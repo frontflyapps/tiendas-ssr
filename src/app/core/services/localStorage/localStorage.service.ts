@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
-import { NativeStorageService } from '../native-storage/native-storage.service';
+import { StorageService } from '../storage/storage.service';
 import { environment } from 'environments/environment';
 
 export const ReLoggedTime = environment.timeToResetSession; // Time in (ms), Time to reload data and clear localStorage
@@ -26,7 +26,7 @@ export interface ISessionStorageItems {
 export class LocalStorageService {
   constructor(
     private cookieService: SsrCookieService,
-    public nativeStorageService: NativeStorageService,
+    public storageService: StorageService,
   ) {
     // sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(this.initStateSession())); //TODO Cupull fix later
   }
@@ -44,7 +44,7 @@ export class LocalStorageService {
   }
 
   setVersion() {
-    const v: IVersionSystem = JSON.parse(this.nativeStorageService.getItem('_v'));
+    const v: IVersionSystem = JSON.parse(this.storageService.getItem('_v'));
     console.log('v', v?.version || 'No version');
     console.log('v env', environment.versions.app);
     const evaluateVersion = v?.version !== environment.versions.app;
@@ -77,7 +77,7 @@ export class LocalStorageService {
       version: environment.versions.app,
       timespan: new Date().getTime(),
     };
-    this.nativeStorageService.setItem('_v', JSON.stringify(v));
+    this.storageService.setItem('_v', JSON.stringify(v));
   }
 
   setOnStorage(key: string, data: any): void | boolean {
@@ -85,19 +85,19 @@ export class LocalStorageService {
       return false;
     }
 
-    this.nativeStorageService.setItem(key, JSON.stringify(data));
+    this.storageService.setItem(key, JSON.stringify(data));
   }
 
   getFromStorage(key: string): any {
     if (key) {
-      const dataStorage = JSON.parse(this.nativeStorageService.getItem(key));
+      const dataStorage = JSON.parse(this.storageService.getItem(key));
       return dataStorage || null;
     }
     return null;
   }
 
   clearLocalStorage() {
-    this.nativeStorageService.clear();
+    this.storageService.clear();
   }
 
   removeCookies() {

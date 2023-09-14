@@ -4,7 +4,7 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
 @Injectable({
   providedIn: 'root',
 })
-export class NativeStorageService {
+export class StorageService {
   constructor(private cookieService: SsrCookieService) {}
 
   clear(): void {

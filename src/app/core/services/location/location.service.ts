@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LOCATION } from '../../classes/storageNames.class';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from '../native-storage/native-storage.service';
+import { StorageService } from '../storage/storage.service';
 
 export const LOCATION_BASE = {
   municipality: null,
@@ -25,7 +25,7 @@ export class LocationService {
 
   constructor(
     private httpClient: HttpClient,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     this.getLocationOnLocalStorage();
   }
@@ -53,7 +53,7 @@ export class LocationService {
   private getLocationOnLocalStorage() {
     let locationOnLocalStorage;
     try {
-      locationOnLocalStorage = JSON.parse(this.nativeStorageService.getItem(LOCATION));
+      locationOnLocalStorage = JSON.parse(this.storageService.getItem(LOCATION));
       if (locationOnLocalStorage) {
         this.updateLocation(locationOnLocalStorage);
       }

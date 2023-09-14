@@ -6,7 +6,7 @@ import { concat, interval, Subject } from 'rxjs';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { DialogReloadAppComponent } from './dialog-reload-app/dialog-reload-app.component';
 import { first } from 'rxjs/operators';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Injectable()
 export class ServiceWorkerUpdateService {
@@ -16,7 +16,7 @@ export class ServiceWorkerUpdateService {
     private appRef: ApplicationRef,
     public updates: SwUpdate,
     public dialog: MatDialog,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     // Allow the app to stabilize first, before starting
     // polling for updates with `interval()`.
@@ -70,7 +70,7 @@ export class ServiceWorkerUpdateService {
 
     dialogRef.afterClosed().subscribe(() => {
       document.location.reload();
-      this.nativeStorageService.clear();
+      this.storageService.clear();
       sessionStorage.clear();
       Cookies.remove('account');
     });

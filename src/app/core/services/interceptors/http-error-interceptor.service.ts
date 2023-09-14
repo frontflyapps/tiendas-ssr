@@ -18,7 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
 // import { DialogCaptchaComponent } from '../../../components/shared/dialog-captcha/dialog-captcha.component';
 import { LocalStorageService } from '../localStorage/localStorage.service';
 import { ShowToastrService } from '../show-toastr/show-toastr.service';
-import { NativeStorageService } from '../native-storage/native-storage.service';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable()
 export class HttpErrorInterceptorService implements HttpInterceptor {
@@ -35,7 +35,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     private localStorageService: LocalStorageService,
     private router: Router,
     private route: ActivatedRoute,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -67,7 +67,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
       this.utilsService.errorHandle(err);
       if (this.router.url.includes('my-account')) {
       } else {
-        this.nativeStorageService.removeItem('user');
+        this.storageService.removeItem('user');
         this.loggedInUserService.setLoggedInUser(null);
         this.loggedInUserService.removeCookies();
         this.loggedInUserService.$loggedInUserUpdated.next(null);
@@ -76,7 +76,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
       }
     } else if (err.status == 403) {
       if (this.router.url.includes('backend')) {
-        this.nativeStorageService.removeItem('user');
+        this.storageService.removeItem('user');
         this.router.navigate(['my-account']).then();
       }
       this.utilsService.errorHandle(err);

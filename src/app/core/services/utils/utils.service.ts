@@ -172,7 +172,7 @@ export class UtilsService {
     return 'es'; // TODO: Cambiar por el idioma del usuario
 
     // try {
-    //   let lang = JSON.parse(this.nativeStorageService.getItem('language'));
+    //   let lang = JSON.parse(this.storageService.getItem('language'));
     //   return lang.lang || 'es';
     // } catch (error) {
     //   return 'es';

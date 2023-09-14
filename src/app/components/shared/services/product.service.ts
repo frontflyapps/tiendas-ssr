@@ -10,7 +10,7 @@ import { FRONT_PRODUCT_DATA } from '../../../core/classes/global.const';
 import { LocalStorageService } from '../../../core/services/localStorage/localStorage.service';
 import { IProductCard, IProductData } from '../../../core/classes/product-card.class';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -62,13 +62,13 @@ export class ProductService {
   updatedSectionsProduct$ = new Subject<any>();
   private _url = 'assets/data/';
   // Get product from Localstorage
-  products = JSON.parse(this.nativeStorageService.getItem('compareItem')) || [];
+  products = JSON.parse(this.storageService.getItem('compareItem')) || [];
 
   constructor(
     private httpClient: HttpClient,
     private localStorageService: LocalStorageService,
     public snackBar: MatSnackBar,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     this.compareProducts.subscribe((comProducts) => (this.products = comProducts));
 
@@ -93,8 +93,8 @@ export class ProductService {
 
   public getAllProductsSections() {
     this.offset = 0;
-    this.nativeStorageService.removeItem('sections');
-    this.nativeStorageService.removeItem('sectionIds');
+    this.storageService.removeItem('sections');
+    this.storageService.removeItem('sectionIds');
     this.getSections().subscribe((data) => {
       this.getSectionsIds().subscribe((item) => {});
     });
@@ -456,7 +456,7 @@ export class ProductService {
         duration: 3000,
       });
     }
-    this.nativeStorageService.setItem('compareItem', JSON.stringify(this.products));
+    this.storageService.setItem('compareItem', JSON.stringify(this.products));
     return item;
   }
 
@@ -467,7 +467,7 @@ export class ProductService {
     }
     const index = this.products.indexOf(product);
     this.products.splice(index, 1);
-    this.nativeStorageService.setItem('compareItem', JSON.stringify(this.products));
+    this.storageService.setItem('compareItem', JSON.stringify(this.products));
   }
 
   public setGetProductPromise() {

@@ -15,7 +15,7 @@ import {
 } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Component({
   selector: 'app-my-account',
@@ -101,16 +101,14 @@ export class MyAccountComponent implements OnInit {
     private loggedInUserService: LoggedInUserService,
     public phoneCodesService: PhoneCodeService,
     public utilsService: UtilsService,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     this.message = '';
-    this.isRegisterToPay = !!this.nativeStorageService.getItem('isRegisterToPay');
-    this.isRegisterToBecomeASeller = !!this.nativeStorageService.getItem(
-      'isRegisterToBecomeASeller',
-    );
-    this.businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
-    this.nativeStorageService.removeItem('isRegisterToPay');
-    this.nativeStorageService.removeItem('isRegisterToBecomeASeller');
+    this.isRegisterToPay = !!this.storageService.getItem('isRegisterToPay');
+    this.isRegisterToBecomeASeller = !!this.storageService.getItem('isRegisterToBecomeASeller');
+    this.businessConfig = JSON.parse(this.storageService.getItem('business-config'));
+    this.storageService.removeItem('isRegisterToPay');
+    this.storageService.removeItem('isRegisterToBecomeASeller');
     this.routeToNavigate = this.isRegisterToPay
       ? '/cart'
       : this.isRegisterToBecomeASeller
@@ -597,7 +595,7 @@ export class MyAccountComponent implements OnInit {
     data.password = data.passwords.password;
     data.lastName = data.lastname;
     data.role = 'Client';
-    const token = this.nativeStorageService.getItem('token');
+    const token = this.storageService.getItem('token');
     if (token != undefined) {
       data.token = token;
     }
@@ -640,7 +638,7 @@ export class MyAccountComponent implements OnInit {
     data.lastName = data.lastname;
     data.role = 'Client';
     if (this.pdfData.length) data.file = this.pdfData[0].file.data;
-    const token = this.nativeStorageService.getItem('token');
+    const token = this.storageService.getItem('token');
     if (token != undefined) {
       data.token = token;
     }

@@ -14,7 +14,7 @@ import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { BankService } from '../../../core/services/bank/bank.service';
 import { environment } from 'environments/environment';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { IUser } from 'src/app/core/classes/user.class';
 
 @Component({
@@ -94,18 +94,18 @@ export class BecomeASellerComponent implements OnInit {
     private showToastr: ShowToastrService,
     private translate: TranslateService,
     private router: Router,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
     @Inject(DOCUMENT) private document: Document,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-    if (this.nativeStorageService.getItem('bs_image')) {
-      this.imageBusiness = this.nativeStorageService.getItem('bs_image');
+    if (this.storageService.getItem('bs_image')) {
+      this.imageBusiness = this.storageService.getItem('bs_image');
       if (this.imageSelected !== undefined) {
       }
     }
-    this.firstStep = JSON.parse(this.nativeStorageService.getItem('bs_step_one'));
-    this.ownerInfo = JSON.parse(this.nativeStorageService.getItem('ownerInfo'));
+    this.firstStep = JSON.parse(this.storageService.getItem('bs_step_one'));
+    this.ownerInfo = JSON.parse(this.storageService.getItem('ownerInfo'));
 
     this.buildForm();
     this.fetchDaTa();
@@ -226,12 +226,9 @@ export class BecomeASellerComponent implements OnInit {
   }
 
   saveInfo() {
-    this.nativeStorageService.setItem('bs_image', this.imageBusiness);
-    this.nativeStorageService.setItem('bs_step_one', JSON.stringify(this.basicForm.value));
-    this.nativeStorageService.setItem(
-      'ownerInfo',
-      JSON.stringify(this.basicForm.get('owner')?.value),
-    );
+    this.storageService.setItem('bs_image', this.imageBusiness);
+    this.storageService.setItem('bs_step_one', JSON.stringify(this.basicForm.value));
+    this.storageService.setItem('ownerInfo', JSON.stringify(this.basicForm.get('owner')?.value));
   }
 
   fillLoggedInfo() {
@@ -279,10 +276,10 @@ export class BecomeASellerComponent implements OnInit {
           'Éxito',
           8000,
         );
-        this.nativeStorageService.removeItem('bs_image');
-        this.nativeStorageService.removeItem('bs_step_one');
-        this.nativeStorageService.removeItem('bs_step_two');
-        this.nativeStorageService.removeItem('bs_step_three');
+        this.storageService.removeItem('bs_image');
+        this.storageService.removeItem('bs_step_one');
+        this.storageService.removeItem('bs_step_two');
+        this.storageService.removeItem('bs_step_three');
         this.spinner.hide();
         this.router.navigate(['']).then();
       },

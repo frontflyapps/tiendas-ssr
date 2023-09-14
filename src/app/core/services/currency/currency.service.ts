@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { Subject } from 'rxjs';
-import { NativeStorageService } from '../native-storage/native-storage.service';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,26 +19,26 @@ export class CurrencyService {
 
   constructor(
     private currencyPipe: CurrencyPipe,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
-    let tempCurrency = JSON.parse(this.nativeStorageService.getItem('currency'));
+    let tempCurrency = JSON.parse(this.storageService.getItem('currency'));
     if (tempCurrency) {
       tempCurrency = this.currencies.find((item) => item.name == tempCurrency.name);
       this.currency = tempCurrency ? tempCurrency : this.currencies[0];
     } else {
       this.currency = this.currencies[0];
     }
-    this.nativeStorageService.setItem('currency', JSON.stringify(this.currency));
+    this.storageService.setItem('currency', JSON.stringify(this.currency));
   }
 
   public setCurrency(currency) {
     this.currency = currency;
-    this.nativeStorageService.setItem('currency', JSON.stringify(currency));
+    this.storageService.setItem('currency', JSON.stringify(currency));
     this.$currencyUpdated.next(currency);
   }
 
   public getCurrency() {
-    const tempCurrency = JSON.parse(this.nativeStorageService.getItem('currency'));
+    const tempCurrency = JSON.parse(this.storageService.getItem('currency'));
     this.currency = tempCurrency ? tempCurrency : this.currencies[0];
     return this.currency;
   }

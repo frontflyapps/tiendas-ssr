@@ -10,7 +10,7 @@ import { MyOrdersService } from '../../my-orders/service/my-orders.service';
 import { GlobalStateOfCookieService } from '../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { CategoryMenuNavService } from '../../../core/services/category-menu-nav.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Component({
   selector: 'app-menu',
@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   shoppingCartItems: any[] = [];
   language;
   ordersPayment: any[] = [];
-  businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
+  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
   categories: any[] = [];
   query: IPagination = {
     limit: 20,
@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     private categoryMenuServ: CategoryMenuNavService,
     private activatedRute: ActivatedRoute,
     private router: Router,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {
     this.router.events
       .pipe(

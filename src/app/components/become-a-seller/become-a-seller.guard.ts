@@ -13,7 +13,7 @@ import {
 import { Observable } from 'rxjs';
 import { LoggedInUserService } from './../../core/services/loggedInUser/logged-in-user.service';
 import { ShowSnackbarService } from './../../core/services/show-snackbar/show-snackbar.service';
-import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ export class BecomeASellerGuard implements CanActivate, CanLoad {
     private translateService: TranslateService,
     private route: Router,
     private showSnackBar: ShowSnackbarService,
-    private nativeStorageService: NativeStorageService,
+    private storageService: StorageService,
   ) {}
 
   canActivate(
@@ -34,7 +34,7 @@ export class BecomeASellerGuard implements CanActivate, CanLoad {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
-      this.nativeStorageService.setItem('isRegisterToBecomeASeller', 'true');
+      this.storageService.setItem('isRegisterToBecomeASeller', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
           'Debe iniciar sesión para entrar en la creación de cuenta de vendedor',
@@ -52,7 +52,7 @@ export class BecomeASellerGuard implements CanActivate, CanLoad {
       console.log('entra aqui');
       return true;
     } else {
-      this.nativeStorageService.setItem('isRegisterToBecomeASeller', 'true');
+      this.storageService.setItem('isRegisterToBecomeASeller', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
           'Debe iniciar sesión para entrar en la creación de cuenta de vendedor',
