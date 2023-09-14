@@ -1,5 +1,4 @@
 import { ConfirmPaymentOkComponent } from './confirm-payment-ok/confirm-payment-ok.component';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { MatSidenav } from '@angular/material/sidenav';
 import {
   AfterViewChecked,
@@ -123,7 +122,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     public dialog: MatDialog,
     public route: ActivatedRoute,
     public notificationsService: NotificationsService,
-    private cookieService: SsrCookieService,
     private currencyService: CurrencyService,
     private authService: AuthenticationService,
     private socketIoService: SocketIoService,
@@ -265,7 +263,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           image: 'assets/images/flags/es.svg',
           lang: 'es',
         };
-        if (this.storageService.has('language')) {
+        if (this.storageService.check('language')) {
           let language = JSON.parse(this.storageService.getItem('language'));
           language = language ? language : defaultLanguage;
           this.translate.setDefaultLang(language.lang);

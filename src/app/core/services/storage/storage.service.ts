@@ -15,7 +15,7 @@ export class StorageService {
     return this.cookieService.get(key) || null;
   }
 
-  has(key: string): boolean {
+  check(key: string): boolean {
     return this.cookieService.check(key);
   }
 

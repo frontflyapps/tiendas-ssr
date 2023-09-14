@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { StorageService } from '../storage/storage.service';
 import { environment } from 'environments/environment';
 
@@ -24,10 +23,7 @@ export interface ISessionStorageItems {
   providedIn: 'root',
 })
 export class LocalStorageService {
-  constructor(
-    private cookieService: SsrCookieService,
-    public storageService: StorageService,
-  ) {
+  constructor(public storageService: StorageService) {
     // sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(this.initStateSession())); //TODO Cupull fix later
   }
 
@@ -101,7 +97,7 @@ export class LocalStorageService {
   }
 
   removeCookies() {
-    this.cookieService.delete('account', '/', environment.mainDomain);
+    this.storageService.removeItem('account');
   }
 
   iMostReSearch(timeData: any, timeDiffENV: any) {

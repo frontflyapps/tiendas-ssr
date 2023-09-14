@@ -3,7 +3,6 @@ import { IUser } from '../../classes/user.class';
 import { Subject } from 'rxjs';
 import { NavigationService } from '../navigation/navigation.service';
 import { EncryptDecryptService } from '../encrypt-decrypt.service';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { LocalStorageService } from '../localStorage/localStorage.service';
 import { environment } from 'environments/environment';
 import { StorageService } from '../storage/storage.service';
@@ -23,7 +22,6 @@ export class LoggedInUserService {
   ];
 
   constructor(
-    private cookieService: SsrCookieService,
     private navigationService: NavigationService,
     private localStorageService: LocalStorageService,
     private encryptDecryptService: EncryptDecryptService,
@@ -70,8 +68,8 @@ export class LoggedInUserService {
 
   public getTokenCookie(): string {
     try {
-      if (this.cookieService.get('account')) {
-        return this.encryptDecryptService.decrypt(this.cookieService.get('account'));
+      if (this.storageService.getItem('account')) {
+        return this.encryptDecryptService.decrypt(this.storageService.getItem('account'));
       }
       if (this.storageService.getItem('token')) {
         return this.encryptDecryptService.decrypt(this.storageService.getItem('token'));
@@ -89,7 +87,7 @@ export class LoggedInUserService {
       const hashedPass = this.encryptDecryptService.encrypt(token);
 
       // this.cookieService.set('account', hashedPass, undefined, '/', environment.mainDomain); // (Cupull) Original Code
-      this.cookieService.set('account', hashedPass, undefined, '/'); // (Cupull) cookies are not saved with the domain
+      this.storageService.setItem('account', hashedPass); // (Cupull) cookies are not saved with the domain
 
       this.storageService.setItem('token', hashedPass);
     } catch (e) {
@@ -111,7 +109,7 @@ export class LoggedInUserService {
   }
 
   removeCookies() {
-    this.cookieService.delete('account', '/', environment.mainDomain);
+    this.storageService.removeItem('account');
   }
 
   public hasRolUser(...args: any[]) {
