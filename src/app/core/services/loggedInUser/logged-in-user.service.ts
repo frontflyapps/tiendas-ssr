@@ -3,7 +3,7 @@ import { IUser } from '../../classes/user.class';
 import { Subject } from 'rxjs';
 import { NavigationService } from '../navigation/navigation.service';
 import { EncryptDecryptService } from '../encrypt-decrypt.service';
-import { CookieService } from 'ngx-cookie-service';
+import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { LocalStorageService } from '../localStorage/localStorage.service';
 import { environment } from 'environments/environment';
 import { NativeStorageService } from '../native-storage/native-storage.service';
@@ -23,7 +23,7 @@ export class LoggedInUserService {
   ];
 
   constructor(
-    private cookieService: CookieService,
+    private cookieService: SsrCookieService,
     private navigationService: NavigationService,
     private localStorageService: LocalStorageService,
     private encryptDecryptService: EncryptDecryptService,
@@ -87,7 +87,10 @@ export class LoggedInUserService {
   public saveAccountCookie(token: string) {
     try {
       const hashedPass = this.encryptDecryptService.encrypt(token);
-      this.cookieService.set('account', hashedPass, undefined, '/', environment.mainDomain);
+
+      // this.cookieService.set('account', hashedPass, undefined, '/', environment.mainDomain); // (Cupull) Original Code
+      this.cookieService.set('account', hashedPass, undefined, '/'); // (Cupull) cookies are not saved with the domain
+
       this.nativeStorageService.setItem('token', hashedPass);
     } catch (e) {
       console.warn('Error decrypt value', e);

@@ -86,7 +86,7 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
           image: 'assets/images/flags/es.svg',
           lang: 'es',
         };
-        if ('language' in localStorage) {
+        if (this.nativeStorageService.has('language')) {
           let language = JSON.parse(this.nativeStorageService.getItem('language'));
           language = language ? language : defaultLanguage;
           this.translate.setDefaultLang(language.lang);

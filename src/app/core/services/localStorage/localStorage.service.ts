@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { NativeStorageService } from '../native-storage/native-storage.service';
 import { environment } from 'environments/environment';
 
@@ -25,7 +25,7 @@ export interface ISessionStorageItems {
 })
 export class LocalStorageService {
   constructor(
-    private cookieService: CookieService,
+    private cookieService: SsrCookieService,
     public nativeStorageService: NativeStorageService,
   ) {
     // sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(this.initStateSession())); //TODO Cupull fix later

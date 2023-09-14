@@ -13,6 +13,7 @@ import {
 import { Observable } from 'rxjs';
 import { LoggedInUserService } from './../../core/services/loggedInUser/logged-in-user.service';
 import { ShowSnackbarService } from './../../core/services/show-snackbar/show-snackbar.service';
+import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,7 @@ export class CheckoutGuard implements CanActivate, CanLoad {
     private translateService: TranslateService,
     private route: Router,
     private showSnackBar: ShowSnackbarService,
+    private nativeStorageService: NativeStorageService,
   ) {}
 
   canActivate(
@@ -32,7 +34,7 @@ export class CheckoutGuard implements CanActivate, CanLoad {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
-      localStorage.setItem('isRegisterToPay', 'true');
+      this.nativeStorageService.setItem('isRegisterToPay', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
           'You need to be logged in to pay, please register or create an account',
@@ -48,7 +50,7 @@ export class CheckoutGuard implements CanActivate, CanLoad {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
-      localStorage.setItem('isRegisterToPay', 'true');
+      this.nativeStorageService.setItem('isRegisterToPay', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
           'You need to be logged in to pay, please register or create an account',

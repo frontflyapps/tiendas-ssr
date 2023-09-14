@@ -1,5 +1,5 @@
 import { ConfirmPaymentOkComponent } from './confirm-payment-ok/confirm-payment-ok.component';
-import { CookieService } from 'ngx-cookie-service';
+import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { MatSidenav } from '@angular/material/sidenav';
 import {
   AfterViewChecked,
@@ -123,7 +123,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     public dialog: MatDialog,
     public route: ActivatedRoute,
     public notificationsService: NotificationsService,
-    private cookieService: CookieService,
+    private cookieService: SsrCookieService,
     private currencyService: CurrencyService,
     private authService: AuthenticationService,
     private socketIoService: SocketIoService,
@@ -265,7 +265,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           image: 'assets/images/flags/es.svg',
           lang: 'es',
         };
-        if ('language' in localStorage) {
+        if (this.nativeStorageService.has('language')) {
           let language = JSON.parse(this.nativeStorageService.getItem('language'));
           language = language ? language : defaultLanguage;
           this.translate.setDefaultLang(language.lang);
@@ -664,7 +664,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           classes: 'forgot-button',
           action() {
             // Dismiss the tour when the forgot button is clicked
-            localStorage.setItem('location-attention', 'yes');
+            localStorage.setItem('location-attention', 'yes'); // TODO (cupull) remove local storage
             return this.cancel();
           },
         },
@@ -703,7 +703,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     // Initiate the tour
-    if (!localStorage.getItem('location-attention') && location?.province != null) {
+    if (!this.nativeStorageService.getItem('location-attention') && location?.province != null) {
       this.tour.start();
     }
   }

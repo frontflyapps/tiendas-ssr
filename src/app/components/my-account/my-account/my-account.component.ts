@@ -15,6 +15,7 @@ import {
 } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
+import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
 
 @Component({
   selector: 'app-my-account',
@@ -100,13 +101,16 @@ export class MyAccountComponent implements OnInit {
     private loggedInUserService: LoggedInUserService,
     public phoneCodesService: PhoneCodeService,
     public utilsService: UtilsService,
+    private nativeStorageService: NativeStorageService,
   ) {
     this.message = '';
-    this.isRegisterToPay = !!localStorage.getItem('isRegisterToPay');
-    this.isRegisterToBecomeASeller = !!localStorage.getItem('isRegisterToBecomeASeller');
-    this.businessConfig = JSON.parse(localStorage.getItem('business-config'));
-    localStorage.removeItem('isRegisterToPay');
-    localStorage.removeItem('isRegisterToBecomeASeller');
+    this.isRegisterToPay = !!this.nativeStorageService.getItem('isRegisterToPay');
+    this.isRegisterToBecomeASeller = !!this.nativeStorageService.getItem(
+      'isRegisterToBecomeASeller',
+    );
+    this.businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
+    this.nativeStorageService.removeItem('isRegisterToPay');
+    this.nativeStorageService.removeItem('isRegisterToBecomeASeller');
     this.routeToNavigate = this.isRegisterToPay
       ? '/cart'
       : this.isRegisterToBecomeASeller
@@ -593,7 +597,7 @@ export class MyAccountComponent implements OnInit {
     data.password = data.passwords.password;
     data.lastName = data.lastname;
     data.role = 'Client';
-    const token = localStorage.getItem('token');
+    const token = this.nativeStorageService.getItem('token');
     if (token != undefined) {
       data.token = token;
     }
@@ -636,7 +640,7 @@ export class MyAccountComponent implements OnInit {
     data.lastName = data.lastname;
     data.role = 'Client';
     if (this.pdfData.length) data.file = this.pdfData[0].file.data;
-    const token = localStorage.getItem('token');
+    const token = this.nativeStorageService.getItem('token');
     if (token != undefined) {
       data.token = token;
     }

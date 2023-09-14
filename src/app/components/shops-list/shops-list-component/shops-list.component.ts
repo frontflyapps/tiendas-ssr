@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { UntypedFormBuilder, UntypedFormControl, FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
 
 @Component({
   selector: 'app-shops-list',
@@ -16,7 +17,7 @@ export class ShopsListComponent implements OnInit, OnDestroy {
   businessName: UntypedFormControl;
   bannerDefault = 'assets/images/mibulevar/banner_MiBulevar.png';
   _unsubscribeAll: Subject<any>;
-  businessConfig = JSON.parse(localStorage.getItem('business-config'));
+  businessConfig = JSON.parse(this.nativeStorageService.getItem('business-config'));
   allBusiness: any;
   initialPage = 9;
   query = {
@@ -32,6 +33,7 @@ export class ShopsListComponent implements OnInit, OnDestroy {
     private businessService: BusinessService,
     private fb: UntypedFormBuilder,
     private appService: BusinessConfigService,
+    private nativeStorageService: NativeStorageService,
   ) {
     this.businessName = new FormControl(null, []);
     this._unsubscribeAll = new Subject<any>();

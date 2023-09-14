@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { CssOptions } from 'guachos-cu-down-list';
 import { Subject } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
+import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { EncryptDecryptService } from './core/services/encrypt-decrypt.service';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
 import { LocalStorageService } from './core/services/localStorage/localStorage.service';
@@ -37,7 +37,7 @@ export class AppComponent {
     private translate: TranslateService,
     private router: Router,
     private showToastr: ShowToastrService,
-    private cookieService: CookieService,
+    private cookieService: SsrCookieService,
     private loggedInUserService: LoggedInUserService,
     private authService: AuthenticationService,
     private encryptDecryptService: EncryptDecryptService,

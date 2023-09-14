@@ -6,6 +6,7 @@ import { PayService } from './../../../core/services/pay/pay.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { NativeStorageService } from 'src/app/core/services/native-storage/native-storage.service';
 
 @Component({
   selector: 'app-enzona-payment-ok',
@@ -34,6 +35,7 @@ export class EnzonaPaymentOkComponent implements OnInit {
     private translate: TranslateService,
     private payService: PayService,
     private cartService: CartService,
+    private nativeStorageService: NativeStorageService,
   ) {
     this.loadingSearch = true;
   }
@@ -79,7 +81,7 @@ export class EnzonaPaymentOkComponent implements OnInit {
   }
 
   async clearShoopingCart() {
-    localStorage.setItem('cartItem', JSON.stringify([]));
+    this.nativeStorageService.setItem('cartItem', JSON.stringify([]));
     this.cartService.$cartItemsUpdated.next([]);
   }
 }
