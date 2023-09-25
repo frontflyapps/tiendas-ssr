@@ -1,4 +1,4 @@
-@import "app";
+@import 'app';
 
 #forbidenPage {
   background: #233142;
@@ -45,7 +45,7 @@
   margin-bottom: 20px;
   color: #facf5a;
   text-align: center;
-  font-family: "Poppins", Helvetica, sans-serif !important;
+  font-family: 'Poppins', Helvetica, sans-serif !important;
   font-size: 90px;
   font-weight: 800;
 }
@@ -60,7 +60,7 @@
 h2 {
   color: #455d7a;
   text-align: center;
-  font-family: "Poppins", Helvetica, sans-serif !important;
+  font-family: 'Poppins', Helvetica, sans-serif !important;
   font-size: 30px;
   text-transform: uppercase;
 }
@@ -68,7 +68,7 @@ h2 {
 .title {
   color: #facf5a !important;
   text-align: center !important;
-  font-family: "Poppins", Helvetica, sans-serif !important;
+  font-family: 'Poppins', Helvetica, sans-serif !important;
   font-weight: 800 !important;
 
   @media screen and (max-width: 992px) {

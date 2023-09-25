@@ -4,7 +4,10 @@ import { LoggedInUserService } from './../../../core/services/loggedInUser/logge
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { IUser } from '../../../core/classes/user.class';
 import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';

@@ -1,10 +1,14 @@
 import { UtilsService } from './../../../core/services/utils/utils.service';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PayService } from 'src/app/core/services/pay/pay.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import * as moment from 'moment';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 

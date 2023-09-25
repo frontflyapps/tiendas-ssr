@@ -1,8 +1,8 @@
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ConfirmationDialogFrontComponent } from './confirmation-dialog-front.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

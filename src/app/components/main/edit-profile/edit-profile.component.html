@@ -38,8 +38,7 @@
           />
           <mat-icon class="greyIcon" matSuffix>person</mat-icon>
           <mat-error *ngIf="form.controls['name'].hasError('required')">
-            {{ 'Name' | translate }}
-            <strong>{{ 'is required' | translate }}</strong>
+            {{ 'Name' | translate }} <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -52,8 +51,7 @@
           />
           <mat-icon class="greyIcon" matSuffix>person</mat-icon>
           <mat-error *ngIf="form.controls['lastName'].hasError('required')">
-            {{ 'lastName' | translate }}
-            <strong>{{ 'is required' | translate }}</strong>
+            {{ 'lastName' | translate }} <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
@@ -75,8 +73,7 @@
           />
           <mat-icon class="greyIcon" matSuffix>mail</mat-icon>
           <mat-error *ngIf="form.controls['email'].hasError('required')">
-            {{ 'email' | translate }}
-            <strong>{{ 'is required' | translate }}</strong>
+            {{ 'email' | translate }} <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
         <div fxLayout="row" fxLayoutGap="8px" fxFlex="48" class="w-100" fxFlex.lt-md="100">
@@ -134,12 +131,10 @@
             'Formato de documento de identidad de 11 dígitos mínimo' | translate
           }}</mat-hint>
           <mat-error *ngIf="form.controls['ci'].hasError('required')">
-            {{ 'phone' | translate }}
-            <strong>{{ 'is required' | translate }}</strong>
+            {{ 'phone' | translate }} <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
           <mat-error *ngIf="form.controls['ci'].hasError('pattern')">
-            {{ 'Identification' | translate }}
-            <strong>{{ 'incorrecto' | translate }}</strong>
+            {{ 'Identification' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
           </mat-error>
           <mat-error
             *ngIf="

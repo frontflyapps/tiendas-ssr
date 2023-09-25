@@ -1,9 +1,13 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
+import {
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialogRef as MatDialogRef,
+  MatLegacyDialog as MatDialog,
+} from '@angular/material/legacy-dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { environment } from 'environments/environment';
 
 import { Subject } from 'rxjs';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-dialog-reload-app',

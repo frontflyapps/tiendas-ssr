@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { CartService } from '../../../shared/services/cart.service';
 import { ProductService } from '../../../shared/services/product.service';
 import { WishlistService } from '../../../shared/services/wishlist.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from '../../../../modals/product.model';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { Subject } from 'rxjs';
+import { environment } from 'environments/environment';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
@@ -16,7 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-product',

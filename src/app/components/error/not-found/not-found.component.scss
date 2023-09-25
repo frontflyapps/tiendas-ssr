@@ -1,4 +1,4 @@
-@import "app";
+@import 'app';
 
 .container-image {
   padding: 24px;
@@ -6,7 +6,7 @@
   position: relative;
 
   .image-background {
-    background-image: url("/images/404.jpg");
+    background-image: url('/images/404.jpg');
     height: 550px !important;
     width: auto;
     max-width: 100%;
@@ -16,7 +16,7 @@
     // position: absolute;
   }
 
-  font-family: "Poppins", Helvetica, sans-serif !important;
+  font-family: 'Poppins', Helvetica, sans-serif !important;
 
   .title {
     text-align: center;
@@ -136,7 +136,7 @@
 }
 
 #Text {
-  font-family: "Ubuntu", sans-serif !important;
+  font-family: 'Ubuntu', sans-serif !important;
 
   #title {
     font-size: 30px !important;
@@ -244,7 +244,7 @@
   color: $theme-main !important;
 
   text-align: center !important;
-  font-family: "Ubuntu", sans-serif !important;
+  font-family: 'Ubuntu', sans-serif !important;
   font-weight: 800 !important;
   font-size: 200px;
 

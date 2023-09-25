@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../../shared/services/product.service';
+import { environment } from 'environments/environment';
 import { Subject } from 'rxjs';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
@@ -8,7 +9,6 @@ import { LocalStorageService } from '../../../../core/services/localStorage/loca
 import { FRONT_PRODUCT_DATA } from '../../../../core/classes/global.const';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { GlobalStateOfCookieService } from '../../../../core/services/request-cookie-secure/global-state-of-cookie.service';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-popular-products',

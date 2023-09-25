@@ -14,7 +14,11 @@ import { forkJoin, Subject } from 'rxjs';
 import { debounceTime, switchMap, takeUntil } from 'rxjs/operators';
 import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'environments/environment';
+import {
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -25,7 +29,6 @@ import { CurrencyService } from '../../../core/services/currency/currency.servic
 import { HttpClient } from '@angular/common/http';
 import { CancelOrderComponent } from '../cancel-order/cancel-order.component';
 import { EditOrderComponent } from '../edit-order/edit-order.component';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-my-orders',
@@ -184,7 +187,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
         this.isHandset = data.matches;
       });
 
-    this.activateRoute.queryParams.subscribe((data: any) => {
+    this.activateRoute.queryParams.subscribe((data) => {
       if (data?.orderId) {
         this.onSelectOrder(data?.orderId);
       }

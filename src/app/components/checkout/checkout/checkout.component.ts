@@ -22,7 +22,10 @@ import { IPagination } from '../../../core/classes/pagination.class';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { SocketIoService } from 'src/app/core/services/socket-io/socket-io.service';
 import { DialogEnzonaConfirmToPayComponent } from '../dialog-enzona-confirm-to-pay/dialog-enzona-confirm-to-pay.component';
 import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
@@ -33,7 +36,7 @@ import { CoinEnum } from '../../../core/classes/coin.enum';
 import { MarketEnum } from '../../../core/classes/market.enum';
 import { MyOrdersService } from '../../my-orders/service/my-orders.service';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { DialogBidaiondoConfirmToPayComponent } from '../dialog-bidaiondo-confirm-to-pay/dialog-bidaiondo-confirm-to-pay.component';
 import { ConfigurationService } from '../../../core/services/configuration/configuration.service';
 import { CurrencyCheckoutPipe } from 'src/app/core/pipes/currency-checkout.pipe';
@@ -691,8 +694,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   processToCart() {
     if (!this.cartId) {
-      let dialogRef: MatDialogRef<DialogNoCartSelectedComponent, any>;
-      dialogRef = this.dialog.open(DialogNoCartSelectedComponent, {
+      const dialogRef = this.dialog.open(DialogNoCartSelectedComponent, {
         width: '15cm',
         maxWidth: '100vw',
         data: {},

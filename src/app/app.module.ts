@@ -8,14 +8,12 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { TokenInterceptorService } from './core/services/interceptors/token-interceptor.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UpdateControllerModule } from './components/shared/updates-controller/update-controller.module';
 import { HttpLoaderFactory } from './core/services/translate-factory/translate-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '@angular/flex-layout';
-import { MatDialogModule } from '@angular/material/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'environments/environment';
 import { CuDownloadListModule } from 'guachos-cu-down-list';
@@ -24,6 +22,8 @@ import { CurrencyPipe, registerLocaleData } from '@angular/common';
 import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-ssr-log-interceptor.service';
 import localeEs from '@angular/common/locales/es';
 import { register as swiperRegister } from 'swiper/element/bundle';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 
 swiperRegister();
 registerLocaleData(localeEs, 'es');

@@ -7,12 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../shared/services/cart.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
+import { environment } from 'environments/environment';
 import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-product-list',

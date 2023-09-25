@@ -1,7 +1,7 @@
 import { Cart, CartItem } from '../../../modals/cart-item';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subscriber, Subject, BehaviorSubject } from 'rxjs';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
@@ -11,7 +11,7 @@ import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-s
 import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 import { Router } from '@angular/router';
 import { ConfirmationDialogFrontComponent } from '../confirmation-dialog-front/confirmation-dialog-front.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { IUser } from 'src/app/core/classes/user.class';
@@ -620,7 +620,7 @@ export class CartService implements OnDestroy {
         return false;
       }
       return true;
-    } catch (error: any) {
+    } catch (error) {
       this.showSnackbar.showError(this.translate.instant('Error', error.message), 8000);
       return false;
     }
@@ -732,7 +732,7 @@ export class CartService implements OnDestroy {
     }
   }
 
-  postCart(data: any): Promise<any> {
+  postCart(data): Promise<any> {
     return this.httpClient.post<any>(this.url, data).toPromise();
   }
 
@@ -837,11 +837,11 @@ export class CartService implements OnDestroy {
     this.cartExpiredTime = '';
   }
 
-  setCartInPaying(value: any) {
+  setCartInPaying(value) {
     this.cartIsPaying = value === 'paying';
   }
 
-  private isSameMarket(cart: any, product: any) {
+  private isSameMarket(cart, product) {
     return cart.market === product.market;
   }
 

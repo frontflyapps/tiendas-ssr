@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'environments/environment';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-banner-promotion2',

@@ -11,7 +11,10 @@ import {
 import { Product } from './../../../modals/product.model';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDialogComponent } from '../products/product-dialog/product-dialog.component';
 import { CartService } from './../../shared/services/cart.service';

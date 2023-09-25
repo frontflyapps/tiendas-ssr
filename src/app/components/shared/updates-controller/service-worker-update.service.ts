@@ -3,7 +3,11 @@ import { SwUpdate } from '@angular/service-worker';
 import Cookies from 'js-cookie';
 
 import { concat, interval, Subject } from 'rxjs';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import {
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogConfig as MatDialogConfig,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { DialogReloadAppComponent } from './dialog-reload-app/dialog-reload-app.component';
 import { first } from 'rxjs/operators';
 import { StorageService } from 'src/app/core/services/storage/storage.service';

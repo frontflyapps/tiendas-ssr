@@ -2,12 +2,12 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { SelectionModel } from '@angular/cdk/collections';
+import { environment } from 'environments/environment';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
 import { CATEGORIES_DATA } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-categories-m',

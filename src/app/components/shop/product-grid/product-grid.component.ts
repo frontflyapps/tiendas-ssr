@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/cor
 import { ProductService } from '../../shared/services/product.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { Subject } from 'rxjs';
+import { environment } from 'environments/environment';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,10 +10,9 @@ import { CartService } from '../../shared/services/cart.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-product-grid',

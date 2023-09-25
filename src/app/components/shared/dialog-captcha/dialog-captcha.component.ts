@@ -1,5 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CaptchaService } from '../../../core/services/captcha/captcha.service';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
@@ -35,7 +38,7 @@ export class DialogCaptchaComponent implements OnInit {
   ) {
     // this.data = this.localStorageService.getFromStorage('captcha');
     console.log(this.data);
-    this.pathToRedirect = this.route.snapshot.queryParams['url'];
+    this.pathToRedirect = this.route.snapshot.queryParams.url;
     console.log(this.pathToRedirect);
     this.refreshData();
   }

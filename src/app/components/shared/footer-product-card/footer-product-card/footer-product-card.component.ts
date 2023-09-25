@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { ConfirmationDialogFrontComponent } from '../../confirmation-dialog-front/confirmation-dialog-front.component';
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 // import { DialogPrescriptionComponent } from '../../../shop/products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';

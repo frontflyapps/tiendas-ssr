@@ -45,8 +45,7 @@
             type="text"
           />
           <mat-error *ngIf="basicForm.controls['name'].hasError('required')">
-            {{ 'Nombre' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+            {{ 'Nombre' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
@@ -92,12 +91,10 @@
                 minlength="11"
               />
               <mat-error *ngIf="basicForm.controls['nit'].hasError('required')">
-                {{ 'NIT' | translate }}
-                <strong>{{ 'es requerido' | translate }}</strong>
+                {{ 'NIT' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
               </mat-error>
               <mat-error *ngIf="basicForm.controls['nit'].hasError('pattern')">
-                {{ 'NIT ' | translate }}
-                <strong>{{ 'incorrect' | translate }}</strong
+                {{ 'NIT ' | translate }} <strong>{{ 'incorrect' | translate }}</strong
                 >{{ ', debe ser un número de 11 dígitos' | translate }}
               </mat-error>
               <mat-hint *ngIf="!basicForm.controls['nit'].value">
@@ -129,12 +126,10 @@
                 minlength="11"
               />
               <mat-error *ngIf="basicForm.controls['reuup'].hasError('required')">
-                {{ 'REUUP' | translate }}
-                <strong>{{ 'es requerido' | translate }}</strong>
+                {{ 'REUUP' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
               </mat-error>
               <mat-error *ngIf="basicForm.controls['reuup'].hasError('pattern')">
-                {{ 'REUUP ' | translate }}
-                <strong>{{ 'incorrect' | translate }}</strong
+                {{ 'REUUP ' | translate }} <strong>{{ 'incorrect' | translate }}</strong
                 >{{ ', debe ser un número de 11 dígitos' | translate }}
               </mat-error>
               <mat-hint *ngIf="!basicForm.controls['reuup'].value">
@@ -175,29 +170,27 @@
         <mat-form-field fxFlex.gt-sm="48" appearance="outline" class="form-field-width">
           <mat-label>{{ 'Nombre' | translate }}</mat-label>
           <input
-            [formControl]="basicForm.get('owner')?.get('name')"
+            [formControl]="basicForm.get('owner').get('name')"
             (keypress)="utilsService.keyPressAlpha($event)"
             matInput
             placeholder="{{ 'Nombre del representante' | translate }}"
             type="text"
           />
-          <mat-error *ngIf="basicForm.get('owner')?.get('name').hasError('required')">
-            {{ 'Nombre' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error *ngIf="basicForm.get('owner').get('name').hasError('required')">
+            {{ 'Nombre' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex.gt-sm="48" appearance="outline" class="form-field-width">
           <mat-label>{{ 'Apellidos' | translate }}</mat-label>
           <input
-            [formControl]="basicForm.get('owner')?.get('lastName')"
+            [formControl]="basicForm.get('owner').get('lastName')"
             (keypress)="utilsService.keyPressAlpha($event)"
             matInput
             placeholder="{{ 'Apellidos del representante' | translate }}"
             type="text"
           />
-          <mat-error *ngIf="basicForm.get('owner')?.get('lastName').hasError('required')">
-            {{ 'Apellidos' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error *ngIf="basicForm.get('owner').get('lastName').hasError('required')">
+            {{ 'Apellidos' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
       </div>
@@ -206,21 +199,19 @@
         <mat-form-field fxFlex.gt-sm="48" appearance="outline" class="form-field-width">
           <mat-label>{{ 'Número de identificación' | translate }}</mat-label>
           <input
-            [formControl]="basicForm.get('owner')?.get('ci')"
+            [formControl]="basicForm.get('owner').get('ci')"
             (keypress)="utilsService.keyPressNumbers($event)"
             matInput
             placeholder="{{ 'Número de identificación del representante' | translate }}"
             type="text"
           />
-          <mat-error *ngIf="basicForm.get('owner')?.get('ci').hasError('required')">
+          <mat-error *ngIf="basicForm.get('owner').get('ci').hasError('required')">
             {{ 'Número de identificación' | translate }}
             <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
           <mat-hint
             class="form-valid"
-            *ngIf="
-              basicForm.get('owner')?.get('ci')?.value && basicForm.get('owner')?.get('ci')?.valid
-            "
+            *ngIf="basicForm.get('owner').get('ci').value && basicForm.get('owner').get('ci').valid"
           >
             {{ 'Número de identificación válido' | translate }}
           </mat-hint>
@@ -229,15 +220,14 @@
         <mat-form-field fxFlex.gt-sm="48" appearance="outline" class="form-field-width">
           <mat-label>{{ 'Cargo' | translate }}</mat-label>
           <input
-            [formControl]="basicForm.get('owner')?.get('charge')"
+            [formControl]="basicForm.get('owner').get('charge')"
             (keypress)="utilsService.keyPressAlpha($event)"
             matInput
             placeholder="{{ 'Cargo del representante' | translate }}"
             type="text"
           />
-          <mat-error *ngIf="basicForm.get('owner')?.get('charge').hasError('required')">
-            {{ 'Cargo' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error *ngIf="basicForm.get('owner').get('charge').hasError('required')">
+            {{ 'Cargo' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
       </div>
@@ -246,26 +236,24 @@
         <mat-form-field fxFlex.gt-sm="48" appearance="outline" class="form-field-width">
           <mat-label>{{ 'Teléfono' | translate }}</mat-label>
           <input
-            [formControl]="basicForm.get('owner')?.get('phone')"
+            [formControl]="basicForm.get('owner').get('phone')"
             (keypress)="utilsService.keyPressNumbers($event)"
             matInput
             placeholder="{{ 'Teléfono del representante' | translate }}"
             type="text"
           />
-          <mat-error *ngIf="basicForm.get('owner')?.get('phone').hasError('required')">
+          <mat-error *ngIf="basicForm.get('owner').get('phone').hasError('required')">
             {{ 'Teléfono del representante' | translate }}
             <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
-          <mat-error *ngIf="basicForm.get('owner')?.get('phone').hasError('pattern')">
-            {{ 'Teléfono celular debe tener ' | translate }}
-            <strong>{{ '8' | translate }}</strong
+          <mat-error *ngIf="basicForm.get('owner').get('phone').hasError('pattern')">
+            {{ 'Teléfono celular debe tener ' | translate }} <strong>{{ '8' | translate }}</strong
             >{{ ' dígitos o más' | translate }}
           </mat-error>
           <mat-hint
             class="form-valid"
             *ngIf="
-              basicForm.get('owner')?.get('phone')?.value &&
-              basicForm.get('owner')?.get('phone')?.valid
+              basicForm.get('owner').get('phone').value && basicForm.get('owner').get('phone').valid
             "
           >
             {{ 'Teléfono del representante válido' | translate }}
@@ -274,25 +262,24 @@
         <mat-form-field fxFlex.gt-sm="48" appearance="outline" class="form-field-width">
           <mat-label>{{ 'Correo del representante' | translate }}</mat-label>
           <input
-            [formControl]="basicForm.get('owner')?.get('email')"
+            [formControl]="basicForm.get('owner').get('email')"
             matInput
             required
             placeholder="ej: example@gmail.com"
             type="text"
           />
-          <mat-error *ngIf="basicForm.get('owner')?.get('email').hasError('required')">
+          <mat-error *ngIf="basicForm.get('owner').get('email').hasError('required')">
             {{ 'Correo del representante' | translate }}
             <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
-          <mat-error *ngIf="basicForm.get('owner')?.get('email').hasError('pattern')">
+          <mat-error *ngIf="basicForm.get('owner').get('email').hasError('pattern')">
             {{ 'Correo del representante' | translate }}
             <strong>{{ 'es inválido' | translate }}</strong>
           </mat-error>
           <mat-hint
             class="form-valid"
             *ngIf="
-              basicForm.get('owner')?.get('email')?.value &&
-              basicForm.get('owner')?.get('email')?.valid
+              basicForm.get('owner').get('email').value && basicForm.get('owner').get('email').valid
             "
           >
             {{ 'Correo del representante válido' | translate }}
@@ -350,7 +337,7 @@
               </mat-error>
               <mat-hint
                 class="form-valid"
-                *ngIf="basicForm.get('cellphone')?.value && basicForm.get('cellphone')?.valid"
+                *ngIf="basicForm.get('cellphone').value && basicForm.get('cellphone').valid"
               >
                 {{ 'Teléfono celular de la empresa válido' | translate }}
               </mat-hint>
@@ -368,13 +355,12 @@
               <mat-icon class="greyIcon" matSuffix>phone</mat-icon>
               <mat-hint
                 class="form-valid"
-                *ngIf="basicForm.get('telephone')?.value && basicForm.get('telephone')?.valid"
+                *ngIf="basicForm.get('telephone').value && basicForm.get('telephone').valid"
               >
                 {{ 'Teléfono fijo de la empresa válido' | translate }}
               </mat-hint>
               <mat-error *ngIf="basicForm.controls['telephone'].hasError('pattern')">
-                {{ 'Teléfono fijo debe tener ' | translate }}
-                <strong>{{ '8' | translate }}</strong
+                {{ 'Teléfono fijo debe tener ' | translate }} <strong>{{ '8' | translate }}</strong
                 >{{ ' dígitos o más' | translate }}
               </mat-error>
             </mat-form-field>
@@ -390,16 +376,14 @@
               />
               <mat-icon class="greyIcon" matSuffix>mail</mat-icon>
               <mat-error *ngIf="basicForm.controls['email'].hasError('required')">
-                {{ 'Correo de la empresa' }}
-                <strong>{{ 'es requerido' }}</strong>
+                {{ 'Correo de la empresa' }} <strong>{{ 'es requerido' }}</strong>
               </mat-error>
               <mat-error *ngIf="basicForm.controls['email'].hasError('pattern')">
-                {{ 'Correo de la empresa' }}
-                <strong>{{ 'es inválido' }}</strong>
+                {{ 'Correo de la empresa' }} <strong>{{ 'es inválido' }}</strong>
               </mat-error>
               <mat-hint
                 class="form-valid"
-                *ngIf="basicForm.get('email')?.value && basicForm.get('email')?.valid"
+                *ngIf="basicForm.get('email').value && basicForm.get('email').valid"
               >
                 {{ 'Correo de la empresa es válido' | translate }}
               </mat-hint>
@@ -435,8 +419,7 @@
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="basicForm.controls['ProvinceId'].hasError('required')">
-                {{ 'Provincia' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                {{ 'Provincia' | translate }} <strong>{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -469,8 +452,7 @@
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="basicForm.controls['MunicipalityId'].hasError('required')">
-                {{ 'Municipio' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                {{ 'Municipio' | translate }} <strong>{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -499,8 +481,7 @@
           />
           <mat-icon class="greyIcon" matSuffix>location</mat-icon>
           <mat-error *ngIf="basicForm.controls['address'].hasError('required')">
-            {{ 'Dirección' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+            {{ 'Dirección' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
@@ -512,12 +493,10 @@
         </mat-checkbox>
       </div>
       <div>
-        <button class="uppercase" mat-button>
-          {{ 'Anterior' | translate }}
-        </button>
+        <button class="uppercase" mat-button>{{ 'Anterior' | translate }}</button>
         <button
           (click)="onCreateBusiness()"
-          [disabled]="basicForm.invalid || !basicForm.get('checked')?.value"
+          [disabled]="basicForm.invalid || !basicForm.get('checked').value"
           class="uppercase"
           color="primary"
           mat-raised-button

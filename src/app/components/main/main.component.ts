@@ -23,7 +23,10 @@ import { Observable, of, Subject } from 'rxjs';
 import { IUser } from '../../core/classes/user.class';
 import { AuthenticationService } from '../../core/services/authentication/authentication.service';
 import { ShowSnackbarService } from '../../core/services/show-snackbar/show-snackbar.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { CurrencyService } from '../../core/services/currency/currency.service';
 import { FormControl, UntypedFormControl } from '@angular/forms';
 import { SocketIoService } from '../../core/services/socket-io/socket-io.service';

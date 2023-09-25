@@ -2,10 +2,10 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { Observable, Subject } from 'rxjs';
+import { environment } from 'environments/environment';
 import { IPagination } from '../../../core/classes/pagination.class';
 
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
-import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root',

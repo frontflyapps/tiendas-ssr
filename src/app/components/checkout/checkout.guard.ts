@@ -2,8 +2,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
-  CanLoad,
   Route,
   Router,
   RouterStateSnapshot,
@@ -13,18 +11,16 @@ import {
 import { Observable } from 'rxjs';
 import { LoggedInUserService } from './../../core/services/loggedInUser/logged-in-user.service';
 import { ShowSnackbarService } from './../../core/services/show-snackbar/show-snackbar.service';
-import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CheckoutGuard implements CanActivate, CanLoad {
+export class CheckoutGuard {
   constructor(
     private loggedInUserService: LoggedInUserService,
     private translateService: TranslateService,
     private route: Router,
     private showSnackBar: ShowSnackbarService,
-    private storageService: StorageService,
   ) {}
 
   canActivate(
@@ -34,7 +30,7 @@ export class CheckoutGuard implements CanActivate, CanLoad {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
-      this.storageService.setItem('isRegisterToPay', 'true');
+      localStorage.setItem('isRegisterToPay', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
           'You need to be logged in to pay, please register or create an account',
@@ -50,7 +46,7 @@ export class CheckoutGuard implements CanActivate, CanLoad {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {
-      this.storageService.setItem('isRegisterToPay', 'true');
+      localStorage.setItem('isRegisterToPay', 'true');
       this.showSnackBar.showSucces(
         this.translateService.instant(
           'You need to be logged in to pay, please register or create an account',

@@ -4,14 +4,14 @@
   position: relative;
 
   .image-background {
-    background-image: url("/assets/images/500-error.jpg");
+    background-image: url('/assets/images/500-error.jpg');
     height: 500px !important;
     width: auto;
     max-width: 100%;
     // position: absolute;
   }
 
-  font-family: "Poppins", Helvetica, sans-serif !important;
+  font-family: 'Poppins', Helvetica, sans-serif !important;
 
   .title {
     text-align: center;

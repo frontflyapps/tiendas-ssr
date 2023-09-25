@@ -32,7 +32,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {
       onSameUrlNavigation: 'reload',
       scrollPositionRestoration: 'enabled',
-      // relativeLinkResolution: 'legacy', // TODO
     }),
   ],
   exports: [RouterModule],

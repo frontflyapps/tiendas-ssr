@@ -1,15 +1,18 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ProductService } from '../../../shared/services/product.service';
+import { environment } from 'environments/environment';
 import { CartService } from '../../../shared/services/cart.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { Cart } from '../../../../modals/cart-item';
-import { environment } from 'environments/environment';
 
 interface Sign {
   value: string;

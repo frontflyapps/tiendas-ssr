@@ -3,7 +3,7 @@ import { UtilsService } from './../../../core/services/utils/utils.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subject } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { LoggedInUserService } from './../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { animate, state, style, transition, trigger } from '@angular/animations';

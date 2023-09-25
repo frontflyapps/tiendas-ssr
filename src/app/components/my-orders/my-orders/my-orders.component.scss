@@ -1,4 +1,4 @@
-@import "app";
+@import 'app';
 
 app-my-orders {
   .cancelledLabel {
@@ -353,7 +353,7 @@ app-my-orders {
       padding-bottom: 16px;
 
       &::before {
-        content: "";
+        content: '';
         left: 0%;
         position: absolute;
         width: 43%;
@@ -363,7 +363,7 @@ app-my-orders {
       }
 
       &::after {
-        content: "";
+        content: '';
         left: 0%;
         position: absolute;
         width: 2.5rem;

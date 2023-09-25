@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
-  CanLoad,
   Route,
   Router,
   RouterStateSnapshot,
@@ -15,7 +13,7 @@ import { LoggedInUserService } from './../../core/services/loggedInUser/logged-i
 @Injectable({
   providedIn: 'root',
 })
-export class MyOrdersGuard implements CanActivate, CanLoad {
+export class MyOrdersGuard {
   constructor(
     private loggedInUserService: LoggedInUserService,
     private route: Router,

@@ -1,4 +1,4 @@
-@import "app";
+@import 'app';
 
 .blog-section {
   .section-title {
@@ -238,14 +238,14 @@
     }
 
     h3::before {
-      content: "";
+      content: '';
       left: 0;
       position: absolute;
       width: 100%;
     }
 
     h3::after {
-      content: "";
+      content: '';
       left: calc(50% - 50px);
       position: absolute;
       width: 100px;

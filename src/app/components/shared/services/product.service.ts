@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject, Subscriber } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Product } from '../../../modals/product.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { IPagination } from '../../../core/classes/pagination.class';
 import { distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 

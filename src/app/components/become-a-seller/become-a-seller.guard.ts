@@ -2,8 +2,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
-  CanLoad,
   Route,
   Router,
   RouterStateSnapshot,
@@ -18,7 +16,7 @@ import { StorageService } from 'src/app/core/services/storage/storage.service';
 @Injectable({
   providedIn: 'root',
 })
-export class BecomeASellerGuard implements CanActivate, CanLoad {
+export class BecomeASellerGuard {
   constructor(
     private loggedInUserService: LoggedInUserService,
     private translateService: TranslateService,

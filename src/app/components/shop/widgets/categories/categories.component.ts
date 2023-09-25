@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { environment } from 'environments/environment';
 import { Subject } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
@@ -7,7 +8,6 @@ import { takeUntil } from 'rxjs/operators';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
 import { CATEGORIES_DATA } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-categories',

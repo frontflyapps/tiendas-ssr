@@ -1,10 +1,15 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../../shared/services/product.service';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+} from '@angular/material/legacy-dialog';
 import { Product } from '../../../../modals/product.model';
 import { CartService } from '../../../shared/services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { environment } from 'environments/environment';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
@@ -12,7 +17,6 @@ import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-product-dialog',
