@@ -10,7 +10,7 @@ import { CurrencyService } from '../../../core/services/currency/currency.servic
 import { environment } from 'environments/environment';
 import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
 

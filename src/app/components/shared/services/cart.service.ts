@@ -11,7 +11,7 @@ import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-s
 import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 import { Router } from '@angular/router';
 import { ConfirmationDialogFrontComponent } from '../confirmation-dialog-front/confirmation-dialog-front.component';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { IUser } from 'src/app/core/classes/user.class';

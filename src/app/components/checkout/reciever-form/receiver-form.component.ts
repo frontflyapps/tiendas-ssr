@@ -7,10 +7,7 @@ import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 import * as moment from 'moment';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
-import {
-  MatLegacyDialog as MatDialog,
-  MatLegacyDialogRef as MatDialogRef,
-} from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MyContactsComponent } from '../../main/my-contacts/my-contacts.component';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';

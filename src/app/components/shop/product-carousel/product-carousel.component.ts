@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { Product } from '../../../modals/product.model';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDialogComponent } from '../products/product-dialog/product-dialog.component';
 import { CartService } from '../../shared/services/cart.service';

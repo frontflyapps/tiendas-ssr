@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { CartService } from '../../../shared/services/cart.service';
 import { ProductService } from '../../../shared/services/product.service';
 import { WishlistService } from '../../../shared/services/wishlist.service';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from '../../../../modals/product.model';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';

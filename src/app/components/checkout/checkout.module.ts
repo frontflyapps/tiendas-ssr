@@ -1,5 +1,5 @@
 import { DialogNoCartSelectedComponent } from './no-cart-selected/no-cart-selected.component';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DialogEnzonaConfirmToPayComponent } from './dialog-enzona-confirm-to-pay/dialog-enzona-confirm-to-pay.component';
 import { EnzonaPaymentOkComponent } from './enzona-payment-ok/enzona-payment-ok.component';
 import { DialogBidaiondoConfirmToPayComponent } from './dialog-bidaiondo-confirm-to-pay/dialog-bidaiondo-confirm-to-pay.component';

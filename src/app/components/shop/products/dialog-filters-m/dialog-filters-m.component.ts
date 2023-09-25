@@ -1,8 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import {
-  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
-  MatLegacyDialogRef as MatDialogRef,
-} from '@angular/material/legacy-dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IPagination } from '../../../../core/classes/pagination.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';

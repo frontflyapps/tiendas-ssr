@@ -23,7 +23,7 @@ import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-
 import localeEs from '@angular/common/locales/es';
 import { register as swiperRegister } from 'swiper/element/bundle';
 import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 swiperRegister();
 registerLocaleData(localeEs, 'es');

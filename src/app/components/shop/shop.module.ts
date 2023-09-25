@@ -1,12 +1,12 @@
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { BannersFourComponent } from './banners-four/banners-four.component';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
-import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatLegacyChipsModule as MatChipsModule } from '@angular/material/legacy-chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
+import { MatListModule } from '@angular/material/list';
 import { PipesModule } from '../../core/pipes/pipes.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,36 +31,33 @@ import { PopularProductsComponent } from './widgets/popular-products/popular-pro
 import { MainHomeComponent } from './main-home/main-home.component';
 import { ProductZoomComponent } from './products/product-details/product-zoom/product-zoom.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { SkeletonLoadingCardsModule } from '../shared/skeleton-loading-cards/skeleton-loading-cards.module';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
-import { MatLegacyCheckboxModule as MatCheckboxModule } from '@angular/material/legacy-checkbox';
-import {
-  MatLegacyPaginatorIntl as MatPaginatorIntl,
-  MatLegacyPaginatorModule as MatPaginatorModule,
-} from '@angular/material/legacy-paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { GuachosRatingModule } from 'guachos-rating';
 import { BannerPromotionComponent } from './banner-promotion/banner-promotion.component';
 import { BannerPromotion2Component } from './banner-promotion2/banner-promotion2.component';
 import { DialogFiltersMComponent } from './products/dialog-filters-m/dialog-filters-m.component';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CategoriesMComponent } from './widgets/categories-m/categories-m.component';
 import { BrandsMComponent } from './widgets/brands-m/brands-m.component';
 import { BlogSectionComponent } from './blog-section/blog-section.component';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
+import { MatInputModule } from '@angular/material/input';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { ShareButtonModule } from 'ngx-sharebuttons/button';
 import { SocialMediaComponent } from './products/product-details/social-media/social-media.component';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { FooterProductCardModule } from '../shared/footer-product-card/footer-product-card.module';
-import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-front/confirmation-dialog-front.module';
 import { ShareModule } from 'ngx-sharebuttons';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Meta } from '@angular/platform-browser';
 import { GuachosSimplePaginationModule } from 'guachos-simple-pagination';
@@ -71,7 +68,7 @@ import { LazyImgModule } from '../../core/directives/lazy-img/lazy-img.module';
 import { DialogPrescriptionComponent } from './products/dialog-prescription/dialog-prescription.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [

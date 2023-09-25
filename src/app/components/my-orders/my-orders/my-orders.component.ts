@@ -15,10 +15,7 @@ import { debounceTime, switchMap, takeUntil } from 'rxjs/operators';
 import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
-import {
-  MatLegacyDialog as MatDialog,
-  MatLegacyDialogRef as MatDialogRef,
-} from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { ActivatedRoute, Router } from '@angular/router';

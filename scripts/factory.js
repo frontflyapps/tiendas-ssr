@@ -14,6 +14,7 @@ function getProject(name) {
   };
   const styles = [
     joinStr(assetsDir, '/app.scss'),
+    'src/common-styles.scss',
     // fixing the issue "Could not find Angular Material core theme"
     'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css',
   ];

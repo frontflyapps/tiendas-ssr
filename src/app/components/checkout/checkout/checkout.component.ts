@@ -22,10 +22,7 @@ import { IPagination } from '../../../core/classes/pagination.class';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
-import {
-  MatLegacyDialog as MatDialog,
-  MatLegacyDialogRef as MatDialogRef,
-} from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SocketIoService } from 'src/app/core/services/socket-io/socket-io.service';
 import { DialogEnzonaConfirmToPayComponent } from '../dialog-enzona-confirm-to-pay/dialog-enzona-confirm-to-pay.component';
 import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';

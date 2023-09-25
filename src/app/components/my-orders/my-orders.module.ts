@@ -1,5 +1,5 @@
 import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { NgModule } from '@angular/core';

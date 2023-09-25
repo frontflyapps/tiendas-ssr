@@ -8,7 +8,7 @@ import { WishlistService } from '../../shared/services/wishlist.service';
 // import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 // import { DialogPrescriptionComponent } from '../../shop/products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';

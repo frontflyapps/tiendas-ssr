@@ -12,7 +12,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../../../../modals/product.model';
 import { ProductDataService, ProductService } from '../../../shared/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { IPagination } from '../../../../core/classes/pagination.class';
 import { Observable, Subject } from 'rxjs';
