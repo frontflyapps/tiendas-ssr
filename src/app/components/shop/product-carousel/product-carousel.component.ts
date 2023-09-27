@@ -22,12 +22,8 @@ import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
-import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
-import { SwiperOptions } from 'swiper/types';
-import { Swiper } from 'swiper';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-product-carousel',
@@ -115,47 +111,7 @@ export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestro
     this._unsubscribeAll.complete();
   }
 
-  ngAfterViewInit(): void {
-    const swiperEl = document.querySelector('#app-product-carousel-swiper-container');
-
-    if (swiperEl) {
-      const swiperOptions: SwiperOptions = {
-        observer: true,
-        slidesPerView: 'auto',
-        spaceBetween: 16,
-        keyboard: true,
-        navigation: true,
-        pagination: false,
-        grabCursor: true,
-        loop: false,
-        // preloadImages: false,
-        // lazy: true,
-        slidesPerGroup: 1,
-        breakpoints: {
-          480: {
-            slidesPerView: 'auto',
-            slidesPerGroup: 1,
-          },
-          740: {
-            slidesPerView: 'auto',
-          },
-          // 960: {
-          //   slidesPerView: 3,
-          // },
-          // 1024: {
-          //   slidesPerView: 3,
-          // },
-          // 1280: {
-          //   slidesPerView: 4,
-          // },
-        },
-      };
-      Object.assign(swiperEl, swiperOptions);
-
-      // @ts-expect-error necessarCheck the docs
-      swiperEl.initialize();
-    }
-  }
+  ngAfterViewInit(): void {}
 
   public openProductDialog(product) {
     this.productService.getProductById(product.id, product?.Stock?.id).subscribe((data) => {

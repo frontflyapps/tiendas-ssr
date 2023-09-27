@@ -1,5 +1,16 @@
 <div class="main-slider">
-  <swiper-container init="false" id="app-main-carousel-swiper-container" class="h-100">
+  <swiper-container
+    class="h-100"
+    slides-per-view="1"
+    speed="500"
+    space-between="0"
+    keyboard="true"
+    navigation="true"
+    effect="fade"
+    grab-cursor="true"
+    autoplay-delay="5000"
+    autoplay-disable-on-interaction="false"
+  >
     <swiper-slide *ngFor="let slide of _slides">
       <div
         [style.background]="'url(' + slide.image + ')'"
@@ -54,12 +65,5 @@
         </a>
       </div>
     </swiper-slide>
-    <!-- <div class="swiper-pagination white"></div>
-    <button class="swiper-button-prev swipe-arrow" color="primary" mat-mini-fab>
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <button class="swiper-button-next swipe-arrow" color="primary" mat-mini-fab>
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button> -->
   </swiper-container>
 </div>

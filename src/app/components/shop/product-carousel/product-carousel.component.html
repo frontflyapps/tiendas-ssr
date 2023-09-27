@@ -1,5 +1,20 @@
 <ng-container *ngIf="products.length > 2 || isHandset">
-  <swiper-container id="app-product-carousel-swiper-container" init="false" class="product-item">
+  <swiper-container
+    class="product-item"
+    slides-per-view="auto"
+    slides-per-group="1"
+    space-between="16"
+    keyboard="true"
+    navigation="true"
+    pagination="false"
+    loop="false"
+    breakpoints-480-slides-per-view="auto"
+    breakpoints-480-slides-per-group="1"
+    breakpoints-740-slides-per-view="auto"
+    breakpoints-960-slides-per-view="3"
+    breakpoints-1024-slides-per-view="3"
+    breakpoints-1248-slides-per-view="4"
+  >
     <swiper-slide *ngFor="let product of products" class="swiper-slide">
       <mat-card class="cardProduct" fxLayout="column" style="position: relative">
         <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
