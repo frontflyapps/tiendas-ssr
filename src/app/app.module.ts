@@ -22,7 +22,7 @@ import { CurrencyPipe, registerLocaleData } from '@angular/common';
 import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-ssr-log-interceptor.service';
 import localeEs from '@angular/common/locales/es';
 import { register as swiperRegister } from 'swiper/element/bundle';
-import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 
 swiperRegister();

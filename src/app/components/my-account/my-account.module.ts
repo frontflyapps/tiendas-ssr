@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { UploadFileModule } from '../shared/upload-file/upload-file.module';
 import { CapitalizeFirstDirective } from 'src/app/core/directives/capitalize-first.directive';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';

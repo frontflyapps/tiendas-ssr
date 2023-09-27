@@ -1,5 +1,5 @@
 import { RouterModule } from '@angular/router';
-import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterTwoComponent } from './footer-two.component';

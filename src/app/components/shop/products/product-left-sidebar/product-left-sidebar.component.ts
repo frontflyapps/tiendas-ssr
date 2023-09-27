@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { DialogFiltersMComponent } from '../dialog-filters-m/dialog-filters-m.component';

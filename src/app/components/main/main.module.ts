@@ -26,7 +26,7 @@ import { MainComponent } from './main.component';
 import { ShopModule } from '../shop/shop.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
+import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { PreviousRouteService } from '../../core/services/previous-route/previous-route.service';
@@ -37,10 +37,10 @@ import { ConfirmCreateBusinessService } from './confirm-create-business/confirm-
 import { DialogSetLocationComponent } from './dialog-set-location/dialog-set-location.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MyContactsComponent } from './my-contacts/my-contacts.component';
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GuachosImagePickerModule } from 'guachos-image-picker';
-import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
-import { MatLegacySlideToggleModule as MatSlideToggleModule } from '@angular/material/legacy-slide-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
 import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module';
 

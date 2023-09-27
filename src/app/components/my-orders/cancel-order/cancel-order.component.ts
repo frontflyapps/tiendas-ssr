@@ -4,7 +4,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PayService } from 'src/app/core/services/pay/pay.service';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 import * as moment from 'moment';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 

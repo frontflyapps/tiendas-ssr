@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../../modals/product.model';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, Subscriber } from 'rxjs';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 

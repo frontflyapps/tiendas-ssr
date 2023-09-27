@@ -33,7 +33,7 @@ import { CoinEnum } from '../../../core/classes/coin.enum';
 import { MarketEnum } from '../../../core/classes/market.enum';
 import { MyOrdersService } from '../../my-orders/service/my-orders.service';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 import { DialogBidaiondoConfirmToPayComponent } from '../dialog-bidaiondo-confirm-to-pay/dialog-bidaiondo-confirm-to-pay.component';
 import { ConfigurationService } from '../../../core/services/configuration/configuration.service';
 import { CurrencyCheckoutPipe } from 'src/app/core/pipes/currency-checkout.pipe';

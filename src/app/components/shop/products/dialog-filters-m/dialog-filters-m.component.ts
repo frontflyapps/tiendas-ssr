@@ -7,7 +7,7 @@ import { combineLatest, Subject, zip } from 'rxjs';
 import { ProductService } from '../../../shared/services/product.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
 
 export interface DialogData {

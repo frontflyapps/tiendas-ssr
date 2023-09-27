@@ -1,7 +1,7 @@
 import { Cart, CartItem } from '../../../modals/cart-item';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subscriber, Subject, BehaviorSubject } from 'rxjs';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
