@@ -242,12 +242,14 @@
             <a
               #langMenuTrigger="matMenuTrigger"
               [matMenuTriggerFor]="langMenu"
-              mat-icon-button
+              mat-button
               matTooltip="{{ 'Change language' | translate }}"
             >
               <img [src]="flag?.image" height="24" width="24" />
               <span class="flag-menu-title" fxShow="false" fxShow.gt-sm></span>
-              <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+              <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon"
+                >arrow_drop_down</mat-icon
+              >
             </a>
             <mat-menu
               #langMenu="matMenu"
@@ -286,7 +288,7 @@
           #currencyMenuTrigger="matMenuTrigger"
         >
           <span class="flag-menu-title">{{ currency?.name | translate }}</span>
-          <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
         </a>
         <mat-menu
           #currencyMenu="matMenu"
@@ -453,7 +455,7 @@
             #currencyMenuTrigger="matMenuTrigger"
           >
             <span class="flag-menu-title">{{ currency?.name | translate }}</span>
-            <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+            <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
           </a>
           <mat-menu
             #currencyMenu="matMenu"
