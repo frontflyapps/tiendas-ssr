@@ -146,6 +146,7 @@
           },
           "configurations": {
             "production": {
+              "optimization": false,
               "outputHashing": "media"
             },
             "development": {

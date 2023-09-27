@@ -229,11 +229,19 @@ function updatePackageJSON(data, name) {
 
   // serve(SSR)
   delete data.scripts[joinStr('serve:ssr:', name)];
-  data.scripts[joinStr('serve:ssr:', name)] = joinStr('node dist/', name, '/serve/main.js');
+  data.scripts[joinStr('serve:ssr:', name)] = joinStr(
+    'NG_APP_NAME=',
+    name,
+    ' node dist/',
+    name,
+    '/server/main.js',
+  );
 
   delete data.scripts[joinStr('build:ssr:', name)];
   data.scripts[joinStr('build:ssr:', name)] = joinStr(
-    'ng build ',
+    'NG_APP_NAME=',
+    name,
+    ' rm -rf ./dist && ng build ',
     name,
     ' && ng run ',
     name,
