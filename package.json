@@ -19,7 +19,7 @@
     "build:VeoVeo": " ng build VeoVeo",
     "start:ssr:VeoVeo": "NG_APP_NAME=VeoVeo ng run VeoVeo:serve-ssr --port 4308",
     "serve:ssr:VeoVeo": "NG_APP_NAME=VeoVeo node dist/VeoVeo/server/main.js",
-    "build:ssr:VeoVeo": "NG_APP_NAME=VeoVeo rm -rf ./dist && ng build VeoVeo && ng run VeoVeo:server",
+    "build:ssr:VeoVeo": "NG_APP_NAME=VeoVeo rm -rf ./dist/VeoVeo && ng build VeoVeo && ng run VeoVeo:server",
     "prerender:VeoVeo": "ng run VeoVeo:prerender",
     "storybook:VeoVeo": "STORYBOOK_APP_NAME=VeoVeo ng run VeoVeo:storybook",
     "<<<<<<<<<<<<<<<Umbralf>>>>>>>>>>>>>>>": "",
@@ -27,7 +27,7 @@
     "build:Umbralf": " ng build Umbralf",
     "start:ssr:Umbralf": "NG_APP_NAME=Umbralf ng run Umbralf:serve-ssr --port 4308",
     "serve:ssr:Umbralf": "NG_APP_NAME=Umbralf node dist/Umbralf/server/main.js",
-    "build:ssr:Umbralf": "NG_APP_NAME=Umbralf rm -rf ./dist && ng build Umbralf && ng run Umbralf:server",
+    "build:ssr:Umbralf": "NG_APP_NAME=Umbralf rm -rf ./dist/Umbralf && ng build Umbralf && ng run Umbralf:server",
     "prerender:Umbralf": "ng run Umbralf:prerender",
     "storybook:Umbralf": "STORYBOOK_APP_NAME=Umbralf ng run Umbralf:storybook"
   },

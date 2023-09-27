@@ -129,6 +129,7 @@ function getProject(name) {
         },
         configurations: {
           production: {
+            optimization: false,
             outputHashing: 'media',
           },
           development: {
@@ -241,7 +242,9 @@ function updatePackageJSON(data, name) {
   data.scripts[joinStr('build:ssr:', name)] = joinStr(
     'NG_APP_NAME=',
     name,
-    ' rm -rf ./dist && ng build ',
+    ' rm -rf ./dist/',
+    name,
+    ' && ng build ',
     name,
     ' && ng run ',
     name,
