@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class DialogTranfermovilQrComponent implements OnInit, OnDestroy {
   loggedInUser: any;
   launchTM: any;
-  public imgQR = '../../../../assets/images/noImage.jpg';
+  public imgQR = '/assets/images/noImage.jpg';
   public imgQRRequest = true;
   public finalPrice: number;
   public currency: string;

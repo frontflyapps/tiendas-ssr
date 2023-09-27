@@ -27,7 +27,7 @@ export class EditProfileComponent implements OnInit {
   passwordType = 'password';
   form: UntypedFormGroup;
   formPass: UntypedFormGroup;
-  defaultImage: '../../../../assets/images/avatars/profile2.png';
+  defaultImage: '/assets/images/avatars/profile2.png';
   isChangePass = false;
 
   loadImage = false;

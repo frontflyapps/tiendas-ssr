@@ -135,7 +135,7 @@
               <img
                 lazyImg
                 *ngIf="!(product?.Images && product?.Images?.length)"
-                src="../../../../assets/images/noImage.jpg"
+                src="/assets/images/noImage.jpg"
                 alt=""
                 class="ImageProduct"
               />
@@ -175,7 +175,7 @@
               <img
                 lazyImg
                 *ngIf="!(product?.Images && product?.Images?.length)"
-                src="../../../../assets/images/noImage.jpg"
+                src="/assets/images/noImage.jpg"
                 alt=""
                 class="ImageProduct"
               />
@@ -503,7 +503,7 @@
                   />
                   <img
                     *ngIf="!review.Client.avatar"
-                    [src]="'../../../../../assets/images/avatars/profile2.png'"
+                    [src]="'/assets/images/avatars/profile2.png'"
                     alt="image"
                     class="review-author"
                   />

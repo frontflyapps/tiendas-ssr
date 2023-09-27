@@ -17,7 +17,7 @@
             <img *ngIf="article.image" [src]="imageUrl + article.image" alt="" lazyImg />
           </a>
 
-          <img *ngIf="!article.image" alt="" lazyImg src="../../../../assets/images/noImage.jpg" />
+          <img *ngIf="!article.image" alt="" lazyImg src="/assets/images/noImage.jpg" />
         </div>
         <div class="text-box" fxLayout="column">
           <h4>{{ utilsService.parserLanguage(article.title, language) }}</h4>
@@ -38,7 +38,7 @@
             <img *ngIf="article.image" [src]="imageUrl + article.image" alt="" lazyImg />
           </a>
 
-          <img *ngIf="!article.image" alt="" lazyImg src="../../../../assets/images/noImage.jpg" />
+          <img *ngIf="!article.image" alt="" lazyImg src="/assets/images/noImage.jpg" />
         </div>
         <div class="text-box" fxLayout="column">
           <h4

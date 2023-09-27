@@ -1,5 +1,4 @@
 .app-panel-notifications {
-
   .mat-dialog-container {
     padding: 0;
     // width: 85vw !important; ///parametro ajustable
@@ -8,7 +7,6 @@
       flex: 1 0 auto;
       min-height: initial;
     }
-
 
     .toolbar-bottom {
       height: auto;
@@ -25,13 +23,11 @@
 
     @media (min-width: 768px) and (max-width: 1024px) {
       width: 70vw !important;
-
     }
 
     @media (min-width: 320px) and (max-width: 768px) {
       width: 96vw !important;
     }
-
   }
 
   .cdk-overlay-pane {
@@ -39,8 +35,7 @@
     height: 100%;
   }
 
-
-  @media(max-width: 1000px) {
+  @media (max-width: 1000px) {
     .cdk-overlay-pane {
       width: 100%;
       height: 100%;

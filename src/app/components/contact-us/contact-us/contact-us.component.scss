@@ -6,7 +6,6 @@
   width: 100%;
   min-height: 400px;
 
-
   h1,
   h3 {
     text-align: center;
@@ -21,13 +20,13 @@
     flex-direction: column;
 
     label {
-      opacity: .8;
-      margin-bottom: .75rem;
+      opacity: 0.8;
+      margin-bottom: 0.75rem;
     }
   }
 
   button {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     text-transform: uppercase;
     font-weight: 300;
   }

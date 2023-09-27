@@ -2,7 +2,7 @@
   &:hover {
     img {
       transform: scale(1.1);
-      transition: all .5s ease;
+      transition: all 0.5s ease;
     }
 
     .media-body {
@@ -11,11 +11,10 @@
 
         span {
           color: #1565c0 !important;
-          transition: all .5s ease !important;
+          transition: all 0.5s ease !important;
         }
       }
     }
-
   }
 
   .module {
@@ -33,7 +32,7 @@
   }
 }
 
-@media(max-width: 480px) {
+@media (max-width: 480px) {
   .sec-padding {
     padding: 14px 0;
   }
