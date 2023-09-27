@@ -49,6 +49,7 @@
     "@fortawesome/angular-fontawesome": "^0.13.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@guajiritos/layouts": "^0.0.13",
     "@nguniversal/express-engine": "^16.1.2",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
