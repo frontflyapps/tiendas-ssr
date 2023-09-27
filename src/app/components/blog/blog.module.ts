@@ -8,7 +8,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogColumnComponent } from './blog-column/blog-column.component';
 import { SharedModule } from './../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 

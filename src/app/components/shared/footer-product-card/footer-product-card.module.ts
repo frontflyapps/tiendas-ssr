@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FlexModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { PipesModule } from '../../../core/pipes/pipes.module';
 import { GuachosRatingModule } from 'guachos-rating';
 import { DebounceClickModule } from 'src/app/core/directives/debounce-click/debounce-click.module';

@@ -25,7 +25,7 @@ import { ProcessingPaymentErrorComponent } from './processing-payment-error/proc
 import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 import { ConfirmationDialogFrontModule } from 'src/app/components/shared/confirmation-dialog-front/confirmation-dialog-front.module';
 import { TaxesShippingService } from '../../core/services/taxes-shipping/taxes-shipping.service';
