@@ -18,7 +18,7 @@
           "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/VeoVeo/browser",
-            "index": "src/index.html",
+            "index": "src/VeoVeo/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -26,21 +26,62 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
-                "input": "src/assets-VeoVeo",
+                "input": "src/VeoVeo/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/assets-VeoVeo/app.scss",
+              "src/VeoVeo/assets/app.scss",
+              "src/VeoVeo/assets/scss/helpers/_helpers.scss",
+              "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-VeoVeo",
+                "src/VeoVeo/assets",
                 "/assets"
               ]
             },
@@ -109,21 +150,62 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
-                "input": "src/assets-VeoVeo",
+                "input": "src/VeoVeo/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/assets-VeoVeo/app.scss",
+              "src/VeoVeo/assets/app.scss",
+              "src/VeoVeo/assets/scss/helpers/_helpers.scss",
+              "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-VeoVeo",
+                "src/VeoVeo/assets",
                 "/assets"
               ]
             },
@@ -139,7 +221,7 @@
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-VeoVeo",
+                "src/VeoVeo/assets",
                 "/assets"
               ]
             }
@@ -227,7 +309,7 @@
           "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/Umbralf/browser",
-            "index": "src/index.html",
+            "index": "src/Umbralf/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -235,21 +317,62 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
-                "input": "src/assets-Umbralf",
+                "input": "src/Umbralf/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/assets-Umbralf/app.scss",
+              "src/Umbralf/assets/app.scss",
+              "src/Umbralf/assets/scss/helpers/_helpers.scss",
+              "src/Umbralf/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-Umbralf",
+                "src/Umbralf/assets",
                 "/assets"
               ]
             },
@@ -318,21 +441,62 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/Umbralf/",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
-                "input": "src/assets-Umbralf",
+                "input": "src/Umbralf/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/assets-Umbralf/app.scss",
+              "src/Umbralf/assets/app.scss",
+              "src/Umbralf/assets/scss/helpers/_helpers.scss",
+              "src/Umbralf/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-Umbralf",
+                "src/Umbralf/assets",
                 "/assets"
               ]
             },
@@ -348,7 +512,7 @@
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-Umbralf",
+                "src/Umbralf/assets",
                 "/assets"
               ]
             }
@@ -436,7 +600,7 @@
           "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/Supermax/browser",
-            "index": "src/index.html",
+            "index": "src/Supermax/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -444,21 +608,62 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
-                "input": "src/assets-Supermax",
+                "input": "src/Supermax/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/assets-Supermax/app.scss",
+              "src/Supermax/assets/app.scss",
+              "src/Supermax/assets/scss/helpers/_helpers.scss",
+              "src/Supermax/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-Supermax",
+                "src/Supermax/assets",
                 "/assets"
               ]
             },
@@ -527,21 +732,62 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/Supermax/",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
-                "input": "src/assets-Supermax",
+                "input": "src/Supermax/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/assets-Supermax/app.scss",
+              "src/Supermax/assets/app.scss",
+              "src/Supermax/assets/scss/helpers/_helpers.scss",
+              "src/Supermax/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-Supermax",
+                "src/Supermax/assets",
                 "/assets"
               ]
             },
@@ -557,7 +803,7 @@
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets-Supermax",
+                "src/Supermax/assets",
                 "/assets"
               ]
             }

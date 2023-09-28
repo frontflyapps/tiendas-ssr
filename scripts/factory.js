@@ -8,23 +8,41 @@ function joinStr(...args) {
 }
 
 function getProject(name) {
-  const assetsDir = joinStr('src/assets-', name);
+  const appDir = joinStr('src/', name);
+
+  const assetsDir = joinStr(appDir, '/assets');
 
   const stylePreprocessorOptions = {
     includePaths: [assetsDir, '/assets'],
   };
+
   const styles = [
     joinStr(assetsDir, '/app.scss'),
+    joinStr(assetsDir, '/scss/helpers/_helpers.scss'),
+    joinStr(assetsDir, '/scss/mixins/_breakpoints.scss'),
     'src/common-styles.scss',
     // fixing the issue "Could not find Angular Material core theme"
     'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css',
   ];
 
   const assets = [
-    'src/favicon.ico',
+    ...[
+      'favicon-16x16.png',
+      'favicon-32x32.png',
+      'favicon.ico',
+      'apple-touch-icon.png',
+      'android-chrome-192x192.png',
+      'android-chrome-512x512.png',
+      'manifest.webmanifest',
+      'site.webmanifest',
+    ].map((assetsFile) => ({
+      glob: assetsFile,
+      input: joinStr(appDir, '/'),
+      output: '/',
+    })),
     {
       glob: '**/*',
-      input: assetsDir,
+      input: joinStr(appDir, '/assets'),
       output: '/assets/',
     },
   ];
@@ -44,7 +62,7 @@ function getProject(name) {
         builder: '@ngx-env/builder:browser',
         options: {
           outputPath: joinStr('dist/', name, '/browser'),
-          index: 'src/index.html',
+          index: joinStr(appDir, '/index.html'),
           main: 'src/main.ts',
           polyfills: ['zone.js'],
           tsConfig: 'tsconfig.app.json',
