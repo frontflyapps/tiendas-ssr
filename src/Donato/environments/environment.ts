@@ -1,8 +1,3 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-const packageJson = require('../../package.json');
-
 // peopleGoTo | transfermovil | bidaiondo
 export const PASARELA_BASE = 'peoplegoto';
 
@@ -28,7 +23,7 @@ export const environment = {
   logoWhite: 'assets/images/logo-blanco.svg',
   logoFooter: 'assets/images/logo-footer.svg',
 
-  limitSearch : 42,
+  limitSearch: 42,
 
   showPoweredBy: true,
 
@@ -63,23 +58,13 @@ export const environment = {
 
   meta: {
     mainPage: {
-      title: 'd\'Donato',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      title: "d'Donato",
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, Sin Cola, comercio online',
       shareImg: 'https://www.ddonatofood.com/assets/icons/share-img.png',
       url: 'https://www.ddonatofood.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };
 

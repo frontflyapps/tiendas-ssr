@@ -1,4 +1,3 @@
-const packageJson = require('../../package.json');
 export const PASARELA_BASE = 'peoplegoto';
 export const environment = {
   production: true,
@@ -13,12 +12,11 @@ export const environment = {
   logoWhite: 'assets/images/logo-login.png',
   logoFooter: 'assets/images/logo-navbar.png',
 
-  limitSearch : 42,
+  limitSearch: 42,
 
   showPoweredBy: true,
 
   showLocation: true,
-
 
   timeToResetSession: 14400000, // (4hrs) Time to reset the session (ms)
   timeToResearchProductData: 300000, // (5min) Time to research products (ms)
@@ -33,9 +31,7 @@ export const environment = {
   localDatabaseUsers: true,
 
   contacts: {
-    phone: '+5359955174\n' +
-      '+5359959794\n' +
-      '+5372065252',
+    phone: '+5359955174\n' + '+5359959794\n' + '+5372065252',
     email: 'ecommerce4genesis@gmail.com / comex@genesis.cult.cu',
     address: 'Oficina Central, Calle 18 No. 513 entre 7ma y 5ta, Miramar, Playa, La Habana, Cuba',
   },
@@ -49,21 +45,11 @@ export const environment = {
   meta: {
     mainPage: {
       title: 'Génesis | Galerías de Arte',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, Sin Cola, comercio online',
       shareImg: 'https://www.genesis.mibulevar.com/assets/images/share-img.png',
       url: 'https://www.genesis.mibulevar.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };

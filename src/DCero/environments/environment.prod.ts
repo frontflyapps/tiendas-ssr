@@ -1,4 +1,3 @@
-const packageJson = require('../../package.json');
 export const PASARELA_BASE = 'peoplegoto';
 export const environment = {
   production: true,
@@ -11,12 +10,11 @@ export const environment = {
   logo: 'assets/images/Group_7384.svg',
   logoWhite: 'assets/images/Group_7384.svg',
   logoFooter: 'assets/images/Group_7384.svg',
-  limitSearch : 42,
+  limitSearch: 42,
 
   showPoweredBy: true,
 
   showLocation: false,
-
 
   timeToResetSession: 14400000, // (4hrs) Time to reset the session (ms)
   timeToResearchProductData: 300000, // (5min) Time to research products (ms)
@@ -27,7 +25,7 @@ export const environment = {
   url: 'https://dcero.pymesbulevar.com/',
   urlAboutUs: 'https://dcero.pymesbulevar.com/',
 
-  address: 'Tienda D\'Cero',
+  address: "Tienda D'Cero",
   localDatabaseUsers: true,
 
   contacts: {
@@ -44,22 +42,12 @@ export const environment = {
 
   meta: {
     mainPage: {
-      title: 'Tienda D\'Cero',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      title: "Tienda D'Cero",
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
       shareImg: 'https://dcero.pymesbulevar.com/assets/images/share-img.png',
       url: 'https://dcero.pymesbulevar.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };

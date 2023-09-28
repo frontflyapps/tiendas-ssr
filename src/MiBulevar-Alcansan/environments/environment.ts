@@ -1,8 +1,3 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-const packageJson = require('../../package.json');
-
 // peopleGoTo | transfermovil | bidaiondo
 export const PASARELA_BASE = 'peoplegoto';
 
@@ -58,27 +53,18 @@ export const environment = {
   adminService: 'http://admintienda.tiendalocal.com/',
   mainDomain: '.tiendalocal.com',
 
-  tokenBusiness: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjE5LCJpZCI6MTksImRhdGUiOiIyMDIyLTAyLTE4VDAzOjU4OjU4LjAyMFoiLCJuYW1lIjoiQWxjYW5zYW4iLCJlbWFpbCI6InBydWViYUBwcnVlYmEuY29tIn0sImlhdCI6MTY0NTE1NjczOH0.BxLAokzCQVZ39oomFZ3wxksib2htV5dfkqi4DlaHR0c',
+  tokenBusiness:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjE5LCJpZCI6MTksImRhdGUiOiIyMDIyLTAyLTE4VDAzOjU4OjU4LjAyMFoiLCJuYW1lIjoiQWxjYW5zYW4iLCJlbWFpbCI6InBydWViYUBwcnVlYmEuY29tIn0sImlhdCI6MTY0NTE1NjczOH0.BxLAokzCQVZ39oomFZ3wxksib2htV5dfkqi4DlaHR0c',
 
   meta: {
     mainPage: {
       title: 'Mi Bulevar',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
       shareImg: 'https://www.mibulevar.com/assets/images/share-img.jpg',
       url: 'https://www.mibulevar.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };
 

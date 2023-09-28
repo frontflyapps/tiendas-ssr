@@ -1,4 +1,3 @@
-const packageJson = require('../../package.json');
 export const PASARELA_BASE = 'peoplegoto';
 export const environment = {
   production: true,
@@ -13,12 +12,11 @@ export const environment = {
   logoWhite: 'assets/images/mibulevar/patrimonio/logo.jpeg',
   logoFooter: 'assets/images/mibulevar/patrimonio/logo.jpeg',
 
-  limitSearch : 42,
+  limitSearch: 42,
 
   showPoweredBy: true,
 
   showLocation: true,
-
 
   timeToResetSession: 14400000, // (4hrs) Time to reset the session (ms)
   timeToResearchProductData: 300000, // (5min) Time to research products (ms)
@@ -41,26 +39,17 @@ export const environment = {
   adminService: 'https://admin.mibulevar.com/',
   mainDomain: '.mibulevar.com',
 
-  tokenBusiness: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjYsImlkIjo2LCJkYXRlIjoiMjAyMS0xMS0wN1QyMjozNDoyOC41MzBaIiwibmFtZSI6Ikdlc3Rpb24gZGVsIFBhdHJpbW9uaW8iLCJlbWFpbCI6IndpbGJlckBnZHAub2hjLmN1In0sImlhdCI6MTYzNjMyNDQ2OH0.YD1E_9n2ortJAkBRaCdJpwabMIWvdLRscYHBaTUm8E4',
+  tokenBusiness:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjYsImlkIjo2LCJkYXRlIjoiMjAyMS0xMS0wN1QyMjozNDoyOC41MzBaIiwibmFtZSI6Ikdlc3Rpb24gZGVsIFBhdHJpbW9uaW8iLCJlbWFpbCI6IndpbGJlckBnZHAub2hjLmN1In0sImlhdCI6MTYzNjMyNDQ2OH0.YD1E_9n2ortJAkBRaCdJpwabMIWvdLRscYHBaTUm8E4',
 
   meta: {
     mainPage: {
       title: 'Tiendas Patrimonio | Transfermóvil',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, Sin Cola, comercio online',
       shareImg: 'https://www.tiendaspatrimonio.mibulevar.com/assets/images/share-img.png',
       url: 'https://www.tiendaspatrimonio.mibulevar.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };

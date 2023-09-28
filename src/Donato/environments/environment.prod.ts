@@ -1,4 +1,3 @@
-const packageJson = require('../../package.json');
 export const PASARELA_BASE = 'peoplegoto';
 export const environment = {
   production: true,
@@ -13,12 +12,11 @@ export const environment = {
   logoWhite: 'assets/images/logo-blanco.svg',
   logoFooter: 'assets/images/logo-footer.svg',
 
-  limitSearch : 42,
+  limitSearch: 42,
 
   showPoweredBy: true,
 
   showLocation: false,
-
 
   timeToResetSession: 14400000, // (4hrs) Time to reset the session (ms)
   timeToResearchProductData: 300000, // (5min) Time to research products (ms)
@@ -29,7 +27,7 @@ export const environment = {
   url: 'https://www.ddonatofood.com/',
   urlAboutUs: 'https://www.ddonatofood.com/',
 
-  address: 'd\'Donato',
+  address: "d'Donato",
   localDatabaseUsers: true,
 
   contacts: {
@@ -46,22 +44,12 @@ export const environment = {
 
   meta: {
     mainPage: {
-      title: 'd\'Donato',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      title: "d'Donato",
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, Sin Cola, comercio online',
       shareImg: 'https://www.ddonatofood.com/assets/icons/share-img.png',
       url: 'https://www.ddonatofood.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };

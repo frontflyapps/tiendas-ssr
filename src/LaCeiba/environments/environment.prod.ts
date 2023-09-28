@@ -1,4 +1,3 @@
-const packageJson = require('../../package.json');
 export const PASARELA_BASE = 'peoplegoto';
 export const environment = {
   production: true,
@@ -12,12 +11,11 @@ export const environment = {
   logoWhite: 'assets/images/Eriode.svg',
   logoFooter: 'assets/images/Eriode.svg',
 
-  limitSearch : 42,
+  limitSearch: 42,
 
   showPoweredBy: true,
 
   showLocation: false,
-
 
   timeToResetSession: 14400000, // (4hrs) Time to reset the session (ms)
   timeToResearchProductData: 300000, // (5min) Time to research products (ms)
@@ -46,21 +44,11 @@ export const environment = {
   meta: {
     mainPage: {
       title: 'Empresa Agroindustrial La Ceiba',
-      description: 'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
       keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, Sin Cola, comercio online',
       shareImg: 'https://eriode.pymesbulevar.com/assets/images/share-img.png',
       url: 'https://eriode.pymesbulevar.com/',
     },
-  },
-
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-    material: packageJson.dependencies['@angular/material'],
-    rxjs: packageJson.dependencies.rxjs,
-    ngxtranslate: packageJson.dependencies['@ngx-translate/core'],
-    angularCli: packageJson.devDependencies['@angular/cli'],
-    typescript: packageJson.devDependencies['typescript'],
-    tslint: packageJson.devDependencies['tslint'],
   },
 };
