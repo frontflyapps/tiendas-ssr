@@ -420,6 +420,215 @@
           }
         }
       }
+    },
+    "Supermax": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@ngx-env/builder:browser",
+          "options": {
+            "outputPath": "dist/Supermax/browser",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "src/assets-Supermax",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "src/assets-Supermax/app.scss",
+              "src/common-styles.scss",
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets-Supermax",
+                "/assets"
+              ]
+            },
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "buffer",
+              "rxjs",
+              "rxjs/internal/observable/of",
+              "rxjs/internal/Subject",
+              "crypto-js",
+              "resize-observer",
+              "@angular/common/locales/es",
+              "socket.io-client",
+              "socket.io",
+              "socket.io-parser",
+              "jspdf",
+              "ngx-material-timepicker"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@ngx-env/builder:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Supermax:build:production"
+            },
+            "development": {
+              "browserTarget": "Supermax:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@ngx-env/builder:extract-i18n",
+          "options": {
+            "browserTarget": "Supermax:build"
+          }
+        },
+        "test": {
+          "builder": "@ngx-env/builder:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "src/assets-Supermax",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "src/assets-Supermax/app.scss",
+              "src/common-styles.scss",
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets-Supermax",
+                "/assets"
+              ]
+            },
+            "scripts": []
+          }
+        },
+        "server": {
+          "builder": "@ngx-env/builder:server",
+          "options": {
+            "outputPath": "dist/Supermax/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets-Supermax",
+                "/assets"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "optimization": false,
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "Supermax:build:development",
+              "serverTarget": "Supermax:server:development"
+            },
+            "production": {
+              "browserTarget": "Supermax:build:production",
+              "serverTarget": "Supermax:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Supermax:build:production",
+              "serverTarget": "Supermax:server:production"
+            },
+            "development": {
+              "browserTarget": "Supermax:build:development",
+              "serverTarget": "Supermax:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "Supermax:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "Supermax:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/Supermax"
+          }
+        }
+      }
     }
   }
 }

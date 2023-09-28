@@ -31,7 +31,16 @@
     "build:ssr:Umbralf": "NG_APP_NAME=Umbralf rm -rf ./dist/Umbralf && ng build Umbralf && ng run Umbralf:server",
     "build-serve:ssr:Umbralf": "NG_APP_NAME=Umbralf npm run build:ssr:Umbralf && npm run serve:ssr:Umbralf",
     "prerender:Umbralf": "ng run Umbralf:prerender",
-    "storybook:Umbralf": "STORYBOOK_APP_NAME=Umbralf ng run Umbralf:storybook"
+    "storybook:Umbralf": "STORYBOOK_APP_NAME=Umbralf ng run Umbralf:storybook",
+    "<<<<<<<<<<<<<<<Supermax>>>>>>>>>>>>>>>": "",
+    "start:Supermax": "NG_APP_NAME=Supermax ng serve Supermax --host 0.0.0.0 --public-host tienda.tiendalocal.com --port 4308 --disable-host-check true",
+    "build:Supermax": " ng build Supermax",
+    "start:ssr:Supermax": "NG_APP_NAME=Supermax ng run Supermax:serve-ssr --port 4308",
+    "serve:ssr:Supermax": "NG_APP_NAME=Supermax node dist/Supermax/server/main.js",
+    "build:ssr:Supermax": "NG_APP_NAME=Supermax rm -rf ./dist/Supermax && ng build Supermax && ng run Supermax:server",
+    "build-serve:ssr:Supermax": "NG_APP_NAME=Supermax npm run build:ssr:Supermax && npm run serve:ssr:Supermax",
+    "prerender:Supermax": "ng run Supermax:prerender",
+    "storybook:Supermax": "STORYBOOK_APP_NAME=Supermax ng run Supermax:storybook"
   },
   "private": true,
   "dependencies": {

@@ -1,6 +1,7 @@
 var fs = require('fs');
 const packageJsonData = require('../package.json');
 const angularJsonData = require('../angular.json');
+const { listNames } = require('./constants');
 
 function joinStr(...args) {
   return args.join('');
@@ -281,8 +282,6 @@ function saveJson(filename, data) {
     if (err) console.log('error', err);
   });
 }
-
-const listNames = ['VeoVeo', 'Umbralf'];
 
 let newPackageJsonData = JSON.parse(JSON.stringify(packageJsonData));
 let newAngularJsonData = JSON.parse(JSON.stringify(angularJsonData));

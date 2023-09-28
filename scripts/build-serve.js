@@ -1,6 +1,5 @@
 const { exec, spawn } = require('child_process');
-
-const listNames = ['VeoVeo', 'Umbralf'];
+const { listNames } = require('./constants');
 
 listNames.forEach((name, index) => {
   const child = spawn('npm', ['run', `build-serve:ssr:${name}`], {
