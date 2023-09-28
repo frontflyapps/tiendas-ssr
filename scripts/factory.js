@@ -251,6 +251,16 @@ function updatePackageJSON(data, name) {
     ':server',
   );
 
+  delete data.scripts[joinStr('build-serve:ssr:', name)];
+  data.scripts[joinStr('build-serve:ssr:', name)] = joinStr(
+    'NG_APP_NAME=',
+    name,
+    ' npm run build:ssr:',
+    name,
+    ' && npm run serve:ssr:',
+    name,
+  );
+
   delete data.scripts[joinStr('prerender:', name)];
   data.scripts[joinStr('prerender:', name)] = joinStr('ng run ', name, ':prerender');
 
