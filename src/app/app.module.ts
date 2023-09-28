@@ -25,7 +25,6 @@ import { register as swiperRegister } from 'swiper/element/bundle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 
-console.log('environment', environment);
 swiperRegister();
 registerLocaleData(localeEs, 'es');
 
