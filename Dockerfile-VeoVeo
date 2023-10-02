@@ -1,4 +1,4 @@
-FROM bitnami/node:18 as builder
+FROM bitnami/node:16 as builder
 
 WORKDIR /app/
 ADD . /app/
