@@ -3,7 +3,6 @@ FROM bitnami/node:18 as builder
 WORKDIR /app/
 ADD . /app/
 RUN npm cache clean --force
-RUN npm config set registry "https://nexus.guajitech.com/repository/npm/"
 RUN npm config get registry
 
 ENV NODE_OPTIONS=--max-old-space-size=8000
