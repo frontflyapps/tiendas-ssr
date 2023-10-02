@@ -8,7 +8,7 @@ RUN npm config get registry
 ENV NODE_OPTIONS=--max-old-space-size=8000
 ENV NODE_OPTIONS=--max_old_space_size=8000
 
-RUN npm install
+RUN npm install --force
 RUN npm build:ssr:VeoVeo
 
 EXPOSE 4000/tcp
