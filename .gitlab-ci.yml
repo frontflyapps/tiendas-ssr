@@ -1,0 +1,60 @@
+stages:
+  - install
+  - notify
+
+.build_job: &build_job
+  stage: install
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  image:
+    name: docker:latest
+    entrypoint: [""]
+  services:
+    - docker:dind
+  tags:
+    - Gitlab-Runner
+  before_script:
+    - DOCKER_HOST='/var/run/docker.sock'; if [ ! -S "$DOCKER_HOST" ]; then DOCKER_HOST='tcp://docker:2375'; export DOCKER_HOST=$DOCKER_HOST;fi; echo $DOCKER_HOST
+    - apk add --no-cache curl jq py3-pip
+    - pip install awscli
+    - eval $(aws ecr get-login --no-include-email --region us-east-1)
+  script:
+    - docker build -f Dockerfile-VeoVeo -t tiendav1-front .
+    - docker tag tiendav1-front:latest $AWS_ECR/tiendav1-front:production-ssr-veoveo
+    - docker push $AWS_ECR/tiendav1-front:production-ssr-veoveo
+    - docker build -f Dockerfile-Umbralf -t tiendav1-front .
+    - docker tag tiendav1-front:latest $AWS_ECR/tiendav1-front:production-ssr-umbralf
+    - docker push $AWS_ECR/tiendav1-front:production-ssr-umbralf
+    - echo "DEPLOYED SUCCESSFULLY"
+
+build_prod:
+  only:
+    - stage
+  environment:
+    name: STAGE
+  <<: *build_job
+
+success:
+  tags:
+    - Gitlab-Runner
+  image: alpine:latest
+  stage: notify
+  script:
+    - apk add --update git curl
+    - wget https://raw.githubusercontent.com/armandofcom/gitlab-ci-discord-webhook/master/send.sh
+    - chmod +x send.sh
+    - /bin/ash ./send.sh success $WEBHOOK_URL
+  when: on_success
+
+failure:
+  tags:
+    - Gitlab-Runner
+  image: alpine:latest
+  stage: notify
+  script:
+    - apk add --update git curl
+    - wget https://raw.githubusercontent.com/armandofcom/gitlab-ci-discord-webhook/master/send.sh
+    - chmod +x send.sh
+    - /bin/ash ./send.sh failure $WEBHOOK_URL
+  when: on_failure
