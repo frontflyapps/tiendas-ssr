@@ -9,7 +9,7 @@ ENV NODE_OPTIONS=--max-old-space-size=8000
 ENV NODE_OPTIONS=--max_old_space_size=8000
 
 RUN npm install --force
-RUN npm build:ssr:Umbralf
+RUN npm run build:ssr:Umbralf
 
 EXPOSE 4000/tcp
 
