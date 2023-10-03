@@ -129,7 +129,10 @@ h6 {
 }
 
 .mat-card:not([class*='mat-elevation-z']) {
-  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
+  box-shadow:
+    2px 2px 6px 0 rgba(0, 0, 0, 0.1),
+    0 1px 1px 0 rgba(0, 0, 0, 0),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 // .overlay {
@@ -137,11 +140,11 @@ h6 {
 //   position: fixed;
 // }
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: $theme-main
+  color: $theme-main;
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: $theme-main
+  background-color: $theme-main;
 }
 
 .mat-expansion-indicator::after,
@@ -730,7 +733,10 @@ span {
     padding: 26px 5px 5px 5px;
 
     .mat-card:not([class*='mat-elevation-z']) {
-      box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+      box-shadow:
+        2px 2px 6px 0 rgba(0, 0, 0, 0.1),
+        0 1px 1px 0 rgba(0, 0, 0, 0),
+        0 1px 3px 0 rgba(0, 0, 0, 0.12);
       padding: 0;
 
       .product-img {
@@ -2143,7 +2149,10 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
     padding: 8px 25px;
     background: $gray-lighter;
     margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
+    box-shadow:
+      2px 2px 6px 0 rgba(0, 0, 0, 0.1),
+      0 1px 1px 0 rgba(0, 0, 0, 0),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
   }
 
   .all-products {
@@ -2160,7 +2169,10 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
         transition: 0.4s;
 
         .mat-card:not([class*='mat-elevation-z']) {
-          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+          box-shadow:
+            2px 2px 6px 0 rgba(0, 0, 0, 0.1),
+            0 1px 1px 0 rgba(0, 0, 0, 0),
+            0 1px 3px 0 rgba(0, 0, 0, 0.12);
           padding: 0;
 
           .product-img {

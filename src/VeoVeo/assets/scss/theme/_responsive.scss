@@ -1,4 +1,4 @@
-@media(min-width: 1200px) and (max-width: 1480px) {
+@media (min-width: 1200px) and (max-width: 1480px) {
   .product-dialog {
     .mat-dialog-content {
       max-width: 70vw;
@@ -13,11 +13,10 @@
         }
       }
     }
-
   }
 }
 
-@media(max-width: 1199px) {
+@media (max-width: 1199px) {
   .product-dialog {
     .mat-dialog-content {
       max-width: 70vw;
@@ -32,13 +31,10 @@
         }
       }
     }
-
   }
 }
 
-@media(min-width: 1200px) {
-
-
+@media (min-width: 1200px) {
   .carousel-3 {
     .carousel-2-wrapper {
       .main-slider {
@@ -50,8 +46,7 @@
   }
 }
 
-@media(min-width: 1200px) and (max-width: 1280px) {
-
+@media (min-width: 1200px) and (max-width: 1280px) {
   .home-3-wrap {
     .main-home3-wrapper {
       .home3-banner-wrap {
@@ -79,7 +74,6 @@
     }
   }
 
-
   .carousel-3 {
     .carousel-2-wrapper {
       .main-slider {
@@ -89,11 +83,9 @@
       }
     }
   }
-
 }
 
-@media(min-width: 960px) and (max-width: 960px) {
-
+@media (min-width: 960px) and (max-width: 960px) {
   .main-home3-wrapper {
     padding-left: 0 !important;
 
@@ -117,7 +109,6 @@
 
           h3 {
             font-size: 29px;
-
           }
         }
       }
@@ -145,11 +136,9 @@
   }
 }
 
-@media(min-width: 961px) {
-
+@media (min-width: 961px) {
   .carousel-3 {
     .carousel-2-wrapper {
-
       .main-slider {
         .content {
           padding-right: 350px !important;
@@ -160,16 +149,14 @@
 
           h3 {
             font-size: 29px;
-
           }
         }
       }
     }
-
   }
 }
 
-@media(max-width: 959px) {
+@media (max-width: 959px) {
   .home-5-wrap {
     .categories {
       .left-section {
@@ -207,8 +194,6 @@
     }
   }
 
-
-
   .details-wrapper {
     .product-right {
       padding: 0;
@@ -234,7 +219,6 @@
 
           h3 {
             font-size: 29px;
-
           }
         }
       }
@@ -243,7 +227,6 @@
 }
 
 @media (min-width: 960px) and (max-width: 1199px) {
-
   .home-5-wrap {
     .categories {
       .left-section {
@@ -278,7 +261,7 @@
 
   .prod-three {
     .product-item {
-      .mat-card:not([class*=mat-elevation-z]) {
+      .mat-card:not([class*='mat-elevation-z']) {
         .product-info-wrapper {
           padding: 10px;
 
@@ -299,20 +282,16 @@
     }
   }
 
-
   .home-3-wrap {
     .main-home3-wrapper {
       h3 {
-
         top: 30px;
       }
     }
   }
-
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-
   .home-3-wrap {
     .main-home3-wrapper {
       .home3-banner-wrap {
@@ -343,7 +322,6 @@
   .carousel-2 {
     .main-slider {
       .content {
-
         padding-right: 323px !important;
 
         h1 {
@@ -352,7 +330,6 @@
 
         h3 {
           font-size: 29px;
-
         }
       }
     }
@@ -374,7 +351,6 @@
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
-
   .home-3-wrap {
     .main-home3-wrapper {
       .home3-banner-wrap {
@@ -419,7 +395,6 @@
   .carousel-2 {
     .main-slider {
       .content {
-
         padding-right: 323px !important;
 
         h1 {
@@ -428,7 +403,6 @@
 
         h3 {
           font-size: 29px;
-
         }
       }
     }
@@ -446,7 +420,6 @@
 
           h3 {
             font-size: 29px;
-
           }
         }
       }
@@ -458,7 +431,6 @@
       margin: 0 auto;
       margin-bottom: 0;
     }
-
   }
 
   .home-header-2 {
@@ -466,7 +438,6 @@
       margin: 0 auto;
       margin-bottom: 0;
     }
-
   }
 
   .home-header-4 {
@@ -474,7 +445,6 @@
       margin: 0 auto;
       margin-bottom: 0;
     }
-
   }
 
   .home-header-three {
@@ -496,7 +466,6 @@
       }
     }
   }
-
 }
 
 @media (min-width: 600px) and (max-width: 959px) {
@@ -512,7 +481,6 @@
 
           h3 {
             font-size: 24px;
-
           }
         }
       }
@@ -595,14 +563,12 @@
     }
   }
 
-
   .carousel-2 {
     .carousel-2-wrapper {
       max-width: 100%;
 
       .main-slider {
         .content {
-
           padding-right: 323px !important;
 
           h1 {
@@ -611,7 +577,6 @@
 
           h3 {
             font-size: 29px;
-
           }
         }
       }
@@ -647,10 +612,8 @@
               .text-box {
                 h4 {
                   font-size: 20px;
-
                 }
               }
-
             }
           }
         }
@@ -707,7 +670,7 @@
   }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .demo-wrapper {
     .demo-showcase {
       .demos {
@@ -746,7 +709,6 @@
       margin: 0 auto;
       margin-bottom: 0;
     }
-
   }
 
   .home-header-three {
@@ -793,7 +755,6 @@
   .home-3-wrap {
     .main-home3-wrapper {
       h3 {
-
         top: 30px;
       }
     }
@@ -826,15 +787,12 @@
     }
   }
 
-
-
   .carousel-2 {
     .carousel-2-wrapper {
       max-width: 100%;
 
       .main-slider {
         .content {
-
           padding-right: 323px !important;
 
           h1 {
@@ -843,11 +801,9 @@
 
           h3 {
             font-size: 29px;
-
           }
         }
       }
-
     }
 
     .details-wrapper {
@@ -956,7 +912,6 @@
         padding-left: 0;
 
         h3 {
-
           top: 30px;
         }
       }
@@ -1038,19 +993,16 @@
       }
     }
 
-
-
     .categories-menu-wrap {
       .category-contant {
         ul {
           li {
             width: 100%;
-            transition: .3s;
+            transition: 0.3s;
           }
         }
       }
     }
-
 
     .info-bar-four-wrapper {
       border-bottom: none;
@@ -1093,7 +1045,6 @@
 
             h3 {
               font-size: 24px;
-
             }
           }
         }
@@ -1130,7 +1081,6 @@
           margin-bottom: 30px;
         }
       }
-
     }
 
     .mt-2 {
@@ -1138,12 +1088,9 @@
     }
 
     .banners-container {
-
       .seccond {
         margin: 10px 0 0 0;
       }
-
-
     }
 
     .carousel-3 {
@@ -1223,10 +1170,7 @@
           }
         }
       }
-
     }
-
-
   }
 
   @media (max-width: 480px) {
@@ -1234,7 +1178,6 @@
       .demo-showcase {
         .demos {
           .item {
-
             .first {
               height: auto !important;
             }
@@ -1279,8 +1222,6 @@
       }
     }
 
-
-
     .commerce-buttons {
       .mat-button {
         padding-right: 10px !important;
@@ -1297,7 +1238,6 @@
           }
         }
       }
-
     }
 
     .home-header-2 {
@@ -1310,7 +1250,6 @@
           }
         }
       }
-
     }
 
     .slide-item {
@@ -1342,7 +1281,6 @@
 
     .carousel-3 {
       .carousel-2-wrapper {
-
         max-width: 100% !important;
         margin-bottom: 20px;
 

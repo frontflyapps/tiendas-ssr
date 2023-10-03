@@ -421,27 +421,38 @@ $blue-900: #0d47a1;
 }
 
 mat-form-field.ng-untouched {
-  .mat-form-field-label, .mat-form-field-infix, .mat-form-field-label-wrapper, .mat-form-field-prefix, .mat-form-field-suffix{
+  .mat-form-field-label,
+  .mat-form-field-infix,
+  .mat-form-field-label-wrapper,
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
     color: white !important;
     caret-color: white !important;
   }
 }
 mat-form-field.ng-valid {
-  .mat-form-field-label, .mat-form-field-infix, .mat-form-field-label-wrapper, .mat-form-field-prefix, .mat-form-field-suffix{
+  .mat-form-field-label,
+  .mat-form-field-infix,
+  .mat-form-field-label-wrapper,
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
     color: white !important;
     caret-color: white !important;
   }
 }
 mat-form-field.ng-touched.ng-invalid {
-  .mat-form-field-label, .mat-form-field-infix, .mat-form-field-label-wrapper, .mat-form-field-prefix, .mat-form-field-suffix{
+  .mat-form-field-label,
+  .mat-form-field-infix,
+  .mat-form-field-label-wrapper,
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
     color: #f44336 !important;
     caret-color: white !important;
   }
 }
 
-
 //::ng-deep {
-  .mat-stroked-button:not(.mat-button-disabled) {
-    border-color: $theme-main-accent !important;
-  }
+.mat-stroked-button:not(.mat-button-disabled) {
+  border-color: $theme-main-accent !important;
+}
 //}
