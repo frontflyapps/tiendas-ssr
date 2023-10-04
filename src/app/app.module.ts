@@ -24,6 +24,10 @@ import localeEs from '@angular/common/locales/es';
 import { register as swiperRegister } from 'swiper/element/bundle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BusinessConfigService } from './core/services/business-config/business-config.service';
+import { switchMap } from 'rxjs';
+import { LocalStorageService } from './core/services/localStorage/localStorage.service';
+import { handleObservable } from './core/utils/api';
 
 swiperRegister();
 registerLocaleData(localeEs, 'es');
@@ -61,6 +65,12 @@ registerLocaleData(localeEs, 'es');
   providers: [
     provideClientHydration(),
     {
+      provide: APP_INITIALIZER,
+      useFactory: initializeAppConfig,
+      deps: [BusinessConfigService, LocalStorageService],
+      multi: true,
+    },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true,
@@ -85,3 +95,20 @@ registerLocaleData(localeEs, 'es');
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+function initializeAppConfig(
+  appService: BusinessConfigService,
+  localStorageService: LocalStorageService,
+) {
+  return () => {
+    handleObservable<{ data: any }>(
+      appService.requestCookie().pipe(switchMap(() => appService.getBusinessConfig())),
+      {
+        onAfterSuccess: (data) => {
+          appService.$businessConfig.next(data);
+          localStorageService.setOnStorage('business-config', data, true);
+        },
+      },
+    );
+  };
+}

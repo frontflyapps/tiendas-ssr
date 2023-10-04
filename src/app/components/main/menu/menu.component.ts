@@ -11,6 +11,7 @@ import { GlobalStateOfCookieService } from '../../../core/services/request-cooki
 import { CategoryMenuNavService } from '../../../core/services/category-menu-nav.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { LocalStorageService } from 'src/app/core/services/localStorage/localStorage.service';
 
 @Component({
   selector: 'app-menu',
@@ -23,7 +24,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   shoppingCartItems: any[] = [];
   language;
   ordersPayment: any[] = [];
-  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
+  businessConfig;
   categories: any[] = [];
   query: IPagination = {
     limit: 20,
@@ -32,7 +33,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     total: 0,
   };
   searchUrlParams;
-  bussinessConfig;
 
   constructor(
     private cartService: CartService,
@@ -45,6 +45,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     private activatedRute: ActivatedRoute,
     private router: Router,
     private storageService: StorageService,
+    private localStorageService: LocalStorageService,
   ) {
     this.router.events
       .pipe(
@@ -62,6 +63,8 @@ export class MenuComponent implements OnInit, OnDestroy {
       : 'es';
     this._unsubscribeAll = new Subject();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
+
+    this.businessConfig = this.localStorageService.getFromStorage('business-config');
   }
 
   // @Input() set _categories(value) {

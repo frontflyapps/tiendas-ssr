@@ -3,9 +3,6 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { BusinessConfigService } from './core/services/business-config/business-config.service';
-import { switchMap } from 'rxjs';
-import { handleObservable } from './core/utils/api';
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 
 import path from 'path';
@@ -27,22 +24,11 @@ const initDOM = () => {
   global['document'] = window.document;
 };
 
-function initializeAppConfig(businessConfigService: BusinessConfigService) {
+const initializeAppConfig = () => {
   return () => {
     initDOM();
-
-    handleObservable<{ data: any }>(
-      businessConfigService
-        .requestCookie()
-        .pipe(switchMap(() => businessConfigService.getBusinessConfig())),
-      {
-        onAfterSuccess: (data) => {
-          businessConfigService.$businessConfig.next(data.data);
-        },
-      },
-    );
   };
-}
+};
 
 @NgModule({
   imports: [
@@ -56,7 +42,6 @@ function initializeAppConfig(businessConfigService: BusinessConfigService) {
     {
       provide: APP_INITIALIZER,
       useFactory: initializeAppConfig,
-      deps: [BusinessConfigService],
       multi: true,
     },
   ],
