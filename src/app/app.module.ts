@@ -26,7 +26,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BusinessConfigService } from './core/services/business-config/business-config.service';
 import { switchMap } from 'rxjs';
-import { LocalStorageService } from './core/services/localStorage/localStorage.service';
 import { handleObservable } from './core/utils/api';
 
 swiperRegister();
@@ -67,7 +66,7 @@ registerLocaleData(localeEs, 'es');
     {
       provide: APP_INITIALIZER,
       useFactory: initializeAppConfig,
-      deps: [BusinessConfigService, LocalStorageService],
+      deps: [BusinessConfigService],
       multi: true,
     },
     {
@@ -96,19 +95,18 @@ registerLocaleData(localeEs, 'es');
 })
 export class AppModule {}
 
-function initializeAppConfig(
-  appService: BusinessConfigService,
-  localStorageService: LocalStorageService,
-) {
-  return () => {
-    handleObservable<{ data: any }>(
-      appService.requestCookie().pipe(switchMap(() => appService.getBusinessConfig())),
-      {
-        onAfterSuccess: (data) => {
-          appService.$businessConfig.next(data);
-          localStorageService.setOnStorage('business-config', data, true);
+function initializeAppConfig(appService: BusinessConfigService) {
+  return () =>
+    new Promise<void>((resolve) => {
+      handleObservable<{ data: any }>(
+        appService.requestCookie().pipe(switchMap(() => appService.getBusinessConfig())),
+        {
+          onAfterSuccess: (data) => {
+            appService.businessConfig = data;
+            console.log('<<<<<<<<businessConfig>>>>>>>>', appService.businessConfig);
+            resolve();
+          },
         },
-      },
-    );
-  };
+      );
+    });
 }

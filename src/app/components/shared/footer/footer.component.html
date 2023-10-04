@@ -30,7 +30,7 @@
         </a>
         <a
           [routerLink]="['shops-list']"
-          *ngIf="businessConfig?.canShowOurBussiness"
+          *ngIf="appService.businessConfig?.canShowOurBussiness"
           fxLayoutAlign="start center"
           mat-button
         >
@@ -104,35 +104,35 @@
       id="footer-contacts"
     >
       <div
-        *ngIf="businessConfig?.contactsFooter.phone"
+        *ngIf="appService.businessConfig?.contactsFooter.phone"
         fxLayout="row"
         fxLayoutAlign="center center"
         fxLayoutGap="4px"
       >
         <mat-icon>phone</mat-icon>
-        <span>{{ businessConfig?.contactsFooter?.phone }}</span>
+        <span>{{ appService.businessConfig?.contactsFooter?.phone }}</span>
       </div>
 
       <div
-        *ngIf="businessConfig?.contactsFooter.email"
+        *ngIf="appService.businessConfig?.contactsFooter.email"
         fxLayout="row"
         fxLayoutAlign="center center"
         fxLayoutGap="4px"
       >
         <mat-icon>email</mat-icon>
-        <a class="email-text" href="mailto:{{ businessConfig?.contactsFooter.email }}">{{
-          businessConfig?.contactsFooter?.email
+        <a class="email-text" href="mailto:{{ appService.businessConfig?.contactsFooter.email }}">{{
+          appService.businessConfig?.contactsFooter?.email
         }}</a>
       </div>
 
       <div
-        *ngIf="businessConfig?.contactsFooter.address"
+        *ngIf="appService.businessConfig?.contactsFooter.address"
         fxLayout="row"
         fxLayoutAlign="center center"
         fxLayoutGap="4px"
       >
         <mat-icon>location_on</mat-icon>
-        <span>{{ businessConfig?.contactsFooter?.address }}</span>
+        <span>{{ appService.businessConfig?.contactsFooter?.address }}</span>
       </div>
     </div>
 
@@ -167,22 +167,22 @@
       class="network-icons"
       fxLayout="row"
       *ngIf="
-        businessConfig?.contactsFooter?.socialNetworks?.facebook ||
-        businessConfig?.contactsFooter?.socialNetworks?.twitter ||
-        businessConfig?.contactsFooter?.socialNetworks?.linkedin ||
-        businessConfig?.contactsFooter?.socialNetworks?.youtube ||
-        businessConfig?.contactsFooter?.socialNetworks?.instagram ||
-        businessConfig?.contactsFooter?.socialNetworks?.telegram
+        appService.businessConfig?.contactsFooter?.socialNetworks?.facebook ||
+        appService.businessConfig?.contactsFooter?.socialNetworks?.twitter ||
+        appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin ||
+        appService.businessConfig?.contactsFooter?.socialNetworks?.youtube ||
+        appService.businessConfig?.contactsFooter?.socialNetworks?.instagram ||
+        appService.businessConfig?.contactsFooter?.socialNetworks?.telegram
       "
     >
       <li
         fxLayoutAlign="center center"
-        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.facebook"
+        *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.facebook"
       >
         <a
           class="icon-redes"
           fxLayoutAlign="center center"
-          [href]="businessConfig?.contactsFooter?.socialNetworks?.facebook"
+          [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.facebook"
           target="_blank"
         >
           <!--          <i class="fab fa-facebook-f" style="font-size: 18px"></i>-->
@@ -196,12 +196,12 @@
 
       <li
         fxLayoutAlign="center center"
-        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.twitter"
+        *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.twitter"
       >
         <a
           class="icon-redes"
           fxLayoutAlign="center center"
-          [href]="businessConfig?.contactsFooter?.socialNetworks?.twitter"
+          [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.twitter"
           target="_blank"
         >
           <!--          <i class="fab fa-twitter" style="font-size: 18px"></i>-->
@@ -215,12 +215,12 @@
 
       <li
         fxLayoutAlign="center center"
-        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.linkedin"
+        *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin"
       >
         <a
           class="icon-redes"
           fxLayoutAlign="center center"
-          [href]="businessConfig?.contactsFooter?.socialNetworks?.linkedin"
+          [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin"
           target="_blank"
         >
           <!--          <i class="fab fa-linkedin-in" style="font-size: 18px"></i>-->
@@ -234,12 +234,12 @@
 
       <li
         fxLayoutAlign="center center"
-        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.youtube"
+        *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.youtube"
       >
         <a
           class="icon-redes"
           fxLayoutAlign="center center"
-          [href]="businessConfig?.contactsFooter?.socialNetworks?.youtube"
+          [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.youtube"
           target="_blank"
         >
           <!--          <i class="fab fa-youtube" style="font-size: 18px"></i>-->
@@ -253,12 +253,12 @@
 
       <li
         fxLayoutAlign="center center"
-        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.instagram"
+        *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.instagram"
       >
         <a
           class="icon-redes"
           fxLayoutAlign="center center"
-          [href]="businessConfig?.contactsFooter?.socialNetworks?.instagram"
+          [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.instagram"
           target="_blank"
         >
           <!--          <i class="fab fa-instagram" style="font-size: 18px"></i>-->
@@ -272,12 +272,12 @@
 
       <li
         fxLayoutAlign="center center"
-        *ngIf="businessConfig?.contactsFooter?.socialNetworks?.telegram"
+        *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.telegram"
       >
         <a
           class="icon-redes"
           fxLayoutAlign="center center"
-          [href]="businessConfig?.contactsFooter?.socialNetworks?.telegram"
+          [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.telegram"
           target="_blank"
         >
           <!--                              <i class="fab fa-facebook" style="font-size: 18px"></i>-->

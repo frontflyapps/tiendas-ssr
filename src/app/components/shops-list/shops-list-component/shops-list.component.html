@@ -6,7 +6,11 @@
     class="banner-shop-img"
     fxHide.xs
     fxHide.sm
-    [src]="businessConfig?.imageBanner1 ? apiURL + businessConfig?.imageBanner1 : bannerDefault"
+    [src]="
+      appService.businessConfig?.imageBanner1
+        ? apiURL + appService.businessConfig?.imageBanner1
+        : bannerDefault
+    "
   />
   <img
     fxShow.xs
@@ -15,7 +19,11 @@
     fxHide
     fxShow.xs
     fxShow.sm
-    [src]="businessConfig?.imageBanner1Xs ? apiURL + businessConfig?.imageBanner1Xs : bannerDefault"
+    [src]="
+      appService.businessConfig?.imageBanner1Xs
+        ? apiURL + appService.businessConfig?.imageBanner1Xs
+        : bannerDefault
+    "
   />
 </div>
 <div class="container mt-5">

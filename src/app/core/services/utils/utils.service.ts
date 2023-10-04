@@ -22,11 +22,6 @@ export class UtilsService {
     private httpClient: HttpClient,
   ) {}
 
-  getAppConfig() {
-    const httpOptions = {};
-    return this.httpClient.get<any>(environment.apiUrl + 'business-config', httpOptions);
-  }
-
   /**
    *
    * @param arrayBase Array with All product needed

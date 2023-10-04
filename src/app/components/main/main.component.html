@@ -1,4 +1,7 @@
-<mat-sidenav-container fullscreen *ngIf="businessConfig?.Business?.status !== 'blockPayment'">
+<mat-sidenav-container
+  fullscreen
+  *ngIf="appService.businessConfig?.Business?.status !== 'blockPayment'"
+>
   <!-- Vista movil menu -->
   <mat-sidenav #start [opened]="false" class="DrawerMobileView" mode="over">
     <mat-list class="position-relative">
@@ -586,7 +589,10 @@
   <app-footer *ngIf="!url?.includes('my-account')"></app-footer>
 </mat-sidenav-container>
 
-<mat-sidenav-container fullscreen *ngIf="businessConfig?.Business?.status === 'blockPayment'">
+<mat-sidenav-container
+  fullscreen
+  *ngIf="appService.businessConfig?.Business?.status === 'blockPayment'"
+>
   <div [class.py-2]="!loggedInUser" class="home-header" fxHide.lt-md>
     <div class="container-header" fxLayout="row wrap" fxLayoutAlign="space-between center">
       <img

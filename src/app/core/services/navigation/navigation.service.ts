@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../storage/storage.service';
+import { BusinessConfigService } from '../business-config/business-config.service';
 
 @Injectable({
   providedIn: 'root',
@@ -287,7 +288,7 @@ export class NavigationService {
   ];
   constructor(
     private router: Router,
-    private storageService: StorageService,
+    private appService: BusinessConfigService,
   ) {}
 
   public getNavItems() {
@@ -299,10 +300,7 @@ export class NavigationService {
   }
 
   public navigateToMyAccount(param?: any) {
-    debugger;
-    const config = JSON.parse(this.storageService.getItem('business-config'));
-
-    if (config && config.signUpType == 'tcp') {
+    if (this.appService && this.appService.businessConfig.signUpType == 'tcp') {
       if (param) {
         this.router.navigate(['/my-account-tcp'], {
           queryParams: { modal: param },

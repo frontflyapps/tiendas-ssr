@@ -1,7 +1,6 @@
 import { ConfirmPaymentOkComponent } from './confirm-payment-ok/confirm-payment-ok.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   HostListener,
@@ -51,6 +50,7 @@ import { Meta } from '@angular/platform-browser';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { environment } from 'environments/environment';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-main',
@@ -96,7 +96,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   searchForm: UntypedFormControl;
   categories: any[] = [];
   _language = 'es';
-  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
 
   tour = new Shepherd.Tour({
     useModalOverlay: false,
@@ -136,6 +135,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     private categoryMenuServ: CategoryMenuNavService,
     public spinner: NgxSpinnerService,
     public storageService: StorageService,
+    public appService: BusinessConfigService,
   ) {
     this.metaAdd();
     this._unsubscribeAll = new Subject<any>();

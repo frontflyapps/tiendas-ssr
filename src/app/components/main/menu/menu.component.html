@@ -16,7 +16,7 @@
     <!--    [routerLinkActiveOptions]="{exact:true}"-->
     <a
       [routerLink]="['/shops-list']"
-      *ngIf="businessConfig?.canShowOurBussiness"
+      *ngIf="appService.businessConfig?.canShowOurBussiness"
       class="itemCategory"
       mat-button
       routerLinkActive="router-link-active"
