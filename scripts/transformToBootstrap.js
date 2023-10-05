@@ -51,7 +51,7 @@ const getIsBlockElement = (element) => {
 };
 
 const getSccFilename = (htmlFilename) => htmlFilename.replace('.html', '.scss');
-
+const isNumber = (val) => !isNaN(Number(val));
 const justifyContentHandle = (position, breakpointAlias) => {
   const withBreakpoint = (p) => {
     return breakpointAlias ? `justify-content-${breakpointAlias}-${p}` : `justify-content-${p}`;
@@ -334,10 +334,24 @@ function transformFile(htmlFilename) {
 
       const className = `transpilerClass-${attr}-${v4().slice(0, 6)}`;
 
+      const [value1, value2, value3] = value.split(' ');
+      let grow = 1;
+      let shrink = 1;
+      let basis = 0;
+
+      if (value1 && !value2 && !value3) {
+        basis = value1;
+      }
+      if (value1 && value2 && value3) {
+        grow = value1;
+        shrink = value2;
+        basis = value3;
+      }
+
       scssContent = classUtils.addClassToScss(
         scssContent,
         {
-          [breakpoint]: [`flex:${value || 1}`],
+          [breakpoint]: [`flex:${grow} ${shrink} ${isNumber(basis) ? `${basis}%` : basis}`],
         },
         className,
       );

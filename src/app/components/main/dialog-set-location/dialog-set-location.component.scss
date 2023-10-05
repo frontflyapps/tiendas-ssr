@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 .icon-info {
@@ -7,4 +8,8 @@
   @media (min-width: 320px) and (max-width: 1024px) {
     width: 50px !important;
   }
+}
+
+.transpilerClass-fxLayoutGap-2ed3b7 {
+  gap: 10px;
 }

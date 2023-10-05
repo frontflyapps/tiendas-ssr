@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="space-between start">
+<div class="d-flex justify-content-between align-items-start">
   <h2 mat-dialog-title>{{ 'Filtros de búsqueda' | translate }}</h2>
   <mat-icon (click)="close()">close</mat-icon>
 </div>
@@ -43,7 +43,7 @@
     </mat-expansion-panel>
   </mat-accordion>
 </mat-dialog-content>
-<div fxLayout="row" fxLayoutAlign="end end">
+<div class="d-flex justify-content-end align-items-end">
   <mat-dialog-actions>
     <button (click)="save()" class="mat-raised-button mat-primary">
       {{ 'Guardar' | translate }}

@@ -1,25 +1,20 @@
 <div
-  class="blog-container"
-  fxLayout="column"
-  fxLayout.gt-xs="row"
-  fxLayoutAlign.gt-sm="center center"
+  class="blog-container d-flex flex-column d-xs-flex d-sm-flex justify-content-sm-center justify-content-center align-items-sm-center align-items-center"
 >
   <ng-container *ngIf="allArticles.length === 1">
     <div
       *ngFor="let article of allArticles; let i = index"
-      class="blog"
-      fxFlex.gt-xs="50"
-      fxFlex.lt-sm="100"
+      class="blog transpilerClass-fxFlex-593195 transpilerClass-fxFlex-5ab66c"
     >
       <div class="info">
         <div class="img-box">
           <a [routerLink]="['/blog', article.id]">
-            <img *ngIf="article.image" [src]="imageUrl + article.image" alt="" lazyImg />
+            <img *ngIf="article.image" [src]="imageUrl + article.image" alt lazyImg />
           </a>
 
-          <img *ngIf="!article.image" alt="" lazyImg src="/assets/images/noImage.jpg" />
+          <img *ngIf="!article.image" alt lazyImg src="/assets/images/noImage.jpg" />
         </div>
-        <div class="text-box" fxLayout="column">
+        <div class="text-box d-flex flex-column">
           <h4>{{ utilsService.parserLanguage(article.title, language) }}</h4>
           <p class="module line-clamp">
             {{ utilsService.parserLanguage(article.sumarize, language) }}
@@ -31,16 +26,19 @@
   </ng-container>
 
   <ng-container *ngIf="allArticles.length > 1">
-    <div *ngFor="let article of allArticles; let i = index" class="blog" fxFlex>
+    <div
+      *ngFor="let article of allArticles; let i = index"
+      class="blog transpilerClass-fxFlex-9aea80"
+    >
       <div class="info">
         <div class="img-box">
-          <a [routerLink]="['/blog']" [routerLink]="['/blog', article.id]">
-            <img *ngIf="article.image" [src]="imageUrl + article.image" alt="" lazyImg />
+          <a [routerLink]="['/blog']">
+            <img *ngIf="article.image" [src]="imageUrl + article.image" alt lazyImg />
           </a>
 
-          <img *ngIf="!article.image" alt="" lazyImg src="/assets/images/noImage.jpg" />
+          <img *ngIf="!article.image" alt lazyImg src="/assets/images/noImage.jpg" />
         </div>
-        <div class="text-box" fxLayout="column">
+        <div class="text-box d-flex flex-column">
           <h4
             class="module line-clamp mb-2"
             style="

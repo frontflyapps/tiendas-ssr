@@ -1,6 +1,6 @@
 <div class="container">
   <div class="cart-wrapper">
-    <div *ngIf="!carts.length" fxLayout="column" fxLayoutAlign="space-around center">
+    <div *ngIf="!carts.length" class="d-flex flex-column justify-content-around align-items-center">
       <div *ngIf="!carts.length" class="col-sm-12 empty-cart-cls text-center">
         <img class="img-fluid mb-4" src="assets/images/backet-01.png" />
         <h3 class="mb-5">
@@ -25,7 +25,7 @@
     <!--    ===========================================================-->
     <!-- MODO DESKTOP -->
     <!--    ===========================================================-->
-    <section *ngIf="carts.length" fxHide.lt-md style="position: relative">
+    <section *ngIf="carts.length" style="position: relative" class="d-sm-none">
       <div *ngIf="inLoading" class="loading-shade">
         <mat-spinner *ngIf="inLoading"></mat-spinner>
       </div>
@@ -106,11 +106,10 @@
               </ng-container>
             </div>
             <div class="mat-cell text-muted">
-              <div class="text-muted" fxLayout="row" fxLayoutAlign="center center">
+              <div class="text-muted d-flex justify-content-center align-items-center">
                 <div
                   *ngIf="item?.Product?.type == 'physical'"
-                  fxLayout="row"
-                  fxLayoutAlign="center start"
+                  class="d-flex justify-content-center align-items-start"
                 >
                   <div class="addQuantity">
                     <button
@@ -145,8 +144,7 @@
 
                 <div
                   *ngIf="item.Product.type != 'physical'"
-                  fxLayout="row"
-                  fxLayoutAlign="center center"
+                  class="d-flex justify-content-center align-items-center"
                 >
                   <input
                     [(ngModel)]="defaultDigitalQuantity"
@@ -192,7 +190,7 @@
               >
             </div>
             <div class="mat-cell"></div>
-            <div class="mat-cell" fxLayout="row" fxLayoutAlign="center center">
+            <div class="mat-cell d-flex justify-content-center align-items-center">
               <img
                 *ngIf="cart?.Business?.logo"
                 [src]="imageUrl + cart?.Business?.logo"
@@ -208,7 +206,9 @@
               <span class="mat-body-2 ml-2 uppercase">{{ cart.Business?.name }}</span>
             </div>
             <div class="mat-cell text-right">
-              <div class="grand-total px-2" fxLayout="column" fxLayoutAlign="center end">
+              <div
+                class="grand-total px-2 d-flex flex-column justify-content-center align-items-end"
+              >
                 <span class="new-price"
                   >{{ 'Total a pagar' | translate }}:
                   {{ getTotal(cart) | currencyMarket: cart.market }}</span
@@ -228,14 +228,12 @@
     <!--    ===========================================================-->
     <!-- MODO MOVIL -->
     <!--    ===========================================================-->
-    <section *ngIf="carts.length" fxHide fxShow.lt-md>
+    <section *ngIf="carts.length" class="d-sm-block d-none">
       <div
         *ngFor="let cart of carts"
-        fxLayout="column"
-        fxLayoutAlign="start stretch"
-        fxLayoutGap="gappx"
+        class="d-flex flex-column justify-content-start align-items-stretch"
       >
-        <div class="py-2" fxLayout="row" fxLayoutAlign="start center">
+        <div class="py-2 d-flex justify-content-start align-items-center">
           <img
             *ngIf="cart?.Business?.logo"
             [src]="imageUrl + cart?.Business?.logo"
@@ -255,7 +253,7 @@
 
         <!-- BOTON DE PAGAR -->
         <mat-toolbar *ngIf="cart.CartItems.length" class="mt-2 subtotal-mat-toolbar mb-3">
-          <mat-toolbar-row fxLayoutAlign="space-between center">
+          <mat-toolbar-row class="d-flex justify-content-between align-items-center">
             <span class="total"
               >{{ 'Subtotal' | translate }}:
               <span class="subtotal-price">{{ getTotal(cart) | currencyMarket: cart.market }}</span>
@@ -287,7 +285,7 @@
             <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
           </div>
 
-          <div fxLayout="row" fxLayoutAlign="start">
+          <div class="d-flex justify-content-start">
             <div class="text-align-center cart-card-image" style="background-color: #fafafa">
               <img
                 *ngIf="item.Product.Images && item.Product.Images.length"
@@ -304,10 +302,7 @@
             </div>
 
             <mat-card-content
-              class="px-3 py-2 mb-0 cart-card-content"
-              fxFlex="100"
-              fxLayout="column"
-              fxLayoutAlign="start start"
+              class="px-3 py-2 mb-0 cart-card-content d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-551987"
             >
               <p class="text-muted mb-0">
                 {{ utilsServ.parserLanguage(item.Product.Category.name, language) }}
@@ -360,9 +355,12 @@
                 </ng-container>
               </div>
 
-              <div class="buttoms-actions" fxLayout="row" fxLayoutAlign="space-between start">
-                <div class="text-muted mb-2" fxLayout="row" fxLayout.xs="column" id="inputQuantity">
-                  <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="buttoms-actions d-flex justify-content-between align-items-start">
+                <div
+                  class="text-muted mb-2 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column"
+                  id="inputQuantity"
+                >
+                  <div class="d-flex justify-content-center align-items-center">
                     <button
                       (click)="decrement(item)"
                       *ngIf="item.quantity > 1"

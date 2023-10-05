@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 ::ng-deep {
@@ -286,4 +287,52 @@ blockquote {
     line-height: 30px;
     font-weight: 400;
   }
+}
+
+.transpilerClass-fxFlex-767bd4 {
+  flex: 1 1 50%;
+}
+
+.transpilerClass-fxFlex-875304 {
+  flex: 1 1 50%;
+}
+
+.transpilerClass-fxFlex-7816e5 {
+  flex: 1 1 50%;
+}
+
+.transpilerClass-fxLayoutGap-69f9e1 {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-dcfebf {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-bd43bf {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-d2ad25 {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-906303 {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-e8878c {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-c68552 {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-8c76f9 {
+  gap: 6px;
+}
+
+.transpilerClass-fxLayoutGap-2f5d83 {
+  gap: 6px;
 }

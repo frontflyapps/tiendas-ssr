@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 .spinerLoad {
@@ -29,4 +30,16 @@ blockquote {
     line-height: 30px;
     font-weight: 400;
   }
+}
+
+.transpilerClass-fxFlex-fa4374 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-6bc1fa {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-227da4 {
+  flex: 1 1 100%;
 }

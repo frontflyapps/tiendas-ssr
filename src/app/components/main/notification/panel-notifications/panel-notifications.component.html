@@ -1,5 +1,5 @@
-<div fxLayout="column">
-  <div fxFlex="100" style="padding-top: 0px; padding-bottom: 4px">
+<div class="d-flex flex-column">
+  <div style="padding-top: 0px; padding-bottom: 4px" class="transpilerClass-fxFlex-2115c1">
     <app-notification-item
       (closeModal)="onClosePanel($event)"
       (eliminarNotificacion)="onEliminarNotification($event)"
@@ -10,7 +10,7 @@
     </app-notification-item>
   </div>
 
-  <div class="Paginacion" fxLayoutAlign="center center">
+  <div class="Paginacion d-flex justify-content-center align-items-center">
     <button
       (click)="onCargarMasNotificaciones()"
       [disabled]="this.notificationsService.getCount() >= this.notificationsService.getTotal()"

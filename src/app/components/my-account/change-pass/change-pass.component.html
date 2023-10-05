@@ -1,29 +1,27 @@
 <div class="container">
-  <div fxLayout="column" fxLayoutAlign="start stretch">
+  <div class="d-flex flex-column justify-content-start align-items-stretch">
     <mat-card class="mx-auto my-3" id="CardLogin">
       <!-- <div *ngIf="inLoading" class="loading-shade">
         <mat-spinner *ngIf="inLoading"></mat-spinner>
       </div> -->
 
-      <div class="py-2 mt-2" fxLayout="column" fxLayoutAlign="center start">
-        <img alt="" class="login-logo mx-auto" src="assets/images/logo-login.png" />
+      <div class="py-2 mt-2 d-flex flex-column justify-content-center align-items-start">
+        <img alt class="login-logo mx-auto" src="assets/images/logo-login.png" />
       </div>
 
       <div
-        class="mat-elevation-z8"
-        fxLayout="column"
-        fxLayoutAlign="start stretch"
+        class="mat-elevation-z8 d-flex flex-column justify-content-start align-items-stretch"
         id="CardBodyLoggin"
       >
-        <div class="w-100 p-2 mt-3" fxLayout="row" fxLayoutAlign="center center">
+        <div class="w-100 p-2 mt-3 d-flex justify-content-center align-items-center">
           <span class="mat-title mb-0" ngClass.xs="mat-body-2">{{
             'Cambie su contraseña' | translate
           }}</span>
         </div>
 
-        <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+        <div class="FormLayout d-flex flex-column justify-content-start align-items-stretch">
           <form [formGroup]="this.form" class="example-full-width">
-            <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
+            <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
               <mat-form-field appearance="outline">
                 <mat-label>{{ 'Current password' | translate }}</mat-label>
                 <input
@@ -40,7 +38,10 @@
                 </mat-error>
               </mat-form-field>
 
-              <mat-form-field appearance="outline" class="example-full-width" fxFlex="48">
+              <mat-form-field
+                appearance="outline"
+                class="example-full-width transpilerClass-fxFlex-df22f1"
+              >
                 <mat-label>{{ 'New password' | translate }}</mat-label>
                 <input
                   [formControl]="fromPass.controls['password']"
@@ -69,8 +70,7 @@
                   'ng-valid': !fromPass.hasError('mismatch')
                 }"
                 appearance="outline"
-                class="example-full-width"
-                fxFlex="48"
+                class="example-full-width transpilerClass-fxFlex-f05e23"
               >
                 <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                 <input
@@ -89,7 +89,7 @@
                 </mat-error>
               </mat-form-field>
 
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <button
                   (click)="onSubmit()"
                   [disabled]="form.invalid"

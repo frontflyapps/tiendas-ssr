@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 /***************************************
@@ -65,5 +66,15 @@
 
   .mat-expansion-panel {
     border-radius: 4px !important;
+  }
+}
+
+.transpilerClass-fxFlex-16e86d {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-8e3c8f {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 70%;
   }
 }

@@ -43,30 +43,20 @@
   <div *ngIf="allBicons.length > 0" class="info-bar-four-wrapper">
     <div class="container my-4">
       <div
-        class="info-bar-four"
-        fxLayout="row wrap"
-        fxLayout.xs="column wrap"
-        fxLayoutAlign="center center"
-        fxLayoutAlign.xs="center start"
+        class="info-bar-four d-flex d-xs-flex d-sm-flex justify-content-center align-items-center justify-content-xs-center justify-content-sm-center align-items-xs-start align-items-sm-start"
       >
         <div
           *ngFor="let item of allBicons; let i = index"
-          class="card-wrap card-promo"
-          fxFlex="100"
-          fxFlex.xs="100"
-          fxFlex.gt-md="25"
-          fxFlex.gt-xs="50"
+          class="card-wrap card-promo transpilerClass-fxFlex-e010b0 transpilerClass-fxFlex-ce4cab transpilerClass-fxFlex-059cae transpilerClass-fxFlex-b64837"
         >
           <mat-card
             [ngClass]="{ 'no-bd': i === allBicons.length - 1 }"
-            class="light-block"
-            fxLayout="row"
-            fxLayoutAlign="start center"
+            class="light-block d-flex justify-content-start align-items-center"
           >
-            <div fxFlex="20">
+            <div class="transpilerClass-fxFlex-fdf04b">
               <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
             </div>
-            <div class="content" fxFlex="80">
+            <div class="content transpilerClass-fxFlex-41226b">
               <p class="uppercase">
                 {{ item.title | parseLang: utilsService.getLang() }}
               </p>
@@ -111,7 +101,7 @@
         <div *ngIf="card.visualType?.type === 'categories'">
           <div class="container">
             <div class="products sec-padding">
-              <div class="products-four" fxHide.xs fxHide.sm fxShow>
+              <div class="products-four d-block d-xs-none d-sm-none d-md-none">
                 <h1 style="color: initial">
                   {{ card.name | i18nField: translateService.currentLang }}
                 </h1>
@@ -129,7 +119,7 @@
                   </app-skeleton-loading-cards>
                 </div>
               </div>
-              <div fxShow.xs fxHide.sm fxHide>
+              <div class="d-xs-block d-sm-block d-none d-sm-none d-md-none">
                 <app-product-grid
                   *ngIf="card.value && card.visualType?.typeVisualization === 'grid'"
                   [products]="card"

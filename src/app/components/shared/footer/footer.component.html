@@ -1,5 +1,7 @@
 <footer class="pt-3">
-  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start center">
+  <div
+    class="d-flex flex-column justify-content-center align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
+  >
     <!--<a
       class="item-selector mx-3 my-2"
       fxLayoutAlign="start center"
@@ -17,8 +19,8 @@
         </button>
       </span>
     </mat-menu>-->
-    <div class="col" fxLayout="row" fxLayout.xs="column">
-      <div class="col-1" fxLayout="column" fxLayoutAlign=" start">
+    <div class="col d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column">
+      <div class="col-1 d-flex flex-column align-items-start">
         <a [routerLink]="['']" class="mat-button" mat-button>
           <span>{{ 'Inicio' | translate }}</span>
         </a>
@@ -31,29 +33,37 @@
         <a
           [routerLink]="['shops-list']"
           *ngIf="appService.businessConfig?.canShowOurBussiness"
-          fxLayoutAlign="start center"
           mat-button
+          class="d-flex justify-content-start align-items-center"
         >
           <span>{{ 'Nuestras tiendas' | translate }}</span>
         </a>
       </div>
-      <div class="col-2" fxLayout="column" fxLayoutAlign=" start">
+      <div class="col-2 d-flex flex-column align-items-start">
         <a [routerLink]="['/faq']" class="mat-button" mat-button>
           <span>{{ 'Ayuda' | translate }}</span>
         </a>
         <a *ngIf="loggedInUser" [routerLink]="['my-orders']" class="mat-button" mat-button>
           <span>{{ 'Tus pedidos' | translate }}</span>
         </a>
-        <a [routerLink]="['privacy-policy']" fxLayoutAlign="start center" mat-button>
+        <a
+          [routerLink]="['privacy-policy']"
+          mat-button
+          class="d-flex justify-content-start align-items-center"
+        >
           <span>{{ 'Políticas de privacidad' | translate }}</span>
         </a>
-        <a [routerLink]="['term-conditions']" fxLayoutAlign="start center" mat-button>
+        <a
+          [routerLink]="['term-conditions']"
+          mat-button
+          class="d-flex justify-content-start align-items-center"
+        >
           <span>{{ 'Términos y condiciones' | translate }}</span>
         </a>
       </div>
     </div>
 
-    <div fxLayout="row">
+    <div class="d-flex">
       <!--      <a #langMenuTrigger="matMenuTrigger"-->
       <!--         [matMenuTriggerFor]="langMenu"-->
       <!--         class="item-selector mx-3 my-2"-->
@@ -80,12 +90,11 @@
   </div>
 
   <div
-    class="footer-bottom-color"
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    fxLayoutGap="1rem"
+    class="footer-bottom-color d-flex flex-column justify-content-center align-items-center transpilerClass-fxLayoutGap-80f22c"
   >
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div
+      class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-608e47"
+    >
       <div class="image-footer" ngClass.lt-sm="img-footer">
         <img alt="footer logo" class="mt-4 footer-logo" [src]="logo" />
       </div>
@@ -95,19 +104,12 @@
     </div>
 
     <div
-      class="py-3"
-      fxLayout="row"
-      fxLayout.xs="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="1rem"
-      fxLayoutGap.xs="10px"
+      class="py-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center align-items-center transpilerClass-fxLayoutGap-ea15c8 transpilerClass-fxLayoutGap-1a0327"
       id="footer-contacts"
     >
       <div
         *ngIf="appService.businessConfig?.contactsFooter.phone"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="4px"
+        class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-4cdb31"
       >
         <mat-icon>phone</mat-icon>
         <span>{{ appService.businessConfig?.contactsFooter?.phone }}</span>
@@ -115,9 +117,7 @@
 
       <div
         *ngIf="appService.businessConfig?.contactsFooter.email"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="4px"
+        class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-946f46"
       >
         <mat-icon>email</mat-icon>
         <a class="email-text" href="mailto:{{ appService.businessConfig?.contactsFooter.email }}">{{
@@ -127,16 +127,16 @@
 
       <div
         *ngIf="appService.businessConfig?.contactsFooter.address"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="4px"
+        class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-ff19b5"
       >
         <mat-icon>location_on</mat-icon>
         <span>{{ appService.businessConfig?.contactsFooter?.address }}</span>
       </div>
     </div>
 
-    <div fxFlex="75" fxHide fxShow.lt-md fxLayout="row" fxLayoutAlign="end center">
+    <div
+      class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-bcdcf5 d-sm-block d-none"
+    >
       <div class="widget-text mx-2">
         <a
           #langMenuTrigger="matMenuTrigger"
@@ -145,7 +145,7 @@
           matTooltip="{{ 'Change language' | translate }}"
         >
           <img [src]="flag?.image" height="24" width="24" />
-          <span class="flag-menu-title" fxShow="false" fxShow.gt-sm></span>
+          <span class="flag-menu-title d-none d-sm-inline"></span>
           <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
         </a>
         <mat-menu
@@ -164,8 +164,7 @@
     </div>
 
     <ul
-      class="network-icons"
-      fxLayout="row"
+      class="network-icons d-flex"
       *ngIf="
         appService.businessConfig?.contactsFooter?.socialNetworks?.facebook ||
         appService.businessConfig?.contactsFooter?.socialNetworks?.twitter ||
@@ -176,12 +175,11 @@
       "
     >
       <li
-        fxLayoutAlign="center center"
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.facebook"
+        class="d-flex justify-content-center align-items-center"
       >
         <a
-          class="icon-redes"
-          fxLayoutAlign="center center"
+          class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.facebook"
           target="_blank"
         >
@@ -195,12 +193,11 @@
       </li>
 
       <li
-        fxLayoutAlign="center center"
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.twitter"
+        class="d-flex justify-content-center align-items-center"
       >
         <a
-          class="icon-redes"
-          fxLayoutAlign="center center"
+          class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.twitter"
           target="_blank"
         >
@@ -214,12 +211,11 @@
       </li>
 
       <li
-        fxLayoutAlign="center center"
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin"
+        class="d-flex justify-content-center align-items-center"
       >
         <a
-          class="icon-redes"
-          fxLayoutAlign="center center"
+          class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin"
           target="_blank"
         >
@@ -233,12 +229,11 @@
       </li>
 
       <li
-        fxLayoutAlign="center center"
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.youtube"
+        class="d-flex justify-content-center align-items-center"
       >
         <a
-          class="icon-redes"
-          fxLayoutAlign="center center"
+          class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.youtube"
           target="_blank"
         >
@@ -252,12 +247,11 @@
       </li>
 
       <li
-        fxLayoutAlign="center center"
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.instagram"
+        class="d-flex justify-content-center align-items-center"
       >
         <a
-          class="icon-redes"
-          fxLayoutAlign="center center"
+          class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.instagram"
           target="_blank"
         >
@@ -271,12 +265,11 @@
       </li>
 
       <li
-        fxLayoutAlign="center center"
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.telegram"
+        class="d-flex justify-content-center align-items-center"
       >
         <a
-          class="icon-redes"
-          fxLayoutAlign="center center"
+          class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.telegram"
           target="_blank"
         >
@@ -291,12 +284,7 @@
     </ul>
 
     <div
-      class="mb-3"
-      fxLayout="row"
-      fxLayout.xs="column"
-      fxLayoutAlign="center"
-      fxLayoutGap="10px"
-      fxLayoutGap.xs="4px"
+      class="mb-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center transpilerClass-fxLayoutGap-1162c6 transpilerClass-fxLayoutGap-3da205"
     >
       <span>Copyright© {{ year }}.</span>
 

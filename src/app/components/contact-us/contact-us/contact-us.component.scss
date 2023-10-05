@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 .contact-us {
   padding: 32px 15px;
   max-width: 900px;
@@ -29,5 +30,55 @@
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     font-weight: 300;
+  }
+}
+
+.transpilerClass-fxFlex-c624e4 {
+  flex: 1 1 30%;
+}
+
+.transpilerClass-fxFlex-d09311 {
+  flex: 1 1 30%;
+}
+
+.transpilerClass-fxFlex-f1364a {
+  flex: 1 1 30%;
+}
+
+.transpilerClass-fxFlex-6c89c0 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-416653 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-dfd297 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-4fd218 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-277a3d {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-7d96d8 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-3f067b {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 100%;
   }
 }

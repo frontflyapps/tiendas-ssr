@@ -1,16 +1,16 @@
 <footer class="footer-two py-4" style="position: relative">
   <div class="container">
-    <div class="footer-one" fxLayout="row wrap" fxLayoutAlign="start start">
-      <div class="footer-widget about-widget" fxFlex="100" fxFlex.gt-xs="30">
+    <div class="footer-one d-flex justify-content-start align-items-start">
+      <div
+        class="footer-widget about-widget transpilerClass-fxFlex-b20b10 transpilerClass-fxFlex-eb5e93"
+      >
         <a class="logo" href="index.html"
           ><img alt="Awesome Image" src="/assets/images/logo-footer.png" style="height: 200px"
         /></a>
       </div>
 
       <div
-        class="footer-widget links-widget links-widget-pac footerItems"
-        fxFlex="100"
-        fxFlex.gt-xs="25"
+        class="footer-widget links-widget links-widget-pac footerItems transpilerClass-fxFlex-e979ab transpilerClass-fxFlex-a92425"
       >
         <div class="row">
           <ul>
@@ -59,9 +59,7 @@
       </div>
 
       <div
-        class="footer-widget links-widget links-widget-pac footerItems"
-        fxFlex="100"
-        fxFlex.gt-xs="25"
+        class="footer-widget links-widget links-widget-pac footerItems transpilerClass-fxFlex-ca8162 transpilerClass-fxFlex-189687"
       >
         <div class="row">
           <ul>
@@ -138,7 +136,9 @@
 
 <footer class="footer-two section-2 py-4" style="position: relative">
   <div class="container">
-    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutAlign.xs="start center">
+    <div
+      class="d-flex justify-content-center align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
+    >
       <!--<a
         class="item-selector mx-3 my-2"
         fxLayoutAlign="start center"
@@ -159,8 +159,7 @@
       <a
         #langMenuTrigger="matMenuTrigger"
         [matMenuTriggerFor]="langMenu"
-        class="item-selector mx-3 my-2"
-        fxLayoutAlign="start center"
+        class="item-selector mx-3 my-2 d-flex justify-content-start align-items-center"
         mat-button
       >
         <img [src]="flag.image" width="18" />
@@ -181,8 +180,7 @@
       </mat-menu>
       <a
         [routerLink]="['term-conditions']"
-        class="item-selector mx-3 my-2"
-        fxLayoutAlign="start center"
+        class="item-selector mx-3 my-2 d-flex justify-content-start align-items-center"
         mat-button
         routerLinkActive=" router-link-active"
       >
@@ -190,8 +188,7 @@
       </a>
       <a
         [routerLink]="['privacy-policy']"
-        class="item-selector mx-3 my-2"
-        fxLayoutAlign="start center"
+        class="item-selector mx-3 my-2 d-flex justify-content-start align-items-center"
         mat-button
         routerLinkActive=" router-link-active"
       >
@@ -200,10 +197,7 @@
     </div>
 
     <div
-      class="py-3"
-      fxLayout="row wrap"
-      fxLayoutAlign="center center"
-      fxLayoutAlign.xs="start start"
+      class="py-3 d-flex justify-content-center align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-start align-items-sm-start"
     >
       <!--<span class="mat-body-1 footer-separator">{{ 'address' | translate }}</span> &nbsp;-->
       <span class="mat-body-1 footer-separator">

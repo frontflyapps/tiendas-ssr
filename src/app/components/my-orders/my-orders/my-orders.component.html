@@ -1,14 +1,11 @@
 <div class="container-order-list">
-  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
+  <div class="d-flex flex-column justify-content-start align-items-stretch">
     <!-- <section id="searchFilter" ngClass.gt-md="px-4">
 
     </section> -->
 
     <div
-      class="py-4"
-      fxLayout="column"
-      fxLayoutAlign="start stretch"
-      fxLayoutGap="gappx"
+      class="py-4 d-flex flex-column justify-content-start align-items-stretch"
       ngClass.lt-md="py-0"
     >
       <mat-drawer-container class="MatDrawer">
@@ -19,16 +16,16 @@
           class="DrawerContent"
           fixedInViewport="true"
         >
-          <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
+          <div class="d-flex flex-column justify-content-start align-items-stretch">
             <mat-tab-group mat-align-tabs="center">
               <mat-tab label="{{ 'ORDERS' | translate }}">
-                <div class="my-2" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="gappx">
-                  <form class="mobile-search" fxLayout="row" fxLayoutAlign="start center">
+                <div class="my-2 d-flex justify-content-center align-items-center">
+                  <form class="mobile-search d-flex justify-content-start align-items-center">
                     <input
                       [formControl]="formSearch"
-                      fxFlex
                       placeholder="{{ 'Type to search...' | translate }}"
                       type="search"
+                      class="transpilerClass-fxFlex-eb9135"
                     />
                     <button (click)="onFilter()" type="submit">
                       <mat-icon> search</mat-icon>
@@ -46,32 +43,18 @@
                   >
                     <mat-icon class="color-grey-800"> shopping_cart</mat-icon>
 
-                    <div
-                      class="w-100 py-2"
-                      fxLayout="row wrap"
-                      fxLayoutAlign="space-between center"
-                      fxLayoutGap="gappx"
-                    >
+                    <div class="w-100 py-2 d-flex justify-content-between align-items-center">
                       <div
-                        class="pl-3"
-                        fxFlex="60"
-                        fxFlex.lt-sm="100"
-                        fxLayout="column"
-                        fxLayoutAlign="start start"
-                        fxLayoutGap="gappx"
+                        class="pl-3 d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-4a1312 transpilerClass-fxFlex-5357ad"
                       >
-                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="gappx">
+                        <div class="d-flex justify-content-start align-items-center">
                           <span class="mat-title mb-0" style="font-size: 17px">
                             {{ item.PaymentItems.length + 'x' }}
                             {{ ' types of product' | translate }}
                           </span>
                         </div>
 
-                        <div
-                          fxLayout="row"
-                          fxLayoutAlign="space-between center"
-                          fxLayoutGap="gappx"
-                        >
+                        <div class="d-flex justify-content-between align-items-center">
                           <span class="mat-body-1 color-grey-700">
                             <span
                               [style.color]="this.status[item.status]?.primary"
@@ -125,13 +108,8 @@
                         </p>
                       </div>
                       <div
-                        fxFlex="40"
-                        fxFlex.lt-sm="100"
-                        fxLayout="column"
-                        fxLayoutAlign="center center"
-                        fxLayoutAlign.lt-sm="start start"
-                        fxLayoutGap="gappx"
                         ngClass.lt-sm="ml-3"
+                        class="d-flex flex-column justify-content-center align-items-center d-xs-flex justify-content-start justify-content-xs-start align-items-start align-items-xs-start transpilerClass-fxFlex-11edee transpilerClass-fxFlex-b18df1"
                       >
                         <span class="total">
                           {{ item.amount | currency: item.currency }}
@@ -170,10 +148,7 @@
 
                 <div
                   *ngIf="this.query.offset < this.query.total"
-                  class="py-3"
-                  fxLayout="row"
-                  fxLayoutAlign="center center"
-                  fxLayoutGap="gappx"
+                  class="py-3 d-flex justify-content-center align-items-center"
                 >
                   <button (click)="onLoadMore()" class="rounded-18" color="accent" mat-button>
                     {{ 'Load More' | translate }}
@@ -217,19 +192,20 @@
                 <!-- /////////////////////////// -->
                 <div
                   *ngFor="let paymentItem of selectedOrder.PaymentItems"
-                  fxLayout="column"
-                  fxLayoutAlign="start stretch"
                   style="
                     border-bottom: 1.5px solid #eeeeee;
                     box-sizing: border-box;
                     padding: 8px 0px;
                   "
+                  class="d-flex flex-column justify-content-start align-items-stretch"
                 >
-                  <div class="mt-3" fxLayout="row wrap" fxLayoutAlign="space-around start">
-                    <div fxFlex="100" fxFlex.gt-md="50" fxLayoutAlign="center center">
+                  <div class="mt-3 d-flex justify-content-around align-items-start">
+                    <div
+                      class="d-flex justify-content-center align-items-center transpilerClass-fxFlex-814f62 transpilerClass-fxFlex-d38f84"
+                    >
                       <img
                         *ngIf="!(paymentItem.Product.Images && paymentItem.Product.Images.length)"
-                        alt=""
+                        alt
                         class="imageProduct"
                         lazyImg
                         src="assets/images/noImage.jpg"
@@ -255,7 +231,7 @@
                       </a>
                     </div>
 
-                    <div fxFlex="100" fxFlex.gt-md="50">
+                    <div class="transpilerClass-fxFlex-739417 transpilerClass-fxFlex-c52781">
                       <h2 class="mat-title mb-0">
                         {{ utilsService.parserLanguage(paymentItem?.Product?.name, language) }}
                       </h2>
@@ -298,10 +274,9 @@
                             paymentItem.type == 'digital' &&
                             paymentItem.Product.Digital.referenceUrl
                           "
-                          fxLayout="row"
-                          fxLayoutAlign="start center"
                           mat-button
                           style="width: 140px !important"
+                          class="d-flex justify-content-start align-items-center"
                         >
                           <mat-icon class="mr-2"> system_update_alt</mat-icon>
                           {{ 'Descargar' | translate }}
@@ -329,19 +304,11 @@
             <mat-tab label="{{ 'BILLING DETAILS' | translate }}">
               <div
                 *ngIf="this.selectedOrder"
-                class="container-bulling w-100"
-                fxLayout="column"
-                fxLayoutAlign="start stretch"
-                fxLayoutGap="gappx"
+                class="container-bulling w-100 d-flex flex-column justify-content-start align-items-stretch"
               >
-                <div fxLayout="row wrap " fxLayoutAlign="space-between center" fxLayoutGap="gappx">
+                <div class="d-flex justify-content-between align-items-center">
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-0954f8 transpilerClass-fxFlex-78402f transpilerClass-fxFlex-ea86e4"
                   >
                     <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
                       'Id de pago' | translate
@@ -352,12 +319,7 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-a718dc transpilerClass-fxFlex-e9704f transpilerClass-fxFlex-4e3af5"
                   >
                     <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
                       'fecha de creación' | translate
@@ -369,12 +331,7 @@
 
                   <div
                     *ngIf="selectedOrder.cancelledAt"
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-3facad transpilerClass-fxFlex-459775 transpilerClass-fxFlex-fda85e"
                   >
                     <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
                       'fecha de cancelación' | translate
@@ -387,21 +344,11 @@
 
                 <mat-divider class="my-2"></mat-divider>
 
-                <div
-                  class="mt-1"
-                  fxLayout="row wrap"
-                  fxLayoutAlign="start center"
-                  fxLayoutGap="gappx"
-                >
+                <div class="mt-1 d-flex justify-content-start align-items-center">
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-3d1b85 transpilerClass-fxFlex-7d34e0 transpilerClass-fxFlex-9a8a62"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Country' | translate }}
@@ -413,14 +360,9 @@
 
                   <ng-container *ngIf="selectedOrder.CountryId != 59">
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-29c322 transpilerClass-fxFlex-a84e49 transpilerClass-fxFlex-4c5f25"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'City' | translate }}
@@ -431,14 +373,9 @@
                     </div>
 
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-7a8bc5 transpilerClass-fxFlex-35a279 transpilerClass-fxFlex-32b76c"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Region / Province / State' | translate }}
@@ -450,14 +387,9 @@
                   </ng-container>
                   <ng-container *ngIf="selectedOrder.CountryId == 59">
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-0dfb7d transpilerClass-fxFlex-ade325 transpilerClass-fxFlex-232c9b"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Municipio' | translate }}
@@ -468,14 +400,9 @@
                     </div>
 
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-91118a transpilerClass-fxFlex-bbaa1d transpilerClass-fxFlex-276727"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Provincia' | translate }}
@@ -487,14 +414,9 @@
                   </ng-container>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-225c5e transpilerClass-fxFlex-856a58 transpilerClass-fxFlex-2640aa"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Dirección' | translate }}
@@ -505,14 +427,9 @@
                     </span>
                   </div>
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-fe78d2 transpilerClass-fxFlex-da8c05 transpilerClass-fxFlex-97ae5d"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Teléfono' | translate }}
@@ -522,14 +439,9 @@
                     </span>
                   </div>
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-5f9ff0 transpilerClass-fxFlex-faff75 transpilerClass-fxFlex-5295bb"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Client' | translate }}
@@ -540,23 +452,13 @@
                   </div>
                 </div>
 
-                <mat-divider fxHide.lt-sm></mat-divider>
+                <mat-divider class="d-xs-none"></mat-divider>
 
-                <div
-                  class="mt-1"
-                  fxLayout="row wrap"
-                  fxLayoutAlign="start center"
-                  fxLayoutGap="gappx"
-                >
+                <div class="mt-1 d-flex justify-content-start align-items-center">
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-015ebe transpilerClass-fxFlex-d258c1 transpilerClass-fxFlex-e4e611"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'No. of order' | translate }}
@@ -567,14 +469,9 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-47f2c3 transpilerClass-fxFlex-e9a215 transpilerClass-fxFlex-cc3c31"
                   >
                     <ng-container>
                       <span class="mat-caption color-grey-800">
@@ -587,14 +484,9 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-8bd216 transpilerClass-fxFlex-7b17d3 transpilerClass-fxFlex-89ba5b"
                   >
                     <ng-container>
                       <span class="mat-caption color-grey-800">
@@ -612,14 +504,9 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-c7a880 transpilerClass-fxFlex-8d10ee transpilerClass-fxFlex-569131"
                   >
                     <ng-container *ngIf="this.selectedOrder?.shippingCost !== null">
                       <span class="mat-caption color-grey-800">
@@ -632,14 +519,9 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-f0fd98 transpilerClass-fxFlex-c482a5 transpilerClass-fxFlex-b71ea1"
                   >
                     <ng-container *ngIf="this.selectedOrder.status == 'cancelled'">
                       <span class="mat-caption color-grey-800">
@@ -654,23 +536,13 @@
                   </div>
                 </div>
 
-                <mat-divider fxHide.lt-sm></mat-divider>
+                <mat-divider class="d-xs-none"></mat-divider>
 
-                <div
-                  class="mt-1"
-                  fxLayout="row wrap"
-                  fxLayoutAlign="start center"
-                  fxLayoutGap="gappx"
-                >
+                <div class="mt-1 d-flex justify-content-start align-items-center">
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-b51869 transpilerClass-fxFlex-d3cad8 transpilerClass-fxFlex-fcc944"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'TPV' | translate }}
@@ -681,14 +553,9 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-167000 transpilerClass-fxFlex-4ce12c transpilerClass-fxFlex-9877d3"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Email' | translate }}
@@ -699,7 +566,7 @@
                   </div>
                 </div>
 
-                <mat-divider fxHide.lt-sm></mat-divider>
+                <mat-divider class="d-xs-none"></mat-divider>
 
                 <ng-container *ngIf="this.selectedOrder.status == 'error'">
                   <p class="mat-title my-2" ngClass.xs="mat-body-2" style="color: #e53935">
@@ -719,23 +586,15 @@
                   </blockquote>
                 </ng-container>
 
-                <div
-                  class="mt-3"
-                  fxLayout="row wrap"
-                  fxLayoutAlign="end center"
-                  fxLayoutGap="gappx"
-                >
+                <div class="mt-3 d-flex justify-content-end align-items-center">
                   <button
                     (click)="onGetVoucher(this.selectedOrder)"
                     *ngIf="
                       this.selectedOrder.status == 'confirmed' ||
                       this.selectedOrder.status == 'delivered'
                     "
-                    class="mx-2"
+                    class="mx-2 transpilerClass-fxFlex-6e52c0 transpilerClass-fxFlex-c44ae5 transpilerClass-fxFlex-398498"
                     color="primary"
-                    fxFlex="30"
-                    fxFlex.lt-md="50"
-                    fxFlex.xs="100"
                     mat-stroked-button
                     matTooltip="{{ 'Obtener el vouvher de pago' | translate }}"
                     ngClass.lt-md="mb-3"
@@ -751,11 +610,8 @@
                       this.selectedOrder.status == 'confirmed' &&
                       this.selectedOrder.canEditPersonPayment
                     "
-                    class="mx-2"
+                    class="mx-2 transpilerClass-fxFlex-8a1adc transpilerClass-fxFlex-f7617c transpilerClass-fxFlex-71d7dc"
                     color="primary"
-                    fxFlex=" 30"
-                    fxFlex.lt-md="50"
-                    fxFlex.xs="100"
                     mat-stroked-button
                     matTooltip="{{ 'Editar' | translate }}"
                     ngClass.lt-md="mb-3"
@@ -772,11 +628,8 @@
                         this.selectedOrder.status == 'on-delivery') &&
                       this.canCancel
                     "
-                    class="mx-2"
+                    class="mx-2 transpilerClass-fxFlex-c03038 transpilerClass-fxFlex-ed6031 transpilerClass-fxFlex-45388c"
                     color="warn"
-                    fxFlex=" 30"
-                    fxFlex.lt-md="50"
-                    fxFlex.xs="100"
                     mat-stroked-button
                     matTooltip="{{ 'Cancelar la reservación' | translate }}"
                     ngClass.lt-md="mb-3"
@@ -788,9 +641,7 @@
 
                   <div
                     *ngIf="this.selectedOrder.status == 'delivered'"
-                    class="p-2"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
+                    class="p-2 d-flex justify-content-start align-items-center"
                     style="border: 1px solid #4caf50; border-radius: 4px"
                   >
                     <mat-icon style="color: #4caf50">check</mat-icon>
@@ -812,10 +663,7 @@
             <mat-tab label="{{ 'Detalles del proveedor' | translate | uppercase }}">
               <div
                 *ngIf="this.selectedOrder"
-                class="container-bulling w-100"
-                fxLayout="column"
-                fxLayoutAlign="start stretch"
-                fxLayoutGap="gappx"
+                class="container-bulling w-100 d-flex flex-column justify-content-start align-items-stretch"
               >
                 <span
                   class="mat-subheading-1 color-grey-800"
@@ -823,20 +671,15 @@
                   style="font-weight: 600"
                   >{{ 'Proveedor' | translate | uppercase }}</span
                 >
-                <div fxLayout="row wrap " fxLayoutAlign="space-between center" fxLayoutGap="gappx">
+                <div class="d-flex justify-content-between align-items-center">
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-04e56f transpilerClass-fxFlex-c9a12c transpilerClass-fxFlex-8d1ae3"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Negocio' | translate }}
                     </span>
-                    <div fxLayout="row" fxLayoutAlign="start center">
+                    <div class="d-flex justify-content-start align-items-center">
                       <img
                         *ngIf="this.selectedOrder?.Business?.logo"
                         [src]="urlImage + this.selectedOrder?.Business?.logo"
@@ -857,13 +700,8 @@
                   </div>
 
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-a38b46 transpilerClass-fxFlex-09b5dc transpilerClass-fxFlex-5c831c"
                   >
                     <span class="mat-caption color-grey-800">{{
                       'Correo electrónico' | translate
@@ -872,40 +710,28 @@
                   </div>
                 </div>
 
-                <div fxLayout="row wrap " fxLayoutAlign="space-between center" fxLayoutGap="gappx">
+                <div class="d-flex justify-content-between align-items-center">
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-da6c97 transpilerClass-fxFlex-7f4659 transpilerClass-fxFlex-78408f"
                   >
                     <span class="mat-caption color-grey-800">{{ 'Dirección' | translate }}</span>
                     <span>{{ this.selectedOrder?.Business?.addresss }}</span>
                   </div>
                   <div
-                    fxFlex="33"
-                    fxFlex.lt-sm="50"
-                    fxFlex.xs="100"
-                    fxLayout="column"
-                    fxLayoutAlign="start start"
-                    fxLayoutGap="gappx"
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
+                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-68bf3d transpilerClass-fxFlex-52c119 transpilerClass-fxFlex-081193"
                   >
                     <span class="mat-caption color-grey-800">{{ 'phone' | translate }}</span>
                     <span>{{ this.selectedOrder?.Business?.phone }}</span>
                   </div>
                 </div>
-                <mat-divider fxHide.lt-sm></mat-divider>
+                <mat-divider class="d-xs-none"></mat-divider>
                 <div
                   *ngIf="this.selectedOrder?.shippingRequired"
-                  class="w-100"
-                  fxLayout="column"
-                  fxLayoutAlign="start stretch"
+                  class="w-100 d-flex flex-column justify-content-start align-items-stretch"
                 >
                   <span
                     class="mat-subheading-1 color-grey-800 mt-3"
@@ -913,24 +739,15 @@
                     style="font-weight: 600"
                     >{{ 'Shipping provider' | translate | uppercase }}</span
                   >
-                  <div
-                    fxLayout="row wrap "
-                    fxLayoutAlign="space-between center"
-                    fxLayoutGap="gappx"
-                  >
+                  <div class="d-flex justify-content-between align-items-center">
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-fad80c transpilerClass-fxFlex-5ab88e transpilerClass-fxFlex-f156d5"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Negocio' | translate }}
                       </span>
-                      <div fxLayout="row" fxLayoutAlign="start center">
+                      <div class="d-flex justify-content-start align-items-center">
                         <img
                           *ngIf="this.selectedOrder?.ShippingBusiness?.logo"
                           [src]="urlImage + this.selectedOrder?.ShippingBusiness?.logo"
@@ -951,13 +768,8 @@
                     </div>
 
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-7f4575 transpilerClass-fxFlex-6632c6 transpilerClass-fxFlex-cdc3ad"
                     >
                       <span class="mat-caption color-grey-800">{{
                         'Correo electrónico' | translate
@@ -966,33 +778,19 @@
                     </div>
                   </div>
 
-                  <div
-                    fxLayout="row wrap "
-                    fxLayoutAlign="space-between center"
-                    fxLayoutGap="gappx"
-                  >
+                  <div class="d-flex justify-content-between align-items-center">
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-867411 transpilerClass-fxFlex-52a01f transpilerClass-fxFlex-63ff65"
                     >
                       <span class="mat-caption color-grey-800">{{ 'Dirección' | translate }}</span>
                       <span>{{ this.selectedOrder?.ShippingBusiness?.addresss }}</span>
                     </div>
                     <div
-                      fxFlex="33"
-                      fxFlex.lt-sm="50"
-                      fxFlex.xs="100"
-                      fxLayout="column"
-                      fxLayoutAlign="start start"
-                      fxLayoutGap="gappx"
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
+                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-9e6dcc transpilerClass-fxFlex-a1a813 transpilerClass-fxFlex-5d7038"
                     >
                       <span class="mat-caption color-grey-800">{{ 'phone' | translate }}</span>
                       <span>{{ this.selectedOrder?.ShippingBusiness?.phone }}</span>

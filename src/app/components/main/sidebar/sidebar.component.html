@@ -6,20 +6,19 @@
       expanded: expanded
     }"
     [ngStyle]="{ 'padding-left': depth * 16 + 'px' }"
-    class="menu-list-item grey-700"
-    fxLayoutAlign="start center"
+    class="menu-list-item grey-700 d-flex justify-content-start align-items-center"
     mat-list-item
     matRipple
   >
-    <div class="menu-icons" fxLayoutAlign="start center">
+    <div class="menu-icons d-flex justify-content-start align-items-center">
       <mat-icon *ngIf="item.material && item.iconName">{{ item.iconName }}</mat-icon>
       <span class="mat-body-1 ml-3" style="font-size: 15px">{{
         item.displayName | translate
       }}</span>
     </div>
 
-    <span *ngIf="item.children && item.children.length" fxFlex>
-      <span fxFlex></span>
+    <span *ngIf="item.children && item.children.length" class="transpilerClass-fxFlex-c257ea">
+      <span class="transpilerClass-fxFlex-882fad"></span>
       <mat-icon
         [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'"
         style="margin: 0px !important"

@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 .rowContainer {
   padding-left: 0;
   padding-right: 0;
@@ -36,4 +37,36 @@
   position: absolute;
   right: 16px;
   bottom: 16px;
+}
+
+.transpilerClass-fxFlex-32a886 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-1dcb51 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-8fe36f {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-810124 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxLayoutGap-13c029 {
+  grid-gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-134c25 {
+  grid-gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-0d5b88 {
+  grid-gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-72a0d8 {
+  grid-gap: 10px;
 }

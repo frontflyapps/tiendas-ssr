@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 .image-layout {
@@ -213,5 +214,15 @@
 @media (max-width: 800px) {
   .card-product {
     width: 100%;
+  }
+}
+
+.transpilerClass-fxFlex-5a622f {
+  flex: 1 1 row;
+}
+
+.transpilerClass-fxFlex-40d995 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 35%;
   }
 }

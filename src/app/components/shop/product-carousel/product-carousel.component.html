@@ -16,7 +16,7 @@
     breakpoints-1248-slides-per-view="4"
   >
     <swiper-slide *ngFor="let product of products" class="swiper-slide">
-      <mat-card class="cardProduct" fxLayout="column" style="position: relative">
+      <mat-card class="cardProduct d-flex flex-column" style="position: relative">
         <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
           <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
         </div>
@@ -61,7 +61,7 @@
             class="product-link"
             style="position: relative"
           >
-            <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="d-flex justify-content-between align-items-center">
               <span class="category">
                 {{ utilsService.parserLanguage(product?.Category?.name, language) }}
               </span>
@@ -139,7 +139,7 @@
             <mat-icon>shopping_cart</mat-icon>
           </button>
 
-          <div class="icons" fxLayout="column">
+          <div class="icons d-flex flex-column">
             <!--<a (click)="openProductDialog(product)">
                 <mat-icon>info</mat-icon>
               </a>-->
@@ -168,14 +168,11 @@
 
 <ng-container *ngIf="products.length <= 2 && !isHandset">
   <div
-    class="product-item swiper-container"
-    fxLayout="column"
-    fxLayoutAlign="start stretch"
-    fxLayoutGap="gappx"
+    class="product-item swiper-container d-flex flex-column justify-content-start align-items-stretch"
   >
-    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="gappx">
+    <div class="d-flex justify-content-start align-items-center">
       <div *ngFor="let product of products" class="pl-1 pr-3">
-        <mat-card class="cardProduct2" fxLayout="column" style="position: relative">
+        <mat-card class="cardProduct2 d-flex flex-column" style="position: relative">
           <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
             <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
           </div>
@@ -282,7 +279,7 @@
               <mat-icon>shopping_cart</mat-icon>
             </button>
 
-            <div class="icons" fxLayout="column">
+            <div class="icons d-flex flex-column">
               <!-- <a (click)="addToWishlist(product)">
                       <mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon>
                     </a> -->

@@ -1,17 +1,14 @@
 <!-- <div *ngIf="this.loadingSearch" class="loading-shade-full">
   <mat-spinner *ngIf="this.loadingSearch" diameter="60" color="primary"></mat-spinner>
 </div> -->
-<div *ngIf="!loading" fxLayout="row" fxLayoutAlign="center center" style="height: 80vh">
+<div *ngIf="!loading" style="height: 80vh" class="d-flex justify-content-center align-items-center">
   <mat-spinner *ngIf="!loading" diameter="60" color="primary"></mat-spinner>
 </div>
 <div class="container-checkout" ngClass.lt-md="px-2" *ngIf="loading">
   <div class="checkout sec-padding">
     <div
       *ngIf="loadingPayment"
-      class="w-100 my-3"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="gappx"
+      class="w-100 my-3 d-flex flex-column justify-content-center align-items-center"
       style="height: 400px"
     >
       <div class="loading-dots mat-title">{{ 'Procesando los datos' | translate }}</div>
@@ -22,10 +19,7 @@
 
     <div
       *ngIf="!loadingPayment && businessConfig"
-      class="billing-details"
-      fxFlex="100"
-      fxFlex.gt-md="50"
-      fxFlex.md="50"
+      class="billing-details transpilerClass-fxFlex-b55835 transpilerClass-fxFlex-e9b64c transpilerClass-fxFlex-695989"
       ngClass.gt-sm="pr-5"
       ngClass.sm="pr-2"
       ngClass.xs="pr-0"
@@ -53,10 +47,8 @@
               <!--  fxLayout.lt-sm="column"  -->
               <mat-radio-group
                 [formControl]="form.get('paymentType')"
-                fxLayout="row wrap"
-                fxLayoutAlign="center start"
-                fxLayoutGap="10px grid"
                 *ngIf="!onMarket"
+                class="d-flex justify-content-center align-items-start transpilerClass-fxLayoutGap-e4e9d1"
               >
                 <ng-container *ngFor="let pay of payments">
                   <ng-container
@@ -71,9 +63,7 @@
                       <!-- {{this.onlyCubanPeople}} - {{cart?.market}}-->
                       <div
                         [ngClass]="{ 'payment-active': form.get('paymentType').value === pay.id }"
-                        class="pay-method-container"
-                        fxLayout="row"
-                        fxLayoutAlign="start center"
+                        class="pay-method-container d-flex justify-content-start align-items-center"
                       >
                         <img [src]="pay.logo" class="pay-method-icon" />
                         <span class="mat-body-2 uppercase pay-method-name">
@@ -97,8 +87,7 @@
                     >
                       <div
                         [ngClass]="{ 'payment-active': form.get('paymentType').value === pay.id }"
-                        class="pay-method-container"
-                        fxLayoutAlign="start center"
+                        class="pay-method-container d-flex justify-content-start align-items-center"
                       >
                         <img [src]="pay.logo" class="pay-method-icon" />
                         <span class="mat-body-2 uppercase pay-method-name">
@@ -111,10 +100,8 @@
               </mat-radio-group>
               <mat-radio-group
                 [formControl]="form.get('paymentType')"
-                fxLayout="row wrap"
-                fxLayoutAlign="center start"
-                fxLayoutGap="10px grid"
                 *ngIf="onMarket"
+                class="d-flex justify-content-center align-items-start transpilerClass-fxLayoutGap-858bc1"
               >
                 <ng-container *ngFor="let pay of payments">
                   <ng-container>
@@ -125,8 +112,7 @@
                     >
                       <div
                         [ngClass]="{ 'payment-active': form.get('paymentType').value === pay.id }"
-                        class="pay-method-container"
-                        fxLayoutAlign="start center"
+                        class="pay-method-container d-flex justify-content-start align-items-center"
                       >
                         <img [src]="pay.logo" class="pay-method-icon" />
                         <span class="mat-body-2 uppercase pay-method-name">
@@ -170,12 +156,11 @@
               >
                 {{ 'Selecciones moneda para realizar su pago' | translate }}
               </p>
-              <div fxLayout="row wrap">
+              <div class="d-flex">
                 <mat-form-field
-                  fxFlex="50"
-                  fxFlex.lt-md="100"
                   appearance="outline"
                   *ngIf="!multiTransfermovil"
+                  class="transpilerClass-fxFlex-c08aed transpilerClass-fxFlex-572563"
                 >
                   <mat-label>{{ 'Currency' | translate }}</mat-label>
                   <mat-select
@@ -198,10 +183,9 @@
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field
-                  fxFlex="50"
-                  fxFlex.lt-md="100"
                   appearance="outline"
                   *ngIf="multiTransfermovil && form.get('paymentType').value === 'transfermovil'"
+                  class="transpilerClass-fxFlex-cd4b72 transpilerClass-fxFlex-ca9e49"
                 >
                   <mat-label>{{ 'Currency' | translate }}</mat-label>
                   <mat-select
@@ -238,10 +222,9 @@
               <strong>{{ 'Shipping Details' | translate }}</strong>
             </p>
 
-            <div fxLayout fxLayoutAlign="start center">
+            <div class="d-flex justify-content-start align-items-center">
               <mat-checkbox
                 ngClass.xs="mb-2"
-                fxFlexOrder.xs="1"
                 style="margin-bottom: 12px"
                 (change)="onChangeShippingRequired($event)"
                 *ngIf="
@@ -251,6 +234,7 @@
                   form.get('paymentType').value?.length !== 4
                 "
                 [formControl]="form.get('shippingRequired')"
+                class="order-xs-1 order-sm-1"
               >
                 <span class="mat-body-2">{{ 'Solicitar envío' | translate }}</span>
               </mat-checkbox>
@@ -258,8 +242,6 @@
 
             <!--SELECTORE DE PROVINCIA Y MUNICIPIOS-->
             <div
-              fxLayout="row wrap"
-              fxLayoutAlign="space-between center"
               *ngIf="
                 showShipping &&
                 form.get('paymentType').value?.length !== 1 &&
@@ -267,8 +249,12 @@
                 form.get('paymentType').value?.length !== 3 &&
                 form.get('paymentType').value?.length !== 4
               "
+              class="d-flex justify-content-between align-items-center"
             >
-              <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+              <mat-form-field
+                appearance="outline"
+                class="transpilerClass-fxFlex-f5c267 transpilerClass-fxFlex-580438"
+              >
                 <mat-label>{{ 'Provincia' | translate }}</mat-label>
                 <mat-select
                   (selectionChange)="onSelectProvince($event.value)"
@@ -286,7 +272,10 @@
                 </mat-error>
               </mat-form-field>
 
-              <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+              <mat-form-field
+                appearance="outline"
+                class="transpilerClass-fxFlex-bbbc88 transpilerClass-fxFlex-51ed3e"
+              >
                 <mat-label>{{ 'Municipio' | translate }}</mat-label>
                 <mat-select
                   (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
@@ -310,10 +299,7 @@
             </p>
             <div
               *ngIf="showShipping"
-              class="w-100 mb-3 shippingList-box"
-              fxLayout="column"
-              fxLayoutAlign="start start"
-              fxLayoutGap="gappx"
+              class="w-100 mb-3 shippingList-box d-flex flex-column justify-content-start align-items-start"
             >
               <!------Load Shipping Options------>
               <div *ngIf="loadingShipping" class="loading-shade" style="height: 100%">
@@ -321,9 +307,8 @@
               </div>
 
               <div
-                fxLayout="row"
-                fxLayoutAlign="space-between center"
                 *ngIf="buscoShipping && !shippingData.length"
+                class="d-flex justify-content-between align-items-center"
               >
                 <mat-icon
                   style="min-width: 60px; width: 60px; height: 60px; font-size: 47px"
@@ -337,9 +322,7 @@
               </div>
 
               <div
-                fxLayout="row"
-                fxLayoutAlign="start center"
-                class="px-2 pt-2 w-100"
+                class="px-2 pt-2 w-100 d-flex justify-content-start align-items-center"
                 style="background-color: #e3e3e3; border-radius: 8px"
                 *ngIf="buscoShipping && !shippingData.length"
               >
@@ -366,32 +349,26 @@
               >
                 <div
                   *ngFor="let shipping of shippingData"
-                  fxLayout="row"
-                  fxLayoutAlign="start center"
-                  class="mb-2"
+                  class="mb-2 d-flex justify-content-start align-items-center"
                 >
                   <mat-radio-button
-                    fxFlex="100"
-                    fxLayout
-                    fxLayoutAlign="center center"
-                    class="w-100"
+                    class="w-100 d-flex justify-content-center align-items-center transpilerClass-fxFlex-6a28c7"
                     matTooltip="{{ shipping?.Business?.name }}"
                     style="height: 50px"
                     [value]="shipping"
                   >
                     <div
-                      fxFlex="100"
-                      fxLayout="row"
-                      fxLayoutAlign="space-between center"
-                      fxLayoutGap="gappx"
+                      class="d-flex justify-content-between align-items-center transpilerClass-fxFlex-03507c"
                     >
-                      <div fxLayoutAlign="start center" fxFlex fxFlex.lt-md="70">
-                        <div fxLayout="column" fxLayoutAlign="start start">
+                      <div
+                        class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-872d49 transpilerClass-fxFlex-43afc6"
+                      >
+                        <div class="d-flex flex-column justify-content-start align-items-start">
                           <span class="ml-2 mat-caption" style="color: black">
                             {{ shipping.shippingItems[0]?.Shipping?.Province?.name }},
                             {{ shipping.shippingItems[0]?.Shipping?.Municipality?.name }}
                           </span>
-                          <div fxLayout="row" fxLayout.lt-md="column">
+                          <div class="d-flex d-sm-flex flex-column flex-sm-column">
                             <span class="ml-2 mat-caption" style="color: black">
                               {{ 'Entrega a través de ' | translate }}
                             </span>
@@ -401,7 +378,7 @@
                           </div>
                         </div>
                       </div>
-                      <span class="taxAmount" style="font-size: 20px" fxFlex.lt-md="30">
+                      <span class="taxAmount transpilerClass-fxFlex-f76941" style="font-size: 20px">
                         {{
                           shipping.totalPrice || 0
                             | currencyProduct: shipping.shippingItems[0]?.Shipping?.currency
@@ -427,10 +404,7 @@
           <!---------------------->
 
           <div
-            class="actions-buttons"
-            fxFlex="grow"
-            fxLayout="row"
-            fxLayoutAlign="space-between start"
+            class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-77bdb9"
           >
             <button [routerLink]="['/products/search']" mat-stroked-button matStepperPrevious>
               {{ 'Cancelar' | translate }}
@@ -467,22 +441,15 @@
           <div
             *ngIf="!loadingPayment"
             [formGroup]="form"
-            fxLayout="row wrap"
-            fxLayoutAlign="start start"
+            class="d-flex justify-content-start align-items-start"
           >
             <div
-              fxFlex="100"
-              fxLayout="column"
-              fxLayoutAlign="start stretch"
               ngClass.sm="mt-2"
               ngClass.xs="mt-2"
+              class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-24cca0"
             >
               <div
-                fxLayout="row"
-                fxLayout.xs="column"
-                fxLayoutAlign="space-between center"
-                fxLayoutAlign.xs="start end"
-                fxLayoutGap="0.5rem"
+                class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-ebcac9"
               >
                 <p
                   class="mat-body-2 my-2"
@@ -500,7 +467,9 @@
                   </mat-icon>
                 </p>
 
-                <div fxLayout="column" fxLayout.xs="column" fxLayout.sm="column">
+                <div
+                  class="d-flex flex-column d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column"
+                >
                   <button
                     aria-label="Example icon-button with a menu"
                     color="primary"
@@ -547,8 +516,11 @@
                 </div>
               </div>
 
-              <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-                <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+              <div class="d-flex justify-content-between align-items-center">
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-22a038 transpilerClass-fxFlex-d45c1c transpilerClass-fxFlex-e33d16"
+                >
                   <mat-label>{{ 'Name' | translate }}</mat-label>
                   <input
                     [formControl]="this.form.controls['name']"
@@ -561,7 +533,10 @@
                     {{ 'Name' | translate }} <strong>{{ 'is required' | translate }}</strong>
                   </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-16ccdb transpilerClass-fxFlex-bee36f transpilerClass-fxFlex-5ff67a"
+                >
                   <mat-label>{{ 'Lastname' | translate }}</mat-label>
                   <input
                     [formControl]="this.form.controls['lastName']"
@@ -615,8 +590,11 @@
 
               <!-- SOLO PARA CUBANOS -->
               <ng-container *ngIf="onlyCubanPeople && (canBeDelivery || showAddress)">
-                <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-                  <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-c80d84 transpilerClass-fxFlex-e3481f"
+                  >
                     <mat-label>{{ 'Provincia' | translate }}</mat-label>
                     <mat-select
                       (selectionChange)="onSelectProvince($event.value)"
@@ -636,7 +614,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-d92fed transpilerClass-fxFlex-28ac05"
+                  >
                     <mat-label>{{ 'Municipio' | translate }}</mat-label>
                     <mat-select
                       (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
@@ -696,8 +677,11 @@
                   </mat-error>
                 </mat-form-field>
 
-                <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-                  <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-81e258 transpilerClass-fxFlex-1f6d84"
+                  >
                     <mat-label>{{ 'City' | translate }}</mat-label>
                     <input
                       [formControl]="this.form.controls['city']"
@@ -711,7 +695,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-dc9bc0 transpilerClass-fxFlex-56d7d9"
+                  >
                     <mat-label>{{ 'State / Province / Region' | translate }}</mat-label>
                     <input
                       [formControl]="this.form.controls['regionProvinceState']"
@@ -729,8 +716,8 @@
               </ng-container>
 
               <div formGroupName="address" *ngIf="canBeDelivery && showAddress">
-                <div fxLayout="row" fxLayoutGap="10px">
-                  <mat-form-field fxFlex="80" appearance="outline">
+                <div class="d-flex transpilerClass-fxLayoutGap-844035">
+                  <mat-form-field appearance="outline" class="transpilerClass-fxFlex-27ef78">
                     <mat-label>{{ 'Calle' | translate }}</mat-label>
                     <input
                       formControlName="street"
@@ -745,7 +732,7 @@
                       {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
-                  <mat-form-field fxFlex="20" appearance="outline">
+                  <mat-form-field appearance="outline" class="transpilerClass-fxFlex-219b7b">
                     <mat-label>{{ 'Número' | translate }}</mat-label>
                     <input
                       formControlName="number"
@@ -776,13 +763,11 @@
                 </mat-form-field>
               </div>
 
-              <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+              <div class="d-flex justify-content-between align-items-center">
                 <mat-form-field
                   appearance="outline"
-                  fxFlex="100"
-                  fxFlex.gt-md="48"
-                  fxFlex.md="48"
                   id="CI"
+                  class="transpilerClass-fxFlex-d5c516 transpilerClass-fxFlex-d1cc4c transpilerClass-fxFlex-bf0e38"
                 >
                   <mat-label>{{ 'Identity card' | translate }}</mat-label>
                   <input
@@ -804,21 +789,26 @@
                   </mat-error>
                 </mat-form-field>
 
-                <div fxLayout="row" fxLayoutGap="8px" fxFlex="48" class="w-100" fxFlex.lt-md="100">
+                <div
+                  class="w-100 d-flex transpilerClass-fxFlex-222e7f transpilerClass-fxFlex-36b2b6 transpilerClass-fxLayoutGap-6fa278"
+                >
                   <guachos-general-autocomplete
-                    fxFlex="28"
                     [withoutPaddingBottom]="false"
                     [label]="'Código'"
                     [valueId]="true"
-                    fxFlex.lt-md="28"
                     [displayOptions]="callingCodeDisplayOptions"
                     [field]="['code']"
                     [filterString]="['filter[$and][code][$like]']"
                     [url]="phoneCodesService.url"
                     [formControl]="form.get('PhoneCallingCodeId')"
+                    class="transpilerClass-fxFlex-f0f2ea transpilerClass-fxFlex-1015f8"
                   ></guachos-general-autocomplete>
 
-                  <mat-form-field appearance="outline" fxFlex="70" fxFlex.lt-md="70" id="phone">
+                  <mat-form-field
+                    appearance="outline"
+                    id="phone"
+                    class="transpilerClass-fxFlex-9fea64 transpilerClass-fxFlex-729163"
+                  >
                     <mat-label>{{ 'Teléfono' | translate }}</mat-label>
                     <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                     <input
@@ -977,7 +967,11 @@
                 {{ 'Aditional information' | translate }}
               </h3>
             </div>
-            <div class="mt-1" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
+            <div
+              class="mt-1 transpilerClass-fxFlex-dee2f6 transpilerClass-fxFlex-f90463"
+              ngClass.sm="mt-1"
+              ngClass.xs="mt-1"
+            >
               <mat-form-field appearance="outline" class="w-100">
                 <textarea
                   [formControl]="this.form.controls['info']"
@@ -994,10 +988,7 @@
             </h1>
 
             <div
-              class="actions-buttons"
-              fxFlex="grow"
-              fxLayout="row"
-              fxLayoutAlign="space-between start"
+              class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-cdda0b"
             >
               <button mat-stroked-button matStepperPrevious>{{ 'Atrás' | translate }}</button>
               <button
@@ -1019,11 +1010,7 @@
           <!-- PASARELA DE PAGO -->
           <!-- =================================================================== -->
           <div
-            class="mainOrder-wrapper"
-            fxFlex="100"
-            fxFlex.gt-md="50"
-            fxFlex.md="50"
-            fxLayout="column"
+            class="mainOrder-wrapper d-flex flex-column transpilerClass-fxFlex-7e4dc4 transpilerClass-fxFlex-e31f3a transpilerClass-fxFlex-dc52a9"
           >
             <div *ngIf="!loadingPayment" class="main-order">
               <div class="order-box">
@@ -1056,21 +1043,14 @@
                 </ul>
                 <div
                   *ngIf="!loadingCart"
-                  class="mb-3 pb-3"
-                  fxLayout="column"
-                  fxLayoutAlign="start start"
-                  fxLayoutGap="gappx"
+                  class="mb-3 pb-3 d-flex flex-column justify-content-start align-items-start"
                   style="border-bottom: 1px solid #e5e5e5"
                 >
                   <div
-                    class="w-100"
-                    fxLayout="row"
-                    fxLayout.xs="column"
-                    fxLayoutAlign="space-between center"
-                    fxLayoutAlign.xs="start"
+                    class="w-100 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start"
                     ngClass.gt-xs="pt-1"
                   >
-                    <div fxFlexOrder.xs="2">
+                    <div class="order-xs-2 order-sm-2">
                       <!-- ------------------------------------------------- -->
                       <!-- DESCRIPTION OF ADDRESS BUSINESS -->
                       <ng-container>
@@ -1088,8 +1068,7 @@
                         <!-- INFO DIRECCION DEL NEGOCIO -->
                         <div
                           *ngIf="!showShipping && buyProducts.length > 0 && hasPickUpPlace"
-                          class="mb-3"
-                          fxLayout="column"
+                          class="mb-3 d-flex flex-column"
                         >
                           <p class="mat-body-2 my-2" style="text-transform: uppercase">
                             {{ 'Recogida' | translate }}
@@ -1118,45 +1097,27 @@
                 <!-- ======LOADING====== -->
                 <ng-container *ngIf="loadingCart">
                   <div
-                    class="py-2 my-2 w-100 loader"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
-                    fxLayoutGap="gappx"
+                    class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
                     style="border-radius: 4px"
                   ></div>
                   <div
-                    class="py-2 my-2 w-100 loader"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
-                    fxLayoutGap="gappx"
+                    class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
                     style="border-radius: 4px"
                   ></div>
                   <div
-                    class="py-2 my-2 w-100 loader"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
-                    fxLayoutGap="gappx"
+                    class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
                     style="border-radius: 4px"
                   ></div>
                   <div
-                    class="py-2 my-2 w-100 loader"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
-                    fxLayoutGap="gappx"
+                    class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
                     style="border-radius: 4px"
                   ></div>
                   <div
-                    class="py-2 my-2 w-100 loader"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
-                    fxLayoutGap="gappx"
+                    class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
                     style="border-radius: 4px"
                   ></div>
                   <div
-                    class="py-2 my-2 w-100 loader"
-                    fxLayout="row"
-                    fxLayoutAlign="start center"
-                    fxLayoutGap="gappx"
+                    class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
                     style="border-radius: 4px"
                   ></div>
                 </ng-container>
@@ -1172,7 +1133,7 @@
                   </li>
                 </ul>
 
-                <div class="w-100" fxLayout="row" fxLayoutAlign="center stretch">
+                <div class="w-100 d-flex justify-content-center align-items-stretch">
                   <a id="pasarelaLink" style="display: none"></a>
                 </div>
               </div>
@@ -1180,10 +1141,7 @@
 
             <div
               *ngIf="!loadingPayment"
-              class="actions-buttons"
-              fxFlex="grow"
-              fxLayout="row"
-              fxLayoutAlign="space-between start"
+              class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-a85251"
             >
               <!--              <button (click)="onGoToInfoDataToPay()" mat-stroked-button>{{ 'Atrás' | translate }}</button>-->
               <button matStepperPrevious mat-stroked-button>{{ 'Atrás' | translate }}</button>
