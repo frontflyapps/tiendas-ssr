@@ -23,7 +23,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MyOrdersRoutingModule } from './my-orders-routing.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { TranslateModule } from '@ngx-translate/core';
 import { GuachosRatingModule } from 'guachos-rating';
 import { MatInputModule } from '@angular/material/input';
@@ -39,7 +39,7 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     FormsModule,
     ReactiveFormsModule,
     MyOrdersRoutingModule,
-    FlexLayoutModule,
+
     MatIconModule,
     MatToolbarModule,
     MatProgressSpinnerModule,

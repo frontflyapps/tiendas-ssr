@@ -1,4 +1,3 @@
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -22,7 +21,6 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    FlexLayoutModule,
   ],
   declarations: [BlogColumnComponent, BlogDetailsComponent],
 })

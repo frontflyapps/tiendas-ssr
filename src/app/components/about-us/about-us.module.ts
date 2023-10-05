@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutUsRoutingModule } from './about-us-routing.module';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,7 +18,7 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     CommonModule,
     AboutUsRoutingModule,
-    FlexLayoutModule,
+
     FormsModule,
     ReactiveFormsModule,
     MatExpansionModule,

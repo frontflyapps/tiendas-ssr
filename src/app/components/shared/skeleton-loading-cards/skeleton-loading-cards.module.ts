@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatCardModule } from '@angular/material/card';
 import { SkeletonLoadingCardsComponent } from './skeleton-loading-cards.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [SkeletonLoadingCardsComponent],
-  imports: [CommonModule, NgxSkeletonLoaderModule, MatCardModule, FlexLayoutModule],
+  imports: [CommonModule, NgxSkeletonLoaderModule, MatCardModule],
   exports: [NgxSkeletonLoaderModule, SkeletonLoadingCardsComponent],
 })
 export class SkeletonLoadingCardsModule {}

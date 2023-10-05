@@ -13,7 +13,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { UpdateControllerModule } from './components/shared/updates-controller/update-controller.module';
 import { HttpLoaderFactory } from './core/services/translate-factory/translate-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'environments/environment';
 import { CuDownloadListModule } from 'guachos-cu-down-list';
@@ -44,7 +43,6 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     MatSnackBarModule,
     // CuDownloadListModule,
-    CoreModule,
     MatDialogModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({

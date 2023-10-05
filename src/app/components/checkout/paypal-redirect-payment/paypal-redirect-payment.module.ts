@@ -5,7 +5,6 @@ import { PaypalRedirectPaymentRoutingModule } from './paypal-redirect-payment-ro
 import { PaypalRedirectPaymentComponent } from './paypal-redirect-payment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [PaypalRedirectPaymentComponent],
@@ -15,7 +14,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    FlexLayoutModule,
   ],
 })
 export class PaypalRedirectPaymentModule {}

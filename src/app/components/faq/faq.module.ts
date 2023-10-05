@@ -5,18 +5,11 @@ import { CommonModule } from '@angular/common';
 
 import { FaqRoutingModule } from './faq-routing.module';
 import { FaqComponent } from './faq/faq.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [FaqComponent],
-  imports: [
-    CommonModule,
-    FaqRoutingModule,
-    FlexLayoutModule,
-    MatExpansionModule,
-    TranslateModule,
-    PipesModule,
-  ],
+  imports: [CommonModule, FaqRoutingModule, MatExpansionModule, TranslateModule, PipesModule],
 })
 export class FaqModule {}

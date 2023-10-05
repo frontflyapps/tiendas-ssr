@@ -3,7 +3,6 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 
 import path from 'path';
 import fs from 'fs';
@@ -35,7 +34,6 @@ const initializeAppConfig = () => {
     AppModule,
     ServerModule,
     //https://github.com/angular/flex-layout/wiki/Using-SSR-with-Flex-Layout
-    FlexLayoutServerModule,
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatIconModule } from '@angular/material/icon';
 import { FooterTwoComponent } from './footer-two.component';
 import { NgModule } from '@angular/core';
@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatIconModule,
-    FlexLayoutModule,
+
     MatMenuModule,
     TranslateModule,
     RouterModule,
