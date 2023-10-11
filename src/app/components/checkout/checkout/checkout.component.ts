@@ -376,7 +376,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     private shippingService: TaxesShippingService,
     private configurationService: ConfigurationService,
     private currencyCheckoutPipe: CurrencyCheckoutPipe,
-    private metaService: MetaService,
     public contactsService: ContactsService,
     public router: Router,
     private spinner: NgxSpinnerService,

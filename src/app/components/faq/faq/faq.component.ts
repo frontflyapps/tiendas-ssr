@@ -19,12 +19,12 @@ export class FaqComponent implements OnInit {
     private translate: TranslateService,
     private metaService: MetaService,
   ) {
-    // this.metaService.setMeta(
-    //   environment.meta?.mainPage?.title,
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+    this.metaService.setMeta({
+      title: 'Preguntas frecuentes',
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
   }
 
   ngOnInit() {

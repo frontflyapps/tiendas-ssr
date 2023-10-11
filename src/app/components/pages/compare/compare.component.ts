@@ -69,12 +69,13 @@ export class CompareComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.isSmallDevice = data.matches;
       });
-    // this.metaService.setMeta(
-    //   'Lista de Comparación',
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+
+    this.metaService.setMeta({
+      title: 'Lista de Comparación',
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
   }
 
   ngOnInit() {

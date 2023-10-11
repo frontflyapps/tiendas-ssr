@@ -44,12 +44,13 @@ export class CartComponent implements OnInit, OnDestroy {
       ? this.loggedInUserService.getLanguage().lang
       : 'es';
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-    // this.metaService.setMeta(
-    //   'Carrito de compras',
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+
+    this.metaService.setMeta({
+      title: 'Carrito de compras',
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
   }
 
   ngOnInit() {

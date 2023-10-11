@@ -241,12 +241,14 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     // this.productService.updatedProducts$.subscribe((response) => {
     //   this.frontProduct();
     // });
-    // this.metaService.setMeta(
-    //   environment.meta?.mainPage?.title,
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+
+    this.metaService.setMeta({
+      title: environment.meta.mainPage.title,
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
+
     this.applyResolution();
   }
 

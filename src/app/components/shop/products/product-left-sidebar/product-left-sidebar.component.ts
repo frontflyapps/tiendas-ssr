@@ -98,12 +98,13 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
     public utilsService: UtilsService,
     public storageService: StorageService,
   ) {
-    // this.metaService.setMeta(
-    //   'Todos los productos',
-    //   'Encuentra lo que buscas',
-    //   environment.meta?.mainPage.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+    this.metaService.setMeta({
+      title: 'Todos los productos',
+      description: 'Encuentra lo que buscas',
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
+
     this.initSubsLocation();
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
