@@ -49,20 +49,19 @@
           *ngFor="let item of allBicons; let i = index"
           class="card-wrap card-promo transpilerClass-fxFlex-e010b0 transpilerClass-fxFlex-ce4cab transpilerClass-fxFlex-059cae transpilerClass-fxFlex-b64837"
         >
-          <mat-card
-            [ngClass]="{ 'no-bd': i === allBicons.length - 1 }"
-            class="light-block d-flex justify-content-start align-items-center"
-          >
-            <div class="transpilerClass-fxFlex-fdf04b">
-              <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
-            </div>
-            <div class="content transpilerClass-fxFlex-41226b">
-              <p class="uppercase">
-                {{ item.title | parseLang: utilsService.getLang() }}
-              </p>
-              <span class="text-muted m-0 mt-2 word-break">{{
-                item.subTitle | parseLang: utilsService.getLang()
-              }}</span>
+          <mat-card [ngClass]="{ 'no-bd': i === allBicons.length - 1 }" class="light-block">
+            <div class="d-flex justify-content-start align-items-center">
+              <div class="transpilerClass-fxFlex-fdf04b">
+                <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
+              </div>
+              <div class="content transpilerClass-fxFlex-41226b">
+                <p class="uppercase">
+                  {{ item.title | parseLang: utilsService.getLang() }}
+                </p>
+                <span class="text-muted m-0 mt-2 word-break">{{
+                  item.subTitle | parseLang: utilsService.getLang()
+                }}</span>
+              </div>
             </div>
           </mat-card>
         </div>

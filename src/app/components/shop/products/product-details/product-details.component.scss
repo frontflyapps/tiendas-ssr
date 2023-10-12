@@ -467,13 +467,13 @@
       }
     }
 
-    .mat-card {
+    .mat-mdc-card {
       box-shadow: none !important;
       padding: 20px 0;
       border-bottom: 1px solid $grey-light;
     }
 
-    .mat-card.no-border {
+    .mat-mdc-card.no-border {
       border-bottom: none;
     }
   }

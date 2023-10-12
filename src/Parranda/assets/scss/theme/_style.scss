@@ -128,7 +128,7 @@ h6 {
   background-color: $theme-main-red;
 }
 
-.mat-card:not([class*='mat-elevation-z']) {
+.mat-mdc-card:not([class*='mat-elevation-z']) {
   box-shadow:
     2px 2px 6px 0 rgba(0, 0, 0, 0.1),
     0 1px 1px 0 rgba(0, 0, 0, 0),
@@ -518,7 +518,7 @@ a {
   .card-wrap {
     padding: 15px 0;
 
-    .mat-card {
+    .mat-mdc-card {
       height: 100px;
       box-shadow: none;
       border-right: 1px solid $grey6;
@@ -732,7 +732,7 @@ span {
     transition: 0.4s;
     padding: 26px 5px 5px 5px;
 
-    .mat-card:not([class*='mat-elevation-z']) {
+    .mat-mdc-card:not([class*='mat-elevation-z']) {
       box-shadow:
         2px 2px 6px 0 rgba(0, 0, 0, 0.1),
         0 1px 1px 0 rgba(0, 0, 0, 0),
@@ -1436,7 +1436,7 @@ span {
   .card-wrap {
     padding: 15px 0;
 
-    .mat-card {
+    .mat-mdc-card {
       height: 100px;
       //box-shadow: none;
       border-right: 1px solid $grey6;
@@ -1848,7 +1848,7 @@ span {
       .card-wrap {
         padding: 15px 0;
 
-        .mat-card {
+        .mat-mdc-card {
           height: 100px;
           box-shadow: none;
           border-right: 1px solid $grey6;
@@ -2168,7 +2168,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
         padding: 0 10px;
         transition: 0.4s;
 
-        .mat-card:not([class*='mat-elevation-z']) {
+        .mat-mdc-card:not([class*='mat-elevation-z']) {
           box-shadow:
             2px 2px 6px 0 rgba(0, 0, 0, 0.1),
             0 1px 1px 0 rgba(0, 0, 0, 0),
@@ -2504,7 +2504,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
     .card-wrap {
       padding: 16px 0;
 
-      .mat-card {
+      .mat-mdc-card {
         height: 70px;
         box-sizing: border-box;
         //box-shadow: none;
