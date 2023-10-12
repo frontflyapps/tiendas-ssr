@@ -152,9 +152,9 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     private productService: ProductService,
     private globalStateOfCookieService: GlobalStateOfCookieService,
   ) {
-    this.productService.updatedSectionsProduct$.subscribe((response) => {
-      this.sectionProducts = localStorageService.getFromStorage('sections');
-      this.visualizationSections = localStorageService.getFromStorage('sectionsIds').data;
+    this.productService.updatedSectionsProduct$.subscribe(() => {
+      this.sectionProducts = this.productService.sections;
+      this.visualizationSections = this.productService.sectionIds;
       let cont = 0;
       this.sectionProducts.map((item) => {
         if (item.categories) {
