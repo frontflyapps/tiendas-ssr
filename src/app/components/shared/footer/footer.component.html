@@ -143,10 +143,11 @@
           [matMenuTriggerFor]="langMenu"
           mat-icon-button
           matTooltip="{{ 'Change language' | translate }}"
+          style="display: inline"
         >
           <img [src]="flag?.image" height="24" width="24" />
           <span class="flag-menu-title d-none d-sm-inline"></span>
-          <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
         </a>
         <mat-menu
           #langMenu="matMenu"
