@@ -23,6 +23,7 @@ function getProject(name) {
     'src/common-styles.scss',
     // fixing the issue "Could not find Angular Material core theme"
     'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css',
+    'node_modules/ngx-spinner/animations/ball-scale-multiple.css',
   ];
 
   const assets = [

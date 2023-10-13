@@ -77,7 +77,8 @@
               "src/VeoVeo/assets/scss/helpers/_helpers.scss",
               "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -201,7 +202,8 @@
               "src/VeoVeo/assets/scss/helpers/_helpers.scss",
               "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -368,7 +370,8 @@
               "src/Umbralf/assets/scss/helpers/_helpers.scss",
               "src/Umbralf/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -492,7 +495,8 @@
               "src/Umbralf/assets/scss/helpers/_helpers.scss",
               "src/Umbralf/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -659,7 +663,8 @@
               "src/Supermax/assets/scss/helpers/_helpers.scss",
               "src/Supermax/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -783,7 +788,8 @@
               "src/Supermax/assets/scss/helpers/_helpers.scss",
               "src/Supermax/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -950,7 +956,8 @@
               "src/Acubamos/assets/scss/helpers/_helpers.scss",
               "src/Acubamos/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1074,7 +1081,8 @@
               "src/Acubamos/assets/scss/helpers/_helpers.scss",
               "src/Acubamos/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1241,7 +1249,8 @@
               "src/GranComercial/assets/scss/helpers/_helpers.scss",
               "src/GranComercial/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1365,7 +1374,8 @@
               "src/GranComercial/assets/scss/helpers/_helpers.scss",
               "src/GranComercial/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1532,7 +1542,8 @@
               "src/Marlin/assets/scss/helpers/_helpers.scss",
               "src/Marlin/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1656,7 +1667,8 @@
               "src/Marlin/assets/scss/helpers/_helpers.scss",
               "src/Marlin/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1823,7 +1835,8 @@
               "src/MiBulevar-Etecsa/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Etecsa/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -1947,7 +1960,8 @@
               "src/MiBulevar-Etecsa/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Etecsa/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2114,7 +2128,8 @@
               "src/Pruebalo/assets/scss/helpers/_helpers.scss",
               "src/Pruebalo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2238,7 +2253,8 @@
               "src/Pruebalo/assets/scss/helpers/_helpers.scss",
               "src/Pruebalo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2405,7 +2421,8 @@
               "src/Apululu/assets/scss/helpers/_helpers.scss",
               "src/Apululu/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2529,7 +2546,8 @@
               "src/Apululu/assets/scss/helpers/_helpers.scss",
               "src/Apululu/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2696,7 +2714,8 @@
               "src/GranComerial-Mayoristas/assets/scss/helpers/_helpers.scss",
               "src/GranComerial-Mayoristas/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2820,7 +2839,8 @@
               "src/GranComerial-Mayoristas/assets/scss/helpers/_helpers.scss",
               "src/GranComerial-Mayoristas/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -2987,7 +3007,8 @@
               "src/Mercado+/assets/scss/helpers/_helpers.scss",
               "src/Mercado+/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3111,7 +3132,8 @@
               "src/Mercado+/assets/scss/helpers/_helpers.scss",
               "src/Mercado+/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3278,7 +3300,8 @@
               "src/MiBulevar-Genesis/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Genesis/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3402,7 +3425,8 @@
               "src/MiBulevar-Genesis/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Genesis/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3569,7 +3593,8 @@
               "src/PymesBulevar/assets/scss/helpers/_helpers.scss",
               "src/PymesBulevar/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3693,7 +3718,8 @@
               "src/PymesBulevar/assets/scss/helpers/_helpers.scss",
               "src/PymesBulevar/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3860,7 +3886,8 @@
               "src/Atec/assets/scss/helpers/_helpers.scss",
               "src/Atec/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -3984,7 +4011,8 @@
               "src/Atec/assets/scss/helpers/_helpers.scss",
               "src/Atec/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -4151,7 +4179,8 @@
               "src/GranFerretero/assets/scss/helpers/_helpers.scss",
               "src/GranFerretero/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -4275,7 +4304,8 @@
               "src/GranFerretero/assets/scss/helpers/_helpers.scss",
               "src/GranFerretero/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -4442,7 +4472,8 @@
               "src/MercadosPresidente/assets/scss/helpers/_helpers.scss",
               "src/MercadosPresidente/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -4566,7 +4597,8 @@
               "src/MercadosPresidente/assets/scss/helpers/_helpers.scss",
               "src/MercadosPresidente/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -4733,7 +4765,8 @@
               "src/MiBulevar-Gesin/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Gesin/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -4857,7 +4890,8 @@
               "src/MiBulevar-Gesin/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Gesin/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5024,7 +5058,8 @@
               "src/RapidMultiservice/assets/scss/helpers/_helpers.scss",
               "src/RapidMultiservice/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5148,7 +5183,8 @@
               "src/RapidMultiservice/assets/scss/helpers/_helpers.scss",
               "src/RapidMultiservice/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5315,7 +5351,8 @@
               "src/Bianca/assets/scss/helpers/_helpers.scss",
               "src/Bianca/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5439,7 +5476,8 @@
               "src/Bianca/assets/scss/helpers/_helpers.scss",
               "src/Bianca/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5606,7 +5644,8 @@
               "src/HavTel/assets/scss/helpers/_helpers.scss",
               "src/HavTel/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5730,7 +5769,8 @@
               "src/HavTel/assets/scss/helpers/_helpers.scss",
               "src/HavTel/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -5897,7 +5937,8 @@
               "src/MiBulevar/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6021,7 +6062,8 @@
               "src/MiBulevar/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6188,7 +6230,8 @@
               "src/MiBulevar-Mercatuaba/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Mercatuaba/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6312,7 +6355,8 @@
               "src/MiBulevar-Mercatuaba/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Mercatuaba/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6479,7 +6523,8 @@
               "src/Caracol/assets/scss/helpers/_helpers.scss",
               "src/Caracol/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6603,7 +6648,8 @@
               "src/Caracol/assets/scss/helpers/_helpers.scss",
               "src/Caracol/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6770,7 +6816,8 @@
               "src/HomeDeli/assets/scss/helpers/_helpers.scss",
               "src/HomeDeli/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -6894,7 +6941,8 @@
               "src/HomeDeli/assets/scss/helpers/_helpers.scss",
               "src/HomeDeli/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7061,7 +7109,8 @@
               "src/MiBulevar-Alcansan/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Alcansan/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7185,7 +7234,8 @@
               "src/MiBulevar-Alcansan/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Alcansan/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7352,7 +7402,8 @@
               "src/MiBulevar-Ofa/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Ofa/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7476,7 +7527,8 @@
               "src/MiBulevar-Ofa/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Ofa/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7643,7 +7695,8 @@
               "src/DCero/assets/scss/helpers/_helpers.scss",
               "src/DCero/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7767,7 +7820,8 @@
               "src/DCero/assets/scss/helpers/_helpers.scss",
               "src/DCero/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -7934,7 +7988,8 @@
               "src/ITH/assets/scss/helpers/_helpers.scss",
               "src/ITH/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8058,7 +8113,8 @@
               "src/ITH/assets/scss/helpers/_helpers.scss",
               "src/ITH/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8225,7 +8281,8 @@
               "src/MiBulevar-Aligan /assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Aligan /assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8349,7 +8406,8 @@
               "src/MiBulevar-Aligan /assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Aligan /assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8516,7 +8574,8 @@
               "src/MiBulevar-TiendasPatrimonio/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-TiendasPatrimonio/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8640,7 +8699,8 @@
               "src/MiBulevar-TiendasPatrimonio/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-TiendasPatrimonio/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8807,7 +8867,8 @@
               "src/Donato/assets/scss/helpers/_helpers.scss",
               "src/Donato/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -8931,7 +8992,8 @@
               "src/Donato/assets/scss/helpers/_helpers.scss",
               "src/Donato/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9098,7 +9160,8 @@
               "src/LaCeiba/assets/scss/helpers/_helpers.scss",
               "src/LaCeiba/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9222,7 +9285,8 @@
               "src/LaCeiba/assets/scss/helpers/_helpers.scss",
               "src/LaCeiba/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9389,7 +9453,8 @@
               "src/MiBulevar-ComercioCienfueg/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-ComercioCienfueg/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9513,7 +9578,8 @@
               "src/MiBulevar-ComercioCienfueg/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-ComercioCienfueg/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9680,7 +9746,8 @@
               "src/MiBulevar-Trd/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Trd/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9804,7 +9871,8 @@
               "src/MiBulevar-Trd/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Trd/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -9971,7 +10039,8 @@
               "src/DondeDorian/assets/scss/helpers/_helpers.scss",
               "src/DondeDorian/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10095,7 +10164,8 @@
               "src/DondeDorian/assets/scss/helpers/_helpers.scss",
               "src/DondeDorian/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10262,7 +10332,8 @@
               "src/LaLuciana/assets/scss/helpers/_helpers.scss",
               "src/LaLuciana/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10386,7 +10457,8 @@
               "src/LaLuciana/assets/scss/helpers/_helpers.scss",
               "src/LaLuciana/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10553,7 +10625,8 @@
               "src/MiBulevar-Constelaciones/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Constelaciones/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10677,7 +10750,8 @@
               "src/MiBulevar-Constelaciones/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Constelaciones/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10844,7 +10918,8 @@
               "src/MisterDamian/assets/scss/helpers/_helpers.scss",
               "src/MisterDamian/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -10968,7 +11043,8 @@
               "src/MisterDamian/assets/scss/helpers/_helpers.scss",
               "src/MisterDamian/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -11135,7 +11211,8 @@
               "src/Dujo/assets/scss/helpers/_helpers.scss",
               "src/Dujo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -11259,7 +11336,8 @@
               "src/Dujo/assets/scss/helpers/_helpers.scss",
               "src/Dujo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -11426,7 +11504,8 @@
               "src/LaPolimita/assets/scss/helpers/_helpers.scss",
               "src/LaPolimita/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -11550,7 +11629,8 @@
               "src/LaPolimita/assets/scss/helpers/_helpers.scss",
               "src/LaPolimita/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -11717,7 +11797,8 @@
               "src/MiBulevar-Cupetcfg/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupetcfg/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -11841,7 +11922,8 @@
               "src/MiBulevar-Cupetcfg/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupetcfg/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12008,7 +12090,8 @@
               "src/MundoCopextel/assets/scss/helpers/_helpers.scss",
               "src/MundoCopextel/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12132,7 +12215,8 @@
               "src/MundoCopextel/assets/scss/helpers/_helpers.scss",
               "src/MundoCopextel/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12299,7 +12383,8 @@
               "src/ElAjibe/assets/scss/helpers/_helpers.scss",
               "src/ElAjibe/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12423,7 +12508,8 @@
               "src/ElAjibe/assets/scss/helpers/_helpers.scss",
               "src/ElAjibe/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12590,7 +12676,8 @@
               "src/LaTorre/assets/scss/helpers/_helpers.scss",
               "src/LaTorre/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12714,7 +12801,8 @@
               "src/LaTorre/assets/scss/helpers/_helpers.scss",
               "src/LaTorre/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -12881,7 +12969,8 @@
               "src/MiBulevar-Cupetgrm/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupetgrm/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13005,7 +13094,8 @@
               "src/MiBulevar-Cupetgrm/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupetgrm/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13172,7 +13262,8 @@
               "src/OpticasTheia/assets/scss/helpers/_helpers.scss",
               "src/OpticasTheia/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13296,7 +13387,8 @@
               "src/OpticasTheia/assets/scss/helpers/_helpers.scss",
               "src/OpticasTheia/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13463,7 +13555,8 @@
               "src/ElGuajirito/assets/scss/helpers/_helpers.scss",
               "src/ElGuajirito/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13587,7 +13680,8 @@
               "src/ElGuajirito/assets/scss/helpers/_helpers.scss",
               "src/ElGuajirito/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13754,7 +13848,8 @@
               "src/LasPraderas/assets/scss/helpers/_helpers.scss",
               "src/LasPraderas/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -13878,7 +13973,8 @@
               "src/LasPraderas/assets/scss/helpers/_helpers.scss",
               "src/LasPraderas/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14045,7 +14141,8 @@
               "src/MiBulevar-Cupethol/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupethol/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14169,7 +14266,8 @@
               "src/MiBulevar-Cupethol/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupethol/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14336,7 +14434,8 @@
               "src/Palmares/assets/scss/helpers/_helpers.scss",
               "src/Palmares/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14460,7 +14559,8 @@
               "src/Palmares/assets/scss/helpers/_helpers.scss",
               "src/Palmares/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14627,7 +14727,8 @@
               "src/Ferretero/assets/scss/helpers/_helpers.scss",
               "src/Ferretero/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14751,7 +14852,8 @@
               "src/Ferretero/assets/scss/helpers/_helpers.scss",
               "src/Ferretero/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -14918,7 +15020,8 @@
               "src/MCV/assets/scss/helpers/_helpers.scss",
               "src/MCV/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15042,7 +15145,8 @@
               "src/MCV/assets/scss/helpers/_helpers.scss",
               "src/MCV/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15209,7 +15313,8 @@
               "src/MiBulevar-Cupetltu/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupetltu/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15333,7 +15438,8 @@
               "src/MiBulevar-Cupetltu/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Cupetltu/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15500,7 +15606,8 @@
               "src/Parranda/assets/scss/helpers/_helpers.scss",
               "src/Parranda/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15624,7 +15731,8 @@
               "src/Parranda/assets/scss/helpers/_helpers.scss",
               "src/Parranda/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15791,7 +15899,8 @@
               "src/Gelato/assets/scss/helpers/_helpers.scss",
               "src/Gelato/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -15915,7 +16024,8 @@
               "src/Gelato/assets/scss/helpers/_helpers.scss",
               "src/Gelato/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -16082,7 +16192,8 @@
               "src/MM_Caribe/assets/scss/helpers/_helpers.scss",
               "src/MM_Caribe/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -16206,7 +16317,8 @@
               "src/MM_Caribe/assets/scss/helpers/_helpers.scss",
               "src/MM_Caribe/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -16373,7 +16485,8 @@
               "src/MiBulevar-Epueblo/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Epueblo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -16497,7 +16610,8 @@
               "src/MiBulevar-Epueblo/assets/scss/helpers/_helpers.scss",
               "src/MiBulevar-Epueblo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -16664,7 +16778,8 @@
               "src/PeopleGoTo/assets/scss/helpers/_helpers.scss",
               "src/PeopleGoTo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -16788,7 +16903,8 @@
               "src/PeopleGoTo/assets/scss/helpers/_helpers.scss",
               "src/PeopleGoTo/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

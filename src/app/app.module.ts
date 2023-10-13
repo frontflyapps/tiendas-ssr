@@ -34,7 +34,7 @@ registerLocaleData(localeEs, 'es');
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     BrowserModule,
     UpdateControllerModule,
     HttpClientModule,
