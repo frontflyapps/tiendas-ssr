@@ -27,6 +27,7 @@ import { BusinessConfigService } from './core/services/business-config/business-
 import { switchMap } from 'rxjs';
 import { handleObservable } from './core/utils/api';
 
+//https://swiperjs.com/element#install--register-from-npm
 swiperRegister();
 registerLocaleData(localeEs, 'es');
 

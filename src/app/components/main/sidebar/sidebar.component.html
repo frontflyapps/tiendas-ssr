@@ -11,7 +11,9 @@
     matRipple
   >
     <div class="menu-icons d-flex justify-content-start align-items-center">
-      <mat-icon *ngIf="item.material && item.iconName">{{ item.iconName }}</mat-icon>
+      <mat-icon *ngIf="item.material && item.iconName" style="padding-bottom: 16px">{{
+        item.iconName
+      }}</mat-icon>
       <span class="mat-body-1 ml-3" style="font-size: 15px">{{
         item.displayName | translate
       }}</span>

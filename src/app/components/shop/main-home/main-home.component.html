@@ -43,11 +43,13 @@
   <div *ngIf="allBicons.length > 0" class="info-bar-four-wrapper">
     <div class="container my-4">
       <div
-        class="info-bar-four d-flex d-xs-flex d-sm-flex justify-content-center align-items-center justify-content-xs-center justify-content-sm-center align-items-xs-start align-items-sm-start"
+        class="info-bar-four"
+        style="display: flex; flex-wrap: wrap; justify-content: space-around"
       >
         <div
           *ngFor="let item of allBicons; let i = index"
-          class="card-wrap card-promo transpilerClass-fxFlex-e010b0 transpilerClass-fxFlex-ce4cab transpilerClass-fxFlex-059cae transpilerClass-fxFlex-b64837"
+          class="card-wrap card-promo"
+          style="width: auto; flex-grow: 1"
         >
           <mat-card [ngClass]="{ 'no-bd': i === allBicons.length - 1 }" class="light-block">
             <div class="d-flex justify-content-start align-items-center">
