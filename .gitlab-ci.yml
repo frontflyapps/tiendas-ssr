@@ -20,6 +20,7 @@ stages:
     - pip install awscli
     - eval $(aws ecr get-login --no-include-email --region us-east-1)
   script:
+    - rm package-lock.json
     - docker build -f Dockerfile-VeoVeo -t tiendav1-front .
     - docker tag tiendav1-front:latest $AWS_ECR/tiendav1-front:production-ssr-veoveo
     - docker push $AWS_ECR/tiendav1-front:production-ssr-veoveo
