@@ -14,7 +14,7 @@ import { BecomeASellerRoutingModule } from './become-a-seller-routing.module';
 import { BecomeASellerComponent } from './become-a-seller/become-a-seller.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { GuachosImagePickerModule } from 'guachos-image-picker';
@@ -33,7 +33,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatButtonModule,
     TranslateModule,
-    FlexLayoutModule,
+
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,

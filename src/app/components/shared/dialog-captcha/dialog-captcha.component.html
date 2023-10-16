@@ -1,11 +1,18 @@
-<div *ngIf="inLoading" fxLayout="row" fxLayoutAlign="center center" style="height: 80vh">
+<div
+  *ngIf="inLoading"
+  style="height: 80vh"
+  class="d-flex justify-content-center align-items-center"
+>
   <mat-spinner *ngIf="inLoading" [diameter]="60"></mat-spinner>
 </div>
 
-<div fxLayout="column" fxLayoutAlign="center center" class="mb-20 mt-10" *ngIf="!inLoading && data">
+<div
+  class="mb-20 mt-10 d-flex flex-column justify-content-center align-items-center"
+  *ngIf="!inLoading && data"
+>
   <h2 class="mb-2">{{ data.message | i18nField: translateService.currentLang }}</h2>
 
-  <div fxLayout="row" fxLayoutAlign="center center">
+  <div class="d-flex justify-content-center align-items-center">
     <img [src]="data.image" class="mr-2 img-captcha" />
     <button mat-icon-button mat-raised-button (click)="refreshData()">
       <mat-icon>refresh</mat-icon>
@@ -30,7 +37,7 @@
     </mat-error>
   </mat-form-field>
 
-  <mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
+  <mat-dialog-actions class="d-flex justify-content-end align-items-end">
     <!--    <div fxLayout='row' fxLayoutAlign='end end'>-->
     <button mat-raised-button color="primary" (click)="sendData()">Enviar</button>
     <!--    </div>-->

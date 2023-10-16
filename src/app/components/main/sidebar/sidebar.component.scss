@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 :host {
@@ -74,4 +75,12 @@
     color: rgba(0, 0, 0, 0.87);
     margin: 0px !important;
   }
+}
+
+.transpilerClass-fxFlex-c257ea {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxFlex-882fad {
+  flex: 1 1 0%;
 }

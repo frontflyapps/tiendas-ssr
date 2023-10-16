@@ -19,7 +19,7 @@ import { ProductLeftSidebarComponent } from './products/product-left-sidebar/pro
 import { ProductVerticalComponent } from './products/product-vertical/product-vertical.component';
 import { CommonModule } from '@angular/common';
 import { ShopRoutingModule } from './shop-routing.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatPaginatorI18nService } from '../../core/classes/PaginatorI18n.class';
 // Import the library
@@ -103,7 +103,7 @@ import { MatRadioModule } from '@angular/material/radio';
     ShopRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
+
     NgxPaginationModule,
     MatProgressSpinnerModule,
     InfiniteScrollModule,

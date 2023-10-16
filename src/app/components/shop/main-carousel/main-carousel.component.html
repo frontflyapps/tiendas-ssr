@@ -12,11 +12,7 @@
     autoplay-disable-on-interaction="false"
   >
     <swiper-slide *ngFor="let slide of _slides">
-      <div
-        [style.background]="'url(' + slide.image + ')'"
-        class="slide-item swiper-lazy"
-        fxHide.lt-md
-      >
+      <div [style.background]="'url(' + slide.image + ')'" class="slide-item swiper-lazy d-sm-none">
         <a [href]="slide.link" target="_blank">
           <div class="container-carrusel">
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -42,9 +38,7 @@
       </div>
       <div
         [style.background]="'url(' + slide.imageXs + ')'"
-        class="slide-item swiper-lazy"
-        fxHide
-        fxShow.lt-md
+        class="slide-item swiper-lazy d-sm-block d-none"
       >
         <a [href]="slide.link" target="_blank">
           <div class="container-carrusel sl-wrap">

@@ -1,29 +1,49 @@
 var fs = require('fs');
 const packageJsonData = require('../package.json');
 const angularJsonData = require('../angular.json');
+const { listNames } = require('./constants');
 
 function joinStr(...args) {
   return args.join('');
 }
 
 function getProject(name) {
-  const assetsDir = joinStr('src/assets-', name);
+  const appDir = joinStr('src/', name);
+
+  const assetsDir = joinStr(appDir, '/assets');
 
   const stylePreprocessorOptions = {
     includePaths: [assetsDir, '/assets'],
   };
+
   const styles = [
     joinStr(assetsDir, '/app.scss'),
+    joinStr(assetsDir, '/scss/helpers/_helpers.scss'),
+    joinStr(assetsDir, '/scss/mixins/_breakpoints.scss'),
     'src/common-styles.scss',
     // fixing the issue "Could not find Angular Material core theme"
     'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css',
+    'node_modules/ngx-spinner/animations/ball-scale-multiple.css',
   ];
 
   const assets = [
-    'src/favicon.ico',
+    ...[
+      'favicon-16x16.png',
+      'favicon-32x32.png',
+      'favicon.ico',
+      'apple-touch-icon.png',
+      'android-chrome-192x192.png',
+      'android-chrome-512x512.png',
+      'manifest.webmanifest',
+      'site.webmanifest',
+    ].map((assetsFile) => ({
+      glob: assetsFile,
+      input: joinStr(appDir, '/'),
+      output: '/',
+    })),
     {
       glob: '**/*',
-      input: assetsDir,
+      input: joinStr(appDir, '/assets'),
       output: '/assets/',
     },
   ];
@@ -43,7 +63,7 @@ function getProject(name) {
         builder: '@ngx-env/builder:browser',
         options: {
           outputPath: joinStr('dist/', name, '/browser'),
-          index: 'src/index.html',
+          index: joinStr(appDir, '/index.html'),
           main: 'src/main.ts',
           polyfills: ['zone.js'],
           tsConfig: 'tsconfig.app.json',
@@ -251,6 +271,16 @@ function updatePackageJSON(data, name) {
     ':server',
   );
 
+  delete data.scripts[joinStr('build-serve:ssr:', name)];
+  data.scripts[joinStr('build-serve:ssr:', name)] = joinStr(
+    'NG_APP_NAME=',
+    name,
+    ' npm run build:ssr:',
+    name,
+    ' && npm run serve:ssr:',
+    name,
+  );
+
   delete data.scripts[joinStr('prerender:', name)];
   data.scripts[joinStr('prerender:', name)] = joinStr('ng run ', name, ':prerender');
 
@@ -271,8 +301,6 @@ function saveJson(filename, data) {
     if (err) console.log('error', err);
   });
 }
-
-const listNames = ['VeoVeo', 'Umbralf'];
 
 let newPackageJsonData = JSON.parse(JSON.stringify(packageJsonData));
 let newAngularJsonData = JSON.parse(JSON.stringify(angularJsonData));

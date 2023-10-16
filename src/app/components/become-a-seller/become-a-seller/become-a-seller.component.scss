@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 .example-spacer {
@@ -85,4 +86,130 @@
   height: 36px;
   width: 36px;
   margin-top: -5px;
+}
+
+.transpilerClass-fxFlex-b3cedf {
+  flex: 1 1 49%;
+}
+
+.transpilerClass-fxFlex-eb481d {
+  flex: 1 1 49%;
+}
+
+.transpilerClass-fxFlex-0cac79 {
+  flex: 1 1 49%;
+}
+
+.transpilerClass-fxFlex-10896b {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxFlex-01b66f {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-1c2c10 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-053e1b {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-8062a3 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-f2ce9d {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 70%;
+  }
+}
+
+.transpilerClass-fxFlex-de680a {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-e4354a {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-17be6b {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-ab5db7 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-f6b379 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-f8c5e6 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-32355d {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-6ddf63 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-3ed4ec {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-599e76 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 32%;
+  }
+}
+
+.transpilerClass-fxFlex-726731 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 32%;
+  }
+}
+
+.transpilerClass-fxFlex-38bda6 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 32%;
+  }
+}
+
+.transpilerClass-fxLayoutGap-b9a2b6 {
+  gap: 16px;
+}
+
+.transpilerClass-fxLayoutGap-22be37 {
+  gap: 1rem;
 }

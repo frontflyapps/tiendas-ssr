@@ -10,6 +10,7 @@ import { LocalStorageService } from '../../../../core/services/localStorage/loca
 import { FRONT_PRODUCT_DATA } from '../../../../core/classes/global.const';
 import { GlobalStateOfCookieService } from '../../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { environment } from 'environments/environment';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-product-vertical',
@@ -21,7 +22,6 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
   language: any;
   _unsubscribeAll: Subject<any>;
   loggedInUser: any = null;
-  businessConfig;
 
   constructor(
     private utilsService: UtilsService,
@@ -31,9 +31,9 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
     public currencyService: CurrencyService,
     public loggedInUserService: LoggedInUserService,
     private globalStateOfCookieService: GlobalStateOfCookieService,
+    private appService: BusinessConfigService,
   ) {
     this._unsubscribeAll = new Subject<any>();
-    this.businessConfig = this.localStorageService.getFromStorage('business-config');
     this.language = this.loggedInUserService.getLanguage()
       ? this.loggedInUserService.getLanguage().lang
       : 'es';
@@ -64,7 +64,7 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
     //   this.allProducts = data.data;
     // });
     this.productService.updatedProducts$.subscribe((response) => {
-      if (this.businessConfig?.frontDataProduct === 'normal') {
+      if (this.appService.businessConfig?.frontDataProduct === 'normal') {
         this.setServiceGetProduct();
         this.getPFDFromStorage();
       }

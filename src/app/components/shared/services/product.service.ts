@@ -64,6 +64,9 @@ export class ProductService {
   // Get product from Localstorage
   products = JSON.parse(this.storageService.getItem('compareItem')) || [];
 
+  public sections: Array<unknown> = [];
+  public sectionIds: Array<{ id: string }> = [];
+
   constructor(
     private httpClient: HttpClient,
     private localStorageService: LocalStorageService,
@@ -93,8 +96,8 @@ export class ProductService {
 
   public getAllProductsSections() {
     this.offset = 0;
-    this.storageService.removeItem('sections');
-    this.storageService.removeItem('sectionIds');
+    this.sections = [];
+    this.sectionIds = [];
     this.getSections().subscribe((data) => {
       this.getSectionsIds().subscribe((item) => {});
     });
@@ -116,29 +119,27 @@ export class ProductService {
     const httpParams = new HttpParams();
     return this.httpClient.get<any>(this.urlSections, { params: httpParams }).pipe(
       tap((response) => {
-        this.localStorageService.setOnStorage('sectionsIds', response);
+        this.sectionIds = response.data;
         this.updatedSections$.next(true);
       }),
     );
   }
 
   public getSectionsIds() {
-    const data = this.localStorageService.getFromStorage('sectionsIds');
-    if (this.offset < data.data.length) {
+    const data = this.sectionIds;
+    if (this.offset < data.length) {
       let httpParams = new HttpParams();
-      if (data.data) {
+      if (data) {
         for (let i = this.offset; i < this.offset + 3; i++) {
-          if (data.data[i]) {
-            httpParams = httpParams.append('sectionIds', data.data[i].id);
+          if (data[i]) {
+            httpParams = httpParams.append('sectionIds', data[i].id);
           }
         }
       }
       this.offset = this.offset + 3;
       return this.httpClient.get<any>(this.urlSectionsIds, { params: httpParams }).pipe(
         tap((response) => {
-          let temp = this.localStorageService.getFromStorage('sections') || [];
-          temp = temp.concat(response.data);
-          this.localStorageService.setOnStorage('sections', temp);
+          this.sections = [...this.sections, ...response.data];
           this.updatedSectionsProduct$.next(true);
         }),
       );

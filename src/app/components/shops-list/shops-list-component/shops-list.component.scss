@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 $arrow-color: $theme-main;
@@ -156,4 +157,8 @@ $arrow-border: 0.1em;
   height: 6rem;
   overflow: hidden;
   margin-bottom: 8px;
+}
+
+.transpilerClass-fxFlex-f774ca {
+  flex: 1 1 grow;
 }

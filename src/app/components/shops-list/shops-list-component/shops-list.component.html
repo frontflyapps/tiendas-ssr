@@ -1,28 +1,27 @@
 <div class="list-header">
   <!--  <img fxHide.xs fxHide.sm class='banner-shop-img' [src]='bannerDefault'>-->
   <img
-    fxShow.xs
-    fxShow.sm
-    class="banner-shop-img"
-    fxHide.xs
-    fxHide.sm
-    [src]="businessConfig?.imageBanner1 ? apiURL + businessConfig?.imageBanner1 : bannerDefault"
+    class="banner-shop-img d-xs-inline d-sm-inline d-md-inline d-xs-none d-sm-none d-md-none"
+    [src]="
+      appService.businessConfig?.imageBanner1
+        ? apiURL + appService.businessConfig?.imageBanner1
+        : bannerDefault
+    "
   />
   <img
-    fxShow.xs
-    fxShow.sm
-    class="banner-shop-img"
-    fxHide
-    fxShow.xs
-    fxShow.sm
-    [src]="businessConfig?.imageBanner1Xs ? apiURL + businessConfig?.imageBanner1Xs : bannerDefault"
+    class="banner-shop-img d-xs-inline d-sm-inline d-md-inline d-none"
+    [src]="
+      appService.businessConfig?.imageBanner1Xs
+        ? apiURL + appService.businessConfig?.imageBanner1Xs
+        : bannerDefault
+    "
   />
 </div>
 <div class="container mt-5">
-  <div class="search-shops" fxLayout="column" fxLayoutAlign="center center">
+  <div class="search-shops d-flex flex-column justify-content-center align-items-center">
     <h2 class="mb-3">{{ 'Buscar' | translate }}</h2>
     <!-- SEARCHING -->
-    <div class="input-search" fxLayout="row" fxFlex="grow">
+    <div class="input-search d-flex transpilerClass-fxFlex-f774ca">
       <input
         [formControl]="businessName"
         (keyup.enter)="onSearchBusiness()"
@@ -35,7 +34,7 @@
     </div>
   </div>
 
-  <div fxLayout="row wrap" fxLayoutAlign="center center" class="pt-5">
+  <div class="pt-5 d-flex justify-content-center align-items-center">
     <ng-container *ngFor="let business of allBusiness; let i = index">
       <a *ngIf="business.url" [href]="business?.url" target="_blank">
         <div class="shop-card" [ngClass.gt-xs]="{ 'mr-5': i != 2 || i != 5 || i != 8 }">

@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { TranslateModule } from '@ngx-translate/core';
 import { UploadFileComponent } from './upload-file.component';
 
@@ -15,7 +15,7 @@ import { UploadFileComponent } from './upload-file.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule,
-    FlexLayoutModule,
+
     CommonModule,
     MatInputModule,
     MatFormFieldModule,

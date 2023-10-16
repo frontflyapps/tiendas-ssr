@@ -1,5 +1,5 @@
 <ng-container *ngIf="popularProducts.length > 0">
-  <div class="popular-products" fxLayout="column" ngClass.gt-md="m-0">
+  <div class="popular-products d-flex flex-column" ngClass.gt-md="m-0">
     <div class="title-header">
       <h4 class="title">{{ 'POPULAR PRODUCTS' | translate }}</h4>
     </div>
@@ -19,13 +19,13 @@
             <img
               *ngIf="product.Images && product.Images.length"
               [src]="imageUrl + product.Images[0].image"
-              alt=""
+              alt
               class="img-fluid"
               lazyImg
             />
             <img
               *ngIf="!(product.Images && product.Images.length)"
-              alt=""
+              alt
               class="img-fluid"
               lazyImg
               src="assets/images/noImage.jpg"

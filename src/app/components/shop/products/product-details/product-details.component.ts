@@ -1,12 +1,6 @@
 import { MetaService } from 'src/app/core/services/meta.service';
 import { ShowToastrService } from '../../../../core/services/show-toastr/show-toastr.service';
-import {
-  FormControl,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CartService } from '../../../shared/services/cart.service';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../../../../modals/product.model';
@@ -19,7 +13,7 @@ import { Observable, Subject } from 'rxjs';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { debounceTime, map, startWith, takeUntil } from 'rxjs/operators';
-import { DomSanitizer, Meta } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { Cart } from 'src/app/modals/cart-item';
 import { BiconService } from 'src/app/core/services/bicon/bicon.service';
@@ -71,7 +65,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   loadingReviews = false;
   allReviews = [];
   showZoom = false;
-  public image: any;
+  // public image: any;
   public counter = 1;
   index: number;
 
@@ -143,13 +137,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     private showToastr: ShowToastrService,
     public _sanitizer: DomSanitizer,
     private fb: UntypedFormBuilder,
-    // private metaService: MetaService,
+    private metaService: MetaService,
     private _bottomSheet: MatBottomSheet,
     private localStorageService: LocalStorageService,
     private httpClient: HttpClient,
     public productDataService: ProductDataService,
     public spinner: NgxSpinnerService,
-    private meta: Meta,
     private breakpointObserver: BreakpointObserver,
   ) {
     this._unsubscribeAll = new Subject<any>();
@@ -279,35 +272,13 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.getRelatedProducts();
     // this.getFeaturedProducts();
     // ////////////////////META///////////////////
-    this.meta.updateTag({ name: 'title', content: this.product?.name?.es });
-    this.meta.updateTag({ name: 'description', content: this.product?.description?.es });
-    this.meta.updateTag({ name: 'keywords', content: this.product?.Business?.name });
 
-    this.meta.updateTag({ property: 'og:url', content: window.location.href });
-    this.meta.updateTag({ property: 'og:site_name', content: this.product?.name?.es });
-    this.meta.updateTag({
-      property: 'og:image',
-      itemprop: 'image primaryImageOfPage',
-      content: this.product?.sharedImage,
-    });
-
-    this.meta.updateTag({ name: 'twitter:domain', content: window.location.href });
-    this.meta.updateTag({
-      name: 'twitter:title',
-      itemprop: 'name',
-      content: this.product?.name?.es,
-    });
-    this.meta.updateTag({ name: 'og:title', itemprop: 'name', content: this.product?.name?.es });
-    this.meta.updateTag({ name: 'twitter:description', content: this.product?.Business?.name });
-    this.meta.updateTag({
-      name: 'og:description',
-      itemprop: 'description',
-      content: this.product?.Business?.name,
-    });
-    this.meta.updateTag({
-      name: 'twitter:image',
-      itemprop: 'image primaryImageOfPage',
-      content: this.product?.sharedImage,
+    this.metaService.setMeta({
+      title: this.product?.name?.es,
+      description: this.product?.description?.es,
+      keywords: this.product?.Business?.name,
+      shareImg: this.imageUrl + this.product?.sharedImage,
+      url: window.location.href,
     });
 
     // //////////////////////////////////////////

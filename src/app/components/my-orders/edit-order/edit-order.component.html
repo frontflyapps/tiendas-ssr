@@ -2,7 +2,7 @@
   <mat-dialog-content>
     <h2>{{ 'Editar Orden' | translate }}</h2>
 
-    <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
+    <div class="d-flex flex-column justify-content-start align-items-stretch">
       <p class="mat-body-2 my-2" style="text-transform: uppercase">
         {{ 'Datos personales del destinatario' | translate }}
         <mat-icon
@@ -15,14 +15,16 @@
         </mat-icon>
       </p>
 
-      <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-        <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+      <div class="d-flex justify-content-between align-items-center">
+        <mat-form-field
+          appearance="outline"
+          class="transpilerClass-fxFlex-87c861 transpilerClass-fxFlex-7db576 transpilerClass-fxFlex-52d767"
+        >
           <mat-label>{{ 'Name' | translate }}</mat-label>
           <input
             [formControl]="this.form.controls['name']"
             matInput
             placeholder="{{ 'Name' | translate }}"
-            required
             required
           />
           <mat-error *ngIf="form.controls['name'].hasError('required')">
@@ -30,13 +32,15 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+        <mat-form-field
+          appearance="outline"
+          class="transpilerClass-fxFlex-38e46e transpilerClass-fxFlex-e286b3 transpilerClass-fxFlex-e66284"
+        >
           <mat-label>{{ 'Lastname' | translate }}</mat-label>
           <input
             [formControl]="this.form.controls['lastName']"
             matInput
             placeholder="{{ 'Lastname' | translate }}"
-            required
             required
           />
           <mat-error *ngIf="form.controls['lastName'].hasError('required')">
@@ -72,8 +76,11 @@
 
       <!-- SOLO PARA CUBANOS -->
       <ng-container *ngIf="onlyCubanPeople">
-        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-          <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+        <div class="d-flex justify-content-between align-items-center">
+          <mat-form-field
+            appearance="outline"
+            class="transpilerClass-fxFlex-0a64a3 transpilerClass-fxFlex-cb658b"
+          >
             <mat-label>{{ 'Provincia' | translate }}</mat-label>
             <mat-select
               (selectionChange)="onSelectProvince($event.value)"
@@ -92,7 +99,10 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field
+            appearance="outline"
+            class="transpilerClass-fxFlex-51f5b2 transpilerClass-fxFlex-5d2f94"
+          >
             <mat-label>{{ 'Municipio' | translate }}</mat-label>
             <mat-select
               [compareWith]="compareById"
@@ -144,14 +154,16 @@
           </mat-error>
         </mat-form-field>
 
-        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-          <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+        <div class="d-flex justify-content-between align-items-center">
+          <mat-form-field
+            appearance="outline"
+            class="transpilerClass-fxFlex-db1786 transpilerClass-fxFlex-2d5d07"
+          >
             <mat-label>{{ 'City' | translate }}</mat-label>
             <input
               [formControl]="this.form.controls['city']"
               matInput
               placeholder="{{ 'City' | translate }}"
-              required
               required
               type="text"
             />
@@ -160,13 +172,15 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field
+            appearance="outline"
+            class="transpilerClass-fxFlex-84bd88 transpilerClass-fxFlex-c236b0"
+          >
             <mat-label>{{ 'State / Province / Region' | translate }}</mat-label>
             <input
               [formControl]="this.form.controls['regionProvinceState']"
               matInput
               placeholder="{{ 'State / Province / Region' | translate }}"
-              required
               required
               type="text"
             />
@@ -192,8 +206,8 @@
       <!--        </mat-error>-->
       <!--      </mat-form-field>-->
       <div formGroupName="address">
-        <div fxLayout="row" fxLayoutGap="10px">
-          <mat-form-field fxFlex="80" appearance="outline">
+        <div class="d-flex transpilerClass-fxLayoutGap-7b46e9">
+          <mat-form-field appearance="outline" class="transpilerClass-fxFlex-967bbc">
             <mat-label>{{ 'Calle' | translate }}</mat-label>
             <input
               formControlName="street"
@@ -205,7 +219,7 @@
               {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
-          <mat-form-field fxFlex="20" appearance="outline">
+          <mat-form-field appearance="outline" class="transpilerClass-fxFlex-4291da">
             <mat-label>{{ 'Number' | translate }}</mat-label>
             <input
               formControlName="number"
@@ -242,8 +256,11 @@
         ></textarea>
       </mat-form-field>
 
-      <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-        <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+      <div class="d-flex justify-content-between align-items-center">
+        <mat-form-field
+          appearance="outline"
+          class="transpilerClass-fxFlex-41b0b0 transpilerClass-fxFlex-5d3aae transpilerClass-fxFlex-8b1df8"
+        >
           <mat-label>{{ 'Identity card' | translate }}</mat-label>
           <input
             [formControl]="this.form.controls['dni']"
@@ -257,7 +274,10 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+        <mat-form-field
+          appearance="outline"
+          class="transpilerClass-fxFlex-057917 transpilerClass-fxFlex-5d8c1a transpilerClass-fxFlex-f52b3b"
+        >
           <mat-label>{{ 'Phone' | translate }}</mat-label>
           <input
             [formControl]="this.form.controls['phone']"
@@ -285,7 +305,11 @@
           {{ 'Aditional information' | translate }}
         </h3>
       </div>
-      <div class="mt-1" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
+      <div
+        class="mt-1 transpilerClass-fxFlex-6dbbfa transpilerClass-fxFlex-3b9d2d"
+        ngClass.sm="mt-1"
+        ngClass.xs="mt-1"
+      >
         <mat-form-field appearance="outline" class="w-100">
           <textarea
             [formControl]="this.form.controls['info']"
@@ -300,7 +324,7 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <div fxFlex="100" fxLayout="row" fxLayoutAlign="end center">
+    <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-2be6e9">
       <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button>
         {{ 'CERRAR' | translate }}
       </button>

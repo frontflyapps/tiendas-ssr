@@ -1,6 +1,6 @@
 import { IPagination } from '../../../core/classes/pagination.class';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { takeUntil } from 'rxjs/operators';
@@ -65,7 +65,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   allProducts: IProductCard[] = [];
   banners: any[] = [];
   loadingPopular = false;
-  businessConfig;
   loadingFeatured = false;
   loadingAllProduct = true;
   loadingServices = true;
@@ -153,9 +152,9 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     private productService: ProductService,
     private globalStateOfCookieService: GlobalStateOfCookieService,
   ) {
-    this.productService.updatedSectionsProduct$.subscribe((response) => {
-      this.sectionProducts = localStorageService.getFromStorage('sections');
-      this.visualizationSections = localStorageService.getFromStorage('sectionsIds').data;
+    this.productService.updatedSectionsProduct$.subscribe(() => {
+      this.sectionProducts = this.productService.sections;
+      this.visualizationSections = this.productService.sectionIds;
       let cont = 0;
       this.sectionProducts.map((item) => {
         if (item.categories) {
@@ -225,7 +224,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     });
     this.productService.getAllProductsSections();
     this._unsubscribeAll = new Subject<any>();
-    this.businessConfig = this.localStorageService.getFromStorage('business-config');
     this.language = this.loggedInUserService.getLanguage()
       ? this.loggedInUserService.getLanguage().lang
       : 'es';
@@ -243,12 +241,14 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     // this.productService.updatedProducts$.subscribe((response) => {
     //   this.frontProduct();
     // });
-    // this.metaService.setMeta(
-    //   environment.meta?.mainPage?.title,
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+
+    this.metaService.setMeta({
+      title: environment.meta.mainPage.title,
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
+
     this.applyResolution();
   }
 
@@ -267,9 +267,9 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   frontProduct() {
     if (this.arrayProducts.length === 0) {
       // this.productService.updatedProducts$.subscribe((response) => {
-      if (this.businessConfig?.frontDataProduct === 'normal') {
+      if (this.appService.businessConfig?.frontDataProduct === 'normal') {
         this.getDataProducts();
-      } else if (this.businessConfig?.frontDataProduct === 'category') {
+      } else if (this.appService.businessConfig?.frontDataProduct === 'category') {
         this.getCategoriesProducts();
       } else {
         this.getCategoriesProducts();
@@ -286,11 +286,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     this.loadingBestSellers = true;
 
     this.getPFDFromStorage();
-    this.appService.$businessConfig.pipe(takeUntil(this._unsubscribeAll)).subscribe((data: any) => {
-      this.businessConfig = data;
-      // console.log('************', this.businessConfig);
-      // this.getDataProducts();
-    });
 
     this.loggedInUserService.$languageChanged
       .pipe(takeUntil(this._unsubscribeAll))

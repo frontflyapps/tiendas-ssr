@@ -1,7 +1,4 @@
 export interface Environment {
-  // peopleGoTo | transfermovil | bidaiondo
-  pasarelaBase: string;
-
   production: boolean;
 
   apiUrl: string;
@@ -63,5 +60,3 @@ export interface Environment {
     tslint?: string;
   };
 }
-
-export type AppName = 'VeoVeo' | 'Umbralf';

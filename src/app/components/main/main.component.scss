@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 #nav-location {
@@ -378,4 +379,32 @@ app-main,
 
 .shepherd-text {
   padding: 1.5rem;
+}
+
+.transpilerClass-fxFlex-8d5186 {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxFlex-5e004c {
+  flex: 1 1 grow;
+}
+
+.transpilerClass-fxFlex-ff0b3d {
+  flex: 1 1 75%;
+}
+
+.transpilerClass-fxFlex-fe6231 {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxLayoutGap-d9913a {
+  gap: 1rem;
+}
+
+.transpilerClass-fxLayoutGap-f0f153 {
+  gap: 4px;
+}
+
+.transpilerClass-fxLayoutGap-f9d6f6 {
+  gap: 20;
 }

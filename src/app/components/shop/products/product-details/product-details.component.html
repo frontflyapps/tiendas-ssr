@@ -8,30 +8,22 @@
   </div>
   <div
     *ngIf="!this.errorPage && !isLoading"
-    class="details-wrapper sec-padding"
-    fxLayout="row wrap"
+    class="details-wrapper sec-padding d-flex"
     ngClass.lt-md="pt-3"
   >
-    <div class="h-100" fxFlex="100" fxFlex.gt-sm="77" fxLayout="column">
+    <div
+      class="h-100 d-flex flex-column transpilerClass-fxFlex-5fd0c1 transpilerClass-fxFlex-50ff5f"
+    >
       <div
-        fxFlex="100"
-        fxFlex.gt-md="100"
-        fxFlex.gt-sm="100"
-        fxLayout="row"
-        fxLayout.sm="row wrap"
-        fxLayout.xs="row wrap"
-        fxLayoutAlign="start start"
+        class="d-flex d-xs-flex d-sm-flex d-md-flex justify-content-start align-items-start transpilerClass-fxFlex-3e20de transpilerClass-fxFlex-b5dde5 transpilerClass-fxFlex-cc333f"
       >
         <!--    NAME PRODUCT AND PRICE    -->
         <div
-          class="product-right my-0"
-          fxLayout="column"
-          fxLayoutAlign="start start"
-          fxHide
-          fxShow.sm
-          fxShow.xs
+          class="product-right my-0 d-flex flex-column justify-content-start align-items-start d-xs-block d-sm-block d-md-block d-none"
         >
-          <div class="product-details my-0" fxLayout="column" fxLayoutAlign="start start">
+          <div
+            class="product-details my-0 d-flex flex-column justify-content-start align-items-start"
+          >
             <h1 class="nameProductVariant">
               {{ product?.name[language] ? product?.name[language] : product?.name['es'] }}
             </h1>
@@ -53,9 +45,7 @@
 
             <div
               *ngIf="!product.offerValue && product.status !== 'comingSoon'"
-              fxLayout="row wrap"
-              fxLayoutAlign="start center"
-              fxLayoutGap="10px"
+              class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-841f4c"
             >
               <h3 class="price mb-10">{{ product | parsePriceProduct }}</h3>
               <span class="location-span" *ngIf="showLocationSpan"
@@ -69,14 +59,11 @@
           </div>
         </div>
         <!--    IMAGES    -->
-        <div fxFlex="100" fxFlex.gt-md="66" fxLayoutAlign="center center">
+        <div
+          class="d-flex justify-content-center align-items-center transpilerClass-fxFlex-48ead6 transpilerClass-fxFlex-55e027"
+        >
           <mat-card
-            class="my-product mat-elevation-z0"
-            fxLayout="row"
-            fxLayout.xs="column"
-            fxLayout.sm="column"
-            fxHide.sm
-            fxHide.xs
+            class="my-product mat-elevation-z0 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column d-xs-none d-sm-none d-md-none"
           >
             <!--            <button matTooltip="{{ 'Zoom for a image' | translate }}" id="zoomBtn" mat-icon-button-->
             <!--                    (click)="openZoomViewer()">-->
@@ -84,19 +71,16 @@
             <!--            </button>-->
             <button
               (click)="onShareProduct()"
-              fxHide
-              fxShow.lt-md
               id="shareBtn"
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
+              class="d-sm-inline d-none"
             >
               <mat-icon>share</mat-icon>
             </button>
             <div
               *ngIf="product?.Images && product?.Images?.length"
-              class="p-2 mt-2"
-              fxLayout="column"
-              fxLayoutAlign="center center"
+              class="p-2 mt-2 d-flex flex-column justify-content-center align-items-center"
             >
               <div
                 *ngFor="let image of arrayImages; let i = index"
@@ -113,7 +97,7 @@
                 />
               </div>
             </div>
-            <div fxLayoutAlign="center center" class="w-100">
+            <div class="w-100 d-flex justify-content-center align-items-center">
               <ng-container *ngIf="product?.Images && product?.Images.length">
                 <ng-container *ngFor="let image of arrayImages; let i = index">
                   <!--                  <img *ngIf="image.selected"-->
@@ -136,35 +120,40 @@
                 lazyImg
                 *ngIf="!(product?.Images && product?.Images?.length)"
                 src="/assets/images/noImage.jpg"
-                alt=""
+                alt
                 class="ImageProduct"
               />
             </div>
           </mat-card>
 
-          <mat-card class="mat-elevation-z0 w-100" fxLayout="column" fxHide fxShow.sm fxShow.xs>
+          <mat-card
+            class="mat-elevation-z0 w-100 d-flex flex-column d-xs-inline d-sm-inline d-md-inline d-none"
+          >
             <span *ngIf="product?.justPublished" class="just-published">
               {{ 'NUEVO' | translate }}
             </span>
             <button
               (click)="onShareProduct()"
-              fxHide
-              fxShow.lt-md
               id="shareBtn"
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
+              class="d-sm-inline d-none"
             >
               <mat-icon>share</mat-icon>
             </button>
-            <div fxLayoutAlign="center center">
+            <div class="d-flex justify-content-center align-items-center">
               <div class="main-slider">
                 <swiper-container init="false" id="app-product-details-sm-xs" class="h-100">
                   <swiper-slide
                     *ngFor="let image of arrayImages; let i = index"
-                    fxLayoutAlign="center center"
+                    class="d-flex justify-content-center align-items-center"
                   >
-                    <div class="slide-item swiper-lazy" fxLayoutAlign="center center">
-                      <div class="container-carrusel" fxLayoutAlign="center center">
+                    <div
+                      class="slide-item swiper-lazy d-flex justify-content-center align-items-center"
+                    >
+                      <div
+                        class="container-carrusel d-flex justify-content-center align-items-center"
+                      >
                         <img [src]="image.image" class="img-swiper" />
                       </div>
                     </div>
@@ -176,7 +165,7 @@
                 lazyImg
                 *ngIf="!(product?.Images && product?.Images?.length)"
                 src="/assets/images/noImage.jpg"
-                alt=""
+                alt
                 class="ImageProduct"
               />
             </div>
@@ -185,20 +174,17 @@
         <!--    VARIANTS    -->
         <div
           *ngIf="!isLoading"
-          fxFlex="100"
-          fxFlex.gt-md="34"
-          fxFlex.md="90"
           ngClass.gt-sm="px-3 m-0"
+          class="transpilerClass-fxFlex-08af0b transpilerClass-fxFlex-153817 transpilerClass-fxFlex-96b1c0"
         >
-          <div class="product-right" fxLayout="column">
-            <div class="product-details" fxLayout="column">
-              <h1 class="nameProduct" fxHide.sm fxHide.xs>
+          <div class="product-right d-flex flex-column">
+            <div class="product-details d-flex flex-column">
+              <h1 class="nameProduct d-xs-none d-sm-none d-md-none">
                 {{ product.name[language] ? product.name[language] : product.name['es'] }}
               </h1>
               <div
                 *ngIf="product.offerValue && product.status !== 'comingSoon'"
-                fxHide.sm
-                fxHide.xs
+                class="d-xs-none d-sm-none d-md-none"
               >
                 <h1 class="mb-10">
                   <del>{{ product | parsePriceProduct }}</del>
@@ -217,11 +203,7 @@
 
               <div
                 *ngIf="!product.offerValue && product.status !== 'comingSoon'"
-                fxLayout="row wrap"
-                fxLayoutAlign="start center"
-                fxLayoutGap="10px"
-                fxHide.sm
-                fxHide.xs
+                class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-0d90b8 d-xs-none d-sm-none d-md-none"
               >
                 <h3 class="price mb-10">{{ product | parsePriceProduct }}</h3>
                 <span class="location-span" *ngIf="showLocationSpan"
@@ -237,8 +219,7 @@
               <div *ngIf="!loadingRelated">
                 <div
                   *ngFor="let carrusel of relatedProduct; let i = index"
-                  fxLayout="column"
-                  fxLayoutAlign="start start"
+                  class="d-flex flex-column justify-content-start align-items-start"
                 >
                   <span class="title-variant">{{ carrusel.name }}</span>
                   <!--                  <span class='subtitle-variant'>{{carrusel.description}}</span>-->
@@ -247,17 +228,15 @@
                       <div class="swiper-wrapper h-100">
                         <!--                        {{imageUrl + carrusel.Recomendeds[0].RecomendedProduct.Images[0].image}}-->
                         <div
-                          class="swiper-slide swiper-slide-variants"
-                          fxLayoutAlign="center center"
-                          fxLayoutGap="10px"
+                          class="swiper-slide swiper-slide-variants d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-552b0c"
                           *ngFor="let variant of carrusel.Recomendeds"
                         >
                           <div
-                            class="slide-item swiper-lazy mx-10"
-                            fxLayoutAlign="center center"
-                            fxLayoutGap="10px"
+                            class="slide-item swiper-lazy mx-10 d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-2822db"
                           >
-                            <div class="container-carrusel-variants" fxLayoutAlign="center center">
+                            <div
+                              class="container-carrusel-variants d-flex justify-content-center align-items-center"
+                            >
                               <a
                                 [queryParams]="{
                                   productId: variant?.ProductId,
@@ -307,18 +286,13 @@
                 {{ 'Precios de venta según la cantidad a comprar' | translate }}
               </p>
               <div
-                fxLayout="row wrap"
-                fxLayoutAlign="start center"
-                fxLayoutGap="gappx"
                 style="border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee"
+                class="d-flex justify-content-start align-items-center"
               >
                 <div
                   *ngFor="let item of product.PriceRanges"
                   [matTooltip]="'entre ' + item.min + ' y ' + item.max + ' unidades'"
-                  class="mx-2 py-3"
-                  fxLayout="column"
-                  fxLayoutAlign="start start"
-                  fxLayoutGap="gappx"
+                  class="mx-2 py-3 d-flex flex-column justify-content-start align-items-start"
                   style="width: 80px"
                 >
                   <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>
@@ -370,8 +344,8 @@
                 </div>
                 <div class="quantity" *ngIf="product.status !== 'comingSoon'">
                   <span class="text-muted fw-500">{{ 'Quantity' | translate }}:</span>
-                  <div class="text-muted" fxLayout="row" fxLayout.xs="column">
-                    <div fxLayout="row" fxLayoutAlign="center start">
+                  <div class="text-muted d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column">
+                    <div class="d-flex justify-content-center align-items-start">
                       <div class="addQuantity">
                         <button
                           (click)="decrement()"
@@ -406,10 +380,7 @@
               </div>
 
               <div
-                class="buttons mt-20"
-                fxLayout="row"
-                fxLayoutAlign="start center"
-                fxLayoutAlign.lt-sm="center center"
+                class="buttons mt-20 d-flex justify-content-start align-items-center d-xs-flex justify-content-center justify-content-xs-center align-items-xs-center"
                 *ngIf="product.typeAddCart === 'glasses' && product.status !== 'comingSoon'"
               >
                 <button
@@ -425,10 +396,7 @@
               </div>
 
               <div
-                class="buttons"
-                fxLayout="row"
-                fxLayoutAlign="start center"
-                fxLayoutAlign.lt-sm="center center"
+                class="buttons d-flex justify-content-start align-items-center d-xs-flex justify-content-center justify-content-xs-center align-items-xs-center"
                 *ngIf="product.status !== 'comingSoon'"
               >
                 <button
@@ -458,10 +426,7 @@
 
       <div
         *ngIf="!isLoading"
-        fxFlex="100"
-        fxFlex.md="75"
-        fxLayout="row"
-        fxLayoutAlign="start start"
+        class="d-flex justify-content-start align-items-start transpilerClass-fxFlex-1541c0 transpilerClass-fxFlex-df8990"
       >
         <mat-tab-group [selectedIndex]="indexTab" ngClass.gt-sm="w-95" ngClass.lt-md="w-100">
           <mat-tab label="{{ 'Details' | translate }}">
@@ -487,13 +452,11 @@
             </div>
           </mat-tab>
           <mat-tab *ngIf="loggedInUser" label="{{ 'Reviews' | translate }}">
-            <div fxLayout="container">
+            <div class="d-flex">
               <div class="full-desc lh px-4" ngClass.lt-md="px-0">
                 <div
                   *ngFor="let review of allReviews"
-                  class="content"
-                  fxLayout="row"
-                  fxLayoutAlign="start center"
+                  class="content d-flex justify-content-start align-items-center"
                 >
                   <img
                     *ngIf="review.Client.avatar"
@@ -507,7 +470,9 @@
                     alt="image"
                     class="review-author"
                   />
-                  <div class="ml-2 text-list" fxLayout="column" fxLayoutAlign="start start">
+                  <div
+                    class="ml-2 text-list d-flex flex-column justify-content-start align-items-start"
+                  >
                     <span class="name mat-body-2"
                       >{{ review.Client.name + ' ' + (review.Client.lastname || '') }}
                       <span class="text-muted"
@@ -531,10 +496,8 @@
                 </div>
 
                 <div
-                  fxLayout="row"
                   *ngIf="this.queryReviews.offset < this.queryReviews.total"
-                  class="py-3"
-                  fxLayoutAlign="center center"
+                  class="py-3 d-flex justify-content-center align-items-center"
                 >
                   <button
                     (click)="onGetMorePriviews()"
@@ -557,8 +520,8 @@
                     }}
                   </p>
 
-                  <form [formGroup]="reviewForm" fxLayout="row wrap">
-                    <h3 class="mt-2" fxLayoutAlign="start center">
+                  <form [formGroup]="reviewForm" class="d-flex">
+                    <h3 class="mt-2 d-flex justify-content-start align-items-center">
                       <span class="mr-2">{{ 'Your Rating: ' | translate }}</span>
                       <guachos-rating
                         [config]="{
@@ -572,7 +535,7 @@
                       </guachos-rating>
                     </h3>
 
-                    <div fxFlex="100" fxFlex.gt-sm="100">
+                    <div class="transpilerClass-fxFlex-17ecd9 transpilerClass-fxFlex-23a526">
                       <mat-form-field appearance="outline" class="w-100">
                         <mat-label>{{ 'Post content' | translate }}</mat-label>
                         <textarea
@@ -588,10 +551,7 @@
                       </mat-form-field>
                     </div>
                     <div
-                      class="button-wrap px-1 mt-2"
-                      fxFlex="100"
-                      fxFlex.gt-sm="100"
-                      fxLayoutAlign="end start"
+                      class="button-wrap px-1 mt-2 d-flex justify-content-end align-items-start transpilerClass-fxFlex-15da60 transpilerClass-fxFlex-431ed9"
                     >
                       <button
                         (click)="onPostReview()"
@@ -611,7 +571,7 @@
         </mat-tab-group>
       </div>
 
-      <div fxHide fxShow.lt-md>
+      <div class="d-sm-block d-none">
         <ng-container [ngTemplateOutlet]="providerDetails"></ng-container>
       </div>
 
@@ -636,10 +596,7 @@
         (scrolled)="loadProducts()"
       >
         <div
-          fxLayout
-          fxLayoutAlign="space-between center"
-          fxLayout.lt-md="column"
-          fxLayoutAlign.lt-md="space-between start"
+          class="d-flex d-sm-flex flex-column flex-sm-column justify-content-between align-items-center justify-content-sm-between align-items-start align-items-sm-start"
         >
           <div class="title">
             <h4 class="widget-title">{{ 'Otros productos del negocio' | translate }}</h4>
@@ -669,14 +626,12 @@
 
         <div
           *ngIf="allProductsOnMenu.length >= 0"
-          class="w-100"
-          fxLayout="row wrap"
-          fxLayoutAlign="start start"
+          class="w-100 d-flex justify-content-start align-items-start"
         >
           <app-product
             *ngFor="let products of allProductsOnMenu"
             [product]="products"
-            fxFlex.lt-md="100"
+            class="transpilerClass-fxFlex-bce043"
           ></app-product>
           <ng-container *ngIf="allProductsOnMenu.length == 0">
             <h3 class="py-4" style="text-align: center">
@@ -722,24 +677,25 @@
       <!--      </div>-->
     </div>
 
-    <div fxLayout="row wrap" fxLayoutAlign="start start" fxFlex="100" fxFlex.gt-sm="23">
-      <div fxHide.lt-md fxShow>
+    <div
+      class="d-flex justify-content-start align-items-start transpilerClass-fxFlex-b72cca transpilerClass-fxFlex-a2829c"
+    >
+      <div class="d-block d-sm-none">
         <ng-container [ngTemplateOutlet]="providerDetails"></ng-container>
       </div>
 
       <div
-        fxHide.xs
-        fxLayout="row wrap"
-        class="info-bar"
+        class="info-bar d-flex d-xs-none d-sm-none"
         style="border-radius: 4px !important"
         ngClass.gt-md="m-0"
       >
-        <div *ngFor="let item of allBicons; let i = index" fxFlex="100" class="mt-16">
+        <div
+          *ngFor="let item of allBicons; let i = index"
+          class="mt-16 transpilerClass-fxFlex-1b172e"
+        >
           <mat-card
-            class="light-block"
+            class="light-block d-flex justify-content-start align-items-center"
             [ngClass]="{ 'no-border': i === allBicons.length - 1 }"
-            fxLayout="row"
-            fxLayoutAlign="start center"
           >
             <mat-icon class="mat-icon-xlg m-0 icon-common-bicon">{{ item.icon }}</mat-icon>
             <div class="content ml-4">
@@ -756,18 +712,14 @@
         <mat-divider class="my-2"></mat-divider>
         <a
           (click)="onAddtoCartNav()"
-          class="list-compare-link"
-          fxLayout="row"
-          fxLayoutAlign="start center"
+          class="list-compare-link d-flex justify-content-start align-items-center"
         >
           <mat-icon class="mr-2"> shopping_cart</mat-icon>
           {{ 'Añadir al carrito' | translate }}
         </a>
         <a
           (click)="onAddtoCompListNav()"
-          class="list-compare-link"
-          fxLayout="row"
-          fxLayoutAlign="start center"
+          class="list-compare-link d-flex justify-content-start align-items-center"
         >
           <mat-icon class="mr-2"> compare_arrows</mat-icon>
           {{ 'Añadir a la lista de comparación' | translate }}
@@ -775,16 +727,14 @@
 
         <a
           (click)="onGoToCheckouNav()"
-          class="list-compare-link"
-          fxLayout="row"
-          fxLayoutAlign="start center"
+          class="list-compare-link d-flex justify-content-start align-items-center"
         >
           <mat-icon class="mr-2"> slideshow</mat-icon>
           {{ 'Comprar ahora' | translate }}
         </a>
 
         <mat-divider class="my-2"></mat-divider>
-        <section *ngIf="!isLoading" fxHide.lt-md>
+        <section *ngIf="!isLoading" class="d-sm-none">
           <share-button
             [description]="this.product?.name?.es + ': \n' + this.product?.shortDescription?.es"
             [title]="this.product?.name?.es"
@@ -811,13 +761,15 @@
           >
           </share-button>
         </section>
-        <mat-divider fxHide.lt-md class="my-2"></mat-divider>
+        <mat-divider class="my-2 d-sm-none"></mat-divider>
       </div>
 
       <ng-template #providerDetails>
         <div style="width: 100%">
           <h4 class="mat-body-2 uppercase">{{ 'Comprando en' | translate }}</h4>
-          <a class="list-compare-link no-decoration" fxLayout="row" fxLayoutAlign="start center">
+          <a
+            class="list-compare-link no-decoration d-flex justify-content-start align-items-center"
+          >
             <img
               style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover"
               [src]="imageUrl + product?.Business?.logo"
@@ -828,9 +780,11 @@
               product?.Business?.name | parseLang: utilsService.getLang()
             }}</span>
           </a>
-          <a class="list-compare-link no-decoration" fxLayout="row" fxLayoutAlign="start center">
+          <a
+            class="list-compare-link no-decoration d-flex justify-content-start align-items-center"
+          >
             <mat-icon class="mr-2 icon-common"> location_on</mat-icon>
-            <div fxLayout="column">
+            <div class="d-flex flex-column">
               <div>{{ product?.Business?.address | parseLang: utilsService.getLang() }}.</div>
               <div>
                 <strong>
@@ -841,11 +795,11 @@
             </div>
           </a>
 
-          <a class="list-compare-link" fxLayout="row" fxLayoutAlign="start center">
+          <a class="list-compare-link d-flex justify-content-start align-items-center">
             <mat-icon class="mr-2 icon-common"> phone</mat-icon>
             <a href="tel:{{ product?.Business?.cellphone }}">{{ product?.Business?.cellphone }}</a>
           </a>
-          <a class="list-compare-link" fxLayout="row" fxLayoutAlign="start center">
+          <a class="list-compare-link d-flex justify-content-start align-items-center">
             <mat-icon class="mr-2 icon-common"> mail</mat-icon>
             <a class="email-text" href="mailto:{{ product?.Business?.email }}">{{
               product?.Business?.email
@@ -855,7 +809,7 @@
         </div>
       </ng-template>
 
-      <div class="popular-products mt-2" fxFlex.lt-md="100">
+      <div class="popular-products mt-2 transpilerClass-fxFlex-9699af">
         <app-popular-products></app-popular-products>
       </div>
     </div>
@@ -863,17 +817,13 @@
 
   <!-- =========================================================== -->
   <!-- ======== on NO PRODUCT ================================== -->
-  <div *ngIf="errorPage" class="mb-4" fxLayout="column">
+  <div *ngIf="errorPage" class="mb-4 d-flex flex-column">
     <section
-      class="py-4 product-detail-not-found"
-      fxLayout="row"
-      fxLayout.xs="column"
-      fxLayoutAlign="center"
-      fxLayoutAlign.xs="start"
-      fxLayoutGap="6rem"
-      fxLayoutGap.xs="0"
+      class="py-4 product-detail-not-found d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center justify-content-xs-start justify-content-sm-start transpilerClass-fxLayoutGap-9aaa6f transpilerClass-fxLayoutGap-a44a3f"
     >
-      <picture [fxFlexOrder.xs]="2" class="pdnf-picture" fxFlex="50" fxFlex.xs="100">
+      <picture
+        class="pdnf-picture transpilerClass-fxFlex-8a1206 transpilerClass-fxFlex-19b1ea order-xs-2 order-sm-2"
+      >
         <!--        <source srcset="assets/images/not-found-product.webp" type="image/webp">-->
         <!--        <source srcset="assets/images/not-found-product.png" type="image/png">-->
         <img
@@ -885,20 +835,15 @@
       </picture>
 
       <div
-        [fxFlexOrder.xs]="1"
-        class="pdnf-right-side-text"
-        fxFlex="50"
-        fxFlex.xs="100"
-        fxLayout="column"
-        fxLayoutAlign="center start"
+        class="pdnf-right-side-text d-flex flex-column justify-content-center align-items-start transpilerClass-fxFlex-828a75 transpilerClass-fxFlex-18df1e order-xs-1 order-sm-1"
       >
-        <div [fxFlexOrder.xs]="1" class="pdnf-1-text mb-4">{{ 'Upss' | translate }}...</div>
-        <div [fxFlexOrder.xs]="2" class="pdnf-2-text mb-1">{{ 'Lo sentimos' | translate }}</div>
-        <div [fxFlexOrder.xs]="3" class="pdnf-3-text mb-4">
+        <div class="pdnf-1-text mb-4 order-xs-1 order-sm-1">{{ 'Upss' | translate }}...</div>
+        <div class="pdnf-2-text mb-1 order-xs-2 order-sm-2">{{ 'Lo sentimos' | translate }}</div>
+        <div class="pdnf-3-text mb-4 order-xs-3 order-sm-3">
           {{ 'El producto que busca no se encuentra disponible' | translate }}
         </div>
 
-        <div [fxFlexOrder.xs]="4" class="pdnf-action-button">
+        <div class="pdnf-action-button order-xs-4 order-sm-4">
           <button
             [routerLink]="['/products/search']"
             color="primary"
@@ -934,13 +879,13 @@
 </div>
 
 <div *ngIf="showZoom" class="popup" id="popup">
-  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="gappx">
+  <div class="d-flex justify-content-end align-items-center">
     <button (click)="this.showZoom = false" mat-icon-button>
       <mat-icon class="mat-18">clear</mat-icon>
     </button>
   </div>
 
-  <div fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+  <div fxFlexFill class="d-flex flex-column justify-content-center align-items-center">
     <img [src]="this.mainImage.image" />
   </div>
 </div>

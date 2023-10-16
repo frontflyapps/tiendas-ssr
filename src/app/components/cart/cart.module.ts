@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { CartComponent } from './cart/cart.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,7 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     TranslateModule,
     MatIconModule,
     MatButtonModule,
-    FlexLayoutModule,
+
     PipesModule,
     MatCardModule,
     MatToolbarModule,

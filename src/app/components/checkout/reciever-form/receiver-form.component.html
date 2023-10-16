@@ -1,9 +1,6 @@
 <div class="container-checkout checkout sec-padding my-5">
   <div
-    class="billing-details"
-    fxFlex="100"
-    fxFlex.gt-md="50"
-    fxFlex.md="50"
+    class="billing-details transpilerClass-fxFlex-70fc9a transpilerClass-fxFlex-ee1f14 transpilerClass-fxFlex-2dff13"
     ngClass.gt-sm="pr-5"
     ngClass.sm="pr-2"
     ngClass.xs="pr-0"
@@ -14,20 +11,14 @@
       </h3>
     </div>
 
-    <div [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="start start">
+    <div [formGroup]="form" class="d-flex justify-content-start align-items-start">
       <div
-        fxFlex="100"
-        fxLayout="column"
-        fxLayoutAlign="start stretch"
         ngClass.sm="mt-2"
         ngClass.xs="mt-2"
+        class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-0eddeb"
       >
         <div
-          fxLayout="row"
-          fxLayout.xs="column"
-          fxLayoutAlign="space-between center"
-          fxLayoutAlign.xs="start end"
-          fxLayoutGap="0.5rem"
+          class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-c95051"
         >
           <p
             class="mat-body-2 my-2"
@@ -72,8 +63,11 @@
           </mat-menu>
         </div>
 
-        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-          <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+        <div class="d-flex justify-content-between align-items-center">
+          <mat-form-field
+            appearance="outline"
+            class="transpilerClass-fxFlex-902826 transpilerClass-fxFlex-017686 transpilerClass-fxFlex-a6a454"
+          >
             <mat-label>{{ 'Name' | translate }}</mat-label>
             <input
               [formControl]="this.form.controls['name']"
@@ -86,7 +80,10 @@
               {{ 'Name' | translate }} <strong>{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
-          <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48">
+          <mat-form-field
+            appearance="outline"
+            class="transpilerClass-fxFlex-1597e8 transpilerClass-fxFlex-e78b0c transpilerClass-fxFlex-5e99ca"
+          >
             <mat-label>{{ 'Lastname' | translate }}</mat-label>
             <input
               [formControl]="this.form.controls['lastName']"
@@ -137,8 +134,11 @@
 
         <!-- SOLO PARA CUBANOS -->
         <ng-container *ngIf="onlyCubanPeople">
-          <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-            <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+          <div class="d-flex justify-content-between align-items-center">
+            <mat-form-field
+              appearance="outline"
+              class="transpilerClass-fxFlex-6aa84f transpilerClass-fxFlex-94ac99"
+            >
               <mat-label>{{ 'Provincia' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="onSelectProvince($event.value)"
@@ -157,7 +157,10 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+            <mat-form-field
+              appearance="outline"
+              class="transpilerClass-fxFlex-c09272 transpilerClass-fxFlex-f48bd2"
+            >
               <mat-label>{{ 'Municipio' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
@@ -245,8 +248,8 @@
         <!--        </ng-container>-->
 
         <div formGroupName="address">
-          <div fxLayout="row" fxLayoutGap="10px">
-            <mat-form-field fxFlex="80" appearance="outline">
+          <div class="d-flex transpilerClass-fxLayoutGap-56b70b">
+            <mat-form-field appearance="outline" class="transpilerClass-fxFlex-2f28f4">
               <mat-label>{{ 'Calle' | translate }}</mat-label>
               <input
                 formControlName="street"
@@ -259,7 +262,7 @@
                 {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
-            <mat-form-field fxFlex="20" appearance="outline">
+            <mat-form-field appearance="outline" class="transpilerClass-fxFlex-d1d0f2">
               <mat-label>{{ 'Número' | translate }}</mat-label>
               <input
                 formControlName="number"
@@ -288,13 +291,11 @@
           </mat-form-field>
         </div>
 
-        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <div class="d-flex justify-content-between align-items-center">
           <mat-form-field
             appearance="outline"
-            fxFlex="100"
-            fxFlex.gt-md="48"
-            fxFlex.md="48"
             id="CI"
+            class="transpilerClass-fxFlex-bf4358 transpilerClass-fxFlex-ae5db6 transpilerClass-fxFlex-9eb952"
           >
             <mat-label>{{ 'Identity card' | translate }}</mat-label>
             <input
@@ -317,10 +318,8 @@
 
           <mat-form-field
             appearance="outline"
-            fxFlex="100"
-            fxFlex.gt-md="48"
-            fxFlex.md="48"
             id="phone-checkout"
+            class="transpilerClass-fxFlex-d7dd4d transpilerClass-fxFlex-b3f3ba transpilerClass-fxFlex-0b296e"
           >
             <mat-label>{{ 'Phone' | translate }}</mat-label>
             <span class="mr-2" matPrefix>+ 53</span>
@@ -450,7 +449,11 @@
           {{ 'Aditional information' | translate }}
         </h3>
       </div>
-      <div class="mt-1" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
+      <div
+        class="mt-1 transpilerClass-fxFlex-641971 transpilerClass-fxFlex-c66d20"
+        ngClass.sm="mt-1"
+        ngClass.xs="mt-1"
+      >
         <mat-form-field appearance="outline" class="w-100">
           <textarea
             [formControl]="this.form.controls['info']"
@@ -463,7 +466,9 @@
         </mat-form-field>
       </div>
 
-      <div class="actions-buttons" fxFlex="grow" fxLayout="row" fxLayoutAlign="space-between start">
+      <div
+        class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-1dcd13"
+      >
         <button mat-stroked-button matStepperPrevious>{{ 'Atrás' | translate }}</button>
         <button
           (click)="onGoToPayment()"

@@ -31,12 +31,13 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   ) {
     this._unsubscribeAll = new Subject();
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-    // this.metaService.setMeta(
-    //   'Quienes somos?',
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+
+    this.metaService.setMeta({
+      title: 'Quienes somos?',
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
   }
 
   ngOnInit() {

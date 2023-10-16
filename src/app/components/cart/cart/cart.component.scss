@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 /***************************************
@@ -35,7 +36,7 @@
     }
   }
 
-  .mat-card {
+  .mat-mdc-card {
     text-align: center;
 
     .cart-table.mat-table {
@@ -236,4 +237,8 @@
     font-size: 12px !important;
     color: #424242 !important;
   }
+}
+
+.transpilerClass-fxFlex-551987 {
+  flex: 1 1 100%;
 }

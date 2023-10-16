@@ -5,7 +5,7 @@ import { ShopsListRoutingModule } from './shops-list-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ShopsListRoutingModule,
-    FlexLayoutModule,
+
     TranslateModule,
     MatButtonModule,
     MatIconModule,

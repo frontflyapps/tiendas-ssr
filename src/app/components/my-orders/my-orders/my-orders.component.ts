@@ -190,12 +190,12 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
 
-    // this.metaService.setMeta(
-    //   environment.meta?.mainPage?.title,
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+    this.metaService.setMeta({
+      title: 'Mis órdenes',
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
   }
 
   @HostListener('window:resize', ['$event'])

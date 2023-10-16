@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DialogCaptchaComponent } from './dialog-captcha.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [
     CommonModule,
     DialogCaptchaRoutingModule,
-    FlexLayoutModule,
+
     TranslateModule,
     MatButtonModule,
     MatDialogModule,
@@ -33,7 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-    FlexLayoutModule,
+
     MatCardModule,
     MatDividerModule,
     MatButtonToggleModule,

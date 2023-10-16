@@ -13,7 +13,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { UpdateControllerModule } from './components/shared/updates-controller/update-controller.module';
 import { HttpLoaderFactory } from './core/services/translate-factory/translate-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'environments/environment';
 import { CuDownloadListModule } from 'guachos-cu-down-list';
@@ -24,14 +23,18 @@ import localeEs from '@angular/common/locales/es';
 import { register as swiperRegister } from 'swiper/element/bundle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BusinessConfigService } from './core/services/business-config/business-config.service';
+import { switchMap } from 'rxjs';
+import { handleObservable } from './core/utils/api';
 
+//https://swiperjs.com/element#install--register-from-npm
 swiperRegister();
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     BrowserModule,
     UpdateControllerModule,
     HttpClientModule,
@@ -41,7 +44,6 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     MatSnackBarModule,
     // CuDownloadListModule,
-    CoreModule,
     MatDialogModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({
@@ -60,6 +62,12 @@ registerLocaleData(localeEs, 'es');
   ],
   providers: [
     provideClientHydration(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeAppConfig,
+      deps: [BusinessConfigService],
+      multi: true,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
@@ -85,3 +93,19 @@ registerLocaleData(localeEs, 'es');
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+function initializeAppConfig(appService: BusinessConfigService) {
+  return () =>
+    new Promise<void>((resolve) => {
+      handleObservable<{ data: any }>(
+        appService.requestCookie().pipe(switchMap(() => appService.getBusinessConfig())),
+        {
+          onAfterSuccess: (data) => {
+            appService.businessConfig = data;
+            console.log('<<<<<<<<businessConfig>>>>>>>>', appService.businessConfig);
+            resolve();
+          },
+        },
+      );
+    });
+}

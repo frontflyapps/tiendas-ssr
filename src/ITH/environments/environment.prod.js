@@ -1,0 +1,55 @@
+export const PASARELA_BASE = 'peoplegoto';
+export const environment = {
+  production: true,
+
+  apiUrl: 'https://api.ithtienda.com/v1/',
+  imageUrl: 'https://cdntienda.ithtienda.com/',
+
+  defaultLanguage: 'es',
+  currencyInternational: 'USD',
+
+  logo: 'assets/images/logoWhite.png',
+  logoWhite: 'assets/images/logoWhite.png',
+  logoFooter: 'assets/images/logoWhite.png',
+
+  limitSearch: 42,
+
+  showPoweredBy: true,
+
+  showLocation: false,
+
+  timeToResetSession: 14400000, // (4hrs) Time to reset the session (ms)
+  timeToResearchProductData: 300000, // (5min) Time to research products (ms)
+  timeToResearchLandingPageData: 1800000, // (30min) Time to research landing-page (ms)
+  timeToResearchMenuData: 300000, // (30min) Time to research menu (ms)
+  timeToResearchCategoriesData: 600000, // (10min) Time to research categories (ms)
+
+  url: 'https://www.ithtienda.com/',
+  urlAboutUs: 'https://www.ithtienda.com/',
+
+  address: 'ITH',
+  localDatabaseUsers: true,
+
+  contacts: {
+    phone: '(+53) 7202-27-96',
+    email: 'atencionacliente@ith.cu',
+    address: 'Calle 1era # 2003 e/ 20 y 22, Miramar, Playa',
+  },
+
+  adminService: 'https://admin.ithtienda.com/',
+  mainDomain: '.ithtienda.com',
+
+  tokenBusiness:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjEsImlkIjoxLCJkYXRlIjoiMjAyMi0wMi0wMVQwNzoyNDozMy4wMDBaIiwibmFtZSI6IlRpZW5kYSIsImVtYWlsIjoidGllbmRhQGxvY2FsaG9zdC5jb20ifSwiaWF0IjoxNjQzNzQxOTgzfQ.swLHE7Djz1sJx0WqCXBOph85rlLKHHsr0ramPTiCWeE',
+
+  meta: {
+    mainPage: {
+      title: 'ITH S.A. | Empresa Comercializadora',
+      description:
+        'Tienda online desarrollada con el framework Angular permite la modelación de negocios B2C and C2C',
+      keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, Sin Cola, comercio online',
+      shareImg: 'https://www.ithtienda.com/assets/images/share-img.jpg',
+      url: 'https://www.ithtienda.com/',
+    },
+  },
+};

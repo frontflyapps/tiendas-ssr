@@ -1,4 +1,7 @@
-<mat-sidenav-container fullscreen *ngIf="businessConfig?.Business?.status !== 'blockPayment'">
+<mat-sidenav-container
+  fullscreen
+  *ngIf="appService.businessConfig?.Business?.status !== 'blockPayment'"
+>
   <!-- Vista movil menu -->
   <mat-sidenav #start [opened]="false" class="DrawerMobileView" mode="over">
     <mat-list class="position-relative">
@@ -23,7 +26,7 @@
 
     <mat-divider></mat-divider>
 
-    <div class="sidebar-nav-items" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="sidebar-nav-items d-flex flex-column justify-content-start align-items-stretch">
       <app-sidebar *ngFor="let item of navItems" [item]="item"></app-sidebar>
       <!--            <a mat-list-item class="link-nav-a" href="/become-a-seller">-->
       <!--              <mat-icon class="mr-3">card_membership</mat-icon>-->
@@ -50,7 +53,12 @@
     </mat-list>
 
     <mat-nav-list>
-      <a (click)="onShowProfile()" *ngIf="loggedInUser" fxLayoutAlign="start center" mat-list-item>
+      <a
+        (click)="onShowProfile()"
+        *ngIf="loggedInUser"
+        mat-list-item
+        class="d-flex justify-content-start align-items-center"
+      >
         <mat-icon>build</mat-icon>
         <span class="ml-3">{{ 'Profile' | translate }}</span>
       </a>
@@ -58,14 +66,19 @@
       <a
         (click)="onShowMyContacts()"
         *ngIf="loggedInUser"
-        fxLayoutAlign="start center"
         mat-list-item
+        class="d-flex justify-content-start align-items-center"
       >
         <mat-icon>book</mat-icon>
         <span class="ml-3">{{ 'Mis contactos' | translate }}</span>
       </a>
 
-      <a (click)="onChangePass()" *ngIf="loggedInUser" fxLayoutAlign="start center" mat-list-item>
+      <a
+        (click)="onChangePass()"
+        *ngIf="loggedInUser"
+        mat-list-item
+        class="d-flex justify-content-start align-items-center"
+      >
         <mat-icon>no_encryption</mat-icon>
         <span class="ml-3">{{ 'Cambiar contraseña' | translate }}</span>
       </a>
@@ -103,8 +116,8 @@
         <button
           (click)="changeCurrency(cur)"
           *ngFor="let cur of currencies"
-          fxLayoutAlign="start center"
           mat-menu-item
+          class="d-flex justify-content-start align-items-center"
         >
           <span>{{ cur?.name }}</span>
         </button>
@@ -159,33 +172,30 @@
   </mat-sidenav>
 
   <!-- Todos excepto vista movil -->
-  <div [class.py-2]="!loggedInUser" class="home-header" fxHide.lt-md>
-    <div class="container-header" fxLayout="row wrap" fxLayoutAlign="space-between center">
+  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none">
+    <div class="container-header d-flex justify-content-between align-items-center">
       <img
         alt="logo"
-        class="Logo-img"
-        fxHide.lt-md
-        fxShow
+        class="Logo-img d-inline d-sm-none"
         (click)="metaAdd()"
         routerLink="/"
         [src]="logo"
       />
-      <button (click)="start.toggle()" fxHide fxShow.lt-md mat-icon-button>
+      <button (click)="start.toggle()" mat-icon-button class="d-sm-block-i d-none-i">
         <mat-icon>menu</mat-icon>
       </button>
 
-      <div class="search-form" fxFlex fxLayout="row" fxLayoutAlign="start center">
-        <div class="search-form" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+      <div
+        class="search-form d-flex justify-content-start align-items-center transpilerClass-fxFlex-8d5186"
+      >
+        <div
+          class="search-form d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-d9913a"
+        >
           <!-- ======== -->
           <!-- Location -->
           <div
-            fxLayout="row"
-            fxLayoutAlign="start center"
-            fxLayoutGap="4px"
             id="nav-location"
-            class="info-location"
-            fxHide.lt-md
-            fxShow
+            class="info-location d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-f0f153 d-block d-sm-none"
             (click)="
               tour?.getCurrentStep()?.isOpen() ? $event.stopPropagation() : openSetLocation()
             "
@@ -193,7 +203,7 @@
             <div class="nl-logo">
               <mat-icon>room</mat-icon>
             </div>
-            <div *ngIf="business || province" class="nl-titles" fxLayout="column">
+            <div *ngIf="business || province" class="nl-titles d-flex flex-column">
               <ng-container *ngIf="business">
                 <div class="nl-province">{{ business?.name }}</div>
                 <div class="nl-municipality">{{ province?.name }}</div>
@@ -204,7 +214,7 @@
               </ng-container>
             </div>
 
-            <div *ngIf="!business && !province" class="nl-titles" fxLayout="column">
+            <div *ngIf="!business && !province" class="nl-titles d-flex flex-column">
               <!-- <span></span>
               <span></span>
               <span></span>
@@ -216,7 +226,7 @@
 
           <!-- ======== -->
           <!-- SEARCHING -->
-          <div class="form-wrap" fxFlex="grow">
+          <div class="form-wrap transpilerClass-fxFlex-5e004c">
             <input
               (keyup.enter)="onSearch()"
               [formControl]="searchForm"
@@ -231,13 +241,10 @@
       </div>
 
       <div
-        class="userWidgets"
-        fxLayout="row"
-        fxLayoutAlign="end center"
-        fxLayoutAlign.xs="start center"
+        class="userWidgets d-flex justify-content-end align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
         ngClass.xs="w-100"
       >
-        <div fxFlex="75" fxLayout="row" fxLayoutAlign="end center">
+        <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-ff0b3d">
           <div class="widget-text mx-2">
             <a
               #langMenuTrigger="matMenuTrigger"
@@ -246,7 +253,7 @@
               matTooltip="{{ 'Change language' | translate }}"
             >
               <img [src]="flag?.image" height="24" width="24" />
-              <span class="flag-menu-title" fxShow="false" fxShow.gt-sm></span>
+              <span class="flag-menu-title d-none d-sm-inline"></span>
               <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon"
                 >arrow_drop_down</mat-icon
               >
@@ -281,8 +288,7 @@
         <!--        </a>-->
 
         <a
-          fxLayoutAlign="start center"
-          class="px-3"
+          class="px-3 d-flex justify-content-start align-items-center"
           mat-button
           [matMenuTriggerFor]="currencyMenu"
           #currencyMenuTrigger="matMenuTrigger"
@@ -299,7 +305,7 @@
           <span>
             <span class="px-2 mt-1 title-mat-menu">{{ 'Currencies' | translate }}:</span>
             <button mat-menu-item *ngFor="let cur of currencies" (click)="changeCurrency(cur)">
-              <span>> {{ cur?.name | translate }}</span>
+              <span>&gt; {{ cur?.name | translate }}</span>
             </button>
           </span>
         </mat-menu>
@@ -322,7 +328,11 @@
 
         <!-- ================================ -->
         <!-- NOTIFICATIONS -->
-        <a *ngIf="loggedInUser" class="px-3" fxLayoutAlign="start center" style="color: white">
+        <a
+          *ngIf="loggedInUser"
+          class="px-3 d-flex justify-content-start align-items-center"
+          style="color: white"
+        >
           <button (click)="notificationBar.toggle()" mat-icon-button>
             <mat-icon
               [matBadge]="notificationsService.getUnreadNotifications()"
@@ -337,22 +347,18 @@
         <a
           *ngIf="!loggedInUser"
           [routerLink]="['/my-account']"
-          class="px-3"
-          fxLayoutAlign="start center"
-          fxShow="true"
+          class="px-3 d-flex justify-content-start align-items-center d-inline"
           routerLinkActive="router-link-active"
         >
           <mat-icon>person</mat-icon>
-          <span fxHide.xs>{{ 'Account' | translate }}</span>
+          <span class="d-xs-none d-sm-none">{{ 'Account' | translate }}</span>
         </a>
 
         <a
           #userMenuTrigger="matMenuTrigger"
           *ngIf="loggedInUser"
           [matMenuTriggerFor]="userMenu"
-          class="px-0 pl-2"
-          fxLayoutAlign="start center"
-          fxShow
+          class="px-0 pl-2 d-flex justify-content-start align-items-center d-inline"
           mat-icon-button
         >
           <!--          <img *ngIf='!this.loggedInUser?.avatar' alt='Profile'-->
@@ -436,20 +442,19 @@
   </div>
 
   <!--Home Header En vista movil -->
-  <div class="home-header-2 p-2" fxHide fxShow.lt-md>
-    <div fxLayout="column" fxLayoutAlign="start stretch">
-      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
-        <div class="main-logo-container" fxLayoutAlign="start center">
+  <div class="home-header-2 p-2 d-sm-block d-none">
+    <div class="d-flex flex-column justify-content-start align-items-stretch">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="main-logo-container d-flex justify-content-start align-items-center">
           <button (click)="start.toggle()" class="mr-2" mat-icon-button>
             <mat-icon>menu</mat-icon>
           </button>
           <img alt="logo" class="logo-img-main" routerLink="/" [src]="logo" />
         </div>
 
-        <div class="userWidgets m-0 p-0" fxLayoutAlign="start center">
+        <div class="userWidgets m-0 p-0 d-flex justify-content-start align-items-center">
           <a
-            class="button-currency ml-3"
-            fxLayoutAlign="center center"
+            class="button-currency ml-3 d-flex justify-content-center align-items-center"
             mat-button
             [matMenuTriggerFor]="currencyMenu"
             #currencyMenuTrigger="matMenuTrigger"
@@ -478,17 +483,20 @@
           <a
             *ngIf="!loggedInUser"
             [routerLink]="['/my-account']"
-            fxLayoutAlign="start center"
-            fxShow="true"
             routerLinkActive="router-link-active"
+            class="d-flex justify-content-start align-items-center d-inline"
           >
             <mat-icon>person</mat-icon>
-            <span fxHide.xs>{{ 'Account' | translate }}</span>
+            <span class="d-xs-none d-sm-none">{{ 'Account' | translate }}</span>
           </a>
 
           <app-shopping-widgets></app-shopping-widgets>
 
-          <a *ngIf="loggedInUser" fxLayoutAlign="start center" style="color: white">
+          <a
+            *ngIf="loggedInUser"
+            style="color: white"
+            class="d-flex justify-content-start align-items-center"
+          >
             <button (click)="notificationBar.toggle()" mat-icon-button>
               <mat-icon
                 [matBadge]="notificationsService.getUnreadNotifications()"
@@ -500,14 +508,14 @@
         </div>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="gappx">
-        <div class="mobile-search" fxLayout="row" fxLayoutAlign="start center">
+      <div class="d-flex justify-content-center align-items-start">
+        <div class="mobile-search d-flex justify-content-start align-items-center">
           <input
             (keyup.enter)="onSearch()"
             [formControl]="searchForm"
-            fxFlex
             placeholder="{{ 'Buscar...' | translate }}"
             type="search"
+            class="transpilerClass-fxFlex-fe6231"
           />
           <button (click)="onSearch()">
             <mat-icon>search</mat-icon>
@@ -516,11 +524,7 @@
       </div>
 
       <div
-        class="showCategories"
-        fxLayout="row"
-        fxLayoutAlign.sm="center center"
-        fxLayoutAlign.xs="start center"
-        fxLayoutGap="gappx"
+        class="showCategories d-flex d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center d-md-flex justify-content-sm-center justify-content-md-center align-items-md-center"
       >
         <!--        <a [routerLink]="['']"-->
         <!--           [routerLinkActiveOptions]="{ exact: true }"-->
@@ -560,14 +564,9 @@
   </div>
   <div
     (click)="openSetLocation()"
-    class="mobile-location"
-    fxLayout="row"
-    fxLayoutAlign="start center"
-    fxLayoutGap="20"
-    fxHide
-    fxShow.lt-md
+    class="mobile-location d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-f9d6f6 d-sm-block d-none"
   >
-    <div class="nl-logo" fxLayoutAlign="center center">
+    <div class="nl-logo d-flex justify-content-center align-items-center">
       <mat-icon>room</mat-icon>
     </div>
     <div *ngIf="!business && !province">{{ 'Comprar en...' | translate }}</div>
@@ -586,14 +585,15 @@
   <app-footer *ngIf="!url?.includes('my-account')"></app-footer>
 </mat-sidenav-container>
 
-<mat-sidenav-container fullscreen *ngIf="businessConfig?.Business?.status === 'blockPayment'">
-  <div [class.py-2]="!loggedInUser" class="home-header" fxHide.lt-md>
-    <div class="container-header" fxLayout="row wrap" fxLayoutAlign="space-between center">
+<mat-sidenav-container
+  fullscreen
+  *ngIf="appService.businessConfig?.Business?.status === 'blockPayment'"
+>
+  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none">
+    <div class="container-header d-flex justify-content-between align-items-center">
       <img
         alt="logo"
-        class="Logo-img"
-        fxHide.lt-md
-        fxShow
+        class="Logo-img d-inline d-sm-none"
         (click)="metaAdd()"
         routerLink="/"
         [src]="logo"

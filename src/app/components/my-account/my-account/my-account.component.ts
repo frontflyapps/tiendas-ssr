@@ -16,6 +16,7 @@ import {
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-my-account',
@@ -71,7 +72,6 @@ export class MyAccountComponent implements OnInit {
   isRegisterToBecomeASeller = false;
   routeToNavigate = '/checkout';
   localDatabaseUsers = environment.localDatabaseUsers;
-  businessConfig;
   signUpTypes = [
     {
       viewValue: 'Normal',
@@ -102,11 +102,11 @@ export class MyAccountComponent implements OnInit {
     public phoneCodesService: PhoneCodeService,
     public utilsService: UtilsService,
     private storageService: StorageService,
+    private appService: BusinessConfigService,
   ) {
     this.message = '';
     this.isRegisterToPay = !!this.storageService.getItem('isRegisterToPay');
     this.isRegisterToBecomeASeller = !!this.storageService.getItem('isRegisterToBecomeASeller');
-    this.businessConfig = JSON.parse(this.storageService.getItem('business-config'));
     this.storageService.removeItem('isRegisterToPay');
     this.storageService.removeItem('isRegisterToBecomeASeller');
     this.routeToNavigate = this.isRegisterToPay
@@ -122,7 +122,7 @@ export class MyAccountComponent implements OnInit {
     this.createNewPassForm();
     this.createActivateForm();
 
-    if (this.businessConfig?.signUpType === 'multiple') {
+    if (this.appService.businessConfig?.signUpType === 'multiple') {
       this.signUpTypesForm.get('signUpType').valueChanges.subscribe((item) => {
         console.log(item);
         if (item === 'normal') {
@@ -252,7 +252,7 @@ export class MyAccountComponent implements OnInit {
       { validator: this.matchValidator.bind(this) },
     );
 
-    this.initRegistrationForm(this.businessConfig?.signUpType);
+    this.initRegistrationForm(this.appService.businessConfig?.signUpType);
     // this.registrationForm.markAllAsTouched();
   }
 

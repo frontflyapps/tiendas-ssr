@@ -6,24 +6,21 @@
   </div>
   <div mat-dialog-content>
     <div
-      fxLayout="row"
-      fxLayout.lt-md="column"
-      fxLayoutAlign="start start"
-      fxLayoutAlign.lt-md="start start"
+      class="d-flex d-sm-flex flex-column flex-sm-column justify-content-start align-items-start justify-content-sm-start align-items-sm-start"
     >
-      <div fxFlex="100" fxFlex.gt-sm="50">
+      <div class="transpilerClass-fxFlex-80bb0a transpilerClass-fxFlex-1cd77b">
         <div class="swiper-container h-100">
           <div class="swiper-wrapper">
             <img
               *ngIf="product.Images && product.Images.length"
               [src]="imageUrl + product.Images[0].image"
-              alt=""
+              alt
               class="productImage"
               lazyImg
             />
             <img
               *ngIf="!(product.Images && product.Images.length)"
-              alt=""
+              alt
               class="productImage"
               lazyImg
               src="/assets/images/noImage.jpg"
@@ -31,7 +28,11 @@
           </div>
         </div>
       </div>
-      <div fxFlex="100" fxFlex.gt-sm="50" ngClass.gt-sm="px-2 m-0" ngClass.lt-sm="mt-2">
+      <div
+        ngClass.gt-sm="px-2 m-0"
+        ngClass.lt-sm="mt-2"
+        class="transpilerClass-fxFlex-154a0a transpilerClass-fxFlex-8afff6"
+      >
         <div class="product-right">
           <div class="product-details">
             <h1 class="nameProduct mb-10">
@@ -90,8 +91,8 @@
             </div>
             <div class="quantity mt-15">
               <span class="text-muted fw-500">{{ 'Quantity:' | translate }}</span>
-              <div class="text-muted" fxLayout="row" fxLayout.xs="column">
-                <div fxLayout="row" fxLayoutAlign="center start">
+              <div class="text-muted d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column">
+                <div class="d-flex justify-content-center align-items-start">
                   <div class="addQuantity">
                     <button
                       (click)="decrement()"
@@ -125,11 +126,7 @@
           </ng-container>
 
           <div
-            class="buttons mt-20"
-            fxLayout="row"
-            fxLayout.lt-sm="column"
-            fxLayoutAlign="start center"
-            fxLayoutAlign.lt-sm="start center"
+            class="buttons mt-20 d-flex d-xs-flex flex-column flex-xs-column justify-content-start align-items-center justify-content-xs-start align-items-xs-center"
           >
             <button
               (click)="addToCart(product, counter)"

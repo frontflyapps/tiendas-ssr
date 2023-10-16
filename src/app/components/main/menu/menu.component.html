@@ -1,12 +1,6 @@
-<div class="">
+<div class>
   <div
-    class="showCategoriesMenu"
-    fxHide
-    fxLayout="row"
-    fxLayoutAlign.sm="center center"
-    fxLayoutAlign.xs="start center"
-    fxLayoutGap="gappx"
-    fxShow.gt-sm
+    class="showCategoriesMenu d-flex d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center d-md-flex justify-content-sm-center justify-content-md-center align-items-md-center d-sm-block d-none"
     id="showCategoriesMenu"
   >
     <!--    <a [routerLink]="['']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active"-->
@@ -16,7 +10,7 @@
     <!--    [routerLinkActiveOptions]="{exact:true}"-->
     <a
       [routerLink]="['/shops-list']"
-      *ngIf="businessConfig?.canShowOurBussiness"
+      *ngIf="appService.businessConfig?.canShowOurBussiness"
       class="itemCategory"
       mat-button
       routerLinkActive="router-link-active"

@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 .app-reservation-payment-ok {
@@ -754,5 +755,261 @@
       margin-top: 30%;
       margin-left: 80%;
     }
+  }
+}
+
+.transpilerClass-fxFlex-f6c04f {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-ce41b1 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-4ee8b2 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-c72c67 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-e7eccf {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-17e983 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-39eb48 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-28340d {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-a93844 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-f39f2e {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-948f8d {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-3f8837 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-a07475 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-6dd2f5 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-b67591 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-b66770 {
+  flex: 1 1 33%;
+}
+
+.transpilerClass-fxFlex-e15adb {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-bce7bd {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-301183 {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-08f675 {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-40b37c {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-4b36ef {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-8ad44f {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-2b30c5 {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-a976b6 {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-fbae66 {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-ca2529 {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-6dc3ac {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-4a775d {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-56a21e {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-68e30b {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-fad28e {
+  @include media-breakpoint('xs') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-9fa799 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-2b45a7 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-b92cf2 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-1d5cb7 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-326dc8 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-5c6e89 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-56bdb2 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-0cd339 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-c6e657 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-891552 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-4c5a3b {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-f25622 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-662c3a {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-1dc242 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-20c7f2 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-c69167 {
+  @include media-breakpoint('lt-sm') {
+    flex: 1 1 50%;
   }
 }

@@ -1,8 +1,6 @@
 <div
   *ngIf="product?.Business?.Province && showLocationSpan"
-  class="location-label-sm"
-  fxShow.lt-md
-  fxHide
+  class="location-label-sm d-sm-block d-none"
 >
   <span>
     <mat-icon>room</mat-icon>&nbsp;<strong>{{
@@ -13,17 +11,15 @@
 </div>
 <div
   [id]="'ProductCardId' + product.id"
-  fxLayout="column"
-  fxLayoutAlign="start stretch"
-  fxLayout.lt-md="row"
-  fxLayoutAlign.lt-md="start start"
-  class="card-product"
+  class="card-product d-flex flex-column d-sm-flex justify-content-start align-items-stretch justify-content-sm-start align-items-start align-items-sm-start"
   style="position: relative"
 >
   <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
     <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
   </div>
-  <div class="image-layout" fxFlex.lt-md="35" fxLayoutAlign="center center">
+  <div
+    class="image-layout d-flex justify-content-center align-items-center transpilerClass-fxFlex-40d995"
+  >
     <a
       [queryParams]="{
         productId: product?.id,
@@ -32,9 +28,7 @@
         sharedImage: product?.sharedImage
       }"
       [routerLink]="['/product']"
-      class="product-link"
-      fxFlex="row"
-      fxLayoutAlign="center center"
+      class="product-link d-flex justify-content-center align-items-center transpilerClass-fxFlex-5a622f"
     >
       <img
         *ngIf="product.Images && product.Images.length"
@@ -56,12 +50,11 @@
 
   <div
     (click)="onGoToProduct(product)"
-    class="product-info-wrapper"
-    fxLayout="column"
+    class="product-info-wrapper d-flex flex-column"
     ngClass.gt-sm="p-3"
     ngClass.lt-md="p-2 w-100"
   >
-    <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="d-flex justify-content-between align-items-center">
       <span class="category">
         {{ utilsService.parserLanguage(product?.Category?.name, language) }}
       </span>
@@ -91,16 +84,14 @@
     </div>
     <!-- <p fxHide.xs class="module line-clamp mt-1 mb-2">
       {{(product?.shortDescription[language])?product?.shortDescription[language]:product?.shortDescription['es']}}</p> -->
-    <div fxLayout="row" fxLayoutAlign="end end">
+    <div class="d-flex justify-content-end align-items-end">
       <span class="coming-soon-text" *ngIf="product.status === 'comingSoon'">{{
         'Próximamente' | translate
       }}</span>
     </div>
 
     <div
-      class="price mt-2"
-      fxLayout="row"
-      fxLayoutAlign="space-between start"
+      class="price mt-2 d-flex justify-content-between align-items-start"
       *ngIf="product.status !== 'comingSoon'"
     >
       <button
@@ -142,7 +133,7 @@
         </div>
       </div>
     </div>
-    <div class="icons" fxLayout="column">
+    <div class="icons d-flex flex-column">
       <!-- <a (click)="addToWishlist(product)">
           <mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon>
         </a> -->
@@ -156,9 +147,7 @@
   </div>
   <div
     *ngIf="product.Business?.Province && showLocationSpan"
-    class="location-label"
-    fxShow
-    fxHide.lt-md
+    class="location-label d-block d-sm-none"
   >
     <span>
       <mat-icon>room</mat-icon>&nbsp;<strong>{{

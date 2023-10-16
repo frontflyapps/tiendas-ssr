@@ -1,5 +1,5 @@
 <div class="brands-items">
-  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+  <div class="d-flex justify-content-start align-items-start">
     <button
       (click)="getChildCategories(this.lastCategoryId)"
       *ngIf="!this.isRootLevel"
@@ -14,10 +14,9 @@
     (click)="$event.stopPropagation()"
     *ngFor="let category of categories"
     [checked]="selection.isSelected(category.id)"
-    class="example-radio-button py-1 layoutCheck"
+    class="example-radio-button py-1 layoutCheck d-flex justify-content-start align-items-center"
+    style="display: flex"
     color="accent"
-    fxLayout="row"
-    fxLayoutAlign="start center"
   >
     <p
       [matTooltip]="category.name[language] ? category.name[language] : category.name['es']"

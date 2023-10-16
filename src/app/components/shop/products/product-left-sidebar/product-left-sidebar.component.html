@@ -10,13 +10,12 @@
   <div class="container-search">
     <div class="header">
       <div></div>
-      <div fxLayoutAlign="start center" fxLayoutGap="1rem">
+      <div
+        class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-4e3b00"
+      >
         <div
-          fxHide
-          fxLayout="row"
-          fxLayoutAlign="space-between start"
-          fxShow.lt-md
           style="margin-bottom: 5px"
+          class="d-flex justify-content-between align-items-start d-sm-block d-none"
         >
           <button
             (click)="openDialog()"
@@ -66,7 +65,7 @@
     </div>
   </div>
   <div class="container-search">
-    <div class="my-2" fxHide.xs>
+    <div class="my-2 d-xs-none d-sm-none">
       <mat-chip-list>
         <mat-icon *ngIf="this.showChips().length" class="mx-2">search</mat-icon>
         <mat-chip
@@ -81,19 +80,18 @@
     </div>
 
     <div
-      class="sidebar-wrapper"
-      fxLayout="row wrap"
-      fxLayoutAlign="center start"
+      class="sidebar-wrapper d-flex justify-content-center align-items-start"
       id="topLeftSidebar"
     >
-      <div class="filter-sidenav" fxFlex="25" fxFlex.lt-md="100" fxHide.lt-md perfectScrollbar>
+      <div
+        class="filter-sidenav transpilerClass-fxFlex-83c295 transpilerClass-fxFlex-70c4d8 d-sm-none"
+        perfectScrollbar
+      >
         <div
-          class="toggles-wrapper border-right"
-          fxLayout="column"
-          fxLayout.lt-md="column"
+          class="toggles-wrapper border-right d-flex flex-column d-sm-flex flex-sm-column"
           style="border-radius: 15px"
         >
-          <div class="toggles" fxFlex.lt-md="100">
+          <div class="toggles transpilerClass-fxFlex-d77558">
             <mat-accordion [multi]="true">
               <mat-expansion-panel
                 [expanded]="!isHandset || this.categoriesIds.length"
@@ -158,7 +156,7 @@
           </div>
 
           <ng-container *ngIf="!isHandset">
-            <div class="popular-products pl-3" fxFlex.lt-md="100" fxHide.lt-md>
+            <div class="popular-products pl-3 transpilerClass-fxFlex-7a1e56 d-sm-none">
               <app-popular-products></app-popular-products>
             </div>
           </ng-container>
@@ -168,9 +166,12 @@
       <!--      <ng-container *ngIf='allProductsResponse?.length == 0'>-->
       <!--        <h3 class='py-4' style='text-align: center'>{{ 'No hay ningún producto disponible' | translate }}</h3>-->
       <!--      </ng-container>-->
-      <div class="all-products" fxFlex="75" fxFlex.lt-md="100" id="topSearchBar">
+      <div
+        class="all-products transpilerClass-fxFlex-812feb transpilerClass-fxFlex-f3c0b8"
+        id="topSearchBar"
+      >
         <ng-container *ngIf="noResults && allProductsResponse.length && !loadingSearch">
-          <div class="my-5" fxLayout="column" fxLayoutAlign="center center">
+          <div class="my-5 d-flex flex-column justify-content-center align-items-center">
             <h3 class="mb-2" style="text-align: center">
               {{ 'No se encontraron resultados para la ubicación seleccionada' }}
             </h3>
@@ -179,9 +180,8 @@
         </ng-container>
         <div
           *ngIf="loadingSearch"
-          fxLayout="row"
-          fxLayoutAlign="center center"
           style="height: 80vh"
+          class="d-flex justify-content-center align-items-center"
         >
           <mat-spinner *ngIf="loadingSearch" diameter="60" color="primary"></mat-spinner>
         </div>
@@ -228,21 +228,25 @@
         </ng-container>
         <div
           *ngIf="allProducts?.length > 0 && !loadingSearch"
-          class="w-100"
-          fxLayout="row wrap"
-          fxLayoutAlign="start start"
+          class="w-100 d-flex justify-content-start align-items-start"
         >
           <div
-            class="w-100"
-            fxLayout="row wrap"
-            fxLayoutAlign="start start"
+            class="w-100 d-flex justify-content-start align-items-start"
             infiniteScroll
             (scrolled)="infiniteScrollSearchMethod()"
+            style="
+              flex-flow: wrap;
+              box-sizing: border-box;
+              display: flex;
+              place-content: flex-start;
+              align-items: flex-start;
+            "
           >
             <app-product
               *ngFor="let products of allProducts"
               [product]="products"
-              fxFlex.lt-md="100"
+              class="transpilerClass-fxFlex-9a05bf"
+              style="width: unset"
             ></app-product>
           </div>
 
@@ -252,12 +256,14 @@
         </div>
         <span
           *ngIf="loading && !loadingSearch"
-          fxLayout="row"
-          fxLayoutAlign="center center"
-          class="mb-3 mt-3"
+          class="mb-3 mt-3 d-flex justify-content-center align-items-center"
           style="height: 80vh"
         >
-          <mat-spinner color="primary" diameter="25" fxLayoutAlign="center center"></mat-spinner>
+          <mat-spinner
+            color="primary"
+            diameter="25"
+            class="d-flex justify-content-center align-items-center"
+          ></mat-spinner>
         </span>
 
         <!--        <ng-container *ngIf='loading'>-->
@@ -343,10 +349,7 @@
 
         <div
           *ngIf="!loading && allProducts?.length > 0"
-          class="mt-4 mb-4 see-more-btn"
-          fxLayout="row"
-          fxLayoutAlign="center center"
-          fxLayoutGap="1rem"
+          class="mt-4 mb-4 see-more-btn d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-28562c"
         >
           <!--          <button (click)="goToFirstPage($event)" *ngIf="numberOfSearch > 0  &&-->
           <!--            allProductsResponse.length > initLimit" mat-stroked-button>-->
@@ -379,7 +382,7 @@
       </div>
 
       <ng-container *ngIf="isHandset">
-        <div class="popular-products mt-2 pl-3" fxFlex.lt-md="100" fxHide fxShow.lt-md>
+        <div class="popular-products mt-2 pl-3 transpilerClass-fxFlex-17a794 d-sm-block d-none">
           <app-popular-products></app-popular-products>
         </div>
       </ng-container>

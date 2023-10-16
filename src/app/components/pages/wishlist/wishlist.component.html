@@ -1,6 +1,9 @@
 <div class="container">
   <div class="cart-wrapper sec-padding">
-    <div *ngIf="!wishlistItems.length" fxLayout="column" fxLayoutAlign="space-around center">
+    <div
+      *ngIf="!wishlistItems.length"
+      class="d-flex flex-column justify-content-around align-items-center"
+    >
       <mat-chip-list>
         <mat-chip color="warn" selected="true"
           >{{ 'YOU HAVE NO ITEMS IN YOUR WISHLIST' | translate }}.</mat-chip

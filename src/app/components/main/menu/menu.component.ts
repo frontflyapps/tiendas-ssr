@@ -1,6 +1,6 @@
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { Subject } from 'rxjs';
 import { CartService } from '../../shared/services/cart.service';
@@ -10,7 +10,7 @@ import { MyOrdersService } from '../../my-orders/service/my-orders.service';
 import { GlobalStateOfCookieService } from '../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { CategoryMenuNavService } from '../../../core/services/category-menu-nav.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-menu',
@@ -23,7 +23,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   shoppingCartItems: any[] = [];
   language;
   ordersPayment: any[] = [];
-  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
   categories: any[] = [];
   query: IPagination = {
     limit: 20,
@@ -32,7 +31,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     total: 0,
   };
   searchUrlParams;
-  bussinessConfig;
 
   constructor(
     private cartService: CartService,
@@ -44,7 +42,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     private categoryMenuServ: CategoryMenuNavService,
     private activatedRute: ActivatedRoute,
     private router: Router,
-    private storageService: StorageService,
+    public appService: BusinessConfigService,
   ) {
     this.router.events
       .pipe(

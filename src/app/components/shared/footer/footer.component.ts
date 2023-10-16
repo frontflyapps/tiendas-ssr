@@ -6,6 +6,7 @@ import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-
 import { IUser } from '../../../core/classes/user.class';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 export interface IFooterContacts {
   phone: string;
@@ -22,7 +23,6 @@ export interface IFooterContacts {
 export class FooterComponent implements OnInit {
   language: string;
   currency: string;
-  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
   public version = environment.versions.app;
 
   public contacts: IFooterContacts;
@@ -55,6 +55,7 @@ export class FooterComponent implements OnInit {
     public loggedInUserService: LoggedInUserService,
     public translate: TranslateService,
     private storageService: StorageService,
+    public appService: BusinessConfigService,
   ) {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
     const tempFlag = JSON.parse(this.storageService.getItem('language'));

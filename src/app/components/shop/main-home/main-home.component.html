@@ -44,35 +44,26 @@
     <div class="container my-4">
       <div
         class="info-bar-four"
-        fxLayout="row wrap"
-        fxLayout.xs="column wrap"
-        fxLayoutAlign="center center"
-        fxLayoutAlign.xs="center start"
+        style="display: flex; flex-wrap: wrap; justify-content: space-around"
       >
         <div
           *ngFor="let item of allBicons; let i = index"
           class="card-wrap card-promo"
-          fxFlex="100"
-          fxFlex.xs="100"
-          fxFlex.gt-md="25"
-          fxFlex.gt-xs="50"
+          style="width: auto; flex-grow: 1"
         >
-          <mat-card
-            [ngClass]="{ 'no-bd': i === allBicons.length - 1 }"
-            class="light-block"
-            fxLayout="row"
-            fxLayoutAlign="start center"
-          >
-            <div fxFlex="20">
-              <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
-            </div>
-            <div class="content" fxFlex="80">
-              <p class="uppercase">
-                {{ item.title | parseLang: utilsService.getLang() }}
-              </p>
-              <span class="text-muted m-0 mt-2 word-break">{{
-                item.subTitle | parseLang: utilsService.getLang()
-              }}</span>
+          <mat-card [ngClass]="{ 'no-bd': i === allBicons.length - 1 }" class="light-block">
+            <div class="d-flex justify-content-start align-items-center">
+              <div class="transpilerClass-fxFlex-fdf04b">
+                <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
+              </div>
+              <div class="content transpilerClass-fxFlex-41226b">
+                <p class="uppercase">
+                  {{ item.title | parseLang: utilsService.getLang() }}
+                </p>
+                <span class="text-muted m-0 mt-2 word-break">{{
+                  item.subTitle | parseLang: utilsService.getLang()
+                }}</span>
+              </div>
             </div>
           </mat-card>
         </div>
@@ -111,7 +102,7 @@
         <div *ngIf="card.visualType?.type === 'categories'">
           <div class="container">
             <div class="products sec-padding">
-              <div class="products-four" fxHide.xs fxHide.sm fxShow>
+              <div class="products-four d-block d-xs-none d-sm-none d-md-none">
                 <h1 style="color: initial">
                   {{ card.name | i18nField: translateService.currentLang }}
                 </h1>
@@ -129,7 +120,7 @@
                   </app-skeleton-loading-cards>
                 </div>
               </div>
-              <div fxShow.xs fxHide.sm fxHide>
+              <div class="d-xs-block d-sm-block d-none d-sm-none d-md-none">
                 <app-product-grid
                   *ngIf="card.value && card.visualType?.typeVisualization === 'grid'"
                   [products]="card"

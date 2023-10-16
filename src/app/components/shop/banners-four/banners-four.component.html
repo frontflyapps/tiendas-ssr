@@ -1,23 +1,13 @@
 <ng-container *ngIf="banners.length > 0">
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
+  <div class="d-flex justify-content-center align-items-center">
     <ng-container *ngIf="banners.length === 1">
       <div
         *ngFor="let item of this.banners; let i = index"
-        class="bannerCard p-3 my-2"
-        fxFlex="40"
-        fxFlex.lt-md="100"
-        fxLayout="column"
-        fxLayoutAlign="start stretch"
-        fxLayoutGap="gappx"
+        class="bannerCard p-3 my-2 d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-73f366 transpilerClass-fxFlex-aa7e24"
       >
-        <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+        <div class="d-flex justify-content-start align-items-start">
           <div
-            class="pr-3"
-            fxFlex="50"
-            fxFlex.lt-md="100"
-            fxLayout="column"
-            fxLayoutAlign="start start"
-            fxLayoutGap="gappx"
+            class="pr-3 d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-7713c3 transpilerClass-fxFlex-8d4eb1"
           >
             <h4 class="mat-title uppercase mb-0 module line-clamp" ngClass.lt-sm="mat-body-2">
               {{ utilsService.parserLanguage(item.title, language) }}
@@ -27,12 +17,7 @@
             <a *ngIf="item.link" [href]="item.link" target="_blank">{{ 'See More' | translate }}</a>
           </div>
           <div
-            class="image-section"
-            fxFlex="50"
-            fxFlex.lt-md="100"
-            fxLayout="column"
-            fxLayoutAlign="start center"
-            fxLayoutGap="gappx"
+            class="image-section d-flex flex-column justify-content-start align-items-center transpilerClass-fxFlex-28f148 transpilerClass-fxFlex-119b48"
           >
             <img *ngIf="item.image" [src]="urlImage + item.image" />
             <img *ngIf="!item.image" src="/assets/images/noImage.jpg" />
@@ -44,20 +29,11 @@
       <div
         *ngFor="let item of this.banners; let i = index"
         [fxFlex]="90 / banners.length"
-        class="bannerCard p-3 my-2 mx-2"
-        fxFlex.lt-md="100"
-        fxLayout="column"
-        fxLayoutAlign="start stretch"
-        fxLayoutGap="gappx"
+        class="bannerCard p-3 my-2 mx-2 d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-e9ff5c"
       >
-        <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+        <div class="d-flex justify-content-start align-items-start">
           <div
-            class="pr-3"
-            fxFlex="50"
-            fxFlex.lt-md="100"
-            fxLayout="column"
-            fxLayoutAlign="start start"
-            fxLayoutGap="gappx"
+            class="pr-3 d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-ae22b9 transpilerClass-fxFlex-4ca9d4"
           >
             <h4 class="mat-title uppercase mb-0 module line-clamp" ngClass.lt-sm="mat-body-2">
               {{ utilsService.parserLanguage(item.title, language) }}
@@ -67,12 +43,7 @@
             <a *ngIf="item.link" [href]="item.link" target="_blank">{{ 'See More' | translate }}</a>
           </div>
           <div
-            class="image-section"
-            fxFlex="50"
-            fxFlex.lt-md="100"
-            fxLayout="column"
-            fxLayoutAlign="start center"
-            fxLayoutGap="gappx"
+            class="image-section d-flex flex-column justify-content-start align-items-center transpilerClass-fxFlex-d8f503 transpilerClass-fxFlex-935b8f"
           >
             <img *ngIf="item.image" [src]="urlImage + item.image" />
             <img *ngIf="!item.image" src="/assets/images/noImage.jpg" />

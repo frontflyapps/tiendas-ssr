@@ -1,4 +1,5 @@
 @import 'app';
+@import 'scss/mixins/breakpoints';
 
 /***************************************
 *  Blog- column page styles
@@ -312,5 +313,65 @@
         }
       }
     }
+  }
+}
+
+.transpilerClass-fxFlex-03db9e {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-c65370 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-9b2d4f {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-977838 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-dc2fb4 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-5d5c95 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-c2d801 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 70%;
+  }
+}
+
+.transpilerClass-fxFlex-eae70f {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-24398a {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-617901 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 30%;
+  }
+}
+
+.transpilerClass-fxFlex-2e2565 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 30%;
+  }
+}
+
+.transpilerClass-fxFlex-8b993b {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 70%;
   }
 }

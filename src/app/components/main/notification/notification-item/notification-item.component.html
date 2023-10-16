@@ -4,29 +4,21 @@
   *ngIf="this.notificacion.status == 'read'"
   class="NotificationRead"
 >
-  <div class="NotificationBody" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+  <div class="NotificationBody d-flex justify-content-start align-items-start">
     <div class="CircleIcon">
       <!-- <mat-icon (click)="onClickNotification()" class="IconNavBar">{{this.GetIconofNavBar()}}</mat-icon> -->
       <mat-icon (click)="onClickNotification()">{{ this.GetIconofNavBar() }}</mat-icon>
     </div>
     <div
       (click)="onClickNotification()"
-      class="textNotification"
-      fxLayout="row"
-      fxLayoutAlign="start start"
-      fxLayoutGap="gappx"
+      class="textNotification d-flex justify-content-start align-items-start"
       style="margin-left: 10px"
     >
       <span class="mat-body-1"> {{ this.notificacion.message | translate }}</span>
     </div>
   </div>
 
-  <div
-    fxLayout="row"
-    fxLayoutAlign="space-between center"
-    fxLayoutGap="gappx"
-    style="padding-left: 57px"
-  >
+  <div style="padding-left: 57px" class="d-flex justify-content-between align-items-center">
     <!-- <mat-icon class="iconFecha">date_range</mat-icon> -->
     <div>
       <span class="mat-caption">{{ this.notificacion.createdAt | date: 'longDate' }}</span>
@@ -53,22 +45,31 @@
       notificacion.type == 'payment-error'
     "
     [@detailExpand]="this.expandedElement ? 'expanded' : 'collapsed'"
-    class="LayoutTable px-5"
-    fxLayout="column"
-    fxLayoutAlign="start stretch"
+    class="LayoutTable px-5 d-flex flex-column justify-content-start align-items-stretch"
   >
     <mat-divider class="my-2"></mat-divider>
-    <div class="w-100" fxLayout="row" fxLayoutAlign="space-between center">
-      <div fxFlex="65" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
-        <div fxLayout="row" fxLayoutAlign="space-between start" style="width: 100% !important">
-          <div fxFlex="90" fxLayout="column" fxLayoutAlign="start start" style="margin-top: 2px">
+    <div class="w-100 d-flex justify-content-between align-items-center">
+      <div
+        class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-bffeb5"
+      >
+        <div
+          style="width: 100% !important"
+          class="d-flex justify-content-between align-items-start"
+        >
+          <div
+            style="margin-top: 2px"
+            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-04c5a9"
+          >
             <span class="mat-caption grey-500">{{ 'Order' | translate }}</span>
             <span class="mat-body-1" style="text-transform: capitalize">{{ order.order }}</span>
           </div>
         </div>
 
-        <div class="mb-3" fxLayout="row" fxLayoutAlign="start center">
-          <div fxFlex="100" fxLayout="column" fxLayoutAlign="start start" style="margin-top: 2px">
+        <div class="mb-3 d-flex justify-content-start align-items-center">
+          <div
+            style="margin-top: 2px"
+            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-359c12"
+          >
             <span class="mat-caption grey-700">{{ 'Estado' | translate }}</span>
             <span [class]="this.status[this.order.status].class">
               {{
@@ -82,7 +83,9 @@
         </div>
       </div>
 
-      <div fxFlex="35" fxLayout="column" fxLayoutAlign="center center">
+      <div
+        class="d-flex flex-column justify-content-center align-items-center transpilerClass-fxFlex-f374b5"
+      >
         <span class="showPrice">{{ order.totalPrice | currency: order.currency }} </span>
       </div>
     </div>
@@ -93,25 +96,15 @@
   (mouseenter)="onMouseEnter()"
   (mouseleave)="onMouseLeave()"
   *ngIf="this.notificacion.status == 'not-read'"
-  class="NotificationnoRead"
-  fxLayout="column"
+  class="NotificationnoRead d-flex flex-column"
 >
-  <div
-    class="mb-3"
-    class="NotificationBody"
-    fxLayout="row"
-    fxLayoutAlign="start start"
-    fxLayoutGap="gappx"
-  >
+  <div class="mb-3 d-flex justify-content-start align-items-start">
     <div class="CircleIcon">
       <mat-icon (click)="onClickNotification()">{{ this.GetIconofNavBar() }}</mat-icon>
     </div>
     <div
       (click)="onClickNotification()"
-      class="textNotification"
-      fxLayout="row"
-      fxLayoutAlign="start start"
-      fxLayoutGap="gappx"
+      class="textNotification d-flex justify-content-start align-items-start"
       style="margin-left: 10px"
     >
       <p class="mat-body-1">
@@ -120,13 +113,7 @@
     </div>
   </div>
 
-  <div
-    class="mt-4"
-    fxLayout="row"
-    fxLayoutAlign="space-between center"
-    fxLayoutGap="gappx"
-    style="padding-left: 57px"
-  >
+  <div class="mt-4 d-flex justify-content-between align-items-center" style="padding-left: 57px">
     <!-- <mat-icon class="iconFecha">date_range</mat-icon> -->
     <div>
       <span class="mat-caption">{{ this.notificacion.createdAt | date: 'longDate' }}</span>
@@ -148,22 +135,31 @@
     (click)="onClickNotification()"
     *ngIf="notificacion.type.split('-')[0] == 'payment'"
     [@detailExpand]="this.expandedElement ? 'expanded' : 'collapsed'"
-    class="LayoutTable px-5"
-    fxLayout="column"
-    fxLayoutAlign="start stretch"
+    class="LayoutTable px-5 d-flex flex-column justify-content-start align-items-stretch"
   >
     <mat-divider class="my-2"></mat-divider>
-    <div class="w-100" fxLayout="row" fxLayoutAlign="space-between center">
-      <div fxFlex="65" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
-        <div fxLayout="row" fxLayoutAlign="space-between start" style="width: 100% !important">
-          <div fxFlex="90" fxLayout="column" fxLayoutAlign="start start" style="margin-top: 2px">
+    <div class="w-100 d-flex justify-content-between align-items-center">
+      <div
+        class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-8cff88"
+      >
+        <div
+          style="width: 100% !important"
+          class="d-flex justify-content-between align-items-start"
+        >
+          <div
+            style="margin-top: 2px"
+            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-ada649"
+          >
             <span class="mat-caption grey-500">{{ 'Order' | translate }}</span>
             <span class="mat-body-1" style="text-transform: capitalize">{{ order.order }}</span>
           </div>
         </div>
 
-        <div class="mb-2" fxLayout="row" fxLayoutAlign="start center">
-          <div fxFlex="100" fxLayout="column" fxLayoutAlign="start start" style="margin-top: 2px">
+        <div class="mb-2 d-flex justify-content-start align-items-center">
+          <div
+            style="margin-top: 2px"
+            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-fc46f9"
+          >
             <span class="mat-caption grey-700">{{ 'Estado' | translate }}</span>
             <span [class]="this.status[this.order?.status]?.class">
               {{
@@ -177,7 +173,9 @@
         </div>
       </div>
 
-      <div fxFlex="35" fxLayout="column" fxLayoutAlign="center center">
+      <div
+        class="d-flex flex-column justify-content-center align-items-center transpilerClass-fxFlex-20b619"
+      >
         <span class="showPrice">{{ order.totalPrice | currency: order.currency }} </span>
       </div>
     </div>

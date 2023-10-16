@@ -11,9 +11,9 @@ import { AuthenticationService } from './core/services/authentication/authentica
 import { LocalStorageService } from './core/services/localStorage/localStorage.service';
 import { RequestCookieSecureService } from './core/services/request-cookie-secure/request-cookie-secure.service';
 import { SplashScreenService } from './core/services/splash-screen/splash-screen.service';
-import { Meta } from '@angular/platform-browser';
 import { environment } from 'environments/environment';
 import { StorageService } from './core/services/storage/storage.service';
+import { MetaService } from './core/services/meta.service';
 
 @Component({
   selector: 'app-root',
@@ -41,7 +41,7 @@ export class AppComponent {
     private encryptDecryptService: EncryptDecryptService,
     private localStorageService: LocalStorageService,
     private storageService: StorageService,
-    private meta: Meta,
+    private metaService: MetaService,
     private splashService: SplashScreenService,
   ) {
     this.metaAdd();
@@ -74,24 +74,12 @@ export class AppComponent {
   }
 
   public metaAdd() {
-    this.meta.updateTag({ name: 'title', content: 'Tienda Guajiritos' });
-    this.meta.updateTag({
-      name: 'keywords',
-      content: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
-    });
-    this.meta.updateTag({ property: 'og:url', content: 'https://guajiritos.com/' });
-    this.meta.updateTag({ property: 'og:site_name', content: 'Tienda Guajiritos' });
-    this.meta.updateTag({
-      property: 'og:image',
-      itemprop: 'image primaryImageOfPage',
-      content: 'https://tienda.guajiritos.com/assets/images/share-img.png',
-    });
-    this.meta.updateTag({ property: 'twitter:domain', content: 'https://guajiritos.com/' });
-    this.meta.updateTag({ property: 'twitter:title', content: 'Tienda Guajiritos' });
-    this.meta.updateTag({ property: 'twitter:description', content: 'Tienda online B2C.' });
-    this.meta.updateTag({
-      property: 'twitter:image',
-      content: 'https://tienda.guajiritos.com/assets/images/share-img.png',
+    this.metaService.setMeta({
+      title: 'Tienda Guajiritos',
+      description: 'Tienda online B2C.',
+      keywords: 'HTML, CSS, JavaScript, Angular, Tienda Online B2B, comercio online',
+      shareImg: 'https://tienda.guajiritos.com/assets/images/share-img.png',
+      url: 'https://guajiritos.com/',
     });
   }
 

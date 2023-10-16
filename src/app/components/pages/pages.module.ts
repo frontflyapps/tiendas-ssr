@@ -10,7 +10,7 @@ import { CompareComponent } from './compare/compare.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogModule } from '../blog/blog.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { TranslateModule } from '@ngx-translate/core';
 // ------- Material Imports----------///
 import { MatCardModule } from '@angular/material/card';
@@ -27,7 +27,7 @@ import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-fro
     ReactiveFormsModule,
     PagesRoutingModule,
     BlogModule,
-    FlexLayoutModule,
+
     TranslateModule,
     MatProgressSpinnerModule,
     MatCardModule,

@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
@@ -49,7 +49,7 @@ import { ReceiverFormComponent } from './reciever-form/receiver-form.component';
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
+
     FormsModule,
     ReactiveFormsModule,
     CheckoutRoutingModule,

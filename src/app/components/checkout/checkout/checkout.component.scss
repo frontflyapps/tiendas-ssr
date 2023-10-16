@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 /***************************************
@@ -472,4 +473,272 @@ li {
   to {
     width: 20px;
   }
+}
+
+.transpilerClass-fxFlex-b55835 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-c08aed {
+  flex: 1 1 50%;
+}
+
+.transpilerClass-fxFlex-cd4b72 {
+  flex: 1 1 50%;
+}
+
+.transpilerClass-fxFlex-f5c267 {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-bbbc88 {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-6a28c7 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-03507c {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-872d49 {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxFlex-77bdb9 {
+  flex: 1 1 grow;
+}
+
+.transpilerClass-fxFlex-24cca0 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-22a038 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-16ccdb {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-c80d84 {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-d92fed {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-81e258 {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-dc9bc0 {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-27ef78 {
+  flex: 1 1 80%;
+}
+
+.transpilerClass-fxFlex-219b7b {
+  flex: 1 1 20%;
+}
+
+.transpilerClass-fxFlex-d5c516 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-222e7f {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-f0f2ea {
+  flex: 1 1 28%;
+}
+
+.transpilerClass-fxFlex-9fea64 {
+  flex: 1 1 70%;
+}
+
+.transpilerClass-fxFlex-dee2f6 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-cdda0b {
+  flex: 1 1 grow;
+}
+
+.transpilerClass-fxFlex-7e4dc4 {
+  flex: 1 1 100%;
+}
+
+.transpilerClass-fxFlex-a85251 {
+  flex: 1 1 grow;
+}
+
+.transpilerClass-fxFlex-e9b64c {
+  @include media-breakpoint('md') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-d45c1c {
+  @include media-breakpoint('md') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-bee36f {
+  @include media-breakpoint('md') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-d1cc4c {
+  @include media-breakpoint('md') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-e31f3a {
+  @include media-breakpoint('md') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-572563 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-ca9e49 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-580438 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-51ed3e {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-43afc6 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 70%;
+  }
+}
+
+.transpilerClass-fxFlex-f76941 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 30%;
+  }
+}
+
+.transpilerClass-fxFlex-e3481f {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-28ac05 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-1f6d84 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-56d7d9 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-36b2b6 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-1015f8 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 28%;
+  }
+}
+
+.transpilerClass-fxFlex-729163 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 70%;
+  }
+}
+
+.transpilerClass-fxFlex-f90463 {
+  @include media-breakpoint('gt-sm') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-695989 {
+  @include media-breakpoint('gt-md') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxFlex-e33d16 {
+  @include media-breakpoint('gt-md') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-5ff67a {
+  @include media-breakpoint('gt-md') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-bf0e38 {
+  @include media-breakpoint('gt-md') {
+    flex: 1 1 48%;
+  }
+}
+
+.transpilerClass-fxFlex-dc52a9 {
+  @include media-breakpoint('gt-md') {
+    flex: 1 1 50%;
+  }
+}
+
+.transpilerClass-fxLayoutGap-e4e9d1 {
+  grid-gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-858bc1 {
+  grid-gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-ebcac9 {
+  gap: 0.5rem;
+}
+
+.transpilerClass-fxLayoutGap-844035 {
+  gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-6fa278 {
+  gap: 8px;
 }

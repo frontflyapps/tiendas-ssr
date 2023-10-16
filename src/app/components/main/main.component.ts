@@ -1,7 +1,6 @@
 import { ConfirmPaymentOkComponent } from './confirm-payment-ok/confirm-payment-ok.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   HostListener,
@@ -46,11 +45,12 @@ import { GlobalStateOfCookieService } from '../../core/services/request-cookie-s
 import Shepherd from 'shepherd.js';
 // import { compile } from 'sass';
 import { CategoryMenuNavService } from '../../core/services/category-menu-nav.service';
-import { Meta } from '@angular/platform-browser';
 // import { AppService } from '../../app.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { environment } from 'environments/environment';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { MetaService } from 'src/app/core/services/meta.service';
 
 @Component({
   selector: 'app-main',
@@ -96,7 +96,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   searchForm: UntypedFormControl;
   categories: any[] = [];
   _language = 'es';
-  businessConfig = JSON.parse(this.storageService.getItem('business-config'));
 
   tour = new Shepherd.Tour({
     useModalOverlay: false,
@@ -128,7 +127,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     private categoryService: CategoriesService,
     private orderSevice: MyOrdersService,
     private orderService: MyOrdersService,
-    private meta: Meta,
+    private metaService: MetaService,
     public utilsService: UtilsService,
     private confirmCreateBusinessService: ConfirmCreateBusinessService,
     private locationService: LocationService,
@@ -136,6 +135,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     private categoryMenuServ: CategoryMenuNavService,
     public spinner: NgxSpinnerService,
     public storageService: StorageService,
+    public appService: BusinessConfigService,
   ) {
     this.metaAdd();
     this._unsubscribeAll = new Subject<any>();
@@ -179,58 +179,12 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public metaAdd() {
-    this.meta.updateTag({
-      name: 'title',
-      content: environment.meta.mainPage.title,
-    });
-    this.meta.updateTag({
-      name: 'description',
-      content: environment.meta.mainPage.description,
-    });
-    this.meta.updateTag({
-      name: 'keywords',
-      content: environment.meta.mainPage.keywords,
-    });
-
-    this.meta.updateTag({
-      property: 'og:url',
-      content: environment.meta.mainPage.url,
-    });
-    this.meta.updateTag({
-      property: 'og:site_name',
-      content: environment.meta.mainPage.title,
-    });
-    this.meta.updateTag({
-      property: 'og:image',
-      itemprop: 'image primaryImageOfPage',
-      content: environment.meta.mainPage.shareImg,
-    });
-
-    this.meta.updateTag({
-      property: 'twitter:domain',
-      content: environment.meta.mainPage.url,
-    });
-    this.meta.updateTag({
-      property: 'twitter:title',
-      content: environment.meta.mainPage.title,
-    });
-    this.meta.updateTag({
-      property: 'og:title',
-      itemprop: 'name',
-      content: environment.meta.mainPage.title,
-    });
-    this.meta.updateTag({
-      property: 'twitter:description',
-      content: environment.meta.mainPage.description,
-    });
-    this.meta.updateTag({
-      property: 'og:description',
-      itemprop: 'description',
-      content: environment.meta.mainPage.description,
-    });
-    this.meta.updateTag({
-      property: 'twitter:image',
-      content: environment.meta.mainPage.shareImg,
+    this.metaService.setMeta({
+      title: environment.meta.mainPage.title,
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+      url: environment.meta.mainPage.url,
     });
   }
 

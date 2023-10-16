@@ -76,12 +76,12 @@ export class LocalStorageService {
     this.storageService.setItem('_v', JSON.stringify(v));
   }
 
-  setOnStorage(key: string, data: any): void | boolean {
+  setOnStorage(key: string, data: any, volatile?: boolean): void | boolean {
     if (!data || !key) {
       return false;
     }
 
-    this.storageService.setItem(key, JSON.stringify(data));
+    this.storageService.setItem(key, JSON.stringify(data), volatile);
   }
 
   getFromStorage(key: string): any {

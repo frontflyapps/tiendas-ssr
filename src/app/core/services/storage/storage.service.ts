@@ -41,7 +41,6 @@ export class StorageService {
     if (!key) return null;
 
     const value = this.checkLong(key) ? this.getItemLong(key) : this.cookieService.get(key);
-    // return JSON.parse(value) || null;
     return value || null;
   }
 
@@ -51,6 +50,7 @@ export class StorageService {
 
   removeItem(key: string): void {
     console.warn(`removing item ${key}`);
+
     if (this.checkLong(key)) {
       this.removeItemLong(key);
     } else {
@@ -58,8 +58,9 @@ export class StorageService {
     }
   }
 
-  setItem(key: string, value: any): void {
+  setItem(key: string, value: any, volatile?: boolean): void {
     if (!value || !key) {
+      console.warn('value or key are undefined');
       return;
     }
 
@@ -68,7 +69,7 @@ export class StorageService {
       return;
     }
 
-    if (this.isValueLong(value)) {
+    if (volatile || this.isValueLong(value)) {
       // something abount cookies length (https://support.convert.com/hc/en-us/articles/4511582623117-Cookie-size-limits-and-the-impact-on-the-use-of-Convert-goals)
       this.setItemLong(key, value);
     } else {

@@ -1,6 +1,6 @@
 <div class="dialog-content-wrapper">
   <mat-toolbar color="primary" id="toolbarHeader" matDialogTitle>
-    <mat-toolbar-row fxLayoutAlign="space-between center">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
       {{ 'Editar perfil' | translate }}
       <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
         <mat-icon>close</mat-icon>
@@ -9,7 +9,7 @@
   </mat-toolbar>
 
   <div class="my-dialog-content" mat-dialog-content>
-    <div class="imagePickerRow" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="gappx">
+    <div class="imagePickerRow d-flex justify-content-center align-items-center">
       <app-guachos-image
         [create]="!loggedInUser.avatar"
         [imageSrc]="urlImage + loggedInUser.avatar"
@@ -19,8 +19,8 @@
     </div>
 
     <form [formGroup]="form">
-      <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="gappx">
-        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="gappx">
+      <div class="d-flex flex-column justify-content-start align-items-stretch">
+        <div class="d-flex justify-content-center align-items-center">
           <span *ngIf="this.loggedInUser" class="mat-title my-2" style="font-size: 24px">
             {{ this.loggedInUser.username }}
           </span>
@@ -76,21 +76,26 @@
             {{ 'email' | translate }} <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <div fxLayout="row" fxLayoutGap="8px" fxFlex="48" class="w-100" fxFlex.lt-md="100">
+        <div
+          class="w-100 d-flex transpilerClass-fxFlex-c330eb transpilerClass-fxFlex-c3332d transpilerClass-fxLayoutGap-70f8f9"
+        >
           <guachos-general-autocomplete
-            fxFlex="28"
             [withoutPaddingBottom]="false"
             [label]="'Código'"
             [valueId]="false"
-            fxFlex.lt-md="28"
             [displayOptions]="callingCodeDisplayOptions"
             [field]="['code']"
             [filterString]="['filter[$and][code][$like]']"
             [url]="phoneCodesService.url"
             [formControl]="form.get('PhoneCallingCodeId')"
+            class="transpilerClass-fxFlex-c3aba7 transpilerClass-fxFlex-77164a"
           ></guachos-general-autocomplete>
 
-          <mat-form-field appearance="outline" fxFlex="70" fxFlex.lt-md="70" id="phone">
+          <mat-form-field
+            appearance="outline"
+            id="phone"
+            class="transpilerClass-fxFlex-7a8a7a transpilerClass-fxFlex-be678b"
+          >
             <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
             <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
             <mat-icon class="greyIcon" matSuffix>call</mat-icon>
@@ -207,7 +212,7 @@
     </form>
   </div>
 
-  <div fxLayout="row" fxLayoutAlign="end start" mat-dialog-actions>
+  <div mat-dialog-actions class="d-flex justify-content-end align-items-start">
     <button
       (click)="onUpdateProfile()"
       [disabled]="this.form.invalid || (isChangePass && this.formPass.invalid)"

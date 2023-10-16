@@ -1,15 +1,12 @@
 <mat-dialog-content style="position: relative">
   <div
-    fxLayout="column"
-    fxLayoutAlign="start center"
-    fxLayoutAlign.lt-md="start start"
-    fxLayoutGap="gappx"
+    class="d-flex flex-column justify-content-start align-items-center d-sm-flex justify-content-sm-start align-items-start align-items-sm-start"
   >
     <p ngClass.gt-sm="mat-body-2" ngClass.lt-md="mat-body-2">
       {{ 'Confirmación de pago usando Transfermóvil.' | translate }}
     </p>
     <ul>
-      <div fxHide.lt-md>
+      <div class="d-sm-none">
         <li>
           {{ 'a. Abra la App de Transfermovil' | translate }}
         </li>
@@ -36,9 +33,9 @@
       >
     </ul>
   </div>
-  <div fxFlexFill fxLayout="column" fxLayoutAlign="start center">
+  <div fxFlexFill class="d-flex flex-column justify-content-start align-items-center">
     <img [src]="this.imgQR" class="mt-4" />
-    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="gappx" style="max-width: 20rem">
+    <div style="max-width: 20rem" class="d-flex justify-content-start align-items-end">
       <span class="mat-title mt-3">
         {{ 'Total' | translate }}: &nbsp;{{ finalPrice | currencyMarket: currency }}
       </span>

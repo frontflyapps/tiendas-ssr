@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 #footer-contacts {
@@ -117,4 +118,48 @@ footer {
 }
 .email-text {
   color: white !important;
+}
+
+.transpilerClass-fxFlex-bcdcf5 {
+  flex: 1 1 75%;
+}
+
+.transpilerClass-fxLayoutGap-80f22c {
+  gap: 1rem;
+}
+
+.transpilerClass-fxLayoutGap-608e47 {
+  gap: 20px;
+}
+
+.transpilerClass-fxLayoutGap-ea15c8 {
+  gap: 1rem;
+}
+
+.transpilerClass-fxLayoutGap-4cdb31 {
+  gap: 4px;
+}
+
+.transpilerClass-fxLayoutGap-946f46 {
+  gap: 4px;
+}
+
+.transpilerClass-fxLayoutGap-ff19b5 {
+  gap: 4px;
+}
+
+.transpilerClass-fxLayoutGap-1162c6 {
+  gap: 10px;
+}
+
+.transpilerClass-fxLayoutGap-1a0327 {
+  @include media-breakpoint('xs') {
+    gap: 10px;
+  }
+}
+
+.transpilerClass-fxLayoutGap-3da205 {
+  @include media-breakpoint('xs') {
+    gap: 4px;
+  }
 }

@@ -1,60 +1,76 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'environments/environment';
+import { Meta } from '@angular/platform-browser';
+
+interface MetaArgs {
+  title?: string;
+  description?: string;
+  shareImg?: string;
+  keywords?: string;
+  url?: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class MetaService {
-  setMeta(
-    title = '',
-    description = '',
-    shareImg = '',
-    keywords = '',
-    url = environment?.meta?.mainPage?.url,
-  ) {
-    const titleTag = document.querySelector('title');
-    const metaDescriptionTag = document.querySelector(`meta[name="description"]`);
-    const metaKeyWords = document.querySelector(`meta[name="keywords"]`);
-    const ogSiteName = document.querySelector(`meta[property="og:site_name"]`);
-    const ogTitle = document.querySelector(`meta[property="og:title"]`);
-    const ogDescription = document.querySelector(`meta[property="og:description"]`);
-    const ogImage = document.querySelector(`meta[property="og:image"]`);
-    const ogUrl = document.querySelector(`meta[property="og:url"]`);
+  constructor(private meta: Meta) {}
 
-    if (title) {
-      if (titleTag) {
-        titleTag.innerText = title;
-      }
-      if (ogSiteName) {
-        ogSiteName.setAttribute('content', title);
-      }
-      if (ogTitle) {
-        ogTitle.setAttribute('content', title);
-      }
-    }
-    if (description) {
-      if (metaDescriptionTag) {
-        metaDescriptionTag.setAttribute('content', description);
-      }
-      if (ogDescription) {
-        ogDescription.setAttribute('content', description);
-      }
-    }
-    if (keywords) {
-      if (metaKeyWords) {
-        metaKeyWords.setAttribute('content', keywords);
-      }
-    }
-    if (shareImg) {
-      if (ogImage) {
-        ogImage.setAttribute('content', shareImg);
-      }
-    }
-    if (url) {
-      if (ogUrl) {
-        ogUrl.setAttribute('content', url);
-      }
-    }
+  setMeta(args: MetaArgs) {
+    const { title, description, shareImg, keywords, url } = args;
+
+    this.meta.updateTag({
+      name: 'title',
+      content: title,
+    });
+    this.meta.updateTag({
+      name: 'description',
+      content: description,
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: keywords,
+    });
+
+    this.meta.updateTag({
+      property: 'og:url',
+      content: url,
+    });
+    this.meta.updateTag({
+      property: 'og:site_name',
+      content: title,
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      itemprop: 'image primaryImageOfPage',
+      content: shareImg,
+    });
+
+    this.meta.updateTag({
+      property: 'twitter:domain',
+      content: url,
+    });
+    this.meta.updateTag({
+      property: 'twitter:title',
+      content: title,
+    });
+    this.meta.updateTag({
+      property: 'og:title',
+      itemprop: 'name',
+      content: title,
+    });
+    this.meta.updateTag({
+      property: 'twitter:description',
+      content: description,
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      itemprop: 'description',
+      content: description,
+    });
+    this.meta.updateTag({
+      property: 'twitter:image',
+      content: shareImg,
+    });
   }
 }
 

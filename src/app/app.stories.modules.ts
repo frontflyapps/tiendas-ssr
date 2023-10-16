@@ -17,7 +17,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { UpdateControllerModule } from './components/shared/updates-controller/update-controller.module';
 import { HttpLoaderFactory } from './core/services/translate-factory/translate-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'environments/environment';
@@ -36,7 +35,6 @@ export class StoriesRoutingModule {}
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    CoreModule,
     MatDialogModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({

@@ -1,6 +1,6 @@
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -80,7 +80,7 @@ import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module
     MatToolbarModule,
     MatSlideToggleModule,
     MatTooltipModule,
-    FlexLayoutModule,
+
     MatButtonModule,
     MatDialogModule,
     FooterModule,

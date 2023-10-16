@@ -1,6 +1,14 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" *ngIf="!create">
-  <img *ngIf="!editing" [src]="imageSrc" [style]="config" fxLayoutAlign="start start" />
-  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign="start start">
+<div
+  *ngIf="!create"
+  class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column"
+>
+  <img
+    *ngIf="!editing"
+    [src]="imageSrc"
+    [style]="config"
+    class="d-flex justify-content-start align-items-start"
+  />
+  <div class="d-flex flex-column justify-content-center align-items-center">
     <button mat-raised-button *ngIf="!editing" (click)="onEdit(isEdit)" mat-icon-button>
       <mat-icon>edit</mat-icon>
     </button>
@@ -9,9 +17,9 @@
 </div>
 
 <guachos-image-picker
-  fxLayoutAlign="start start"
   *ngIf="config && (editing || create)"
   ($imageChanged)="onImageChange($event)"
   [_config]="config"
+  class="d-flex justify-content-start align-items-start"
 >
 </guachos-image-picker>

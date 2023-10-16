@@ -1,6 +1,6 @@
 <div class="dialog-content-wrapper">
   <mat-toolbar class="mb-2" color="primary" id="toolbarHeader" matDialogTitle>
-    <mat-toolbar-row fxLayoutAlign="space-between center">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
       <span class="mat-title mb-0">{{ 'Shipping Rates Details' | translate }}</span>
       <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
         <mat-icon>close</mat-icon>
@@ -17,14 +17,14 @@
               <span class="mat-subheading-1">{{ 'Product' | translate }}</span>
             </th>
             <td *matCellDef="let element" class="pb-2" mat-cell>
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <span *ngIf="element?.Product" class="mat-body-2 line-clamp">{{
                   utilsService.parserLanguage(element?.Product?.name, language)
                 }}</span>
               </div>
             </td>
             <td *matFooterCellDef class="text-center" mat-footer-cell>
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <span class="footer">{{ 'Total' }}</span>
               </div>
             </td>
@@ -35,14 +35,14 @@
               <span class="mat-subheading-1">{{ 'Price' | translate }}</span>
             </th>
             <td *matCellDef="let element" mat-cell>
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <span *ngIf="element?.price" class="mat-body-2">{{
                   element?.price | currencyMarket: marketCard
                 }}</span>
               </div>
             </td>
             <td *matFooterCellDef mat-footer-cell>
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <span class="footer">{{ getTotalCost() | currencyMarket: marketCard }}</span>
               </div>
             </td>

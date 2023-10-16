@@ -5,12 +5,17 @@
   <div id="textHtml"></div>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="space-between center" mat-dialog-actions>
-  <button fxFlex mat-button mat-dialog-close>
+<div mat-dialog-actions class="d-flex justify-content-between align-items-center">
+  <button mat-button mat-dialog-close class="transpilerClass-fxFlex-899b14">
     {{ 'CANCELAR' }}
   </button>
 
-  <button (click)="onSave()" color="primary" fxFlex mat-raised-button>
+  <button
+    (click)="onSave()"
+    color="primary"
+    mat-raised-button
+    class="transpilerClass-fxFlex-acc2a0"
+  >
     <span>{{ 'ACEPTAR' }}</span>
   </button>
 </div>

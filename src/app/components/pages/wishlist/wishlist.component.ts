@@ -4,15 +4,13 @@ import { Observable, of, Subject } from 'rxjs';
 import { Product } from './../../../modals/product.model';
 import { CartService } from '../../shared/services/cart.service';
 import { WishlistService } from '../../shared/services/wishlist.service';
-// import { environment } from 'src/environments/environment';
-// import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-// import { DialogPrescriptionComponent } from '../../shop/products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-wishlist',
@@ -59,12 +57,13 @@ export class WishlistComponent implements OnInit {
       .subscribe((data) => {
         this.isSmallDevice = data.matches;
       });
-    // this.metaService.setMeta(
-    //   'Lista de Deseos',
-    //   environment.meta?.mainPage?.description,
-    //   environment.meta?.mainPage?.shareImg,
-    //   environment.meta?.mainPage?.keywords,
-    // );
+
+    this.metaService.setMeta({
+      title: 'Lista de Deseos',
+      description: environment.meta.mainPage.description,
+      keywords: environment.meta.mainPage.keywords,
+      shareImg: environment.meta.mainPage.shareImg,
+    });
   }
 
   ngOnInit() {}
