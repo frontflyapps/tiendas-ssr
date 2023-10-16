@@ -3,7 +3,7 @@ FROM bitnami/node:16 as builder
 WORKDIR /app/
 ADD . /app/
 RUN yarn cache clean --force
-RUN yarn config get registry
+RUN yarn config set registry https://nexus.guajitech.com/repository/npm/
 
 ENV NODE_OPTIONS=--max-old-space-size=8000
 ENV NODE_OPTIONS=--max_old_space_size=8000
