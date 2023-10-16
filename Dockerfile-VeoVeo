@@ -2,15 +2,15 @@ FROM bitnami/node:16 as builder
 
 WORKDIR /app/
 ADD . /app/
-RUN npm cache clean --force
-RUN npm config get registry
+RUN yarn cache clean --force
+RUN yarn config get registry
 
 ENV NODE_OPTIONS=--max-old-space-size=8000
 ENV NODE_OPTIONS=--max_old_space_size=8000
 
-RUN npm install --force
-RUN npm run build:ssr:VeoVeo
+RUN yarn install --force
+RUN yarn run build:ssr:VeoVeo
 
 EXPOSE 4000/tcp
 
-CMD ["npm", "serve:ssr:VeoVeo"]
+CMD ["yarn", "serve:ssr:VeoVeo"]
