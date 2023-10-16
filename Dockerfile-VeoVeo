@@ -2,14 +2,14 @@ FROM bitnami/node:16 as builder
 
 WORKDIR /app/
 ADD . /app/
-RUN yarn cache clean --force
-RUN yarn config set registry https://nexus.guajitech.com/repository/npm/
+RUN npm cache clean --force
+RUN npm config set registry https://nexus.guajitech.com/repository/npm/
 
 ENV NODE_OPTIONS=--max-old-space-size=8000
 ENV NODE_OPTIONS=--max_old_space_size=8000
 
-RUN yarn install --force
-RUN yarn run build:ssr:VeoVeo
+RUN npm install --force
+RUN npm run build:ssr:VeoVeo
 
 EXPOSE 4000/tcp
 
