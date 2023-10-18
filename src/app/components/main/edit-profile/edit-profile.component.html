@@ -81,22 +81,18 @@
         >
           <guachos-general-autocomplete
             [withoutPaddingBottom]="false"
-            [label]="'Código'"
+            [label]="'Código telefónico'"
             [valueId]="false"
             [displayOptions]="callingCodeDisplayOptions"
             [field]="['code']"
             [filterString]="['filter[$and][code][$like]']"
             [url]="phoneCodesService.url"
             [formControl]="form.get('PhoneCallingCodeId')"
-            class="transpilerClass-fxFlex-c3aba7 transpilerClass-fxFlex-77164a"
+            fxFlex="30"
           ></guachos-general-autocomplete>
 
-          <mat-form-field
-            appearance="outline"
-            id="phone"
-            class="transpilerClass-fxFlex-7a8a7a transpilerClass-fxFlex-be678b"
-          >
-            <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
+          <mat-form-field appearance="outline" fxFlex="68" fxFlex.lt-md="70" id="phone">
+            <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
             <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
             <mat-icon class="greyIcon" matSuffix>call</mat-icon>
             <input
@@ -106,9 +102,25 @@
               autocomplete="off"
               placeholder="{{ 'Teléfono...' | translate }}"
             />
-            <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid">
-              {{ 'Número válido' | translate }}
+            <mat-hint *ngIf="form.get('phone').invalid">
+              {{ 'Teléfono es requerido' | translate }}
             </mat-hint>
+
+            <mat-error *ngIf="form.get('phone').hasError('required')">
+              {{ 'Teléfono es requerido' | translate }}
+            </mat-error>
+            <mat-error
+              *ngIf="
+                (form.controls['phone'].hasError('minlength') ||
+                  form.controls['phone'].hasError('maxlength')) &&
+                !form.controls['phone'].hasError('pattern')
+              "
+            >
+              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+                '8 caracteres, Ex: 51234567' | translate
+              }}</strong>
+            </mat-error>
+
             <mat-error
               *ngIf="
                 (form.controls['phone'].hasError('minlength') ||

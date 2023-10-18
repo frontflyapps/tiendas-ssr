@@ -15,6 +15,8 @@ import { environment } from 'environments/environment';
 import { StorageService } from './core/services/storage/storage.service';
 import { MetaService } from './core/services/meta.service';
 
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,6 +37,7 @@ export class AppComponent {
     private spinner: NgxSpinnerService,
     private translate: TranslateService,
     private router: Router,
+    public dialog: MatDialog,
     private showToastr: ShowToastrService,
     private loggedInUserService: LoggedInUserService,
     private authService: AuthenticationService,
@@ -92,6 +95,7 @@ export class AppComponent {
   initSystem() {
     const isCookieAccount = this.storageService.check('account');
     const userLogged = this.loggedInUserService.getLoggedInUser();
+
     if (isCookieAccount) {
       try {
         const token = this.encryptDecryptService.decrypt(this.storageService.getItem('account'));

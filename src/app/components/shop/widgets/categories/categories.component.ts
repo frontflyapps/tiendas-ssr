@@ -44,7 +44,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
       this.selection.clear();
     }
 
-    if (Array.isArray(value[0])) {
+    if (Array.isArray(value)) {
       this.selection.clear();
       value.map((id) => {
         this.selection.select(+id);

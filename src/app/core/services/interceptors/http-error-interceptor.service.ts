@@ -81,6 +81,13 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
         this.router.navigate(['my-account']).then();
       }
       this.utilsService.errorHandle(err);
+    } else if (err.status == 429) {
+      this.showToastr.showInfo(
+        this.translate.instant(`Procesando información, espere unos segundos`),
+        this.translate.instant('Información'),
+        5500,
+      );
+      this.utilsService.errorHandle(err);
     } else if (err.status == 406) {
       console.log(err);
       // const dialogRef = this.dialog.open(DialogCaptchaComponent, {

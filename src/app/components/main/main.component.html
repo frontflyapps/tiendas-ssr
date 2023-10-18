@@ -1,7 +1,4 @@
-<mat-sidenav-container
-  fullscreen
-  *ngIf="appService.businessConfig?.Business?.status !== 'blockPayment'"
->
+<mat-sidenav-container *ngIf="appService.businessConfig?.Business?.status !== 'blockPayment'">
   <!-- Vista movil menu -->
   <mat-sidenav #start [opened]="false" class="DrawerMobileView" mode="over">
     <mat-list class="position-relative">
@@ -27,7 +24,11 @@
     <mat-divider></mat-divider>
 
     <div class="sidebar-nav-items d-flex flex-column justify-content-start align-items-stretch">
-      <app-sidebar *ngFor="let item of navItems" [item]="item"></app-sidebar>
+      <app-sidebar
+        *ngFor="let item of navItems"
+        [item]="item"
+        (itemSelected)="start.toggle()"
+      ></app-sidebar>
       <!--            <a mat-list-item class="link-nav-a" href="/become-a-seller">-->
       <!--              <mat-icon class="mr-3">card_membership</mat-icon>-->
       <!--              <span class="mat-body-2" style="font-size: 15px">{{ 'Crea tu negocio' | translate }}</span>-->
@@ -35,7 +36,7 @@
       <div
         (click)="createYourBusiness()"
         class="link-nav-a"
-        *ngIf="businessConfig?.showDigitalContract && !this.loggedInUser?.Business"
+        *ngIf="appService.businessConfig?.showDigitalContract && !this.loggedInUser?.Business"
       >
         <mat-icon class="mr-3">card_membership</mat-icon>
         <span class="mat-body-2" style="font-size: 15px">{{ 'Crea tu negocio' | translate }}</span>
@@ -387,6 +388,15 @@
             <span class="mat-body-1">{{ 'Mis órdenes' | translate }}</span>
           </button>
 
+          <button
+            [routerLink]="['/referred']"
+            mat-menu-item
+            *ngIf="appService.businessConfig?.giftRulesReferrer"
+          >
+            <mat-icon>person_add</mat-icon>
+            <span class="mat-body-1">{{ 'Referidos' | translate }}</span>
+          </button>
+
           <button (click)="onShowProfile()" mat-menu-item>
             <mat-icon>build</mat-icon>
             <span class="mat-body-1">{{ 'Profile' | translate }}</span>
@@ -420,7 +430,9 @@
           <div
             (click)="createYourBusiness()"
             *ngIf="
-              loggedInUser && businessConfig?.showDigitalContract && !this.loggedInUser?.Business
+              loggedInUser &&
+              appService.businessConfig?.showDigitalContract &&
+              !this.loggedInUser?.Business
             "
             mat-menu-item
           >
@@ -534,7 +546,7 @@
 
         <a
           [routerLink]="['/shops-list']"
-          *ngIf="businessConfig?.canShowOurBussiness"
+          *ngIf="appService.businessConfig?.canShowOurBussiness"
           class="itemCategory"
           mat-button
           routerLinkActive="router-link-active"
@@ -546,6 +558,7 @@
           class="itemCategory"
           mat-button
           routerLinkActive="router-link-active"
+          *ngIf="appService.businessConfig?.showAllProducts"
         >
           {{ 'Todos los productos' | translate }}</a
         >

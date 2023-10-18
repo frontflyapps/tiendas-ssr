@@ -27,6 +27,13 @@ import { BusinessConfigService } from './core/services/business-config/business-
 import { switchMap } from 'rxjs';
 import { handleObservable } from './core/utils/api';
 
+import {
+  MAT_AUTOCOMPLETE_SCROLL_STRATEGY,
+  MatAutocompleteModule,
+} from '@angular/material/autocomplete';
+import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
+import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+
 //https://swiperjs.com/element#install--register-from-npm
 swiperRegister();
 registerLocaleData(localeEs, 'es');
@@ -44,6 +51,8 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     MatSnackBarModule,
     // CuDownloadListModule,
+    MatAutocompleteModule,
+    GuachosGeneralAutocompleteModule,
     MatDialogModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({

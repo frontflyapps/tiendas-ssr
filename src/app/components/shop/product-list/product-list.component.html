@@ -7,6 +7,13 @@
       *ngFor="let product of products.value"
       class="container-product mb-2 transpilerClass-fxFlex-7b2c34"
     >
+      <div *ngIf="product?.Business?.Province" class="location-label-sm" fxShow.lt-md fxHide>
+        <span>
+          <mat-icon>room</mat-icon>&nbsp;<strong>{{
+            product.Business?.Province?.name | parseLang: utilsService.getLang()
+          }}</strong>
+        </span>
+      </div>
       <div *ngIf="inLoading" class="loading-shade-main" style="height: 100%; width: 100%">
         <mat-spinner [diameter]="40"></mat-spinner>
       </div>
@@ -44,7 +51,15 @@
           <div class="moduleTitle line-clampTitle p-2">
             <h4 class="mat-body-2">{{ utilsService.parserLanguage(product.name, language) }}</h4>
           </div>
-          <div class="price p-2">
+          <div fxLayout="row" fxLayoutAlign="end end">
+            <span
+              class="coming-soon-text"
+              *ngIf="product.status === 'comingSoon'"
+              style="margin-top: 4rem"
+              >{{ 'Próximamente' | translate }}</span
+            >
+          </div>
+          <div class="price p-2" *ngIf="product.status !== 'comingSoon'">
             <a
               [queryParams]="{
                 productId: product.id,

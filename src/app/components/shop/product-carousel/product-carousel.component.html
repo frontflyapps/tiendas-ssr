@@ -87,7 +87,16 @@
                 {{utilsService.parserLanguage(product.shortDescription,language)}}</p> -->
             </a>
 
-            <div class="price">
+            <div fxLayout="row" fxLayoutAlign="end end">
+              <span
+                class="coming-soon-text"
+                *ngIf="product.status === 'comingSoon'"
+                style="margin-top: 2rem"
+                >{{ 'Próximamente' | translate }}</span
+              >
+            </div>
+
+            <div class="price" *ngIf="product.status !== 'comingSoon'">
               <a
                 [queryParams]="{
                   productId: product?.id,
@@ -133,6 +142,7 @@
             <button
               (click)="onAddToCart(product)"
               class="btnAddCart"
+              *ngIf="product.status !== 'comingSoon'"
               mat-mini-fab
               matTooltip="{{ 'Añadir al carrito' | translate }}"
               style="z-index: 10"
@@ -150,10 +160,16 @@
             </div>
           </div>
 
-          <div *ngIf="product?.Business?.Province && showLocationSpan" class="location-label">
+          <div *ngIf="product?.Business?.Province" class="location-label">
             <span>
-              <mat-icon>room</mat-icon>&nbsp;<strong>{{ product?.Business?.Province?.name }}</strong
-              >, {{ product?.Business?.Municipality?.name }}
+              <mat-icon>room</mat-icon>&nbsp;<strong>{{
+                product?.Business?.Province?.name
+              }}</strong>
+              {{
+                appService.businessConfig.showLocationSpan
+                  ? ', ' + product.Business?.Municipality?.name
+                  : ''
+              }}
             </span>
           </div>
         </mat-card>

@@ -12,7 +12,7 @@ export class ParsePriceProduct implements PipeTransform {
   transform(product: any, type?: any): string {
     let currency;
     currency = CoinEnum.USD;
-    if (product.currency !== null) {
+    if (product.currency && product.currency !== null) {
       switch (product.currency) {
         case 'USD': {
           currency = CoinEnum.USD;
@@ -26,6 +26,13 @@ export class ParsePriceProduct implements PipeTransform {
           currency = CoinEnum.CUP;
           break;
         }
+      }
+    }
+    if (product?.currencies) {
+      if (product?.currencies.length > 1) {
+        currency = 'USD/MLC';
+      } else {
+        currency = product?.currencies;
       }
     } else {
       if (product.market == MarketEnum.INTERNATIONAL) {

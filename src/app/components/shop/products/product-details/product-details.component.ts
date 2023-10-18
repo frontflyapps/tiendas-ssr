@@ -29,6 +29,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
 import { SwiperOptions } from 'swiper/types';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -52,20 +53,21 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   supplementArray: any;
   featuredProducts: any[] = [];
 
-  showLocationSpan = environment.showLocation;
+  showLocationSpan;
   imageUrl = environment.imageUrl;
   arrayImages: any[] = [];
   mainImage = null;
   changeImage = false;
   language: any;
   _unsubscribeAll: Subject<any>;
+  public config: SwiperConfigInterface = {};
   public configVariants: SwiperConfigInterface = {};
   loggedInUser: any = null;
   reviewForm: UntypedFormGroup;
   loadingReviews = false;
   allReviews = [];
   showZoom = false;
-  // public image: any;
+  public image: any;
   public counter = 1;
   index: number;
 
@@ -144,12 +146,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     public productDataService: ProductDataService,
     public spinner: NgxSpinnerService,
     private breakpointObserver: BreakpointObserver,
+    private appService: BusinessConfigService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
       ? this.loggedInUserService.getLanguage().lang
       : 'es';
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
+
+    this.showLocationSpan = this.appService.businessConfig.showLocationSpan;
+
+    this.spinner.show();
 
     this.breakpointObserver
       .observe([
@@ -173,12 +180,15 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       this.productsService.getProductById(productId, stockId).subscribe(
         (data) => {
           this.product = data.data;
+
+          this.spinner.hide();
           console.log(this.product);
           this.getProductsByBusiness(this.product?.BusinessId, this.query);
           this.initStateView();
           this.isLoading = false;
         },
         (error) => {
+          this.spinner.hide();
           this.isLoading = false;
           this.utilsService.errorHandle(error);
           this.errorPage = true;
@@ -186,56 +196,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         },
       );
     });
-  }
-
-  initSwiperXsSm() {
-    const swiperEl = document.querySelector('#app-product-details-sm-xs');
-
-    if (swiperEl) {
-      // swiper parameters
-      const swiperOptions: SwiperOptions = {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        keyboard: true,
-        navigation: true,
-        pagination: this.pagination,
-        grabCursor: true,
-        loop: false,
-        // preloadImages: false,
-        // lazy: true,
-        autoplay: false,
-        effect: 'fade',
-      };
-      Object.assign(swiperEl, swiperOptions);
-
-      // @ts-expect-error necessarCheck the docs
-      swiperEl.initialize();
-    }
-  }
-
-  initSmXsSwiper() {
-    const swiperEl = document.querySelector('#app-product-details-sm-xs');
-
-    if (swiperEl) {
-      // swiper parameters
-      const swiperOptions: SwiperOptions = {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        keyboard: true,
-        navigation: true,
-        pagination: this.pagination,
-        grabCursor: true,
-        loop: false,
-        // preloadImages: false,
-        // lazy: true,
-        autoplay: false,
-        effect: 'fade',
-      };
-      Object.assign(swiperEl, swiperOptions);
-
-      // @ts-expect-error necessarCheck the docs
-      swiperEl.initialize();
-    }
   }
 
   checkMinMaxValues(event, product): boolean {
@@ -459,7 +419,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   ngAfterViewInit(): void {
     this.initConfig();
-    this.initSwiperXsSm();
   }
 
   goProduct(product) {
@@ -486,19 +445,19 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   initConfig() {
-    // this.config = {
-    //   slidesPerView: 1,
-    //   spaceBetween: 0,
-    //   keyboard: true,
-    //   navigation: true,
-    //   pagination: this.pagination,
-    //   grabCursor: true,
-    //   loop: false,
-    //   preloadImages: false,
-    //   lazy: true,
-    //   autoplay: false,
-    //   effect: 'fade',
-    // };
+    this.config = {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      keyboard: true,
+      navigation: true,
+      pagination: this.pagination,
+      grabCursor: true,
+      loop: false,
+      preloadImages: false,
+      lazy: true,
+      autoplay: false,
+      effect: 'fade',
+    };
     this.configVariants = {
       slidesPerView: 7,
       spaceBetween: 20,
@@ -514,6 +473,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     };
   }
 
+  downloadFile(product) {
+    // const filePath = product;
+    // const fileUrl = this.imageUrl + product.dataSheetUrl;
+    // const fileName = product.dataSheetName;
+
+    const link = document.createElement('a');
+    link.href = this.imageUrl + product.dataSheetUrl;
+    link.download = product.dataSheetName;
+    link.click();
+  }
+
   addLenses(product: any, quantity) {
     if (this.loggedInUserService.getLoggedInUser()) {
       const dialogRef = this.dialog.open(DialogPrescriptionComponent, {
@@ -521,8 +491,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         hasBackdrop: true,
         width: this.isSmallDevice ? '100vw' : '60%',
         maxWidth: this.isSmallDevice ? '100vw' : '100vw',
-        height: this.isSmallDevice ? '70vh' : '70%',
-        maxHeight: this.isSmallDevice ? '70vh' : '100vh',
+        height: this.isSmallDevice ? '85vh' : '70%',
+        maxHeight: this.isSmallDevice ? '85vh' : '100vh',
         data: {
           product: product,
           quantity: quantity,
@@ -546,13 +516,24 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   public addToCart(product: any, quantity) {
     console.log('entro aki');
     console.log(product);
+    const dataToSend = {
+      goToPay: false,
+      addToCart: true,
+      counter: this.counter,
+      product: this.product,
+    };
     if (this.loggedInUserService.getLoggedInUser()) {
       if (quantity === 0) {
         return false;
       }
       this.cartService.addToCart(product, Math.max(product.minSale, quantity)).then();
     } else {
-      this.cartService.redirectToLoginWithOrigin(this.pathToRedirect, this.paramsToUrlRedirect);
+      this.cartService.saveDataToAddToCart(dataToSend);
+      this.cartService.redirectToLoginWithOrigin(
+        this.pathToRedirect,
+        this.paramsToUrlRedirect,
+        dataToSend,
+      );
     }
   }
 
@@ -682,9 +663,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       //     this.cartService.redirectToLoginWithOrigin(this.pathToRedirect, this.paramsToUrlRedirect);
       //   }
       // } else {
+      const dataToSend = {
+        goToPay: false,
+        addToCart: true,
+        counter: this.counter,
+        product: this.product,
+      };
+
       if (this.loggedInUserService.getLoggedInUser()) {
         this.cartService.addToCart(this.product, this.counter).then();
       } else {
+        this.cartService.saveDataToAddToCart(dataToSend);
         this.cartService.redirectToLoginWithOrigin(this.pathToRedirect, this.paramsToUrlRedirect);
       }
       // }
@@ -693,12 +682,36 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   onAddtoCompListNav() {
-    this.productsService.addToCompare(this.product);
-    this.router.navigate(['/pages/compare']);
+    // this.productsService.addToCompare(this.product);
+    // this.router.navigate(['/pages/compare']);
+    // let ruta = this.route.snapshot.routeConfig.path;
+
+    console.log(this.route.snapshot.routeConfig.path.includes('checkout'));
   }
 
   onGoToCheckouNav() {
-    this.buyNow(this.product, 1);
+    const dataToSend = {
+      goToPay: true,
+      addToCart: true,
+      counter: this.counter,
+      product: this.product,
+    };
+    if (this.loggedInUserService.getLoggedInUser()) {
+      this.buyNow(this.product, this.counter);
+    } else {
+      console.log(this.pathToRedirect);
+      console.log(this.paramsToUrlRedirect);
+      // this.paramsToUrlRedirect.params.counter = this.counter;
+      // this.paramsToUrlRedirect.goToPay = true;
+      this.paramsToUrlRedirect.addToCart = true;
+      console.log(this.paramsToUrlRedirect);
+      this.cartService.saveDataToAddToCart(dataToSend);
+      this.cartService.redirectToLoginWithOrigin(
+        this.pathToRedirect,
+        this.paramsToUrlRedirect,
+        dataToSend,
+      );
+    }
   }
 
   onShareProduct() {

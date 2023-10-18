@@ -134,6 +134,9 @@ export abstract class RestFullService<T> {
           '%' + params.name + '%',
         );
       }
+      if (params?.personId) {
+        this.httpParams = this.httpParams.append('personId', params.personId);
+      }
     }
     return this.http.get<any>(this.url, { params: this.httpParams });
   }
