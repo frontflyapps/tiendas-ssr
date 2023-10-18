@@ -14,36 +14,35 @@
   class="billing-details"
 >
   <mat-step [stepControl]="supplementForm.get('supplementType')">
-    <ng-template matStepLabel fxHide.xs fxHide.sm>{{ 'Escoja lentes' | translate }}</ng-template>
-    <ng-template fxHide fxShow.xs fxShow.sm>{{ 'Escoja lentes' | translate }}</ng-template>
+    <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none">{{
+      'Escoja lentes' | translate
+    }}</ng-template>
+    <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none">{{
+      'Escoja lentes' | translate
+    }}</ng-template>
     <h3 class="my-3 title-supplement">{{ supplementArray[0]?.name }}</h3>
     <h5 class="my-3 subtitle-supplement">{{ supplementArray[0]?.description }}</h5>
     <div
-      fxLayout="row wrap"
-      fxLayout.xs="column"
-      fxLayout.sm="column"
-      fxLayoutAlign="start center"
-      fxLayoutGap="6px"
-      class="w-100 mb-3 pb-3 row-supplement"
+      class="w-100 mb-3 pb-3 row-supplement d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column justify-content-start align-items-center transpilerClass-fxLayoutGap-e2873f"
     >
       <div
         *ngFor="let element of supplementArray[0].Recomendeds; let j = index"
-        fxLayout="column"
-        fxLayoutAlign="start center"
-        class="mb-1"
+        class="mb-1 d-flex flex-column justify-content-start align-items-center"
       >
         <div
           [ngClass]="{ itemSelected: element.checked, itemUnselected: !element.checked }"
-          fxLayout="column"
-          fxLayoutAlign="start center"
           (click)="onChangeSelection($event, 0, j, stepper)"
+          class="d-flex flex-column justify-content-start align-items-center"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
           />
-          <div fxLayout="column" fxLayoutAlign="start center" style="text-align: center">
+          <div
+            style="text-align: center"
+            class="d-flex flex-column justify-content-start align-items-center"
+          >
             <span class="mx-2 my-2"
               ><strong>{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
@@ -51,10 +50,7 @@
             >
             <div
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
-              class="mx-2 pt-2"
-              fxLayout="column"
-              fxLayoutAlign="start start"
-              fxLayoutGap="gappx"
+              class="mx-2 pt-2 d-flex flex-column justify-content-start align-items-start"
               style="width: 80px"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
@@ -67,16 +63,14 @@
             </div>
             <mat-icon
               *ngIf="!element.checked"
-              class="icon-unchecked"
-              fxLayoutAlign="center center"
+              class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
             >
               radio_button_unchecked
             </mat-icon>
             <mat-icon
               *ngIf="element.checked"
-              class="icon-checked"
-              fxLayoutAlign="center center"
+              class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
             >
               task_alt
@@ -89,23 +83,22 @@
 
   <mat-step disabled="supplementForm.get('supplementType').value" [stepControl]="form">
     <mat-dialog-content>
-      <ng-template matStepLabel fxHide.xs fxHide.sm>{{
+      <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none">{{
         'Insertar receta médica' | translate
       }}</ng-template>
-      <ng-template fxShow.xs fxShow.sm fxHide>{{
+      <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none">{{
         'Insertar receta médica' | translate
       }}</ng-template>
-      <div class="w-100 mb-3 pb-3 row-supplement" fxHide fxShow.xs fxShow.sm>
-        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="6px" class="mb-3">
+      <div class="w-100 mb-3 pb-3 row-supplement d-xs-block d-sm-block d-md-block d-none">
+        <div
+          class="mb-3 d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-39a2fd"
+        >
           <span style="width: 80px">{{ 'ESFERA' | translate }}</span>
           <span style="width: 80px">{{ 'CILINDRO' | translate }}</span>
           <span style="width: 60px">{{ 'EJE' | translate }}</span>
         </div>
         <div
-          fxLayout="row"
-          fxLayoutAlign="end end"
-          fxLayoutGap="6px"
-          class="container-selects mb-3"
+          class="container-selects mb-3 d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-8658da"
         >
           <span class="text-axis">Ojo derecho</span>
           <mat-select [formControl]="form.get('right')" class="input-axis">
@@ -140,10 +133,7 @@
           {{ 'Eje derecho' | translate }} <strong>{{ 'is required' | translate }}</strong>
         </mat-error>
         <div
-          fxLayout="row"
-          fxLayoutAlign="end end"
-          fxLayoutGap="6px"
-          class="container-selects mb-3"
+          class="container-selects mb-3 d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-e47819"
         >
           <span class="text-axis">Ojo izquierdo</span>
           <mat-select [formControl]="form.get('left')" class="input-axis">
@@ -177,9 +167,9 @@
         <mat-error *ngIf="form.get('axisLeft').hasError('required')">
           {{ 'Eje izquierdo' | translate }} <strong>{{ 'is required' | translate }}</strong>
         </mat-error>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <div fxLayout="column">
-            <div fxLayout="row" fxLayoutAlign="center center" class="container-add">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex flex-column">
+            <div class="container-add d-flex justify-content-center align-items-center">
               <h4>ADD</h4>
               <!--            <mat-form-field appearance='outline' class='select'>-->
               <!--              <mat-label>{{'ADD'}}</mat-label>-->
@@ -208,7 +198,7 @@
             </mat-error>
           </div>
 
-          <div fxLayout="row" fxLayoutAlign="center center" class="container-dp">
+          <div class="container-dp d-flex justify-content-center align-items-center">
             <h4 class="text-dp" style="text-align: center">DISTANCIA PUPILAR</h4>
             <!--            <mat-form-field appearance='outline' class='select'>-->
             <!--              <mat-label>{{'Distancia'}}</mat-label>-->
@@ -228,7 +218,7 @@
           </div>
         </div>
       </div>
-      <table class="table w-100" fxShow fxHide.xs fxHide.sm>
+      <table class="table w-100 d-block d-xs-none d-sm-none d-md-none">
         <tr>
           <th mat-header-cell></th>
           <th mat-header-cell>
@@ -414,14 +404,11 @@
           <td class="pb-2" mat-cell></td>
         </tr>
       </table>
-      <div fxLayout="column">
+      <div class="d-flex flex-column">
         <h2 class="title-prescription-image">{{ 'Subir imagen de receta' | translate }}</h2>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+        <div class="d-flex justify-content-start align-items-start">
           <div
-            class="container-image-prescription"
-            fxLayout="row"
-            fxLayoutAlign="start center"
-            fxLayoutGap="1rem"
+            class="container-image-prescription d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-9ca0f7"
             *ngIf="form.get('prescriptionImageName').value; else noPrescriptionImage"
           >
             <img
@@ -443,8 +430,7 @@
           </div>
           <ng-template class="container-image-prescription" #noPrescriptionImage>
             <div
-              class="container-no-image-prescription"
-              fxLayoutAlign="center center"
+              class="container-no-image-prescription d-flex justify-content-center align-items-center"
               (click)="onUploadDataSheet()"
             >
               <!--            <button (click)='onUploadDataSheet()'-->
@@ -477,7 +463,7 @@
       </div>
     </mat-dialog-content>
 
-    <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between end">
+    <mat-dialog-actions class="d-flex justify-content-between align-items-end">
       <!--      <div fxLayout='row' fxLayoutAlign='space-between end'>-->
       <button class="mt-2" color="primary" mat-stroked-button matStepperPrevious>
         {{ 'Volver' | translate }}
@@ -496,8 +482,12 @@
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel fxHide.xs fxHide.sm>{{ 'Escoja lentes' | translate }}</ng-template>
-    <ng-template fxHide fxShow.xs fxShow.sm>{{ 'Escoger lentes' | translate }}</ng-template>
+    <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none">{{
+      'Escoja lentes' | translate
+    }}</ng-template>
+    <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none">{{
+      'Escoger lentes' | translate
+    }}</ng-template>
 
     <h3 class="my-3 title-supplement">{{ supplementArray[1]?.name }}</h3>
     <h5
@@ -510,41 +500,35 @@
       {{ supplementArray[1]?.description }}
     </h5>
     <span
-      fxLayoutAlign="center center"
       (click)="supplementArray[1].seeDetails = !supplementArray[1].seeDetails"
-      class="see-details"
-      fxLayout="row"
-      fxLayoutAlign="end center"
+      class="see-details d-flex justify-content-center align-items-center"
     >
       {{ (!supplementArray[1]?.seeDetails ? 'Leer más' : 'Leer menos') | translate }}
     </span>
     <div
-      fxLayout="row"
-      fxLayoutAlign="space-between center"
-      fxLayoutGap="6px"
-      class="w-100 mb-3 mt-3 pb-3 row-supplement"
+      class="w-100 mb-3 mt-3 pb-3 row-supplement d-flex justify-content-between align-items-center transpilerClass-fxLayoutGap-7c2f41"
     >
       <div
         *ngFor="let element of supplementArray[1].Recomendeds; let j = index"
-        fxFlex="50"
-        fxLayout="column"
-        fxLayoutAlign="start center"
+        class="d-flex flex-column justify-content-start align-items-center transpilerClass-fxFlex-2311a7"
       >
         <div
           [ngClass]="{
             supplementColorSelected: element.checked,
             supplementColorUnselected: !element.checked
           }"
-          fxLayout="column"
-          fxLayoutAlign="start center"
           (click)="onChangeSelection($event, 1, j)"
+          class="d-flex flex-column justify-content-start align-items-center"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
           />
-          <div fxLayout="column" fxLayoutAlign="center center" style="text-align: center">
+          <div
+            style="text-align: center"
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
             <span class="mx-2 my-2"
               ><strong>{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
@@ -553,10 +537,7 @@
             <!--                  <span *ngIf='element?.RecomendedProduct?.description' class="mx-2 description" [innerHTML]='this.utilsService.publicSetDescription(element?.RecomendedProduct?.description, translateService.currentLang)'></span>-->
             <div
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
-              class="mx-2 pt-2"
-              fxLayout="column"
-              fxLayoutAlign="center center"
-              fxLayoutGap="gappx"
+              class="mx-2 pt-2 d-flex flex-column justify-content-center align-items-center"
               style="width: 80px"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
@@ -569,16 +550,14 @@
             </div>
             <mat-icon
               *ngIf="!element.checked"
-              class="icon-unchecked"
-              fxLayoutAlign="center center"
+              class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
             >
               radio_button_unchecked
             </mat-icon>
             <mat-icon
               *ngIf="element.checked"
-              class="icon-checked"
-              fxLayoutAlign="center center"
+              class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
             >
               task_alt
@@ -599,41 +578,35 @@
       {{ supplementArray[2]?.description }}
     </h5>
     <span
-      fxLayoutAlign="center center"
       (click)="supplementArray[2].seeDetails = !supplementArray[2].seeDetails"
-      class="see-details"
-      fxLayout="row"
-      fxLayoutAlign="end center"
+      class="see-details d-flex justify-content-center align-items-center"
     >
       {{ (!supplementArray[2]?.seeDetails ? 'Leer más' : 'Leer menos') | translate }}
     </span>
     <div
-      fxLayout="row"
-      fxLayoutAlign="space-between center"
-      fxLayoutGap="6px"
-      class="w-100 mb-3 mt-3 pb-3 row-supplement"
+      class="w-100 mb-3 mt-3 pb-3 row-supplement d-flex justify-content-between align-items-center transpilerClass-fxLayoutGap-0de8d1"
     >
       <div
         *ngFor="let element of supplementArray[2].Recomendeds; let j = index"
-        fxFlex="50"
-        fxLayout="column"
-        fxLayoutAlign="start center"
+        class="d-flex flex-column justify-content-start align-items-center transpilerClass-fxFlex-61e297"
       >
         <div
           [ngClass]="{
             supplementColorSelected: element.checked,
             supplementColorUnselected: !element.checked
           }"
-          fxLayout="column"
-          fxLayoutAlign="start center"
           (click)="onChangeSelection($event, 2, j)"
+          class="d-flex flex-column justify-content-start align-items-center"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
           />
-          <div fxLayout="column" fxLayoutAlign="center center" style="text-align: center">
+          <div
+            style="text-align: center"
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
             <span class="mx-2 my-2"
               ><strong>{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
@@ -642,10 +615,7 @@
             <!--                  <span *ngIf='element?.RecomendedProduct?.description' class="mx-2 description" [innerHTML]='this.utilsService.publicSetDescription(element?.RecomendedProduct?.description, translateService.currentLang)'></span>-->
             <div
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
-              class="mx-2 pt-2"
-              fxLayout="column"
-              fxLayoutAlign="center center"
-              fxLayoutGap="gappx"
+              class="mx-2 pt-2 d-flex flex-column justify-content-center align-items-center"
               style="width: 80px"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
@@ -658,16 +628,14 @@
             </div>
             <mat-icon
               *ngIf="!element.checked"
-              class="icon-unchecked"
-              fxLayoutAlign="center center"
+              class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
             >
               radio_button_unchecked
             </mat-icon>
             <mat-icon
               *ngIf="element.checked"
-              class="icon-checked"
-              fxLayoutAlign="center center"
+              class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
             >
               task_alt
@@ -688,41 +656,35 @@
       {{ supplementArray[3]?.description }}
     </h5>
     <span
-      fxLayoutAlign="center center"
       (click)="supplementArray[3].seeDetails = !supplementArray[3].seeDetails"
-      class="see-details"
-      fxLayout="row"
-      fxLayoutAlign="end center"
+      class="see-details d-flex justify-content-center align-items-center"
     >
       {{ (!supplementArray[3]?.seeDetails ? 'Leer más' : 'Leer menos') | translate }}
     </span>
     <div
-      fxLayout="row"
-      fxLayoutAlign="space-between center"
-      fxLayoutGap="6px"
-      class="w-100 mb-3 mt-3 pb-3 row-supplement"
+      class="w-100 mb-3 mt-3 pb-3 row-supplement d-flex justify-content-between align-items-center transpilerClass-fxLayoutGap-130802"
     >
       <div
         *ngFor="let element of supplementArray[3].Recomendeds; let j = index"
-        fxFlex="50"
-        fxLayout="column"
-        fxLayoutAlign="start center"
+        class="d-flex flex-column justify-content-start align-items-center transpilerClass-fxFlex-49f47d"
       >
         <div
           [ngClass]="{
             supplementColorSelected: element.checked,
             supplementColorUnselected: !element.checked
           }"
-          fxLayout="column"
-          fxLayoutAlign="start center"
           (click)="onChangeSelection($event, 3, j)"
+          class="d-flex flex-column justify-content-start align-items-center"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
           />
-          <div fxLayout="column" fxLayoutAlign="center center" style="text-align: center">
+          <div
+            style="text-align: center"
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
             <span class="mx-2 my-2"
               ><strong>{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
@@ -731,10 +693,7 @@
             <!--                  <span *ngIf='element?.RecomendedProduct?.description' class="mx-2 description" [innerHTML]='this.utilsService.publicSetDescription(element?.RecomendedProduct?.description, translateService.currentLang)'></span>-->
             <div
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
-              class="mx-2 pt-2"
-              fxLayout="column"
-              fxLayoutAlign="center center"
-              fxLayoutGap="gappx"
+              class="mx-2 pt-2 d-flex flex-column justify-content-center align-items-center"
               style="width: 80px"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
@@ -747,16 +706,14 @@
             </div>
             <mat-icon
               *ngIf="!element.checked"
-              class="icon-unchecked"
-              fxLayoutAlign="center center"
+              class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
             >
               radio_button_unchecked
             </mat-icon>
             <mat-icon
               *ngIf="element.checked"
-              class="icon-checked"
-              fxLayoutAlign="center center"
+              class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
             >
               task_alt
@@ -767,17 +724,13 @@
     </div>
 
     <div
-      fxLayout="row"
-      fxLayout.xs="row"
-      fxLayout.sm="row"
-      fxLayoutAlign="space-between end"
-      fxLayoutGap="6px"
       *ngIf="!this.loadingSearch"
+      class="d-flex d-xs-flex d-sm-flex d-md-flex justify-content-between align-items-end transpilerClass-fxLayoutGap-b29075"
     >
       <button mat-stroked-button mat-dialog-close color="warn" (click)="close()">
         {{ 'Cancelar' | translate }}
       </button>
-      <div fxLayout="column" fxLayoutGap="6px">
+      <div class="d-flex flex-column transpilerClass-fxLayoutGap-d595e3">
         <button class="mt-2" mat-stroked-button color="primary" (click)="save()">
           {{ 'Añadir al carrito' | translate }}
         </button>

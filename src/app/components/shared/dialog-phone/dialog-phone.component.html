@@ -1,15 +1,26 @@
-<div fxLayout='column' fxLayoutAlign='start start'>
-  <h2>{{'Introduzca su teléfono' | translate}}</h2>
-  <div fxLayout='row' fxLayoutGap='8px' fxFlex="48" class='w-100' fxFlex.lt-md="100" *ngIf='form'>
-    <guachos-general-autocomplete fxFlex="30" [withoutPaddingBottom]="false" [label]="'Código telefónico'"
-                                  [valueId]="true"
-                                  fxFlex.lt-md="28"
-                                  [displayOptions]="callingCodeDisplayOptions" [field]="['code']"
-                                  [filterString]="['filter[$and][code][$like]']"
-                                  [url]="phoneCodesService.url"
-                                  [formControl]="form.get('PhoneCallingCodeId')"></guachos-general-autocomplete>
+<div class="d-flex flex-column justify-content-start align-items-start">
+  <h2>{{ 'Introduzca su teléfono' | translate }}</h2>
+  <div
+    class="w-100 d-flex transpilerClass-fxFlex-98ff6b transpilerClass-fxFlex-d9d04f transpilerClass-fxLayoutGap-b2764d"
+    *ngIf="form"
+  >
+    <guachos-general-autocomplete
+      [withoutPaddingBottom]="false"
+      [label]="'Código telefónico'"
+      [valueId]="true"
+      [displayOptions]="callingCodeDisplayOptions"
+      [field]="['code']"
+      [filterString]="['filter[$and][code][$like]']"
+      [url]="phoneCodesService.url"
+      [formControl]="form.get('PhoneCallingCodeId')"
+      class="transpilerClass-fxFlex-ac1efa transpilerClass-fxFlex-2aecc9"
+    ></guachos-general-autocomplete>
 
-    <mat-form-field appearance="outline" fxFlex="68" fxFlex.lt-md="70" id="phone">
+    <mat-form-field
+      appearance="outline"
+      id="phone"
+      class="transpilerClass-fxFlex-ea4523 transpilerClass-fxFlex-f85b99"
+    >
       <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
       <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
       <input
@@ -24,20 +35,21 @@
       </mat-hint>
       <mat-error
         *ngIf="
-                      (form.controls['phone'].hasError('minlength') ||
-                        form.controls['phone'].hasError('maxlength')) &&
-                      !form.controls['phone'].hasError('pattern')
-                    "
+          (form.controls['phone'].hasError('minlength') ||
+            form.controls['phone'].hasError('maxlength')) &&
+          !form.controls['phone'].hasError('pattern')
+        "
       >
         {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-        '8 caracteres, Ex: 51234567' | translate
+          '8 caracteres, Ex: 51234567' | translate
         }}</strong>
       </mat-error>
     </mat-form-field>
   </div>
 
-  <div fxLayout='row' class='w-100' fxLayoutAlign='end end'>
-    <button mat-raised-button color='primary' [disabled]='validate()' (click)='onSave()'>{{'Guardar' | translate | uppercase}}</button>
+  <div class="w-100 d-flex justify-content-end align-items-end">
+    <button mat-raised-button color="primary" [disabled]="validate()" (click)="onSave()">
+      {{ 'Guardar' | translate | uppercase }}
+    </button>
   </div>
-
 </div>

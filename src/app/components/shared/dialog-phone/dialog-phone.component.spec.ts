@@ -8,9 +8,8 @@ describe('DialogPhoneComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogPhoneComponent ]
-    })
-    .compileComponents();
+      declarations: [DialogPhoneComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DialogPhoneComponent);
     component = fixture.componentInstance;

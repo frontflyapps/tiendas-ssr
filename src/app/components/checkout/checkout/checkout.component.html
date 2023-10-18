@@ -801,12 +801,14 @@
                     [filterString]="['filter[$and][code][$like]']"
                     [url]="phoneCodesService.url"
                     [formControl]="form.get('PhoneCallingCodeId')"
-                    fxFlex="30"
-                    [withoutPaddingBottom]="false"
-                    [label]="'Código telefónico'"
+                    class="transpilerClass-fxFlex-4b1f56"
                   ></guachos-general-autocomplete>
 
-                  <mat-form-field appearance="outline" fxFlex="68" fxFlex.lt-md="70" id="phone">
+                  <mat-form-field
+                    appearance="outline"
+                    id="phone"
+                    class="transpilerClass-fxFlex-5a6d6d transpilerClass-fxFlex-1661e7"
+                  >
                     <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                     <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                     <input
@@ -982,8 +984,8 @@
               </mat-form-field>
             </div>
 
-            <div class="add-info mb-3" fxLayout="row" fxHide.xs fxHide.sm>
-              <mat-checkbox [formControl]="form.get('checkAge')" fxLayout="row">
+            <div class="add-info mb-3 d-flex d-xs-none d-sm-none d-md-none">
+              <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex">
                 <span
                   >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
                   <!--                      <br>-->
@@ -994,8 +996,8 @@
               </mat-checkbox>
             </div>
 
-            <div class="add-info mb-3" fxLayout="row" fxShow.xs fxShow.sm fxHide>
-              <mat-checkbox [formControl]="form.get('checkAge')" fxLayout="row">
+            <div class="add-info mb-3 d-flex d-xs-block d-sm-block d-md-block d-none">
+              <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex">
                 <span
                   >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
                   <br />

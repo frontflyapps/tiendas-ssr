@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ReferredLayoutRoutingModule } from './referred-layout-routing.module';
 import { ReferredLayoutComponent } from './referred-layout.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,16 +14,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
-
 @NgModule({
-  declarations: [
-    ReferredLayoutComponent
-  ],
+  declarations: [ReferredLayoutComponent],
   imports: [
     CommonModule,
     ReferredLayoutRoutingModule,
     TranslateModule,
-    FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -36,4 +31,4 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ClipboardModule,
   ],
 })
-export class ReferredLayoutModule { }
+export class ReferredLayoutModule {}

@@ -1,21 +1,19 @@
 <div class="container">
-  <div fxLayout="column" fxLayoutAlign="start stretch">
+  <div class="d-flex flex-column justify-content-start align-items-stretch">
     <mat-card class="mx-auto my-3" id="CardLogin">
       <!-- <div *ngIf="inLoading" class="loading-shade">
         <mat-spinner *ngIf="inLoading"></mat-spinner>
       </div> -->
 
-      <div fxLayout="column" fxLayoutAlign="center start" class="py-2 mt-2">
+      <div class="py-2 mt-2 d-flex flex-column justify-content-center align-items-start">
         <img *ngIf="!showRegistrationForm" [src]="logo" class="login-logo mx-auto" />
       </div>
 
       <div
-        class="mat-elevation-z8"
-        fxLayout="column"
-        fxLayoutAlign="start stretch"
+        class="mat-elevation-z8 d-flex flex-column justify-content-start align-items-stretch"
         id="CardBodyLoggin"
       >
-        <div class="w-100 p-2 mt-3" fxLayout="row" fxLayoutAlign="center center">
+        <div class="w-100 p-2 mt-3 d-flex justify-content-center align-items-center">
           <button
             (click)="onGoBefore()"
             *ngIf="
@@ -54,9 +52,7 @@
         <!-- LOGIN -->
         <div
           *ngIf="showLoginForm"
-          class="FormLayout"
-          fxLayout="column"
-          fxLayoutAlign="start stretch"
+          class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
         >
           <form [formGroup]="loginForm" class="login-form">
             <mat-form-field appearance="outline" class="example-full-width mt-2">
@@ -97,7 +93,7 @@
               </mat-error>
             </mat-form-field>
 
-            <div class="mb-3" fxLayout="row" fxLayoutAlign="center center">
+            <div class="mb-3 d-flex justify-content-center align-items-center">
               <button
                 (click)="
                   login(loginForm.controls['username'].value, loginForm.controls['password'].value)
@@ -119,9 +115,7 @@
 
             <div
               *ngIf="localDatabaseUsers"
-              class="my-1"
-              fxLayout="row"
-              fxLayoutAlign="center center"
+              class="my-1 d-flex justify-content-center align-items-center"
             >
               <a
                 [queryParams]="{ modal: 'password' }"
@@ -133,9 +127,7 @@
 
             <div
               *ngIf="localDatabaseUsers && businessConfig?.signUpType == 'normal'"
-              class="my-1"
-              fxLayout="row"
-              fxLayoutAlign="center center"
+              class="my-1 d-flex justify-content-center align-items-center"
             >
               <a
                 [queryParams]="{ modal: 'validate' }"
@@ -147,9 +139,7 @@
 
             <div
               *ngIf="localDatabaseUsers"
-              class="my-1"
-              fxLayout="row"
-              fxLayoutAlign="center center"
+              class="my-1 d-flex justify-content-center align-items-center"
             >
               <a
                 [queryParams]="{ modal: 'registration' }"
@@ -182,16 +172,15 @@
               else noMultiple
             "
           >
-            <div fxLayout="column" class="mx-3">
+            <div class="mx-3 d-flex flex-column">
               <mat-button-toggle-group
                 [formControl]="signUpTypesForm.get('signUpType')"
                 name="toggle"
                 aria-label="Favorite Color"
-                fxFlex="50"
+                class="transpilerClass-fxFlex-76993b"
               >
                 <mat-button-toggle
-                  fxFlex="50"
-                  class="toggle-button"
+                  class="toggle-button transpilerClass-fxFlex-8025e2"
                   *ngFor="let type of signUpTypes"
                   [value]="type.value"
                   >{{ type.viewValue }}</mat-button-toggle
@@ -200,15 +189,16 @@
               <ng-container
                 *ngIf="signUpTypesForm.get('signUpType').value === 'normal'; else tcpRegistration"
               >
-                <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+                <div
+                  class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+                >
                   <form class="example-full-width">
-                    <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
-                      <div
-                        fxLayout="row wrap"
-                        fxLayoutAlign="space-between start"
-                        fxLayoutGap="gappx"
-                      >
-                        <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                    <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-e1ce89 transpilerClass-fxFlex-4223c7"
+                        >
                           <mat-label>{{ 'Name' | translate }}</mat-label>
                           <input
                             [formControl]="registrationForm.controls['name']"
@@ -226,7 +216,10 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-4c3ce3 transpilerClass-fxFlex-a4077d"
+                        >
                           <mat-label>{{ 'Lastname' | translate }}</mat-label>
                           <input
                             [formControl]="registrationForm.controls['lastname']"
@@ -249,7 +242,10 @@
                         </mat-form-field>
                       </div>
 
-                      <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                      <mat-form-field
+                        appearance="outline"
+                        class="transpilerClass-fxFlex-f38f2c transpilerClass-fxFlex-3ac9bb"
+                      >
                         <mat-label>{{ 'Email' | translate }}</mat-label>
                         <input
                           (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -270,30 +266,24 @@
                       </mat-form-field>
 
                       <div
-                        fxLayout="row"
-                        fxLayoutGap="8px"
-                        fxFlex="48"
-                        class="w-100"
-                        fxFlex.lt-md="100"
+                        class="w-100 d-flex transpilerClass-fxFlex-ded1ef transpilerClass-fxFlex-b07c85 transpilerClass-fxLayoutGap-2085bb"
                       >
                         <guachos-general-autocomplete
-                          fxFlex="30"
                           [withoutPaddingBottom]="false"
                           [label]="'Código telefónico'"
                           [valueId]="true"
-                          fxFlex.lt-md="28"
                           [displayOptions]="callingCodeDisplayOptions"
                           [field]="['code']"
                           [filterString]="['filter[$and][code][$like]']"
                           [url]="phoneCodesService.url"
                           [formControl]="registrationForm.get('PhoneCallingCodeId')"
+                          class="transpilerClass-fxFlex-5163e8 transpilerClass-fxFlex-43cc83"
                         ></guachos-general-autocomplete>
 
                         <mat-form-field
                           appearance="outline"
-                          fxFlex="70"
-                          fxFlex.lt-md="70"
                           id="phone"
+                          class="transpilerClass-fxFlex-bcad6a transpilerClass-fxFlex-180ff8"
                         >
                           <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                           <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
@@ -327,12 +317,12 @@
                       </div>
 
                       <div
-                        fxLayout="row"
-                        fxLayout.xs="column"
-                        fxLayoutAlign="space-between center"
-                        fxLayoutAlign.xs="stretch start"
+                        class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                       >
-                        <mat-form-field appearance="outline" class="example-full-width" fxFlex="48">
+                        <mat-form-field
+                          appearance="outline"
+                          class="example-full-width transpilerClass-fxFlex-0c0263"
+                        >
                           <mat-label>{{ 'Password' | translate }}</mat-label>
                           <input
                             [formControl]="fromPassRegister.controls['password']"
@@ -369,8 +359,7 @@
                             'ng-valid': !fromPassRegister.hasError('mismatch')
                           }"
                           appearance="outline"
-                          class="example-full-width"
-                          fxFlex="48"
+                          class="example-full-width transpilerClass-fxFlex-03ead3"
                         >
                           <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                           <input
@@ -397,12 +386,12 @@
                       </div>
                       <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
                         {{
-                          'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                          'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                             | translate
                         }}
                       </mat-error>
 
-                      <mat-checkbox [formControl]="registrationForm.get('checkAge')" fxLayout="row">
+                      <mat-checkbox [formControl]="registrationForm.get('checkAge')" class="d-flex">
                         <span
                           >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
                           <br />
@@ -419,7 +408,7 @@
                         </ngx-recaptcha2>
                       </div> -->
 
-                      <div fxLayout="row" fxLayoutAlign="center center" class="pt-4">
+                      <div class="pt-4 d-flex justify-content-center align-items-center">
                         <button
                           (click)="onSignUp()"
                           [disabled]="registrationForm.invalid"
@@ -436,15 +425,18 @@
               </ng-container>
               <ng-template #tcpRegistration>
                 <ng-container>
-                  <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+                  <div
+                    class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+                  >
                     <form class="example-full-width">
-                      <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
-                        <div
-                          fxLayout="row wrap"
-                          fxLayoutAlign="space-between start"
-                          fxLayoutGap="gappx"
-                        >
-                          <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                      <div
+                        class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
+                      >
+                        <div class="d-flex justify-content-between align-items-start">
+                          <mat-form-field
+                            appearance="outline"
+                            class="transpilerClass-fxFlex-102ab5 transpilerClass-fxFlex-8bef38"
+                          >
                             <mat-label>{{ 'Name' | translate }}</mat-label>
                             <input
                               [formControl]="regTcpForm.controls['name']"
@@ -462,7 +454,10 @@
                             </mat-error>
                           </mat-form-field>
 
-                          <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                          <mat-form-field
+                            appearance="outline"
+                            class="transpilerClass-fxFlex-a08a8f transpilerClass-fxFlex-7203ef"
+                          >
                             <mat-label>{{ 'Lastname' | translate }}</mat-label>
                             <input
                               [formControl]="regTcpForm.controls['lastname']"
@@ -481,7 +476,10 @@
                           </mat-form-field>
                         </div>
 
-                        <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-7913a5 transpilerClass-fxFlex-460b1c"
+                        >
                           <mat-label>{{ 'Email' | translate }}</mat-label>
                           <input
                             (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -503,7 +501,10 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-22465d transpilerClass-fxFlex-dd62dd"
+                        >
                           <mat-label>{{ 'No. de Identidad' | translate }}</mat-label>
                           <input
                             matInput
@@ -526,7 +527,10 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-bba39e transpilerClass-fxFlex-b796bc"
+                        >
                           <mat-label>{{ 'No. de Licencia TCP' | translate }}</mat-label>
 
                           <input
@@ -551,7 +555,10 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-0c25c1 transpilerClass-fxFlex-1c9ba8"
+                        >
                           <mat-label>{{ 'No. carnet ONAT' | translate }}</mat-label>
 
                           <input
@@ -571,28 +578,22 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <div
-                          fxLayout="row wrap"
-                          fxLayoutAlign="space-between start"
-                          fxLayoutGap="gappx"
-                        >
+                        <div class="d-flex justify-content-between align-items-start">
                           <guachos-general-autocomplete
-                            fxFlex="30"
                             [withoutPaddingBottom]="false"
                             [label]="'Código de teléfono'"
                             [valueId]="true"
-                            fxFlex.lt-md="28"
                             [displayOptions]="callingCodeDisplayOptions"
                             [field]="['code']"
                             [filterString]="['filter[$and][code][$like]']"
                             [url]="phoneCodesService.url"
                             [formControl]="regTcpForm.get('PhoneCallingCodeId')"
+                            class="transpilerClass-fxFlex-77abe1 transpilerClass-fxFlex-dbf5ba"
                           ></guachos-general-autocomplete>
                           <mat-form-field
                             id="phone"
-                            fxFlex="68"
-                            fxFlex.lt-md="100"
                             appearance="outline"
+                            class="transpilerClass-fxFlex-558a46 transpilerClass-fxFlex-ed2a58"
                           >
                             <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                             <!--                            <span matPrefix class="mr-2">+ 53</span>-->
@@ -632,7 +633,10 @@
                           </mat-form-field>
                         </div>
 
-                        <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-28470b transpilerClass-fxFlex-395c34"
+                        >
                           <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
                           <input
                             matInput
@@ -650,10 +654,8 @@
                         </mat-form-field>
 
                         <mat-form-field
-                          fxFlex="48"
-                          fxFlex.lt-md="100"
                           appearance="outline"
-                          class="mt-2"
+                          class="mt-2 transpilerClass-fxFlex-aa0307 transpilerClass-fxFlex-72af78"
                         >
                           <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
 
@@ -670,7 +672,10 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                        <mat-form-field
+                          appearance="outline"
+                          class="transpilerClass-fxFlex-7259dc transpilerClass-fxFlex-89f9d9"
+                        >
                           <mat-label>{{ 'Dirección' | translate }}</mat-label>
                           <input
                             matInput
@@ -685,15 +690,11 @@
                         </mat-form-field>
 
                         <div
-                          fxLayout="row"
-                          fxLayoutAlign="space-between center"
-                          fxLayout.xs="column"
-                          fxLayoutAlign.xs="stretch start"
+                          class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                         >
                           <mat-form-field
-                            class="example-full-width"
+                            class="example-full-width transpilerClass-fxFlex-197db7"
                             appearance="outline"
-                            fxFlex="48"
                           >
                             <mat-label>{{ 'Password' | translate }}</mat-label>
                             <input
@@ -731,8 +732,7 @@
                               'ng-valid': !fromPassRegister.hasError('mismatch')
                             }"
                             appearance="outline"
-                            class="example-full-width"
-                            fxFlex="48"
+                            class="example-full-width transpilerClass-fxFlex-4c6153"
                           >
                             <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                             <input
@@ -761,7 +761,7 @@
                           *ngIf="fromPassRegister.controls['password'].hasError('pattern')"
                         >
                           {{
-                            'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                            'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                               | translate
                           }}
                         </mat-error>
@@ -851,7 +851,7 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <div fxLayout="column" fxLayoutGap=".3rem">
+                        <div class="d-flex flex-column transpilerClass-fxLayoutGap-d1c016">
                           <span class="section-title mb-2" translate>Documentos adjuntos</span>
                           <span class="mat-caption section-sub-title" translate>
                             Estos documentos serán usados para validar su registro en nuestra
@@ -867,7 +867,7 @@
                         >
                         </app-upload-file>
 
-                        <mat-checkbox [formControl]="regTcpForm.get('checkAge')" fxLayout="row">
+                        <mat-checkbox [formControl]="regTcpForm.get('checkAge')" class="d-flex">
                           <span
                             >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
                             <br />
@@ -877,7 +877,7 @@
                           </a>
                         </mat-checkbox>
 
-                        <div fxLayout="row" fxLayoutAlign="center center">
+                        <div class="d-flex justify-content-center align-items-center">
                           <button
                             mat-raised-button
                             color="primary"
@@ -899,11 +899,14 @@
 
         <ng-template #noMultiple>
           <ng-container *ngIf="businessConfig?.signUpType == 'tcp'; else normalRegitretion">
-            <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+            <div class="FormLayout d-flex flex-column justify-content-start align-items-stretch">
               <form class="example-full-width">
-                <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
-                  <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="gappx">
-                    <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <mat-form-field
+                      appearance="outline"
+                      class="transpilerClass-fxFlex-9d05da transpilerClass-fxFlex-bab28e"
+                    >
                       <mat-label>{{ 'Name' | translate }}</mat-label>
                       <input
                         [formControl]="regTcpForm.controls['name']"
@@ -921,7 +924,10 @@
                       </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                    <mat-form-field
+                      appearance="outline"
+                      class="transpilerClass-fxFlex-6afc72 transpilerClass-fxFlex-5e9fe0"
+                    >
                       <mat-label>{{ 'Lastname' | translate }}</mat-label>
                       <input
                         [formControl]="regTcpForm.controls['lastname']"
@@ -940,7 +946,10 @@
                     </mat-form-field>
                   </div>
 
-                  <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-afb767 transpilerClass-fxFlex-2f018d"
+                  >
                     <mat-label>{{ 'Email' | translate }}</mat-label>
                     <input
                       (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -960,7 +969,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-c7c929 transpilerClass-fxFlex-182a7b"
+                  >
                     <mat-label>{{ 'No. de Identidad' | translate }}</mat-label>
                     <input
                       matInput
@@ -983,7 +995,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-d68462 transpilerClass-fxFlex-522c1b"
+                  >
                     <mat-label>{{ 'No. de Licencia TCP' | translate }}</mat-label>
 
                     <input
@@ -1008,7 +1023,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-5ba64d transpilerClass-fxFlex-cefdea"
+                  >
                     <mat-label>{{ 'No. carnet ONAT' | translate }}</mat-label>
 
                     <input
@@ -1028,8 +1046,12 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="gappx">
-                    <mat-form-field id="phone" fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <mat-form-field
+                      id="phone"
+                      appearance="outline"
+                      class="transpilerClass-fxFlex-f17c33 transpilerClass-fxFlex-52b4be"
+                    >
                       <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                       <span matPrefix class="mr-2">+ 53</span>
                       <input
@@ -1066,7 +1088,10 @@
                     </mat-form-field>
                   </div>
 
-                  <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-bc64dc transpilerClass-fxFlex-56fdb4"
+                  >
                     <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
                     <input
                       matInput
@@ -1083,7 +1108,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline" class="mt-2">
+                  <mat-form-field
+                    appearance="outline"
+                    class="mt-2 transpilerClass-fxFlex-900d74 transpilerClass-fxFlex-fce284"
+                  >
                     <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
 
                     <textarea
@@ -1099,7 +1127,10 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field fxFlex="48" fxFlex.lt-md="100" appearance="outline">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-8d8203 transpilerClass-fxFlex-4d359a"
+                  >
                     <mat-label>{{ 'Dirección' | translate }}</mat-label>
                     <input
                       matInput
@@ -1113,12 +1144,12 @@
                   </mat-form-field>
 
                   <div
-                    fxLayout="row"
-                    fxLayoutAlign="space-between center"
-                    fxLayout.xs="column"
-                    fxLayoutAlign.xs="stretch start"
+                    class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                   >
-                    <mat-form-field class="example-full-width" appearance="outline" fxFlex="48">
+                    <mat-form-field
+                      class="example-full-width transpilerClass-fxFlex-87e9a2"
+                      appearance="outline"
+                    >
                       <mat-label>{{ 'Password' | translate }}</mat-label>
                       <input
                         [formControl]="fromPassRegister.controls['password']"
@@ -1153,8 +1184,7 @@
                         'ng-valid': !fromPassRegister.hasError('mismatch')
                       }"
                       appearance="outline"
-                      class="example-full-width"
-                      fxFlex="48"
+                      class="example-full-width transpilerClass-fxFlex-b95238"
                     >
                       <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                       <input
@@ -1181,7 +1211,7 @@
                   </div>
                   <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
                     {{
-                      'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                      'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                         | translate
                     }}
                   </mat-error>
@@ -1265,7 +1295,7 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <div fxLayout="column" fxLayoutGap=".3rem">
+                  <div class="d-flex flex-column transpilerClass-fxLayoutGap-2c5a4f">
                     <span class="section-title mb-2" translate>Documentos adjuntos</span>
                     <span class="mat-caption section-sub-title" translate>
                       Estos documentos serán usados para validar su registro en nuestra tienda. (Se
@@ -1281,7 +1311,7 @@
                   >
                   </app-upload-file>
 
-                  <mat-checkbox [formControl]="regTcpForm.get('checkAge')" fxLayout="row">
+                  <mat-checkbox [formControl]="regTcpForm.get('checkAge')" class="d-flex">
                     <span
                       >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
                       <br />
@@ -1291,7 +1321,7 @@
                     </a>
                   </mat-checkbox>
 
-                  <div fxLayout="row" fxLayoutAlign="center center">
+                  <div class="d-flex justify-content-center align-items-center">
                     <button
                       mat-raised-button
                       color="primary"
@@ -1307,11 +1337,14 @@
             </div>
           </ng-container>
           <ng-template #normalRegitretion>
-            <div class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+            <div class="FormLayout d-flex flex-column justify-content-start align-items-stretch">
               <form class="example-full-width">
-                <div class="pt-3" fxLayout="column" fxLayoutAlign="space-around stretch">
-                  <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="gappx">
-                    <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <mat-form-field
+                      appearance="outline"
+                      class="transpilerClass-fxFlex-66dcbd transpilerClass-fxFlex-f85d5d"
+                    >
                       <mat-label>{{ 'Name' | translate }}</mat-label>
                       <input
                         [formControl]="registrationForm.controls['name']"
@@ -1329,7 +1362,10 @@
                       </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                    <mat-form-field
+                      appearance="outline"
+                      class="transpilerClass-fxFlex-bb5ec1 transpilerClass-fxFlex-21d0a2"
+                    >
                       <mat-label>{{ 'Lastname' | translate }}</mat-label>
                       <input
                         [formControl]="registrationForm.controls['lastname']"
@@ -1362,7 +1398,10 @@
                     </mat-error>
                   </mat-form-field> -->
 
-                  <mat-form-field appearance="outline" fxFlex="48" fxFlex.lt-md="100">
+                  <mat-form-field
+                    appearance="outline"
+                    class="transpilerClass-fxFlex-5c6eaf transpilerClass-fxFlex-c83eea"
+                  >
                     <mat-label>{{ 'Email' | translate }}</mat-label>
                     <input
                       (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -1383,26 +1422,25 @@
                   </mat-form-field>
 
                   <div
-                    fxLayout="row"
-                    fxLayoutGap="8px"
-                    fxFlex="48"
-                    class="w-100"
-                    fxFlex.lt-md="100"
+                    class="w-100 d-flex transpilerClass-fxFlex-082be0 transpilerClass-fxFlex-7f02bb transpilerClass-fxLayoutGap-2fde8e"
                   >
                     <guachos-general-autocomplete
-                      fxFlex="28"
                       [withoutPaddingBottom]="false"
                       [label]="'Código telefónico'"
                       [valueId]="true"
-                      fxFlex.lt-md="28"
                       [displayOptions]="callingCodeDisplayOptions"
                       [field]="['code']"
                       [filterString]="['filter[$and][code][$like]']"
                       [url]="phoneCodesService.url"
                       [formControl]="registrationForm.get('PhoneCallingCodeId')"
+                      class="transpilerClass-fxFlex-206c47 transpilerClass-fxFlex-3bf285"
                     ></guachos-general-autocomplete>
 
-                    <mat-form-field appearance="outline" fxFlex="70" fxFlex.lt-md="70" id="phone">
+                    <mat-form-field
+                      appearance="outline"
+                      id="phone"
+                      class="transpilerClass-fxFlex-2870dc transpilerClass-fxFlex-14e5cc"
+                    >
                       <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                       <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                       <input
@@ -1434,12 +1472,12 @@
                   </div>
 
                   <div
-                    fxLayout="row"
-                    fxLayout.xs="column"
-                    fxLayoutAlign="space-between center"
-                    fxLayoutAlign.xs="stretch start"
+                    class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                   >
-                    <mat-form-field appearance="outline" class="example-full-width" fxFlex="48">
+                    <mat-form-field
+                      appearance="outline"
+                      class="example-full-width transpilerClass-fxFlex-112ebd"
+                    >
                       <mat-label>{{ 'Password' | translate }}</mat-label>
                       <input
                         [formControl]="fromPassRegister.controls['password']"
@@ -1474,8 +1512,7 @@
                         'ng-valid': !fromPassRegister.hasError('mismatch')
                       }"
                       appearance="outline"
-                      class="example-full-width"
-                      fxFlex="48"
+                      class="example-full-width transpilerClass-fxFlex-0948a8"
                     >
                       <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                       <input
@@ -1502,12 +1539,12 @@
                   </div>
                   <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
                     {{
-                      'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&*~^)'
+                      'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                         | translate
                     }}
                   </mat-error>
 
-                  <mat-checkbox [formControl]="registrationForm.get('checkAge')" fxLayout="row">
+                  <mat-checkbox [formControl]="registrationForm.get('checkAge')" class="d-flex">
                     <span
                       >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
                       <br />
@@ -1524,7 +1561,7 @@
                     </ngx-recaptcha2>
                   </div> -->
 
-                  <div fxLayout="row" fxLayoutAlign="center center" class="pt-4">
+                  <div class="pt-4 d-flex justify-content-center align-items-center">
                     <button
                       (click)="onSignUp()"
                       [disabled]="registrationForm.invalid"
@@ -1542,9 +1579,12 @@
         </ng-template>
 
         <!--SEND PIN-->
-        <div *ngIf="showPinForm" class="FormLayout" fxLayout="column" fxLayoutAlign="start stretch">
+        <div
+          *ngIf="showPinForm"
+          class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+        >
           <form class="example-full-width">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch">
+            <div class="d-flex flex-column justify-content-around align-items-stretch">
               <span class="mat-subheader color-grey-700 mb-1">{{
                 'Enter the authentication pin sent to your email' | translate
               }}</span>
@@ -1564,7 +1604,7 @@
                 </mat-error>
               </mat-form-field>
 
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <button
                   (click)="onCheckPin()"
                   [disabled]="!pinForm.valid || inLoading"
@@ -1587,12 +1627,10 @@
 
         <div
           *ngIf="showActivateForm"
-          class="FormLayout"
-          fxLayout="column"
-          fxLayoutAlign="start stretch"
+          class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
         >
           <form class="example-full-width">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch">
+            <div class="d-flex flex-column justify-content-around align-items-stretch">
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>{{ 'Email' | translate }}</mat-label>
                 <input
@@ -1621,7 +1659,7 @@
                 </mat-error>
               </mat-form-field>
 
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <button
                   (click)="onValidateAccount()"
                   [disabled]="!activateForm.valid || inLoading"
@@ -1638,12 +1676,10 @@
 
         <div
           *ngIf="showResetPassForm"
-          class="FormLayout"
-          fxLayout="column"
-          fxLayoutAlign="start stretch"
+          class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
         >
           <form class="example-full-width">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch">
+            <div class="d-flex flex-column justify-content-around align-items-stretch">
               <span class="mat-subheader color-grey-700 mb-1">{{
                 'Insert your email' | translate
               }}</span>
@@ -1661,7 +1697,7 @@
                 </mat-error>
               </mat-form-field>
 
-              <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="d-flex justify-content-center align-items-center">
                 <button
                   (click)="onSendEmail2ChangePass()"
                   [disabled]="!insertEmailPassForm.valid || inLoading"
@@ -1678,12 +1714,10 @@
 
         <div
           *ngIf="showNewPassForm"
-          class="FormLayout"
-          fxLayout="column"
-          fxLayoutAlign="start stretch"
+          class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
           style="max-height: 60vh; overflow-y: scroll"
         >
-          <div class="alert alert-primary" class="py-2" role="alert">
+          <div class="alert alert-primary" role="alert">
             <span class="mat-body-2">{{ 'Insert the pin sent to your email' | translate }}</span>
           </div>
 
@@ -1703,13 +1737,12 @@
             </mat-form-field>
 
             <div
-              class="mt-3"
-              fxLayout="row wrap"
-              fxLayout.xs="column"
-              fxLayoutAlign="space-between start"
-              fxLayoutAlign.xs="stretch start"
+              class="mt-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-start align-items-xs-start align-items-sm-start"
             >
-              <mat-form-field appearance="outline" class="example-full-width" fxFlex="100">
+              <mat-form-field
+                appearance="outline"
+                class="example-full-width transpilerClass-fxFlex-677763"
+              >
                 <mat-label>{{ 'Password' | translate }}</mat-label>
                 <input
                   [formControl]="formPass.controls['password']"
@@ -1743,8 +1776,7 @@
                   'ng-valid': !formPass.hasError('mismatch')
                 }"
                 appearance="outline"
-                class="example-full-width"
-                fxFlex="100"
+                class="example-full-width transpilerClass-fxFlex-1eefc5"
               >
                 <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                 <input
@@ -1759,7 +1791,7 @@
               </mat-form-field>
             </div>
 
-            <div class="mb-3" fxLayout="row" fxLayoutAlign="center center">
+            <div class="mb-3 d-flex justify-content-center align-items-center">
               <button
                 (click)="
                   onNewPass(

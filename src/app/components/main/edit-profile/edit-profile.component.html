@@ -88,10 +88,14 @@
             [filterString]="['filter[$and][code][$like]']"
             [url]="phoneCodesService.url"
             [formControl]="form.get('PhoneCallingCodeId')"
-            fxFlex="30"
+            class="transpilerClass-fxFlex-f383cc"
           ></guachos-general-autocomplete>
 
-          <mat-form-field appearance="outline" fxFlex="68" fxFlex.lt-md="70" id="phone">
+          <mat-form-field
+            appearance="outline"
+            id="phone"
+            class="transpilerClass-fxFlex-d5a89c transpilerClass-fxFlex-6178bb"
+          >
             <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
             <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
             <mat-icon class="greyIcon" matSuffix>call</mat-icon>

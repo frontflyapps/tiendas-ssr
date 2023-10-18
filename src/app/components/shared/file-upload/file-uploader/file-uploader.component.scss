@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 .width-stepper {
   max-width: 60rem;
   width: 100%;
@@ -60,4 +61,16 @@
   &:focus {
     outline: #e53935;
   }
+}
+
+.transpilerClass-fxFlex-6c31df {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxFlex-075be7 {
+  flex: 1 1 0%;
+}
+
+.transpilerClass-fxFlex-10d934 {
+  flex: 1 1 0%;
 }

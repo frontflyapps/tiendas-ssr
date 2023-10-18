@@ -180,3 +180,17 @@
 .transpilerClass-fxLayoutGap-70f8f9 {
   gap: 8px;
 }
+
+.transpilerClass-fxFlex-f383cc {
+  flex: 1 1 30%;
+}
+
+.transpilerClass-fxFlex-d5a89c {
+  flex: 1 1 68%;
+}
+
+.transpilerClass-fxFlex-6178bb {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 70%;
+  }
+}

@@ -2,24 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { environment } from '../../../environments/environment';
 import { ReferredService } from '../../core/services/referred/referred.service';
 import { LoggedInUserService } from '../../core/services/loggedInUser/logged-in-user.service';
 import { ShowToastrService } from '../../core/services/show-toastr/show-toastr.service';
-
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-referred-layout',
   templateUrl: './referred-layout.component.html',
   styleUrls: ['./referred-layout.component.scss'],
-  providers: [ReferredService]
+  providers: [ReferredService],
 })
 export class ReferredLayoutComponent implements OnInit {
-
   form: UntypedFormGroup;
   urlLink = environment.url + 'my-account?modal=registration';
   data: any;
-  hasLink: boolean = true;
+  hasLink = true;
   loading = false;
   loggedInUser: any = null;
 
@@ -30,7 +28,7 @@ export class ReferredLayoutComponent implements OnInit {
     private router: RouterModule,
     private elementService: ReferredService,
     private loggedInUserService: LoggedInUserService,
-    private showToastr: ShowToastrService
+    private showToastr: ShowToastrService,
   ) {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
   }
@@ -44,7 +42,7 @@ export class ReferredLayoutComponent implements OnInit {
     console.log(this.data?.Codes[0].code);
     const url = this.urlLink + (this.data?.Codes.length > 0 ? this.data?.Codes[0].code : '');
     this.form = this.fb.group({
-      link: [url , []],
+      link: [url, []],
     });
     console.log(url);
     console.log(this.urlLink);
@@ -82,5 +80,4 @@ export class ReferredLayoutComponent implements OnInit {
   copyLink() {
     this.showToastr.showSucces(this.translateService.instant('Enlace copiado al portapapeles'));
   }
-
 }

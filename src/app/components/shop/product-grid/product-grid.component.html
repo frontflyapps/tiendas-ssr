@@ -4,7 +4,7 @@
   </h2>
   <div class="d-flex justify-content-between align-items-start">
     <div *ngFor="let product of products.value" class="container-product mb-2">
-      <div *ngIf="product?.Business?.Province" class="location-label-sm" fxShow.lt-md fxHide>
+      <div *ngIf="product?.Business?.Province" class="location-label-sm d-sm-block d-none">
         <span>
           <mat-icon>room</mat-icon>&nbsp;<strong>{{
             product.Business?.Province?.name | parseLang: utilsService.getLang()
@@ -58,7 +58,7 @@
           </a>
         </div>
 
-        <div fxLayout="row" fxLayoutAlign="end end">
+        <div class="d-flex justify-content-end align-items-end">
           <span
             class="coming-soon-text"
             *ngIf="product.status === 'comingSoon'"

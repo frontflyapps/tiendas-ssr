@@ -7,7 +7,7 @@
       *ngFor="let product of products.value"
       class="container-product mb-2 transpilerClass-fxFlex-7b2c34"
     >
-      <div *ngIf="product?.Business?.Province" class="location-label-sm" fxShow.lt-md fxHide>
+      <div *ngIf="product?.Business?.Province" class="location-label-sm d-sm-block d-none">
         <span>
           <mat-icon>room</mat-icon>&nbsp;<strong>{{
             product.Business?.Province?.name | parseLang: utilsService.getLang()
@@ -51,7 +51,7 @@
           <div class="moduleTitle line-clampTitle p-2">
             <h4 class="mat-body-2">{{ utilsService.parserLanguage(product.name, language) }}</h4>
           </div>
-          <div fxLayout="row" fxLayoutAlign="end end">
+          <div class="d-flex justify-content-end align-items-end">
             <span
               class="coming-soon-text"
               *ngIf="product.status === 'comingSoon'"
