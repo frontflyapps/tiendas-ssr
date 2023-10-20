@@ -3,7 +3,9 @@
     <mat-icon>room</mat-icon>&nbsp;<strong>{{
       product.Business?.Province?.name | parseLang: utilsService.getLang()
     }}</strong>
-    {{ showLocationSpan ? ', ' + product.Business?.Municipality?.name : '' }}
+    {{
+      appService.businessConfig.showLocationSpan ? ', ' + product.Business?.Municipality?.name : ''
+    }}
   </span>
 </div>
 <div
@@ -147,7 +149,11 @@
       <mat-icon>room</mat-icon>&nbsp;<strong>{{
         product.Business?.Province?.name | parseLang: utilsService.getLang()
       }}</strong>
-      {{ showLocationSpan ? ', ' + product.Business?.Municipality?.name : '' }}
+      {{
+        appService.businessConfig.showLocationSpan
+          ? ', ' + product.Business?.Municipality?.name
+          : ''
+      }}
     </span>
   </div>
 </div>

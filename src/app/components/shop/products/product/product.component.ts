@@ -17,6 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-product',
@@ -28,7 +29,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   @Input() product: any;
   inLoading = false;
   _unsubscribeAll: Subject<any>;
-  showLocationSpan = environment.showLocation;
   loggedInUser: any = null;
   imageUrl = environment.imageUrl;
   isHandset = false;
@@ -50,6 +50,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private translate: TranslateService,
     private breakpointObserver: BreakpointObserver,
+    public appService: BusinessConfigService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()

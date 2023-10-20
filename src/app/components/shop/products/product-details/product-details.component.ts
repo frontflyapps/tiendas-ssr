@@ -53,7 +53,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   supplementArray: any;
   featuredProducts: any[] = [];
 
-  showLocationSpan;
   imageUrl = environment.imageUrl;
   arrayImages: any[] = [];
   mainImage = null;
@@ -153,8 +152,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       ? this.loggedInUserService.getLanguage().lang
       : 'es';
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-
-    this.showLocationSpan = this.appService.businessConfig.showLocationSpan;
 
     this.spinner.show();
 
