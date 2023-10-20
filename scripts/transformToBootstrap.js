@@ -6,6 +6,7 @@ const { v4 } = require('uuid');
 
 const fs = require('fs');
 const cheerio = require('cheerio');
+const { getFiles } = require('./utils');
 
 // ------------------UTILS---------------------------
 
@@ -461,23 +462,6 @@ function transformFile(htmlFilename) {
 
   fs.writeFileSync(htmlFilename, transformedContent, 'utf8');
   fs.writeFileSync(sccsFilename, scssContent, 'utf8');
-}
-
-function getFiles(path, files = []) {
-  const stats = fs.statSync(path);
-
-  if (stats.isFile()) {
-    files.push(path);
-  }
-
-  if (stats.isDirectory()) {
-    const fileList = fs.readdirSync(path);
-    for (const file of fileList) {
-      getFiles(`${path}/${file}`, files);
-    }
-  }
-
-  return files;
 }
 
 const [, , relativePath] = process.argv;

@@ -223,27 +223,21 @@ function updateAngularJSON(data, name) {
 function updatePackageJSON(data, name) {
   delete data.scripts[joinStr('<<<<<<<<<<<<<<<', name, '>>>>>>>>>>>>>>>')];
   data.scripts[joinStr('<<<<<<<<<<<<<<<', name, '>>>>>>>>>>>>>>>')] = '';
-
-  //start(CSR)
-  delete data.scripts[joinStr('start:', name)];
-  data.scripts[joinStr('start:', name)] = joinStr(
+  //generate env files
+  delete data.scripts[joinStr('generate:env:', name)];
+  data.scripts[joinStr('generate:env:', name)] = joinStr(
     'NG_APP_NAME=',
     name,
-    ' ng serve ',
-    name,
-    ' --host 0.0.0.0 --public-host tienda.tiendalocal.com --port 4308 --disable-host-check true',
+    ' node ./scripts/generate-environments-files',
   );
 
-  //build(CSR)
-  delete data.scripts[joinStr('build:', name)];
-  data.scripts[joinStr('build:', name)] = joinStr(' ng build ', name);
 
   // start:ssr(SSR)
   delete data.scripts[joinStr('start:ssr:', name)];
   data.scripts[joinStr('start:ssr:', name)] = joinStr(
-    'NG_APP_NAME=',
+    'npm run generate:env:',
     name,
-    ' ng run ',
+    ' && ng run ',
     name,
     ':serve-ssr --port 4308',
   );
@@ -251,8 +245,6 @@ function updatePackageJSON(data, name) {
   // serve(SSR)
   delete data.scripts[joinStr('serve:ssr:', name)];
   data.scripts[joinStr('serve:ssr:', name)] = joinStr(
-    'NG_APP_NAME=',
-    name,
     ' node dist/',
     name,
     '/server/main.js',
@@ -260,25 +252,15 @@ function updatePackageJSON(data, name) {
 
   delete data.scripts[joinStr('build:ssr:', name)];
   data.scripts[joinStr('build:ssr:', name)] = joinStr(
-    'NG_APP_NAME=',
+    'rm -rf ./dist/',
     name,
-    ' rm -rf ./dist/',
+    ' && npm run generate:env:',
     name,
     ' && ng build ',
     name,
     ' && ng run ',
     name,
     ':server',
-  );
-
-  delete data.scripts[joinStr('build-serve:ssr:', name)];
-  data.scripts[joinStr('build-serve:ssr:', name)] = joinStr(
-    'NG_APP_NAME=',
-    name,
-    ' npm run build:ssr:',
-    name,
-    ' && npm run serve:ssr:',
-    name,
   );
 
   delete data.scripts[joinStr('prerender:', name)];

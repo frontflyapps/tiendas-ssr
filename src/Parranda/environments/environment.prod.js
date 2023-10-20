@@ -1,5 +1,6 @@
-export const PASARELA_BASE = 'peoplegoto';
-export const environment = {
+const PASARELA_BASE = 'peoplegoto';
+
+const environment = {
   production: true,
 
   apiUrl: 'https://apitienda.cervezaparranda.com/v1/',
@@ -58,4 +59,10 @@ export const environment = {
       url: 'https://www.cervezaparranda.com/',
     },
   },
+};
+
+
+module.exports = {
+  PASARELA_BASE,
+  environment,
 };

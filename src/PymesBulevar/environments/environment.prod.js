@@ -1,5 +1,6 @@
-export const PASARELA_BASE = 'peoplegoto';
-export const environment = {
+const PASARELA_BASE = 'peoplegoto';
+
+const environment = {
   production: true,
 
   apiUrl: 'https://api.pymesbulevar.com/v1/',
@@ -53,4 +54,10 @@ export const environment = {
       url: 'https://www.pymesbulevar.com/',
     },
   },
+};
+
+
+module.exports = {
+  PASARELA_BASE,
+  environment,
 };

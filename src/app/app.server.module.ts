@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import path from 'path';
 import fs from 'fs';
 import domino from 'domino';
-import { appName } from 'environments/utils';
+import { environment } from 'environments/environment';
 
 const initDOM = () => {
   // Use the browser index.html as template for the mock window
   const template = fs
-    .readFileSync(path.join(process.cwd(), `dist/${appName}/browser`, 'index.html'))
+    .readFileSync(path.join(process.cwd(), `dist/${environment.appName}/browser`, 'index.html'))
     .toString();
 
   // Shim for the global window and document objects.
