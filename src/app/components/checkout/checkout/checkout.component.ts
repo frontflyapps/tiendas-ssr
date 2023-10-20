@@ -1,5 +1,3 @@
-// noinspection TypeScriptValidateTypes
-
 import { MetaService } from 'src/app/core/services/meta.service';
 import { DialogNoCartSelectedComponent } from '../no-cart-selected/no-cart-selected.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -581,11 +579,17 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.form.controls['paymentType'].valueChanges
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((data) => {
-        if (data && (data == 'peoplegoto' || data == 'authorize' || data == 'multisafepay')) {
+        if (
+          data &&
+          (data == 'peoplegoto' ||
+            data == 'authorize' ||
+            data == 'multisafepay' ||
+            data === 'tropipay')
+        ) {
           this.form.controls['currency'].setValue(CoinEnum.EUR);
-        } else if (data === 'paypal' || data === 'tropipay') {
+        } else if (data === 'paypal') {
           this.form.controls['currency'].setValue(CoinEnum.USD);
-        } else if (data === 'transfermovil') {
+        } else if (data === 'transfermovil' || data === 'enzona') {
           if (this.cart.market === 'international') {
             this.currencyInternational = 'USD';
             this.form.get('currency').setValue('USD');
@@ -887,6 +891,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       PhoneCallingCodeId: [null, []],
       info: [null, []],
       paymentType: [null, [Validators.required]],
+      checkAge: [null, [Validators.required]],
       ShippingBusinessId: [null, []],
       shippingType: [this.businessConfig ? this.businessConfig?.shippingType : null],
       configProductsType: [this.businessConfig ? this.businessConfig?.configProductsType : null],
@@ -1100,7 +1105,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     fields.forEach((item) => {
       if (item.type === 'INTEGER') {
         controls[item.name] = new FormControl(
-          '',
+          null,
           item.required
             ? [Validators.required, Validators.pattern('^[0-9]*$')]
             : [Validators.pattern('^[0-9]*$')],
@@ -1108,14 +1113,14 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       }
       if (item.type === 'STRING') {
         controls[item.name] = new FormControl(
-          '',
+          null,
           item.required
             ? [Validators.required, Validators.pattern('^[a-zA-Z0-9 _.-]*$')]
             : [Validators.pattern('^[a-zA-Z0-9 _.-]*$')],
         );
       }
       if (item.type === 'DATE' || item.type === 'TIME') {
-        controls[item.name] = new FormControl('', item.required ? [Validators.required] : []);
+        controls[item.name] = new FormControl(null, item.required ? [Validators.required] : []);
       }
     });
     return controls;
@@ -1370,7 +1375,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       bodyData.urlRedirectSuccesfully = environment.url + 'my-orders';
       bodyData.urlRedirectCancel = environment.url + 'my-orders';
       paymentMethod = this.payService.makePaymentTropipay(bodyData);
-      bodyData.currency = 'USD';
+      bodyData.currency = 'EUR';
       paymentMethod.subscribe(
         (data: any) => {
           console.log(data);

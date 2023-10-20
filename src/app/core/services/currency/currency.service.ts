@@ -13,6 +13,7 @@ export class CurrencyService {
     { name: 'CUP', code: 'CUP' },
     { name: 'MLC', code: 'MLC' },
     { name: 'USD', code: 'USD' },
+    { name: 'EUR', code: 'EUR' },
   ];
 
   currency: any;

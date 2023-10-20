@@ -1,0 +1,47 @@
+@import 'scss/mixins/breakpoints';
+@import 'app';
+
+//
+//button {
+//  background: linear-gradient($theme-main-accent, $theme-main-accent-400, $theme-main-accent-300);
+//  //background-size: 1px 100px;
+//  transition: all .3s;
+//}
+//button:hover{
+//  background-position: 0 -50px;
+//  transition: all .3s;
+//}
+
+.transpilerClass-fxFlex-98ff6b {
+  flex: 1 1 48%;
+}
+
+.transpilerClass-fxFlex-ac1efa {
+  flex: 1 1 30%;
+}
+
+.transpilerClass-fxFlex-ea4523 {
+  flex: 1 1 68%;
+}
+
+.transpilerClass-fxFlex-d9d04f {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 100%;
+  }
+}
+
+.transpilerClass-fxFlex-2aecc9 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 28%;
+  }
+}
+
+.transpilerClass-fxFlex-f85b99 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 70%;
+  }
+}
+
+.transpilerClass-fxLayoutGap-b2764d {
+  gap: 8px;
+}

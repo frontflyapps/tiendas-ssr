@@ -1,15 +1,19 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ProductService } from '../../../shared/services/product.service';
-import { environment } from 'environments/environment';
 import { CartService } from '../../../shared/services/cart.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { Cart } from '../../../../modals/cart-item';
+import { DialogUploadMediaComponent } from '../../../shared/dialog-upload-media/dialog-upload-media.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { environment } from 'environments/environment';
 
 interface Sign {
   value: string;
@@ -38,7 +42,9 @@ export class DialogPrescriptionComponent implements OnInit {
   // supplementArray: any;
 
   pathToRedirect: any;
+  isSmallDevice = false;
   paramsToUrlRedirect: any;
+  _unsubscribeAll: Subject<any>;
   imageUrl: any = environment.imageUrl;
 
   signArray: SignArray[] = [
@@ -159,6 +165,8 @@ export class DialogPrescriptionComponent implements OnInit {
     private route: ActivatedRoute,
     public utilsService: UtilsService,
     private router: Router,
+    private dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.createForm();
@@ -185,6 +193,18 @@ export class DialogPrescriptionComponent implements OnInit {
         this.form.get('add').setValidators(null);
       }
     });
+    this.breakpointObserver
+      .observe([
+        Breakpoints.Medium,
+        Breakpoints.Handset,
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Tablet,
+      ])
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((data) => {
+        this.isSmallDevice = data.matches;
+      });
   }
 
   ngOnInit(): void {
@@ -225,6 +245,20 @@ export class DialogPrescriptionComponent implements OnInit {
         this.form.get('add').setValidators(null);
       }
     });
+    this.form.get('prescriptionImageUrl').valueChanges.subscribe((item) => {
+      if (item) {
+        this.form.get('left').setValidators(null);
+        this.form.get('cylinderLeft').setValidators(null);
+        this.form.get('axisLeft').setValidators(null);
+        this.form.get('right').setValidators(null);
+        this.form.get('cylinderRight').setValidators(null);
+        this.form.get('axisRight').setValidators(null);
+        this.form.get('pupillaryDistance').setValidators(null);
+
+        this.form.get('left').setValue(null);
+        this.form.get('right').setValue(null);
+      }
+    });
 
     this.loadingSearch = true;
     this.productsService.getNewRecomendedProduct(this.data.product.id, 'supplement').subscribe({
@@ -263,12 +297,35 @@ export class DialogPrescriptionComponent implements OnInit {
       axisRight: [null, []],
       pupillaryDistance: [null, []],
       add: [null, []],
+      prescriptionImageUrl: [null],
+      prescriptionImageName: [null],
     });
     this.supplementForm = this.fb.group({
       supplementType: [null, [Validators.required]],
       supplementFilter: [null, []],
       supplementColor: [null, []],
       supplementDye: [null, []],
+    });
+  }
+
+  // ///// UPLOAD DATA SHEET
+  onUploadDataSheet() {
+    const dialogRef = this.dialog.open(DialogUploadMediaComponent, {
+      panelClass: 'app-dialog-upload-media',
+      width: this.isSmallDevice ? '90%' : '60vh',
+      maxWidth: this.isSmallDevice ? '100vw' : '100vw',
+      height: this.isSmallDevice ? '50%' : '60vh',
+      maxHeight: this.isSmallDevice ? '70vh' : '100vh',
+      data: {
+        type: 'prescriptionImage',
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log(result);
+        this.form.get('prescriptionImageUrl').setValue(result.url.prescriptionUrl);
+        this.form.get('prescriptionImageName').setValue(result.url.prescriptionName);
+      }
     });
   }
 

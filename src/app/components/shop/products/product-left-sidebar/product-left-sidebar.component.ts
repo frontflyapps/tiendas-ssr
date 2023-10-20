@@ -22,6 +22,7 @@ import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { DialogSetLocationComponent } from '../../../main/dialog-set-location/dialog-set-location.component';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { CategoryMenuNavService } from 'src/app/core/services/category-menu-nav.service';
 
 @Component({
   selector: 'app-product-left-sidebar',
@@ -57,6 +58,7 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
     minPrice: 1,
     maxPrice: null,
   };
+  categoryIdsSelected: any;
   loading = false;
   loadingSearch = false;
   language: any;
@@ -94,6 +96,7 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
     private dialog: MatDialog,
     private metaService: MetaService,
     private locationService: LocationService,
+    private categoryMenuServ: CategoryMenuNavService,
     public translate: TranslateService,
     public utilsService: UtilsService,
     public storageService: StorageService,
@@ -130,7 +133,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
       this.queryProduct.order = data?.order ? data.order : '-id';
 
       if (data.CategoryId) {
-        console.log('entro');
         this.paramsSearch.categoryIds = [data.CategoryId];
         this.paramsSearch.minPrice = 0;
         this.paramsSearch.maxPrice = null;
@@ -156,7 +158,13 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
         }
       }
 
-      console.log(this.paramsSearch);
+      if (this.paramsSearch.categoryIds?.length > 0) {
+        this.paramsSearch.filterText = null;
+
+        this.categoryMenuServ.setFilterText(this.paramsSearch.filterText);
+
+        this.storageService.setItem('searchText', JSON.stringify(null));
+      }
 
       this.categoriesIds = [...this.paramsSearch.categoryIds];
       this.brandsIds = [...this.paramsSearch.brandIds];
@@ -461,6 +469,11 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
       if (Array.isArray(this.paramsSearch.categoryIds)) {
         if (this.paramsSearch.categoryIds.length > 0) {
           categoryIds = this.paramsSearch.categoryIds.map((i) => Number(i));
+          this.paramsSearch.filterText = null;
+
+          this.categoryMenuServ.setFilterText(this.paramsSearch.filterText);
+
+          this.storageService.setItem('searchText', JSON.stringify(null));
           console.log(categoryIds);
         }
       } else {
@@ -488,6 +501,7 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
       BrandIds: brandIds,
       currency: this.currencyService.getCurrency().code,
       CategoryIds: categoryIds,
+      tags: true,
       maxPrice: this.paramsSearch?.maxPrice ? +this.paramsSearch?.maxPrice : 0,
       minPrice: this.paramsSearch?.minPrice ? +this.paramsSearch?.minPrice : 0,
       rating: this.paramsSearch?.rating ? +this.paramsSearch?.rating : null,
@@ -502,7 +516,10 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
         (data: any) => {
           // this.loading = true;
 
-          this.allProducts = data.data;
+          this.filterProducts(body.text, data.data);
+
+          // this.allProducts = data.data;
+          console.log(this.allProducts);
           this.allProductsResponse = data.data;
           this.totalPages = data.meta.total / this.initLimit;
           this.totalProducts = data.meta.pagination.total;
@@ -565,8 +582,10 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
           page: this.queryProduct?.page ? +this.queryProduct?.page : 0,
           total: this.queryProduct?.total ? +this.queryProduct?.total : 0,
           order: this.queryProduct?.order ? this.queryProduct?.order : null,
+          currency: this.currencyService.getCurrency().code,
           BrandIds: brandIds,
           CategoryIds: categoryIds,
+          tags: true,
           maxPrice: this.paramsSearch?.maxPrice ? +this.paramsSearch?.maxPrice : 0,
           minPrice: this.paramsSearch?.minPrice ? +this.paramsSearch?.minPrice : 0,
           rating: this.paramsSearch?.rating ? +this.paramsSearch?.rating : null,
@@ -632,8 +651,10 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
           page: this.queryProduct?.page ? +this.queryProduct?.page : 0,
           total: this.queryProduct?.total ? +this.queryProduct?.total : 0,
           order: this.queryProduct?.order ? this.queryProduct?.order : null,
+          currency: this.currencyService.getCurrency().code,
           BrandIds: brandIds,
           CategoryIds: categoryIds,
+          tags: true,
           maxPrice: this.paramsSearch?.maxPrice ? +this.paramsSearch?.maxPrice : 0,
           minPrice: this.paramsSearch?.minPrice ? +this.paramsSearch?.minPrice : 0,
           rating: this.paramsSearch?.rating ? +this.paramsSearch?.rating : null,
@@ -693,6 +714,76 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   //     this.searchMoreProducts();
   //   }
   // }
+
+  private filterProducts(name: string, arrProducts: any[]) {
+    console.log(name);
+    console.log(arrProducts);
+    const arr1 = [];
+    const arr2 = [];
+    const arr3 = [];
+    const arr4 = [];
+    let newArrayProducts = [];
+
+    arrProducts.forEach((product) => {
+      console.log(product.name.es.split(' ')[0].toLowerCase());
+
+      const arrTemp1 = product.name.es.split(' ')[0].toLowerCase();
+      let arrTemp2: any[] = product.name.es.split(' ');
+      let temp = [];
+      if (arrTemp2.includes('Combo')) {
+        arrTemp2 = arrTemp2.map((item) => item.toLowerCase());
+        console.log(arrTemp2);
+        temp = arrTemp2.filter((elemento) => elemento.includes('arroz'));
+        console.log(temp);
+        console.log(temp?.length);
+        console.log(temp?.length > 0);
+      }
+      arrTemp2.shift();
+      arrTemp2 = arrTemp2.map((item) => item.toLowerCase());
+
+      if (arrTemp1 === name) {
+        arr1.push(product);
+      } else if (arrTemp2.includes(name) || temp.length > 0) {
+        arr2.push(product);
+      } else {
+        arr3.push(product);
+      }
+    });
+    newArrayProducts = [...arr1, ...arr2, ...arr3];
+
+    // let newArrayProducts = [];
+    // arrProducts.forEach((product) => {
+    //   console.log(product.name.es.split(' ')[0].toLowerCase());
+    //   if (product.name.es.split(' ')[0].toLowerCase() === name) {
+    //     newArrayProducts.push(product);
+    //   }
+    // });
+    // arrProducts.forEach((product) => {
+    //   let arr: any[] = product.name.es.split(' ');
+    //   arr.shift();
+    //   if (arr.includes(name)) {
+    //     newArrayProducts.push(product);
+    //   }
+    // });
+    //
+    // arrProducts.forEach((product) => {
+    //   if (product.tags) {
+    //     product.tags.forEach(item => {
+    //       if (item === name) {
+    //         newArrayProducts.push(product);
+    //       }
+    //     });
+    //   }
+    //
+    //
+    //   // if (product.name.es.split(' ')[0].toLowerCase() === name) {
+    //   //   newArrayProducts.push(product);
+    //   // }
+    // });
+    this.allProducts = newArrayProducts;
+    console.log(this.allProducts);
+    console.log(newArrayProducts);
+  }
 
   OnPaginatorChange(event) {
     if (event) {
@@ -754,6 +845,15 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   // Update Categories filter
   onCategoriesChanged(categoryIds) {
     this.paramsSearch.categoryIds = categoryIds;
+
+    if (this.paramsSearch.categoryIds?.length > 0) {
+      this.paramsSearch.filterText = null;
+
+      this.categoryMenuServ.setFilterText(this.paramsSearch.filterText);
+
+      this.storageService.setItem('searchText', JSON.stringify(null));
+    }
+
     this.queryProduct.limit = this.initLimit;
     this.queryProduct.offset = 0;
     this.queryProduct.total = 0;

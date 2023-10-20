@@ -41,6 +41,7 @@ export class CartService implements OnDestroy {
   language = null;
   carts: Cart[] = [];
   dataAddToCart: any;
+  dataToCart: any;
 
   // public globalCart: Cart[] = [];
 
@@ -114,6 +115,14 @@ export class CartService implements OnDestroy {
     } else {
       return [];
     }
+  }
+
+  saveDataToAddToCart(data) {
+    this.dataToCart = data;
+  }
+
+  getDataToAddToCart(): any {
+    return this.dataToCart;
   }
 
   public getAsyncShoppingCars(): Observable<any> {
@@ -769,7 +778,7 @@ export class CartService implements OnDestroy {
     return this.httpClient.get(this.urlCheckoutData, { params: httpParams });
   }
 
-  public redirectToLoginWithOrigin(url: string, params?: any) {
+  public redirectToLoginWithOrigin(url: string, params?: any, data?: any) {
     const dialogRef = this.dialog.open(ConfirmationDialogFrontComponent, {
       width: '550px',
       data: {
@@ -790,6 +799,9 @@ export class CartService implements OnDestroy {
               queryParams: {
                 redirectToOriginPage: url,
                 paramsToRedirect: JSON.stringify(params),
+                goToPay: data?.goToPay,
+                addToCart: data?.addToCart,
+                counter: data?.counter,
               },
             })
             .then();

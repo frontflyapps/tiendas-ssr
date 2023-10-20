@@ -176,6 +176,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.globalStateOfCookieService.getCookieState()
       ? this.initComponent()
       : this.setSubscriptionToCookie();
+
+    this.categoryMenuServ.filterText$.subscribe((item) => {
+      this.searchForm.setValue(item);
+    });
   }
 
   public metaAdd() {
@@ -196,6 +200,12 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.flag = tempFlag ? tempFlag : this.flags[0];
     this.currencies = this.currencyService.getCurrencies();
     this.currency = this.currencyService.getCurrency();
+
+    this.route.queryParams.subscribe((params) => {
+      console.log(params);
+
+      this.searchForm.setValue(params.filterText);
+    });
 
     // ///// Subscribe to events //////////
     this.loggedInUserService.$loggedInUserUpdated
@@ -307,6 +317,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onSearch() {
     const searchValue = this.searchForm.value;
+    this.searchForm.value;
     console.log(this.searchForm.value);
     this.storageService.setItem('searchText', JSON.stringify(searchValue));
     if (searchValue && searchValue.length > 1) {
@@ -393,7 +404,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           this.loggedInUserService.$loggedInUserUpdated.next(null);
           const message = this.translate.instant('User successfully unlogged');
           this.showSnackbBar.showSucces(message, 5000);
-          this.router.navigate(['']).then();
+          if (this.route.snapshot.queryParams?.cartId) {
+            this.router.navigate(['']).then();
+          }
+
           this.socketIoService.disconnect();
         },
         (err: any) => {

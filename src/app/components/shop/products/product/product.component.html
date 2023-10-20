@@ -1,12 +1,9 @@
-<div
-  *ngIf="product?.Business?.Province && showLocationSpan"
-  class="location-label-sm d-sm-block d-none"
->
+<div *ngIf="product?.Business?.Province" class="location-label-sm d-sm-block d-none">
   <span>
     <mat-icon>room</mat-icon>&nbsp;<strong>{{
       product.Business?.Province?.name | parseLang: utilsService.getLang()
-    }}</strong
-    >, {{ product.Business?.Municipality?.name | parseLang: utilsService.getLang() }}
+    }}</strong>
+    {{ showLocationSpan ? ', ' + product.Business?.Municipality?.name : '' }}
   </span>
 </div>
 <div
@@ -145,15 +142,12 @@
         </a> -->
     </div>
   </div>
-  <div
-    *ngIf="product.Business?.Province && showLocationSpan"
-    class="location-label d-block d-sm-none"
-  >
+  <div *ngIf="product.Business?.Province" class="location-label d-block d-sm-none">
     <span>
       <mat-icon>room</mat-icon>&nbsp;<strong>{{
         product.Business?.Province?.name | parseLang: utilsService.getLang()
-      }}</strong
-      >, {{ product.Business?.Municipality?.name | parseLang: utilsService.getLang() }}
+      }}</strong>
+      {{ showLocationSpan ? ', ' + product.Business?.Municipality?.name : '' }}
     </span>
   </div>
 </div>

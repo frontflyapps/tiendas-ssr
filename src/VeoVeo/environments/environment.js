@@ -1,7 +1,8 @@
 // peopleGoTo | transfermovil | bidaiondo
-export const PASARELA_BASE = 'peoplegoto';
 
-export const environment = {
+const PASARELA_BASE = 'peoplegoto';
+
+const environment = {
   production: false,
 
   // apiUrl: 'https://api.mibulevar.com/v1/',
@@ -79,3 +80,8 @@ export const environment = {
 /**
  * Esto es la tienda Online B2b De Guajiritos
  */
+
+module.exports = {
+  PASARELA_BASE,
+  environment,
+};

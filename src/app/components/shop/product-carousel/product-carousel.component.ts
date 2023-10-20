@@ -24,6 +24,7 @@ import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-product-carousel',
@@ -37,7 +38,6 @@ export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestro
   @Input() grid = { 480: 1, 740: 2, 960: 2, 1024: 3, 1280: 4 };
   @Input() showBig = false;
   inLoading = false;
-  showLocationSpan = environment.showLocation;
   typesProducts = [
     { id: 'physical', name: { es: 'Físico', en: 'Physical' } },
     { id: 'digital', name: { es: 'Digital', en: 'Digital' } },
@@ -66,6 +66,7 @@ export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestro
     public cartService: CartService,
     public currencyService: CurrencyService,
     public loggedInUserService: LoggedInUserService,
+    public appService: BusinessConfigService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()

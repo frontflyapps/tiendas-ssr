@@ -12,6 +12,7 @@ import { ImagePickerConf } from 'guachos-image-picker';
 import { IDENTITY_PASSPORT } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
+import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -65,6 +66,7 @@ export class EditProfileComponent implements OnInit {
     private showSnackbar: ShowSnackbarService,
     private compressImage: CompressImageService,
     public phoneCodesService: PhoneCodeService,
+    public appService: BusinessConfigService,
   ) {
     this.urlImage = environment.imageUrl;
     this.dialogRef.disableClose = true;
@@ -108,12 +110,15 @@ export class EditProfileComponent implements OnInit {
         this.loggedInUser && this.loggedInUser.address ? this.loggedInUser.address.between : null,
         [],
       ],
-      phone: [this.loggedInUser && this.loggedInUser.phone ? this.loggedInUser.phone : null, []],
+      phone: [
+        this.loggedInUser && this.loggedInUser.phone ? this.loggedInUser.phone : null,
+        this.appService.businessConfig.phoneRequired ? [Validators.required] : [],
+      ],
       PhoneCallingCodeId: [
         this.loggedInUser && this.loggedInUser?.PhoneCallingCodeId
           ? this.loggedInUser?.PhoneCallingCodeId
           : null,
-        [],
+        this.appService.businessConfig.phoneRequired ? [Validators.required] : [],
       ],
       email: [
         this.loggedInUser && this.loggedInUser.email ? this.loggedInUser.email : null,

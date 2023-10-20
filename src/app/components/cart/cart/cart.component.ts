@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
 import { ConfiguracionService } from '../../../core/services/config/configuracion.service';
 import { environment } from 'environments/environment';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cart',
@@ -38,6 +39,7 @@ export class CartComponent implements OnInit, OnDestroy {
     private router: Router,
     private metaService: MetaService,
     private showToastr: ShowToastrService,
+    private spinner: NgxSpinnerService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
@@ -111,7 +113,9 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   subsCartChange() {
+    this.spinner.show();
     this.cartService.$cartItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe((carts) => {
+      this.spinner.hide();
       this.itemsOnCart = carts[0]?.CartItems?.length || 0;
       // this.theCart = carts[0];
     });
@@ -119,42 +123,51 @@ export class CartComponent implements OnInit, OnDestroy {
 
   // Remove cart items
   public removeItem(item: CartItem) {
+    this.spinner.show();
     this.inLoading = true;
     this.cartService
       .removeFromCart(item)
       .then((data) => {
+        this.spinner.hide();
         this.inLoading = false;
       })
       .catch((error) => {
+        this.spinner.hide();
         this.inLoading = false;
       });
   }
 
   // Increase Product Quantity
   public increment(product: any, quantity = 1) {
+    this.spinner.show();
     this.inLoading = true;
     const productToIncrease = product.Product;
     productToIncrease.Stock = product?.Stock;
     this.cartService
       .addToCart(productToIncrease, quantity)
       .then((data) => {
+        this.spinner.hide();
         this.inLoading = false;
       })
       .catch((error) => {
+        this.spinner.hide();
         this.inLoading = false;
       });
   }
 
   // Decrease Product Quantity
   public decrement(product: any, quantity = -1) {
+    this.spinner.show();
     const productToDecrease = product.Product;
     productToDecrease.Stock = product.Stock;
     this.cartService
       .addToCart(productToDecrease, quantity)
       .then((data) => {
+        this.spinner.hide();
         this.inLoading = false;
       })
       .catch((error) => {
+        this.spinner.hide();
         this.inLoading = false;
       });
   }

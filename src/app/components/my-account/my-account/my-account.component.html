@@ -177,10 +177,10 @@
                 [formControl]="signUpTypesForm.get('signUpType')"
                 name="toggle"
                 aria-label="Favorite Color"
-                class="transpilerClass-fxFlex-7c433e"
+                class="transpilerClass-fxFlex-76993b"
               >
                 <mat-button-toggle
-                  class="toggle-button transpilerClass-fxFlex-dae86a"
+                  class="toggle-button transpilerClass-fxFlex-8025e2"
                   *ngFor="let type of signUpTypes"
                   [value]="type.value"
                   >{{ type.viewValue }}</mat-button-toggle
@@ -197,7 +197,7 @@
                       <div class="d-flex justify-content-between align-items-start">
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-0bc87d transpilerClass-fxFlex-eb41c8"
+                          class="transpilerClass-fxFlex-e1ce89 transpilerClass-fxFlex-4223c7"
                         >
                           <mat-label>{{ 'Name' | translate }}</mat-label>
                           <input
@@ -218,7 +218,7 @@
 
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-84979a transpilerClass-fxFlex-375d5f"
+                          class="transpilerClass-fxFlex-4c3ce3 transpilerClass-fxFlex-a4077d"
                         >
                           <mat-label>{{ 'Lastname' | translate }}</mat-label>
                           <input
@@ -244,7 +244,7 @@
 
                       <mat-form-field
                         appearance="outline"
-                        class="transpilerClass-fxFlex-c22a70 transpilerClass-fxFlex-863628"
+                        class="transpilerClass-fxFlex-f38f2c transpilerClass-fxFlex-3ac9bb"
                       >
                         <mat-label>{{ 'Email' | translate }}</mat-label>
                         <input
@@ -265,55 +265,63 @@
                         </mat-error>
                       </mat-form-field>
 
-                      <mat-form-field
-                        appearance="outline"
-                        id="phone"
-                        class="transpilerClass-fxFlex-3ac321 transpilerClass-fxFlex-d96314"
+                      <div
+                        class="w-100 d-flex transpilerClass-fxFlex-ded1ef transpilerClass-fxFlex-b07c85 transpilerClass-fxLayoutGap-2085bb"
                       >
-                        <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
-                        <span class="mr-2" matPrefix>+ 53</span>
-                        <input
-                          (keypress)="utilsService.keyPressNumbers($event)"
-                          [formControl]="registrationForm.get('phone')"
-                          matInput
-                          autocomplete="off"
-                          placeholder="{{ 'Teléfono cubano...' | translate }}"
-                        />
-                        <mat-hint *ngIf="!registrationForm.get('phone').value">
-                          {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
-                        </mat-hint>
-                        <mat-hint
-                          *ngIf="
-                            registrationForm.get('phone').value &&
-                            registrationForm.get('phone').valid
-                          "
+                        <guachos-general-autocomplete
+                          [withoutPaddingBottom]="false"
+                          [label]="'Código telefónico'"
+                          [valueId]="true"
+                          [displayOptions]="callingCodeDisplayOptions"
+                          [field]="['code']"
+                          [filterString]="['filter[$and][code][$like]']"
+                          [url]="phoneCodesService.url"
+                          [formControl]="registrationForm.get('PhoneCallingCodeId')"
+                          class="transpilerClass-fxFlex-5163e8 transpilerClass-fxFlex-43cc83"
+                        ></guachos-general-autocomplete>
+
+                        <mat-form-field
+                          appearance="outline"
+                          id="phone"
+                          class="transpilerClass-fxFlex-bcad6a transpilerClass-fxFlex-180ff8"
                         >
-                          {{ 'Número válido' | translate }}
-                        </mat-hint>
-                        <mat-error
-                          *ngIf="
-                            (registrationForm.controls['phone'].hasError('minlength') ||
-                              registrationForm.controls['phone'].hasError('maxlength')) &&
-                            !registrationForm.controls['phone'].hasError('pattern')
-                          "
-                        >
-                          {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                            '8 caracteres, Ex: 51234567' | translate
-                          }}</strong>
-                        </mat-error>
-                        <mat-error *ngIf="registrationForm.controls['phone'].hasError('pattern')">
-                          {{ 'El número' | translate }}&nbsp;<strong>{{
-                            'debe empezar con 5, Ex: 51234567' | translate
-                          }}</strong>
-                        </mat-error>
-                      </mat-form-field>
+                          <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+                          <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
+                          <input
+                            (keypress)="utilsService.keyPressNumbers($event)"
+                            [formControl]="registrationForm.get('phone')"
+                            matInput
+                            autocomplete="off"
+                            placeholder="{{ 'Teléfono...' | translate }}"
+                          />
+                          <mat-hint
+                            *ngIf="
+                              registrationForm.get('phone').value &&
+                              registrationForm.get('phone').valid
+                            "
+                          >
+                            {{ 'Número válido' | translate }}
+                          </mat-hint>
+                          <mat-error
+                            *ngIf="
+                              (registrationForm.controls['phone'].hasError('minlength') ||
+                                registrationForm.controls['phone'].hasError('maxlength')) &&
+                              !registrationForm.controls['phone'].hasError('pattern')
+                            "
+                          >
+                            {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+                              '8 caracteres, Ex: 51234567' | translate
+                            }}</strong>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
 
                       <div
                         class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                       >
                         <mat-form-field
                           appearance="outline"
-                          class="example-full-width transpilerClass-fxFlex-d5d8ce"
+                          class="example-full-width transpilerClass-fxFlex-0c0263"
                         >
                           <mat-label>{{ 'Password' | translate }}</mat-label>
                           <input
@@ -351,7 +359,7 @@
                             'ng-valid': !fromPassRegister.hasError('mismatch')
                           }"
                           appearance="outline"
-                          class="example-full-width transpilerClass-fxFlex-16e676"
+                          class="example-full-width transpilerClass-fxFlex-03ead3"
                         >
                           <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                           <input
@@ -382,6 +390,16 @@
                             | translate
                         }}
                       </mat-error>
+
+                      <mat-checkbox [formControl]="registrationForm.get('checkAge')" class="d-flex">
+                        <span
+                          >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                          <br />
+                        </span>
+                        <a [routerLink]="['/term-conditions']">
+                          {{ 'términos y condiciones' | translate }}
+                        </a>
+                      </mat-checkbox>
 
                       <!-- <div fxLayout="row" fxLayoutAlign="center center">
                         <ngx-recaptcha2 class="mb-3" #captchaElem [siteKey]="secretKeyCaptcha" (reset)="handleReset()" (expire)="handleExpire()"
@@ -417,7 +435,7 @@
                         <div class="d-flex justify-content-between align-items-start">
                           <mat-form-field
                             appearance="outline"
-                            class="transpilerClass-fxFlex-757ceb transpilerClass-fxFlex-b5d7d1"
+                            class="transpilerClass-fxFlex-102ab5 transpilerClass-fxFlex-8bef38"
                           >
                             <mat-label>{{ 'Name' | translate }}</mat-label>
                             <input
@@ -438,7 +456,7 @@
 
                           <mat-form-field
                             appearance="outline"
-                            class="transpilerClass-fxFlex-872d6b transpilerClass-fxFlex-0164ba"
+                            class="transpilerClass-fxFlex-a08a8f transpilerClass-fxFlex-7203ef"
                           >
                             <mat-label>{{ 'Lastname' | translate }}</mat-label>
                             <input
@@ -460,7 +478,7 @@
 
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-7f1f0d transpilerClass-fxFlex-c3494f"
+                          class="transpilerClass-fxFlex-7913a5 transpilerClass-fxFlex-460b1c"
                         >
                           <mat-label>{{ 'Email' | translate }}</mat-label>
                           <input
@@ -485,7 +503,7 @@
 
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-dffdf8 transpilerClass-fxFlex-c43642"
+                          class="transpilerClass-fxFlex-22465d transpilerClass-fxFlex-dd62dd"
                         >
                           <mat-label>{{ 'No. de Identidad' | translate }}</mat-label>
                           <input
@@ -511,7 +529,7 @@
 
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-fb7d36 transpilerClass-fxFlex-5d3381"
+                          class="transpilerClass-fxFlex-bba39e transpilerClass-fxFlex-b796bc"
                         >
                           <mat-label>{{ 'No. de Licencia TCP' | translate }}</mat-label>
 
@@ -539,7 +557,7 @@
 
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-d9305e transpilerClass-fxFlex-45fd19"
+                          class="transpilerClass-fxFlex-0c25c1 transpilerClass-fxFlex-1c9ba8"
                         >
                           <mat-label>{{ 'No. carnet ONAT' | translate }}</mat-label>
 
@@ -561,16 +579,27 @@
                         </mat-form-field>
 
                         <div class="d-flex justify-content-between align-items-start">
+                          <guachos-general-autocomplete
+                            [withoutPaddingBottom]="false"
+                            [label]="'Código de teléfono'"
+                            [valueId]="true"
+                            [displayOptions]="callingCodeDisplayOptions"
+                            [field]="['code']"
+                            [filterString]="['filter[$and][code][$like]']"
+                            [url]="phoneCodesService.url"
+                            [formControl]="regTcpForm.get('PhoneCallingCodeId')"
+                            class="transpilerClass-fxFlex-77abe1 transpilerClass-fxFlex-dbf5ba"
+                          ></guachos-general-autocomplete>
                           <mat-form-field
                             id="phone"
                             appearance="outline"
-                            class="transpilerClass-fxFlex-acedd6 transpilerClass-fxFlex-ec55bf"
+                            class="transpilerClass-fxFlex-558a46 transpilerClass-fxFlex-ed2a58"
                           >
                             <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
-                            <span matPrefix class="mr-2">+ 53</span>
+                            <!--                            <span matPrefix class="mr-2">+ 53</span>-->
                             <input
                               matInput
-                              placeholder="{{ 'Teléfono cubano...' | translate }}"
+                              placeholder="{{ 'Teléfono' | translate }}"
                               required
                               (keypress)="utilsService.keyPressNumbers($event)"
                               [formControl]="regTcpForm.get('phoneCel')"
@@ -602,31 +631,31 @@
                               }}</strong>
                             </mat-error>
                           </mat-form-field>
-
-                          <mat-form-field
-                            appearance="outline"
-                            class="transpilerClass-fxFlex-3991ce transpilerClass-fxFlex-723266"
-                          >
-                            <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
-                            <input
-                              matInput
-                              placeholder="{{ 'Teléfono fijo' | translate }}"
-                              required
-                              (keypress)="utilsService.keyPressNumbers($event)"
-                              [formControl]="regTcpForm.get('phone')"
-                            />
-
-                            <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                              {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
-                                'is required' | translate
-                              }}</strong>
-                            </mat-error>
-                          </mat-form-field>
                         </div>
 
                         <mat-form-field
                           appearance="outline"
-                          class="mt-2 transpilerClass-fxFlex-4926e1 transpilerClass-fxFlex-fbe255"
+                          class="transpilerClass-fxFlex-28470b transpilerClass-fxFlex-395c34"
+                        >
+                          <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
+                          <input
+                            matInput
+                            placeholder="{{ 'Teléfono fijo' | translate }}"
+                            required
+                            (keypress)="utilsService.keyPressNumbers($event)"
+                            [formControl]="regTcpForm.get('phone')"
+                          />
+
+                          <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
+                            {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
+                              'is required' | translate
+                            }}</strong>
+                          </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field
+                          appearance="outline"
+                          class="mt-2 transpilerClass-fxFlex-aa0307 transpilerClass-fxFlex-72af78"
                         >
                           <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
 
@@ -645,7 +674,7 @@
 
                         <mat-form-field
                           appearance="outline"
-                          class="transpilerClass-fxFlex-32ba89 transpilerClass-fxFlex-f214fa"
+                          class="transpilerClass-fxFlex-7259dc transpilerClass-fxFlex-89f9d9"
                         >
                           <mat-label>{{ 'Dirección' | translate }}</mat-label>
                           <input
@@ -664,7 +693,7 @@
                           class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                         >
                           <mat-form-field
-                            class="example-full-width transpilerClass-fxFlex-92cb3f"
+                            class="example-full-width transpilerClass-fxFlex-197db7"
                             appearance="outline"
                           >
                             <mat-label>{{ 'Password' | translate }}</mat-label>
@@ -703,7 +732,7 @@
                               'ng-valid': !fromPassRegister.hasError('mismatch')
                             }"
                             appearance="outline"
-                            class="example-full-width transpilerClass-fxFlex-312708"
+                            class="example-full-width transpilerClass-fxFlex-4c6153"
                           >
                             <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                             <input
@@ -822,7 +851,7 @@
                           </mat-error>
                         </mat-form-field>
 
-                        <div class="d-flex flex-column transpilerClass-fxLayoutGap-7df173">
+                        <div class="d-flex flex-column transpilerClass-fxLayoutGap-d1c016">
                           <span class="section-title mb-2" translate>Documentos adjuntos</span>
                           <span class="mat-caption section-sub-title" translate>
                             Estos documentos serán usados para validar su registro en nuestra
@@ -837,6 +866,16 @@
                           (onUploadFile)="onSelectPdf($event)"
                         >
                         </app-upload-file>
+
+                        <mat-checkbox [formControl]="regTcpForm.get('checkAge')" class="d-flex">
+                          <span
+                            >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                            <br />
+                          </span>
+                          <a [routerLink]="['/term-conditions']">
+                            {{ 'términos y condiciones' | translate }}
+                          </a>
+                        </mat-checkbox>
 
                         <div class="d-flex justify-content-center align-items-center">
                           <button
@@ -866,7 +905,7 @@
                   <div class="d-flex justify-content-between align-items-start">
                     <mat-form-field
                       appearance="outline"
-                      class="transpilerClass-fxFlex-71534d transpilerClass-fxFlex-0fc852"
+                      class="transpilerClass-fxFlex-9d05da transpilerClass-fxFlex-bab28e"
                     >
                       <mat-label>{{ 'Name' | translate }}</mat-label>
                       <input
@@ -887,7 +926,7 @@
 
                     <mat-form-field
                       appearance="outline"
-                      class="transpilerClass-fxFlex-4bb2ed transpilerClass-fxFlex-d7017e"
+                      class="transpilerClass-fxFlex-6afc72 transpilerClass-fxFlex-5e9fe0"
                     >
                       <mat-label>{{ 'Lastname' | translate }}</mat-label>
                       <input
@@ -909,7 +948,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="transpilerClass-fxFlex-5d5ce5 transpilerClass-fxFlex-7571f3"
+                    class="transpilerClass-fxFlex-afb767 transpilerClass-fxFlex-2f018d"
                   >
                     <mat-label>{{ 'Email' | translate }}</mat-label>
                     <input
@@ -932,7 +971,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="transpilerClass-fxFlex-cd6f89 transpilerClass-fxFlex-ce43d8"
+                    class="transpilerClass-fxFlex-c7c929 transpilerClass-fxFlex-182a7b"
                   >
                     <mat-label>{{ 'No. de Identidad' | translate }}</mat-label>
                     <input
@@ -958,7 +997,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="transpilerClass-fxFlex-0d69df transpilerClass-fxFlex-24d1ef"
+                    class="transpilerClass-fxFlex-d68462 transpilerClass-fxFlex-522c1b"
                   >
                     <mat-label>{{ 'No. de Licencia TCP' | translate }}</mat-label>
 
@@ -986,7 +1025,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="transpilerClass-fxFlex-d18ce8 transpilerClass-fxFlex-162748"
+                    class="transpilerClass-fxFlex-5ba64d transpilerClass-fxFlex-cefdea"
                   >
                     <mat-label>{{ 'No. carnet ONAT' | translate }}</mat-label>
 
@@ -1011,7 +1050,7 @@
                     <mat-form-field
                       id="phone"
                       appearance="outline"
-                      class="transpilerClass-fxFlex-a2429e transpilerClass-fxFlex-fec1f6"
+                      class="transpilerClass-fxFlex-f17c33 transpilerClass-fxFlex-52b4be"
                     >
                       <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                       <span matPrefix class="mr-2">+ 53</span>
@@ -1047,31 +1086,31 @@
                         }}</strong>
                       </mat-error>
                     </mat-form-field>
-
-                    <mat-form-field
-                      appearance="outline"
-                      class="transpilerClass-fxFlex-fac33b transpilerClass-fxFlex-c6dc2f"
-                    >
-                      <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
-                      <input
-                        matInput
-                        placeholder="{{ 'Teléfono fijo' | translate }}"
-                        required
-                        (keypress)="utilsService.keyPressNumbers($event)"
-                        [formControl]="regTcpForm.get('phone')"
-                      />
-
-                      <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                        {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
-                          'is required' | translate
-                        }}</strong>
-                      </mat-error>
-                    </mat-form-field>
                   </div>
 
                   <mat-form-field
                     appearance="outline"
-                    class="mt-2 transpilerClass-fxFlex-bfe4d7 transpilerClass-fxFlex-d9ef4d"
+                    class="transpilerClass-fxFlex-bc64dc transpilerClass-fxFlex-56fdb4"
+                  >
+                    <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
+                    <input
+                      matInput
+                      placeholder="{{ 'Teléfono fijo' | translate }}"
+                      required
+                      (keypress)="utilsService.keyPressNumbers($event)"
+                      [formControl]="regTcpForm.get('phone')"
+                    />
+
+                    <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
+                      {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
+                        'is required' | translate
+                      }}</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field
+                    appearance="outline"
+                    class="mt-2 transpilerClass-fxFlex-900d74 transpilerClass-fxFlex-fce284"
                   >
                     <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
 
@@ -1090,7 +1129,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="transpilerClass-fxFlex-ada0ce transpilerClass-fxFlex-b68034"
+                    class="transpilerClass-fxFlex-8d8203 transpilerClass-fxFlex-4d359a"
                   >
                     <mat-label>{{ 'Dirección' | translate }}</mat-label>
                     <input
@@ -1108,7 +1147,7 @@
                     class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                   >
                     <mat-form-field
-                      class="example-full-width transpilerClass-fxFlex-cadba4"
+                      class="example-full-width transpilerClass-fxFlex-87e9a2"
                       appearance="outline"
                     >
                       <mat-label>{{ 'Password' | translate }}</mat-label>
@@ -1145,7 +1184,7 @@
                         'ng-valid': !fromPassRegister.hasError('mismatch')
                       }"
                       appearance="outline"
-                      class="example-full-width transpilerClass-fxFlex-bf3d03"
+                      class="example-full-width transpilerClass-fxFlex-b95238"
                     >
                       <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                       <input
@@ -1256,7 +1295,7 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <div class="d-flex flex-column transpilerClass-fxLayoutGap-6119ae">
+                  <div class="d-flex flex-column transpilerClass-fxLayoutGap-2c5a4f">
                     <span class="section-title mb-2" translate>Documentos adjuntos</span>
                     <span class="mat-caption section-sub-title" translate>
                       Estos documentos serán usados para validar su registro en nuestra tienda. (Se
@@ -1271,6 +1310,16 @@
                     (onUploadFile)="onSelectPdf($event)"
                   >
                   </app-upload-file>
+
+                  <mat-checkbox [formControl]="regTcpForm.get('checkAge')" class="d-flex">
+                    <span
+                      >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                      <br />
+                    </span>
+                    <a [routerLink]="['/term-conditions']">
+                      {{ 'términos y condiciones' | translate }}
+                    </a>
+                  </mat-checkbox>
 
                   <div class="d-flex justify-content-center align-items-center">
                     <button
@@ -1294,7 +1343,7 @@
                   <div class="d-flex justify-content-between align-items-start">
                     <mat-form-field
                       appearance="outline"
-                      class="transpilerClass-fxFlex-96f0de transpilerClass-fxFlex-eddcfd"
+                      class="transpilerClass-fxFlex-66dcbd transpilerClass-fxFlex-f85d5d"
                     >
                       <mat-label>{{ 'Name' | translate }}</mat-label>
                       <input
@@ -1315,7 +1364,7 @@
 
                     <mat-form-field
                       appearance="outline"
-                      class="transpilerClass-fxFlex-134064 transpilerClass-fxFlex-8ac1d2"
+                      class="transpilerClass-fxFlex-bb5ec1 transpilerClass-fxFlex-21d0a2"
                     >
                       <mat-label>{{ 'Lastname' | translate }}</mat-label>
                       <input
@@ -1351,7 +1400,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="transpilerClass-fxFlex-a07950 transpilerClass-fxFlex-3753d7"
+                    class="transpilerClass-fxFlex-5c6eaf transpilerClass-fxFlex-c83eea"
                   >
                     <mat-label>{{ 'Email' | translate }}</mat-label>
                     <input
@@ -1373,26 +1422,26 @@
                   </mat-form-field>
 
                   <div
-                    class="w-100 d-flex transpilerClass-fxFlex-58e173 transpilerClass-fxFlex-693c34 transpilerClass-fxLayoutGap-58da23"
+                    class="w-100 d-flex transpilerClass-fxFlex-082be0 transpilerClass-fxFlex-7f02bb transpilerClass-fxLayoutGap-2fde8e"
                   >
                     <guachos-general-autocomplete
                       [withoutPaddingBottom]="false"
-                      [label]="'Código'"
+                      [label]="'Código telefónico'"
                       [valueId]="true"
                       [displayOptions]="callingCodeDisplayOptions"
                       [field]="['code']"
                       [filterString]="['filter[$and][code][$like]']"
                       [url]="phoneCodesService.url"
                       [formControl]="registrationForm.get('PhoneCallingCodeId')"
-                      class="transpilerClass-fxFlex-45dcea transpilerClass-fxFlex-8b5f2a"
+                      class="transpilerClass-fxFlex-206c47 transpilerClass-fxFlex-3bf285"
                     ></guachos-general-autocomplete>
 
                     <mat-form-field
                       appearance="outline"
                       id="phone"
-                      class="transpilerClass-fxFlex-525f6b transpilerClass-fxFlex-84e37a"
+                      class="transpilerClass-fxFlex-2870dc transpilerClass-fxFlex-14e5cc"
                     >
-                      <mat-label>{{ 'Teléfono (opcional)' | translate }}</mat-label>
+                      <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                       <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                       <input
                         (keypress)="utilsService.keyPressNumbers($event)"
@@ -1427,7 +1476,7 @@
                   >
                     <mat-form-field
                       appearance="outline"
-                      class="example-full-width transpilerClass-fxFlex-4126c8"
+                      class="example-full-width transpilerClass-fxFlex-112ebd"
                     >
                       <mat-label>{{ 'Password' | translate }}</mat-label>
                       <input
@@ -1463,7 +1512,7 @@
                         'ng-valid': !fromPassRegister.hasError('mismatch')
                       }"
                       appearance="outline"
-                      class="example-full-width transpilerClass-fxFlex-34fe37"
+                      class="example-full-width transpilerClass-fxFlex-0948a8"
                     >
                       <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                       <input
@@ -1494,6 +1543,16 @@
                         | translate
                     }}
                   </mat-error>
+
+                  <mat-checkbox [formControl]="registrationForm.get('checkAge')" class="d-flex">
+                    <span
+                      >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                      <br />
+                    </span>
+                    <a [routerLink]="['/term-conditions']">
+                      {{ 'términos y condiciones' | translate }}
+                    </a>
+                  </mat-checkbox>
 
                   <!-- <div fxLayout="row" fxLayoutAlign="center center">
                     <ngx-recaptcha2 class="mb-3" #captchaElem [siteKey]="secretKeyCaptcha" (reset)="handleReset()" (expire)="handleExpire()"
@@ -1682,7 +1741,7 @@
             >
               <mat-form-field
                 appearance="outline"
-                class="example-full-width transpilerClass-fxFlex-8a192f"
+                class="example-full-width transpilerClass-fxFlex-677763"
               >
                 <mat-label>{{ 'Password' | translate }}</mat-label>
                 <input
@@ -1717,7 +1776,7 @@
                   'ng-valid': !formPass.hasError('mismatch')
                 }"
                 appearance="outline"
-                class="example-full-width transpilerClass-fxFlex-d2f3de"
+                class="example-full-width transpilerClass-fxFlex-1eefc5"
               >
                 <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                 <input

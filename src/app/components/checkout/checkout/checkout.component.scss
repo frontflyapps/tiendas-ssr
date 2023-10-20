@@ -13,6 +13,12 @@
   }
 }
 
+mat-checkbox a {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 :host {
   .payment-method-expansion-panel {
     ::ng-deep .mat-expansion-panel-body {
@@ -741,4 +747,18 @@ li {
 
 .transpilerClass-fxLayoutGap-6fa278 {
   gap: 8px;
+}
+
+.transpilerClass-fxFlex-4b1f56 {
+  flex: 1 1 30%;
+}
+
+.transpilerClass-fxFlex-5a6d6d {
+  flex: 1 1 68%;
+}
+
+.transpilerClass-fxFlex-1661e7 {
+  @include media-breakpoint('lt-md') {
+    flex: 1 1 70%;
+  }
 }

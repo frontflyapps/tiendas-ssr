@@ -236,7 +236,7 @@
                 [formControl]="form.get('shippingRequired')"
                 class="order-xs-1 order-sm-1"
               >
-                <span class="mat-body-2">{{ 'Solicitar envío' | translate }}</span>
+                <span class="mat-body-2">{{ 'Solicitar envío a domicilio' | translate }}</span>
               </mat-checkbox>
             </div>
 
@@ -715,7 +715,7 @@
                 </div>
               </ng-container>
 
-              <div formGroupName="address" *ngIf="canBeDelivery && showAddress">
+              <div formGroupName="address" *ngIf="canBeDelivery || showAddress">
                 <div class="d-flex transpilerClass-fxLayoutGap-844035">
                   <mat-form-field appearance="outline" class="transpilerClass-fxFlex-27ef78">
                     <mat-label>{{ 'Calle' | translate }}</mat-label>
@@ -801,15 +801,15 @@
                     [filterString]="['filter[$and][code][$like]']"
                     [url]="phoneCodesService.url"
                     [formControl]="form.get('PhoneCallingCodeId')"
-                    class="transpilerClass-fxFlex-f0f2ea transpilerClass-fxFlex-1015f8"
+                    class="transpilerClass-fxFlex-4b1f56"
                   ></guachos-general-autocomplete>
 
                   <mat-form-field
                     appearance="outline"
                     id="phone"
-                    class="transpilerClass-fxFlex-9fea64 transpilerClass-fxFlex-729163"
+                    class="transpilerClass-fxFlex-5a6d6d transpilerClass-fxFlex-1661e7"
                   >
-                    <mat-label>{{ 'Teléfono' | translate }}</mat-label>
+                    <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                     <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                     <input
                       (keypress)="utilsService.keyPressNumbers($event)"
@@ -983,6 +983,31 @@
                 ></textarea>
               </mat-form-field>
             </div>
+
+            <div class="add-info mb-3 d-flex d-xs-none d-sm-none d-md-none">
+              <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex">
+                <span
+                  >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                  <!--                      <br>-->
+                </span>
+                <a [routerLink]="['/term-conditions']">
+                  {{ 'términos y condiciones' | translate }}
+                </a>
+              </mat-checkbox>
+            </div>
+
+            <div class="add-info mb-3 d-flex d-xs-block d-sm-block d-md-block d-none">
+              <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex">
+                <span
+                  >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                  <br />
+                </span>
+                <a [routerLink]="['/term-conditions']">
+                  {{ 'términos y condiciones' | translate }}
+                </a>
+              </mat-checkbox>
+            </div>
+
             <h1 *ngIf="noGateway" class="tex-align-center p-4 color-red-500">
               {{ 'Este negocio no tiene método de pago permitido' }}
             </h1>
@@ -1023,6 +1048,19 @@
                     {{ 'Subtotal' | translate }}:
                     <span class="amount px-2">{{
                       getTotalAmountCurrency() | currencyProduct: form.controls['currency'].value
+                    }}</span>
+                  </li>
+                </ul>
+
+                <!-- ============================================ -->
+                <!-- DESCUENTO APLICADO -->
+                <ul *ngIf="!loadingCart && showShipping" class="total-amount">
+                  <li>
+                    {{ 'Descuento aplicado' | translate }}:
+                    <!--                    <span style='font-size: 20px'></span>-->
+                    <span class="amount px-2">{{
+                      cart.offerGiftDiscount.discountGift
+                        | currencyProduct: form.controls['currency'].value
                     }}</span>
                   </li>
                 </ul>
@@ -1121,6 +1159,18 @@
                     style="border-radius: 4px"
                   ></div>
                 </ng-container>
+
+                <!-- DESCUENTO APLICADO -->
+                <ul class="total-amount" *ngIf="!showShipping">
+                  <li>
+                    {{ 'Descuento aplicado' | translate }}:
+                    <!--                    <span></span>-->
+                    <span class="amount px-2">{{
+                      cart.offerGiftDiscount.discountGift
+                        | currencyProduct: form.controls['currency'].value
+                    }}</span>
+                  </li>
+                </ul>
 
                 <!-- =====TOTAL=====-->
                 <ul class="total">

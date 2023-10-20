@@ -1,5 +1,6 @@
-export const PASARELA_BASE = 'peoplegoto';
-export const environment = {
+const PASARELA_BASE = 'peoplegoto';
+
+const environment = {
   production: true,
 
   apiUrl: 'https://apitienda.cislapradera.com/v1/',
@@ -50,4 +51,10 @@ export const environment = {
       url: 'https://tienda.cislapradera.com/',
     },
   },
+};
+
+
+module.exports = {
+  PASARELA_BASE,
+  environment,
 };

@@ -209,10 +209,26 @@
               <div
                 class="grand-total px-2 d-flex flex-column justify-content-center align-items-end"
               >
-                <span class="new-price"
-                  >{{ 'Total a pagar' | translate }}:
-                  {{ getTotal(cart) | currencyMarket: cart.market }}</span
+                <div
+                  class="new-price d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-099d87"
                 >
+                  {{ 'Total a pagar' | translate }}:
+                  <div class="d-flex flex-column">
+                    <p
+                      class="deletePrice m-0 d-flex"
+                      *ngIf="cart?.offerGiftDiscount?.discountGift > 0"
+                    >
+                      <del>{{
+                        cart?.offerGiftDiscount.totalPrice | currencyMarket: cart.market
+                      }}</del>
+                      <span class="offer ml-2 mt-0 d-flex" style="margin-top: 0px !important">
+                        <span class="mx-0 px-0">-</span>
+                        <span class="mx-0 px-0">${{ cart.offerGiftDiscount.discountGift }}</span>
+                      </span>
+                    </p>
+                    <span>{{ getTotal(cart) | currencyMarket: cart.market }}</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="mat-cell text-center">
