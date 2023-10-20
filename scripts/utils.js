@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
+
 const packageJson = require('../package.json');
 const fs = require('fs');
 

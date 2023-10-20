@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
+
 var fs = require('fs');
 const { exec } = require('child_process');
 
 const { environmentFactory, appName } = require('./utils');
 const { getFiles } = require('./utils');
+
+exec('mkdir -p ./environments');
+exec('sleep 1s');
 
 function generateDevEnvironments() {
   if (!appName) return;
