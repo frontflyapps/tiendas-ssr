@@ -107,51 +107,57 @@
 }
 
 .transpilerClass-fxFlex-94ac99 {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     flex: 1 1 100%;
   }
 }
 
 .transpilerClass-fxFlex-f48bd2 {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     flex: 1 1 100%;
   }
 }
 
 .transpilerClass-fxFlex-c66d20 {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 100%;
+  @include media-breakpoint('sm') {
+    flex: initial;
   }
+  flex: 1 1 100%;
 }
 
 .transpilerClass-fxFlex-2dff13 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 50%;
+  @include media-breakpoint('md') {
+    flex: initial;
   }
+  flex: 1 1 50%;
 }
 
 .transpilerClass-fxFlex-a6a454 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 48%;
+  @include media-breakpoint('md') {
+    flex: initial;
   }
+  flex: 1 1 48%;
 }
 
 .transpilerClass-fxFlex-5e99ca {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 48%;
+  @include media-breakpoint('md') {
+    flex: initial;
   }
+  flex: 1 1 48%;
 }
 
 .transpilerClass-fxFlex-9eb952 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 48%;
+  @include media-breakpoint('md') {
+    flex: initial;
   }
+  flex: 1 1 48%;
 }
 
 .transpilerClass-fxFlex-0b296e {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 48%;
+  @include media-breakpoint('md') {
+    flex: initial;
   }
+  flex: 1 1 48%;
 }
 
 .transpilerClass-fxLayoutGap-c95051 {

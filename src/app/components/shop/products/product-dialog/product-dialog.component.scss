@@ -26,7 +26,7 @@ th {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     font-size: 20px !important;
   }
 }
@@ -94,13 +94,15 @@ input {
 }
 
 .transpilerClass-fxFlex-1cd77b {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 50%;
+  @include media-breakpoint('sm') {
+    flex: initial;
   }
+  flex: 1 1 50%;
 }
 
 .transpilerClass-fxFlex-8afff6 {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 50%;
+  @include media-breakpoint('sm') {
+    flex: initial;
   }
+  flex: 1 1 50%;
 }

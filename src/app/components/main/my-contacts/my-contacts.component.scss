@@ -245,13 +245,13 @@
 }
 
 .transpilerClass-fxFlex-2df150 {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     flex: 1 1 100%;
   }
 }
 
 .transpilerClass-fxFlex-f2aaad {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     flex: 1 1 100%;
   }
 }
@@ -283,7 +283,7 @@
 }
 
 .transpilerClass-fxLayoutGap-b7f2a7 {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     gap: 0;
   }
 }

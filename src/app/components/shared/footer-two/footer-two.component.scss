@@ -49,19 +49,22 @@ span {
 }
 
 .transpilerClass-fxFlex-eb5e93 {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 30%;
+  @include media-breakpoint('xs') {
+    flex: initial;
   }
+  flex: 1 1 30%;
 }
 
 .transpilerClass-fxFlex-a92425 {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 25%;
+  @include media-breakpoint('xs') {
+    flex: initial;
   }
+  flex: 1 1 25%;
 }
 
 .transpilerClass-fxFlex-189687 {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 25%;
+  @include media-breakpoint('xs') {
+    flex: initial;
   }
+  flex: 1 1 25%;
 }

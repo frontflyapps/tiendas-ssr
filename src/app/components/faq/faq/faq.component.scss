@@ -74,7 +74,8 @@
 }
 
 .transpilerClass-fxFlex-8e3c8f {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 70%;
+  @include media-breakpoint('sm') {
+    flex: initial;
   }
+  flex: 1 1 70%;
 }

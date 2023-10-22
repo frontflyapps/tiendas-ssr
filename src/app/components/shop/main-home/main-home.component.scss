@@ -273,13 +273,15 @@
 }
 
 .transpilerClass-fxFlex-059cae {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 50%;
+  @include media-breakpoint('xs') {
+    flex: initial;
   }
+  flex: 1 1 50%;
 }
 
 .transpilerClass-fxFlex-b64837 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 25%;
+  @include media-breakpoint('md') {
+    flex: initial;
   }
+  flex: 1 1 25%;
 }

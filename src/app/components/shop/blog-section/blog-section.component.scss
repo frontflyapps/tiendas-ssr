@@ -6,10 +6,13 @@
 
   .blog {
     &:hover {
-      @include media-breakpoint('gt-sm') {
-        transform: translateY(-10px);
-        transition: all 0.5s ease;
+      @include media-breakpoint('sm') {
+        transform: initial;
+        transition: initial;
       }
+
+      transform: translateY(-10px);
+      transition: all 0.5s ease;
     }
 
     .info {
@@ -99,13 +102,14 @@
 }
 
 .transpilerClass-fxFlex-593195 {
-  @include media-breakpoint('lt-sm') {
+  @include media-breakpoint('sm') {
     flex: 1 1 100%;
   }
 }
 
 .transpilerClass-fxFlex-5ab66c {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 50%;
+  @include media-breakpoint('xs') {
+    flex: initial;
   }
+  flex: 1 1 50%;
 }
