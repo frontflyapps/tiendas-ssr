@@ -259,8 +259,9 @@
 }
 
 .transpilerClass-fxFlex-d38444 {
+  width: fit-content;
   @include media-breakpoint('lt-md') {
-    flex: 1 1 100%;
+    width: 100%;
   }
 }
 

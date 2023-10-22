@@ -1,4 +1,4 @@
-<div *ngIf="product?.Business?.Province" class="location-label-sm d-sm-block d-none">
+<div *ngIf="product?.Business?.Province" class="location-label-sm d-md-block d-none">
   <span>
     <mat-icon>room</mat-icon>&nbsp;<strong>{{
       product.Business?.Province?.name | parseLang: utilsService.getLang()
@@ -10,15 +10,13 @@
 </div>
 <div
   [id]="'ProductCardId' + product.id"
-  class="card-product d-flex flex-column d-sm-flex justify-content-start align-items-stretch justify-content-sm-start align-items-start align-items-sm-start"
+  class="card-product d-flex flex-md-row flex-column justify-content-start align-items-stretch justify-content-md-start align-items-start align-items-md-start"
   style="position: relative"
 >
   <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
     <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
   </div>
-  <div
-    class="image-layout d-flex justify-content-center align-items-center transpilerClass-fxFlex-40d995"
-  >
+  <div class="image-layout d-flex justify-content-center align-items-center flex-sh-md-35">
     <a
       [queryParams]="{
         productId: product?.id,
@@ -144,7 +142,7 @@
         </a> -->
     </div>
   </div>
-  <div *ngIf="product.Business?.Province" class="location-label d-block d-sm-none">
+  <div *ngIf="product.Business?.Province" class="location-label d-block d-md-none">
     <span>
       <mat-icon>room</mat-icon>&nbsp;<strong>{{
         product.Business?.Province?.name | parseLang: utilsService.getLang()

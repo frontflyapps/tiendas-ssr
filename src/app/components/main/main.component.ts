@@ -744,8 +744,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public addAttention(attentionClass: string) {
     const dialog = this.dialog;
-    const location = JSON.parse(this.storageService.getItem('location'));
+    const storageService = this.storageService;
     const locationServ = this.locationService;
+
+    const location = JSON.parse(this.storageService.getItem('location'));
 
     this.tour.addStep({
       id: 'example-step',
@@ -764,7 +766,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           classes: 'forgot-button',
           action() {
             // Dismiss the tour when the forgot button is clicked
-            localStorage.setItem('location-attention', 'yes'); // TODO (cupull) remove local storage
+            storageService.setItem('location-attention', 'yes');
             return this.cancel();
           },
         },
