@@ -84,6 +84,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   searchProductControl = new FormControl();
 
   url = environment.apiUrl + 'landing-page';
+  loadingAvailability = false;
 
   queryFeatured: IPagination = {
     limit: 8,
@@ -145,7 +146,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     public productDataService: ProductDataService,
     public spinner: NgxSpinnerService,
     private breakpointObserver: BreakpointObserver,
-    private appService: BusinessConfigService,
+    public appService: BusinessConfigService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
@@ -168,31 +169,36 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         this.isSmallDevice = data.matches;
       });
 
-    this.route.queryParams.subscribe((query) => {
-      const productId = query.productId;
-      console.log(window.location.href);
-      const stockId = query.stockId;
-      this.productsService.productIdDetails = productId;
-      this.isLoading = true;
-      this.productsService.getProductById(productId, stockId).subscribe(
-        (data) => {
-          this.product = data.data;
+    this.getProductProfile();
+    this.cartService.$cartItemsUpdated
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((data: any) => {
+        // this.spinner.show();
+        this.getProductProfile('cart');
+      });
 
-          this.spinner.hide();
-          console.log(this.product);
-          this.getProductsByBusiness(this.product?.BusinessId, this.query);
-          this.initStateView();
-          this.isLoading = false;
-        },
-        (error) => {
-          this.spinner.hide();
-          this.isLoading = false;
-          this.utilsService.errorHandle(error);
-          this.errorPage = true;
-          // this.getFeaturedProducts();
-        },
-      );
-    });
+    // this.route.queryParams.subscribe((query) => {
+    //   const productId = query.productId;
+    //   console.log(window.location.href);
+    //   const stockId = query.stockId;
+    //   this.productsService.productIdDetails = productId;
+    //   this.isLoading = true;
+    //   this.productsService.getProductById(productId, stockId).subscribe(
+    //     (data) => {
+    //       this.product = data.data;
+    //       console.log(this.product);
+    //       this.getProductsByBusiness(this.product?.BusinessId, this.query);
+    //       this.initStateView();
+    //       this.isLoading = false;
+    //     },
+    //     (error) => {
+    //       this.isLoading = false;
+    //       this.utilsService.errorHandle(error);
+    //       this.errorPage = true;
+    //       // this.getFeaturedProducts();
+    //     },
+    //   );
+    // });
   }
 
   checkMinMaxValues(event, product): boolean {
@@ -242,6 +248,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   ngOnInit() {
+    this.refreshData();
+  }
+
+  refreshData() {
     this.loggedInUserService.$languageChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((data: any) => {
@@ -281,6 +291,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.route.queryParamMap.subscribe((params) => {
       this.paramsToUrlRedirect = { ...params };
     });
+    this.spinner.hide();
   }
 
   ngOnDestroy() {
@@ -506,6 +517,59 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       });
     } else {
       this.cartService.redirectToLoginWithOrigin(this.pathToRedirect, this.paramsToUrlRedirect);
+    }
+  }
+
+  getProductProfile(cart?: string) {
+    // this.spinner.show();
+    this.loadingAvailability = true;
+    if (cart === 'cart') {
+      this.route.queryParams.subscribe((query) => {
+        const productId = query.productId;
+        const stockId = query.stockId;
+        this.productsService.productIdDetails = productId;
+        // this.isLoading = true;
+        this.productsService.getProductById(productId, stockId).subscribe(
+          (data) => {
+            this.loadingAvailability = false;
+            this.product.Stock.quantity = data.data.Stock.quantity;
+            this.spinner.hide();
+            // this.product = data.data;
+            // this.initStateView();
+            // this.isLoading = false;
+          },
+          (error) => {
+            this.isLoading = false;
+            this.loadingAvailability = false;
+            this.utilsService.errorHandle(error);
+            this.errorPage = true;
+            this.spinner.hide();
+            // this.getFeaturedProducts();
+          },
+        );
+      });
+    } else {
+      this.route.queryParams.subscribe((query) => {
+        const productId = query.productId;
+        const stockId = query.stockId;
+        this.productsService.productIdDetails = productId;
+        this.isLoading = true;
+        this.productsService.getProductById(productId, stockId).subscribe(
+          (data) => {
+            this.product = data.data;
+            console.log(this.product);
+            this.getProductsByBusiness(this.product?.BusinessId, this.query);
+            this.initStateView();
+            this.isLoading = false;
+          },
+          (error) => {
+            this.isLoading = false;
+            this.utilsService.errorHandle(error);
+            this.errorPage = true;
+            // this.getFeaturedProducts();
+          },
+        );
+      });
     }
   }
 

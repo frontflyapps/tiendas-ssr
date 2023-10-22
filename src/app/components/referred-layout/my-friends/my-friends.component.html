@@ -1,0 +1,55 @@
+<!-- Boton Check Segunda seccion -->
+<div class="d-flex flex-column justify-content-around align-items-center">
+  <!-- Cantidad de amigos -->
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-34035f">
+      <div style="font-size: x-large">1.</div>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-c26f26">
+      <span>{{ 'Usuarios registrados con su enlace:' | translate }}</span>
+    </div>
+    <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-a22e70">
+      <button mat-fab color="primary" class="cursorNone" disableRipple>
+        <div style="font-size: x-large">{{ referredUsers ?? 0 }}</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Registrados con mi enlace -->
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-a4ad81">
+      <div style="font-size: x-large">2.</div>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-f58a87">
+      <span>{{ 'Usuarios que compraron con su enlace:' | translate }}</span>
+    </div>
+    <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-4db7b5">
+      <button mat-fab color="primary" class="cursorNone" disableRipple>
+        <div style="font-size: x-large">{{ paymentUsers ?? 0 }}</div>
+      </button>
+    </div>
+  </div>
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div
+      class="container-info-text d-flex justify-content-center align-items-center transpilerClass-fxFlex-56e69b"
+    >
+      <span
+        >{{ 'Usted podrá reclamar su premio cuando acumule más de ' | translate }}{{ paymentUsers
+        }}{{ ' compras por usuarios' | translate }}</span
+      >
+    </div>
+  </div>
+  <!-- Boton Claim -->
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-between align-items-center transpilerClass-fxFlex-e09b55">
+      <div class="d-flex justify-content-center align-items-center">
+        <button mat-stroked-button color="primary" (click)="close.emit()">
+          {{ 'Atrás' | translate }}
+        </button>
+      </div>
+      <button mat-flat-button color="primary" (click)="claim()">
+        {{ 'Reclamar' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

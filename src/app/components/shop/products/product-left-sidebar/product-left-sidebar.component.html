@@ -6,12 +6,12 @@
   {{ 'Proceder al pago' | translate }}&nbsp;({{ itemsOnCart }}&nbsp;{{ 'productos' }})
 </div>
 
-<div class="left-sidebar-wrapper sec-padding" ngClass.lt-sm="pt-3">
+<div class="left-sidebar-wrapper" ngClass.lt-sm="pt-3">
   <div class="container-search">
     <div class="header">
       <div></div>
       <div
-        class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-4e3b00"
+        class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-33a1d4 transpilerClass-fxLayoutGap-3e9b78 transpilerClass-fxLayoutGap-47ddb6"
       >
         <div
           style="margin-bottom: 5px"
@@ -26,41 +26,61 @@
             {{ 'Filtros' | translate }}
           </button>
         </div>
-        <span class="bold">{{ 'Ordenar' | translate }}</span>
-        <div
-          (click)="onSetOrder(this.queryProduct?.order == 'id' ? '-id' : 'id')"
-          [ngClass]="{
-            selected: this.queryProduct?.order == 'id' || this.queryProduct?.order == '-id'
-          }"
-          class="chip-order"
-        >
-          {{ 'Creación' | translate }}
-          <mat-icon *ngIf="this.queryProduct?.order == 'id'">north</mat-icon>
-          <mat-icon *ngIf="this.queryProduct?.order == '-id'">south</mat-icon>
+        <div class="d-flex flex-column d-xs-block d-sm-block d-md-block d-none">
+          <span class="bold">{{ 'Ordenar por:' | translate }}</span>
+          <mat-form-field appearance="outline" class="full-width without-padding-bottom">
+            <!--          <mat-label>{{ 'Ordenar' | translate }}</mat-label>-->
+            <mat-select
+              (selectionChange)="onSelectOrder($event.value)"
+              [formControl]="form.controls['order']"
+              placeholder="{{ 'Orden' | translate }}"
+              type="text"
+            >
+              <mat-option *ngFor="let order of allOrders" [value]="order.value">
+                {{ order.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div
-          (click)="onSetOrder(this.queryProduct?.order == 'name' ? '-name' : 'name')"
-          [ngClass]="{
-            selected: this.queryProduct?.order == 'name' || this.queryProduct?.order == '-name'
-          }"
-          class="chip-order"
+          class="w-100 d-flex justify-content-end align-items-center transpilerClass-fxLayoutGap-d8766f d-xs-none d-sm-none d-md-none"
         >
-          {{ 'Nombre' | translate }}
-          <mat-icon *ngIf="this.queryProduct?.order == 'name'">north</mat-icon>
-          <mat-icon *ngIf="this.queryProduct?.order == '-name'">south</mat-icon>
+          <span class="bold d-xs-none d-sm-none d-md-none">{{ 'Ordenar por:' | translate }}</span>
+          <mat-form-field
+            appearance="outline"
+            class="field-order without-padding-bottom d-xs-none d-sm-none d-md-none"
+          >
+            <!--          <mat-label>{{ 'Ordenar' | translate }}</mat-label>-->
+            <mat-select
+              (selectionChange)="onSelectOrder($event.value)"
+              [formControl]="form.controls['order']"
+              placeholder="{{ 'Seleccione una opción' | translate }}"
+            >
+              <mat-option *ngFor="let order of allOrders" [value]="order.value">
+                {{ order.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-        <div
-          (click)="onSetOrder(this.queryProduct?.order == 'fromPrice' ? '-fromPrice' : 'fromPrice')"
-          [ngClass]="{
-            selected:
-              this.queryProduct?.order == 'fromPrice' || this.queryProduct?.order == '-fromPrice'
-          }"
-          class="chip-order"
-        >
-          {{ 'Precio' | translate }}
-          <mat-icon *ngIf="this.queryProduct?.order == 'fromPrice'">north</mat-icon>
-          <mat-icon *ngIf="this.queryProduct?.order == '-fromPrice'">south</mat-icon>
-        </div>
+
+        <!--        <div (click)="onSetOrder(this.queryProduct?.order == 'id' ? '-id' : 'id')"-->
+        <!--          [ngClass]="{ selected: this.queryProduct?.order == 'id' || this.queryProduct?.order == '-id' }" class='chip-order'>-->
+        <!--          {{ 'Creación' | translate }}-->
+        <!--          <mat-icon *ngIf="this.queryProduct?.order == 'id'">north</mat-icon>-->
+        <!--          <mat-icon *ngIf="this.queryProduct?.order == '-id'">south</mat-icon>-->
+        <!--        </div>-->
+        <!--        <div (click)="onSetOrder(this.queryProduct?.order == 'name' ? '-name' : 'name')"-->
+        <!--          [ngClass]="{ selected: this.queryProduct?.order == 'name' || this.queryProduct?.order == '-name' }" class='chip-order'>-->
+        <!--          {{ 'Nombre' | translate }}-->
+        <!--          <mat-icon *ngIf="this.queryProduct?.order == 'name'">north</mat-icon>-->
+        <!--          <mat-icon *ngIf="this.queryProduct?.order == '-name'">south</mat-icon>-->
+        <!--        </div>-->
+        <!--        <div (click)="onSetOrder(this.queryProduct?.order == 'fromPrice' ? '-fromPrice' : 'fromPrice')"-->
+        <!--          [ngClass]="{ selected: this.queryProduct?.order == 'fromPrice' || this.queryProduct?.order == '-fromPrice' }" class='chip-order'>-->
+        <!--          {{ 'Precio' | translate }}-->
+        <!--          <mat-icon *ngIf="this.queryProduct?.order == 'fromPrice'">north</mat-icon>-->
+        <!--          <mat-icon *ngIf="this.queryProduct?.order == '-fromPrice'">south</mat-icon>-->
+        <!--        </div>-->
       </div>
     </div>
   </div>
@@ -84,48 +104,58 @@
       id="topLeftSidebar"
     >
       <div
-        class="filter-sidenav transpilerClass-fxFlex-83c295 transpilerClass-fxFlex-70c4d8 d-sm-none"
+        class="filter-sidenav transpilerClass-fxFlex-e77e15 transpilerClass-fxFlex-1ae858 d-sm-none"
         perfectScrollbar
       >
         <div
           class="toggles-wrapper border-right d-flex flex-column d-sm-flex flex-sm-column"
           style="border-radius: 15px"
         >
-          <div class="toggles transpilerClass-fxFlex-d77558">
-            <mat-accordion [multi]="true">
-              <mat-expansion-panel
-                [expanded]="!isHandset || this.categoriesIds.length"
-                class="mat-elevation-z0 no-border bg-acordion"
-              >
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    <span>{{ 'Categories' | translate }}</span>
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <app-categories
-                  (categoryChanged)="onCategoriesChanged($event)"
-                  [categoriesIds]="this.categoriesIds"
-                ></app-categories>
-              </mat-expansion-panel>
+          <div
+            class="toggles d-flex flex-column transpilerClass-fxFlex-cdd0e1 transpilerClass-fxLayoutGap-a4eba2"
+          >
+            <!--            <mat-accordion [multi]='true'>-->
+            <!--              <mat-expansion-panel [expanded]='!isHandset || this.categoriesIds.length' class='mat-elevation-z0 no-border bg-acordion'>-->
+            <!--                <mat-expansion-panel-header>-->
+            <!--                  <mat-panel-title>-->
+            <div class="d-flex flex-column">
+              <span class="title-filters">{{ 'Categories' | translate }}</span>
+              <app-categories
+                (categoryChanged)="onCategoriesChanged($event)"
+                [categoriesIds]="this.categoriesIds"
+              ></app-categories>
+            </div>
+            <div class="d-flex flex-column">
+              <span class="title-filters">{{ 'Brands' | translate }}</span>
+              <div class="brands">
+                <app-brands
+                  (brandChanged)="onBrandsChanged($event)"
+                  [brandsIds]="this.brandsIds"
+                  [categoriesToSelectBrands]="categoriesIds"
+                ></app-brands>
+              </div>
+            </div>
+            <div class="d-flex flex-column transpilerClass-fxLayoutGap-bbe032">
+              <span class="title-filters">{{ 'Price' | translate }}</span>
+              <app-price
+                (priceFilters)="updatePriceFilters($event)"
+                [reset]="resetPrices"
+              ></app-price>
+            </div>
 
-              <mat-expansion-panel
-                [expanded]="!isHandset"
-                class="mat-elevation-z0 no-border bg-acordion"
-              >
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    <span>{{ 'Brands' | translate }}</span>
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="brands">
-                  <app-brands
-                    (brandChanged)="onBrandsChanged($event)"
-                    [brandsIds]="this.brandsIds"
-                    [categoriesToSelectBrands]="categoriesIds"
-                  ></app-brands>
-                </div>
-              </mat-expansion-panel>
-              <!-- <mat-expansion-panel class="mat-elevation-z0 no-border bg-acordion" [expanded]="!isHandset">
+            <!--                  </mat-panel-title>-->
+            <!--                </mat-expansion-panel-header>-->
+
+            <!--              </mat-expansion-panel>-->
+
+            <!--              <mat-expansion-panel [expanded]='!isHandset' class='mat-elevation-z0 no-border bg-acordion'>-->
+            <!--                <mat-expansion-panel-header>-->
+            <!--                  <mat-panel-title>-->
+            <!--                  </mat-panel-title>-->
+            <!--                </mat-expansion-panel-header>-->
+
+            <!--              </mat-expansion-panel>-->
+            <!-- <mat-expansion-panel class="mat-elevation-z0 no-border bg-acordion" [expanded]="!isHandset">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <span>{{'Ratings'|translate}}</span>
@@ -138,25 +168,19 @@
                 </div>
               </mat-expansion-panel> -->
 
-              <mat-expansion-panel
-                [expanded]="!isHandset"
-                class="mat-elevation-z0 no-border bg-acordion"
-              >
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    <span>{{ 'Price' | translate }}</span>
-                  </mat-panel-title> </mat-expansion-panel-header
-                >´
-                <app-price
-                  (priceFilters)="updatePriceFilters($event)"
-                  [reset]="resetPrices"
-                ></app-price>
-              </mat-expansion-panel>
-            </mat-accordion>
+            <!--              <mat-expansion-panel [expanded]='!isHandset' class='mat-elevation-z0 no-border bg-acordion'>-->
+            <!--                <mat-expansion-panel-header>-->
+            <!--                  <mat-panel-title>-->
+
+            <!--                  </mat-panel-title>-->
+            <!--                </mat-expansion-panel-header>´-->
+
+            <!--              </mat-expansion-panel>-->
+            <!--            </mat-accordion>-->
           </div>
 
           <ng-container *ngIf="!isHandset">
-            <div class="popular-products pl-3 transpilerClass-fxFlex-7a1e56 d-sm-none">
+            <div class="popular-products pl-3 transpilerClass-fxFlex-425328 d-sm-none">
               <app-popular-products></app-popular-products>
             </div>
           </ng-container>
@@ -167,7 +191,7 @@
       <!--        <h3 class='py-4' style='text-align: center'>{{ 'No hay ningún producto disponible' | translate }}</h3>-->
       <!--      </ng-container>-->
       <div
-        class="all-products transpilerClass-fxFlex-812feb transpilerClass-fxFlex-f3c0b8"
+        class="all-products transpilerClass-fxFlex-43a796 transpilerClass-fxFlex-52fd94"
         id="topSearchBar"
       >
         <ng-container *ngIf="noResults && allProductsResponse.length && !loadingSearch">
@@ -234,20 +258,29 @@
             class="w-100 d-flex justify-content-start align-items-start"
             infiniteScroll
             (scrolled)="infiniteScrollSearchMethod()"
-            style="
-              flex-flow: wrap;
-              box-sizing: border-box;
-              display: flex;
-              place-content: flex-start;
-              align-items: flex-start;
-            "
           >
             <app-product
               *ngFor="let products of allProducts"
               [product]="products"
-              class="transpilerClass-fxFlex-9a05bf"
-              style="width: unset"
+              class="transpilerClass-fxFlex-d38444"
             ></app-product>
+          </div>
+
+          <!--          <ng-container *ngIf='allProducts?.length == 0 && !loading && loadingSearch'>-->
+          <!--            <h3 class='py-4' style='text-align: center'>{{ 'No hay ningún producto disponible' | translate }}</h3>-->
+          <!--          </ng-container>-->
+        </div>
+        <div
+          *ngIf="totalProducts == 0 && !loadingSearch && allProductsSuggested?.length > 0"
+          class="w-100 d-flex justify-content-start align-items-start"
+        >
+          <div
+            class="w-100 d-flex justify-content-start align-items-start"
+            infiniteScroll
+            (scrolled)="infiniteScrollSearchMethod()"
+          >
+            <h2>{{ 'Le sugerimos estos productos' | translate }}:</h2>
+            <!--            <app-product *ngFor='let products of allProductsSuggested' [product]='products' fxFlex.lt-md='100'></app-product>-->
           </div>
 
           <!--          <ng-container *ngIf='allProducts?.length == 0 && !loading && loadingSearch'>-->
@@ -349,7 +382,7 @@
 
         <div
           *ngIf="!loading && allProducts?.length > 0"
-          class="mt-4 mb-4 see-more-btn d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-28562c"
+          class="mt-4 mb-4 see-more-btn d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-3fc19e"
         >
           <!--          <button (click)="goToFirstPage($event)" *ngIf="numberOfSearch > 0  &&-->
           <!--            allProductsResponse.length > initLimit" mat-stroked-button>-->
@@ -381,11 +414,11 @@
         <!--        </div>-->
       </div>
 
-      <ng-container *ngIf="isHandset">
-        <div class="popular-products mt-2 pl-3 transpilerClass-fxFlex-17a794 d-sm-block d-none">
-          <app-popular-products></app-popular-products>
-        </div>
-      </ng-container>
+      <!--      <ng-container *ngIf='isHandset'>-->
+      <!--        <div class='popular-products mt-2 pl-3' fxFlex.lt-md='100' fxHide fxShow.lt-md>-->
+      <!--          <app-popular-products></app-popular-products>-->
+      <!--        </div>-->
+      <!--      </ng-container>-->
     </div>
   </div>
 </div>

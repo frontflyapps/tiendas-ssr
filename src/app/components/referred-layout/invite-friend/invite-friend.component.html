@@ -1,0 +1,57 @@
+<div class="d-flex flex-column justify-content-around align-items-center">
+  <!-- Get Link -->
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-0e1780">
+      <button mat-fab color="primary" class="cursorNone" disableRipple>
+        <div style="font-size: x-large">1</div>
+      </button>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-e67ba7">
+      <span>{{ 'Obtén tu Código' | translate }}</span>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-091cd0">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="copyLink()"
+        [cdkCopyToClipboard]="userLinkReferred ?? ''"
+        class="w-100"
+      >
+        {{ 'Copiar enlace' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Comparte -->
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-9e59e9">
+      <button mat-fab color="primary" class="cursorNone" disableRipple>
+        <div style="font-size: x-large">2</div>
+      </button>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-5ae8e5">
+      <span> {{ 'Comparte el código con tus amigos' | translate }}</span>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-a19641">
+      <button mat-flat-button color="primary" (click)="windowOpen()" class="w-100">
+        {{ 'Compartir enlace' | translate }}
+      </button>
+    </div>
+  </div>
+  <!-- Check -->
+  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-4a2cfa">
+      <button mat-fab color="primary" class="cursorNone" disableRipple>
+        <div style="font-size: x-large">3</div>
+      </button>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-de21cf">
+      <span>{{ 'Acumula Premios' | translate }}</span>
+    </div>
+    <div class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-fe449c">
+      <button mat-flat-button color="primary" (click)="close.emit()" class="w-100">
+        {{ 'Comprobar' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
