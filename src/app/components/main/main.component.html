@@ -186,9 +186,7 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <div
-        class="search-form d-flex justify-content-start align-items-center transpilerClass-fxFlex-8d5186"
-      >
+      <div class="search-form d-flex justify-content-start align-items-center flex-sh-0">
         <div
           class="search-form d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-d9913a"
         >
@@ -227,7 +225,7 @@
 
           <!-- ======== -->
           <!-- SEARCHING -->
-          <div class="form-wrap transpilerClass-fxFlex-5e004c">
+          <div class="form-wrap flex-sh-NaN">
             <input
               (keyup.enter)="onSearch()"
               [formControl]="searchForm"
@@ -258,7 +256,7 @@
         class="userWidgets d-flex justify-content-end align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
         ngClass.xs="w-100"
       >
-        <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-ff0b3d">
+        <div class="d-flex justify-content-end align-items-center flex-sh-75">
           <div class="widget-text mx-2">
             <a
               #langMenuTrigger="matMenuTrigger"
@@ -541,7 +539,7 @@
             placeholder="{{ 'Buscar...' | translate }}"
             type="search"
             [matAutocomplete]="auto"
-            class="transpilerClass-fxFlex-fe6231"
+            class="flex-sh-0"
           />
           <mat-spinner
             *ngIf="this.loadingProducts"

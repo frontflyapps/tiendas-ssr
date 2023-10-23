@@ -106,17 +106,12 @@
       class="sidebar-wrapper d-flex justify-content-center align-items-start"
       id="topLeftSidebar"
     >
-      <div
-        class="filter-sidenav transpilerClass-fxFlex-e77e15 transpilerClass-fxFlex-1ae858 d-md-none"
-        perfectScrollbar
-      >
+      <div class="filter-sidenav flex-sh-25 flex-sh-md-100 d-md-none" perfectScrollbar>
         <div
           class="toggles-wrapper border-right d-flex flex-column d-sm-flex flex-sm-column"
           style="border-radius: 15px"
         >
-          <div
-            class="toggles d-flex flex-column transpilerClass-fxFlex-cdd0e1 transpilerClass-fxLayoutGap-a4eba2"
-          >
+          <div class="toggles d-flex flex-column flex-sh-md-100 transpilerClass-fxLayoutGap-a4eba2">
             <!--            <mat-accordion [multi]='true'>-->
             <!--              <mat-expansion-panel [expanded]='!isHandset || this.categoriesIds.length' class='mat-elevation-z0 no-border bg-acordion'>-->
             <!--                <mat-expansion-panel-header>-->
@@ -183,7 +178,7 @@
           </div>
 
           <ng-container *ngIf="!isHandset">
-            <div class="popular-products pl-3 transpilerClass-fxFlex-425328 d-sm-none">
+            <div class="popular-products pl-3 flex-sh-md-100 d-sm-none">
               <app-popular-products></app-popular-products>
             </div>
           </ng-container>
@@ -193,10 +188,7 @@
       <!--      <ng-container *ngIf='allProductsResponse?.length == 0'>-->
       <!--        <h3 class='py-4' style='text-align: center'>{{ 'No hay ningún producto disponible' | translate }}</h3>-->
       <!--      </ng-container>-->
-      <div
-        class="all-products transpilerClass-fxFlex-43a796 transpilerClass-fxFlex-52fd94"
-        id="topSearchBar"
-      >
+      <div class="all-products flex-sh-75 flex-sh-md-100" id="topSearchBar">
         <ng-container *ngIf="noResults && allProductsResponse.length && !loadingSearch">
           <div class="my-5 d-flex flex-column justify-content-center align-items-center">
             <h3 class="mb-2" style="text-align: center">
@@ -265,7 +257,8 @@
             <app-product
               *ngFor="let products of allProducts"
               [product]="products"
-              class="transpilerClass-fxFlex-d38444"
+              class="flex-sh-md-100"
+              style="width: initial"
             ></app-product>
           </div>
 

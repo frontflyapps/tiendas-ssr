@@ -76,9 +76,7 @@
             {{ 'email' | translate }} <strong>{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <div
-          class="w-100 d-flex transpilerClass-fxFlex-c330eb transpilerClass-fxFlex-c3332d transpilerClass-fxLayoutGap-70f8f9"
-        >
+        <div class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-70f8f9">
           <guachos-general-autocomplete
             [withoutPaddingBottom]="false"
             [label]="'Código telefónico'"
@@ -88,14 +86,10 @@
             [filterString]="['filter[$and][code][$like]']"
             [url]="phoneCodesService.url"
             [formControl]="form.get('PhoneCallingCodeId')"
-            class="transpilerClass-fxFlex-f383cc"
+            class="flex-sh-30"
           ></guachos-general-autocomplete>
 
-          <mat-form-field
-            appearance="outline"
-            id="phone"
-            class="transpilerClass-fxFlex-d5a89c transpilerClass-fxFlex-6178bb"
-          >
+          <mat-form-field appearance="outline" id="phone" class="flex-sh-70 flex-sh-md-70">
             <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
             <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
             <mat-icon class="greyIcon" matSuffix>call</mat-icon>

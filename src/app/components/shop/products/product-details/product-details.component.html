@@ -21,11 +21,9 @@
     class="details-wrapper sec-padding d-flex"
     ngClass.lt-md="pt-3"
   >
-    <div
-      class="h-100 d-flex flex-column transpilerClass-fxFlex-5fd0c1 transpilerClass-fxFlex-50ff5f"
-    >
+    <div class="h-100 d-flex flex-column flex-sh-100 flex-sh-75 flex-sh-sm-initial">
       <div
-        class="d-flex d-xs-flex d-sm-flex d-md-flex justify-content-start align-items-start transpilerClass-fxFlex-3e20de transpilerClass-fxFlex-b5dde5 transpilerClass-fxFlex-cc333f"
+        class="d-flex d-xs-flex d-sm-flex d-md-flex justify-content-start align-items-start flex-sh-100 flex-sh-100 flex-sh-sm-initial flex-sh-100 flex-sh-md-initial"
       >
         <!--    NAME PRODUCT AND PRICE    -->
         <div
@@ -78,7 +76,7 @@
         </div>
         <!--    IMAGES    -->
         <div
-          class="d-flex justify-content-center align-items-center transpilerClass-fxFlex-48ead6 transpilerClass-fxFlex-55e027"
+          class="d-flex justify-content-center align-items-center flex-sh-100 flex-sh-65 flex-sh-md-initial"
         >
           <mat-card
             class="my-product mat-elevation-z0 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column d-xs-none d-sm-none d-md-none"
@@ -193,7 +191,7 @@
         <div
           *ngIf="!isLoading"
           ngClass.gt-sm="px-3 m-0"
-          class="transpilerClass-fxFlex-08af0b transpilerClass-fxFlex-153817 transpilerClass-fxFlex-96b1c0"
+          class="flex-sh-100 flex-sh-md-90 flex-sh-35 flex-sh-md-initial"
         >
           <div class="product-right d-flex flex-column">
             <div class="product-details d-flex flex-column">
@@ -485,7 +483,7 @@
 
       <div
         *ngIf="!isLoading"
-        class="d-flex justify-content-start align-items-start transpilerClass-fxFlex-1541c0 transpilerClass-fxFlex-df8990"
+        class="d-flex justify-content-start align-items-start flex-sh-100 flex-sh-md-75"
       >
         <mat-tab-group [selectedIndex]="indexTab" ngClass.gt-sm="w-95" ngClass.lt-md="w-100">
           <mat-tab label="{{ 'Details' | translate }}">
@@ -615,7 +613,7 @@
                       </guachos-rating>
                     </h3>
 
-                    <div class="transpilerClass-fxFlex-17ecd9 transpilerClass-fxFlex-23a526">
+                    <div class="flex-sh-100 flex-sh-100 flex-sh-sm-initial">
                       <mat-form-field appearance="outline" class="w-100">
                         <mat-label>{{ 'Post content' | translate }}</mat-label>
                         <textarea
@@ -631,7 +629,7 @@
                       </mat-form-field>
                     </div>
                     <div
-                      class="button-wrap px-1 mt-2 d-flex justify-content-end align-items-start transpilerClass-fxFlex-15da60 transpilerClass-fxFlex-431ed9"
+                      class="button-wrap px-1 mt-2 d-flex justify-content-end align-items-start flex-sh-100 flex-sh-100 flex-sh-sm-initial"
                     >
                       <button
                         (click)="onPostReview()"
@@ -711,7 +709,7 @@
           <app-product
             *ngFor="let products of allProductsOnMenu"
             [product]="products"
-            class="transpilerClass-fxFlex-bce043"
+            class="flex-sh-md-100"
           ></app-product>
           <ng-container *ngIf="allProductsOnMenu.length == 0">
             <h3 class="py-4" style="text-align: center">
@@ -758,7 +756,7 @@
     </div>
 
     <div
-      class="d-flex justify-content-start align-items-start transpilerClass-fxFlex-b72cca transpilerClass-fxFlex-a2829c"
+      class="d-flex justify-content-start align-items-start flex-sh-100 flex-sh-25 flex-sh-sm-initial"
     >
       <div class="d-block d-sm-none">
         <ng-container [ngTemplateOutlet]="providerDetails"></ng-container>
@@ -769,10 +767,7 @@
         style="border-radius: 4px !important"
         ngClass.gt-md="m-0"
       >
-        <div
-          *ngFor="let item of allBicons; let i = index"
-          class="mt-16 transpilerClass-fxFlex-1b172e"
-        >
+        <div *ngFor="let item of allBicons; let i = index" class="mt-16 flex-sh-100">
           <mat-card
             class="light-block d-flex justify-content-start align-items-center"
             [ngClass]="{ 'no-border': i === allBicons.length - 1 }"
@@ -889,7 +884,7 @@
         </div>
       </ng-template>
 
-      <div class="popular-products mt-2 transpilerClass-fxFlex-9699af">
+      <div class="popular-products mt-2 flex-sh-md-100">
         <app-popular-products></app-popular-products>
       </div>
     </div>
@@ -901,9 +896,7 @@
     <section
       class="py-4 product-detail-not-found d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center justify-content-xs-start justify-content-sm-start transpilerClass-fxLayoutGap-9aaa6f transpilerClass-fxLayoutGap-a44a3f"
     >
-      <picture
-        class="pdnf-picture transpilerClass-fxFlex-8a1206 transpilerClass-fxFlex-19b1ea order-xs-2 order-sm-2"
-      >
+      <picture class="pdnf-picture flex-sh-50 flex-sh-xs-100 order-xs-2 order-sm-2">
         <!--        <source srcset="assets/images/not-found-product.webp" type="image/webp">-->
         <!--        <source srcset="assets/images/not-found-product.png" type="image/png">-->
         <img
@@ -915,7 +908,7 @@
       </picture>
 
       <div
-        class="pdnf-right-side-text d-flex flex-column justify-content-center align-items-start transpilerClass-fxFlex-828a75 transpilerClass-fxFlex-18df1e order-xs-1 order-sm-1"
+        class="pdnf-right-side-text d-flex flex-column justify-content-center align-items-start flex-sh-50 flex-sh-xs-100 order-xs-1 order-sm-1"
       >
         <div class="pdnf-1-text mb-4 order-xs-1 order-sm-1">{{ 'Upss' | translate }}...</div>
         <div class="pdnf-2-text mb-1 order-xs-2 order-sm-2">{{ 'Lo sentimos' | translate }}</div>

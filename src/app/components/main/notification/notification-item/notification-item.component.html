@@ -49,16 +49,14 @@
   >
     <mat-divider class="my-2"></mat-divider>
     <div class="w-100 d-flex justify-content-between align-items-center">
-      <div
-        class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-bffeb5"
-      >
+      <div class="d-flex flex-column justify-content-start align-items-start flex-sh-65">
         <div
           style="width: 100% !important"
           class="d-flex justify-content-between align-items-start"
         >
           <div
             style="margin-top: 2px"
-            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-04c5a9"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-90"
           >
             <span class="mat-caption grey-500">{{ 'Order' | translate }}</span>
             <span class="mat-body-1" style="text-transform: capitalize">{{ order.order }}</span>
@@ -68,7 +66,7 @@
         <div class="mb-3 d-flex justify-content-start align-items-center">
           <div
             style="margin-top: 2px"
-            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-359c12"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-100"
           >
             <span class="mat-caption grey-700">{{ 'Estado' | translate }}</span>
             <span [class]="this.status[this.order.status].class">
@@ -83,9 +81,7 @@
         </div>
       </div>
 
-      <div
-        class="d-flex flex-column justify-content-center align-items-center transpilerClass-fxFlex-f374b5"
-      >
+      <div class="d-flex flex-column justify-content-center align-items-center flex-sh-35">
         <span class="showPrice">{{ order.totalPrice | currency: order.currency }} </span>
       </div>
     </div>
@@ -139,16 +135,14 @@
   >
     <mat-divider class="my-2"></mat-divider>
     <div class="w-100 d-flex justify-content-between align-items-center">
-      <div
-        class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-8cff88"
-      >
+      <div class="d-flex flex-column justify-content-start align-items-start flex-sh-65">
         <div
           style="width: 100% !important"
           class="d-flex justify-content-between align-items-start"
         >
           <div
             style="margin-top: 2px"
-            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-ada649"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-90"
           >
             <span class="mat-caption grey-500">{{ 'Order' | translate }}</span>
             <span class="mat-body-1" style="text-transform: capitalize">{{ order.order }}</span>
@@ -158,7 +152,7 @@
         <div class="mb-2 d-flex justify-content-start align-items-center">
           <div
             style="margin-top: 2px"
-            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-fc46f9"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-100"
           >
             <span class="mat-caption grey-700">{{ 'Estado' | translate }}</span>
             <span [class]="this.status[this.order?.status]?.class">
@@ -173,9 +167,7 @@
         </div>
       </div>
 
-      <div
-        class="d-flex flex-column justify-content-center align-items-center transpilerClass-fxFlex-20b619"
-      >
+      <div class="d-flex flex-column justify-content-center align-items-center flex-sh-35">
         <span class="showPrice">{{ order.totalPrice | currency: order.currency }} </span>
       </div>
     </div>

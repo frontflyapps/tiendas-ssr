@@ -1,12 +1,9 @@
 <div class="product-container d-flex flex-column d-xs-block d-sm-block d-md-block d-none">
-  <h2 class="mb-2 transpilerClass-fxFlex-59b333" style="color: initial; font-weight: 500">
+  <h2 class="mb-2 flex-sh-100" style="color: initial; font-weight: 500">
     {{ products.name | i18nField: translateService.currentLang }}
   </h2>
   <div class="d-flex flex-column justify-content-between align-items-start">
-    <div
-      *ngFor="let product of products.value"
-      class="container-product mb-2 transpilerClass-fxFlex-7b2c34"
-    >
+    <div *ngFor="let product of products.value" class="container-product mb-2 flex-sh-100">
       <div *ngIf="product?.Business?.Province" class="location-label-sm d-sm-block d-none">
         <span>
           <mat-icon>room</mat-icon>&nbsp;<strong>{{
@@ -47,7 +44,7 @@
           />
         </a>
 
-        <div class="d-flex flex-column transpilerClass-fxFlex-5beb97">
+        <div class="d-flex flex-column flex-sh-100">
           <div class="moduleTitle line-clampTitle p-2">
             <h4 class="mat-body-2">{{ utilsService.parserLanguage(product.name, language) }}</h4>
           </div>

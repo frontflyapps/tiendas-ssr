@@ -4,7 +4,7 @@
   <ng-container *ngIf="allArticles.length === 1">
     <div
       *ngFor="let article of allArticles; let i = index"
-      class="blog transpilerClass-fxFlex-593195 transpilerClass-fxFlex-5ab66c"
+      class="blog flex-sh-sm-100 flex-sh-50 flex-sh-xs-initial"
     >
       <div class="info">
         <div class="img-box">
@@ -26,10 +26,7 @@
   </ng-container>
 
   <ng-container *ngIf="allArticles.length > 1">
-    <div
-      *ngFor="let article of allArticles; let i = index"
-      class="blog transpilerClass-fxFlex-9aea80"
-    >
+    <div *ngFor="let article of allArticles; let i = index" class="blog flex-sh-0">
       <div class="info">
         <div class="img-box">
           <a [routerLink]="['/blog']">

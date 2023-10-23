@@ -84,25 +84,3 @@ input {
     max-width: 290px !important;
   }
 }
-
-.transpilerClass-fxFlex-80bb0a {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-154a0a {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-1cd77b {
-  @include media-breakpoint('sm') {
-    flex: initial;
-  }
-  flex: 1 1 50%;
-}
-
-.transpilerClass-fxFlex-8afff6 {
-  @include media-breakpoint('sm') {
-    flex: initial;
-  }
-  flex: 1 1 50%;
-}

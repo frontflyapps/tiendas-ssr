@@ -7,6 +7,10 @@ $percentIntervals: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75,
   flex: 1;
 }
 
+.flex-sh-initial {
+  flex: initial;
+}
+
 @each $i in $percentIntervals {
   .flex-sh-#{$i} {
     flex: 1 1 100%;
@@ -15,6 +19,10 @@ $percentIntervals: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75,
 
   @each $breakpoint in map.keys(breakpoints.$breakpoints) {
     @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+      .flex-sh-#{$breakpoint}-initial {
+        flex: initial;
+      }
+
       .flex-sh-#{$breakpoint}-one {
         flex: 1;
       }

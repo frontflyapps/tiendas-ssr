@@ -1,6 +1,6 @@
 <div class="container-checkout checkout sec-padding my-5">
   <div
-    class="billing-details transpilerClass-fxFlex-70fc9a transpilerClass-fxFlex-ee1f14 transpilerClass-fxFlex-2dff13"
+    class="billing-details flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
     ngClass.gt-sm="pr-5"
     ngClass.sm="pr-2"
     ngClass.xs="pr-0"
@@ -15,7 +15,7 @@
       <div
         ngClass.sm="mt-2"
         ngClass.xs="mt-2"
-        class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-0eddeb"
+        class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100"
       >
         <div
           class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-c95051"
@@ -66,7 +66,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <mat-form-field
             appearance="outline"
-            class="transpilerClass-fxFlex-902826 transpilerClass-fxFlex-017686 transpilerClass-fxFlex-a6a454"
+            class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
           >
             <mat-label>{{ 'Name' | translate }}</mat-label>
             <input
@@ -82,7 +82,7 @@
           </mat-form-field>
           <mat-form-field
             appearance="outline"
-            class="transpilerClass-fxFlex-1597e8 transpilerClass-fxFlex-e78b0c transpilerClass-fxFlex-5e99ca"
+            class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
           >
             <mat-label>{{ 'Lastname' | translate }}</mat-label>
             <input
@@ -135,10 +135,7 @@
         <!-- SOLO PARA CUBANOS -->
         <ng-container *ngIf="onlyCubanPeople">
           <div class="d-flex justify-content-between align-items-center">
-            <mat-form-field
-              appearance="outline"
-              class="transpilerClass-fxFlex-6aa84f transpilerClass-fxFlex-94ac99"
-            >
+            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
               <mat-label>{{ 'Provincia' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="onSelectProvince($event.value)"
@@ -157,10 +154,7 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field
-              appearance="outline"
-              class="transpilerClass-fxFlex-c09272 transpilerClass-fxFlex-f48bd2"
-            >
+            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
               <mat-label>{{ 'Municipio' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
@@ -249,7 +243,7 @@
 
         <div formGroupName="address">
           <div class="d-flex transpilerClass-fxLayoutGap-56b70b">
-            <mat-form-field appearance="outline" class="transpilerClass-fxFlex-2f28f4">
+            <mat-form-field appearance="outline" class="flex-sh-80">
               <mat-label>{{ 'Calle' | translate }}</mat-label>
               <input
                 formControlName="street"
@@ -262,7 +256,7 @@
                 {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline" class="transpilerClass-fxFlex-d1d0f2">
+            <mat-form-field appearance="outline" class="flex-sh-20">
               <mat-label>{{ 'Número' | translate }}</mat-label>
               <input
                 formControlName="number"
@@ -295,7 +289,7 @@
           <mat-form-field
             appearance="outline"
             id="CI"
-            class="transpilerClass-fxFlex-bf4358 transpilerClass-fxFlex-ae5db6 transpilerClass-fxFlex-9eb952"
+            class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
           >
             <mat-label>{{ 'Identity card' | translate }}</mat-label>
             <input
@@ -319,7 +313,7 @@
           <mat-form-field
             appearance="outline"
             id="phone-checkout"
-            class="transpilerClass-fxFlex-d7dd4d transpilerClass-fxFlex-b3f3ba transpilerClass-fxFlex-0b296e"
+            class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
           >
             <mat-label>{{ 'Phone' | translate }}</mat-label>
             <span class="mr-2" matPrefix>+ 53</span>
@@ -450,7 +444,7 @@
         </h3>
       </div>
       <div
-        class="mt-1 transpilerClass-fxFlex-641971 transpilerClass-fxFlex-c66d20"
+        class="mt-1 flex-sh-100 flex-sh-100 flex-sh-sm-initial"
         ngClass.sm="mt-1"
         ngClass.xs="mt-1"
       >
@@ -466,9 +460,7 @@
         </mat-form-field>
       </div>
 
-      <div
-        class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-1dcd13"
-      >
+      <div class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN">
         <button mat-stroked-button matStepperPrevious>{{ 'Atrás' | translate }}</button>
         <button
           (click)="onGoToPayment()"

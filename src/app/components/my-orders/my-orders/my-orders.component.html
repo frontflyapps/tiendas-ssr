@@ -25,7 +25,7 @@
                       [formControl]="formSearch.get('filterText')"
                       placeholder="{{ 'Type to search...' | translate }}"
                       type="search"
-                      class="transpilerClass-fxFlex-eb9135"
+                      class="flex-sh-0"
                     />
                     <button (click)="onFilter()" type="submit">
                       <mat-icon> search</mat-icon>
@@ -45,7 +45,7 @@
 
                     <div class="w-100 py-2 d-flex justify-content-between align-items-center">
                       <div
-                        class="pl-3 d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-4a1312 transpilerClass-fxFlex-5357ad"
+                        class="pl-3 d-flex flex-column justify-content-start align-items-start flex-sh-60 flex-sh-sm-100"
                       >
                         <div class="d-flex justify-content-start align-items-center">
                           <span class="mat-title mb-0" style="font-size: 17px">
@@ -109,7 +109,7 @@
                       </div>
                       <div
                         ngClass.lt-sm="ml-3"
-                        class="d-flex flex-column justify-content-center align-items-center d-xs-flex justify-content-start justify-content-xs-start align-items-start align-items-xs-start transpilerClass-fxFlex-11edee transpilerClass-fxFlex-b18df1"
+                        class="d-flex flex-column justify-content-center align-items-center d-xs-flex justify-content-start justify-content-xs-start align-items-start align-items-xs-start flex-sh-40 flex-sh-sm-100"
                       >
                         <span class="total">
                           {{ item.amount | currency: item.currency }}
@@ -201,7 +201,7 @@
                 >
                   <div class="mt-3 d-flex justify-content-around align-items-start">
                     <div
-                      class="d-flex justify-content-center align-items-center transpilerClass-fxFlex-814f62 transpilerClass-fxFlex-d38f84"
+                      class="d-flex justify-content-center align-items-center flex-sh-100 flex-sh-50 flex-sh-md-initial"
                     >
                       <img
                         *ngIf="!(paymentItem.Product.Images && paymentItem.Product.Images.length)"
@@ -231,7 +231,7 @@
                       </a>
                     </div>
 
-                    <div class="transpilerClass-fxFlex-739417 transpilerClass-fxFlex-c52781">
+                    <div class="flex-sh-100 flex-sh-50 flex-sh-md-initial">
                       <h2 class="mat-title mb-0">
                         {{ utilsService.parserLanguage(paymentItem?.Product?.name, language) }}
                       </h2>
@@ -308,7 +308,7 @@
               >
                 <div class="d-flex justify-content-between align-items-center">
                   <div
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-0954f8 transpilerClass-fxFlex-78402f transpilerClass-fxFlex-ea86e4"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
                       'Id de pago' | translate
@@ -319,7 +319,7 @@
                   </div>
 
                   <div
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-a718dc transpilerClass-fxFlex-e9704f transpilerClass-fxFlex-4e3af5"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
                       'fecha de creación' | translate
@@ -331,7 +331,7 @@
 
                   <div
                     *ngIf="selectedOrder.cancelledAt"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-3facad transpilerClass-fxFlex-459775 transpilerClass-fxFlex-fda85e"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
                       'fecha de cancelación' | translate
@@ -348,7 +348,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-3d1b85 transpilerClass-fxFlex-7d34e0 transpilerClass-fxFlex-9a8a62"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Country' | translate }}
@@ -362,7 +362,7 @@
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-29c322 transpilerClass-fxFlex-a84e49 transpilerClass-fxFlex-4c5f25"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'City' | translate }}
@@ -375,7 +375,7 @@
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-7a8bc5 transpilerClass-fxFlex-35a279 transpilerClass-fxFlex-32b76c"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Region / Province / State' | translate }}
@@ -389,7 +389,7 @@
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-0dfb7d transpilerClass-fxFlex-ade325 transpilerClass-fxFlex-232c9b"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Municipio' | translate }}
@@ -402,7 +402,7 @@
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-91118a transpilerClass-fxFlex-bbaa1d transpilerClass-fxFlex-276727"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Provincia' | translate }}
@@ -416,7 +416,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-225c5e transpilerClass-fxFlex-856a58 transpilerClass-fxFlex-2640aa"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Dirección' | translate }}
@@ -429,7 +429,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-fe78d2 transpilerClass-fxFlex-da8c05 transpilerClass-fxFlex-97ae5d"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Teléfono' | translate }}
@@ -441,7 +441,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-5f9ff0 transpilerClass-fxFlex-faff75 transpilerClass-fxFlex-5295bb"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Client' | translate }}
@@ -458,7 +458,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-015ebe transpilerClass-fxFlex-d258c1 transpilerClass-fxFlex-e4e611"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'No. of order' | translate }}
@@ -471,7 +471,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-47f2c3 transpilerClass-fxFlex-e9a215 transpilerClass-fxFlex-cc3c31"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <ng-container>
                       <span class="mat-caption color-grey-800">
@@ -486,7 +486,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-8bd216 transpilerClass-fxFlex-7b17d3 transpilerClass-fxFlex-89ba5b"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <ng-container>
                       <span class="mat-caption color-grey-800">
@@ -506,7 +506,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-c7a880 transpilerClass-fxFlex-8d10ee transpilerClass-fxFlex-569131"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <ng-container *ngIf="this.selectedOrder?.shippingCost !== null">
                       <span class="mat-caption color-grey-800">
@@ -521,7 +521,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-f0fd98 transpilerClass-fxFlex-c482a5 transpilerClass-fxFlex-b71ea1"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <ng-container *ngIf="this.selectedOrder.status == 'cancelled'">
                       <span class="mat-caption color-grey-800">
@@ -542,7 +542,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-b51869 transpilerClass-fxFlex-d3cad8 transpilerClass-fxFlex-fcc944"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'TPV' | translate }}
@@ -555,7 +555,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-167000 transpilerClass-fxFlex-4ce12c transpilerClass-fxFlex-9877d3"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Email' | translate }}
@@ -593,7 +593,7 @@
                       this.selectedOrder.status == 'confirmed' ||
                       this.selectedOrder.status == 'delivered'
                     "
-                    class="mx-2 transpilerClass-fxFlex-6e52c0 transpilerClass-fxFlex-c44ae5 transpilerClass-fxFlex-398498"
+                    class="mx-2 flex-sh-30 flex-sh-xs-100 flex-sh-md-50"
                     color="primary"
                     mat-stroked-button
                     matTooltip="{{ 'Obtener el vouvher de pago' | translate }}"
@@ -610,7 +610,7 @@
                       this.selectedOrder.status == 'confirmed' &&
                       this.selectedOrder.canEditPersonPayment
                     "
-                    class="mx-2 transpilerClass-fxFlex-8a1adc transpilerClass-fxFlex-f7617c transpilerClass-fxFlex-71d7dc"
+                    class="mx-2 flex-sh-0 flex-sh-xs-100 flex-sh-md-50"
                     color="primary"
                     mat-stroked-button
                     matTooltip="{{ 'Editar' | translate }}"
@@ -628,7 +628,7 @@
                         this.selectedOrder.status == 'on-delivery') &&
                       this.canCancel
                     "
-                    class="mx-2 transpilerClass-fxFlex-c03038 transpilerClass-fxFlex-ed6031 transpilerClass-fxFlex-45388c"
+                    class="mx-2 flex-sh-0 flex-sh-xs-100 flex-sh-md-50"
                     color="warn"
                     mat-stroked-button
                     matTooltip="{{ 'Cancelar la reservación' | translate }}"
@@ -674,7 +674,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-04e56f transpilerClass-fxFlex-c9a12c transpilerClass-fxFlex-8d1ae3"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">
                       {{ 'Negocio' | translate }}
@@ -701,7 +701,7 @@
 
                   <div
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-a38b46 transpilerClass-fxFlex-09b5dc transpilerClass-fxFlex-5c831c"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">{{
                       'Correo electrónico' | translate
@@ -714,7 +714,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-da6c97 transpilerClass-fxFlex-7f4659 transpilerClass-fxFlex-78408f"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">{{ 'Dirección' | translate }}</span>
                     <span>{{ this.selectedOrder?.Business?.addresss }}</span>
@@ -722,7 +722,7 @@
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
-                    class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-68bf3d transpilerClass-fxFlex-52c119 transpilerClass-fxFlex-081193"
+                    class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                   >
                     <span class="mat-caption color-grey-800">{{ 'phone' | translate }}</span>
                     <span>{{ this.selectedOrder?.Business?.phone }}</span>
@@ -742,7 +742,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-fad80c transpilerClass-fxFlex-5ab88e transpilerClass-fxFlex-f156d5"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">
                         {{ 'Negocio' | translate }}
@@ -769,7 +769,7 @@
 
                     <div
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-7f4575 transpilerClass-fxFlex-6632c6 transpilerClass-fxFlex-cdc3ad"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">{{
                         'Correo electrónico' | translate
@@ -782,7 +782,7 @@
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-867411 transpilerClass-fxFlex-52a01f transpilerClass-fxFlex-63ff65"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">{{ 'Dirección' | translate }}</span>
                       <span>{{ this.selectedOrder?.ShippingBusiness?.addresss }}</span>
@@ -790,7 +790,7 @@
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
-                      class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-9e6dcc transpilerClass-fxFlex-a1a813 transpilerClass-fxFlex-5d7038"
+                      class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     >
                       <span class="mat-caption color-grey-800">{{ 'phone' | translate }}</span>
                       <span>{{ this.selectedOrder?.ShippingBusiness?.phone }}</span>

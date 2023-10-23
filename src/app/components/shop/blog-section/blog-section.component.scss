@@ -96,20 +96,3 @@
     }
   }
 }
-
-.transpilerClass-fxFlex-9aea80 {
-  flex: 1 1 0%;
-}
-
-.transpilerClass-fxFlex-593195 {
-  @include media-breakpoint('sm') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-5ab66c {
-  @include media-breakpoint('xs') {
-    flex: initial;
-  }
-  flex: 1 1 50%;
-}

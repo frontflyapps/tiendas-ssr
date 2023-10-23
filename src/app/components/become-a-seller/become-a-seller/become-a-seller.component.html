@@ -10,7 +10,7 @@
 
 <div class="w-100 mt-3 d-flex justify-content-start align-items-start">
   <div
-    class="stepperForm d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-01b66f transpilerClass-fxFlex-f2ce9d"
+    class="stepperForm d-flex flex-column justify-content-start align-items-stretch flex-sh-md-100 flex-sh-70 flex-sh-sm-initial"
   >
     <div class="container-stepper">
       <!--      <mat-horizontal-stepper #stepper [linear]="'true'" color='accent' labelPosition='bottom'>-->
@@ -51,7 +51,7 @@
 
         <!-- DATOS DE INSCRIPCIÓN DEL NEGOCIO -->
         <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-          <div class="d-flex flex-column transpilerClass-fxFlex-de680a">
+          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial">
             <p class="mat-body-2 uppercase mb-1 mt-3">
               {{ 'Datos de inscripcion' | translate }}
             </p>
@@ -73,7 +73,7 @@
             </mat-form-field>
           </div>
 
-          <div class="d-flex flex-column transpilerClass-fxFlex-e4354a">
+          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial">
             <p class="mat-body-2 uppercase mb-1 mt-3">
               {{ 'Número de Identificación Tributaria' | translate }}
             </p>
@@ -108,7 +108,7 @@
           </div>
         </div>
         <div *ngIf="basicForm.controls['selfEmployed'].value === false" class="d-flex">
-          <div class="d-flex flex-column transpilerClass-fxFlex-17be6b">
+          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial">
             <p class="mat-body-2 uppercase mb-1 mt-3">
               {{ 'Registro  de Empresas Estatales y Unidades Presupuestadas' | translate }}
             </p>
@@ -167,7 +167,7 @@
       </div>
 
       <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-        <mat-form-field appearance="outline" class="form-field-width transpilerClass-fxFlex-ab5db7">
+        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
           <mat-label>{{ 'Nombre' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('name')"
@@ -180,7 +180,7 @@
             {{ 'Nombre' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field-width transpilerClass-fxFlex-f6b379">
+        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
           <mat-label>{{ 'Apellidos' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('lastName')"
@@ -196,7 +196,7 @@
       </div>
 
       <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-        <mat-form-field appearance="outline" class="form-field-width transpilerClass-fxFlex-f8c5e6">
+        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
           <mat-label>{{ 'Número de identificación' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('ci')"
@@ -217,7 +217,7 @@
           </mat-hint>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="form-field-width transpilerClass-fxFlex-32355d">
+        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
           <mat-label>{{ 'Cargo' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('charge')"
@@ -233,7 +233,7 @@
       </div>
 
       <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-        <mat-form-field appearance="outline" class="form-field-width transpilerClass-fxFlex-6ddf63">
+        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
           <mat-label>{{ 'Teléfono' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('phone')"
@@ -259,7 +259,7 @@
             {{ 'Teléfono del representante válido' | translate }}
           </mat-hint>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field-width transpilerClass-fxFlex-3ed4ec">
+        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
           <mat-label>{{ 'Correo del representante' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('email')"
@@ -313,7 +313,7 @@
           <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
             <mat-form-field
               appearance="outline"
-              class="form-field-width transpilerClass-fxFlex-599e76"
+              class="form-field-width flex-sh-30 flex-sh-sm-initial"
             >
               <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
               <input
@@ -343,7 +343,7 @@
 
             <mat-form-field
               appearance="outline"
-              class="form-field-width transpilerClass-fxFlex-726731"
+              class="form-field-width flex-sh-30 flex-sh-sm-initial"
             >
               <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
               <input
@@ -368,7 +368,7 @@
 
             <mat-form-field
               appearance="outline"
-              class="form-field-width transpilerClass-fxFlex-38bda6"
+              class="form-field-width flex-sh-30 flex-sh-sm-initial"
             >
               <mat-label>{{ 'Correo de la empresa' | translate }}</mat-label>
               <input
@@ -401,7 +401,7 @@
 
         <div class="form-field-width d-flex justify-content-between align-items-center">
           <div
-            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-b3cedf transpilerClass-fxFlex-1c2c10"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-50 flex-sh-md-100"
           >
             <p class="mat-body-2 uppercase mb-1">
               {{ 'Provincia' | translate }}
@@ -425,16 +425,13 @@
           </div>
 
           <div
-            class="d-flex flex-column justify-content-start align-items-start transpilerClass-fxFlex-eb481d transpilerClass-fxFlex-053e1b"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-50 flex-sh-md-100"
           >
             <p class="mat-body-2 uppercase mb-1">
               {{ 'Municipio' | translate }}
             </p>
 
-            <mat-form-field
-              appearance="outline"
-              class="form-field-width transpilerClass-fxFlex-0cac79 transpilerClass-fxFlex-8062a3"
-            >
+            <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-md-100">
               <mat-select
                 [formControl]="basicForm.controls['MunicipalityId']"
                 placeholder="{{ 'Nombre del Municipio' | translate }}"
@@ -505,7 +502,7 @@
   </div>
   <div
     id="questions-bar"
-    class="questions d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-10896b"
+    class="questions d-flex flex-column justify-content-start align-items-stretch flex-sh-0"
   >
     <div class="row-line d-flex justify-content-start align-items-start">
       <span class="mat-title mb-0 color-grey-800" style="font-weight: 600">{{
