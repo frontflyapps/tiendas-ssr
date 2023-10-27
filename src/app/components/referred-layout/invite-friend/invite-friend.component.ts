@@ -1,14 +1,18 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 import { ShareComponent } from '../share/share.component';
 import { SocialShareData } from '../share/share-data';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-invite-friend',
   templateUrl: './invite-friend.component.html',
   styleUrls: ['./invite-friend.component.scss'],
+  standalone: true,
+  imports: [MatButtonModule, ClipboardModule, TranslateModule],
 })
 export class InviteFriendComponent implements OnInit {
   @Input() userLinkReferred: string = null;

@@ -11,12 +11,16 @@ import { LostConexionComponent } from './lost-conexion/lost-conexion.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    ErrorRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    TranslateModule,
     ForbiddenAccessComponent,
     OutdatedVersionComponent,
     LostConexionComponent,
     NotFoundComponent,
   ],
-  imports: [CommonModule, ErrorRoutingModule, MatButtonModule, MatIconModule, TranslateModule],
 })
 export class ErrorModule {}

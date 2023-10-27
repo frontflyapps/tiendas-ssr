@@ -8,7 +8,13 @@ import { DialogReloadAppComponent } from './dialog-reload-app.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, MatIconModule, MatButtonModule, MatDialogModule],
-  declarations: [DialogReloadAppComponent],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    DialogReloadAppComponent,
+  ],
 })
 export class DialogReloadAppModule {}

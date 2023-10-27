@@ -25,7 +25,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
-  declarations: [BecomeASellerComponent],
   imports: [
     CommonModule,
     BecomeASellerRoutingModule,
@@ -33,7 +32,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatButtonModule,
     TranslateModule,
-
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
@@ -48,6 +46,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     GuachosImagePickerModule,
     GuachosImageModule,
     MatCheckboxModule,
+    BecomeASellerComponent,
   ],
   providers: [BankService],
 })

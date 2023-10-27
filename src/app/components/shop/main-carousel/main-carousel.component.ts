@@ -2,13 +2,24 @@ import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { UtilsService } from '../../../core/services/utils/utils.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-main-carousel',
   templateUrl: './main-carousel.component.html',
   styleUrls: ['./main-carousel.component.scss'],
+  standalone: true,
+  imports: [NgFor],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   _unsubscribeAll: Subject<any>;

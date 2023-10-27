@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'currencyCheckout',
+  standalone: true,
 })
 export class CurrencyCheckoutPipe implements PipeTransform {
   constructor(private currency: CurrencyPipe) {}

@@ -49,7 +49,6 @@ import { ReceiverFormComponent } from './reciever-form/receiver-form.component';
 @NgModule({
   imports: [
     CommonModule,
-
     FormsModule,
     ReactiveFormsModule,
     CheckoutRoutingModule,
@@ -78,8 +77,6 @@ import { ReceiverFormComponent } from './reciever-form/receiver-form.component';
     ConfirmationDialogFrontModule,
     MatExpansionModule,
     GuachosGeneralAutocompleteModule,
-  ],
-  declarations: [
     CheckoutComponent,
     EnzonaPaymentOkComponent,
     ReceiverFormComponent,

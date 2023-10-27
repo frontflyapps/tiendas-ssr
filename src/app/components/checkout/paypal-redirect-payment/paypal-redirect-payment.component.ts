@@ -3,11 +3,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { PayService } from '../../../core/services/pay/pay.service';
 import { environment } from 'environments/environment';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-paypal-redirect-payment',
   templateUrl: './paypal-redirect-payment.component.html',
   styleUrls: ['./paypal-redirect-payment.component.scss'],
+  standalone: true,
+  imports: [NgIf, MatProgressSpinnerModule],
 })
 export class PaypalRedirectPaymentComponent implements OnInit {
   params: any;

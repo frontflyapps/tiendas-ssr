@@ -6,12 +6,18 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { RegionsService } from '../../../core/services/regions/regions.service';
 import { LocalStorageService } from '../../../core/services/localStorage/localStorage.service';
 import { LOCATION_DATA } from '../../../core/classes/global.const';
@@ -24,12 +30,43 @@ import {
   IDENTITY_PASSPORT,
 } from '../../../core/classes/regex.const';
 import { environment } from 'environments/environment';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgIf, NgFor, NgClass } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-my-contacts',
   templateUrl: './my-contacts.component.html',
   styleUrls: ['./my-contacts.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    NgIf,
+    NgFor,
+    NgClass,
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
+    TranslateModule,
+  ],
 })
 export class MyContactsComponent implements OnInit, OnDestroy {
   innerWidth: any;

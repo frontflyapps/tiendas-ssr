@@ -4,8 +4,8 @@ import { UtilsService } from '../../../core/services/utils/utils.service';
 import { Subject } from 'rxjs';
 import { environment } from 'environments/environment';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
-import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartService } from '../../shared/services/cart.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
@@ -13,11 +13,35 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
+import { I18nFieldPipe } from '../../../core/pipes/i18n-field.pipe';
+import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
+import { ParseLangPipe } from '../../../core/pipes/parse-lang.pipe';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { LazyImgDirective } from '../../../core/directives/lazy-img/lazy-img.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product-grid',
   templateUrl: './product-grid.component.html',
   styleUrls: ['./product-grid.component.scss'],
+  standalone: true,
+  imports: [
+    NgFor,
+    NgIf,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    RouterLink,
+    LazyImgDirective,
+    MatTooltipModule,
+    MatButtonModule,
+    TranslateModule,
+    ParseLangPipe,
+    ParsePriceProduct,
+    I18nFieldPipe,
+  ],
 })
 export class ProductGridComponent implements OnInit, OnDestroy {
   @Input() products;

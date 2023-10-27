@@ -9,7 +9,13 @@ import { FaqComponent } from './faq/faq.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
-  declarations: [FaqComponent],
-  imports: [CommonModule, FaqRoutingModule, MatExpansionModule, TranslateModule, PipesModule],
+  imports: [
+    CommonModule,
+    FaqRoutingModule,
+    MatExpansionModule,
+    TranslateModule,
+    PipesModule,
+    FaqComponent,
+  ],
 })
 export class FaqModule {}

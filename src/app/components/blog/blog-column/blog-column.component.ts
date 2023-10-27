@@ -7,9 +7,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoggedInUserService } from './../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService } from '../../../core/services/blog/blog.service';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog-column',
@@ -21,6 +28,20 @@ import { environment } from 'environments/environment';
       state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('250ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
+  ],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+    NgFor,
+    RouterLink,
+    MatCardModule,
+    NgClass,
+    DatePipe,
+    TranslateModule,
   ],
 })
 export class BlogColumnComponent implements OnInit, OnDestroy {

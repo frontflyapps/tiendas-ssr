@@ -6,7 +6,7 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Subject } from 'rxjs';
@@ -16,12 +16,28 @@ import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-s
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { UploadTypesEnum } from '../file-upload/upload-types.enum';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { FileUploaderComponent } from '../file-upload/file-uploader/file-uploader.component';
+import { NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-dialog-upload-media',
   templateUrl: './dialog-upload-media.component.html',
   styleUrls: ['./dialog-upload-media.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    NgIf,
+    FileUploaderComponent,
+    TranslateModule,
+  ],
 })
 export class DialogUploadMediaComponent implements OnInit, OnDestroy {
   isSaving = false;

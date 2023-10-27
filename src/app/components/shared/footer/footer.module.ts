@@ -14,13 +14,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
-  declarations: [FooterComponent],
   exports: [FooterComponent],
   imports: [
     MatSelectModule,
     CommonModule,
     TranslateModule,
-
     FormsModule,
     MatGridListModule,
     MatIconModule,
@@ -29,6 +27,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     RouterModule,
     MatMenuModule,
     MatTooltipModule,
+    FooterComponent,
   ],
 })
 export class FooterModule {}

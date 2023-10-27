@@ -6,11 +6,17 @@ import { LoggedInUserService } from './../../../core/services/loggedInUser/logge
 import { takeUntil } from 'rxjs/operators';
 import { BlogService } from '../../../core/services/blog/blog.service';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { LazyImgDirective } from '../../../core/directives/lazy-img/lazy-img.directive';
+import { RouterLink } from '@angular/router';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-blog-section',
   templateUrl: './blog-section.component.html',
   styleUrls: ['./blog-section.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, RouterLink, LazyImgDirective, TranslateModule],
 })
 export class BlogSectionComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

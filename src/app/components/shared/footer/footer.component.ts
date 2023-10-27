@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { EditProfileComponent } from '../../main/edit-profile/edit-profile.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
@@ -7,6 +7,12 @@ import { IUser } from '../../../core/classes/user.class';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { NgIf, NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 export interface IFooterContacts {
   phone: string;
@@ -19,6 +25,17 @@ export interface IFooterContacts {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    RouterLink,
+    NgIf,
+    MatIconModule,
+    MatMenuModule,
+    MatTooltipModule,
+    NgFor,
+    TranslateModule,
+  ],
 })
 export class FooterComponent implements OnInit {
   language: string;

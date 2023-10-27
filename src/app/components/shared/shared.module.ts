@@ -19,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
-  declarations: [OrderByPipe, DialogUploadMediaComponent, DialogPhoneComponent],
   imports: [
     ReactiveFormsModule,
     FormsModule,
@@ -36,6 +35,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
+    OrderByPipe,
+    DialogUploadMediaComponent,
+    DialogPhoneComponent,
   ],
   exports: [
     ReactiveFormsModule,

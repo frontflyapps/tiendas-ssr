@@ -10,16 +10,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ShopsListComponent],
   imports: [
     CommonModule,
     ShopsListRoutingModule,
-
     TranslateModule,
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
     ReactiveFormsModule,
+    ShopsListComponent,
   ],
 })
 export class ShopsListModule {}

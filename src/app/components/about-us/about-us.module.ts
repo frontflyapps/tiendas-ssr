@@ -14,11 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [AboutUsComponent],
   imports: [
     CommonModule,
     AboutUsRoutingModule,
-
     FormsModule,
     ReactiveFormsModule,
     MatExpansionModule,
@@ -29,6 +27,7 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatButtonModule,
     PipesModule,
+    AboutUsComponent,
   ],
 })
 export class AboutUsModule {}

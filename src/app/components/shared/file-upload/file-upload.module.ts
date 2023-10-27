@@ -12,7 +12,6 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [FileUploaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -25,6 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     MatSelectModule,
     TranslateModule,
+    FileUploaderComponent,
   ],
   exports: [FileUploaderComponent],
 })

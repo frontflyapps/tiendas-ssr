@@ -1,9 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatCardModule } from '@angular/material/card';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-skeleton-loading-cards',
   templateUrl: './skeleton-loading-cards.component.html',
   styleUrls: ['./skeleton-loading-cards.component.scss'],
+  standalone: true,
+  imports: [NgFor, MatCardModule, NgxSkeletonLoaderModule],
 })
 export class SkeletonLoadingCardsComponent implements OnInit {
   grid = {

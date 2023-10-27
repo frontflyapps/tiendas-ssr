@@ -8,11 +8,15 @@ import { Subject } from 'rxjs';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
 import { CATEGORIES_DATA } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-categories-m',
   templateUrl: './categories-m.component.html',
   styleUrls: ['./categories-m.component.scss'],
+  standalone: true,
+  imports: [NgFor, NgIf, TranslateModule],
 })
 export class CategoriesMComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

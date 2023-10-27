@@ -5,8 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { SkeletonLoadingCardsComponent } from './skeleton-loading-cards.component';
 
 @NgModule({
-  declarations: [SkeletonLoadingCardsComponent],
-  imports: [CommonModule, NgxSkeletonLoaderModule, MatCardModule],
+  imports: [CommonModule, NgxSkeletonLoaderModule, MatCardModule, SkeletonLoadingCardsComponent],
   exports: [NgxSkeletonLoaderModule, SkeletonLoadingCardsComponent],
 })
 export class SkeletonLoadingCardsModule {}

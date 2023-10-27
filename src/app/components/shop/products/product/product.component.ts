@@ -3,7 +3,7 @@ import { CartService } from '../../../shared/services/cart.service';
 import { ProductService } from '../../../shared/services/product.service';
 import { WishlistService } from '../../../shared/services/wishlist.service';
 import { MatDialog } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { Product } from '../../../../modals/product.model';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { Subject } from 'rxjs';
@@ -13,16 +13,39 @@ import { LoggedInUserService } from '../../../../core/services/loggedInUser/logg
 import { takeUntil } from 'rxjs/operators';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { ConfirmationDialogFrontComponent } from 'src/app/components/shared/confirmation-dialog-front/confirmation-dialog-front.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pipe';
+import { ParseLangPipe } from '../../../../core/pipes/parse-lang.pipe';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { GuachosRatingModule } from 'guachos-rating';
+import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    RouterLink,
+    LazyImgDirective,
+    GuachosRatingModule,
+    MatButtonModule,
+    MatTooltipModule,
+    TranslateModule,
+    ParseLangPipe,
+    ParsePriceProduct,
+  ],
 })
 export class ProductComponent implements OnInit, OnDestroy {
   @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();

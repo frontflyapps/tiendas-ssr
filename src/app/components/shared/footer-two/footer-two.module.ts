@@ -9,15 +9,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [FooterTwoComponent],
   imports: [
     CommonModule,
     MatIconModule,
-
     MatMenuModule,
     TranslateModule,
     RouterModule,
     MatButtonModule,
+    FooterTwoComponent,
   ],
   exports: [FooterTwoComponent],
 })

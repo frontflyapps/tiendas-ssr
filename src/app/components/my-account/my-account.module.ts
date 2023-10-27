@@ -21,12 +21,10 @@ import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
-  declarations: [MyAccountComponent, ChangePassComponent, CapitalizeFirstDirective],
   imports: [
     CommonModule,
     MyAccountRoutingModule,
     UploadFileModule,
-
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
@@ -40,6 +38,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonToggleModule,
     GuachosGeneralAutocompleteModule,
     MatCheckboxModule,
+    MyAccountComponent,
+    ChangePassComponent,
+    CapitalizeFirstDirective,
   ],
 })
 export class MyAccountModule {}

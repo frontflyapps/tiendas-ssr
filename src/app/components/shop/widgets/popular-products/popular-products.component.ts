@@ -9,11 +9,28 @@ import { LocalStorageService } from '../../../../core/services/localStorage/loca
 import { FRONT_PRODUCT_DATA } from '../../../../core/classes/global.const';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { GlobalStateOfCookieService } from '../../../../core/services/request-cookie-secure/global-state-of-cookie.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { GuachosRatingModule } from 'guachos-rating';
+import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
+import { RouterLink } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
+import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-popular-products',
   templateUrl: './popular-products.component.html',
   styleUrls: ['./popular-products.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatListModule,
+    NgFor,
+    RouterLink,
+    LazyImgDirective,
+    GuachosRatingModule,
+    CurrencyPipe,
+    TranslateModule,
+  ],
 })
 export class PopularProductsComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

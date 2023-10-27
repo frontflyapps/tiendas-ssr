@@ -8,15 +8,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [GuachosImageComponent],
   exports: [GuachosImageComponent],
   imports: [
     CommonModule,
     TranslateModule,
-
     MatButtonModule,
     MatIconModule,
     GuachosImagePickerModule,
+    GuachosImageComponent,
   ],
 })
 export class GuachosImageModule {}

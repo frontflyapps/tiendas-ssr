@@ -11,7 +11,8 @@ import { I18nFieldPipe } from './i18n-field.pipe';
 import { CurrencyProductPipe } from './currency.pipe';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
     ParseLangPipe,
     SafeHtmlPipe,
     SafeResourseUrlPipe,
@@ -22,7 +23,6 @@ import { CurrencyProductPipe } from './currency.pipe';
     CurrencyCheckoutPipe,
     CurrencyProductPipe,
   ],
-  imports: [CommonModule],
   exports: [
     ParseLangPipe,
     SafeHtmlPipe,

@@ -1,19 +1,38 @@
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from './../../../core/services/utils/utils.service';
 import { LoggedInUserService } from './../../../core/services/loggedInUser/logged-in-user.service';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { IUser } from '../../../core/classes/user.class';
 import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgIf, CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-confirm-payment-ok',
   templateUrl: './confirm-payment-ok.component.html',
   styleUrls: ['./confirm-payment-ok.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    NgIf,
+    MatToolbarModule,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatTooltipModule,
+    CurrencyPipe,
+    DatePipe,
+    TranslateModule,
+  ],
 })
 export class ConfirmPaymentOkComponent implements OnInit {
   innerWidth: any;

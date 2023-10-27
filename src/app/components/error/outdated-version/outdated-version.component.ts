@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-outdated-version',
   templateUrl: './outdated-version.component.html',
   styleUrls: ['./outdated-version.component.scss'],
+  standalone: true,
 })
 export class OutdatedVersionComponent implements OnInit {
   constructor() {}

@@ -45,19 +45,6 @@ import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
 import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module';
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    PanelNotificationsComponent,
-    NotificationItemComponent,
-    ConfirmPaymentOkComponent,
-    DialogSetLocationComponent,
-    ConfirmCreateBusinessComponent,
-    MenuComponent,
-    EditProfileComponent,
-    MyContactsComponent,
-    SidebarComponent,
-    ShoppingWidgetsComponent,
-  ],
   imports: [
     CommonModule,
     MainRoutingModule,
@@ -80,7 +67,6 @@ import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module
     MatToolbarModule,
     MatSlideToggleModule,
     MatTooltipModule,
-
     MatButtonModule,
     MatDialogModule,
     FooterModule,
@@ -90,6 +76,17 @@ import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module
     GuachosImagePickerModule,
     GuachosGeneralAutocompleteModule,
     GuachosImageModule,
+    MainComponent,
+    PanelNotificationsComponent,
+    NotificationItemComponent,
+    ConfirmPaymentOkComponent,
+    DialogSetLocationComponent,
+    ConfirmCreateBusinessComponent,
+    MenuComponent,
+    EditProfileComponent,
+    MyContactsComponent,
+    SidebarComponent,
+    ShoppingWidgetsComponent,
   ],
   providers: [SidebarMenuService, PreviousRouteService, ConfirmCreateBusinessService],
 })

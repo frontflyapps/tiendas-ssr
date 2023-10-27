@@ -27,7 +27,6 @@ import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-fro
     ReactiveFormsModule,
     PagesRoutingModule,
     BlogModule,
-
     TranslateModule,
     MatProgressSpinnerModule,
     MatCardModule,
@@ -41,7 +40,8 @@ import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-fro
     MatFormFieldModule,
     ConfirmationDialogFrontModule,
     MatDialogModule,
+    WishlistComponent,
+    CompareComponent,
   ],
-  declarations: [WishlistComponent, CompareComponent],
 })
 export class PagesModule {}

@@ -39,7 +39,6 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     FormsModule,
     ReactiveFormsModule,
     MyOrdersRoutingModule,
-
     MatIconModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
@@ -59,8 +58,6 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     GuachosRatingModule,
     MatDialogModule,
     MatFormFieldModule,
-  ],
-  declarations: [
     MyOrdersComponent,
     CancelOrderComponent,
     DialogBidaiondoCancelToPayComponent,

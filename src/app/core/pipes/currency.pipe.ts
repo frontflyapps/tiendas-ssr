@@ -5,6 +5,7 @@ import { MarketEnum } from '../classes/market.enum';
 
 @Pipe({
   name: 'currencyProduct',
+  standalone: true,
 })
 export class CurrencyProductPipe implements PipeTransform {
   constructor(private currencyPipe: CurrencyPipe) {}

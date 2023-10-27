@@ -1,13 +1,27 @@
 import { PayService } from './../../../core/services/pay/pay.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-processing-payment-error',
   templateUrl: './processing-payment-error.component.html',
   styleUrls: ['./processing-payment-error.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterLink,
+    UpperCasePipe,
+    TranslateModule,
+  ],
 })
 export class ProcessingPaymentErrorComponent implements OnInit {
   showError = false;

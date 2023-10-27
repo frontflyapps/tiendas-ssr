@@ -1,6 +1,11 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../../shared/services/product.service';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { Product } from '../../../../modals/product.model';
 import { CartService } from '../../../shared/services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,11 +18,27 @@ import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
+import { NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-product-dialog',
   templateUrl: './product-dialog.component.html',
   styleUrls: ['./product-dialog.component.scss'],
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    NgIf,
+    LazyImgDirective,
+    MatTooltipModule,
+    TranslateModule,
+  ],
 })
 export class ProductDialogComponent implements OnInit, OnDestroy {
   public products: any[] = [];

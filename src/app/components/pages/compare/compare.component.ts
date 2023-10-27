@@ -8,17 +8,32 @@ import { CartService } from '../../shared/services/cart.service';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
 import { CurrencyService } from 'src/app/core/services/currency/currency.service';
 import { takeUntil } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 // import { DialogPrescriptionComponent } from '../../shop/products/dialog-prescription/dialog-prescription.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { GuachosRatingModule } from 'guachos-rating';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
   styleUrls: ['./compare.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatIconModule,
+    NgFor,
+    MatTooltipModule,
+    RouterLink,
+    GuachosRatingModule,
+    TranslateModule,
+  ],
 })
 export class CompareComponent implements OnInit, OnDestroy {
   public product: Observable<any[]> = of([]);

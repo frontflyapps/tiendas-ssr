@@ -11,15 +11,18 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { NgIf, CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-notification-item',
   templateUrl: './notification-item.component.html',
   styleUrls: ['./notification-item.component.scss'],
-
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -28,6 +31,16 @@ import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-i
     ]),
   ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    NgIf,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    CurrencyPipe,
+    DatePipe,
+    TranslateModule,
+  ],
 })
 export class NotificationItemComponent implements OnInit, OnChanges, OnDestroy {
   status: any = {

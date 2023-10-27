@@ -11,7 +11,6 @@ import { GuachosRatingModule } from 'guachos-rating';
 import { DebounceClickModule } from 'src/app/core/directives/debounce-click/debounce-click.module';
 
 @NgModule({
-  declarations: [FooterProductCardComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -22,6 +21,7 @@ import { DebounceClickModule } from 'src/app/core/directives/debounce-click/debo
     PipesModule,
     GuachosRatingModule,
     DebounceClickModule,
+    FooterProductCardComponent,
   ],
   exports: [FooterProductCardComponent],
 })

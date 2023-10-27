@@ -4,11 +4,15 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { LoggedInUserService } from './../../../core/services/loggedInUser/logged-in-user.service';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-banners-four',
   templateUrl: './banners-four.component.html',
   styleUrls: ['./banners-four.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, TranslateModule],
 })
 export class BannersFourComponent implements OnInit, OnDestroy {
   banners: any[] = [];

@@ -10,14 +10,13 @@ import { PipesModule } from 'src/app/core/pipes/pipes.module';
 const routes: Routes = [{ path: '', component: TermsConditionsComponent }];
 
 @NgModule({
-  declarations: [TermsConditionsComponent],
   imports: [
     CommonModule,
-
     MatIconModule,
     TranslateModule,
     RouterModule.forChild(routes),
     PipesModule,
+    TermsConditionsComponent,
   ],
 })
 export class TermsConditionsModule {}

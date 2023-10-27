@@ -11,7 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
  *   {{ hotel.name | i18nField:'es' }}
  *   formats to: "Nombre del Hotel"
  */
-@Pipe({ name: 'i18nField' })
+@Pipe({
+  name: 'i18nField',
+  standalone: true,
+})
 export class I18nFieldPipe implements PipeTransform {
   constructor(public translate: TranslateService) {}
 

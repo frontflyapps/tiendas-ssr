@@ -10,17 +10,16 @@ import { TranslateModule } from '@ngx-translate/core';
 import { UploadFileComponent } from './upload-file.component';
 
 @NgModule({
-  declarations: [UploadFileComponent],
   imports: [
     ReactiveFormsModule,
     FormsModule,
     TranslateModule,
-
     CommonModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
+    UploadFileComponent,
   ],
   exports: [UploadFileComponent],
 })

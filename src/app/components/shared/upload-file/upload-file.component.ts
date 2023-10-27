@@ -1,10 +1,16 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { UtilsService } from '../../../core/services/utils/utils.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
   styleUrls: ['./upload-file.component.scss'],
+  standalone: true,
+  imports: [NgIf, MatButtonModule, MatIconModule, TranslateModule],
 })
 export class UploadFileComponent {
   @Input() label = 'Seleccione el fichero';

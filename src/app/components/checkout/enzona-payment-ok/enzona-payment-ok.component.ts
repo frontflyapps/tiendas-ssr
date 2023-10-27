@@ -1,17 +1,31 @@
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { UtilsService } from './../../../core/services/utils/utils.service';
 import { CartService } from './../../shared/services/cart.service';
 import { PayService } from './../../../core/services/pay/pay.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-enzona-payment-ok',
   templateUrl: './enzona-payment-ok.component.html',
   styleUrls: ['./enzona-payment-ok.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterLink,
+    UpperCasePipe,
+    TranslateModule,
+  ],
 })
 export class EnzonaPaymentOkComponent implements OnInit {
   selectedDataPay: any = null;

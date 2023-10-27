@@ -12,7 +12,7 @@ import { Product } from './../../../modals/product.model';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProductDialogComponent } from '../products/product-dialog/product-dialog.component';
 import { CartService } from './../../shared/services/cart.service';
 import { ProductService } from '../../shared/services/product.service';
@@ -26,11 +26,34 @@ import { DialogPrescriptionComponent } from '../products/dialog-prescription/dia
 import { DialogNoCartSelectedComponent } from '../../checkout/no-cart-selected/no-cart-selected.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
+import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { GuachosRatingModule } from 'guachos-rating';
+import { LazyImgDirective } from '../../../core/directives/lazy-img/lazy-img.directive';
+import { MatCardModule } from '@angular/material/card';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-product-carousel-two',
   templateUrl: './product-carousel-two.component.html',
   styleUrls: ['./product-carousel-two.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    MatCardModule,
+    RouterLink,
+    LazyImgDirective,
+    GuachosRatingModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatIconModule,
+    TranslateModule,
+    ParsePriceProduct,
+  ],
 })
 export class ProductCarouselTwoComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();

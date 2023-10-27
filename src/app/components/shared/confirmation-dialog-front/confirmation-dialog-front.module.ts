@@ -7,8 +7,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [ConfirmationDialogFrontComponent],
-  imports: [CommonModule, MatDialogModule, MatButtonModule, TranslateModule],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule,
+    TranslateModule,
+    ConfirmationDialogFrontComponent,
+  ],
   exports: [ConfirmationDialogFrontComponent],
 })
 export class ConfirmationDialogFrontModule {}

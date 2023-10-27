@@ -10,19 +10,38 @@ import { CartService } from '../../services/cart.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { ConfirmationDialogFrontComponent } from '../../confirmation-dialog-front/confirmation-dialog-front.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 // import { DialogPrescriptionComponent } from '../../../shop/products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
+import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pipe';
+import { MatIconModule } from '@angular/material/icon';
+import { DebounceClickDirective } from '../../../../core/directives/debounce-click/debounce-click.directive';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { GuachosRatingModule } from 'guachos-rating';
+import { NgIf, NgFor } from '@angular/common';
 @Component({
   selector: 'app-footer-product-card',
   templateUrl: './footer-product-card.component.html',
   styleUrls: ['./footer-product-card.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    RouterLink,
+    GuachosRatingModule,
+    MatTooltipModule,
+    MatButtonModule,
+    DebounceClickDirective,
+    MatIconModule,
+    TranslateModule,
+    ParsePriceProduct,
+  ],
 })
 export class FooterProductCardComponent implements OnDestroy {
   _unsubscribeAll: Subject<any> = new Subject<any>();

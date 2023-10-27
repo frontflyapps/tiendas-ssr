@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { IPagination } from '../../../../core/classes/pagination.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
@@ -9,6 +9,12 @@ import { LoggedInUserService } from '../../../../core/services/loggedInUser/logg
 import { takeUntil } from 'rxjs/operators';
 import { MatPaginator } from '@angular/material/paginator';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { PriceComponent } from '../price/price.component';
+import { BrandsMComponent } from '../../widgets/brands-m/brands-m.component';
+import { CategoriesMComponent } from '../../widgets/categories-m/categories-m.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface DialogData {
   animal: string;
@@ -19,6 +25,16 @@ export interface DialogData {
   selector: 'app-dialog-filters-m',
   templateUrl: './dialog-filters-m.component.html',
   styleUrls: ['./dialog-filters-m.component.scss'],
+  standalone: true,
+  imports: [
+    MatDialogModule,
+    MatIconModule,
+    MatExpansionModule,
+    CategoriesMComponent,
+    BrandsMComponent,
+    PriceComponent,
+    TranslateModule,
+  ],
 })
 export class DialogFiltersMComponent implements OnInit, OnDestroy {
   public animation: any; // Animation

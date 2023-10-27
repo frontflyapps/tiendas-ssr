@@ -2,6 +2,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appCapitalizeFirst]',
+  standalone: true,
 })
 export class CapitalizeFirstDirective {
   constructor(private ref: ElementRef) {}

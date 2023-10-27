@@ -1,11 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-my-friends',
   templateUrl: './my-friends.component.html',
   styleUrls: ['./my-friends.component.scss'],
+  standalone: true,
+  imports: [MatButtonModule, TranslateModule],
 })
 export class MyFriendsComponent implements OnInit {
   @Input() referredUsers = 0;

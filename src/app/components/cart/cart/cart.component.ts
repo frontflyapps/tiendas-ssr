@@ -7,16 +7,44 @@ import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-
 import { takeUntil } from 'rxjs/operators';
 import { CartService } from '../../shared/services/cart.service';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
 import { ConfiguracionService } from '../../../core/services/config/configuracion.service';
 import { environment } from 'environments/environment';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { CurrencyMarket } from '../../../core/pipes/currency-market.pipe';
+import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatButtonModule,
+    RouterLink,
+    MatProgressSpinnerModule,
+    NgFor,
+    MatCardModule,
+    MatTooltipModule,
+    MatIconModule,
+    FormsModule,
+    MatToolbarModule,
+    AsyncPipe,
+    TranslateModule,
+    ParsePriceProduct,
+    CurrencyMarket,
+  ],
 })
 export class CartComponent implements OnInit, OnDestroy {
   public shoppingCartItems: CartItem[] = [];

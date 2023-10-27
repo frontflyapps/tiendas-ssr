@@ -5,17 +5,34 @@ import { Product } from './../../../modals/product.model';
 import { CartService } from '../../shared/services/cart.service';
 import { WishlistService } from '../../shared/services/wishlist.service';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkActive, RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { NgIf, NgFor, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatChipsModule,
+    RouterLinkActive,
+    RouterLink,
+    MatCardModule,
+    NgFor,
+    MatIconModule,
+    DecimalPipe,
+    TranslateModule,
+  ],
 })
 export class WishlistComponent implements OnInit {
   public product: Observable<Product[]> = of([]);

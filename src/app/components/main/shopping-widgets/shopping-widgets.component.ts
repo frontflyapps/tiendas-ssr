@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 import { takeUntil } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Cart, CartItem } from 'src/app/modals/cart-item';
 import { CartService } from '../../shared/services/cart.service';
@@ -11,10 +11,37 @@ import { GlobalFacadeService } from '../../../facades/services/global-facade.ser
 import { ConfiguracionService } from '../../../core/services/config/configuracion.service';
 import { environment } from 'environments/environment';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CurrencyProductPipe } from '../../../core/pipes/currency.pipe';
+import { CurrencyMarket } from '../../../core/pipes/currency-market.pipe';
+import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgIf, NgFor } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-shopping-widgets',
   templateUrl: './shopping-widgets.component.html',
   styleUrls: ['./shopping-widgets.component.scss'],
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatTooltipModule,
+    MatIconModule,
+    RouterLink,
+    MatDividerModule,
+    NgIf,
+    NgFor,
+    TranslateModule,
+    ParsePriceProduct,
+    CurrencyMarket,
+    CurrencyProductPipe,
+  ],
 })
 export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
   products: any[];
