@@ -6,7 +6,12 @@ import { AppComponent } from './app.component';
 
 import path from 'path';
 import fs from 'fs';
-import domino from 'domino';
+/**
+ * there is an issue optimizing the code to production with webpack (https://github.com/fgnass/domino/issues/146)
+ * the solution for now is use domino-ext (https://www.npmjs.com/package/domino-ext) instead domino
+ */
+// @ts-expect-error not matter(temporally)
+import domino from 'domino-ext';
 import { environment } from 'environments/environment';
 
 const initDOM = () => {
@@ -18,7 +23,6 @@ const initDOM = () => {
   // Shim for the global window and document objects.
   const window = domino.createWindow(template);
 
-  // @ts-expect-error global is ready only
   global['window'] = window;
   global['document'] = window.document;
 };

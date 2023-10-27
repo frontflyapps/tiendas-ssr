@@ -230,7 +230,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -523,7 +522,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -816,7 +814,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -1109,7 +1106,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -1402,7 +1398,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -1695,7 +1690,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -1988,7 +1982,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -2281,7 +2274,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -2574,7 +2566,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -2867,7 +2858,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -3160,7 +3150,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -3453,7 +3442,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -3746,7 +3734,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -4039,7 +4026,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -4332,7 +4318,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -4625,7 +4610,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -4918,7 +4902,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -5211,7 +5194,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -5504,7 +5486,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -5797,7 +5778,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -6090,7 +6070,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -6383,7 +6362,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -6676,7 +6654,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -6969,7 +6946,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -7262,7 +7238,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -7555,7 +7530,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -7848,7 +7822,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -8141,7 +8114,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -8434,7 +8406,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -8727,7 +8698,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -9020,7 +8990,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -9313,7 +9282,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -9606,7 +9574,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -9899,7 +9866,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -10192,7 +10158,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -10485,7 +10450,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -10778,7 +10742,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -11071,7 +11034,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -11364,7 +11326,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -11657,7 +11618,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -11950,7 +11910,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -12243,7 +12202,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -12536,7 +12494,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -12829,7 +12786,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -13122,7 +13078,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -13415,7 +13370,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -13708,7 +13662,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -14001,7 +13954,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -14294,7 +14246,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -14587,7 +14538,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -14880,7 +14830,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -15173,7 +15122,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -15466,7 +15414,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -15759,7 +15706,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -16052,7 +15998,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -16345,7 +16290,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -16638,7 +16582,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
@@ -16931,7 +16874,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
               "outputHashing": "media"
             },
             "development": {
