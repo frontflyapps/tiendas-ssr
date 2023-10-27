@@ -54,7 +54,7 @@ import { environment } from 'environments/environment';
 import { CurrencyProductPipe } from '../../../core/pipes/currency.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -121,7 +121,7 @@ export const amexData = {
     RouterLink,
     MatMenuModule,
     MatInputModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     NgSwitch,
     NgSwitchCase,
     MatDatepickerModule,

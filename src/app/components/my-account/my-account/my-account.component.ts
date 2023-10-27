@@ -27,7 +27,7 @@ import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 import { UploadFileComponent } from '../../shared/upload-file/upload-file.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -55,7 +55,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatButtonToggleModule,
     NgFor,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     NgClass,
     MatCheckboxModule,
     TranslateModule,

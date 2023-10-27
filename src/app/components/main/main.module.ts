@@ -41,7 +41,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GuajiritosImagePicker } from '@guajiritos/image-picker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 
 @NgModule({
   imports: [
@@ -71,7 +71,7 @@ import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     GuajiritosImagePicker,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     MainComponent,
     PanelNotificationsComponent,
     NotificationItemComponent,

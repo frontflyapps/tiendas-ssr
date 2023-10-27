@@ -13,7 +13,7 @@
   </div>
 
   <h3>{{ 'Provincia' | translate }}</h3>
-  <guachos-general-autocomplete
+  <guajiritos-general-autocomplete
     [label]="'Provincia'"
     [isRequired]="true"
     [url]="urlProvince"
@@ -24,12 +24,12 @@
     [filterString]="'filter[$and][name][$like]'"
     [valueId]="false"
     [withoutPaddingBottom]="false"
-  ></guachos-general-autocomplete>
+  ></guajiritos-general-autocomplete>
 
   <ng-container *ngIf="this.locationForm.get('province').value">
     <h3>{{ 'Municipio' | translate }}</h3>
 
-    <guachos-general-autocomplete
+    <guajiritos-general-autocomplete
       [label]="'Municipio'"
       *ngIf="locationForm.get('province')"
       [isRequired]="true"
@@ -41,7 +41,7 @@
       [filterString]="'filter[$and][name][$like]'"
       [valueId]="false"
       [withoutPaddingBottom]="false"
-    ></guachos-general-autocomplete>
+    ></guajiritos-general-autocomplete>
   </ng-container>
 
   <!--  <mat-form-field appearance="outline" class="mb-3" fxFlex="100%">-->

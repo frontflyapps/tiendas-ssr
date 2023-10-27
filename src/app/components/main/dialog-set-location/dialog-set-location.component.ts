@@ -22,14 +22,11 @@ import { debounceTime, filter, map, startWith, takeUntil } from 'rxjs/operators'
 import { Observable, Subject, Subscription } from 'rxjs';
 import { BusinessService } from 'src/app/core/services/business/business.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import {
-  DisplayOption,
-  RestrictionFilter,
-} from 'guachos-general-autocomplete/utils/interfaces/interfaces';
+import { DisplayOption, RestrictionFilter } from '@guajiritos/general-autocomplete';
 import { environment } from 'environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -41,7 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     MatDialogModule,
     MatIconModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     FormsModule,
     ReactiveFormsModule,
     NgIf,

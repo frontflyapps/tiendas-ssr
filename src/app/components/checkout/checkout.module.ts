@@ -43,7 +43,7 @@ import { DialogAuthorizeConfirmToPayComponent } from './dialog-authorize-confirm
 import { DialogPaypalConfirmToPayComponent } from './dialog-paypal-confirm-to-pay/dialog-paypal-confirm-to-pay.component';
 import { DialogMultisafepayConfirmToPayComponent } from './dialog-multisafepay-confirm-to-pay/dialog-multisafepay-confirm-to-pay.component';
 import { DialogTropipayConfirmToPayComponent } from './dialog-tropipay-confirm-to-pay/dialog-tropipay-confirm-to-pay.component';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { ReceiverFormComponent } from './reciever-form/receiver-form.component';
 
 @NgModule({
@@ -75,7 +75,7 @@ import { ReceiverFormComponent } from './reciever-form/receiver-form.component';
     NgxMaterialTimepickerModule,
     MatDatepickerModule,
     MatExpansionModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     CheckoutComponent,
     EnzonaPaymentOkComponent,
     ReceiverFormComponent,

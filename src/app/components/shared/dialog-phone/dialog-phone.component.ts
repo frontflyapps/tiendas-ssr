@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { NgIf, UpperCasePipe } from '@angular/common';
 
 @Component({
@@ -26,7 +26,7 @@ import { NgIf, UpperCasePipe } from '@angular/common';
   standalone: true,
   imports: [
     NgIf,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

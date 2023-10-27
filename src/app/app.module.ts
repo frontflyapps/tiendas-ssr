@@ -31,7 +31,7 @@ import {
   MatAutocompleteModule,
 } from '@angular/material/autocomplete';
 import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 
 //https://swiperjs.com/element#install--register-from-npm
 swiperRegister();
@@ -50,7 +50,7 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     MatSnackBarModule,
     MatAutocompleteModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     MatDialogModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({

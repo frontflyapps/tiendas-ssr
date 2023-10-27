@@ -19,7 +19,7 @@ import { IDENTITY_PASSPORT } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgIf } from '@angular/common';
@@ -46,7 +46,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     NgIf,
     MatFormFieldModule,
     MatInputModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     TranslateModule,
   ],
 })

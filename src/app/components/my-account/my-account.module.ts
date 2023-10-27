@@ -17,7 +17,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { CapitalizeFirstDirective } from 'src/app/core/directives/capitalize-first.directive';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDividerModule,
     MatAutocompleteModule,
     MatButtonToggleModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     MatCheckboxModule,
     MyAccountComponent,
     ChangePassComponent,
