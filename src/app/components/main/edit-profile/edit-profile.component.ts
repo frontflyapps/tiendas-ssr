@@ -14,7 +14,7 @@ import { AuthenticationService } from '../../../core/services/authentication/aut
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { ImagePickerConf } from 'guachos-image-picker';
+import { ImagePickerConf } from '@guajiritos/image-picker';
 import { IDENTITY_PASSPORT } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';

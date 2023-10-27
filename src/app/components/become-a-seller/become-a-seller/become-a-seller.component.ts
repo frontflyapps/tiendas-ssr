@@ -13,7 +13,7 @@ import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { RegionsService } from '../../../core/services/regions/regions.service';
 import { BusinessService } from '../../../core/services/business/business.service';
-import { ImagePickerConf } from 'guachos-image-picker';
+import { ImagePickerConf } from '@guajiritos/image-picker';
 import { CUBAN_PHONE_START_5, EMAIL_REGEX, NIT, PHONE } from '../../../core/classes/regex.const';
 import { DOCUMENT, NgIf, NgFor } from '@angular/common';
 import { Subject } from 'rxjs';

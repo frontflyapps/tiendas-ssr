@@ -554,6 +554,7 @@
     "@fortawesome/angular-fontawesome": "^0.13.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@guajiritos/image-picker": "^0.0.14",
     "@guajiritos/layouts": "^0.0.14",
     "@nguniversal/express-engine": "^16.1.2",
     "@ngx-translate/core": "^15.0.0",

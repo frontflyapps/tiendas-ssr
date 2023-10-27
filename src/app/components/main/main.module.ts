@@ -38,7 +38,7 @@ import { DialogSetLocationComponent } from './dialog-set-location/dialog-set-loc
 import { MatSelectModule } from '@angular/material/select';
 import { MyContactsComponent } from './my-contacts/my-contacts.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { GuachosImagePickerModule } from 'guachos-image-picker';
+import { GuajiritosImagePicker } from '@guajiritos/image-picker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
@@ -70,7 +70,7 @@ import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
-    GuachosImagePickerModule,
+    GuajiritosImagePicker,
     GuachosGeneralAutocompleteModule,
     MainComponent,
     PanelNotificationsComponent,
