@@ -53,10 +53,10 @@
         >
           <mat-card [ngClass]="{ 'no-bd': i === allBicons.length - 1 }" class="light-block">
             <div class="d-flex justify-content-start align-items-center">
-              <div class="transpilerClass-fxFlex-fdf04b">
+              <div class="flex-sh-20">
                 <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
               </div>
-              <div class="content transpilerClass-fxFlex-41226b">
+              <div class="content flex-sh-80">
                 <p class="uppercase">
                   {{ item.title | parseLang: utilsService.getLang() }}
                 </p>

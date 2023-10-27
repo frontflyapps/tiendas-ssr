@@ -6,7 +6,7 @@
   max-width: 600px !important;
   width: 100% !important;
 
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     padding: 16px !important;
     max-width: inherit !important;
     width: inherit !important;
@@ -14,7 +14,7 @@
 }
 
 .titleSucces {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     mat-icon {
       margin-top: 4px;
       font-size: 80px !important;
@@ -34,7 +34,7 @@
 }
 
 .titleError {
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     mat-icon {
       margin-top: 4px;
       font-size: 80px !important;
@@ -59,7 +59,7 @@
   width: 100% !important;
   border: 2px solid #f44336 !important;
 
-  @include media-breakpoint('lt-md') {
+  @include media-breakpoint('md') {
     padding: 16px !important;
     max-width: inherit !important;
     width: inherit !important;

@@ -186,9 +186,7 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <div
-        class="search-form d-flex justify-content-start align-items-center transpilerClass-fxFlex-8d5186"
-      >
+      <div class="search-form d-flex justify-content-start align-items-center flex-sh-0">
         <div
           class="search-form d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-d9913a"
         >
@@ -227,13 +225,26 @@
 
           <!-- ======== -->
           <!-- SEARCHING -->
-          <div class="form-wrap transpilerClass-fxFlex-5e004c">
+          <div class="form-wrap flex-sh-NaN">
             <input
               (keyup.enter)="onSearch()"
               [formControl]="searchForm"
               placeholder="{{ 'Buscar en la tienda...' | translate }}"
               type="text"
+              [matAutocomplete]="auto"
             />
+            <mat-spinner
+              *ngIf="this.loadingProducts"
+              color="primary"
+              diameter="30"
+              class="spinner-loading"
+            ></mat-spinner>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectElement($event)">
+              <mat-option *ngFor="let option of filteredOptions" [value]="option">
+                <div [innerHTML]="option.showValue" class="text-filter"></div>
+              </mat-option>
+            </mat-autocomplete>
+
             <button (click)="onSearch()" class="btn-search">
               <mat-icon>search</mat-icon>
             </button>
@@ -245,7 +256,7 @@
         class="userWidgets d-flex justify-content-end align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
         ngClass.xs="w-100"
       >
-        <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-ff0b3d">
+        <div class="d-flex justify-content-end align-items-center flex-sh-75">
           <div class="widget-text mx-2">
             <a
               #langMenuTrigger="matMenuTrigger"
@@ -527,8 +538,15 @@
             [formControl]="searchForm"
             placeholder="{{ 'Buscar...' | translate }}"
             type="search"
-            class="transpilerClass-fxFlex-fe6231"
+            [matAutocomplete]="auto"
+            class="flex-sh-0"
           />
+          <mat-spinner
+            *ngIf="this.loadingProducts"
+            color="primary"
+            diameter="30"
+            class="spinner-loading"
+          ></mat-spinner>
           <button (click)="onSearch()">
             <mat-icon>search</mat-icon>
           </button>

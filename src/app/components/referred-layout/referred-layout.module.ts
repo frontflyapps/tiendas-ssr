@@ -13,9 +13,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { InviteFriendComponent } from './invite-friend/invite-friend.component';
+import { MyFriendsComponent } from './my-friends/my-friends.component';
+import { ShareButtonModule } from 'ngx-sharebuttons/button';
+import { ShareComponent } from './share/share.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
-  declarations: [ReferredLayoutComponent],
+  declarations: [
+    ReferredLayoutComponent,
+    InviteFriendComponent,
+    MyFriendsComponent,
+    ShareComponent,
+  ],
   imports: [
     CommonModule,
     ReferredLayoutRoutingModule,
@@ -29,6 +39,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatCardModule,
     MatTooltipModule,
     ClipboardModule,
+    ShareButtonModule,
+    MatDividerModule,
   ],
 })
 export class ReferredLayoutModule {}

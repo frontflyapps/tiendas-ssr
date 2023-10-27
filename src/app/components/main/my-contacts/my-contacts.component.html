@@ -8,7 +8,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="my-dialog-content transpilerClass-fxFlex-dec160" mat-dialog-content>
+  <div class="my-dialog-content flex-sh-100" mat-dialog-content>
     <!-- LISTADO DE CONTACTOS -->
     <ng-container *ngIf="!onCreateContact">
       <ng-container *ngIf="isLoading; then loading; else contentLoaded"></ng-container>
@@ -24,11 +24,11 @@
       </ng-template>
 
       <ng-template #thereIsContacts>
-        <div class="d-flex flex-column transpilerClass-fxFlex-ba424e">
+        <div class="d-flex flex-column flex-sh-100">
           <ng-container *ngFor="let contact of contactsService.allContacts; last as lst">
             <div
               [ngClass]="{ 'contacts-line-bottom': !lst }"
-              class="contact-item d-flex align-items-center transpilerClass-fxFlex-ce3f08 transpilerClass-fxLayoutGap-b00b5c"
+              class="contact-item d-flex align-items-center flex-sh-100 transpilerClass-fxLayoutGap-b00b5c"
             >
               <button
                 (click)="onMarkAsFeaturedContact(contact)"
@@ -46,13 +46,13 @@
               >
                 <mat-icon style="color: #ffeb3b !important">star</mat-icon>
               </button>
-              <span class="contact-title transpilerClass-fxFlex-f7ea69"
+              <span class="contact-title flex-sh-NaN"
                 >{{ contact?.name }}&nbsp;{{ contact?.lastName }}
               </span>
 
               <div
                 (click)="editContact(contact)"
-                class="item-action d-flex justify-content-center align-items-center transpilerClass-fxFlex-82cbd6"
+                class="item-action d-flex justify-content-center align-items-center flex-sh-NaN"
                 style="cursor: pointer"
               >
                 <mat-icon>edit</mat-icon>
@@ -60,7 +60,7 @@
 
               <div
                 (click)="removeContact(contact)"
-                class="item-action d-flex justify-content-center align-items-center transpilerClass-fxFlex-17a56e"
+                class="item-action d-flex justify-content-center align-items-center flex-sh-NaN"
                 style="cursor: pointer"
               >
                 <mat-icon>delete</mat-icon>
@@ -71,9 +71,7 @@
       </ng-template>
 
       <ng-template #thereIsNoContacts>
-        <div
-          class="d-flex flex-column justify-content-center align-items-center transpilerClass-fxFlex-3f6535"
-        >
+        <div class="d-flex flex-column justify-content-center align-items-center flex-sh-100">
           <span>{{ 'No tiene contactos' | translate }}</span>
           <small>{{
             'Esta información se usan para tener acceso rápidos a ella para el pago' | translate
@@ -84,10 +82,8 @@
 
     <!-- FORMULARIO DE CRAR UN CONTACTO -->
     <ng-container *ngIf="onCreateContact">
-      <div [formGroup]="form" class="transpilerClass-fxFlex-780a2b">
-        <div
-          class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-b5948c"
-        >
+      <div [formGroup]="form" class="flex-sh-100">
+        <div class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100">
           <mat-slide-toggle class="mt-3 mb-3" [formControl]="form.controls['selected']">{{
             'Marcar como contacto por defecto'
           }}</mat-slide-toggle>
@@ -123,12 +119,9 @@
           </mat-form-field>
 
           <div
-            class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-start align-items-center justify-content-xs-start justify-content-sm-start transpilerClass-fxFlex-23bdb5 transpilerClass-fxLayoutGap-489272 transpilerClass-fxLayoutGap-f92cfd"
+            class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-start align-items-center justify-content-xs-start justify-content-sm-start flex-sh-100 transpilerClass-fxLayoutGap-489272 transpilerClass-fxLayoutGap-f92cfd"
           >
-            <mat-form-field
-              appearance="outline"
-              class="transpilerClass-fxFlex-513584 transpilerClass-fxFlex-ef7f36"
-            >
+            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-xs-100">
               <mat-label>{{ 'Email' | translate }}</mat-label>
               <input
                 (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -151,10 +144,7 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field
-              appearance="outline"
-              class="transpilerClass-fxFlex-e15621 transpilerClass-fxFlex-4f4a83"
-            >
+            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-xs-100">
               <mat-label>{{ 'Documento de identidad' | translate }}</mat-label>
               <input
                 (keypress)="utilsService.keyPressAlphaAndNumbersModIdentity($event)"
@@ -231,7 +221,7 @@
             {{ 'Dirección' | translate }}
           </p>
           <div class="d-flex transpilerClass-fxLayoutGap-4d72a8">
-            <mat-form-field appearance="outline" class="transpilerClass-fxFlex-dd137a">
+            <mat-form-field appearance="outline" class="flex-sh-80">
               <mat-label>{{ 'Calle' | translate }}</mat-label>
               <input
                 [formControl]="form.controls['street']"
@@ -244,7 +234,7 @@
                 {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline" class="transpilerClass-fxFlex-51fac3">
+            <mat-form-field appearance="outline" class="flex-sh-20">
               <mat-label>{{ 'Number' | translate }}</mat-label>
               <input
                 [formControl]="form.controls['number']"
@@ -276,10 +266,7 @@
           <div
             class="d-flex d-sm-flex flex-column flex-sm-column justify-content-between align-items-center justify-content-start justify-content-sm-start transpilerClass-fxLayoutGap-5cbc40 transpilerClass-fxLayoutGap-b7f2a7"
           >
-            <mat-form-field
-              appearance="outline"
-              class="transpilerClass-fxFlex-eed4d5 transpilerClass-fxFlex-2df150"
-            >
+            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
               <mat-label>{{ 'Provincia' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="onSelectProvince($event.value)"
@@ -298,10 +285,7 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field
-              appearance="outline"
-              class="transpilerClass-fxFlex-d66dd2 transpilerClass-fxFlex-f2aaad"
-            >
+            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
               <mat-label>{{ 'Municipio' | translate }}</mat-label>
               <mat-select
                 [compareWith]="compareById"
@@ -352,7 +336,7 @@
 
 <ng-template #loading>
   <div
-    class="d-flex justify-content-center align-items-center transpilerClass-fxFlex-7d455f transpilerClass-fxLayoutGap-f16096"
+    class="d-flex justify-content-center align-items-center flex-sh-100 transpilerClass-fxLayoutGap-f16096"
   >
     <span>{{ 'Cargando...' | translate }}</span>
     <mat-spinner diameter="16"></mat-spinner>

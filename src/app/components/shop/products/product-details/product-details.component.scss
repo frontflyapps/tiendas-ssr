@@ -4,6 +4,42 @@
 .icon-common {
   width: 40px;
 }
+
+//.container-availability {
+//  background-color: #0b9447;
+//  color: white;
+//  padding: 6px;
+//  border-radius: 8px;
+//  width: 50%;
+//}
+.text-availability {
+  font-size: 18px;
+}
+
+.disponibilityHigh {
+  background-color: #0b9447;
+  color: white;
+  padding: 6px;
+  border-radius: 8px;
+  width: 50%;
+}
+
+.disponibilityMedium {
+  background-color: #f6872a;
+  color: white;
+  padding: 6px;
+  border-radius: 8px;
+  width: 50%;
+}
+
+.disponibilityLow {
+  background-color: #ff5b5b;
+  color: white;
+  padding: 6px;
+  border-radius: 8px;
+  width: 50%;
+}
+
 .icon-common-bicon {
   width: 70px;
   height: 40px;
@@ -856,134 +892,6 @@ h1 {
   100% {
     top: 0;
     opacity: 1;
-  }
-}
-
-.transpilerClass-fxFlex-5fd0c1 {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-3e20de {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-48ead6 {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-08af0b {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-1541c0 {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-17ecd9 {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-15da60 {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-b72cca {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-1b172e {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-8a1206 {
-  flex: 1 1 50%;
-}
-
-.transpilerClass-fxFlex-828a75 {
-  flex: 1 1 50%;
-}
-
-.transpilerClass-fxFlex-19b1ea {
-  @include media-breakpoint('xs') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-18df1e {
-  @include media-breakpoint('xs') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-153817 {
-  @include media-breakpoint('md') {
-    flex: 1 1 90%;
-  }
-}
-
-.transpilerClass-fxFlex-df8990 {
-  @include media-breakpoint('md') {
-    flex: 1 1 75%;
-  }
-}
-
-.transpilerClass-fxFlex-bce043 {
-  @include media-breakpoint('lt-md') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-9699af {
-  @include media-breakpoint('lt-md') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-50ff5f {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 77%;
-  }
-}
-
-.transpilerClass-fxFlex-b5dde5 {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-23a526 {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-431ed9 {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-a2829c {
-  @include media-breakpoint('gt-sm') {
-    flex: 1 1 23%;
-  }
-}
-
-.transpilerClass-fxFlex-cc333f {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-55e027 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 66%;
-  }
-}
-
-.transpilerClass-fxFlex-96b1c0 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 34%;
   }
 }
 

@@ -6,10 +6,13 @@
 
   .blog {
     &:hover {
-      @include media-breakpoint('gt-sm') {
-        transform: translateY(-10px);
-        transition: all 0.5s ease;
+      @include media-breakpoint('sm') {
+        transform: initial;
+        transition: initial;
       }
+
+      transform: translateY(-10px);
+      transition: all 0.5s ease;
     }
 
     .info {
@@ -91,21 +94,5 @@
         }
       }
     }
-  }
-}
-
-.transpilerClass-fxFlex-9aea80 {
-  flex: 1 1 0%;
-}
-
-.transpilerClass-fxFlex-593195 {
-  @include media-breakpoint('lt-sm') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-5ab66c {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 50%;
   }
 }

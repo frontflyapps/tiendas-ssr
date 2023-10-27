@@ -134,18 +134,18 @@
     <mat-progress-bar
       *ngIf="this.metaDataUploading.status == 'uploading'"
       [value]="this.metaDataUploading.progress"
-      class="mx-2 transpilerClass-fxFlex-6c31df"
+      class="mx-2 flex-sh-0"
       mode="determinate"
     ></mat-progress-bar>
     <span
       *ngIf="this.metaDataUploading.status == 'completed'"
-      class="mx-2 mat-caption successMsg transpilerClass-fxFlex-075be7"
+      class="mx-2 mat-caption successMsg flex-sh-0"
     >
       Completado Exitósamente
     </span>
     <span
       *ngIf="this.metaDataUploading.status == 'error'"
-      class="mx-2 mat-caption errorMsg transpilerClass-fxFlex-10d934"
+      class="mx-2 mat-caption errorMsg flex-sh-0"
     >
       Error
     </span>

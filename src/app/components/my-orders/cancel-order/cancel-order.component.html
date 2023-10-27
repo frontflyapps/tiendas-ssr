@@ -25,10 +25,7 @@
         <p class="mat-body-2 uppercase py-2">
           {{ 'Comentario respecto a la cancelación' | translate }}
         </p>
-        <mat-form-field
-          appearance="outline"
-          class="example-full-width transpilerClass-fxFlex-fa4374"
-        >
+        <mat-form-field appearance="outline" class="example-full-width flex-sh-100">
           <mat-label>{{ 'Comentario' | translate }}</mat-label>
           <textarea
             [formControl]="form.controls['cancelNote']"
@@ -99,7 +96,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-6bc1fa">
+    <div class="d-flex justify-content-end align-items-center flex-sh-100">
       <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button>
         {{ 'CERRAR' | translate }}
       </button>
@@ -200,7 +197,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <div class="d-flex justify-content-end align-items-center transpilerClass-fxFlex-227da4">
+    <div class="d-flex justify-content-end align-items-center flex-sh-100">
       <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button>
         {{ 'CERRAR' | translate }}
       </button>

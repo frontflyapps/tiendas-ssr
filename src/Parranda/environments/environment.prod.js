@@ -61,7 +61,6 @@ const environment = {
   },
 };
 
-
 module.exports = {
   PASARELA_BASE,
   environment,

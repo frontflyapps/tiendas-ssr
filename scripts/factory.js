@@ -149,7 +149,6 @@ function getProject(name) {
         },
         configurations: {
           production: {
-            optimization: false,
             outputHashing: 'media',
           },
           development: {
@@ -231,7 +230,6 @@ function updatePackageJSON(data, name) {
     ' node ./scripts/generate-environments-files',
   );
 
-
   // start:ssr(SSR)
   delete data.scripts[joinStr('start:ssr:', name)];
   data.scripts[joinStr('start:ssr:', name)] = joinStr(
@@ -244,11 +242,7 @@ function updatePackageJSON(data, name) {
 
   // serve(SSR)
   delete data.scripts[joinStr('serve:ssr:', name)];
-  data.scripts[joinStr('serve:ssr:', name)] = joinStr(
-    ' node dist/',
-    name,
-    '/server/main.js',
-  );
+  data.scripts[joinStr('serve:ssr:', name)] = joinStr(' node dist/', name, '/server/main.js');
 
   delete data.scripts[joinStr('build:ssr:', name)];
   data.scripts[joinStr('build:ssr:', name)] = joinStr(
@@ -258,9 +252,23 @@ function updatePackageJSON(data, name) {
     name,
     ' && ng build ',
     name,
-    ' && ng run ',
+    ' --stats-json && ng run ',
     name,
-    ':server',
+    ':server --stats-json',
+  );
+
+  //analyze:Browser
+  delete data.scripts[joinStr('analyze:b:', name)];
+  data.scripts[joinStr('analyze:b:', name)] = joinStr(
+    'webpack-bundle-analyzer --port 8889 ',
+    joinStr('dist/', name, '/browser/stats.json'),
+  );
+
+  //analyze:Server
+  delete data.scripts[joinStr('analyze:s:', name)];
+  data.scripts[joinStr('analyze:s:', name)] = joinStr(
+    'webpack-bundle-analyzer --port 8888 ',
+    joinStr('dist/', name, '/server/stats.json'),
   );
 
   delete data.scripts[joinStr('prerender:', name)];

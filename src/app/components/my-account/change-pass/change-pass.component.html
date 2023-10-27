@@ -38,10 +38,7 @@
                 </mat-error>
               </mat-form-field>
 
-              <mat-form-field
-                appearance="outline"
-                class="example-full-width transpilerClass-fxFlex-df22f1"
-              >
+              <mat-form-field appearance="outline" class="example-full-width flex-sh-50">
                 <mat-label>{{ 'New password' | translate }}</mat-label>
                 <input
                   [formControl]="fromPass.controls['password']"
@@ -70,7 +67,7 @@
                   'ng-valid': !fromPass.hasError('mismatch')
                 }"
                 appearance="outline"
-                class="example-full-width transpilerClass-fxFlex-f05e23"
+                class="example-full-width flex-sh-50"
               >
                 <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
                 <input

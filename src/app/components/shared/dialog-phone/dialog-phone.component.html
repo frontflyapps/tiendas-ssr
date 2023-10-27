@@ -1,7 +1,7 @@
 <div class="d-flex flex-column justify-content-start align-items-start">
   <h2>{{ 'Introduzca su teléfono' | translate }}</h2>
   <div
-    class="w-100 d-flex transpilerClass-fxFlex-98ff6b transpilerClass-fxFlex-d9d04f transpilerClass-fxLayoutGap-b2764d"
+    class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-b2764d"
     *ngIf="form"
   >
     <guachos-general-autocomplete
@@ -13,14 +13,10 @@
       [filterString]="['filter[$and][code][$like]']"
       [url]="phoneCodesService.url"
       [formControl]="form.get('PhoneCallingCodeId')"
-      class="transpilerClass-fxFlex-ac1efa transpilerClass-fxFlex-2aecc9"
+      class="flex-sh-30 flex-sh-md-30"
     ></guachos-general-autocomplete>
 
-    <mat-form-field
-      appearance="outline"
-      id="phone"
-      class="transpilerClass-fxFlex-ea4523 transpilerClass-fxFlex-f85b99"
-    >
+    <mat-form-field appearance="outline" id="phone" class="flex-sh-70 flex-sh-md-70">
       <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
       <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
       <input

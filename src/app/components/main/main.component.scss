@@ -73,6 +73,17 @@
   }
 }
 
+.resaltado {
+  background-color: yellow;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.text-filter {
+  font-size: 18px;
+  font-weight: 300;
+}
+
 //.title-mat-menu {
 // width: 100%;
 //  background-color: $grey10;
@@ -261,6 +272,13 @@ app-main,
           height: 27px;
         }
       }
+      .spinner-loading {
+        position: absolute;
+        top: 5px;
+        border: 0;
+        margin: 0;
+        right: 35px;
+      }
     }
 
     .userWidgets {
@@ -379,22 +397,6 @@ app-main,
 
 .shepherd-text {
   padding: 1.5rem;
-}
-
-.transpilerClass-fxFlex-8d5186 {
-  flex: 1 1 0%;
-}
-
-.transpilerClass-fxFlex-5e004c {
-  flex: 1 1 grow;
-}
-
-.transpilerClass-fxFlex-ff0b3d {
-  flex: 1 1 75%;
-}
-
-.transpilerClass-fxFlex-fe6231 {
-  flex: 1 1 0%;
 }
 
 .transpilerClass-fxLayoutGap-d9913a {

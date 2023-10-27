@@ -19,7 +19,7 @@
 
     <div
       *ngIf="!loadingPayment && businessConfig"
-      class="billing-details transpilerClass-fxFlex-b55835 transpilerClass-fxFlex-e9b64c transpilerClass-fxFlex-695989"
+      class="billing-details flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
       ngClass.gt-sm="pr-5"
       ngClass.sm="pr-2"
       ngClass.xs="pr-0"
@@ -160,7 +160,7 @@
                 <mat-form-field
                   appearance="outline"
                   *ngIf="!multiTransfermovil"
-                  class="transpilerClass-fxFlex-c08aed transpilerClass-fxFlex-572563"
+                  class="flex-sh-50 flex-sh-md-100"
                 >
                   <mat-label>{{ 'Currency' | translate }}</mat-label>
                   <mat-select
@@ -185,7 +185,7 @@
                 <mat-form-field
                   appearance="outline"
                   *ngIf="multiTransfermovil && form.get('paymentType').value === 'transfermovil'"
-                  class="transpilerClass-fxFlex-cd4b72 transpilerClass-fxFlex-ca9e49"
+                  class="flex-sh-50 flex-sh-md-100"
                 >
                   <mat-label>{{ 'Currency' | translate }}</mat-label>
                   <mat-select
@@ -251,10 +251,7 @@
               "
               class="d-flex justify-content-between align-items-center"
             >
-              <mat-form-field
-                appearance="outline"
-                class="transpilerClass-fxFlex-f5c267 transpilerClass-fxFlex-580438"
-              >
+              <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
                 <mat-label>{{ 'Provincia' | translate }}</mat-label>
                 <mat-select
                   (selectionChange)="onSelectProvince($event.value)"
@@ -272,10 +269,7 @@
                 </mat-error>
               </mat-form-field>
 
-              <mat-form-field
-                appearance="outline"
-                class="transpilerClass-fxFlex-bbbc88 transpilerClass-fxFlex-51ed3e"
-              >
+              <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
                 <mat-label>{{ 'Municipio' | translate }}</mat-label>
                 <mat-select
                   (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
@@ -352,16 +346,14 @@
                   class="mb-2 d-flex justify-content-start align-items-center"
                 >
                   <mat-radio-button
-                    class="w-100 d-flex justify-content-center align-items-center transpilerClass-fxFlex-6a28c7"
+                    class="w-100 d-flex justify-content-center align-items-center flex-sh-100"
                     matTooltip="{{ shipping?.Business?.name }}"
                     style="height: 50px"
                     [value]="shipping"
                   >
-                    <div
-                      class="d-flex justify-content-between align-items-center transpilerClass-fxFlex-03507c"
-                    >
+                    <div class="d-flex justify-content-between align-items-center flex-sh-100">
                       <div
-                        class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-872d49 transpilerClass-fxFlex-43afc6"
+                        class="d-flex justify-content-start align-items-center flex-sh-0 flex-sh-md-70"
                       >
                         <div class="d-flex flex-column justify-content-start align-items-start">
                           <span class="ml-2 mat-caption" style="color: black">
@@ -378,7 +370,7 @@
                           </div>
                         </div>
                       </div>
-                      <span class="taxAmount transpilerClass-fxFlex-f76941" style="font-size: 20px">
+                      <span class="taxAmount flex-sh-md-30" style="font-size: 20px">
                         {{
                           shipping.totalPrice || 0
                             | currencyProduct: shipping.shippingItems[0]?.Shipping?.currency
@@ -403,9 +395,7 @@
           <!--          </ng-container>-->
           <!---------------------->
 
-          <div
-            class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-77bdb9"
-          >
+          <div class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN">
             <button [routerLink]="['/products/search']" mat-stroked-button matStepperPrevious>
               {{ 'Cancelar' | translate }}
             </button>
@@ -446,7 +436,7 @@
             <div
               ngClass.sm="mt-2"
               ngClass.xs="mt-2"
-              class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-24cca0"
+              class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100"
             >
               <div
                 class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-ebcac9"
@@ -519,7 +509,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <mat-form-field
                   appearance="outline"
-                  class="transpilerClass-fxFlex-22a038 transpilerClass-fxFlex-d45c1c transpilerClass-fxFlex-e33d16"
+                  class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
                 >
                   <mat-label>{{ 'Name' | translate }}</mat-label>
                   <input
@@ -535,7 +525,7 @@
                 </mat-form-field>
                 <mat-form-field
                   appearance="outline"
-                  class="transpilerClass-fxFlex-16ccdb transpilerClass-fxFlex-bee36f transpilerClass-fxFlex-5ff67a"
+                  class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
                 >
                   <mat-label>{{ 'Lastname' | translate }}</mat-label>
                   <input
@@ -591,10 +581,7 @@
               <!-- SOLO PARA CUBANOS -->
               <ng-container *ngIf="onlyCubanPeople && (canBeDelivery || showAddress)">
                 <div class="d-flex justify-content-between align-items-center">
-                  <mat-form-field
-                    appearance="outline"
-                    class="transpilerClass-fxFlex-c80d84 transpilerClass-fxFlex-e3481f"
-                  >
+                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
                     <mat-label>{{ 'Provincia' | translate }}</mat-label>
                     <mat-select
                       (selectionChange)="onSelectProvince($event.value)"
@@ -614,10 +601,7 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field
-                    appearance="outline"
-                    class="transpilerClass-fxFlex-d92fed transpilerClass-fxFlex-28ac05"
-                  >
+                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
                     <mat-label>{{ 'Municipio' | translate }}</mat-label>
                     <mat-select
                       (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
@@ -678,10 +662,7 @@
                 </mat-form-field>
 
                 <div class="d-flex justify-content-between align-items-center">
-                  <mat-form-field
-                    appearance="outline"
-                    class="transpilerClass-fxFlex-81e258 transpilerClass-fxFlex-1f6d84"
-                  >
+                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
                     <mat-label>{{ 'City' | translate }}</mat-label>
                     <input
                       [formControl]="this.form.controls['city']"
@@ -695,10 +676,7 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field
-                    appearance="outline"
-                    class="transpilerClass-fxFlex-dc9bc0 transpilerClass-fxFlex-56d7d9"
-                  >
+                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
                     <mat-label>{{ 'State / Province / Region' | translate }}</mat-label>
                     <input
                       [formControl]="this.form.controls['regionProvinceState']"
@@ -717,7 +695,7 @@
 
               <div formGroupName="address" *ngIf="canBeDelivery || showAddress">
                 <div class="d-flex transpilerClass-fxLayoutGap-844035">
-                  <mat-form-field appearance="outline" class="transpilerClass-fxFlex-27ef78">
+                  <mat-form-field appearance="outline" class="flex-sh-80">
                     <mat-label>{{ 'Calle' | translate }}</mat-label>
                     <input
                       formControlName="street"
@@ -732,7 +710,7 @@
                       {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
-                  <mat-form-field appearance="outline" class="transpilerClass-fxFlex-219b7b">
+                  <mat-form-field appearance="outline" class="flex-sh-20">
                     <mat-label>{{ 'Número' | translate }}</mat-label>
                     <input
                       formControlName="number"
@@ -767,7 +745,7 @@
                 <mat-form-field
                   appearance="outline"
                   id="CI"
-                  class="transpilerClass-fxFlex-d5c516 transpilerClass-fxFlex-d1cc4c transpilerClass-fxFlex-bf0e38"
+                  class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
                 >
                   <mat-label>{{ 'Identity card' | translate }}</mat-label>
                   <input
@@ -790,7 +768,7 @@
                 </mat-form-field>
 
                 <div
-                  class="w-100 d-flex transpilerClass-fxFlex-222e7f transpilerClass-fxFlex-36b2b6 transpilerClass-fxLayoutGap-6fa278"
+                  class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-6fa278"
                 >
                   <guachos-general-autocomplete
                     [withoutPaddingBottom]="false"
@@ -801,14 +779,10 @@
                     [filterString]="['filter[$and][code][$like]']"
                     [url]="phoneCodesService.url"
                     [formControl]="form.get('PhoneCallingCodeId')"
-                    class="transpilerClass-fxFlex-4b1f56"
+                    class="flex-sh-30"
                   ></guachos-general-autocomplete>
 
-                  <mat-form-field
-                    appearance="outline"
-                    id="phone"
-                    class="transpilerClass-fxFlex-5a6d6d transpilerClass-fxFlex-1661e7"
-                  >
+                  <mat-form-field appearance="outline" id="phone" class="flex-sh-70 flex-sh-md-70">
                     <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
                     <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                     <input
@@ -968,7 +942,7 @@
               </h3>
             </div>
             <div
-              class="mt-1 transpilerClass-fxFlex-dee2f6 transpilerClass-fxFlex-f90463"
+              class="mt-1 flex-sh-100 flex-sh-100 flex-sh-sm-initial"
               ngClass.sm="mt-1"
               ngClass.xs="mt-1"
             >
@@ -1013,7 +987,7 @@
             </h1>
 
             <div
-              class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-cdda0b"
+              class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN"
             >
               <button mat-stroked-button matStepperPrevious>{{ 'Atrás' | translate }}</button>
               <button
@@ -1035,7 +1009,7 @@
           <!-- PASARELA DE PAGO -->
           <!-- =================================================================== -->
           <div
-            class="mainOrder-wrapper d-flex flex-column transpilerClass-fxFlex-7e4dc4 transpilerClass-fxFlex-e31f3a transpilerClass-fxFlex-dc52a9"
+            class="mainOrder-wrapper d-flex flex-column flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
           >
             <div *ngIf="!loadingPayment" class="main-order">
               <div class="order-box">
@@ -1191,7 +1165,7 @@
 
             <div
               *ngIf="!loadingPayment"
-              class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-a85251"
+              class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN"
             >
               <!--              <button (click)="onGoToInfoDataToPay()" mat-stroked-button>{{ 'Atrás' | translate }}</button>-->
               <button matStepperPrevious mat-stroked-button>{{ 'Atrás' | translate }}</button>

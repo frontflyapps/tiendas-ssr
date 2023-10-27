@@ -31,7 +31,7 @@ app-change-pass {
     overflow: auto;
     padding: 16px 32px;
 
-    @include media-breakpoint('lt-md') {
+    @include media-breakpoint('md') {
       padding: 16px 16px !important;
     }
   }
@@ -126,12 +126,4 @@ app-change-pass {
       width: 310px !important;
     }
   }
-}
-
-.transpilerClass-fxFlex-df22f1 {
-  flex: 1 1 48%;
-}
-
-.transpilerClass-fxFlex-f05e23 {
-  flex: 1 1 48%;
 }

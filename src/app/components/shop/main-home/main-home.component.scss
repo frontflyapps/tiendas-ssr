@@ -253,33 +253,3 @@
     }
   }
 }
-
-.transpilerClass-fxFlex-e010b0 {
-  flex: 1 1 100%;
-}
-
-.transpilerClass-fxFlex-fdf04b {
-  flex: 1 1 20%;
-}
-
-.transpilerClass-fxFlex-41226b {
-  flex: 1 1 80%;
-}
-
-.transpilerClass-fxFlex-ce4cab {
-  @include media-breakpoint('xs') {
-    flex: 1 1 100%;
-  }
-}
-
-.transpilerClass-fxFlex-059cae {
-  @include media-breakpoint('gt-xs') {
-    flex: 1 1 50%;
-  }
-}
-
-.transpilerClass-fxFlex-b64837 {
-  @include media-breakpoint('gt-md') {
-    flex: 1 1 25%;
-  }
-}

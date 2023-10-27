@@ -29,7 +29,7 @@
 
         <div
           ngClass.gt-sm="pr-3"
-          class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-03db9e transpilerClass-fxFlex-c2d801"
+          class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100 flex-sh-70 flex-sh-sm-initial"
         >
           <div
             *ngFor="let item of blogArray; let i = index"
@@ -46,7 +46,7 @@
                     class="d-flex d-sm-flex flex-column flex-sm-column justify-content-start align-items-stretch"
                   >
                     <div
-                      class="image-box d-flex justify-content-center align-items-stretch transpilerClass-fxFlex-c65370 transpilerClass-fxFlex-eae70f"
+                      class="image-box d-flex justify-content-center align-items-stretch flex-sh-100 flex-sh-50 flex-sh-sm-initial"
                     >
                       <a *ngIf="item.link" [href]="item.link" target="_blank">
                         <img
@@ -71,9 +71,7 @@
                         lazyImg
                       />
                     </div>
-                    <div
-                      class="text-box transpilerClass-fxFlex-9b2d4f transpilerClass-fxFlex-24398a"
-                    >
+                    <div class="text-box flex-sh-100 flex-sh-50 flex-sh-sm-initial">
                       <h4 style="text-transform: none !important">
                         {{ utilsService.parserLanguage(item.title, language) }}
                       </h4>
@@ -105,7 +103,7 @@
             </a>
           </div>
         </div>
-        <div class="sidebar transpilerClass-fxFlex-977838 transpilerClass-fxFlex-617901">
+        <div class="sidebar flex-sh-100 flex-sh-30 flex-sh-sm-initial">
           <div class="blog-sidebar">
             <div class="search mb-30 d-sm-none">
               <input
@@ -126,14 +124,10 @@
                 </div>
                 <ul>
                   <li *ngFor="let item of latestArray; let i = index" class="d-flex">
-                    <div
-                      class="icon-box transpilerClass-fxFlex-dc2fb4 transpilerClass-fxFlex-2e2565"
-                    >
+                    <div class="icon-box flex-sh-100 flex-sh-30 flex-sh-sm-initial">
                       <img [src]="imageUrl + item.image" alt="Awesome Image" />
                     </div>
-                    <div
-                      class="text-box transpilerClass-fxFlex-5d5c95 transpilerClass-fxFlex-8b993b"
-                    >
+                    <div class="text-box flex-sh-100 flex-sh-70 flex-sh-sm-initial">
                       <h5>{{ utilsService.parserLanguage(item.title, language) }}</h5>
                       <span>{{ item.createdAt | date: 'short' }}</span>
                     </div>
