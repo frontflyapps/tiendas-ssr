@@ -33,7 +33,6 @@ import { ProductZoomComponent } from './products/product-details/product-zoom/pr
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { SkeletonLoadingCardsModule } from '../shared/skeleton-loading-cards/skeleton-loading-cards.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
@@ -53,7 +52,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { FooterProductCardModule } from '../shared/footer-product-card/footer-product-card.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-front/confirmation-dialog-front.module';
+
 import { ShareModule } from 'ngx-sharebuttons';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatMenuModule } from '@angular/material/menu';
@@ -64,7 +63,7 @@ import { GuachosSimplePaginationModule } from 'guachos-simple-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { LazyImgModule } from '../../core/directives/lazy-img/lazy-img.module';
+
 import { DialogPrescriptionComponent } from './products/dialog-prescription/dialog-prescription.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -81,7 +80,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatProgressSpinnerModule,
     InfiniteScrollModule,
     TranslateModule,
-    SkeletonLoadingCardsModule,
     MatTooltipModule,
     MatCheckboxModule,
     MatPaginatorModule,
@@ -106,12 +104,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatBottomSheetModule,
     NgxMaterialTimepickerModule,
     NgxImageZoomModule,
-    ConfirmationDialogFrontModule,
     FooterProductCardModule,
     MatAutocompleteModule,
     GuachosSimplePaginationModule,
     InfiniteScrollModule,
-    LazyImgModule,
     MatToolbarModule,
     MatStepperModule,
     MatRadioModule,

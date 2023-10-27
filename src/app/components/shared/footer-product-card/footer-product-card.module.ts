@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PipesModule } from '../../../core/pipes/pipes.module';
 import { GuachosRatingModule } from 'guachos-rating';
-import { DebounceClickModule } from 'src/app/core/directives/debounce-click/debounce-click.module';
 
 @NgModule({
   imports: [
@@ -20,7 +19,6 @@ import { DebounceClickModule } from 'src/app/core/directives/debounce-click/debo
     MatTooltipModule,
     PipesModule,
     GuachosRatingModule,
-    DebounceClickModule,
     FooterProductCardComponent,
   ],
   exports: [FooterProductCardComponent],

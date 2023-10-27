@@ -18,7 +18,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { GuachosRatingModule } from 'guachos-rating';
-import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-front/confirmation-dialog-front.module';
 
 @NgModule({
   imports: [
@@ -38,7 +37,6 @@ import { ConfirmationDialogFrontModule } from '../shared/confirmation-dialog-fro
     MatListModule,
     MatIconModule,
     MatFormFieldModule,
-    ConfirmationDialogFrontModule,
     MatDialogModule,
     WishlistComponent,
     CompareComponent,

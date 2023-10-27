@@ -32,7 +32,9 @@ export class ServiceWorkerUpdateService {
   }
 
   private static importDialogReloadModule(): void {
-    import('./dialog-reload-app/dialog-reload-app.module').then((m) => m.DialogReloadAppModule);
+    import('./dialog-reload-app/dialog-reload-app.component').then(
+      (m) => m.DialogReloadAppComponent,
+    );
   }
 
   public checkForUpdates(): void {

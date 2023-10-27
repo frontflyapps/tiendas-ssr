@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { UploadFileModule } from '../shared/upload-file/upload-file.module';
+
 import { CapitalizeFirstDirective } from 'src/app/core/directives/capitalize-first.directive';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
@@ -24,7 +24,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [
     CommonModule,
     MyAccountRoutingModule,
-    UploadFileModule,
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
