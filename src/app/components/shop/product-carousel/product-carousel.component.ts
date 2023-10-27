@@ -30,7 +30,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { LazyImgDirective } from '../../../core/directives/lazy-img/lazy-img.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
@@ -48,7 +48,7 @@ import { NgIf, NgFor } from '@angular/common';
     MatProgressSpinnerModule,
     RouterLink,
     LazyImgDirective,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatTooltipModule,
     MatButtonModule,
     MatIconModule,

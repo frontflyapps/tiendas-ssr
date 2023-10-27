@@ -22,7 +22,7 @@ import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pi
 import { ParseLangPipe } from '../../../../core/pipes/parse-lang.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
@@ -39,7 +39,7 @@ import { NgIf } from '@angular/common';
     MatProgressSpinnerModule,
     RouterLink,
     LazyImgDirective,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatButtonModule,
     MatTooltipModule,
     TranslateModule,

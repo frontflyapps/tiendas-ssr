@@ -25,7 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MyOrdersRoutingModule } from './my-orders-routing.module';
 
 import { TranslateModule } from '@ngx-translate/core';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { DialogBidaiondoCancelToPayComponent } from './dialog-bidaiondo-cancel-to-pay/dialog-bidaiondo-cancel-to-pay.component';
@@ -55,7 +55,7 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     MatCardModule,
     MatTableModule,
     MatCheckboxModule,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatDialogModule,
     MatFormFieldModule,
     MyOrdersComponent,

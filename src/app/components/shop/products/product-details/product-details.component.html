@@ -558,8 +558,8 @@
                       </span>
                     </span>
                     <!-- <p>
-                      <guachos-rating [config]="{label:'estrellas',readOnly:true,size:'12px'}" [value]="review.rating">
-                      </guachos-rating>
+                      <guajiritos-rating [config]="{label:'estrellas',readOnly:true,size:'12px'}" [value]="review.rating">
+                      </guajiritos-rating>
                     </p> -->
                     <p class="mat-body-1" ngClass.lt-md="mat-caption">{{ review.review }}</p>
                     <button
@@ -601,7 +601,7 @@
                   <form [formGroup]="reviewForm" class="d-flex">
                     <h3 class="mt-2 d-flex justify-content-start align-items-center">
                       <span class="mr-2">{{ 'Your Rating: ' | translate }}</span>
-                      <guachos-rating
+                      <guajiritos-rating
                         [config]="{
                           label: 'estrellas',
                           size: '22px',
@@ -610,7 +610,7 @@
                         }"
                         [formControl]="reviewForm.controls['rating']"
                       >
-                      </guachos-rating>
+                      </guajiritos-rating>
                     </h3>
 
                     <div class="flex-sh-100 flex-sh-100 flex-sh-sm-initial">

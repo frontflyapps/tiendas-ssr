@@ -15,7 +15,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
 import { TranslateModule } from '@ngx-translate/core';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf, NgFor } from '@angular/common';
@@ -31,7 +31,7 @@ import { NgIf, NgFor } from '@angular/common';
     NgFor,
     MatTooltipModule,
     RouterLink,
-    GuachosRatingModule,
+    GuajiritosRating,
     TranslateModule,
   ],
 })

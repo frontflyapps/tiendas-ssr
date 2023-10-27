@@ -34,7 +34,7 @@ import { CancelOrderComponent } from '../cancel-order/cancel-order.component';
 import { EditOrderComponent } from '../edit-order/edit-order.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
@@ -61,7 +61,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     NgClass,
     MatButtonModule,
     RouterLink,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatDividerModule,
     MatTooltipModule,
     UpperCasePipe,

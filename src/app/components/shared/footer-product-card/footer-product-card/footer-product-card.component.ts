@@ -23,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DebounceClickDirective } from '../../../../core/directives/debounce-click/debounce-click.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { NgIf, NgFor } from '@angular/common';
 @Component({
   selector: 'app-footer-product-card',
@@ -34,7 +34,7 @@ import { NgIf, NgFor } from '@angular/common';
     NgIf,
     NgFor,
     RouterLink,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatTooltipModule,
     MatButtonModule,
     DebounceClickDirective,

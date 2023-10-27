@@ -49,7 +49,7 @@ import { ProductComponent } from '../product/product.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
@@ -79,7 +79,7 @@ import { NgIf, NgFor, NgClass, NgTemplateOutlet, DatePipe } from '@angular/commo
     FormsModule,
     MatTabsModule,
     ReactiveFormsModule,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatFormFieldModule,
     MatInputModule,
     NgTemplateOutlet,

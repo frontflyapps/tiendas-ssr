@@ -36,7 +36,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { BannerPromotionComponent } from './banner-promotion/banner-promotion.component';
 import { BannerPromotion2Component } from './banner-promotion2/banner-promotion2.component';
 import { DialogFiltersMComponent } from './products/dialog-filters-m/dialog-filters-m.component';
@@ -85,7 +85,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatPaginatorModule,
     MatDialogModule,
     PipesModule,
-    GuachosRatingModule,
+    GuajiritosRating,
     PipesModule,
     MatListModule,
     MatIconModule,

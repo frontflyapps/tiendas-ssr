@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { CssOptions } from 'guachos-cu-down-list';
 import { Subject } from 'rxjs';
 import { EncryptDecryptService } from './core/services/encrypt-decrypt.service';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
@@ -25,10 +24,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent {
   title = 'ecommerce-sophia-new';
   uploadFileStartSubject: Subject<any>;
-  cssOptions: CssOptions = {
-    color: 'primary',
-    width: '40%',
-  };
 
   localDatabaseUsers = environment.localDatabaseUsers;
 
