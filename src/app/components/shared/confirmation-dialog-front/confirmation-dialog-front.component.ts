@@ -1,10 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-confirmation-dialog-front',
   templateUrl: './confirmation-dialog-front.component.html',
   styleUrls: ['./confirmation-dialog-front.component.scss'],
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
 })
 export class ConfirmationDialogFrontComponent implements OnInit {
   question = '';

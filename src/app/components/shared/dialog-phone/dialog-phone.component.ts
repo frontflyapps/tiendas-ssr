@@ -1,9 +1,21 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { EMAIL_REGEX } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { NgIf, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dialog-phone',
@@ -11,6 +23,18 @@ import { UtilsService } from '../../../core/services/utils/utils.service';
   styleUrls: ['./dialog-phone.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [PhoneCodeService],
+  standalone: true,
+  imports: [
+    NgIf,
+    GuachosGeneralAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    UpperCasePipe,
+    TranslateModule,
+  ],
 })
 export class DialogPhoneComponent implements OnInit {
   constructor(

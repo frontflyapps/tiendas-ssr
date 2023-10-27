@@ -5,6 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'app-banner-promotion2',
   templateUrl: './banner-promotion2.component.html',
   styleUrls: ['./banner-promotion2.component.scss'],
+  standalone: true,
 })
 export class BannerPromotion2Component implements OnInit {
   imageUrl = environment.imageUrl;

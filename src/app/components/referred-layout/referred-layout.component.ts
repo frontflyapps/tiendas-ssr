@@ -5,12 +5,17 @@ import { LoggedInUserService } from '../../core/services/loggedInUser/logged-in-
 import { componentName } from './componentNameEnum';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
+import { MyFriendsComponent } from './my-friends/my-friends.component';
+import { InviteFriendComponent as InviteFriendComponent_1 } from './invite-friend/invite-friend.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-referred-layout',
   templateUrl: './referred-layout.component.html',
   styleUrls: ['./referred-layout.component.scss'],
   providers: [ReferredService],
+  standalone: true,
+  imports: [NgIf, InviteFriendComponent_1, MyFriendsComponent],
 })
 export class ReferredLayoutComponent implements OnInit {
   form: UntypedFormGroup;

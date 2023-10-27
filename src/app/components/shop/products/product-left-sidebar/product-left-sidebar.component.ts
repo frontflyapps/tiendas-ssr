@@ -17,19 +17,63 @@ import { Cart } from '../../../../modals/cart-item';
 import { LocationService } from '../../../../core/services/location/location.service';
 import { PRODUCT_COUNT } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { DialogSetLocationComponent } from '../../../main/dialog-set-location/dialog-set-location.component';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { CategoryMenuNavService } from 'src/app/core/services/category-menu-nav.service';
+import { ParseLangPipe } from '../../../../core/pipes/parse-lang.pipe';
+import { ProductComponent } from '../product/product.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PopularProductsComponent } from '../../widgets/popular-products/popular-products.component';
+import { PriceComponent } from '../price/price.component';
+import { BrandsComponent } from '../../widgets/brands/brands.component';
+import { CategoriesComponent } from '../../widgets/categories/categories.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-left-sidebar',
   templateUrl: './product-left-sidebar.component.html',
   styleUrls: ['./product-left-sidebar.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgFor,
+    MatOptionModule,
+    MatChipsModule,
+    CategoriesComponent,
+    BrandsComponent,
+    PriceComponent,
+    PopularProductsComponent,
+    MatProgressSpinnerModule,
+    InfiniteScrollModule,
+    ProductComponent,
+    AsyncPipe,
+    TranslateModule,
+    ParseLangPipe,
+  ],
 })
 export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   public animation: any; // Animation

@@ -4,18 +4,38 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { Subject } from 'rxjs';
 import { CartService } from '../../shared/services/cart.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { IPagination } from 'src/app/core/classes/pagination.class';
 import { MyOrdersService } from '../../my-orders/service/my-orders.service';
 import { GlobalStateOfCookieService } from '../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { CategoryMenuNavService } from '../../../core/services/category-menu-nav.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterLinkActive,
+  RouterLink,
+} from '@angular/router';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { ParseLangPipe } from '../../../core/pipes/parse-lang.pipe';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatButtonModule,
+    RouterLinkActive,
+    RouterLink,
+    NgFor,
+    NgClass,
+    TranslateModule,
+    ParseLangPipe,
+  ],
 })
 export class MenuComponent implements OnInit, OnDestroy {
   loggedInUser: any = null;

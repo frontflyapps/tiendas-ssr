@@ -1,12 +1,18 @@
 import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { environment } from 'environments/environment';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-confirm-create-business',
   templateUrl: './confirm-create-business.component.html',
   styleUrls: ['./confirm-create-business.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [MatToolbarModule, MatDialogModule, MatButtonModule, MatIconModule, TranslateModule],
 })
 export class ConfirmCreateBusinessComponent implements OnInit {
   innerWidth: any;

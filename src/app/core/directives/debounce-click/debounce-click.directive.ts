@@ -4,6 +4,7 @@ import { debounceTime } from 'rxjs/operators';
 
 @Directive({
   selector: '[appDebounceClick]',
+  standalone: true,
 })
 export class DebounceClickDirective {
   @Input() debounceTime = 500;

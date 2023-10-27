@@ -20,12 +20,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { GuachosImagePickerModule } from 'guachos-image-picker';
 import { BankService } from '../../core/services/bank/bank.service';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
-import { GuachosImageModule } from '../shared/guachos-image/guachos-image.module';
+
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
-  declarations: [BecomeASellerComponent],
   imports: [
     CommonModule,
     BecomeASellerRoutingModule,
@@ -33,7 +32,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatButtonModule,
     TranslateModule,
-
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
@@ -46,8 +44,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatNativeDateModule,
     MatDividerModule,
     GuachosImagePickerModule,
-    GuachosImageModule,
     MatCheckboxModule,
+    BecomeASellerComponent,
   ],
   providers: [BankService],
 })

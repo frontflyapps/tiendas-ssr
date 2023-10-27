@@ -7,11 +7,14 @@ import { takeUntil } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BlogService } from '../../../core/services/blog/blog.service';
 import { environment } from 'environments/environment';
+import { NgIf, NgFor, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog-details',
   templateUrl: './blog-details.component.html',
   styleUrls: ['./blog-details.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, DatePipe],
 })
 export class BlogDetailsComponent implements OnInit, OnDestroy {
   selectedArticle = undefined;

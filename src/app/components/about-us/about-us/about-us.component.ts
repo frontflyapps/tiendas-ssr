@@ -8,11 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'environments/environment';
 import { IUser } from 'src/app/core/classes/user.class';
 import { MetaService } from 'src/app/core/services/meta.service';
+import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
+import { ParseLangPipe } from '../../../core/pipes/parse-lang.pipe';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss'],
+  standalone: true,
+  imports: [NgIf, ParseLangPipe, SafeHtmlPipe],
 })
 export class AboutUsComponent implements OnInit, OnDestroy {
   contactUsForm: UntypedFormGroup;

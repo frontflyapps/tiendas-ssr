@@ -6,11 +6,15 @@ import { environment } from 'environments/environment';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-brands-m',
   templateUrl: './brands-m.component.html',
   styleUrls: ['./brands-m.component.scss'],
+  standalone: true,
+  imports: [NgFor, NgIf, TranslateModule],
 })
 export class BrandsMComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

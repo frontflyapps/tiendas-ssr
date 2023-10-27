@@ -2,14 +2,30 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BusinessService } from '../../shared/services/business.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { UntypedFormControl, FormControl } from '@angular/forms';
+import { UntypedFormControl, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { NgFor, NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-shops-list',
   templateUrl: './shops-list.component.html',
   styleUrls: ['./shops-list.component.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    NgFor,
+    NgIf,
+    MatButtonModule,
+    MatPaginatorModule,
+    TranslateModule,
+  ],
 })
 export class ShopsListComponent implements OnInit, OnDestroy {
   apiURL = environment.imageUrl;

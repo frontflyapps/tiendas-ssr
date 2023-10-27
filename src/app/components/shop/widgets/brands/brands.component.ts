@@ -6,11 +6,15 @@ import { environment } from 'environments/environment';
 import { Subject } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-brands',
   templateUrl: './brands.component.html',
   styleUrls: ['./brands.component.scss'],
+  standalone: true,
+  imports: [NgFor, MatCheckboxModule],
 })
 export class BrandsComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

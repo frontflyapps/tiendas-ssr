@@ -1,4 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GuachosImagePickerModule } from 'guachos-image-picker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
 
 export interface ImageConf {
   width?: string;
@@ -16,6 +20,8 @@ export interface ImageConf {
   selector: 'app-guachos-image',
   templateUrl: './guachos-image.component.html',
   styleUrls: ['./guachos-image.component.scss'],
+  standalone: true,
+  imports: [NgIf, MatButtonModule, MatIconModule, GuachosImagePickerModule],
 })
 export class GuachosImageComponent implements OnInit {
   @Input() imageSrc: any;

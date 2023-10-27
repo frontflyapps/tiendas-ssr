@@ -1,6 +1,13 @@
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { UntypedFormGroup, UntypedFormControl, Validators, FormControl } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormControl,
+  Validators,
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Component, OnInit, Input, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -9,11 +16,29 @@ import { UploadTypesEnum } from '../upload-types.enum';
 import { ShowToastrService } from '../../../../core/services/show-toastr/show-toastr.service';
 import { environment } from 'environments/environment';
 import { FORMAT_ACCEPTED, FORMAT_TYPES } from 'src/app/core/classes/format-types.const';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-file-uploader',
   templateUrl: './file-uploader.component.html',
   styleUrls: ['./file-uploader.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    FormsModule,
+    ReactiveFormsModule,
+    NgClass,
+    MatButtonModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatProgressBarModule,
+    TranslateModule,
+  ],
 })
 export class FileUploaderComponent implements OnInit, OnDestroy {
   form: UntypedFormGroup;

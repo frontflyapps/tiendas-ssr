@@ -16,15 +16,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PrivacyPolicyComponent],
   imports: [
     CommonModule,
     TranslateModule,
-
     MatCardModule,
     MatIconModule,
     RouterModule.forChild(routes),
     PipesModule,
+    PrivacyPolicyComponent,
   ],
 })
 export class PrivacyPolicyModule {}

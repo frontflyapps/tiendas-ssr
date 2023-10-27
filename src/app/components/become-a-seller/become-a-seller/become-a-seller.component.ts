@@ -2,25 +2,63 @@ import { ShowToastrService } from '../../../core/services/show-toastr/show-toast
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { RegionsService } from '../../../core/services/regions/regions.service';
 import { BusinessService } from '../../../core/services/business/business.service';
 import { ImagePickerConf } from 'guachos-image-picker';
 import { CUBAN_PHONE_START_5, EMAIL_REGEX, NIT, PHONE } from '../../../core/classes/regex.const';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgIf, NgFor } from '@angular/common';
 import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { BankService } from '../../../core/services/bank/bank.service';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { IUser } from 'src/app/core/classes/user.class';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { GuachosImageComponent } from '../../shared/guachos-image/guachos-image.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-become-a-seller',
   templateUrl: './become-a-seller.component.html',
   styleUrls: ['./become-a-seller.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    GuachosImageComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    MatDividerModule,
+    MatSelectModule,
+    NgFor,
+    MatOptionModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatExpansionModule,
+    TranslateModule,
+  ],
 })
 export class BecomeASellerComponent implements OnInit {
   form: FormGroup;

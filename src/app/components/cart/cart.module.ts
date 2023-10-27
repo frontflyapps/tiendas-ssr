@@ -18,7 +18,6 @@ import { PipesModule } from 'src/app/core/pipes/pipes.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [CartComponent],
   imports: [
     CommonModule,
     CartRoutingModule,
@@ -30,12 +29,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     TranslateModule,
     MatIconModule,
     MatButtonModule,
-
     PipesModule,
     MatCardModule,
     MatToolbarModule,
     MatTooltipModule,
     MatDividerModule,
+    CartComponent,
   ],
 })
 export class CartModule {}

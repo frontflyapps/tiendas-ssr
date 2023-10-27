@@ -89,17 +89,17 @@
   </div>
   <div class="container-search">
     <div class="my-2 d-xs-none d-sm-none">
-      <mat-chip-list>
+      <mat-chip-listbox>
         <mat-icon *ngIf="this.showChips().length" class="mx-2">search</mat-icon>
-        <mat-chip
+        <mat-chip-option
           (removed)="onRemoveCategory(chip)"
           *ngFor="let chip of this.showChips()"
           [removable]="true"
         >
           {{ chip.name | parseLang: translate.currentLang }}
           <mat-icon *ngIf="true" matChipRemove>cancel</mat-icon>
-        </mat-chip>
-      </mat-chip-list>
+        </mat-chip-option>
+      </mat-chip-listbox>
     </div>
 
     <div

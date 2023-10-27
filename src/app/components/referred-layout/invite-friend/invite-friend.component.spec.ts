@@ -8,7 +8,7 @@ describe('InviteFriendComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InviteFriendComponent],
+      imports: [InviteFriendComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(InviteFriendComponent);

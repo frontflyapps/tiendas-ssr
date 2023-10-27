@@ -1,12 +1,16 @@
 import { Component, Inject, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { ProductService } from '../../../../shared/services/product.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-product-zoom',
   templateUrl: './product-zoom.component.html',
   styleUrls: ['./product-zoom.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [MatButtonModule, MatIconModule, MatDialogModule],
 })
 export class ProductZoomComponent implements OnInit {
   public count = 10;

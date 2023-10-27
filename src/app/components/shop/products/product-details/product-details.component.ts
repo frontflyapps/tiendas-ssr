@@ -1,11 +1,18 @@
 import { MetaService } from 'src/app/core/services/meta.service';
 import { ShowToastrService } from '../../../../core/services/show-toastr/show-toastr.service';
-import { FormControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CartService } from '../../../shared/services/cart.service';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../../../../modals/product.model';
 import { ProductDataService, ProductService } from '../../../shared/services/product.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { IPagination } from '../../../../core/classes/pagination.class';
@@ -30,10 +37,64 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
 import { SwiperOptions } from 'swiper/types';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { CurrencyProductPipe } from '../../../../core/pipes/currency.pipe';
+import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pipe';
+import { ParseLangPipe } from '../../../../core/pipes/parse-lang.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { ProductCarouselTwoComponent } from '../../product-carousel-two/product-carousel-two.component';
+import { PopularProductsComponent } from '../../widgets/popular-products/popular-products.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { SkeletonLoadingCardsComponent } from '../../../shared/skeleton-loading-cards/skeleton-loading-cards.component';
+import { ProductComponent } from '../product/product.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { GuachosRatingModule } from 'guachos-rating';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { NgIf, NgFor, NgClass, NgTemplateOutlet, DatePipe } from '@angular/common';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTooltipModule,
+    NgFor,
+    NgClass,
+    LazyImgDirective,
+    NgxImageZoomModule,
+    RouterLink,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatTabsModule,
+    ReactiveFormsModule,
+    GuachosRatingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgTemplateOutlet,
+    InfiniteScrollModule,
+    ProductComponent,
+    SkeletonLoadingCardsComponent,
+    MatDividerModule,
+    PopularProductsComponent,
+    ProductCarouselTwoComponent,
+    DatePipe,
+    TranslateModule,
+    ParseLangPipe,
+    ParsePriceProduct,
+    CurrencyProductPipe,
+  ],
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   isLoading = true;

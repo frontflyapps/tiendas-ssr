@@ -8,11 +8,27 @@ import { takeUntil } from 'rxjs/operators';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
 import { CATEGORIES_DATA } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatButtonModule,
+    MatIconModule,
+    NgFor,
+    MatCheckboxModule,
+    MatTooltipModule,
+    TranslateModule,
+  ],
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

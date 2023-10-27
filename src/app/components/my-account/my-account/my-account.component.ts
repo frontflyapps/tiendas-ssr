@@ -1,7 +1,13 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthenticationService } from '../../../core/services/authentication/authentication.service';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
@@ -19,6 +25,16 @@ import { Cart } from '../../../modals/cart-item';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { UploadFileComponent } from '../../shared/upload-file/upload-file.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor, NgClass } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-my-account',
@@ -26,6 +42,25 @@ import { BusinessConfigService } from 'src/app/core/services/business-config/bus
   styleUrls: ['./my-account.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [PhoneCodeService],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    NgIf,
+    MatButtonModule,
+    RouterLink,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonToggleModule,
+    NgFor,
+    GuachosGeneralAutocompleteModule,
+    NgClass,
+    MatCheckboxModule,
+    TranslateModule,
+    UploadFileComponent,
+  ],
 })
 export class MyAccountComponent implements OnInit {
   innerWidth: any;

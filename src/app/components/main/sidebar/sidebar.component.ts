@@ -14,7 +14,12 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SidebarMenuService } from './sidebar-menu.service';
 import { PreviousRouteService } from '../../../core/services/previous-route/previous-route.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { NgIf, NgClass, NgStyle, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,6 +31,18 @@ import { TranslateService } from '@ngx-translate/core';
       state('expanded', style({ transform: 'rotate(180deg)' })),
       transition('expanded <=> collapsed', animate('250ms cubic-bezier(0.4,0.0,0.2,1)')),
     ]),
+  ],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatListModule,
+    NgClass,
+    NgStyle,
+    MatIconModule,
+    MatBadgeModule,
+    MatDividerModule,
+    NgFor,
+    TranslateModule,
   ],
 })
 export class SidebarComponent implements OnInit, OnDestroy {

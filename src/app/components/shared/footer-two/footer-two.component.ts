@@ -1,21 +1,35 @@
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLinkActive, RouterLink } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { Subject } from 'rxjs';
 import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-snackbar.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { environment } from 'environments/environment';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { NgFor } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-footer-two',
   templateUrl: './footer-two.component.html',
   styleUrls: ['./footer-two.component.scss'],
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    RouterLinkActive,
+    RouterLink,
+    MatMenuModule,
+    MatIconModule,
+    NgFor,
+    TranslateModule,
+  ],
 })
 export class FooterTwoComponent implements OnInit, OnDestroy {
   loggedInUser: any = null;

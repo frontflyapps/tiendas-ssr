@@ -8,7 +8,7 @@ describe('DialogPhoneComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DialogPhoneComponent],
+      imports: [DialogPhoneComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DialogPhoneComponent);

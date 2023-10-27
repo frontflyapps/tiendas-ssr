@@ -1,9 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { EMAIL_REGEX } from '../../../core/classes/regex.const';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ContactsService } from '../../../core/services/contacts/contacts.service';
-import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerTheme, NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import * as moment from 'moment';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
@@ -15,11 +21,44 @@ import { RegionsService } from '../../../core/services/regions/regions.service';
 import { CartService } from '../../shared/services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-receiver-form',
   templateUrl: './receiver-form.component.html',
   styleUrls: ['./receiver-form.component.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatMenuModule,
+    NgFor,
+    NgIf,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    NgSwitch,
+    NgSwitchCase,
+    MatDatepickerModule,
+    NgxMaterialTimepickerModule,
+    NgSwitchDefault,
+    MatStepperModule,
+    TranslateModule,
+  ],
 })
 export class ReceiverFormComponent implements OnInit, OnDestroy {
   loadingPayment: boolean;

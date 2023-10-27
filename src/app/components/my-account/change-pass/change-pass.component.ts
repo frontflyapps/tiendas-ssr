@@ -1,20 +1,45 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { AuthenticationService } from '../../../core/services/authentication/authentication.service';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { NgIf, NgClass } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-change-pass',
   templateUrl: './change-pass.component.html',
   styleUrls: ['./change-pass.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgIf,
+    MatIconModule,
+    NgClass,
+    MatButtonModule,
+    TranslateModule,
+  ],
 })
 export class ChangePassComponent implements OnInit {
   innerWidth: any;

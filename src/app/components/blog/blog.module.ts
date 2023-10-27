@@ -21,7 +21,8 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    BlogColumnComponent,
+    BlogDetailsComponent,
   ],
-  declarations: [BlogColumnComponent, BlogDetailsComponent],
 })
 export class BlogModule {}

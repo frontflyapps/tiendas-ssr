@@ -19,11 +19,9 @@ import { DialogCaptchaRoutingModule } from './dialog-captcha-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [DialogCaptchaComponent],
   imports: [
     CommonModule,
     DialogCaptchaRoutingModule,
-
     TranslateModule,
     MatButtonModule,
     MatDialogModule,
@@ -33,12 +31,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-
     MatCardModule,
     MatDividerModule,
     MatButtonToggleModule,
     PipesModule,
     MatProgressSpinnerModule,
+    DialogCaptchaComponent,
   ],
   exports: [DialogCaptchaComponent],
 })

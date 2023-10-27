@@ -6,7 +6,7 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import {
   AbstractControl,
   UntypedFormBuilder,
@@ -14,23 +14,40 @@ import {
   UntypedFormGroup,
   ValidatorFn,
   Validators,
+  FormsModule,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { LocationService } from '../../../core/services/location/location.service';
 import { debounceTime, filter, map, startWith, takeUntil } from 'rxjs/operators';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { BusinessService } from 'src/app/core/services/business/business.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import {
   DisplayOption,
   RestrictionFilter,
 } from 'guachos-general-autocomplete/utils/interfaces/interfaces';
 import { environment } from 'environments/environment';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dialog-set-location',
   templateUrl: './dialog-set-location.component.html',
   styleUrls: ['./dialog-set-location.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    MatDialogModule,
+    MatIconModule,
+    GuachosGeneralAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    MatButtonModule,
+    TranslateModule,
+  ],
 })
 export class DialogSetLocationComponent implements OnInit, OnDestroy {
   constructor(

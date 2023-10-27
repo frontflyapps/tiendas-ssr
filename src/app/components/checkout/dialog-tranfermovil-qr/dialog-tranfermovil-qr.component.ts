@@ -1,17 +1,28 @@
 import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { SocketIoService } from 'src/app/core/services/socket-io/socket-io.service';
 import { Router } from '@angular/router';
+import { CurrencyMarket } from '../../../core/pipes/currency-market.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { UpperCasePipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-tranfermovil-qr',
   templateUrl: './dialog-tranfermovil-qr.component.html',
   styleUrls: ['./dialog-tranfermovil-qr.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, UpperCasePipe, TranslateModule, CurrencyMarket],
 })
 export class DialogTranfermovilQrComponent implements OnInit, OnDestroy {
   loggedInUser: any;

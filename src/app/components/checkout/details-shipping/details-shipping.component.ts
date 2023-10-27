@@ -1,15 +1,34 @@
 import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
+import { CurrencyMarket } from '../../../core/pipes/currency-market.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgIf } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-details-shipping',
   templateUrl: './details-shipping.component.html',
   styleUrls: ['./details-shipping.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatTableModule,
+    NgIf,
+    TranslateModule,
+    CurrencyMarket,
+  ],
 })
 export class DetailsShippingComponent implements OnInit, OnDestroy {
   _unsubscribeAll: Subject<any>;

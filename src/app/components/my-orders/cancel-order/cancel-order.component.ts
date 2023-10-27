@@ -1,17 +1,53 @@
 import { UtilsService } from './../../../core/services/utils/utils.service';
 import { ShowToastrService } from './../../../core/services/show-toastr/show-toastr.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PayService } from 'src/app/core/services/pay/pay.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import * as moment from 'moment';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf, UpperCasePipe, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cancel-order',
   templateUrl: './cancel-order.component.html',
   styleUrls: ['./cancel-order.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    UpperCasePipe,
+    CurrencyPipe,
+    TranslateModule,
+  ],
 })
 export class CancelOrderComponent implements OnInit {
   order: any;

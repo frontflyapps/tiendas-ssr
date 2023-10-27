@@ -1,5 +1,5 @@
 import { ConfirmPaymentOkComponent } from './confirm-payment-ok/confirm-payment-ok.component';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import {
   AfterViewInit,
   Component,
@@ -13,8 +13,15 @@ import { Product } from '../../modals/product.model';
 import { CartItem } from '../../modals/cart-item';
 import { ProductService } from '../shared/services/product.service';
 import { CartService } from '../shared/services/cart.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { NavigationService } from '../../core/services/navigation/navigation.service';
 import { LoggedInUserService } from '../../core/services/loggedInUser/logged-in-user.service';
 import { distinctUntilChanged, startWith, takeUntil, map, debounceTime } from 'rxjs/operators';
@@ -24,7 +31,7 @@ import { AuthenticationService } from '../../core/services/authentication/authen
 import { ShowSnackbarService } from '../../core/services/show-snackbar/show-snackbar.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CurrencyService } from '../../core/services/currency/currency.service';
-import { FormControl, UntypedFormControl } from '@angular/forms';
+import { FormControl, UntypedFormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocketIoService } from '../../core/services/socket-io/socket-io.service';
 import { NotificationsService } from './notification/notifications.service';
 import { MyOrdersService } from '../my-orders/service/my-orders.service';
@@ -52,12 +59,57 @@ import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 import { MetaService } from 'src/app/core/services/meta.service';
+import { ParseLangPipe } from '../../core/pipes/parse-lang.pipe';
+import { FooterComponent } from '../shared/footer/footer.component';
+import { MenuComponent } from './menu/menu.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { ShoppingWidgetsComponent } from './shopping-widgets/shopping-widgets.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatOptionModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { PanelNotificationsComponent } from './notification/panel-notifications/panel-notifications.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    NgIf,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatDividerModule,
+    NgFor,
+    SidebarComponent,
+    MatMenuModule,
+    PanelNotificationsComponent,
+    RouterLink,
+    MatButtonModule,
+    FormsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatOptionModule,
+    MatTooltipModule,
+    ShoppingWidgetsComponent,
+    MatBadgeModule,
+    RouterLinkActive,
+    MenuComponent,
+    RouterOutlet,
+    FooterComponent,
+    TranslateModule,
+    ParseLangPipe,
+  ],
 })
 export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   public sidenavMenuItems: Array<any> = [];

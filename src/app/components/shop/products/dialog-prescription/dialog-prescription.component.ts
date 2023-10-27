@@ -1,7 +1,18 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import {
+  FormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ProductService } from '../../../shared/services/product.service';
 import { CartService } from '../../../shared/services/cart.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
@@ -14,6 +25,18 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { environment } from 'environments/environment';
+import { I18nFieldPipe } from '../../../../core/pipes/i18n-field.pipe';
+import { CurrencyMarket } from '../../../../core/pipes/currency-market.pipe';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf, NgFor, NgClass } from '@angular/common';
 
 interface Sign {
   value: string;
@@ -30,6 +53,27 @@ interface SignArray {
   selector: 'app-dialog-prescription',
   templateUrl: './dialog-prescription.component.html',
   styleUrls: ['./dialog-prescription.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    MatStepperModule,
+    NgFor,
+    NgClass,
+    MatIconModule,
+    MatDialogModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatOptionModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatTooltipModule,
+    TranslateModule,
+    CurrencyMarket,
+    I18nFieldPipe,
+  ],
 })
 export class DialogPrescriptionComponent implements OnInit {
   public form: UntypedFormGroup;

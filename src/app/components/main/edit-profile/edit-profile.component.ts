@@ -1,18 +1,32 @@
 import { CompressImageService } from '../../../core/services/image/compress-image.service';
 import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-snackbar.service';
 import { AuthenticationService } from '../../../core/services/authentication/authentication.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ImagePickerConf } from 'guachos-image-picker';
 import { IDENTITY_PASSPORT } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf } from '@angular/common';
+import { GuachosImageComponent } from '../../shared/guachos-image/guachos-image.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-edit-profile',
@@ -20,6 +34,21 @@ import { BusinessConfigService } from 'src/app/core/services/business-config/bus
   styleUrls: ['./edit-profile.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [PhoneCodeService],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    GuachosImageComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    MatFormFieldModule,
+    MatInputModule,
+    GuachosGeneralAutocompleteModule,
+    TranslateModule,
+  ],
 })
 export class EditProfileComponent implements OnInit {
   innerWidth: any;

@@ -12,26 +12,63 @@ import {
 } from '@angular/core';
 import { forkJoin, Subject } from 'rxjs';
 import { debounceTime, switchMap, takeUntil } from 'rxjs/operators';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { UtilsService } from '../../../core/services/utils/utils.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { MyOrdersService } from '../service/my-orders.service';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 import { HttpClient } from '@angular/common/http';
 import { CancelOrderComponent } from '../cancel-order/cancel-order.component';
 import { EditOrderComponent } from '../edit-order/edit-order.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { GuachosRatingModule } from 'guachos-rating';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatListModule } from '@angular/material/list';
+import { NgIf, NgFor, NgClass, UpperCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-my-orders',
   templateUrl: './my-orders.component.html',
   styleUrls: ['./my-orders.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    MatSidenavModule,
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    NgIf,
+    MatListModule,
+    NgFor,
+    MatRippleModule,
+    NgClass,
+    MatButtonModule,
+    RouterLink,
+    GuachosRatingModule,
+    MatDividerModule,
+    MatTooltipModule,
+    UpperCasePipe,
+    CurrencyPipe,
+    DatePipe,
+    TranslateModule,
+  ],
 })
 export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
   _unsubscribeAll: Subject<any>;

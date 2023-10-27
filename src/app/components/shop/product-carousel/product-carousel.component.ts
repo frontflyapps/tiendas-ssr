@@ -13,7 +13,7 @@ import {
 import { Product } from '../../../modals/product.model';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProductDialogComponent } from '../products/product-dialog/product-dialog.component';
 import { CartService } from '../../shared/services/cart.service';
 import { ProductService } from '../../shared/services/product.service';
@@ -25,11 +25,36 @@ import { UtilsService } from '../../../core/services/utils/utils.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { GuachosRatingModule } from 'guachos-rating';
+import { LazyImgDirective } from '../../../core/directives/lazy-img/lazy-img.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-product-carousel',
   templateUrl: './product-carousel.component.html',
   styleUrls: ['./product-carousel.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    RouterLink,
+    LazyImgDirective,
+    GuachosRatingModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatIconModule,
+    TranslateModule,
+    ParsePriceProduct,
+  ],
 })
 export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();

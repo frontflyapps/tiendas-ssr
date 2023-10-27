@@ -7,13 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [PaypalRedirectPaymentComponent],
   imports: [
     CommonModule,
     PaypalRedirectPaymentRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    PaypalRedirectPaymentComponent,
   ],
 })
 export class PaypalRedirectPaymentModule {}

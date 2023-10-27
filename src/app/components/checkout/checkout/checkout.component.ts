@@ -1,6 +1,6 @@
 import { MetaService } from 'src/app/core/services/meta.service';
 import { DialogNoCartSelectedComponent } from '../no-cart-selected/no-cart-selected.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PayService } from '../../../core/services/pay/pay.service';
 import {
@@ -9,6 +9,8 @@ import {
   UntypedFormControl,
   UntypedFormGroup,
   Validators,
+  FormsModule,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { lastValueFrom, Subject } from 'rxjs';
@@ -39,7 +41,7 @@ import { CUBAN_PHONE_START_5, EMAIL_REGEX } from '../../../core/classes/regex.co
 import { ContactsService } from '../../../core/services/contacts/contacts.service';
 import { MyContactsComponent } from '../../main/my-contacts/my-contacts.component';
 import * as moment from 'moment';
-import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerTheme, NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DialogPgtConfirmToPayComponent } from '../dialog-pgt-confirm-to-pay/dialog-pgt-confirm-to-pay.component';
 import { DialogAuthorizeConfirmToPayComponent } from '../dialog-authorize-confirm-to-pay/dialog-authorize-confirm-to-pay.component';
@@ -49,6 +51,23 @@ import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.
 import { DialogTropipayConfirmToPayComponent } from '../dialog-tropipay-confirm-to-pay/dialog-tropipay-confirm-to-pay.component';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 import { environment } from 'environments/environment';
+import { CurrencyProductPipe } from '../../../core/pipes/currency.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf, NgFor, NgClass, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 
 export const amexData = {
   express: 1, // American Express
@@ -82,6 +101,35 @@ export const amexData = {
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss'],
   providers: [CurrencyCheckoutPipe, PhoneCodeService],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    MatStepperModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgFor,
+    NgClass,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
+    RouterLink,
+    MatMenuModule,
+    MatInputModule,
+    GuachosGeneralAutocompleteModule,
+    NgSwitch,
+    NgSwitchCase,
+    MatDatepickerModule,
+    NgxMaterialTimepickerModule,
+    NgSwitchDefault,
+    TranslateModule,
+    CurrencyProductPipe,
+  ],
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
   public CI_Length = 11;

@@ -1,19 +1,47 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import {
+  FormBuilder,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CaptchaService } from '../../../core/services/captcha/captcha.service';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { LocalStorageService } from '../../../core/services/localStorage/localStorage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { I18nFieldPipe } from '../../../core/pipes/i18n-field.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dialog-captcha',
   templateUrl: './dialog-captcha.component.html',
   styleUrls: ['./dialog-captcha.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    TranslateModule,
+    I18nFieldPipe,
+  ],
 })
 export class DialogCaptchaComponent implements OnInit {
   form: UntypedFormGroup;

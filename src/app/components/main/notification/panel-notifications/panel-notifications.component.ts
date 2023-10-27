@@ -10,12 +10,18 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { NotificationsService } from '../notifications.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { NotificationItemComponent } from '../notification-item/notification-item.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-panel-notifications',
   templateUrl: './panel-notifications.component.html',
   styleUrls: ['./panel-notifications.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [NgFor, NotificationItemComponent, MatButtonModule, TranslateModule],
 })
 export class PanelNotificationsComponent implements OnInit {
   innerWidth: any;

@@ -18,10 +18,22 @@ import { GlobalStateOfCookieService } from '../../../core/services/request-cooki
 import { CartService } from '../../shared/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 import { LandingPageService } from 'src/app/core/services/landing-page/landing-page.service';
+import { I18nFieldPipe } from '../../../core/pipes/i18n-field.pipe';
+import { ParseLangPipe } from '../../../core/pipes/parse-lang.pipe';
+import { ProductListComponent } from '../product-list/product-list.component';
+import { ProductGridComponent } from '../product-grid/product-grid.component';
+import { SkeletonLoadingCardsComponent } from '../../shared/skeleton-loading-cards/skeleton-loading-cards.component';
+import { ProductCarouselComponent } from '../product-carousel/product-carousel.component';
+import { BannerPromotionComponent } from '../banner-promotion/banner-promotion.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MainCarouselComponent } from '../main-carousel/main-carousel.component';
+import { NgIf, NgFor, NgClass } from '@angular/common';
 
 export interface ProductInterface {
   name: string;
@@ -32,6 +44,24 @@ export interface ProductInterface {
   selector: 'app-main-home',
   templateUrl: './main-home.component.html',
   styleUrls: ['./main-home.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MainCarouselComponent,
+    NgFor,
+    MatCardModule,
+    NgClass,
+    MatIconModule,
+    InfiniteScrollModule,
+    BannerPromotionComponent,
+    ProductCarouselComponent,
+    SkeletonLoadingCardsComponent,
+    ProductGridComponent,
+    ProductListComponent,
+    TranslateModule,
+    ParseLangPipe,
+    I18nFieldPipe,
+  ],
 })
 export class MainHomeComponent implements OnInit, OnDestroy {
   public flags = [

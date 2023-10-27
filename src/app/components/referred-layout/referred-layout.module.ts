@@ -20,12 +20,6 @@ import { ShareComponent } from './share/share.component';
 import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
-  declarations: [
-    ReferredLayoutComponent,
-    InviteFriendComponent,
-    MyFriendsComponent,
-    ShareComponent,
-  ],
   imports: [
     CommonModule,
     ReferredLayoutRoutingModule,
@@ -41,6 +35,10 @@ import { MatDividerModule } from '@angular/material/divider';
     ClipboardModule,
     ShareButtonModule,
     MatDividerModule,
+    ReferredLayoutComponent,
+    InviteFriendComponent,
+    MyFriendsComponent,
+    ShareComponent,
   ],
 })
 export class ReferredLayoutModule {}

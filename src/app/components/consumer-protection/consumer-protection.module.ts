@@ -10,14 +10,13 @@ import { PipesModule } from 'src/app/core/pipes/pipes.module';
 const routes: Routes = [{ path: '', component: ConsumerProtectionComponent }];
 
 @NgModule({
-  declarations: [ConsumerProtectionComponent],
   imports: [
     CommonModule,
-
     MatIconModule,
     TranslateModule,
     RouterModule.forChild(routes),
     PipesModule,
+    ConsumerProtectionComponent,
   ],
 })
 export class ConsumerProtectionModule {}

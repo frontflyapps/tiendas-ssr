@@ -11,11 +11,16 @@ import { FRONT_PRODUCT_DATA } from '../../../../core/classes/global.const';
 import { GlobalStateOfCookieService } from '../../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { FooterProductCardComponent } from '../../../shared/footer-product-card/footer-product-card/footer-product-card.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product-vertical',
   templateUrl: './product-vertical.component.html',
   styleUrls: ['./product-vertical.component.scss'],
+  standalone: true,
+  imports: [NgIf, FooterProductCardComponent, TranslateModule],
 })
 export class ProductVerticalComponent implements OnInit, OnDestroy {
   imageUrl = environment.imageUrl;

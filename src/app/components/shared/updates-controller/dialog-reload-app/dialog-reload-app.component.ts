@@ -1,14 +1,23 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialog,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 import { Subject } from 'rxjs';
 import { environment } from 'environments/environment';
+import { UpperCasePipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-reload-app',
   templateUrl: './dialog-reload-app.component.html',
   styleUrls: ['./dialog-reload-app.component.scss'],
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, UpperCasePipe, TranslateModule],
 })
 export class DialogReloadAppComponent {
   innerWidth: any;
