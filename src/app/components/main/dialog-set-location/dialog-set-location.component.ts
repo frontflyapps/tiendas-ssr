@@ -10,7 +10,6 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/materia
 import {
   AbstractControl,
   UntypedFormBuilder,
-  FormControl,
   UntypedFormGroup,
   ValidatorFn,
   Validators,
@@ -18,9 +17,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { LocationService } from '../../../core/services/location/location.service';
-import { debounceTime, filter, map, startWith, takeUntil } from 'rxjs/operators';
-import { Observable, Subject, Subscription } from 'rxjs';
-import { BusinessService } from 'src/app/core/services/business/business.service';
+import { Subject } from 'rxjs';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { DisplayOption, RestrictionFilter } from '@guajiritos/general-autocomplete';
 import { environment } from 'environments/environment';
@@ -91,7 +88,7 @@ export class DialogSetLocationComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.innerWidth = window.innerWidth;
     this.applyStyle = this.innerWidth <= 600;
   }
@@ -99,7 +96,7 @@ export class DialogSetLocationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initForm();
     // this.subsForm();
-    this.onResize('event');
+    this.onResize();
     this.locationForm.get('province').valueChanges.subscribe((item) => {
       if (item) {
         this.onSelectProvince(item);

@@ -122,7 +122,7 @@ export class MyAccountComponent implements OnInit {
   ];
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.innerWidth = window.innerWidth;
     this.applyStyle = this.innerWidth <= 600;
   }
@@ -719,7 +719,7 @@ export class MyAccountComponent implements OnInit {
     this.showRegistrationForm = true;
     //
     this.authService.singUp(data).subscribe({
-      next: (result) => {
+      next: () => {
         this.toastr.showInfo(
           this.translate.instant(
             `You have successfully registered, verify your email to complete the account validation`,
@@ -762,7 +762,7 @@ export class MyAccountComponent implements OnInit {
     this.showRegistrationForm = true;
 
     this.authService.singUp(data).subscribe({
-      next: (result) => {
+      next: () => {
         this.toastr.showInfo(
           this.translate.instant(
             `You have successfully registered, verify your email to complete the account validation`,
@@ -932,7 +932,7 @@ export class MyAccountComponent implements OnInit {
 
   handleExpire() {}
 
-  handleSuccess(event) {}
+  handleSuccess() {}
 
   handleLoad() {}
 

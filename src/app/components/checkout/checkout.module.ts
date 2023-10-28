@@ -37,7 +37,7 @@ import { DialogTranfermovilQrComponent } from './dialog-tranfermovil-qr/dialog-t
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DialogPgtConfirmToPayComponent } from './dialog-pgt-confirm-to-pay/dialog-pgt-confirm-to-pay.component';
 import { DialogAuthorizeConfirmToPayComponent } from './dialog-authorize-confirm-to-pay/dialog-authorize-confirm-to-pay.component';
 import { DialogPaypalConfirmToPayComponent } from './dialog-paypal-confirm-to-pay/dialog-paypal-confirm-to-pay.component';

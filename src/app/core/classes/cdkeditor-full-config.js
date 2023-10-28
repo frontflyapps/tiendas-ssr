@@ -208,6 +208,7 @@ let basicConfig = {
   licenseKey: '',
 };
 
+//eslint-disable-next-line
 module.exports = {
   cdkEditorFullConfig: fullConfig,
   cdkEditorMediumConfig: mediumConfig,

@@ -9,9 +9,8 @@ import { CartService } from '../../shared/services/cart.service';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { Router, RouterLink } from '@angular/router';
 import { ShowToastrService } from '../../../core/services/show-toastr/show-toastr.service';
-import { ConfiguracionService } from '../../../core/services/config/configuracion.service';
 import { environment } from 'environments/environment';
-import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CurrencyMarket } from '../../../core/pipes/currency-market.pipe';
 import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
 import { TranslateModule } from '@ngx-translate/core';
@@ -86,7 +85,7 @@ export class CartComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
         // if (this.loggedInUser) {
         //   console.log('entro');
@@ -155,11 +154,11 @@ export class CartComponent implements OnInit, OnDestroy {
     this.inLoading = true;
     this.cartService
       .removeFromCart(item)
-      .then((data) => {
+      .then(() => {
         this.spinner.hide();
         this.inLoading = false;
       })
-      .catch((error) => {
+      .catch(() => {
         this.spinner.hide();
         this.inLoading = false;
       });
@@ -173,11 +172,11 @@ export class CartComponent implements OnInit, OnDestroy {
     productToIncrease.Stock = product?.Stock;
     this.cartService
       .addToCart(productToIncrease, quantity)
-      .then((data) => {
+      .then(() => {
         this.spinner.hide();
         this.inLoading = false;
       })
-      .catch((error) => {
+      .catch(() => {
         this.spinner.hide();
         this.inLoading = false;
       });
@@ -190,11 +189,11 @@ export class CartComponent implements OnInit, OnDestroy {
     productToDecrease.Stock = product.Stock;
     this.cartService
       .addToCart(productToDecrease, quantity)
-      .then((data) => {
+      .then(() => {
         this.spinner.hide();
         this.inLoading = false;
       })
-      .catch((error) => {
+      .catch(() => {
         this.spinner.hide();
         this.inLoading = false;
       });
@@ -242,10 +241,11 @@ export class CartComponent implements OnInit, OnDestroy {
    * @param itemCart itemCart to take the affect
    *
    */
-  addAmountSale(event, itemCart) {
-    const amountTyped = +event.target.value;
-    const dataToSend = 2;
 
+  // eslint-disable-next-line
+  addAmountSale(event, itemCart) {
+    // const amountTyped = +event.target.value;
+    // const dataToSend = 2;
     // if ((finalNumber < product?.minSale) || (finalNumber > product?.maxSale)) {
     //   this.showToastr.showInfo(
     //     `Este producto tiene un mínimo de cantidad a vender de ${product?.minSale} y un máximo de ${product?.maxSale}`,
@@ -257,7 +257,6 @@ export class CartComponent implements OnInit, OnDestroy {
     //   return true;
     // }
     // return false;
-
     // if ((finalNumber >= product?.minSale) && (finalNumber <= product?.maxSale)) {
     //   this.increment(product, dataToSend);
     //   return true;

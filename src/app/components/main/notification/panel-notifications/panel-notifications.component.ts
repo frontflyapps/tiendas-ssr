@@ -41,7 +41,7 @@ export class PanelNotificationsComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.innerWidth = window.innerWidth;
     if (this.innerWidth > 600) {
       this.applyStyle = false;
@@ -67,5 +67,5 @@ export class PanelNotificationsComponent implements OnInit {
     this.notificationsService.onCargarMasNotificaciones();
   }
 
-  onClosePanel(data) {}
+  onClosePanel() {}
 }

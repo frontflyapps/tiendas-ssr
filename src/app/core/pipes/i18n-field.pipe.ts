@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
  * Usage:
  *   value | i18nField:language
  * Example:
- *   hotel.name = {es: "Nombre del Hotel", en: "Hotel name"}
+ *   hotel.name ={es: "Nombre del Hotel", en: "Hotel name"}
  *
  *   {{ hotel.name | i18nField:'es' }}
  *   formats to: "Nombre del Hotel"

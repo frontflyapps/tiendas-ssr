@@ -63,11 +63,11 @@ export class AppComponent {
     this.initSystem();
   }
 
-  public onFinishFile(event) {
+  public onFinishFile() {
     this.showToastr.showInfo(`El archivo se ha subido al sistema exitósamente`);
   }
 
-  public onProgress(event) {
+  public onProgress() {
     // this.uploadFilesService.emitUploadProgress(event);
   }
 
@@ -81,7 +81,7 @@ export class AppComponent {
     });
   }
 
-  public onCancelFile(event) {
+  public onCancelFile() {
     this.showToastr.showInfo(`La subida del  archivo ha sido cancelada`);
   }
 
@@ -89,7 +89,7 @@ export class AppComponent {
 
   initSystem() {
     const isCookieAccount = this.storageService.check('account');
-    const userLogged = this.loggedInUserService.getLoggedInUser();
+    // const userLogged = this.loggedInUserService.getLoggedInUser();
 
     if (isCookieAccount) {
       try {
@@ -98,7 +98,7 @@ export class AppComponent {
           next: (user) => {
             this.loggedInUserService.updateUserProfile(user.data);
           },
-          error: (error) => {
+          error: () => {
             this.loggedInUserService.setLoggedInUser(null);
             this.loggedInUserService.removeCookies();
             this.loggedInUserService.$loggedInUserUpdated.next(null);

@@ -178,9 +178,7 @@ export abstract class RestFullService<T> {
         }
       });
     }
-    const httpOptions = {
-      responseType: 'blob' as 'json',
-    };
+
     return this.http.get<any>(this.urlExport, { params: this.httpParams });
   }
 

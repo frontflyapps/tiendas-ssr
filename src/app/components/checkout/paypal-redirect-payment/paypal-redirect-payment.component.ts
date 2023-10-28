@@ -39,7 +39,7 @@ export class PaypalRedirectPaymentComponent implements OnInit {
         //   this.loading = false;
         // });
       } else {
-        this.payService.confirmPaymentPaypal(this.params).subscribe((item) => {
+        this.payService.confirmPaymentPaypal(this.params).subscribe(() => {
           this.router.navigate(['/my-orders']);
           this.loading = false;
         });

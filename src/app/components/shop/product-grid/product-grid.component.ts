@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../shared/services/product.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { Subject } from 'rxjs';
@@ -8,7 +8,6 @@ import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartService } from '../../shared/services/cart.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
-import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';

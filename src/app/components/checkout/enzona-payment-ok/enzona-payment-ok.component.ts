@@ -72,8 +72,8 @@ export class EnzonaPaymentOkComponent implements OnInit {
     } else {
       this.payService
         .setCompleteTranferPayment({ transaction_uuid: this.transaction_uuid, status: 'OK' })
-        .subscribe(
-          (data) => {
+        .subscribe({
+          next: (data) => {
             this.payMentResult = data.data;
             this.ifSuccess = true;
             this.loadingSearch = false;
@@ -85,12 +85,12 @@ export class EnzonaPaymentOkComponent implements OnInit {
               8000,
             );
           },
-          (error) => {
+          error: () => {
             this.ifSuccess = false;
             this.showError = true;
             this.loadingSearch = false;
           },
-        );
+        });
     }
   }
 

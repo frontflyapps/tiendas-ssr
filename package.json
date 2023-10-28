@@ -12,7 +12,7 @@
     "build:ssr": "ng build && ng run tienda-v2:server",
     "prerender": "ng run tienda-v2:prerender",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,html,scss}'",
-    "lint": "eslint src --ext js,jsx,ts,tsx",
+    "lint": "eslint src/app --ext js,jsx,ts,tsx",
     "lint:fix": "yarn prettier; yarn lint --fix",
     "<<<<<<<<<<<<<<<VeoVeo>>>>>>>>>>>>>>>": "",
     "generate:env:VeoVeo": "NG_APP_NAME=VeoVeo node ./scripts/generate-environments-files",

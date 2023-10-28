@@ -7,7 +7,6 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { EMAIL_REGEX } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { TranslateModule } from '@ngx-translate/core';

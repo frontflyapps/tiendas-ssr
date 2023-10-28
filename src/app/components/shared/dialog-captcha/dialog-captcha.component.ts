@@ -1,7 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import {
-  FormBuilder,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
@@ -111,7 +110,7 @@ export class DialogCaptchaComponent implements OnInit {
     this.inLoading = true;
 
     this.captchaService.confirmCaptcha(dataToSend).subscribe(
-      (item) => {
+      () => {
         this.showToastr.showSucces('Captcha correcto');
         this.inLoading = true;
         if (this.cartService.dataAddToCart) {
@@ -123,7 +122,7 @@ export class DialogCaptchaComponent implements OnInit {
               this.cartService.dataAddToCart.supplementIds,
               this.cartService.dataAddToCart.prescription,
             )
-            .then((item) => {
+            .then(() => {
               this.router.navigate(['cart']);
               this.inLoading = false;
               this.cartService.dataAddToCart = null;

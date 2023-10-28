@@ -4,7 +4,6 @@ import { environment } from 'environments/environment';
 import { ApiOptions, ApiResponse } from '../../classes/api.class';
 import { LandignPageData } from '../../classes/landing-page.class';
 import { handleObservable } from '../../utils/api';
-import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

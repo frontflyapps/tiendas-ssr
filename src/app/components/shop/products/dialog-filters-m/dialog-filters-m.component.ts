@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/materia
 import { IPagination } from '../../../../core/classes/pagination.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
-import { combineLatest, Subject, zip } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ProductService } from '../../../shared/services/product.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';

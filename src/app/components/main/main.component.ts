@@ -29,7 +29,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { IUser } from '../../core/classes/user.class';
 import { AuthenticationService } from '../../core/services/authentication/authentication.service';
 import { ShowSnackbarService } from '../../core/services/show-snackbar/show-snackbar.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CurrencyService } from '../../core/services/currency/currency.service';
 import { FormControl, UntypedFormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocketIoService } from '../../core/services/socket-io/socket-io.service';
@@ -50,9 +50,7 @@ import { MENU_DATA } from '../../core/classes/global.const';
 import { LocalStorageService } from '../../core/services/localStorage/localStorage.service';
 import { GlobalStateOfCookieService } from '../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import Shepherd from 'shepherd.js';
-import { compile } from 'sass';
 import { CategoryMenuNavService } from '../../core/services/category-menu-nav.service';
-import { Meta } from '@angular/platform-browser';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { IPagination } from '../../core/classes/pagination.class';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
@@ -227,13 +225,11 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
     this.navItems = this.navigationService.getNavItems();
 
-    this.cartService.$cartItemsUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((cart: any) => {
-        this.shoppingCartItems = this.cartService.getShoppingCars();
-        const navItemCart = this.navItems.find((item) => item.id == 'cart');
-        navItemCart.badgeCount = this.shoppingCartItems.length;
-      });
+    this.cartService.$cartItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      this.shoppingCartItems = this.cartService.getShoppingCars();
+      const navItemCart = this.navItems.find((item) => item.id == 'cart');
+      navItemCart.badgeCount = this.shoppingCartItems.length;
+    });
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -253,7 +249,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize() {
     this.innerWidth = window.innerWidth;
   }
 
@@ -399,7 +395,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     // ///// Subscribe to events //////////
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
 
         let tempCurrency = JSON.parse(this.storageService.getItem('currency'));
@@ -577,8 +573,8 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.authService
       .logout()
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(
-        () => {
+      .subscribe({
+        next: () => {
           this.loggedInUserService.setLoggedInUser(null);
           this.loggedInUserService.removeCookies();
           this.spinner.hide();
@@ -596,7 +592,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
           this.socketIoService.disconnect();
         },
-        (err: any) => {
+        error: () => {
           const message = this.translate.instant('User sing out unsuccessfully');
           this.showSnackbBar.showError(message, 8000);
           this.spinner.hide();
@@ -607,7 +603,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           this.loggedInUserService.$loggedInUserUpdated.next(null);
           this.router.navigate(['']);*/
         },
-      );
+      });
   }
 
   onChangePass() {
@@ -668,14 +664,14 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('new-notification')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
+      .subscribe(() => {
         this.showToastr.showInfo('Tienes nuevas notificaciones', 'Notificación', 5000);
       });
 
     this.socketIoService
       .listen('user-logout')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
+      .subscribe(() => {
         this.loggedInUserService.$loggedInUserUpdated.next(null);
         this.router.navigate(['']).then();
       });
@@ -683,7 +679,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.socketIoService
       .listen('business-accepted')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
+      .subscribe(() => {
         const token = this.loggedInUserService.getTokenCookie();
         this.authService.getProfile(token).subscribe((user) => {
           const userData = { profile: user.data, Authorization: token };
@@ -703,7 +699,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           action: 'confirmed',
         },
       });
-      dialogRef.afterClosed().subscribe((result: any) => {
+      dialogRef.afterClosed().subscribe(() => {
         window.location.reload();
       });
     });
@@ -720,7 +716,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           action: 'cancelled',
         },
       });
-      dialogRef.afterClosed().subscribe((result: any) => {
+      dialogRef.afterClosed().subscribe(() => {
         window.location.reload();
       });
     });

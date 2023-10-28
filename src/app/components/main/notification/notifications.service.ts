@@ -42,7 +42,7 @@ export class NotificationsService {
 
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
         if (this.loggedInUser) {
           // this._listenToSocketIO();
@@ -179,7 +179,7 @@ export class NotificationsService {
     this.socketIoService
       .listen('new-notification')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         if (this.loggedInUser) {
           this.NuevasNotificaciones();
         }

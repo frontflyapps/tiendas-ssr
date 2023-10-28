@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { GuajiritosImagePicker } from '@guajiritos/image-picker';
 import { BankService } from '../../core/services/bank/bank.service';
-import { MatDivider, MatDividerModule } from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 

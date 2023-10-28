@@ -9,7 +9,7 @@ import { LoggedInUserService } from '../../../../core/services/loggedInUser/logg
 import { takeUntil } from 'rxjs/operators';
 import { MatPaginator } from '@angular/material/paginator';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogFiltersMComponent } from '../dialog-filters-m/dialog-filters-m.component';
 import { CategoriesService } from 'src/app/core/services/categories/catagories.service';
 import { CartService } from '../../../shared/services/cart.service';
@@ -19,11 +19,9 @@ import { PRODUCT_COUNT } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
-import { DialogSetLocationComponent } from '../../../main/dialog-set-location/dialog-set-location.component';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
-  Validators,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -273,12 +271,10 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
         this.language = data.lang;
       });
 
-    this.currencyService.$currencyUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
-        this.newSearchMethod(0);
-        this.infiniteScrollSearchMethod();
-      });
+    this.currencyService.$currencyUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      this.newSearchMethod(0);
+      this.infiniteScrollSearchMethod();
+    });
 
     this.breakpointObserver
       .observe([Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
@@ -519,7 +515,7 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   }
 
   // Update tags filter
-  public updateTagFilters(tags: any[]) {
+  public updateTagFilters() {
     this.animation == 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
   }
 
@@ -839,7 +835,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
     const arr1 = [];
     const arr2 = [];
     const arr3 = [];
-    const arr4 = [];
     let newArrayProducts = [];
 
     if (arrProducts !== undefined && arrProducts) {

@@ -53,7 +53,6 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { FooterProductCardModule } from '../shared/footer-product-card/footer-product-card.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
-import { ShareModule } from 'ngx-sharebuttons';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';

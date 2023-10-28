@@ -24,6 +24,4 @@ export class ShowSnackbarService {
       duration: timeout,
     });
   }
-
-  showInfo(msj: string, secundary?: string, timeout?: number) {}
 }

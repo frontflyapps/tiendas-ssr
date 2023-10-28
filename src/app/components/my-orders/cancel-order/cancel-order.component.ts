@@ -135,7 +135,7 @@ export class CancelOrderComponent implements OnInit {
     //   });
     // } else {
     this.payService.cancelOrder(this.order.paymentType, body).subscribe(
-      (val) => {
+      () => {
         this.loadData = false;
         this.spinner.hide();
         this.showToastr.showSucces(

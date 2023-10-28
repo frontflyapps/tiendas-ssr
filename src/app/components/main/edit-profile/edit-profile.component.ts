@@ -103,7 +103,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.innerWidth = window.innerWidth;
     this.applyStyle = this.innerWidth <= 600;
   }
@@ -177,7 +177,7 @@ export class EditProfileComponent implements OnInit {
     };
   }
 
-  onSelectSliderChange(event) {
+  onSelectSliderChange() {
     if (this.isChangePass) {
       this.isChangePass = false;
       this.form.removeControl('password');

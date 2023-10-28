@@ -45,7 +45,7 @@ export class DialogTranfermovilQrComponent implements OnInit, OnDestroy {
     this._unsubscribeAll = new Subject<any>();
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
         if (this.loggedInUser) {
           // this._listenToSocketIO();
@@ -112,14 +112,14 @@ export class DialogTranfermovilQrComponent implements OnInit, OnDestroy {
     this.socketIoService
       .listen('payment-confirmed')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.dialogRef.close();
       });
 
     this.socketIoService
       .listen('payment-error')
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.dialogRef.close();
       });
   }

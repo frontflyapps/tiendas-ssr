@@ -11,7 +11,7 @@ import {
 import { Product } from './../../../modals/product.model';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProductDialogComponent } from '../products/product-dialog/product-dialog.component';
 import { CartService } from './../../shared/services/cart.service';
@@ -22,8 +22,6 @@ import { LoggedInUserService } from './../../../core/services/loggedInUser/logge
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
-import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
-import { DialogNoCartSelectedComponent } from '../../checkout/no-cart-selected/no-cart-selected.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';

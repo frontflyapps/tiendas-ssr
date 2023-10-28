@@ -28,14 +28,11 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { LANDING_PAGE, PRODUCT_COUNT } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
-import { ConfirmationDialogFrontComponent } from '../../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
 import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
-import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
-import { SwiperOptions } from 'swiper/types';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 import { CurrencyProductPipe } from '../../../../core/pipes/currency.pipe';
 import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pipe';
@@ -231,12 +228,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       });
 
     this.getProductProfile();
-    this.cartService.$cartItemsUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
-        // this.spinner.show();
-        this.getProductProfile('cart');
-      });
+    this.cartService.$cartItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      // this.spinner.show();
+      this.getProductProfile('cart');
+    });
 
     // this.route.queryParams.subscribe((query) => {
     //   const productId = query.productId;
@@ -321,7 +316,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
       });
 
@@ -405,7 +400,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         _responseCP.timespan = new Date().getTime();
         this.localStorageService.setOnStorage(PRODUCT_COUNT, _responseCP);
       })
-      .catch((error) => {
+      .catch(() => {
         this.loadingFeatured = false;
       });
   }
@@ -461,7 +456,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
           clearTimeout(timeOut);
         }, 200);
       },
-      (error) => {
+      () => {
         const timeOut = setTimeout(() => {
           this.loadingMenu = false;
           this.loadingProducts = false;
@@ -730,17 +725,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getReviews() {
     this.loadingReviews = true;
-    this.productsService.getReviews(this.queryReviews, { ProductId: this.product?.id }).subscribe(
-      (data) => {
+    this.productsService.getReviews(this.queryReviews, { ProductId: this.product?.id }).subscribe({
+      next: (data) => {
         this.allReviews = this.allReviews.concat(data.data.flat());
         this.queryReviews.offset += data.meta.pagination.count;
         this.queryReviews.total = data.meta.pagination.total;
         this.loadingReviews = false;
       },
-      (error) => {
+      error: () => {
         this.loadingReviews = false;
       },
-    );
+    });
   }
 
   onGetMorePriviews() {

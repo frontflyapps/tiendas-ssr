@@ -2,7 +2,6 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {
   UntypedFormGroup,
-  UntypedFormControl,
   Validators,
   FormControl,
   FormsModule,
@@ -114,7 +113,6 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // @ts-ignore
     this.form = new UntypedFormGroup({
       type: new FormControl('localMedia', [Validators.required]),
       file: new FormControl(null, [Validators.required]),
@@ -122,6 +120,7 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
       link: new FormControl(null, [
         Validators.required,
         Validators.pattern(
+          //eslint-disable-next-line
           /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/,
         ),
       ]),
@@ -140,7 +139,7 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     this._unsub.complete();
   }
 
-  onSelectionChange(event) {
+  onSelectionChange() {
     this.form.get('file').setValue('');
   }
 
@@ -148,9 +147,9 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     this.isValidToUpload = true;
     const file = (event.target as HTMLInputElement).files[0];
     const typesSelected = this.formatAccepted[this.form.get('formatType').value].split(',');
-    const foundByName = typesSelected.find((element) => {
-      return file.name.includes(element.trim());
-    });
+    // const foundByName = typesSelected.find((element) => {
+    //   return file.name.includes(element.trim());
+    // });
 
     if (!file) {
       return;
@@ -240,8 +239,7 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
               break;
             case HttpEventType.UploadProgress:
               this.metaDataUploading.status = 'uploading';
-              const progress = Math.round((event.loaded / event.total) * 100);
-              this.metaDataUploading.progress = progress;
+              this.metaDataUploading.progress = Math.round((event.loaded / event.total) * 100);
               break;
             case HttpEventType.Response:
               this.metaDataUploading.status = 'completed';
@@ -271,7 +269,7 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
               break;
           }
         },
-        (error) => {
+        () => {
           this.$fileUploaded.next({ url: '', success: false });
           this.formData = new FormData();
           this.metaDataUploading.status = 'error';
@@ -291,26 +289,26 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
   onUploadLink() {
     const data = { type: this.form.get('type').value, link: this.form.get('link').value };
     this.spinner.show();
-    this.uploadingService.createFileLink(data).subscribe(
-      (response1) => {
+    this.uploadingService.createFileLink(data).subscribe({
+      next: (response1) => {
         this.fileLoaded = response1.data;
         this.uploadingService
           .editFile({ ...this.fileLoaded, fkModel: this.fkModel, fkId: this.fkId })
-          .subscribe(
-            (response: any) => {
+          .subscribe({
+            next: (response: any) => {
               this.fileLoaded = response.data;
               this.$fileUploaded.next({ ...this.fileLoaded });
               this.spinner.hide();
             },
-            (e) => {
+            error: () => {
               this.spinner.hide();
             },
-          );
+          });
       },
-      () => {
+      error: () => {
         this.spinner.hide();
       },
-    );
+    });
   }
 
   uploadProductFile(dataToUpload) {
@@ -324,10 +322,10 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
   uploadPrescriptionImageFile(dataToUpload) {
     return this.uploadingService.createPrescriptionImageFile(dataToUpload, this.fkId);
   }
-  uploadARJFile(dataToUpload) {
+  uploadARJFile() {
     return;
   }
-  uploadFile(dataToUpload) {
+  uploadFile() {
     return;
   }
 }

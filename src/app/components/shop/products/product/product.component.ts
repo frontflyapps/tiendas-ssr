@@ -12,9 +12,7 @@ import { CurrencyService } from '../../../../core/services/currency/currency.ser
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
-import { ConfirmationDialogFrontComponent } from 'src/app/components/shared/confirmation-dialog-front/confirmation-dialog-front.component';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';

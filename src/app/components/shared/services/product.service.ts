@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Product } from '../../../modals/product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IPagination } from '../../../core/classes/pagination.class';
-import { distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 import { FRONT_PRODUCT_DATA } from '../../../core/classes/global.const';
 import { LocalStorageService } from '../../../core/services/localStorage/localStorage.service';
@@ -51,7 +51,7 @@ export class ProductService {
   public catalogMode = false;
   public url = 'assets/data/banners.json';
   public compareProducts: BehaviorSubject<Product[]> = new BehaviorSubject([]);
-  public observer: Subscriber<{}>;
+  public observer: Subscriber<any>;
   public productIdDetails = undefined;
   // Promises to Request
   public getProduct: Subject<any>;
@@ -99,8 +99,8 @@ export class ProductService {
     this.offset = 0;
     this.sections = [];
     this.sectionIds = [];
-    this.getSections().subscribe((data) => {
-      this.getSectionsIds().subscribe((item) => {});
+    this.getSections().subscribe(() => {
+      this.getSectionsIds().subscribe(() => {});
     });
   }
 
@@ -453,7 +453,6 @@ export class ProductService {
     let item: Product | boolean = false;
     if (this.hasProduct(product)) {
       item = this.products.filter((itemF) => itemF.id === product.id)[0];
-      const index = this.products.indexOf(item);
       this.snackBar.open(
         'El producto ' + product.name['es'] + ' ya está en la lista de comparación.',
         '×',

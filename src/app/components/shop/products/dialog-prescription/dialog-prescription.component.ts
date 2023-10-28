@@ -321,7 +321,7 @@ export class DialogPrescriptionComponent implements OnInit {
           });
         });
       },
-      error: (err) => {
+      error: () => {
         this.dialogRef.close(false);
       },
     });
@@ -377,7 +377,7 @@ export class DialogPrescriptionComponent implements OnInit {
     event: any,
     positionArrayFather: number,
     positionArrayChild: number,
-    stepper?: any,
+    // stepper?: any,
   ) {
     // this.supplementArray[positionArrayFather].Recomendeds[positionArrayChild].checked = true;
 

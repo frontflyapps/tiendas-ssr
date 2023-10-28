@@ -68,7 +68,7 @@ export class ChangePassComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.innerWidth = window.innerWidth;
     if (this.innerWidth > 600) {
       this.applyStyle = false;
@@ -114,7 +114,7 @@ export class ChangePassComponent implements OnInit {
         this.showToastr.showSucces(this.translate.instant('Password changed correctly'), 'OK');
         this.router.navigate(['']);
       },
-      (error) => {
+      () => {
         this.inLoading = false;
         this.spinner.hide();
       },

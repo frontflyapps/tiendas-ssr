@@ -4,7 +4,6 @@ import {
   AfterViewInit,
   Component,
   EventEmitter,
-  Inject,
   Input,
   OnDestroy,
   OnInit,

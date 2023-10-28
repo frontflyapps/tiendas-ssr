@@ -1,4 +1,3 @@
-import { MetaService } from 'src/app/core/services/meta.service';
 import { DialogNoCartSelectedComponent } from '../no-cart-selected/no-cart-selected.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -6,14 +5,13 @@ import { PayService } from '../../../core/services/pay/pay.service';
 import {
   FormControl,
   UntypedFormBuilder,
-  UntypedFormControl,
   UntypedFormGroup,
   Validators,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { lastValueFrom, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Cart, CartItem, IBusiness } from '../../../modals/cart-item';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
@@ -22,7 +20,7 @@ import { IPagination } from '../../../core/classes/pagination.class';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SocketIoService } from 'src/app/core/services/socket-io/socket-io.service';
 import { DialogEnzonaConfirmToPayComponent } from '../dialog-enzona-confirm-to-pay/dialog-enzona-confirm-to-pay.component';
 import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
@@ -438,7 +436,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     // this.getAvalilablePaymentType();
     this.buildForm();
 
-    this.form.get('paymentType').valueChanges.subscribe((item) => {
+    this.form.get('paymentType').valueChanges.subscribe(() => {
       console.log(this.form.get('paymentType').value.length);
       console.log(this.form.get('paymentType').value);
     });
@@ -478,7 +476,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   public getAvalilablePaymentType() {
     const auxPayments = [];
-    let searchBidaindoCards: boolean;
     let enabledGates;
     if (this.cart.currenciesGateway) {
       if (objectKeys(this.cart.currenciesGateway).length > 0) {
@@ -563,7 +560,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         }
         this.payments = paymentsCards;
       },
-      error: (error) => {},
+      error: () => {},
     });
   }
 
@@ -572,7 +569,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.applyResolution();
   }
 
@@ -587,7 +584,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       });
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
         if (this.loggedInUser) {
         }
@@ -679,8 +676,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       this.getTotalWithShippingIncluded();
     });
 
-    this.form.controls['ShippingBusinessId'].valueChanges.subscribe((value) => {
-      this.getTotalWithShippingIncluded(value);
+    this.form.controls['ShippingBusinessId'].valueChanges.subscribe(() => {
+      this.getTotalWithShippingIncluded();
     });
     this.validateShippingRequired();
   }
@@ -748,7 +745,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         data: {},
       });
 
-      dialogRef.afterClosed().subscribe((result) => {});
+      dialogRef.afterClosed().subscribe(() => {});
     } else {
       this.getCartData();
     }
@@ -847,10 +844,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     // });
   }
 
-  public getTotalWithShippingIncluded(shipping?: any): any {
+  public getTotalWithShippingIncluded(): any {
     // console.log(shipping);
 
-    const total = this.getTotalAmountCurrency() as number;
+    const total = this.getTotalAmountCurrency();
     const ShippingBusinessId = this.shippingSelected;
     if (ShippingBusinessId) {
       const ShippingByBusiness = this.shippingData?.find(
@@ -883,7 +880,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     });
   }
 
-  public getTotalAmountCurrency(): any {
+  public getTotalAmountCurrency(): number {
     const subTotal = this.getTotalAmout();
     return this.currencyCheckoutPipe.transform({
       currency: this.form.get('currency').value,
@@ -892,7 +889,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     });
   }
 
-  public getTotalAmout(): any {
+  public getTotalAmout(): number {
     if (this.buyWithDiscount?.discount) {
       // tslint:disable-next-line:radix
       return parseInt(this.buyWithDiscount?.priceWithDiscount);
@@ -966,7 +963,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           Validators.maxLength(8),
         ]);
     }
-    this.form.valueChanges.subscribe((data) => {
+    this.form.valueChanges.subscribe(() => {
       console.log(this.form);
     });
     this.form.updateValueAndValidity();
@@ -1041,7 +1038,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           this.canBeDelivery = item?.canBeDelivery;
           this.inLoading = false;
         },
-        error: (error) => {
+        error: () => {
           this.loadingShipping = false;
           this.inLoading = false;
         },
@@ -1080,7 +1077,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           this.canBeDelivery = dataShipping.canBeDelivery;
           this.inLoading = false;
         },
-        error: (error) => {
+        error: () => {
           this.inLoading = false;
         },
       });
@@ -1271,20 +1268,20 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             },
           });
 
-          dialogRef.afterClosed().subscribe((result) => {});
+          dialogRef.afterClosed().subscribe(() => {});
         } else {
           this.loadingPayment = false;
           this.showToastr.showError('Error en la respuesta, fallo en la obtencion del qr');
         }
       },
-      error: (error) => {
+      error: () => {
         this.loadingPayment = false;
       },
     });
   }
 
   processEnzona(bodyData) {
-    const link: any = document.getElementById('pasarelaLink');
+    // const link: any = document.getElementById('pasarelaLink');
     this.payService.makePaymentEnzona(bodyData).subscribe({
       next: (data: any) => {
         const dialogRef = this.dialog.open(DialogEnzonaConfirmToPayComponent, {
@@ -1295,12 +1292,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           },
         });
 
-        dialogRef.afterClosed().subscribe((result) => {
+        dialogRef.afterClosed().subscribe(() => {
           window.location.reload();
           this.loadingPayment = false;
         });
       },
-      error: (error) => {
+      error: () => {
         this.loadingPayment = false;
       },
     });
@@ -1331,7 +1328,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.loadingPayment = false;
           });
         },
-        (error) => {
+        () => {
           this.loadingPayment = false;
         },
       );
@@ -1359,7 +1356,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.loadingPayment = false;
           });
         },
-        (error) => {
+        () => {
           this.loadingPayment = false;
         },
       );
@@ -1387,7 +1384,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.loadingPayment = false;
           });
         },
-        (error) => {
+        () => {
           this.loadingPayment = false;
         },
       );
@@ -1415,7 +1412,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.loadingPayment = false;
           });
         },
-        (error) => {
+        () => {
           this.loadingPayment = false;
         },
       );
@@ -1443,7 +1440,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.loadingPayment = false;
           });
         },
-        (error) => {
+        () => {
           this.loadingPayment = false;
         },
       );
@@ -1468,7 +1465,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.loadingPayment = false;
           });
         },
-        (error) => {
+        () => {
           this.loadingPayment = false;
         },
       );
@@ -1560,7 +1557,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         textHtml: `<p style='font-size:18px'>¿Estás seguro que el destinario de la compra es <strong>${name} ${lastName}</strong>?</p>`,
       },
     });
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       this.showInfoDataToPay = false;
       this.showPayment = true;
       this.scrollTopDocument();

@@ -14,8 +14,8 @@ export class ForbiddenAccessComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    const lock = document.querySelector('#lock');
-    const key = document.querySelector('#key');
+    // const lock = document.querySelector('#lock');
+    // const key = document.querySelector('#key');
   }
 
   onBacktoHome() {

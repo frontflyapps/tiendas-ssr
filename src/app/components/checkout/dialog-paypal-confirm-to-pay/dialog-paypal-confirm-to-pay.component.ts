@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +19,7 @@ export class DialogPaypalConfirmToPayComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
+    //eslint-disable-next-line
     this.templateInputs = document.getElementById('inputsHiddenBid')!;
   }
 
