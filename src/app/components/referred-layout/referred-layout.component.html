@@ -2,7 +2,7 @@
   <app-invite-friend
     *ngIf="showinviteComponent; else friendComponent"
     [userLinkReferred]="userLinkReferred"
-    (close)="showComponent(componentName.MyFriendsComponent)"
+    (eventClose)="showComponent(componentName.MyFriendsComponent)"
   >
   </app-invite-friend>
 
@@ -10,7 +10,7 @@
     <app-my-friends
       [referredUsers]="data?.ReferredPerson?.length"
       [paymentUsers]="data?.Payments?.length"
-      (close)="showComponent(componentName.InviteFriendComponent)"
+      (eventClose)="showComponent(componentName.InviteFriendComponent)"
     >
     </app-my-friends>
   </ng-template>

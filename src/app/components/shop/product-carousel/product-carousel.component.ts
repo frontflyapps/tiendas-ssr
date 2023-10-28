@@ -55,8 +55,7 @@ import { NgIf, NgFor } from '@angular/common';
     ParsePriceProduct,
   ],
 })
-export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();
+export class ProductCarouselComponent implements OnInit, OnDestroy {
   @Input() products: any[] = [];
   @Input() btnColor: any = 'primary';
   @Input() grid = { 480: 1, 740: 2, 960: 2, 1024: 3, 1280: 4 };
@@ -135,8 +134,6 @@ export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestro
     this._unsubscribeAll.next(true);
     this._unsubscribeAll.complete();
   }
-
-  ngAfterViewInit(): void {}
 
   public openProductDialog(product) {
     this.productService.getProductById(product.id, product?.Stock?.id).subscribe((data) => {

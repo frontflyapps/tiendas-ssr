@@ -13,7 +13,7 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [NgIf, MatProgressSpinnerModule],
 })
-export class PaypalRedirectPaymentComponent implements OnInit {
+export class PaypalRedirectPaymentComponent {
   params: any;
   loading = true;
   urlToRedirect = environment.url + 'my-orders';
@@ -46,6 +46,4 @@ export class PaypalRedirectPaymentComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit(): void {}
 }

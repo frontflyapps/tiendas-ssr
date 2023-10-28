@@ -14,17 +14,15 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatButtonModule, ClipboardModule, TranslateModule],
 })
-export class InviteFriendComponent implements OnInit {
+export class InviteFriendComponent {
   @Input() userLinkReferred: string = null;
-  @Output() close: EventEmitter<any> = new EventEmitter();
+  @Output() eventClose = new EventEmitter<any>();
 
   constructor(
     private showToastr: ShowToastrService,
     private translateService: TranslateService,
     private _bottomSheet: MatBottomSheet,
   ) {}
-
-  ngOnInit(): void {}
 
   copyLink() {
     this.userLinkReferred

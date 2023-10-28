@@ -17,7 +17,7 @@ export class UploadFileComponent {
   @Input() fileTypes = 'image/*';
   @Input() multiple = false;
 
-  @Output() onUploadFile: EventEmitter<any> = new EventEmitter<any>();
+  @Output() uploadFile = new EventEmitter<any>();
 
   limitGB = 1024 * 1024 * 1024;
   limitMB = 1024 * 1024;
@@ -97,7 +97,7 @@ export class UploadFileComponent {
       });
     }
 
-    this.onUploadFile.emit(data);
+    this.uploadFile.emit(data);
   }
 
   getSize(size) {

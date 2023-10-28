@@ -34,7 +34,7 @@ import { NgIf, NgFor, DecimalPipe } from '@angular/common';
     TranslateModule,
   ],
 })
-export class WishlistComponent implements OnInit {
+export class WishlistComponent {
   public product: Observable<Product[]> = of([]);
   wishlistItems: Product[] = [];
   pathToRedirect: any;
@@ -82,8 +82,6 @@ export class WishlistComponent implements OnInit {
       shareImg: environment.meta.mainPage.shareImg,
     });
   }
-
-  ngOnInit() {}
 
   // Add to cart
   public addToCart(product: Product, quantity = 1) {

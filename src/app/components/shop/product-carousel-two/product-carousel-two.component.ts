@@ -54,7 +54,6 @@ import { NgIf, NgFor } from '@angular/common';
   ],
 })
 export class ProductCarouselTwoComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();
   @Input() products: any[] = [];
   @Input() btnColor: any = 'primary';
   @Input() grid = { 480: 1, 740: 2, 960: 2, 1024: 3, 1280: 4 };

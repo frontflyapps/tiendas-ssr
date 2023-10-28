@@ -207,7 +207,7 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  async onUploadFile() {
+  onUploadFile() {
     const data = this.form.get('file').value;
     this.formData.append('file', data);
     this.fileUploadedSuccess = true;

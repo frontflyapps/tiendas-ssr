@@ -23,7 +23,7 @@ export interface ImageConf {
   standalone: true,
   imports: [NgIf, MatButtonModule, MatIconModule, GuajiritosImagePicker],
 })
-export class GuachosImageComponent implements OnInit {
+export class GuachosImageComponent {
   @Input() imageSrc: any;
   @Input() config?: ImageConf;
   @Input() isEdit = false;
@@ -32,8 +32,6 @@ export class GuachosImageComponent implements OnInit {
   editing = false;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   onImageChange(event: any) {
     this.isEdit = false;

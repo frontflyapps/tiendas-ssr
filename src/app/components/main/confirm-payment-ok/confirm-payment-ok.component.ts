@@ -142,8 +142,6 @@ export class ConfirmPaymentOkComponent implements OnInit {
     }
   }
 
-  ngOnDestroy(): void {}
-
   onGetVoucher(payment): void {
     const urlDownload = environment.apiUrl + 'payment/' + payment.id + '/voucher';
 

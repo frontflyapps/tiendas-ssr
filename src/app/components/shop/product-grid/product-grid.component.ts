@@ -42,7 +42,7 @@ import { NgFor, NgIf } from '@angular/common';
     I18nFieldPipe,
   ],
 })
-export class ProductGridComponent implements OnInit, OnDestroy {
+export class ProductGridComponent implements OnDestroy {
   @Input() products;
   inLoading = false;
 
@@ -89,8 +89,6 @@ export class ProductGridComponent implements OnInit, OnDestroy {
         this.isSmallDevice = data.matches;
       });
   }
-
-  ngOnInit(): void {}
 
   ngOnDestroy() {
     this._unsubscribeAll.next(true);

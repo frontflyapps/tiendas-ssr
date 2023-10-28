@@ -46,7 +46,6 @@ import { NgIf } from '@angular/common';
   ],
 })
 export class ProductComponent implements OnInit, OnDestroy {
-  @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();
   @Input() product: any;
   inLoading = false;
   _unsubscribeAll: Subject<any>;

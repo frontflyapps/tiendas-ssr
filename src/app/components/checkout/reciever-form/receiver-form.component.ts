@@ -60,7 +60,7 @@ import { MatIconModule } from '@angular/material/icon';
     TranslateModule,
   ],
 })
-export class ReceiverFormComponent implements OnInit, OnDestroy {
+export class ReceiverFormComponent implements OnDestroy {
   loadingPayment: boolean;
   CI_Length = 11;
   form: FormGroup;
@@ -122,8 +122,6 @@ export class ReceiverFormComponent implements OnInit, OnDestroy {
     this.fetchCountriesAndMunicipalities();
     this.buildForm();
   }
-
-  ngOnInit(): void {}
 
   buildForm() {
     this.form = this.fb.group({

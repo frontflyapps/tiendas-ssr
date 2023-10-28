@@ -11,7 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [MatDividerModule, ShareButtonModule],
 })
-export class SocialMediaComponent implements OnInit {
+export class SocialMediaComponent {
   product: any;
 
   constructor(
@@ -20,8 +20,6 @@ export class SocialMediaComponent implements OnInit {
   ) {
     this.product = data.product;
   }
-
-  ngOnInit(): void {}
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();
