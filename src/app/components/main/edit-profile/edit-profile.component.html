@@ -1,57 +1,77 @@
-<div class="dialog-content-wrapper">
-  <mat-toolbar color="primary" id="toolbarHeader" matDialogTitle>
-    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
+<div class="dialog-content-wrapper" data-id="f7b66e43">
+  <mat-toolbar color="primary" id="toolbarHeader" matDialogTitle data-id="2e2aa657">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="84f701cb">
       {{ 'Editar perfil' | translate }}
-      <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
-        <mat-icon>close</mat-icon>
+      <button
+        (click)="dialogRef.close()"
+        aria-label="Close dialog"
+        mat-icon-button
+        data-id="4775bfc8"
+      >
+        <mat-icon data-id="fc3f15a8">close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="my-dialog-content" mat-dialog-content>
-    <div class="imagePickerRow d-flex justify-content-center align-items-center">
+  <div class="my-dialog-content" mat-dialog-content data-id="7d365d6a">
+    <div class="imagePickerRow d-flex justify-content-center align-items-center" data-id="9448b545">
       <app-guachos-image
         [create]="!loggedInUser.avatar"
         [imageSrc]="urlImage + loggedInUser.avatar"
         [config]="imagePickerConf"
         (imageChanged)="onImageChange($event)"
+        data-id="19891503"
       ></app-guachos-image>
     </div>
 
-    <form [formGroup]="form">
-      <div class="d-flex flex-column justify-content-start align-items-stretch">
-        <div class="d-flex justify-content-center align-items-center">
-          <span *ngIf="this.loggedInUser" class="mat-title my-2" style="font-size: 24px">
+    <form [formGroup]="form" data-id="8857db8e">
+      <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="18ef1bf9">
+        <div class="d-flex justify-content-center align-items-center" data-id="4e170fd7">
+          <span
+            *ngIf="this.loggedInUser"
+            class="mat-title my-2"
+            style="font-size: 24px"
+            data-id="0195a5bc"
+          >
             {{ this.loggedInUser.username }}
           </span>
-          <span *ngIf="!this.loggedInUser" class="mat-title my-2" style="font-size: 24px">
+          <span
+            *ngIf="!this.loggedInUser"
+            class="mat-title my-2"
+            style="font-size: 24px"
+            data-id="6d65bf1d"
+          >
             {{ 'Username' }}
           </span>
         </div>
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'Name' | translate }}</mat-label>
+        <mat-form-field appearance="outline" data-id="9c37e758">
+          <mat-label data-id="650de840">{{ 'Name' | translate }}</mat-label>
           <input
             [formControl]="form.controls['name']"
             matInput
             placeholder="{{ 'Name' | translate }}"
             type="text"
+            data-id="d67fc4a5"
           />
-          <mat-icon class="greyIcon" matSuffix>person</mat-icon>
-          <mat-error *ngIf="form.controls['name'].hasError('required')">
-            {{ 'Name' | translate }} <strong>{{ 'is required' | translate }}</strong>
+          <mat-icon class="greyIcon" matSuffix data-id="a89be6c7">person</mat-icon>
+          <mat-error *ngIf="form.controls['name'].hasError('required')" data-id="b065546d">
+            {{ 'Name' | translate }}
+            <strong data-id="f42ace94">{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'Lastname' | translate }}</mat-label>
+        <mat-form-field appearance="outline" data-id="b18b0a20">
+          <mat-label data-id="f85279f7">{{ 'Lastname' | translate }}</mat-label>
           <input
             [formControl]="form.controls['lastName']"
             matInput
             placeholder="{{ 'Lastname' | translate }}"
             type="text"
+            data-id="c3a72e97"
           />
-          <mat-icon class="greyIcon" matSuffix>person</mat-icon>
-          <mat-error *ngIf="form.controls['lastName'].hasError('required')">
-            {{ 'lastName' | translate }} <strong>{{ 'is required' | translate }}</strong>
+          <mat-icon class="greyIcon" matSuffix data-id="20906ce8">person</mat-icon>
+          <mat-error *ngIf="form.controls['lastName'].hasError('required')" data-id="219507e8">
+            {{ 'lastName' | translate }}
+            <strong data-id="8367d9c7">{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
@@ -63,20 +83,27 @@
         <!--          </mat-error>-->
         <!--        </mat-form-field>-->
 
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'Email' | translate }} ({{ 'Username' | translate }})</mat-label>
+        <mat-form-field appearance="outline" data-id="4c85f58e">
+          <mat-label data-id="d5ac1eb3"
+            >{{ 'Email' | translate }} ({{ 'Username' | translate }})</mat-label
+          >
           <input
             [formControl]="form.controls['email']"
             matInput
             placeholder="{{ 'Email' | translate }}"
             type="email"
+            data-id="af96a0a5"
           />
-          <mat-icon class="greyIcon" matSuffix>mail</mat-icon>
-          <mat-error *ngIf="form.controls['email'].hasError('required')">
-            {{ 'email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+          <mat-icon class="greyIcon" matSuffix data-id="f6850a61">mail</mat-icon>
+          <mat-error *ngIf="form.controls['email'].hasError('required')" data-id="d3139ed9">
+            {{ 'email' | translate }}
+            <strong data-id="8339fd31">{{ 'is required' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <div class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-70f8f9">
+        <div
+          class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-70f8f9"
+          data-id="8e8a5435"
+        >
           <guajiritos-general-autocomplete
             [withoutPaddingBottom]="false"
             [label]="'Código telefónico'"
@@ -87,24 +114,31 @@
             [url]="phoneCodesService.url"
             [formControl]="form.get('PhoneCallingCodeId')"
             class="flex-sh-30"
+            data-id="8462fc49"
           ></guajiritos-general-autocomplete>
 
-          <mat-form-field appearance="outline" id="phone" class="flex-sh-70 flex-sh-md-70">
-            <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+          <mat-form-field
+            appearance="outline"
+            id="phone"
+            class="flex-sh-70 flex-sh-md-70"
+            data-id="526494b9"
+          >
+            <mat-label data-id="bd8255f3">{{ 'Teléfono celular' | translate }}</mat-label>
             <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
-            <mat-icon class="greyIcon" matSuffix>call</mat-icon>
+            <mat-icon class="greyIcon" matSuffix data-id="80c6f515">call</mat-icon>
             <input
               (keypress)="utilsService.keyPressNumbers($event)"
               [formControl]="form.get('phone')"
               matInput
               autocomplete="off"
               placeholder="{{ 'Teléfono...' | translate }}"
+              data-id="c880e261"
             />
-            <mat-hint *ngIf="form.get('phone').invalid">
+            <mat-hint *ngIf="form.get('phone').invalid" data-id="1a7731c8">
               {{ 'Teléfono es requerido' | translate }}
             </mat-hint>
 
-            <mat-error *ngIf="form.get('phone').hasError('required')">
+            <mat-error *ngIf="form.get('phone').hasError('required')" data-id="4d656c7c">
               {{ 'Teléfono es requerido' | translate }}
             </mat-error>
             <mat-error
@@ -113,8 +147,9 @@
                   form.controls['phone'].hasError('maxlength')) &&
                 !form.controls['phone'].hasError('pattern')
               "
+              data-id="0e3aef1e"
             >
-              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+              {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="6b304491">{{
                 '8 caracteres, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
@@ -125,39 +160,44 @@
                   form.controls['phone'].hasError('maxlength')) &&
                 !form.controls['phone'].hasError('pattern')
               "
+              data-id="39158b1f"
             >
-              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+              {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="29ab298a">{{
                 '8 caracteres, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
           </mat-form-field>
         </div>
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'Documento de identidad' | translate }}</mat-label>
+        <mat-form-field appearance="outline" data-id="2922b127">
+          <mat-label data-id="363a8656">{{ 'Documento de identidad' | translate }}</mat-label>
           <input
             [formControl]="form.controls['ci']"
             matInput
             placeholder="{{ 'Phone' | translate }}"
             type="tel"
             (keypress)="utilsService.keyPressAlphaAndNumbersModIdentity($event)"
+            data-id="933498a0"
           />
-          <mat-icon class="greyIcon" matSuffix>contact_page</mat-icon>
-          <mat-hint>{{
+          <mat-icon class="greyIcon" matSuffix data-id="0129fbd6">contact_page</mat-icon>
+          <mat-hint data-id="d3be6548">{{
             'Formato de documento de identidad de 11 dígitos mínimo' | translate
           }}</mat-hint>
-          <mat-error *ngIf="form.controls['ci'].hasError('required')">
-            {{ 'phone' | translate }} <strong>{{ 'is required' | translate }}</strong>
+          <mat-error *ngIf="form.controls['ci'].hasError('required')" data-id="e6ebbca9">
+            {{ 'phone' | translate }}
+            <strong data-id="1a017eb9">{{ 'is required' | translate }}</strong>
           </mat-error>
-          <mat-error *ngIf="form.controls['ci'].hasError('pattern')">
-            {{ 'Identification' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+          <mat-error *ngIf="form.controls['ci'].hasError('pattern')" data-id="f9c4e885">
+            {{ 'Identification' | translate }}
+            <strong data-id="58ae9cff">{{ 'incorrecto' | translate }}</strong>
           </mat-error>
           <mat-error
             *ngIf="
               form.controls['ci'].hasError('minlength') || form.controls['ci'].hasError('maxlength')
             "
+            data-id="639c6799"
           >
             {{ 'Identification' | translate }}
-            <strong>{{ 'must have 11 characters' | translate }}</strong>
+            <strong data-id="93534c1f">{{ 'must have 11 characters' | translate }}</strong>
           </mat-error>
         </mat-form-field>
         <!-- <mat-form-field appearance="outline">
@@ -222,12 +262,13 @@
     </form>
   </div>
 
-  <div mat-dialog-actions class="d-flex justify-content-end align-items-start">
+  <div mat-dialog-actions class="d-flex justify-content-end align-items-start" data-id="92856895">
     <button
       (click)="onUpdateProfile()"
       [disabled]="this.form.invalid || (isChangePass && this.formPass.invalid)"
       color="primary"
       mat-flat-button
+      data-id="08677f10"
     >
       {{ 'Save' | translate }}
     </button>

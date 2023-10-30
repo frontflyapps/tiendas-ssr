@@ -1,51 +1,66 @@
 <!-- Boton Check Segunda seccion -->
-<div class="d-flex flex-column justify-content-around align-items-center">
+<div class="d-flex flex-column justify-content-around align-items-center" data-id="c9a34400">
   <!-- Cantidad de amigos -->
-  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
-    <div class="d-flex justify-content-start align-items-center flex-sh-5">
-      <div style="font-size: x-large">1.</div>
+  <div
+    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    data-id="c3759386"
+  >
+    <div class="d-flex justify-content-start align-items-center flex-sh-5" data-id="73464a60">
+      <div style="font-size: x-large" data-id="fb2e332d">1.</div>
     </div>
-    <div class="d-flex justify-content-start align-items-center flex-sh-25">
-      <span>{{ 'Usuarios registrados con su enlace:' | translate }}</span>
+    <div class="d-flex justify-content-start align-items-center flex-sh-25" data-id="70221867">
+      <span data-id="dc57ca6f">{{ 'Usuarios registrados con su enlace:' | translate }}</span>
     </div>
-    <div class="d-flex justify-content-end align-items-center flex-sh-15">
-      <button mat-fab color="primary" class="cursorNone" disableRipple>
-        <div style="font-size: x-large">{{ referredUsers ?? 0 }}</div>
+    <div class="d-flex justify-content-end align-items-center flex-sh-15" data-id="b9b671d1">
+      <button mat-fab color="primary" class="cursorNone" disableRipple data-id="bdaef85d">
+        <div style="font-size: x-large" data-id="8ab3aef6">{{ referredUsers ?? 0 }}</div>
       </button>
     </div>
   </div>
 
   <!-- Registrados con mi enlace -->
-  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
-    <div class="d-flex justify-content-start align-items-center flex-sh-5">
-      <div style="font-size: x-large">2.</div>
+  <div
+    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    data-id="cdc5b8ef"
+  >
+    <div class="d-flex justify-content-start align-items-center flex-sh-5" data-id="af362e09">
+      <div style="font-size: x-large" data-id="688b964d">2.</div>
     </div>
-    <div class="d-flex justify-content-start align-items-center flex-sh-25">
-      <span>{{ 'Usuarios que compraron con su enlace:' | translate }}</span>
+    <div class="d-flex justify-content-start align-items-center flex-sh-25" data-id="c909efba">
+      <span data-id="86beb031">{{ 'Usuarios que compraron con su enlace:' | translate }}</span>
     </div>
-    <div class="d-flex justify-content-end align-items-center flex-sh-15">
-      <button mat-fab color="primary" class="cursorNone" disableRipple>
-        <div style="font-size: x-large">{{ paymentUsers ?? 0 }}</div>
+    <div class="d-flex justify-content-end align-items-center flex-sh-15" data-id="42d09273">
+      <button mat-fab color="primary" class="cursorNone" disableRipple data-id="18e51e74">
+        <div style="font-size: x-large" data-id="fa6e22e9">{{ paymentUsers ?? 0 }}</div>
       </button>
     </div>
   </div>
-  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
-    <div class="container-info-text d-flex justify-content-center align-items-center flex-sh-45">
-      <span
+  <div
+    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    data-id="fe15f5fd"
+  >
+    <div
+      class="container-info-text d-flex justify-content-center align-items-center flex-sh-45"
+      data-id="931b7a6a"
+    >
+      <span data-id="685d1153"
         >{{ 'Usted podrá reclamar su premio cuando acumule más de ' | translate }}{{ paymentUsers
         }}{{ ' compras por usuarios' | translate }}</span
       >
     </div>
   </div>
   <!-- Boton Claim -->
-  <div class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center">
-    <div class="d-flex justify-content-between align-items-center flex-sh-45">
-      <div class="d-flex justify-content-center align-items-center">
-        <button mat-stroked-button color="primary" (click)="eventClose.emit()">
+  <div
+    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    data-id="4ac0d35d"
+  >
+    <div class="d-flex justify-content-between align-items-center flex-sh-45" data-id="3f4735b1">
+      <div class="d-flex justify-content-center align-items-center" data-id="82447689">
+        <button mat-stroked-button color="primary" (click)="eventClose.emit()" data-id="1ddf3934">
           {{ 'Atrás' | translate }}
         </button>
       </div>
-      <button mat-flat-button color="primary" (click)="claim()">
+      <button mat-flat-button color="primary" (click)="claim()" data-id="6ef89591">
         {{ 'Reclamar' | translate }}
       </button>
     </div>

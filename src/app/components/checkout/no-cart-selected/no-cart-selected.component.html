@@ -1,6 +1,6 @@
-<mat-dialog-content>
-  <blockquote>
-    <p>
+<mat-dialog-content data-id="9e1a9bc2">
+  <blockquote data-id="8542bcf8">
+    <p data-id="b696aa69">
       {{
         'Usted no ha seleccionado ningún carrito, ni artículo para proceder con el pago, seleccione uno'
           | translate
@@ -8,13 +8,14 @@
     </p>
   </blockquote>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions align="end" data-id="0c98f65a">
   <a
     (click)="this.dialogRef.close()"
     [disabled]="loading"
     [routerLink]="['/cart']"
     color="primary"
     mat-flat-button
+    data-id="bd5038d1"
     >{{ 'ACEPTAR' | translate }}</a
   >
 </mat-dialog-actions>

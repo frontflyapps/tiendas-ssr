@@ -1,4 +1,4 @@
-<div class="brands-items">
+<div class="brands-items" data-id="4ae35db2">
   <mat-checkbox
     (change)="$event ? onChangeSelection(brand.id) : null"
     (click)="$event.stopPropagation()"
@@ -6,9 +6,13 @@
     [checked]="selection.isSelected(brand.id)"
     class="example-radio-button py-1 d-flex-i"
     color="accent"
+    data-id="caf3a290"
   >
-    <span class="mat-body-2" style="color: #757575; font-size: 15px !important">{{
-      brand.name[language] ? brand.name[language] : brand.name['es']
-    }}</span>
+    <span
+      class="mat-body-2"
+      style="color: #757575; font-size: 15px !important"
+      data-id="02860aca"
+      >{{ brand.name[language] ? brand.name[language] : brand.name['es'] }}</span
+    >
   </mat-checkbox>
 </div>

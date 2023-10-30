@@ -1,18 +1,19 @@
-<div class="brands-items">
-  <ul>
-    <li *ngFor="let brand of brands">
+<div class="brands-items" data-id="b800e1f9">
+  <ul data-id="36987ac7">
+    <li *ngFor="let brand of brands" data-id="6b8e8d62">
       <a
         (change)="$event.stopPropagation()"
         (click)="$event ? onChangeSelection(brand.id) : null"
         [class]="selection.isSelected(brand.id) ? 'brand-filter-clicked' : 'brand-filter'"
         href="javascript:void(0)"
+        data-id="af3e8759"
       >
         {{ brand.name[language] ? brand.name[language] : brand.name['es'] }}
       </a>
     </li>
   </ul>
 
-  <p *ngIf="!brands.length" class="m-0" style="text-align: center">
+  <p *ngIf="!brands.length" class="m-0" style="text-align: center" data-id="4a662b26">
     {{ 'No hay ningún elemento' | translate }}
   </p>
 </div>

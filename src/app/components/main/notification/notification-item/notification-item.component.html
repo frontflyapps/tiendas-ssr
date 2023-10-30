@@ -3,36 +3,66 @@
   (mouseleave)="onMouseLeave()"
   *ngIf="this.notificacion.status == 'read'"
   class="NotificationRead"
+  data-id="734887cc"
 >
-  <div class="NotificationBody d-flex justify-content-start align-items-start">
-    <div class="CircleIcon">
+  <div class="NotificationBody d-flex justify-content-start align-items-start" data-id="e39e8ed6">
+    <div class="CircleIcon" data-id="d452ce13">
       <!-- <mat-icon (click)="onClickNotification()" class="IconNavBar">{{this.GetIconofNavBar()}}</mat-icon> -->
-      <mat-icon (click)="onClickNotification()">{{ this.GetIconofNavBar() }}</mat-icon>
+      <mat-icon (click)="onClickNotification()" data-id="848ddf34">{{
+        this.GetIconofNavBar()
+      }}</mat-icon>
     </div>
     <div
       (click)="onClickNotification()"
       class="textNotification d-flex justify-content-start align-items-start"
       style="margin-left: 10px"
+      data-id="476302a3"
     >
-      <span class="mat-body-1"> {{ this.notificacion.message | translate }}</span>
+      <span class="mat-body-1" data-id="84651998">
+        {{ this.notificacion.message | translate }}</span
+      >
     </div>
   </div>
 
-  <div style="padding-left: 57px" class="d-flex justify-content-between align-items-center">
+  <div
+    style="padding-left: 57px"
+    class="d-flex justify-content-between align-items-center"
+    data-id="9b21e51f"
+  >
     <!-- <mat-icon class="iconFecha">date_range</mat-icon> -->
-    <div>
-      <span class="mat-caption">{{ this.notificacion.createdAt | date: 'longDate' }}</span>
-      <button (click)="onEliminarNotification()" *ngIf="showBtnClear" class="ml-2" mat-icon-button>
-        <mat-icon class="mat-18">delete</mat-icon>
+    <div data-id="29dffba8">
+      <span class="mat-caption" data-id="8082e338">{{
+        this.notificacion.createdAt | date: 'longDate'
+      }}</span>
+      <button
+        (click)="onEliminarNotification()"
+        *ngIf="showBtnClear"
+        class="ml-2"
+        mat-icon-button
+        data-id="472f64ba"
+      >
+        <mat-icon class="mat-18" data-id="45af8719">delete</mat-icon>
       </button>
     </div>
 
-    <span class="mat-caption ml-2">
-      <button (click)="onShowDetails()" *ngIf="!expandedElement" class="mat-18" mat-icon-button>
-        <mat-icon>keyboard_arrow_right</mat-icon>
+    <span class="mat-caption ml-2" data-id="8a12f4e4">
+      <button
+        (click)="onShowDetails()"
+        *ngIf="!expandedElement"
+        class="mat-18"
+        mat-icon-button
+        data-id="ad927cf4"
+      >
+        <mat-icon data-id="8b16ec77">keyboard_arrow_right</mat-icon>
       </button>
-      <button (click)="onHideDetails()" *ngIf="expandedElement" class="mat-18" mat-icon-button>
-        <mat-icon>keyboard_arrow_down</mat-icon>
+      <button
+        (click)="onHideDetails()"
+        *ngIf="expandedElement"
+        class="mat-18"
+        mat-icon-button
+        data-id="67ad1091"
+      >
+        <mat-icon data-id="983a377f">keyboard_arrow_down</mat-icon>
       </button>
     </span>
   </div>
@@ -46,30 +76,39 @@
     "
     [@detailExpand]="this.expandedElement ? 'expanded' : 'collapsed'"
     class="LayoutTable px-5 d-flex flex-column justify-content-start align-items-stretch"
+    data-id="c9babbc1"
   >
-    <mat-divider class="my-2"></mat-divider>
-    <div class="w-100 d-flex justify-content-between align-items-center">
-      <div class="d-flex flex-column justify-content-start align-items-start flex-sh-65">
+    <mat-divider class="my-2" data-id="eaa5290c"></mat-divider>
+    <div class="w-100 d-flex justify-content-between align-items-center" data-id="15fb5f31">
+      <div
+        class="d-flex flex-column justify-content-start align-items-start flex-sh-65"
+        data-id="8218a269"
+      >
         <div
           style="width: 100% !important"
           class="d-flex justify-content-between align-items-start"
+          data-id="8801c702"
         >
           <div
             style="margin-top: 2px"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-90"
+            data-id="02d2a385"
           >
-            <span class="mat-caption grey-500">{{ 'Order' | translate }}</span>
-            <span class="mat-body-1" style="text-transform: capitalize">{{ order.order }}</span>
+            <span class="mat-caption grey-500" data-id="914b5c56">{{ 'Order' | translate }}</span>
+            <span class="mat-body-1" style="text-transform: capitalize" data-id="624552ea">{{
+              order.order
+            }}</span>
           </div>
         </div>
 
-        <div class="mb-3 d-flex justify-content-start align-items-center">
+        <div class="mb-3 d-flex justify-content-start align-items-center" data-id="3c25fc26">
           <div
             style="margin-top: 2px"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-100"
+            data-id="800b8891"
           >
-            <span class="mat-caption grey-700">{{ 'Estado' | translate }}</span>
-            <span [class]="this.status[this.order.status].class">
+            <span class="mat-caption grey-700" data-id="7fe4452e">{{ 'Estado' | translate }}</span>
+            <span [class]="this.status[this.order.status].class" data-id="41d024b4">
               {{
                 this.utilsService.parserLanguage(
                   this.status[this.order.status].status,
@@ -81,8 +120,13 @@
         </div>
       </div>
 
-      <div class="d-flex flex-column justify-content-center align-items-center flex-sh-35">
-        <span class="showPrice">{{ order.totalPrice | currency: order.currency }} </span>
+      <div
+        class="d-flex flex-column justify-content-center align-items-center flex-sh-35"
+        data-id="2a7a3d93"
+      >
+        <span class="showPrice" data-id="62615974"
+          >{{ order.totalPrice | currency: order.currency }}
+        </span>
       </div>
     </div>
   </div>
@@ -93,37 +137,65 @@
   (mouseleave)="onMouseLeave()"
   *ngIf="this.notificacion.status == 'not-read'"
   class="NotificationnoRead d-flex flex-column"
+  data-id="f15d3fbf"
 >
-  <div class="mb-3 d-flex justify-content-start align-items-start">
-    <div class="CircleIcon">
-      <mat-icon (click)="onClickNotification()">{{ this.GetIconofNavBar() }}</mat-icon>
+  <div class="mb-3 d-flex justify-content-start align-items-start" data-id="d6350b18">
+    <div class="CircleIcon" data-id="60a6566e">
+      <mat-icon (click)="onClickNotification()" data-id="e15e582d">{{
+        this.GetIconofNavBar()
+      }}</mat-icon>
     </div>
     <div
       (click)="onClickNotification()"
       class="textNotification d-flex justify-content-start align-items-start"
       style="margin-left: 10px"
+      data-id="61c5a5f3"
     >
-      <p class="mat-body-1">
+      <p class="mat-body-1" data-id="2146cd83">
         {{ this.notificacion.message | translate }}
       </p>
     </div>
   </div>
 
-  <div class="mt-4 d-flex justify-content-between align-items-center" style="padding-left: 57px">
+  <div
+    class="mt-4 d-flex justify-content-between align-items-center"
+    style="padding-left: 57px"
+    data-id="7f0e1609"
+  >
     <!-- <mat-icon class="iconFecha">date_range</mat-icon> -->
-    <div>
-      <span class="mat-caption">{{ this.notificacion.createdAt | date: 'longDate' }}</span>
-      <button (click)="onEliminarNotification()" *ngIf="showBtnClear" class="ml-2" mat-icon-button>
-        <mat-icon class="mat-18">delete</mat-icon>
+    <div data-id="1338bc8d">
+      <span class="mat-caption" data-id="9a270349">{{
+        this.notificacion.createdAt | date: 'longDate'
+      }}</span>
+      <button
+        (click)="onEliminarNotification()"
+        *ngIf="showBtnClear"
+        class="ml-2"
+        mat-icon-button
+        data-id="4b9dd18e"
+      >
+        <mat-icon class="mat-18" data-id="45771a80">delete</mat-icon>
       </button>
     </div>
 
-    <span class="mat-caption ml-2">
-      <button (click)="onShowDetails()" *ngIf="!expandedElement" class="mat-18" mat-icon-button>
-        <mat-icon>keyboard_arrow_right</mat-icon>
+    <span class="mat-caption ml-2" data-id="edae564c">
+      <button
+        (click)="onShowDetails()"
+        *ngIf="!expandedElement"
+        class="mat-18"
+        mat-icon-button
+        data-id="01b1064a"
+      >
+        <mat-icon data-id="5efae799">keyboard_arrow_right</mat-icon>
       </button>
-      <button (click)="onHideDetails()" *ngIf="expandedElement" class="mat-18" mat-icon-button>
-        <mat-icon>keyboard_arrow_down</mat-icon>
+      <button
+        (click)="onHideDetails()"
+        *ngIf="expandedElement"
+        class="mat-18"
+        mat-icon-button
+        data-id="23d07366"
+      >
+        <mat-icon data-id="dd6e5186">keyboard_arrow_down</mat-icon>
       </button>
     </span>
   </div>
@@ -132,30 +204,39 @@
     *ngIf="notificacion.type.split('-')[0] == 'payment'"
     [@detailExpand]="this.expandedElement ? 'expanded' : 'collapsed'"
     class="LayoutTable px-5 d-flex flex-column justify-content-start align-items-stretch"
+    data-id="b676564e"
   >
-    <mat-divider class="my-2"></mat-divider>
-    <div class="w-100 d-flex justify-content-between align-items-center">
-      <div class="d-flex flex-column justify-content-start align-items-start flex-sh-65">
+    <mat-divider class="my-2" data-id="b35d583f"></mat-divider>
+    <div class="w-100 d-flex justify-content-between align-items-center" data-id="d37dd0a1">
+      <div
+        class="d-flex flex-column justify-content-start align-items-start flex-sh-65"
+        data-id="dd4973e1"
+      >
         <div
           style="width: 100% !important"
           class="d-flex justify-content-between align-items-start"
+          data-id="3198fad3"
         >
           <div
             style="margin-top: 2px"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-90"
+            data-id="b449f6df"
           >
-            <span class="mat-caption grey-500">{{ 'Order' | translate }}</span>
-            <span class="mat-body-1" style="text-transform: capitalize">{{ order.order }}</span>
+            <span class="mat-caption grey-500" data-id="c0e28c9b">{{ 'Order' | translate }}</span>
+            <span class="mat-body-1" style="text-transform: capitalize" data-id="7db1fb1d">{{
+              order.order
+            }}</span>
           </div>
         </div>
 
-        <div class="mb-2 d-flex justify-content-start align-items-center">
+        <div class="mb-2 d-flex justify-content-start align-items-center" data-id="c851b6ba">
           <div
             style="margin-top: 2px"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-100"
+            data-id="e0d6ec1a"
           >
-            <span class="mat-caption grey-700">{{ 'Estado' | translate }}</span>
-            <span [class]="this.status[this.order?.status]?.class">
+            <span class="mat-caption grey-700" data-id="a8477f09">{{ 'Estado' | translate }}</span>
+            <span [class]="this.status[this.order?.status]?.class" data-id="ce8d0ef7">
               {{
                 this.utilsService.parserLanguage(
                   this.status[this.order?.status]?.status,
@@ -167,8 +248,13 @@
         </div>
       </div>
 
-      <div class="d-flex flex-column justify-content-center align-items-center flex-sh-35">
-        <span class="showPrice">{{ order.totalPrice | currency: order.currency }} </span>
+      <div
+        class="d-flex flex-column justify-content-center align-items-center flex-sh-35"
+        data-id="dc645c84"
+      >
+        <span class="showPrice" data-id="c921e1d5"
+          >{{ order.totalPrice | currency: order.currency }}
+        </span>
       </div>
     </div>
   </div>

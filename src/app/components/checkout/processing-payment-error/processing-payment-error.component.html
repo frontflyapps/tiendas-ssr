@@ -2,48 +2,77 @@
   *ngIf="this.loadingSearch"
   class="loading-shade-full"
   style="background: rgba(0, 0, 0, 0.12) !important"
+  data-id="95396246"
 >
-  <mat-spinner *ngIf="this.loadingSearch" color="primary" diameter="60"></mat-spinner>
+  <mat-spinner
+    *ngIf="this.loadingSearch"
+    color="primary"
+    diameter="60"
+    data-id="14e0cff8"
+  ></mat-spinner>
 </div>
 
-<div class="container">
-  <section class="py-4" style="background-color: #fafafa">
-    <div class="d-flex justify-content-center align-items-center">
-      <span class="py-3" style="text-align: center; color: #616161; font-size: 24px">
+<div class="container" data-id="b1c06025">
+  <section class="py-4" style="background-color: #fafafa" data-id="657d26d1">
+    <div class="d-flex justify-content-center align-items-center" data-id="efa96265">
+      <span
+        class="py-3"
+        style="text-align: center; color: #616161; font-size: 24px"
+        data-id="2a032eed"
+      >
         <mat-icon
           style="text-align: center; color: #616161; font-size: 24px; height: 24px; width: 24px"
+          data-id="d9838b67"
           >attach_money
         </mat-icon>
         {{ 'CANCELACIÓN DE PAGO' | translate }}
       </span>
     </div>
 
-    <div style="height: 2px; background-color: #eeeeee"></div>
+    <div style="height: 2px; background-color: #eeeeee" data-id="e6557689"></div>
 
     <div
       *ngIf="showError"
       class="py-4 d-flex flex-column justify-content-center align-items-center"
+      data-id="256104ff"
     >
-      <div class="d-flex flex-column justify-content-start align-items-center">
-        <img class="mb-3" src="assets/images/logo-accent.png" style="max-height: 80px" />
+      <div class="d-flex flex-column justify-content-start align-items-center" data-id="86777970">
+        <img
+          class="mb-3"
+          src="assets/images/logo-accent.png"
+          style="max-height: 80px"
+          data-id="2e89881e"
+        />
 
-        <h3 style="color: #666768; font-size: 24px; font-weight: 500">{{ 'Ups!' | translate }}</h3>
-        <h1 class="mb-3" style="color: #b5252a; font-size: 20px; text-align: center">
-          <span style="color: #666768; font-size: 20px">{{
+        <h3 style="color: #666768; font-size: 24px; font-weight: 500" data-id="55179cdd">
+          {{ 'Ups!' | translate }}
+        </h3>
+        <h1
+          class="mb-3"
+          style="color: #b5252a; font-size: 20px; text-align: center"
+          data-id="5739f2ca"
+        >
+          <span style="color: #666768; font-size: 20px" data-id="e20b8fc2">{{
             'Cancelación de pago' | translate
           }}</span>
           &nbsp;{{ 'Fallida' | translate }}
         </h1>
 
-        <img class="mb-4 mt-4" src="assets/images/pago_fallido.png" style="max-width: 260px" />
+        <img
+          class="mb-4 mt-4"
+          src="assets/images/pago_fallido.png"
+          style="max-width: 260px"
+          data-id="93bf6a44"
+        />
 
         <a
           [routerLink]="['/checkout']"
           class="mb-3 mt-3 px-4 py-2"
           color="primary"
           mat-raised-button
+          data-id="16ed9f78"
         >
-          <mat-icon class="mr-2">arrow_back</mat-icon>
+          <mat-icon class="mr-2" data-id="a22b4551">arrow_back</mat-icon>
           {{ 'Aceptar' | translate | uppercase }}
         </a>
       </div>
@@ -51,29 +80,45 @@
     <div
       *ngIf="showCancelled"
       class="py-4 d-flex flex-column justify-content-center align-items-center"
+      data-id="86884074"
     >
-      <div class="d-flex flex-column justify-content-start align-items-center">
-        <img class="mb-3" src="/assets/images/logo-accent.png" style="max-height: 80px" />
+      <div class="d-flex flex-column justify-content-start align-items-center" data-id="aecd0d17">
+        <img
+          class="mb-3"
+          src="/assets/images/logo-accent.png"
+          style="max-height: 80px"
+          data-id="930b545e"
+        />
 
-        <h3 style="color: #666768; font-size: 24px; font-weight: 500">
+        <h3 style="color: #666768; font-size: 24px; font-weight: 500" data-id="ff926bd3">
           {{ 'Que lástima!' | translate }}
         </h3>
-        <h1 class="mb-3" style="color: #b5252a; font-size: 20px; text-align: center">
-          <span style="color: #666768; font-size: 20px">{{
+        <h1
+          class="mb-3"
+          style="color: #b5252a; font-size: 20px; text-align: center"
+          data-id="14334f25"
+        >
+          <span style="color: #666768; font-size: 20px" data-id="d3cb5ac8">{{
             'Cancelación de pago' | translate
           }}</span>
           &nbsp;{{ 'Completada' | translate }}
         </h1>
 
-        <img class="mb-3 mt-2" src="assets/images/pago_cancelado.png" style="max-width: 260px" />
+        <img
+          class="mb-3 mt-2"
+          src="assets/images/pago_cancelado.png"
+          style="max-width: 260px"
+          data-id="436ea9a0"
+        />
 
         <a
           [routerLink]="['/checkout']"
           class="mb-3 mt-3 px-4 py-2"
           color="primary"
           mat-raised-button
+          data-id="5ed13060"
         >
-          <mat-icon class="mr-2">arrow_back</mat-icon>
+          <mat-icon class="mr-2" data-id="a1205b51">arrow_back</mat-icon>
           {{ 'Aceptar' | translate | uppercase }}
         </a>
       </div>

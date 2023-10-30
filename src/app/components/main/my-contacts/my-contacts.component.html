@@ -1,52 +1,67 @@
-<div class="dialog-content-wrapper">
-  <mat-toolbar color="primary" id="toolbarHeader" matDialogTitle>
-    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
+<div class="dialog-content-wrapper" data-id="5c74bd9d">
+  <mat-toolbar color="primary" id="toolbarHeader" matDialogTitle data-id="cbb5b61d">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="6472358c">
       {{ 'Mis contactos' | translate }}
-      <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
-        <mat-icon>close</mat-icon>
+      <button
+        (click)="dialogRef.close()"
+        aria-label="Close dialog"
+        mat-icon-button
+        data-id="80e610f2"
+      >
+        <mat-icon data-id="2409e7f3">close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="my-dialog-content flex-sh-100" mat-dialog-content>
+  <div class="my-dialog-content flex-sh-100" mat-dialog-content data-id="059a3d0c">
     <!-- LISTADO DE CONTACTOS -->
-    <ng-container *ngIf="!onCreateContact">
-      <ng-container *ngIf="isLoading; then loading; else contentLoaded"></ng-container>
+    <ng-container *ngIf="!onCreateContact" data-id="2e958c1e">
+      <ng-container
+        *ngIf="isLoading; then loading; else contentLoaded"
+        data-id="9330c7e9"
+      ></ng-container>
 
-      <ng-template #contentLoaded>
+      <ng-template #contentLoaded data-id="ee48c04e">
         <ng-container
           *ngIf="
             contactsService.allContacts.length > 0;
             then thereIsContacts;
             else thereIsNoContacts
           "
+          data-id="76a5ccdc"
         ></ng-container>
       </ng-template>
 
-      <ng-template #thereIsContacts>
-        <div class="d-flex flex-column flex-sh-100">
-          <ng-container *ngFor="let contact of contactsService.allContacts; last as lst">
+      <ng-template #thereIsContacts data-id="9d97490f">
+        <div class="d-flex flex-column flex-sh-100" data-id="61081a2e">
+          <ng-container
+            *ngFor="let contact of contactsService.allContacts; last as lst"
+            data-id="2b96945c"
+          >
             <div
               [ngClass]="{ 'contacts-line-bottom': !lst }"
               class="contact-item d-flex align-items-center flex-sh-100 transpilerClass-fxLayoutGap-b00b5c"
+              data-id="43eb134f"
             >
               <button
                 (click)="onMarkAsFeaturedContact(contact)"
                 *ngIf="!contact.selected"
                 mat-icon-button
                 matTooltip="{{ 'Marcar este contacto como predetermindo' | translate }}"
+                data-id="e5c3f4a6"
               >
-                <mat-icon class="color-grey-700">star_border</mat-icon>
+                <mat-icon class="color-grey-700" data-id="c6a8f65f">star_border</mat-icon>
               </button>
               <button
                 (click)="onMarkAsFeaturedContact(contact)"
                 *ngIf="contact.selected"
                 mat-icon-button
                 matTooltip="{{ 'Desmarcar este contacto como predetermindo' | translate }}"
+                data-id="365926e2"
               >
-                <mat-icon style="color: #ffeb3b !important">star</mat-icon>
+                <mat-icon style="color: #ffeb3b !important" data-id="34e05a9e">star</mat-icon>
               </button>
-              <span class="contact-title flex-sh-NaN"
+              <span class="contact-title flex-sh-NaN" data-id="9ef02e05"
                 >{{ contact?.name }}&nbsp;{{ contact?.lastName }}
               </span>
 
@@ -54,26 +69,31 @@
                 (click)="editContact(contact)"
                 class="item-action d-flex justify-content-center align-items-center flex-sh-NaN"
                 style="cursor: pointer"
+                data-id="e291c357"
               >
-                <mat-icon>edit</mat-icon>
+                <mat-icon data-id="c17faf25">edit</mat-icon>
               </div>
 
               <div
                 (click)="removeContact(contact)"
                 class="item-action d-flex justify-content-center align-items-center flex-sh-NaN"
                 style="cursor: pointer"
+                data-id="acd419db"
               >
-                <mat-icon>delete</mat-icon>
+                <mat-icon data-id="ad030ab0">delete</mat-icon>
               </div>
             </div>
           </ng-container>
         </div>
       </ng-template>
 
-      <ng-template #thereIsNoContacts>
-        <div class="d-flex flex-column justify-content-center align-items-center flex-sh-100">
-          <span>{{ 'No tiene contactos' | translate }}</span>
-          <small>{{
+      <ng-template #thereIsNoContacts data-id="15b223d6">
+        <div
+          class="d-flex flex-column justify-content-center align-items-center flex-sh-100"
+          data-id="218893f3"
+        >
+          <span data-id="fa3818cf">{{ 'No tiene contactos' | translate }}</span>
+          <small data-id="9b3e3f91">{{
             'Esta información se usan para tener acceso rápidos a ella para el pago' | translate
           }}</small>
         </div>
@@ -81,110 +101,145 @@
     </ng-container>
 
     <!-- FORMULARIO DE CRAR UN CONTACTO -->
-    <ng-container *ngIf="onCreateContact">
-      <div [formGroup]="form" class="flex-sh-100">
-        <div class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100">
-          <mat-slide-toggle class="mt-3 mb-3" [formControl]="form.controls['selected']">{{
-            'Marcar como contacto por defecto'
-          }}</mat-slide-toggle>
+    <ng-container *ngIf="onCreateContact" data-id="c48b7bb2">
+      <div [formGroup]="form" class="flex-sh-100" data-id="acb75d92">
+        <div
+          class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100"
+          data-id="a1c23c7b"
+        >
+          <mat-slide-toggle
+            class="mt-3 mb-3"
+            [formControl]="form.controls['selected']"
+            data-id="eed5d2a0"
+            >{{ 'Marcar como contacto por defecto' }}</mat-slide-toggle
+          >
 
-          <mat-form-field appearance="outline">
-            <mat-label>{{ 'Name' | translate }}</mat-label>
+          <mat-form-field appearance="outline" data-id="ec071e2b">
+            <mat-label data-id="b8c682fa">{{ 'Name' | translate }}</mat-label>
             <input
               [formControl]="form.controls['name']"
               matInput
               placeholder="{{ 'Name' | translate }}"
               type="text"
               (keypress)="utilsService.keyPressAlpha($event)"
+              data-id="c523033f"
             />
-            <mat-icon class="greyIcon" matSuffix>person</mat-icon>
-            <mat-error *ngIf="form.controls['name'].hasError('required')">
-              {{ 'Name' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-icon class="greyIcon" matSuffix data-id="8edb82ea">person</mat-icon>
+            <mat-error *ngIf="form.controls['name'].hasError('required')" data-id="26790752">
+              {{ 'Name' | translate }}
+              <strong data-id="282a541b">{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline">
-            <mat-label>{{ 'Apellidos' | translate }}</mat-label>
+          <mat-form-field appearance="outline" data-id="fa6fcc9f">
+            <mat-label data-id="72abb8fb">{{ 'Apellidos' | translate }}</mat-label>
             <input
               [formControl]="form.controls['lastName']"
               matInput
               placeholder="{{ 'Apellidos' | translate }}"
               type="text"
               (keypress)="utilsService.keyPressAlpha($event)"
+              data-id="ddf9d845"
             />
-            <mat-icon class="greyIcon" matSuffix>person</mat-icon>
-            <mat-error *ngIf="form.controls['lastName'].hasError('required')">
-              {{ 'lastName' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-icon class="greyIcon" matSuffix data-id="1076db4c">person</mat-icon>
+            <mat-error *ngIf="form.controls['lastName'].hasError('required')" data-id="d6a5046e">
+              {{ 'lastName' | translate }}
+              <strong data-id="ba9a7a62">{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
 
           <div
             class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-start align-items-center justify-content-xs-start justify-content-sm-start flex-sh-100 transpilerClass-fxLayoutGap-489272 transpilerClass-fxLayoutGap-f92cfd"
+            data-id="5e8b027a"
           >
-            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-xs-100">
-              <mat-label>{{ 'Email' | translate }}</mat-label>
+            <mat-form-field
+              appearance="outline"
+              class="flex-sh-50 flex-sh-xs-100"
+              data-id="0119e67d"
+            >
+              <mat-label data-id="3e3d34f6">{{ 'Email' | translate }}</mat-label>
               <input
                 (keypress)="utilsService.keyLettersNumberForEmail($event)"
                 [formControl]="form.controls['email']"
                 matInput
                 placeholder="{{ 'Email' | translate }}"
                 type="email"
+                data-id="b2cdf504"
               />
-              <mat-icon class="greyIcon" matSuffix>mail</mat-icon>
-              <mat-error *ngIf="form.controls['email'].hasError('required')">
-                {{ 'email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-icon class="greyIcon" matSuffix data-id="c89d13d1">mail</mat-icon>
+              <mat-error *ngIf="form.controls['email'].hasError('required')" data-id="b972773f">
+                {{ 'email' | translate }}
+                <strong data-id="9ab30102">{{ 'is required' | translate }}</strong>
               </mat-error>
               <mat-error
                 *ngIf="
                   form.controls['email'].hasError('email') ||
                   form.controls['email'].hasError('pattern')
                 "
+                data-id="b2e3c83e"
               >
-                {{ 'email' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+                {{ 'email' | translate }}
+                <strong data-id="c681e136">{{ 'incorrecto' | translate }}</strong>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-xs-100">
-              <mat-label>{{ 'Documento de identidad' | translate }}</mat-label>
+            <mat-form-field
+              appearance="outline"
+              class="flex-sh-50 flex-sh-xs-100"
+              data-id="28f92361"
+            >
+              <mat-label data-id="c75a6f49">{{ 'Documento de identidad' | translate }}</mat-label>
               <input
                 (keypress)="utilsService.keyPressAlphaAndNumbersModIdentity($event)"
                 [formControl]="form.controls['identification']"
                 matInput
                 placeholder="{{ 'identification' | translate }}"
                 type="email"
+                data-id="083437ba"
               />
-              <mat-icon class="greyIcon" matSuffix>fact_check</mat-icon>
-              <mat-error *ngIf="form.controls['identification'].hasError('required')">
-                {{ 'Identification' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-icon class="greyIcon" matSuffix data-id="b5199902">fact_check</mat-icon>
+              <mat-error
+                *ngIf="form.controls['identification'].hasError('required')"
+                data-id="276b1bd3"
+              >
+                {{ 'Identification' | translate }}
+                <strong data-id="6b1de507">{{ 'is required' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="form.controls['identification'].hasError('pattern')">
-                {{ 'Identification' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+              <mat-error
+                *ngIf="form.controls['identification'].hasError('pattern')"
+                data-id="85155abe"
+              >
+                {{ 'Identification' | translate }}
+                <strong data-id="6b953471">{{ 'incorrecto' | translate }}</strong>
               </mat-error>
               <mat-error
                 *ngIf="
                   form.controls['identification'].hasError('minlength') ||
                   form.controls['identification'].hasError('maxlength')
                 "
+                data-id="6b40e3aa"
               >
                 {{ 'Identification' | translate }}
-                <strong>{{ 'must have 11 characters' | translate }}</strong>
+                <strong data-id="30e1069d">{{ 'must have 11 characters' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>{{ 'Phone' | translate }}</mat-label>
+          <mat-form-field appearance="outline" data-id="f8edc1da">
+            <mat-label data-id="56654f8a">{{ 'Phone' | translate }}</mat-label>
             <input
               (keypress)="utilsService.keyPressNumbers($event)"
               [formControl]="form.controls['phone']"
               matInput
               placeholder="{{ 'Phone' | translate }}"
               type="tel"
+              data-id="5a42fded"
             />
-            <mat-icon class="greyIcon" matSuffix>ring_volume</mat-icon>
-            <mat-hint>{{ 'Ejemplo, 5 XXX XX XX' | translate }}</mat-hint>
-            <mat-error *ngIf="form.controls['phone'].hasError('required')">
-              {{ 'Phone' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-icon class="greyIcon" matSuffix data-id="92cdace4">ring_volume</mat-icon>
+            <mat-hint data-id="23dda4dc">{{ 'Ejemplo, 5 XXX XX XX' | translate }}</mat-hint>
+            <mat-error *ngIf="form.controls['phone'].hasError('required')" data-id="3190e440">
+              {{ 'Phone' | translate }}
+              <strong data-id="c7b1745d">{{ 'is required' | translate }}</strong>
             </mat-error>
             <mat-error
               *ngIf="
@@ -192,13 +247,14 @@
                   form.controls['phone'].hasError('maxlength')) &&
                 !form.controls['phone'].hasError('pattern')
               "
+              data-id="86e1bdd3"
             >
-              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+              {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="34fedc39">{{
                 '8 caracteres, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
-            <mat-error *ngIf="form.controls['phone'].hasError('pattern')">
-              {{ 'El número' | translate }}&nbsp;<strong>{{
+            <mat-error *ngIf="form.controls['phone'].hasError('pattern')" data-id="5cf7b482">
+              {{ 'El número' | translate }}&nbsp;<strong data-id="bf20d846">{{
                 'debe empezar con 5, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
@@ -217,57 +273,69 @@
             class="mat-body-2 my-2"
             style="text-transform: uppercase"
             title="{{ 'Dirección' | translate }}"
+            data-id="04653ee5"
           >
             {{ 'Dirección' | translate }}
           </p>
-          <div class="d-flex transpilerClass-fxLayoutGap-4d72a8">
-            <mat-form-field appearance="outline" class="flex-sh-80">
-              <mat-label>{{ 'Calle' | translate }}</mat-label>
+          <div class="d-flex transpilerClass-fxLayoutGap-4d72a8" data-id="86f8b7ae">
+            <mat-form-field appearance="outline" class="flex-sh-80" data-id="bd98b79b">
+              <mat-label data-id="b05b03ff">{{ 'Calle' | translate }}</mat-label>
               <input
                 [formControl]="form.controls['street']"
                 matInput
                 placeholder="{{ 'Calle' | translate }}"
                 type="text"
+                data-id="bede08a7"
               />
-              <mat-icon class="greyIcon" matSuffix>my_location</mat-icon>
-              <mat-error *ngIf="form.controls['street'].hasError('required')">
-                {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-icon class="greyIcon" matSuffix data-id="041b25ae">my_location</mat-icon>
+              <mat-error *ngIf="form.controls['street'].hasError('required')" data-id="db49476c">
+                {{ 'Calle' | translate }}
+                <strong data-id="4bf8cda0">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline" class="flex-sh-20">
-              <mat-label>{{ 'Number' | translate }}</mat-label>
+            <mat-form-field appearance="outline" class="flex-sh-20" data-id="b4b5160a">
+              <mat-label data-id="5b161e01">{{ 'Number' | translate }}</mat-label>
               <input
                 [formControl]="form.controls['number']"
                 matInput
                 placeholder="{{ 'Number' | translate }}"
                 type="text"
+                data-id="3cdef56d"
               />
-              <mat-icon class="greyIcon" matSuffix>my_location</mat-icon>
-              <mat-error *ngIf="form.controls['number'].hasError('required')">
-                {{ 'Number' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-icon class="greyIcon" matSuffix data-id="f59e29c1">my_location</mat-icon>
+              <mat-error *ngIf="form.controls['number'].hasError('required')" data-id="da729b84">
+                {{ 'Number' | translate }}
+                <strong data-id="87ab6746">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
-          <mat-form-field appearance="outline">
-            <mat-label>{{ 'Entre calles' | translate }}</mat-label>
+          <mat-form-field appearance="outline" data-id="c19d63a8">
+            <mat-label data-id="736448fa">{{ 'Entre calles' | translate }}</mat-label>
             <input
               [formControl]="form.controls['between']"
               matInput
               placeholder="{{ 'Entre calles' | translate }}"
               type="text"
+              data-id="c64ccf94"
             />
-            <mat-icon class="greyIcon" matSuffix>my_location</mat-icon>
-            <mat-error *ngIf="form.controls['between'].hasError('required')">
-              {{ 'Entre' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-icon class="greyIcon" matSuffix data-id="1a73cc43">my_location</mat-icon>
+            <mat-error *ngIf="form.controls['between'].hasError('required')" data-id="06d6a3e4">
+              {{ 'Entre' | translate }}
+              <strong data-id="e2f9a171">{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
 
           <!-- SOLO PARA CUBANOS -->
           <div
             class="d-flex d-sm-flex flex-column flex-sm-column justify-content-between align-items-center justify-content-start justify-content-sm-start transpilerClass-fxLayoutGap-5cbc40 transpilerClass-fxLayoutGap-b7f2a7"
+            data-id="cc27fb75"
           >
-            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-              <mat-label>{{ 'Provincia' | translate }}</mat-label>
+            <mat-form-field
+              appearance="outline"
+              class="flex-sh-50 flex-sh-md-100"
+              data-id="d0db0495"
+            >
+              <mat-label data-id="890dc2e1">{{ 'Provincia' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="onSelectProvince($event.value)"
                 [compareWith]="compareById"
@@ -275,31 +343,53 @@
                 placeholder="{{ 'Nombre de la provincia' | translate }}"
                 required
                 type="text"
+                data-id="e3927605"
               >
-                <mat-option *ngFor="let province of allProvinces" [value]="province.id">
+                <mat-option
+                  *ngFor="let province of allProvinces"
+                  [value]="province.id"
+                  data-id="ba56e905"
+                >
                   {{ province.name }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="form.controls['ProvinceId'].hasError('required')">
-                {{ 'Provincia' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="form.controls['ProvinceId'].hasError('required')"
+                data-id="c4872121"
+              >
+                {{ 'Provincia' | translate }}
+                <strong data-id="9b4dd49c">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-              <mat-label>{{ 'Municipio' | translate }}</mat-label>
+            <mat-form-field
+              appearance="outline"
+              class="flex-sh-50 flex-sh-md-100"
+              data-id="6a78a97f"
+            >
+              <mat-label data-id="34fcfec2">{{ 'Municipio' | translate }}</mat-label>
               <mat-select
                 [compareWith]="compareById"
                 [formControl]="form.controls['MunicipalityId']"
                 placeholder="{{ 'Nombre del Municipio' | translate }}"
                 required
                 type="text"
+                data-id="1c1dc427"
               >
-                <mat-option *ngFor="let municipio of municipalities" [value]="municipio.id">
+                <mat-option
+                  *ngFor="let municipio of municipalities"
+                  [value]="municipio.id"
+                  data-id="b012b2ba"
+                >
                   {{ municipio.name }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="form.controls['MunicipalityId'].hasError('required')">
-                {{ 'Municipio' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="form.controls['MunicipalityId'].hasError('required')"
+                data-id="9943d613"
+              >
+                {{ 'Municipio' | translate }}
+                <strong data-id="6101fc07">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -308,18 +398,23 @@
     </ng-container>
   </div>
 
-  <ng-container *ngIf="!onCreateContact">
-    <div mat-dialog-actions align="end" class="d-flex justify-content-end align-items-start">
-      <button (click)="onCreateContactFn()" color="primary" mat-flat-button>
-        <mat-icon>add</mat-icon>
+  <ng-container *ngIf="!onCreateContact" data-id="b4447bed">
+    <div
+      mat-dialog-actions
+      align="end"
+      class="d-flex justify-content-end align-items-start"
+      data-id="dca9f316"
+    >
+      <button (click)="onCreateContactFn()" color="primary" mat-flat-button data-id="293dd05d">
+        <mat-icon data-id="d9cabf3d">add</mat-icon>
         {{ 'Nuevo' | translate }}
       </button>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="onCreateContact">
-    <div mat-dialog-actions class="d-flex justify-content-end align-items-start">
-      <button (click)="onSetBack()" color="primary" mat-flat-button>
+  <ng-container *ngIf="onCreateContact" data-id="368e9cdb">
+    <div mat-dialog-actions class="d-flex justify-content-end align-items-start" data-id="f88dd392">
+      <button (click)="onSetBack()" color="primary" mat-flat-button data-id="588db3b0">
         {{ 'Atrás' | translate }}
       </button>
       <button
@@ -327,6 +422,7 @@
         [disabled]="this.form.invalid"
         color="primary"
         mat-flat-button
+        data-id="0dadd959"
       >
         {{ 'Save' | translate }}
       </button>
@@ -334,11 +430,12 @@
   </ng-container>
 </div>
 
-<ng-template #loading>
+<ng-template #loading data-id="66b67439">
   <div
     class="d-flex justify-content-center align-items-center flex-sh-100 transpilerClass-fxLayoutGap-f16096"
+    data-id="02f3257a"
   >
-    <span>{{ 'Cargando...' | translate }}</span>
-    <mat-spinner diameter="16"></mat-spinner>
+    <span data-id="933e68d5">{{ 'Cargando...' | translate }}</span>
+    <mat-spinner diameter="16" data-id="f7141516"></mat-spinner>
   </div>
 </ng-template>

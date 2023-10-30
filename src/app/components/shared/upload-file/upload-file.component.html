@@ -1,23 +1,24 @@
-<div class="my-3 d-flex flex-column justify-content-start align-items-stretch">
-  <div class="d-flex flex-column justify-content-between align-items-center">
-    <span class="my-3" *ngIf="!this.files.length">{{ label }}</span>
+<div class="my-3 d-flex flex-column justify-content-start align-items-stretch" data-id="563d54d8">
+  <div class="d-flex flex-column justify-content-between align-items-center" data-id="10bc5de4">
+    <span class="my-3" *ngIf="!this.files.length" data-id="0b8975ba">{{ label }}</span>
 
-    <ng-container *ngIf="this.files.length">
-      <ng-container *ngIf="multiple; else elseTemplate">
-        <span class="my-3"
+    <ng-container *ngIf="this.files.length" data-id="382f930c">
+      <ng-container *ngIf="multiple; else elseTemplate" data-id="c76f02ce">
+        <span class="my-3" data-id="53158cac"
           >{{ this.files.length }} {{ 'fichero(s) seleccionado(s)' | translate }}</span
         >
       </ng-container>
 
-      <ng-template #elseTemplate>
-        <span class="my-3">
-          {{ this.files[0].data.name }}<b>({{ this.files[0].data.size / 1000 }}Kb)</b>
+      <ng-template #elseTemplate data-id="cf86e723">
+        <span class="my-3" data-id="a41ac31c">
+          {{ this.files[0].data.name
+          }}<b data-id="34629045">({{ this.files[0].data.size / 1000 }}Kb)</b>
         </span>
       </ng-template>
     </ng-container>
 
-    <button mat-raised-button color="primary" (click)="onClick()">
-      <mat-icon>file_upload</mat-icon>
+    <button mat-raised-button color="primary" (click)="onClick()" data-id="aeed90da">
+      <mat-icon data-id="851f1990">file_upload</mat-icon>
       {{ multiple ? 'Seleccionar Ficheros' : ('Seleccionar Fichero' | translate) }}
     </button>
   </div>
@@ -30,5 +31,6 @@
     name="fileUpload"
     style="display: none"
     [accept]="fileTypes"
+    data-id="839bcec7"
   />
 </div>

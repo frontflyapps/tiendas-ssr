@@ -1,11 +1,12 @@
-<div class="brands-items">
-  <div class="d-flex justify-content-start align-items-start">
+<div class="brands-items" data-id="694bc59e">
+  <div class="d-flex justify-content-start align-items-start" data-id="175e889a">
     <button
       (click)="getChildCategories(this.lastCategoryId)"
       *ngIf="!this.isRootLevel"
       mat-icon-button
+      data-id="8408204e"
     >
-      <mat-icon>arrow_back</mat-icon>
+      <mat-icon data-id="dd4f6148">arrow_back</mat-icon>
     </button>
   </div>
 
@@ -17,11 +18,13 @@
     class="example-radio-button py-1 layoutCheck d-flex justify-content-start align-items-center"
     style="display: flex"
     color="accent"
+    data-id="c67feff9"
   >
     <p
       [matTooltip]="category.name[language] ? category.name[language] : category.name['es']"
       class="mat-body-2 m-0"
       style="color: #757575; font-size: 15px !important"
+      data-id="11e53f2c"
     >
       {{ this.showNameCategory(category) }}
     </p>
@@ -31,11 +34,12 @@
       class="clearChipBtn"
       mat-icon-button
       style="color: #757575; background-color: #bdbdbd"
+      data-id="6b9b5fbc"
     >
-      <mat-icon>keyboard_arrow_right</mat-icon>
+      <mat-icon data-id="d13f88e1">keyboard_arrow_right</mat-icon>
     </button>
   </mat-checkbox>
-  <p *ngIf="!categories.length" class="m-0" style="text-align: center">
+  <p *ngIf="!categories.length" class="m-0" style="text-align: center" data-id="014355fb">
     {{ 'No hay ningún elemento' | translate }}
   </p>
 </div>

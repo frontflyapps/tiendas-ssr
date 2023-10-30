@@ -1,32 +1,36 @@
-<form [formGroup]="form" *ngIf="this.businessConfig?.cancelType === 'normal'">
-  <mat-dialog-content>
-    <h2>{{ 'Cancelar Pago' | translate }}</h2>
+<form [formGroup]="form" *ngIf="this.businessConfig?.cancelType === 'normal'" data-id="f8363eef">
+  <mat-dialog-content data-id="70b51339">
+    <h2 data-id="aa983d90">{{ 'Cancelar Pago' | translate }}</h2>
 
-    <div class="d-flex flex-column justify-content-start align-items-stretch">
-      <blockquote>
-        <p>{{ cancellationText }}</p>
+    <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="a9f1f1c6">
+      <blockquote data-id="b7e9fe67">
+        <p data-id="2ee9fdbb">{{ cancellationText }}</p>
       </blockquote>
 
-      <span class="my-2" style="font-weight: 600"
+      <span class="my-2" style="font-weight: 600" data-id="a7991011"
         >{{ 'Penalty for cancellation policies' | translate | uppercase }}:
-        <span *ngIf="ruleApply" class="color-cancellation">
+        <span *ngIf="ruleApply" class="color-cancellation" data-id="3295f2d1">
           {{ ruleApply?.value }} {{ '%' }}</span
         ></span
       >
 
-      <span style="font-weight: 600"
+      <span style="font-weight: 600" data-id="4089810f"
         >{{ 'Full refund' | translate | uppercase }}:
-        <span *ngIf="refund" class="color-cancellation">
+        <span *ngIf="refund" class="color-cancellation" data-id="00d02249">
           {{ refund | currency: this.order.currency }}</span
         ></span
       >
 
-      <ng-container *ngIf="order.status == 'confirmed'">
-        <p class="mat-body-2 uppercase py-2">
+      <ng-container *ngIf="order.status == 'confirmed'" data-id="b565b050">
+        <p class="mat-body-2 uppercase py-2" data-id="488bf24e">
           {{ 'Comentario respecto a la cancelación' | translate }}
         </p>
-        <mat-form-field appearance="outline" class="example-full-width flex-sh-100">
-          <mat-label>{{ 'Comentario' | translate }}</mat-label>
+        <mat-form-field
+          appearance="outline"
+          class="example-full-width flex-sh-100"
+          data-id="d01b033b"
+        >
+          <mat-label data-id="afa8384c">{{ 'Comentario' | translate }}</mat-label>
           <textarea
             [formControl]="form.controls['cancelNote']"
             autocomplete="false"
@@ -36,52 +40,66 @@
             required
             rows="4"
             type="text"
+            data-id="16e6fcd5"
           ></textarea>
         </mat-form-field>
       </ng-container>
 
-      <ng-container>
-        <p class="mat-body-2 uppercase mb-1">
+      <ng-container data-id="5b427c19">
+        <p class="mat-body-2 uppercase mb-1" data-id="98b1f5a4">
           {{ 'Cancellation policies' | translate }}
         </p>
-        <mat-card class="mat-elevation-z0">
-          <div class="responsive_table">
-            <table [dataSource]="dataSource" mat-table>
-              <ng-container matColumnDef="minHour">
-                <th *matHeaderCellDef mat-header-cell style="width: 10%">
-                  <span class="mat-caption">{{ 'Desde' | translate }}</span>
+        <mat-card class="mat-elevation-z0" data-id="9756643d">
+          <div class="responsive_table" data-id="b9be7e86">
+            <table [dataSource]="dataSource" mat-table data-id="96c8ac6e">
+              <ng-container matColumnDef="minHour" data-id="1b0aeb55">
+                <th *matHeaderCellDef mat-header-cell style="width: 10%" data-id="f3e3f9e2">
+                  <span class="mat-caption" data-id="2e9a0e1b">{{ 'Desde' | translate }}</span>
                 </th>
-                <td *matCellDef="let element" mat-cell>
-                  <span class="mat-body-2">{{ element?.minHour }} {{ 'h' }}</span>
+                <td *matCellDef="let element" mat-cell data-id="cb095f10">
+                  <span class="mat-body-2" data-id="8214d623"
+                    >{{ element?.minHour }} {{ 'h' }}</span
+                  >
                 </td>
               </ng-container>
 
-              <ng-container matColumnDef="maxHour">
-                <th *matHeaderCellDef mat-header-cell style="width: 10%">
-                  <span class="mat-caption">{{ 'Hasta' | translate }}</span>
+              <ng-container matColumnDef="maxHour" data-id="2c22cabd">
+                <th *matHeaderCellDef mat-header-cell style="width: 10%" data-id="05eb1b6d">
+                  <span class="mat-caption" data-id="26c9cc67">{{ 'Hasta' | translate }}</span>
                 </th>
-                <td *matCellDef="let element" mat-cell>
-                  <span class="mat-body-2">{{ element?.maxHour }} {{ 'h' }}</span>
+                <td *matCellDef="let element" mat-cell data-id="2f49cb4a">
+                  <span class="mat-body-2" data-id="e88b5da6"
+                    >{{ element?.maxHour }} {{ 'h' }}</span
+                  >
                 </td>
               </ng-container>
 
-              <ng-container matColumnDef="value">
-                <th *matHeaderCellDef mat-header-cell style="width: 10%">
-                  <span class="mat-caption">{{ 'Valor' | translate }}</span>
+              <ng-container matColumnDef="value" data-id="7ca6a6ea">
+                <th *matHeaderCellDef mat-header-cell style="width: 10%" data-id="4a425703">
+                  <span class="mat-caption" data-id="6f2ff285">{{ 'Valor' | translate }}</span>
                 </th>
-                <td *matCellDef="let element" mat-cell>
-                  <span class="mat-body-2">{{ element?.value }} {{ '%' }}</span>
+                <td *matCellDef="let element" mat-cell data-id="195a8cc9">
+                  <span class="mat-body-2" data-id="29e76986">{{ element?.value }} {{ '%' }}</span>
                 </td>
               </ng-container>
 
-              <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
-              <tr *matRowDef="let row; columns: displayedColumns" class="rowData" mat-row></tr>
+              <tr
+                *matHeaderRowDef="displayedColumns; sticky: true"
+                mat-header-row
+                data-id="91868bed"
+              ></tr>
+              <tr
+                *matRowDef="let row; columns: displayedColumns"
+                class="rowData"
+                mat-row
+                data-id="0570a2bf"
+              ></tr>
             </table>
           </div>
         </mat-card>
 
-        <mat-checkbox *ngIf="ruleApply" [formControl]="form.controls['rule']">
-          <span class="mat-body-2">{{
+        <mat-checkbox *ngIf="ruleApply" [formControl]="form.controls['rule']" data-id="9a01a626">
+          <span class="mat-body-2" data-id="bee52c93">{{
             'Accept our cancellation policies' | translate | uppercase
           }}</span>
         </mat-checkbox>
@@ -92,12 +110,13 @@
       class="spinerLoad"
       color="primary"
       diameter="80"
+      data-id="d18c00c4"
     ></mat-spinner>
   </mat-dialog-content>
 
-  <mat-dialog-actions>
-    <div class="d-flex justify-content-end align-items-center flex-sh-100">
-      <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button>
+  <mat-dialog-actions data-id="0d975e8e">
+    <div class="d-flex justify-content-end align-items-center flex-sh-100" data-id="2dc74ef7">
+      <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button data-id="21140fef">
         {{ 'CERRAR' | translate }}
       </button>
       <button
@@ -107,6 +126,7 @@
         class="mr-2"
         color="warn"
         mat-stroked-button
+        data-id="96742d0d"
       >
         {{ 'CANCELAR ORDEN' | translate }}
       </button>
@@ -116,73 +136,88 @@
         class="mr-2"
         color="primary"
         mat-flat-button
+        data-id="bf9b05e0"
       >
         {{ 'ACEPTAR' | translate }}
       </button>
     </div>
   </mat-dialog-actions>
 </form>
-<form *ngIf="this.businessConfig?.cancelType === 'byEmail'">
-  <mat-dialog-content>
-    <h2>{{ 'Cancelar Pago' | translate }}</h2>
+<form *ngIf="this.businessConfig?.cancelType === 'byEmail'" data-id="72163195">
+  <mat-dialog-content data-id="b58b8236">
+    <h2 data-id="999a7099">{{ 'Cancelar Pago' | translate }}</h2>
 
-    <div class="d-flex flex-column justify-content-start align-items-stretch">
-      <blockquote>
-        <p>
-          {{ cancellationByEmailText }} <strong>{{ this.order.Business.email }}.</strong>
+    <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="7c19c9da">
+      <blockquote data-id="0a07b868">
+        <p data-id="03842f48">
+          {{ cancellationByEmailText }}
+          <strong data-id="40ea7900">{{ this.order.Business.email }}.</strong>
         </p>
       </blockquote>
 
-      <span class="my-2" style="font-weight: 600"
+      <span class="my-2" style="font-weight: 600" data-id="edffc63a"
         >{{ 'Penalty for cancellation policies' | translate | uppercase }}:
-        <span *ngIf="ruleApply" class="color-cancellation">
+        <span *ngIf="ruleApply" class="color-cancellation" data-id="7557bc40">
           {{ ruleApply?.value }} {{ '%' }}</span
         ></span
       >
 
-      <span style="font-weight: 600"
+      <span style="font-weight: 600" data-id="6b635134"
         >{{ 'Full refund' | translate | uppercase }}:
-        <span *ngIf="refund" class="color-cancellation">
+        <span *ngIf="refund" class="color-cancellation" data-id="f731bbf6">
           {{ refund | currency: this.order.currency }}</span
         ></span
       >
 
-      <ng-container>
-        <p class="mat-body-2 uppercase mb-1">
+      <ng-container data-id="787cb7ea">
+        <p class="mat-body-2 uppercase mb-1" data-id="9a01776f">
           {{ 'Cancellation policies' | translate }}
         </p>
-        <mat-card class="mat-elevation-z0">
-          <div class="responsive_table">
-            <table [dataSource]="dataSource" mat-table>
-              <ng-container matColumnDef="minHour">
-                <th *matHeaderCellDef mat-header-cell style="width: 10%">
-                  <span class="mat-caption">{{ 'Desde' | translate }}</span>
+        <mat-card class="mat-elevation-z0" data-id="a3030967">
+          <div class="responsive_table" data-id="077bf6ed">
+            <table [dataSource]="dataSource" mat-table data-id="c93a7713">
+              <ng-container matColumnDef="minHour" data-id="369cd1e1">
+                <th *matHeaderCellDef mat-header-cell style="width: 10%" data-id="5caa7270">
+                  <span class="mat-caption" data-id="6d7ccfe8">{{ 'Desde' | translate }}</span>
                 </th>
-                <td *matCellDef="let element" mat-cell>
-                  <span class="mat-body-2">{{ element?.minHour }} {{ 'h' }}</span>
+                <td *matCellDef="let element" mat-cell data-id="9b0b5115">
+                  <span class="mat-body-2" data-id="3716e815"
+                    >{{ element?.minHour }} {{ 'h' }}</span
+                  >
                 </td>
               </ng-container>
 
-              <ng-container matColumnDef="maxHour">
-                <th *matHeaderCellDef mat-header-cell style="width: 10%">
-                  <span class="mat-caption">{{ 'Hasta' | translate }}</span>
+              <ng-container matColumnDef="maxHour" data-id="12b29de8">
+                <th *matHeaderCellDef mat-header-cell style="width: 10%" data-id="958719c4">
+                  <span class="mat-caption" data-id="4f8c65ab">{{ 'Hasta' | translate }}</span>
                 </th>
-                <td *matCellDef="let element" mat-cell>
-                  <span class="mat-body-2">{{ element?.maxHour }} {{ 'h' }}</span>
+                <td *matCellDef="let element" mat-cell data-id="3c9a7dfc">
+                  <span class="mat-body-2" data-id="7797d1a6"
+                    >{{ element?.maxHour }} {{ 'h' }}</span
+                  >
                 </td>
               </ng-container>
 
-              <ng-container matColumnDef="value">
-                <th *matHeaderCellDef mat-header-cell style="width: 10%">
-                  <span class="mat-caption">{{ 'Valor' | translate }}</span>
+              <ng-container matColumnDef="value" data-id="00a0de9d">
+                <th *matHeaderCellDef mat-header-cell style="width: 10%" data-id="00a1e7cc">
+                  <span class="mat-caption" data-id="3a13b6de">{{ 'Valor' | translate }}</span>
                 </th>
-                <td *matCellDef="let element" mat-cell>
-                  <span class="mat-body-2">{{ element?.value }} {{ '%' }}</span>
+                <td *matCellDef="let element" mat-cell data-id="9bc5d986">
+                  <span class="mat-body-2" data-id="d651cc44">{{ element?.value }} {{ '%' }}</span>
                 </td>
               </ng-container>
 
-              <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
-              <tr *matRowDef="let row; columns: displayedColumns" class="rowData" mat-row></tr>
+              <tr
+                *matHeaderRowDef="displayedColumns; sticky: true"
+                mat-header-row
+                data-id="12dd166d"
+              ></tr>
+              <tr
+                *matRowDef="let row; columns: displayedColumns"
+                class="rowData"
+                mat-row
+                data-id="962d4f6a"
+              ></tr>
             </table>
           </div>
         </mat-card>
@@ -193,12 +228,13 @@
       class="spinerLoad"
       color="primary"
       diameter="80"
+      data-id="7cf44a0f"
     ></mat-spinner>
   </mat-dialog-content>
 
-  <mat-dialog-actions>
-    <div class="d-flex justify-content-end align-items-center flex-sh-100">
-      <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button>
+  <mat-dialog-actions data-id="20c80b65">
+    <div class="d-flex justify-content-end align-items-center flex-sh-100" data-id="e7e5feec">
+      <button class="mr-2" color="primary" mat-dialog-close mat-stroked-button data-id="c377ac0e">
         {{ 'CERRAR' | translate }}
       </button>
     </div>

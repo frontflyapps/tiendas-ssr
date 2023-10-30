@@ -1,11 +1,15 @@
-<ng-container *ngIf="popularProducts.length > 0">
-  <div class="popular-products d-flex flex-column" ngClass.gt-md="m-0">
-    <div class="title-header">
-      <h4 class="title">{{ 'POPULAR PRODUCTS' | translate }}</h4>
+<ng-container *ngIf="popularProducts.length > 0" data-id="6bad6f71">
+  <div class="popular-products d-flex flex-column" ngClass.gt-md="m-0" data-id="bc6b0fe4">
+    <div class="title-header" data-id="b19aed28">
+      <h4 class="title" data-id="6be9b5ae">{{ 'POPULAR PRODUCTS' | translate }}</h4>
     </div>
-    <mat-list class="reviews">
-      <mat-list-item *ngFor="let product of popularProducts.slice(0, 3)" class="content">
-        <div class="media">
+    <mat-list class="reviews" data-id="11c7563a">
+      <mat-list-item
+        *ngFor="let product of popularProducts.slice(0, 3)"
+        class="content"
+        data-id="2b7d861b"
+      >
+        <div class="media" data-id="508d7cc4">
           <a
             [queryParams]="{
               productId: product.id,
@@ -15,6 +19,7 @@
             }"
             [routerLink]="['/product']"
             style="width: 100%; height: 100%"
+            data-id="edb99ef6"
           >
             <img
               *ngIf="product.Images && product.Images.length"
@@ -22,6 +27,7 @@
               alt
               class="img-fluid"
               lazyImg
+              data-id="1008797a"
             />
             <img
               *ngIf="!(product.Images && product.Images.length)"
@@ -29,10 +35,11 @@
               class="img-fluid"
               lazyImg
               src="assets/images/noImage.jpg"
+              data-id="213ace5f"
             />
           </a>
         </div>
-        <div class="info" style="text-align: left !important">
+        <div class="info" style="text-align: left !important" data-id="3addde85">
           <a
             [queryParams]="{
               productId: product.id,
@@ -42,8 +49,9 @@
             }"
             [routerLink]="['/product']"
             class="title"
+            data-id="ad9e66f2"
           >
-            <h5 class="m-0">
+            <h5 class="m-0" data-id="ec64d5ae">
               <a
                 [queryParams]="{
                   productId: product.id,
@@ -53,17 +61,21 @@
                 }"
                 [routerLink]="['/product']"
                 class="link-nav-a"
+                data-id="75ea8ccd"
                 >{{ product.name[language] ? product.name[language] : product.name['es'] }}</a
               >
             </h5>
           </a>
-          <div class="mt-2">
+          <div class="mt-2" data-id="c5732a76">
             <guajiritos-rating
               [config]="{ readOnly: true }"
               [value]="product.rating"
+              data-id="eb148838"
             ></guajiritos-rating>
           </div>
-          <p class="price">{{ product.price | currency: currencyService.getCurrency().code }}</p>
+          <p class="price" data-id="806eba77">
+            {{ product.price | currency: currencyService.getCurrency().code }}
+          </p>
         </div>
       </mat-list-item>
     </mat-list>

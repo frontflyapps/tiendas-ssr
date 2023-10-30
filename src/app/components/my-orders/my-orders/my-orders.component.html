@@ -1,5 +1,5 @@
-<div class="container-order-list">
-  <div class="d-flex flex-column justify-content-start align-items-stretch">
+<div class="container-order-list" data-id="d0ef1aeb">
+  <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="172fa819">
     <!-- <section id="searchFilter" ngClass.gt-md="px-4">
 
     </section> -->
@@ -7,58 +7,82 @@
     <div
       class="py-4 d-flex flex-column justify-content-start align-items-stretch"
       ngClass.lt-md="py-0"
+      data-id="d52937c3"
     >
-      <mat-drawer-container class="MatDrawer">
+      <mat-drawer-container class="MatDrawer" data-id="b6fce9a3">
         <mat-drawer
           #drawer
           [mode]="'side'"
           [opened]="!isHandset"
           class="DrawerContent"
           fixedInViewport="true"
+          data-id="231b2bd8"
         >
-          <div class="d-flex flex-column justify-content-start align-items-stretch">
-            <mat-tab-group mat-align-tabs="center">
-              <mat-tab label="{{ 'ORDERS' | translate }}">
-                <div class="my-2 d-flex justify-content-center align-items-center">
-                  <form class="mobile-search d-flex justify-content-start align-items-center">
+          <div
+            class="d-flex flex-column justify-content-start align-items-stretch"
+            data-id="1ee060b3"
+          >
+            <mat-tab-group mat-align-tabs="center" data-id="66424ffc">
+              <mat-tab label="{{ 'ORDERS' | translate }}" data-id="77766fcb">
+                <div
+                  class="my-2 d-flex justify-content-center align-items-center"
+                  data-id="7b89485e"
+                >
+                  <form
+                    class="mobile-search d-flex justify-content-start align-items-center"
+                    data-id="2977d13c"
+                  >
                     <input
                       [formControl]="formSearch.get('filterText')"
                       placeholder="{{ 'Type to search...' | translate }}"
                       type="search"
                       class="flex-sh-0"
+                      data-id="18d31ab5"
                     />
-                    <button (click)="onFilter()" type="submit">
-                      <mat-icon> search</mat-icon>
+                    <button (click)="onFilter()" type="submit" data-id="072946a2">
+                      <mat-icon data-id="bf41a096"> search</mat-icon>
                     </button>
                   </form>
                 </div>
 
-                <mat-list *ngIf="allOrders?.length && !loadingSearch">
+                <mat-list *ngIf="allOrders?.length && !loadingSearch" data-id="d9c2d49b">
                   <mat-list-item
                     (click)="onSelectOrder(item)"
                     *ngFor="let item of allOrders"
                     [ngClass]="{ selectedListItem: selectedOrder && item.id === selectedOrder.id }"
                     class="listItem"
                     matRipple
+                    data-id="57a1470e"
                   >
-                    <mat-icon class="color-grey-800"> shopping_cart</mat-icon>
+                    <mat-icon class="color-grey-800" data-id="70332ac5"> shopping_cart</mat-icon>
 
-                    <div class="w-100 py-2 d-flex justify-content-between align-items-center">
+                    <div
+                      class="w-100 py-2 d-flex justify-content-between align-items-center"
+                      data-id="befa7a29"
+                    >
                       <div
                         class="pl-3 d-flex flex-column justify-content-start align-items-start flex-sh-60 flex-sh-sm-100"
+                        data-id="74ec0465"
                       >
-                        <div class="d-flex justify-content-start align-items-center">
-                          <span class="mat-title mb-0" style="font-size: 17px">
+                        <div
+                          class="d-flex justify-content-start align-items-center"
+                          data-id="73f9afbc"
+                        >
+                          <span class="mat-title mb-0" style="font-size: 17px" data-id="411fa4af">
                             {{ item.PaymentItems.length + 'x' }}
                             {{ ' types of product' | translate }}
                           </span>
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                          <span class="mat-body-1 color-grey-700">
+                        <div
+                          class="d-flex justify-content-between align-items-center"
+                          data-id="8eff1825"
+                        >
+                          <span class="mat-body-1 color-grey-700" data-id="0db786b2">
                             <span
                               [style.color]="this.status[item.status]?.primary"
                               class="mat-body-1"
+                              data-id="01270155"
                               >{{
                                 this.utilsService.parserLanguage(
                                   this.status[item.status].status,
@@ -73,6 +97,7 @@
                           class="mat-body-1 color-grey-700"
                           style="font-size: 14px"
                           *ngIf="item.address"
+                          data-id="c8a6e8ae"
                         >
                           {{ item?.address?.street }}{{ item?.address?.number
                           }}{{ item?.address?.between }}
@@ -82,6 +107,7 @@
                           *ngIf="item.CountryId != 59 && item.Municipality && item.Province"
                           class="mat-body-1 color-grey-700"
                           style="font-size: 14px"
+                          data-id="15702447"
                         >
                           {{
                             item?.city +
@@ -91,17 +117,30 @@
                               utilsService.parserLanguage(item?.Country?.name, language)
                           }}
                         </p>
-                        <p class="mat-body-1 color-grey-700" style="font-size: 14px">
-                          <span *ngIf="item.Municipality">{{
+                        <p
+                          class="mat-body-1 color-grey-700"
+                          style="font-size: 14px"
+                          data-id="a3805081"
+                        >
+                          <span *ngIf="item.Municipality" data-id="f71af71d">{{
                             item?.Municipality?.name + ', '
                           }}</span>
-                          <span *ngIf="item.Province">{{ item?.Province?.name + ', ' }}</span>
-                          <span *ngIf="item.CountryId == 59 || !item.CountryId">{{
-                            utilsService.parserLanguage(item?.Country?.name, language)
+                          <span *ngIf="item.Province" data-id="dc96eddb">{{
+                            item?.Province?.name + ', '
                           }}</span>
+                          <span
+                            *ngIf="item.CountryId == 59 || !item.CountryId"
+                            data-id="4712f53a"
+                            >{{ utilsService.parserLanguage(item?.Country?.name, language) }}</span
+                          >
                         </p>
 
-                        <p class="mt-2" ngClass.gt-sm="mat-body-2" ngClass.lt-md="mat-caption">
+                        <p
+                          class="mt-2"
+                          ngClass.gt-sm="mat-body-2"
+                          ngClass.lt-md="mat-caption"
+                          data-id="050c95f6"
+                        >
                           {{ 'Order: ' | translate }}
 
                           {{ item?.order || '9523594C' }}
@@ -110,27 +149,37 @@
                       <div
                         ngClass.lt-sm="ml-3"
                         class="d-flex flex-column justify-content-center align-items-center d-xs-flex justify-content-start justify-content-xs-start align-items-start align-items-xs-start flex-sh-40 flex-sh-sm-100"
+                        data-id="7667b6de"
                       >
-                        <span class="total">
+                        <span class="total" data-id="c007c303">
                           {{ item.amount | currency: item.currency }}
                         </span>
-                        <span class="mat-body-1 color-grey-700" style="font-size: 19px">
-                          <span>{{ item.createdAt | date: 'short' }}</span>
+                        <span
+                          class="mat-body-1 color-grey-700"
+                          style="font-size: 19px"
+                          data-id="311af677"
+                        >
+                          <span data-id="c7672db1">{{ item.createdAt | date: 'short' }}</span>
                         </span>
                       </div>
-                      <mat-icon class="grey-800" style="position: absolute; right: 16px; top: 45%">
+                      <mat-icon
+                        class="grey-800"
+                        style="position: absolute; right: 16px; top: 45%"
+                        data-id="8ac05516"
+                      >
                         keyboard_arrow_right
                       </mat-icon>
                     </div>
                   </mat-list-item>
                 </mat-list>
                 <!-- /*CARGANDO LA LISTA*/ -->
-                <mat-list *ngIf="loadingSearch">
+                <mat-list *ngIf="loadingSearch" data-id="985c98d9">
                   <mat-list-item
                     *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8]"
                     class="loader"
                     matRipple
                     style="height: 64px !important"
+                    data-id="c321cc01"
                   >
                   </mat-list-item>
                 </mat-list>
@@ -139,18 +188,32 @@
                 <div
                   *ngIf="!allOrders.length && !loadingSearch"
                   class="col-sm-12 empty-cart-cls text-center mt-4"
+                  data-id="4a368d6c"
                 >
-                  <img class="img-fluid mb-4" src="assets/images/backet-01.png" />
-                  <h3 class="mb-5">
-                    <strong>{{ 'YOUR ORDERS LIST IS EMPTY' | translate }}.</strong>
+                  <img
+                    class="img-fluid mb-4"
+                    src="assets/images/backet-01.png"
+                    data-id="6535e9be"
+                  />
+                  <h3 class="mb-5" data-id="c2fda5fa">
+                    <strong data-id="ab959546"
+                      >{{ 'YOUR ORDERS LIST IS EMPTY' | translate }}.</strong
+                    >
                   </h3>
                 </div>
 
                 <div
                   *ngIf="this.query.offset < this.query.total"
                   class="py-3 d-flex justify-content-center align-items-center"
+                  data-id="66665e51"
                 >
-                  <button (click)="onLoadMore()" class="rounded-18" color="accent" mat-button>
+                  <button
+                    (click)="onLoadMore()"
+                    class="rounded-18"
+                    color="accent"
+                    mat-button
+                    data-id="11e886dc"
+                  >
                     {{ 'Load More' | translate }}
                   </button>
                 </div>
@@ -164,23 +227,30 @@
           </button> -->
         </mat-drawer>
 
-        <mat-drawer-content class="MainDrawerContent">
+        <mat-drawer-content class="MainDrawerContent" data-id="09662592">
           <button
             (click)="drawer.toggle()"
             *ngIf="isHandset"
             aria-label="Toggle sidenav"
             mat-icon-button
             type="button"
+            data-id="c02dd4a4"
           >
-            <mat-icon aria-label="Side nav toggle icon">keyboard_backspace</mat-icon>
+            <mat-icon aria-label="Side nav toggle icon" data-id="d4d67b90"
+              >keyboard_backspace</mat-icon
+            >
           </button>
 
-          <mat-tab-group mat-align-tabs="center">
-            <mat-tab label="{{ 'PRODUCTS' | translate | uppercase }}">
-              <div *ngIf="this.selectedOrder && !loadingSelectedItem" class="DetailsProduct">
+          <mat-tab-group mat-align-tabs="center" data-id="22ebb4d3">
+            <mat-tab label="{{ 'PRODUCTS' | translate | uppercase }}" data-id="04c633c4">
+              <div
+                *ngIf="this.selectedOrder && !loadingSelectedItem"
+                class="DetailsProduct"
+                data-id="9fe30919"
+              >
                 <!-- /////////////////////////// -->
-                <p class="my-2" style="text-align: right">
-                  <span [class]="this.status[this.selectedOrder.status].class">
+                <p class="my-2" style="text-align: right" data-id="81327d94">
+                  <span [class]="this.status[this.selectedOrder.status].class" data-id="35daeb4f">
                     {{
                       this.utilsService.parserLanguage(
                         this.status[this.selectedOrder.status].status,
@@ -198,10 +268,15 @@
                     padding: 8px 0px;
                   "
                   class="d-flex flex-column justify-content-start align-items-stretch"
+                  data-id="02b151b6"
                 >
-                  <div class="mt-3 d-flex justify-content-around align-items-start">
+                  <div
+                    class="mt-3 d-flex justify-content-around align-items-start"
+                    data-id="bd9a9887"
+                  >
                     <div
                       class="d-flex justify-content-center align-items-center flex-sh-100 flex-sh-50 flex-sh-md-initial"
+                      data-id="9606d205"
                     >
                       <img
                         *ngIf="!(paymentItem.Product.Images && paymentItem.Product.Images.length)"
@@ -209,6 +284,7 @@
                         class="imageProduct"
                         lazyImg
                         src="assets/images/noImage.jpg"
+                        data-id="e2c54c5b"
                       />
                       <a
                         [queryParams]="{
@@ -219,6 +295,7 @@
                         }"
                         [routerLink]="['/product']"
                         class="product-link"
+                        data-id="c7a71bb4"
                       >
                         <img
                           *ngIf="paymentItem.Product.Images && paymentItem.Product.Images.length"
@@ -227,29 +304,32 @@
                           class="imageProduct"
                           lazyImg
                           onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+                          data-id="29ca1ab5"
                         />
                       </a>
                     </div>
 
-                    <div class="flex-sh-100 flex-sh-50 flex-sh-md-initial">
-                      <h2 class="mat-title mb-0">
+                    <div class="flex-sh-100 flex-sh-50 flex-sh-md-initial" data-id="3c61a619">
+                      <h2 class="mat-title mb-0" data-id="633a7d31">
                         {{ utilsService.parserLanguage(paymentItem?.Product?.name, language) }}
                       </h2>
-                      <div class="my-2">
+                      <div class="my-2" data-id="dfa84191">
                         <guajiritos-rating
                           [config]="{ readOnly: true }"
                           [value]="paymentItem.Product.rating"
+                          data-id="5934d55f"
                         ></guajiritos-rating>
                       </div>
-                      <h3 class="price">
+                      <h3 class="price" data-id="a390a2cf">
                         {{ paymentItem?.price | currency: selectedOrder.productCurrency }}
                         <span
                           class="color-grey-600"
                           style="width: 28px; font-size: 17px; margin-top: -5px"
+                          data-id="2a8ed785"
                           >{{ 'x' + paymentItem?.quantity }}
                         </span>
                       </h3>
-                      <p class="description mb-2">
+                      <p class="description mb-2" data-id="6aaf5505">
                         {{
                           utilsService.parserLanguage(
                             paymentItem?.Product?.shortDescription,
@@ -265,6 +345,7 @@
                           this.selectedOrder.status == 'delivered' ||
                           this.selectedOrder.status == 'payed'
                         "
+                        data-id="eb2d3f08"
                       >
                         <a
                           (click)="
@@ -277,8 +358,9 @@
                           mat-button
                           style="width: 140px !important"
                           class="d-flex justify-content-start align-items-center"
+                          data-id="d5a30965"
                         >
-                          <mat-icon class="mr-2"> system_update_alt</mat-icon>
+                          <mat-icon class="mr-2" data-id="dd43d26f"> system_update_alt</mat-icon>
                           {{ 'Descargar' | translate }}
                         </a>
                       </ng-container>
@@ -286,14 +368,15 @@
                   </div>
                 </div>
               </div>
-              <div *ngIf="loadingSelectedItem" class="container DetailsProduct">
+              <div *ngIf="loadingSelectedItem" class="container DetailsProduct" data-id="035c8563">
                 <!-- /*CARGANDO LA LISTA*/ -->
-                <mat-list *ngIf="loadingSelectedItem">
+                <mat-list *ngIf="loadingSelectedItem" data-id="e311f4bc">
                   <mat-list-item
                     *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
                     class="loader"
                     matRipple
                     style="height: 80px !important"
+                    data-id="87ee2cad"
                   >
                   </mat-list-item>
                 </mat-list>
@@ -301,30 +384,33 @@
               </div>
             </mat-tab>
 
-            <mat-tab label="{{ 'BILLING DETAILS' | translate }}">
+            <mat-tab label="{{ 'BILLING DETAILS' | translate }}" data-id="9feef58f">
               <div
                 *ngIf="this.selectedOrder"
                 class="container-bulling w-100 d-flex flex-column justify-content-start align-items-stretch"
+                data-id="3c0464b9"
               >
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center" data-id="fbe671a2">
                   <div
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="4da9524f"
                   >
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="25c3d54b">{{
                       'Id de pago' | translate
                     }}</span>
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="0deb2166">{{
                       selectedOrder.order
                     }}</span>
                   </div>
 
                   <div
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="10ca3e2a"
                   >
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="709bf7f7">{{
                       'fecha de creación' | translate
                     }}</span>
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="9401edf1">{{
                       selectedOrder.createdAt | date: 'short'
                     }}</span>
                   </div>
@@ -332,42 +418,48 @@
                   <div
                     *ngIf="selectedOrder.cancelledAt"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="8a5b1e9d"
                   >
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="abff058d">{{
                       'fecha de cancelación' | translate
                     }}</span>
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="bc9a179a">{{
                       selectedOrder.cancelledAt | date: 'short'
                     }}</span>
                   </div>
                 </div>
 
-                <mat-divider class="my-2"></mat-divider>
+                <mat-divider class="my-2" data-id="4c1cfc78"></mat-divider>
 
-                <div class="mt-1 d-flex justify-content-start align-items-center">
+                <div
+                  class="mt-1 d-flex justify-content-start align-items-center"
+                  data-id="2a281c5f"
+                >
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="a026187a"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="c413b1ed">
                       {{ 'Country' | translate }}
                     </span>
-                    <span>
+                    <span data-id="fac7b7f9">
                       {{ utilsService.parserLanguage(selectedOrder?.Country?.name, language) }}
                     </span>
                   </div>
 
-                  <ng-container *ngIf="selectedOrder.CountryId != 59">
+                  <ng-container *ngIf="selectedOrder.CountryId != 59" data-id="ba40dee5">
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="40b7b9cc"
                     >
-                      <span class="mat-caption color-grey-800">
+                      <span class="mat-caption color-grey-800" data-id="b5e46135">
                         {{ 'City' | translate }}
                       </span>
-                      <span>
+                      <span data-id="fe8f17d6">
                         {{ this.selectedOrder.city }}
                       </span>
                     </div>
@@ -376,25 +468,27 @@
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="566b4134"
                     >
-                      <span class="mat-caption color-grey-800">
+                      <span class="mat-caption color-grey-800" data-id="fe4a62b4">
                         {{ 'Region / Province / State' | translate }}
                       </span>
-                      <span>
+                      <span data-id="6b9039a2">
                         {{ this.selectedOrder.regionProvinceState }}
                       </span>
                     </div>
                   </ng-container>
-                  <ng-container *ngIf="selectedOrder.CountryId == 59">
+                  <ng-container *ngIf="selectedOrder.CountryId == 59" data-id="45650089">
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="68e3cdbc"
                     >
-                      <span class="mat-caption color-grey-800">
+                      <span class="mat-caption color-grey-800" data-id="242968fc">
                         {{ 'Municipio' | translate }}
                       </span>
-                      <span>
+                      <span data-id="d0ea5429">
                         {{ this.selectedOrder?.Municipality?.name }}
                       </span>
                     </div>
@@ -403,11 +497,12 @@
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="03343310"
                     >
-                      <span class="mat-caption color-grey-800">
+                      <span class="mat-caption color-grey-800" data-id="f56c9f2f">
                         {{ 'Provincia' | translate }}
                       </span>
-                      <span>
+                      <span data-id="922a2e69">
                         {{ this.selectedOrder?.Province?.name }}
                       </span>
                     </div>
@@ -417,11 +512,12 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="e0a34c26"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="292b6144">
                       {{ 'Dirección' | translate }}
                     </span>
-                    <span>
+                    <span data-id="e9293db2">
                       {{ this.selectedOrder.address.street }}{{ this.selectedOrder.address.number
                       }}{{ this.selectedOrder.address.between }}
                     </span>
@@ -430,11 +526,12 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="22e46387"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="4303e8b7">
                       {{ 'Teléfono' | translate }}
                     </span>
-                    <span>
+                    <span data-id="5167e474">
                       {{ this.selectedOrder.phone }}
                     </span>
                   </div>
@@ -442,28 +539,33 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="a5475385"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="4de8c6c5">
                       {{ 'Client' | translate }}
                     </span>
-                    <span>
+                    <span data-id="333ffc6c">
                       {{ this.selectedOrder?.name + ' ' + (this.selectedOrder?.lastname || '') }}
                     </span>
                   </div>
                 </div>
 
-                <mat-divider class="d-xs-none"></mat-divider>
+                <mat-divider class="d-xs-none" data-id="3b562014"></mat-divider>
 
-                <div class="mt-1 d-flex justify-content-start align-items-center">
+                <div
+                  class="mt-1 d-flex justify-content-start align-items-center"
+                  data-id="3174e4fd"
+                >
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="fb8a8786"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="c73669a8">
                       {{ 'No. of order' | translate }}
                     </span>
-                    <span>
+                    <span data-id="6b7705a0">
                       {{ this.selectedOrder.order }}
                     </span>
                   </div>
@@ -472,12 +574,13 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="8101f6fc"
                   >
-                    <ng-container>
-                      <span class="mat-caption color-grey-800">
+                    <ng-container data-id="fbc1c6b7">
+                      <span class="mat-caption color-grey-800" data-id="2ede8c88">
                         {{ 'Amount' | translate }}
                       </span>
-                      <span>
+                      <span data-id="4e658891">
                         {{ this.selectedOrder.amount | currency: this.selectedOrder.currency }}
                       </span>
                     </ng-container>
@@ -487,12 +590,16 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="4e85a81c"
                   >
-                    <ng-container>
-                      <span class="mat-caption color-grey-800">
+                    <ng-container data-id="d77f4154">
+                      <span class="mat-caption color-grey-800" data-id="f703a634">
                         {{ 'Status' | translate }}
                       </span>
-                      <span [class]="this.status[this.selectedOrder.status].class">
+                      <span
+                        [class]="this.status[this.selectedOrder.status].class"
+                        data-id="0d5b4027"
+                      >
                         {{
                           this.utilsService.parserLanguage(
                             this.status[this.selectedOrder.status].status,
@@ -507,12 +614,16 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="e8746417"
                   >
-                    <ng-container *ngIf="this.selectedOrder?.shippingCost !== null">
-                      <span class="mat-caption color-grey-800">
+                    <ng-container
+                      *ngIf="this.selectedOrder?.shippingCost !== null"
+                      data-id="7f51a252"
+                    >
+                      <span class="mat-caption color-grey-800" data-id="23d0f5d8">
                         {{ 'Precio de envio' | translate }}
                       </span>
-                      <span>
+                      <span data-id="b4480747">
                         {{ this.selectedOrder?.shippingCost }}
                       </span>
                     </ng-container>
@@ -522,12 +633,16 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="2257a853"
                   >
-                    <ng-container *ngIf="this.selectedOrder.status == 'cancelled'">
-                      <span class="mat-caption color-grey-800">
+                    <ng-container
+                      *ngIf="this.selectedOrder.status == 'cancelled'"
+                      data-id="0b3f2a4a"
+                    >
+                      <span class="mat-caption color-grey-800" data-id="61c2ba77">
                         {{ 'Devolución' | translate }}
                       </span>
-                      <span>
+                      <span data-id="db8b779a">
                         {{
                           this.selectedOrder.cancelRefund | currency: this.selectedOrder.currency
                         }}
@@ -536,18 +651,22 @@
                   </div>
                 </div>
 
-                <mat-divider class="d-xs-none"></mat-divider>
+                <mat-divider class="d-xs-none" data-id="568b82b1"></mat-divider>
 
-                <div class="mt-1 d-flex justify-content-start align-items-center">
+                <div
+                  class="mt-1 d-flex justify-content-start align-items-center"
+                  data-id="1bf0f75e"
+                >
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="c51b32da"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="d2c30909">
                       {{ 'TPV' | translate }}
                     </span>
-                    <span>
+                    <span data-id="baae4ab7">
                       {{ this.selectedOrder.paymentType }}
                     </span>
                   </div>
@@ -556,37 +675,43 @@
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="dfbe26a7"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="018e2588">
                       {{ 'Email' | translate }}
                     </span>
-                    <span>
+                    <span data-id="b9c160f6">
                       {{ this.selectedOrder.email }}
                     </span>
                   </div>
                 </div>
 
-                <mat-divider class="d-xs-none"></mat-divider>
+                <mat-divider class="d-xs-none" data-id="1c829eab"></mat-divider>
 
-                <ng-container *ngIf="this.selectedOrder.status == 'error'">
-                  <p class="mat-title my-2" ngClass.xs="mat-body-2" style="color: #e53935">
+                <ng-container *ngIf="this.selectedOrder.status == 'error'" data-id="a77b3eea">
+                  <p
+                    class="mat-title my-2"
+                    ngClass.xs="mat-body-2"
+                    style="color: #e53935"
+                    data-id="97cfe260"
+                  >
                     {{ 'Error en el pago' | translate }}
                   </p>
-                  <blockquote class="cancelNote">
-                    <p>{{ selectedOrder?.error }}</p>
+                  <blockquote class="cancelNote" data-id="b01464cd">
+                    <p data-id="017a99d4">{{ selectedOrder?.error }}</p>
                   </blockquote>
                 </ng-container>
 
-                <ng-container *ngIf="this.selectedOrder.status == 'cancelled'">
-                  <p class="mat-title my-2" ngClass.xs="mat-body-2">
+                <ng-container *ngIf="this.selectedOrder.status == 'cancelled'" data-id="68ef2668">
+                  <p class="mat-title my-2" ngClass.xs="mat-body-2" data-id="53e958f9">
                     {{ 'Comentario acerca de la cancelación' | translate }}
                   </p>
-                  <blockquote class="cancelNote">
-                    <p>{{ selectedOrder.cancelNote }}</p>
+                  <blockquote class="cancelNote" data-id="43f44b62">
+                    <p data-id="b40042cf">{{ selectedOrder.cancelNote }}</p>
                   </blockquote>
                 </ng-container>
 
-                <div class="mt-3 d-flex justify-content-end align-items-center">
+                <div class="mt-3 d-flex justify-content-end align-items-center" data-id="5b644ca4">
                   <button
                     (click)="onGetVoucher(this.selectedOrder)"
                     *ngIf="
@@ -599,8 +724,9 @@
                     matTooltip="{{ 'Obtener el vouvher de pago' | translate }}"
                     ngClass.lt-md="mb-3"
                     ngClass.xs="mb-3"
+                    data-id="66c10530"
                   >
-                    <mat-icon>cloud_download</mat-icon>
+                    <mat-icon data-id="9857bfca">cloud_download</mat-icon>
                     {{ 'VOUCHER' | translate }}
                   </button>
 
@@ -616,8 +742,9 @@
                     matTooltip="{{ 'Editar' | translate }}"
                     ngClass.lt-md="mb-3"
                     ngClass.xs="mb-3"
+                    data-id="401ec325"
                   >
-                    <mat-icon>edit</mat-icon>
+                    <mat-icon data-id="cd829ea7">edit</mat-icon>
                     {{ 'EDIT' | translate }}
                   </button>
 
@@ -634,8 +761,9 @@
                     matTooltip="{{ 'Cancelar la reservación' | translate }}"
                     ngClass.lt-md="mb-3"
                     ngClass.xs="mb-3"
+                    data-id="53a8116d"
                   >
-                    <mat-icon>cancel</mat-icon>
+                    <mat-icon data-id="72df3c7e">cancel</mat-icon>
                     {{ 'CANCELAR' | translate }}
                   </button>
 
@@ -643,9 +771,10 @@
                     *ngIf="this.selectedOrder.status == 'delivered'"
                     class="p-2 d-flex justify-content-start align-items-center"
                     style="border: 1px solid #4caf50; border-radius: 4px"
+                    data-id="e6d5801f"
                   >
-                    <mat-icon style="color: #4caf50">check</mat-icon>
-                    <span style="color: #4caf50; font-weight: 500">{{
+                    <mat-icon style="color: #4caf50" data-id="64529dc8">check</mat-icon>
+                    <span style="color: #4caf50; font-weight: 500" data-id="546dfb3c">{{
                       'ORDER DELIVERED' | translate
                     }}</span>
                   </div>
@@ -660,40 +789,48 @@
               </button> -->
               <!-- ------------------------------------------------------------ -->
             </mat-tab>
-            <mat-tab label="{{ 'Detalles del proveedor' | translate | uppercase }}">
+            <mat-tab
+              label="{{ 'Detalles del proveedor' | translate | uppercase }}"
+              data-id="16a0a2b5"
+            >
               <div
                 *ngIf="this.selectedOrder"
                 class="container-bulling w-100 d-flex flex-column justify-content-start align-items-stretch"
+                data-id="86baba73"
               >
                 <span
                   class="mat-subheading-1 color-grey-800"
                   ngClass.xs="mb-1"
                   style="font-weight: 600"
+                  data-id="760dd935"
                   >{{ 'Proveedor' | translate | uppercase }}</span
                 >
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center" data-id="f255d673">
                   <div
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="b20f7c10"
                   >
-                    <span class="mat-caption color-grey-800">
+                    <span class="mat-caption color-grey-800" data-id="572acefb">
                       {{ 'Negocio' | translate }}
                     </span>
-                    <div class="d-flex justify-content-start align-items-center">
+                    <div class="d-flex justify-content-start align-items-center" data-id="f5a5c52c">
                       <img
                         *ngIf="this.selectedOrder?.Business?.logo"
                         [src]="urlImage + this.selectedOrder?.Business?.logo"
                         onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
                         style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover"
+                        data-id="fd7089a6"
                       />
 
                       <img
                         *ngIf="!this.selectedOrder?.Business?.logo"
                         src="/assets/images/noImage.jpg"
                         style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover"
+                        data-id="2b31ce53"
                       />
 
-                      <span class="mat-body-2 ml-2 uppercase">{{
+                      <span class="mat-body-2 ml-2 uppercase" data-id="762918d1">{{
                         this.selectedOrder?.Business?.name
                       }}</span>
                     </div>
@@ -702,66 +839,81 @@
                   <div
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="26c279bb"
                   >
-                    <span class="mat-caption color-grey-800">{{
+                    <span class="mat-caption color-grey-800" data-id="366ddb9e">{{
                       'Correo electrónico' | translate
                     }}</span>
-                    <span>{{ this.selectedOrder?.Business?.email }}</span>
+                    <span data-id="da0b3dae">{{ this.selectedOrder?.Business?.email }}</span>
                   </div>
                 </div>
 
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center" data-id="7b0c4725">
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="adb40a77"
                   >
-                    <span class="mat-caption color-grey-800">{{ 'Dirección' | translate }}</span>
-                    <span>{{ this.selectedOrder?.Business?.addresss }}</span>
+                    <span class="mat-caption color-grey-800" data-id="c35bc4c0">{{
+                      'Dirección' | translate
+                    }}</span>
+                    <span data-id="2a3a5c64">{{ this.selectedOrder?.Business?.addresss }}</span>
                   </div>
                   <div
                     ngClass.gt-xs="py-3"
                     ngClass.lt-sm="py-2 border-bottom"
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                    data-id="d645b1e4"
                   >
-                    <span class="mat-caption color-grey-800">{{ 'phone' | translate }}</span>
-                    <span>{{ this.selectedOrder?.Business?.phone }}</span>
+                    <span class="mat-caption color-grey-800" data-id="7443dc01">{{
+                      'phone' | translate
+                    }}</span>
+                    <span data-id="4baaf94c">{{ this.selectedOrder?.Business?.phone }}</span>
                   </div>
                 </div>
-                <mat-divider class="d-xs-none"></mat-divider>
+                <mat-divider class="d-xs-none" data-id="85c55212"></mat-divider>
                 <div
                   *ngIf="this.selectedOrder?.shippingRequired"
                   class="w-100 d-flex flex-column justify-content-start align-items-stretch"
+                  data-id="2255081c"
                 >
                   <span
                     class="mat-subheading-1 color-grey-800 mt-3"
                     ngClass.xs="mb-1"
                     style="font-weight: 600"
+                    data-id="dfa196e2"
                     >{{ 'Shipping provider' | translate | uppercase }}</span
                   >
-                  <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex justify-content-between align-items-center" data-id="06139a52">
                     <div
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="e13febbf"
                     >
-                      <span class="mat-caption color-grey-800">
+                      <span class="mat-caption color-grey-800" data-id="068dd92f">
                         {{ 'Negocio' | translate }}
                       </span>
-                      <div class="d-flex justify-content-start align-items-center">
+                      <div
+                        class="d-flex justify-content-start align-items-center"
+                        data-id="2a6b2ec7"
+                      >
                         <img
                           *ngIf="this.selectedOrder?.ShippingBusiness?.logo"
                           [src]="urlImage + this.selectedOrder?.ShippingBusiness?.logo"
                           onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
                           style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover"
+                          data-id="86702052"
                         />
 
                         <img
                           *ngIf="!this.selectedOrder?.ShippingBusiness?.logo"
                           src="/assets/images/noImage.jpg"
                           style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover"
+                          data-id="64315bd1"
                         />
 
-                        <span class="mat-body-2 ml-2 uppercase">{{
+                        <span class="mat-body-2 ml-2 uppercase" data-id="4daf92ff">{{
                           this.selectedOrder?.ShippingBusiness?.name
                         }}</span>
                       </div>
@@ -770,30 +922,43 @@
                     <div
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="13f547a4"
                     >
-                      <span class="mat-caption color-grey-800">{{
+                      <span class="mat-caption color-grey-800" data-id="63fb3ce0">{{
                         'Correo electrónico' | translate
                       }}</span>
-                      <span>{{ this.selectedOrder?.ShippingBusiness?.email }}</span>
+                      <span data-id="d17bd3d2">{{
+                        this.selectedOrder?.ShippingBusiness?.email
+                      }}</span>
                     </div>
                   </div>
 
-                  <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex justify-content-between align-items-center" data-id="b95cdd4e">
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="116e37b6"
                     >
-                      <span class="mat-caption color-grey-800">{{ 'Dirección' | translate }}</span>
-                      <span>{{ this.selectedOrder?.ShippingBusiness?.addresss }}</span>
+                      <span class="mat-caption color-grey-800" data-id="fe221045">{{
+                        'Dirección' | translate
+                      }}</span>
+                      <span data-id="7d580a7c">{{
+                        this.selectedOrder?.ShippingBusiness?.addresss
+                      }}</span>
                     </div>
                     <div
                       ngClass.gt-xs="py-3"
                       ngClass.lt-sm="py-2 border-bottom"
                       class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+                      data-id="470b58d4"
                     >
-                      <span class="mat-caption color-grey-800">{{ 'phone' | translate }}</span>
-                      <span>{{ this.selectedOrder?.ShippingBusiness?.phone }}</span>
+                      <span class="mat-caption color-grey-800" data-id="94bfc05e">{{
+                        'phone' | translate
+                      }}</span>
+                      <span data-id="5bca30c0">{{
+                        this.selectedOrder?.ShippingBusiness?.phone
+                      }}</span>
                     </div>
                   </div>
                 </div>

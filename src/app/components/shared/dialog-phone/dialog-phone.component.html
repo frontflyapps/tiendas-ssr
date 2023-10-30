@@ -1,8 +1,9 @@
-<div class="d-flex flex-column justify-content-start align-items-start">
-  <h2>{{ 'Introduzca su teléfono' | translate }}</h2>
+<div class="d-flex flex-column justify-content-start align-items-start" data-id="ead28775">
+  <h2 data-id="f9509461">{{ 'Introduzca su teléfono' | translate }}</h2>
   <div
     class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-b2764d"
     *ngIf="form"
+    data-id="0739428d"
   >
     <guajiritos-general-autocomplete
       [withoutPaddingBottom]="false"
@@ -14,10 +15,16 @@
       [url]="phoneCodesService.url"
       [formControl]="form.get('PhoneCallingCodeId')"
       class="flex-sh-30 flex-sh-md-30"
+      data-id="3d87c702"
     ></guajiritos-general-autocomplete>
 
-    <mat-form-field appearance="outline" id="phone" class="flex-sh-70 flex-sh-md-70">
-      <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+    <mat-form-field
+      appearance="outline"
+      id="phone"
+      class="flex-sh-70 flex-sh-md-70"
+      data-id="79289406"
+    >
+      <mat-label data-id="762b1e19">{{ 'Teléfono celular' | translate }}</mat-label>
       <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
       <input
         (keypress)="utilsService.keyPressNumbers($event)"
@@ -25,8 +32,9 @@
         matInput
         autocomplete="off"
         placeholder="{{ 'Teléfono...' | translate }}"
+        data-id="d197c42e"
       />
-      <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid">
+      <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid" data-id="6576947a">
         {{ 'Número válido' | translate }}
       </mat-hint>
       <mat-error
@@ -35,16 +43,23 @@
             form.controls['phone'].hasError('maxlength')) &&
           !form.controls['phone'].hasError('pattern')
         "
+        data-id="7371238b"
       >
-        {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+        {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="e411f3ac">{{
           '8 caracteres, Ex: 51234567' | translate
         }}</strong>
       </mat-error>
     </mat-form-field>
   </div>
 
-  <div class="w-100 d-flex justify-content-end align-items-end">
-    <button mat-raised-button color="primary" [disabled]="validate()" (click)="onSave()">
+  <div class="w-100 d-flex justify-content-end align-items-end" data-id="0c5818fe">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="validate()"
+      (click)="onSave()"
+      data-id="e163025b"
+    >
       {{ 'Guardar' | translate | uppercase }}
     </button>
   </div>

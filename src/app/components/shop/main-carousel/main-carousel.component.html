@@ -1,4 +1,4 @@
-<div class="main-slider">
+<div class="main-slider" data-id="e71a20ab">
   <swiper-container
     class="h-100"
     slides-per-view="1"
@@ -10,12 +10,17 @@
     grab-cursor="true"
     autoplay-delay="5000"
     autoplay-disable-on-interaction="false"
+    data-id="8d17a182"
   >
-    <swiper-slide *ngFor="let slide of _slides">
-      <div [style.background]="'url(' + slide.image + ')'" class="slide-item swiper-lazy d-sm-none">
-        <a [href]="slide.link" target="_blank">
-          <div class="container-carrusel">
-            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+    <swiper-slide *ngFor="let slide of _slides" data-id="0137e3db">
+      <div
+        [style.background]="'url(' + slide.image + ')'"
+        class="slide-item swiper-lazy d-sm-none"
+        data-id="34a6cc84"
+      >
+        <a [href]="slide.link" target="_blank" data-id="9ae2160b">
+          <div class="container-carrusel" data-id="154ffbb8">
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white" data-id="53cd1d90"></div>
             <!-- <div *ngIf="slide.title && slide?.title?.es" class="box">
                 <p class="title">
                   {{ slide.title | parseLang: language }}
@@ -39,10 +44,11 @@
       <div
         [style.background]="'url(' + slide.imageXs + ')'"
         class="slide-item swiper-lazy d-sm-block d-none"
+        data-id="00d3b22d"
       >
-        <a [href]="slide.link" target="_blank">
-          <div class="container-carrusel sl-wrap">
-            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        <a [href]="slide.link" target="_blank" data-id="0643ade6">
+          <div class="container-carrusel sl-wrap" data-id="62cea531">
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white" data-id="9c930bb1"></div>
 
             <!-- <div *ngIf="slide.title && slide?.title?.es" class="box">
               <p class="title">

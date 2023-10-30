@@ -1,64 +1,81 @@
 <div
   class="commerce-buttons d-flex justify-content-start align-items-center"
   id="shopping-widgets-cart"
+  data-id="0cad351c"
 >
   <button
     [matMenuTriggerFor]="menu"
     class="flex-row-button mat-button d-flex justify-content-between align-items-center"
     mat-button
+    data-id="5173ce0e"
   >
-    <span class="mat-button-wrapper d-flex justify-content-between align-items-center">
+    <span
+      class="mat-button-wrapper d-flex justify-content-between align-items-center"
+      data-id="c2f535e2"
+    >
       <span
         [matBadge]="shoppingCartItems.length"
         class="iconCart d-flex justify-content-start align-items-center"
         matBadgeColor="accent"
         matTooltip="{{ 'Carrito de compras' | translate }}"
+        data-id="a8e064bf"
       >
-        <mat-icon>local_grocery_store</mat-icon>
+        <mat-icon data-id="d49be8ae">local_grocery_store</mat-icon>
       </span>
       <!--<div class="top-cart" fxLayout="row" fxLayoutAlign="end end">
         <span>{{ getTotal(shoppingCarts[0]) | currencyMarket: shoppingCarts[0]?.market }}</span>
       </div>-->
     </span>
   </button>
-  <mat-menu #menu="matMenu" class="spCard-main">
-    <div class="spCard-dropdown">
-      <div class="card-list-title d-flex justify-content-between align-items-center">
+  <mat-menu #menu="matMenu" class="spCard-main" data-id="9dd544f3">
+    <div class="spCard-dropdown" data-id="aff39bda">
+      <div
+        class="card-list-title d-flex justify-content-between align-items-center"
+        data-id="8b3cca1d"
+      >
         <!--        <a class="list-compare-link" [routerLink]="['/cart']" routerLinkActive="router-link-active">-->
-        <a [routerLink]="['/cart']" class="list-compare-link">
-          <p class="text-muted">
-            <a class="my-2" color="accent" mat-stroked-button>{{ 'Ir al Carrito' | translate }}</a>
+        <a [routerLink]="['/cart']" class="list-compare-link" data-id="1bd60565">
+          <p class="text-muted" data-id="683775dc">
+            <a class="my-2" color="accent" mat-stroked-button data-id="badaf319">{{
+              'Ir al Carrito' | translate
+            }}</a>
           </p>
           <!--          <p>{{ 'Verificar en el carrito' | translate | uppercase }}</p>-->
         </a>
 
-        <p>{{ shoppingCartItems.length }} {{ 'Artículos' | translate }}</p>
+        <p data-id="354db581">{{ shoppingCartItems.length }} {{ 'Artículos' | translate }}</p>
       </div>
-      <mat-divider></mat-divider>
-      <p *ngIf="!shoppingCartItems.length" class="woo-message">
+      <mat-divider data-id="743c50a9"></mat-divider>
+      <p *ngIf="!shoppingCartItems.length" class="woo-message" data-id="d0b84a1d">
         {{ 'Please add product' | translate }}
       </p>
-      <p></p>
+      <p data-id="0de2df0b"></p>
 
-      <div *ngIf="shoppingCarts?.length" class="new-product d-flex flex-column">
-        <ng-container *ngFor="let cart of shoppingCarts; trackBy: trackBusinessFn">
+      <div *ngIf="shoppingCarts?.length" class="new-product d-flex flex-column" data-id="adbd4728">
+        <ng-container
+          *ngFor="let cart of shoppingCarts; trackBy: trackBusinessFn"
+          data-id="030d4766"
+        >
           <div
             *ngFor="let item of cart.CartItems; let i = index; trackBy: trackStockFn"
             class="item d-flex justify-content-start align-items-start"
+            data-id="61e45d14"
           >
-            <div class="product">
+            <div class="product" data-id="6ab0d385">
               <img
                 *ngIf="item.Product.Images && item.Product.Images.length"
                 [src]="imageUrl + item.Product.Images[0].image"
                 alt="image"
+                data-id="5f1f7706"
               />
               <img
                 *ngIf="!(item.Product.Images && item.Product.Images.length)"
                 alt="image"
                 src="assets/images/noImage.jpg"
+                data-id="af7661a7"
               />
             </div>
-            <div class="desc">
+            <div class="desc" data-id="47e3d5ba">
               <a
                 [queryParams]="{
                   productId: item?.Product?.id,
@@ -68,8 +85,9 @@
                 }"
                 [routerLink]="['/product']"
                 class="link-nav-a"
+                data-id="9e8e747a"
               >
-                <p class="name">
+                <p class="name" data-id="439229b0">
                   {{
                     item.Product.name[language]
                       ? item.Product.name[language]
@@ -78,18 +96,26 @@
                 </p>
               </a>
 
-              <span class="d-flex">
-                <span>(x{{ item.quantity }})</span>&nbsp;
-                <ng-container *ngIf="item.Product.offerValue" class="d-flex flex-column">
-                  <div class="d-flex flex-column">
-                    <p class="deletePrice m-0 d-flex">
-                      <del>{{ item.Product | parsePriceProduct }}</del>
-                      <span class="offer ml-2 mt-0 d-flex" style="margin-top: 0px !important">
-                        <span class="mx-0 px-0">-</span>
-                        <span *ngIf="item.Product.isPercent" class="mx-0 px-0"
+              <span class="d-flex" data-id="a68a6a27">
+                <span data-id="6aa302bf">(x{{ item.quantity }})</span>&nbsp;
+                <ng-container
+                  *ngIf="item.Product.offerValue"
+                  class="d-flex flex-column"
+                  data-id="bf55b338"
+                >
+                  <div class="d-flex flex-column" data-id="56e2a46b">
+                    <p class="deletePrice m-0 d-flex" data-id="dce80eb2">
+                      <del data-id="df09aae4">{{ item.Product | parsePriceProduct }}</del>
+                      <span
+                        class="offer ml-2 mt-0 d-flex"
+                        style="margin-top: 0px !important"
+                        data-id="96176306"
+                      >
+                        <span class="mx-0 px-0" data-id="f29027b6">-</span>
+                        <span *ngIf="item.Product.isPercent" class="mx-0 px-0" data-id="372f2de0"
                           >{{ item.Product.offerValue }}%
                         </span>
-                        <span *ngIf="!item.Product.isPercent" class="mx-0 px-0"
+                        <span *ngIf="!item.Product.isPercent" class="mx-0 px-0" data-id="24954f1a"
                           >${{ item.Product.offerValue }}</span
                         >
                       </span>
@@ -97,42 +123,56 @@
                     <p
                       class="mat-body-2 m-0"
                       matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+                      data-id="9b2f08ad"
                     >
                       {{ item.Product | parsePriceProduct: 'offert' }}
                     </p>
                   </div>
                 </ng-container>
-                <span *ngIf="!item.Product.offerValue">{{
+                <span *ngIf="!item.Product.offerValue" data-id="502e53a7">{{
                   item.totalPrice | currencyProduct: item.Product.currency
                 }}</span>
               </span>
             </div>
-            <div class="close-circle">
-              <a (click)="removeItem(item); $event.stopPropagation()">
-                <i class="material-icons"> delete </i></a
+            <div class="close-circle" data-id="bd65ce93">
+              <a (click)="removeItem(item); $event.stopPropagation()" data-id="6a860eeb">
+                <i class="material-icons" data-id="dded57c1"> delete </i></a
               >
             </div>
           </div>
-          <mat-divider></mat-divider>
-          <div class="total d-flex justify-content-between align-items-center">
-            <p class="text-muted">
+          <mat-divider data-id="82b3116c"></mat-divider>
+          <div class="total d-flex justify-content-between align-items-center" data-id="5e760a76">
+            <p class="text-muted" data-id="33dae026">
               <a
                 (click)="cartService.goToCheckout(cart)"
                 class="my-2"
                 color="primary"
                 mat-flat-button
+                data-id="e9da0769"
                 >{{ 'Ir a Pagar' | translate }}</a
               >
             </p>
-            <div class="d-flex flex-column">
-              <p class="deletePrice m-0 d-flex" *ngIf="cart?.offerGiftDiscount?.discountGift > 0">
-                <del>{{ cart?.offerGiftDiscount.totalPrice | currencyMarket: cart.market }}</del>
-                <span class="offer ml-2 mt-0 d-flex" style="margin-top: 0px !important">
-                  <span class="mx-0 px-0">-</span>
-                  <span class="mx-0 px-0">${{ cart.offerGiftDiscount.discountGift }}</span>
+            <div class="d-flex flex-column" data-id="6b80a110">
+              <p
+                class="deletePrice m-0 d-flex"
+                *ngIf="cart?.offerGiftDiscount?.discountGift > 0"
+                data-id="22594c45"
+              >
+                <del data-id="e79c242e">{{
+                  cart?.offerGiftDiscount.totalPrice | currencyMarket: cart.market
+                }}</del>
+                <span
+                  class="offer ml-2 mt-0 d-flex"
+                  style="margin-top: 0px !important"
+                  data-id="39342897"
+                >
+                  <span class="mx-0 px-0" data-id="104d165b">-</span>
+                  <span class="mx-0 px-0" data-id="03d410fe"
+                    >${{ cart.offerGiftDiscount.discountGift }}</span
+                  >
                 </span>
               </p>
-              <span>{{ getTotal(cart) | currencyMarket: cart.market }}</span>
+              <span data-id="baa7fbf4">{{ getTotal(cart) | currencyMarket: cart.market }}</span>
             </div>
           </div>
           <!--          <mat-divider class="mt-3"></mat-divider>-->

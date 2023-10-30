@@ -2,44 +2,50 @@
   (click)="cartService.goToCheckout(theCart)"
   *ngIf="(cartService.$cartItemsUpdated | async)?.length > 0"
   class="sticky-proceed-pay"
+  data-id="9eb30d77"
 >
   {{ 'Proceder al pago' | translate }}&nbsp;({{ itemsOnCart }}&nbsp;{{ 'productos' }})
 </div>
 
-<div class="left-sidebar-wrapper" ngClass.lt-sm="pt-3">
-  <div class="container-search">
-    <div class="header">
-      <div></div>
+<div class="left-sidebar-wrapper" ngClass.lt-sm="pt-3" data-id="5672186e">
+  <div class="container-search" data-id="4a2c0655">
+    <div class="header" data-id="fd10bb52">
+      <div data-id="f76aba7f"></div>
       <div
         class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-33a1d4 transpilerClass-fxLayoutGap-3e9b78 transpilerClass-fxLayoutGap-47ddb6"
+        data-id="3fc9abef"
       >
         <div
           style="margin-bottom: 5px"
           class="justify-content-between align-items-start d-md-flex d-none"
+          data-id="a9dd6f0b"
         >
           <button
             (click)="openDialog()"
             mat-button
             style="border-radius: 25px; border: 1.5px solid rgba(0, 0, 0, 0.12)"
+            data-id="0be18806"
           >
-            <mat-icon>search</mat-icon>
+            <mat-icon data-id="6cf42ef1">search</mat-icon>
             {{ 'Filtros' | translate }}
           </button>
         </div>
-        <div class="flex-column d-md-flex d-none">
-          <span class="bold">{{ 'Ordenar por:' | translate }}</span>
+        <div class="flex-column d-md-flex d-none" data-id="56bb57bc">
+          <span class="bold" data-id="21dfa86c">{{ 'Ordenar por:' | translate }}</span>
           <mat-form-field
             appearance="outline"
             class="full-width without-padding-bottom"
             subscriptSizing="dynamic"
+            data-id="66de5e41"
           >
             <mat-select
               (selectionChange)="onSelectOrder($event.value)"
               [formControl]="form.controls['order']"
               placeholder="{{ 'Orden' | translate }}"
               type="text"
+              data-id="b02baed4"
             >
-              <mat-option *ngFor="let order of allOrders" [value]="order.value">
+              <mat-option *ngFor="let order of allOrders" [value]="order.value" data-id="993b7f5e">
                 {{ order.viewValue }}
               </mat-option>
             </mat-select>
@@ -47,19 +53,24 @@
         </div>
         <div
           class="w-100 justify-content-end align-items-center transpilerClass-fxLayoutGap-d8766f d-md-none d-flex"
+          data-id="3d47db7d"
         >
-          <span class="bold d-xs-none d-sm-none d-md-none">{{ 'Ordenar por:' | translate }}</span>
+          <span class="bold d-xs-none d-sm-none d-md-none" data-id="5391465f">{{
+            'Ordenar por:' | translate
+          }}</span>
           <mat-form-field
             appearance="outline"
             class="field-order without-padding-bottom d-xs-none d-sm-none d-md-none"
             subscriptSizing="dynamic"
+            data-id="af7b6eb3"
           >
             <mat-select
               (selectionChange)="onSelectOrder($event.value)"
               [formControl]="form.controls['order']"
               placeholder="{{ 'Seleccione una opción' | translate }}"
+              data-id="d5e70e73"
             >
-              <mat-option *ngFor="let order of allOrders" [value]="order.value">
+              <mat-option *ngFor="let order of allOrders" [value]="order.value" data-id="a99f1175">
                 {{ order.viewValue }}
               </mat-option>
             </mat-select>
@@ -87,17 +98,18 @@
       </div>
     </div>
   </div>
-  <div class="container-search">
-    <div class="my-2 d-xs-none d-sm-none">
-      <mat-chip-listbox>
-        <mat-icon *ngIf="this.showChips().length" class="mx-2">search</mat-icon>
+  <div class="container-search" data-id="275182a0">
+    <div class="my-2 d-xs-none d-sm-none" data-id="3a1f1533">
+      <mat-chip-listbox data-id="61ee4d83">
+        <mat-icon *ngIf="this.showChips().length" class="mx-2" data-id="967af1be">search</mat-icon>
         <mat-chip-option
           (removed)="onRemoveCategory(chip)"
           *ngFor="let chip of this.showChips()"
           [removable]="true"
+          data-id="a82e008e"
         >
           {{ chip.name | parseLang: translate.currentLang }}
-          <mat-icon *ngIf="true" matChipRemove>cancel</mat-icon>
+          <mat-icon *ngIf="true" matChipRemove data-id="55599456">cancel</mat-icon>
         </mat-chip-option>
       </mat-chip-listbox>
     </div>
@@ -105,39 +117,51 @@
     <div
       class="sidebar-wrapper d-flex justify-content-center align-items-start"
       id="topLeftSidebar"
+      data-id="ea45d4b2"
     >
-      <div class="filter-sidenav flex-sh-25 flex-sh-md-100 d-md-none" perfectScrollbar>
+      <div
+        class="filter-sidenav flex-sh-25 flex-sh-md-100 d-md-none"
+        perfectScrollbar
+        data-id="458fdc8a"
+      >
         <div
           class="toggles-wrapper border-right d-flex flex-column d-sm-flex flex-sm-column"
           style="border-radius: 15px"
+          data-id="38d0cc64"
         >
-          <div class="toggles d-flex flex-column flex-sh-md-100 transpilerClass-fxLayoutGap-a4eba2">
+          <div
+            class="toggles d-flex flex-column flex-sh-md-100 transpilerClass-fxLayoutGap-a4eba2"
+            data-id="fd318ef7"
+          >
             <!--            <mat-accordion [multi]='true'>-->
             <!--              <mat-expansion-panel [expanded]='!isHandset || this.categoriesIds.length' class='mat-elevation-z0 no-border bg-acordion'>-->
             <!--                <mat-expansion-panel-header>-->
             <!--                  <mat-panel-title>-->
-            <div class="d-flex flex-column">
-              <span class="title-filters">{{ 'Categories' | translate }}</span>
+            <div class="d-flex flex-column" data-id="7f785d8a">
+              <span class="title-filters" data-id="85be8ede">{{ 'Categories' | translate }}</span>
               <app-categories
                 (categoryChanged)="onCategoriesChanged($event)"
                 [categoriesIds]="this.categoriesIds"
+                data-id="423630e2"
               ></app-categories>
             </div>
-            <div class="d-flex flex-column">
-              <span class="title-filters">{{ 'Brands' | translate }}</span>
-              <div class="brands">
+            <div class="d-flex flex-column" data-id="e883ee73">
+              <span class="title-filters" data-id="5dd75c14">{{ 'Brands' | translate }}</span>
+              <div class="brands" data-id="32ace2b2">
                 <app-brands
                   (brandChanged)="onBrandsChanged($event)"
                   [brandsIds]="this.brandsIds"
                   [categoriesToSelectBrands]="categoriesIds"
+                  data-id="8f9d16f2"
                 ></app-brands>
               </div>
             </div>
-            <div class="d-flex flex-column transpilerClass-fxLayoutGap-bbe032">
-              <span class="title-filters">{{ 'Price' | translate }}</span>
+            <div class="d-flex flex-column transpilerClass-fxLayoutGap-bbe032" data-id="d87520a1">
+              <span class="title-filters" data-id="24585432">{{ 'Price' | translate }}</span>
               <app-price
                 (priceFilters)="updatePriceFilters($event)"
                 [reset]="resetPrices"
+                data-id="49662647"
               ></app-price>
             </div>
 
@@ -177,9 +201,9 @@
             <!--            </mat-accordion>-->
           </div>
 
-          <ng-container *ngIf="!isHandset">
-            <div class="popular-products pl-3 flex-sh-md-100 d-sm-none">
-              <app-popular-products></app-popular-products>
+          <ng-container *ngIf="!isHandset" data-id="f86f38d8">
+            <div class="popular-products pl-3 flex-sh-md-100 d-sm-none" data-id="104c1008">
+              <app-popular-products data-id="d93aee2e"></app-popular-products>
             </div>
           </ng-container>
         </div>
@@ -188,21 +212,33 @@
       <!--      <ng-container *ngIf='allProductsResponse?.length == 0'>-->
       <!--        <h3 class='py-4' style='text-align: center'>{{ 'No hay ningún producto disponible' | translate }}</h3>-->
       <!--      </ng-container>-->
-      <div class="all-products flex-sh-75 flex-sh-md-100" id="topSearchBar">
-        <ng-container *ngIf="noResults && allProductsResponse.length && !loadingSearch">
-          <div class="my-5 d-flex flex-column justify-content-center align-items-center">
-            <h3 class="mb-2" style="text-align: center">
+      <div class="all-products flex-sh-75 flex-sh-md-100" id="topSearchBar" data-id="983b23be">
+        <ng-container
+          *ngIf="noResults && allProductsResponse.length && !loadingSearch"
+          data-id="103560c9"
+        >
+          <div
+            class="my-5 d-flex flex-column justify-content-center align-items-center"
+            data-id="21766c84"
+          >
+            <h3 class="mb-2" style="text-align: center" data-id="f2808f1a">
               {{ 'No se encontraron resultados para la ubicación seleccionada' }}
             </h3>
-            <h2>{{ 'Resultados sugeridos' }}</h2>
+            <h2 data-id="ff695501">{{ 'Resultados sugeridos' }}</h2>
           </div>
         </ng-container>
         <div
           *ngIf="loadingSearch"
           style="height: 80vh"
           class="d-flex justify-content-center align-items-center"
+          data-id="89a50227"
         >
-          <mat-spinner *ngIf="loadingSearch" diameter="60" color="primary"></mat-spinner>
+          <mat-spinner
+            *ngIf="loadingSearch"
+            diameter="60"
+            color="primary"
+            data-id="ea8b724c"
+          ></mat-spinner>
         </div>
 
         <!-- <div fxLayout="row" ngClass.lt-md="mt-3" fxHide.lt-md fxLayoutAlign="space-between center"
@@ -240,25 +276,28 @@
           </select>
         </div> -->
 
-        <ng-container *ngIf="totalProducts == 0 && !loadingSearch">
-          <h3 class="py-4" style="text-align: center">
+        <ng-container *ngIf="totalProducts == 0 && !loadingSearch" data-id="38679792">
+          <h3 class="py-4" style="text-align: center" data-id="fb475b7b">
             {{ 'No hay ningún producto disponible que coincida con su búsqueda.' | translate }}
           </h3>
         </ng-container>
         <div
           *ngIf="allProducts?.length > 0 && !loadingSearch"
           class="w-100 d-flex justify-content-start align-items-start"
+          data-id="637ae1cd"
         >
           <div
             class="w-100 d-flex justify-content-start align-items-start flex-wrap"
             infiniteScroll
             (scrolled)="infiniteScrollSearchMethod()"
+            data-id="98444ae4"
           >
             <app-product
               *ngFor="let products of allProducts"
               [product]="products"
               class="flex-sh-md-100"
               style="width: initial"
+              data-id="9f3e1ff8"
             ></app-product>
           </div>
 
@@ -269,13 +308,15 @@
         <div
           *ngIf="totalProducts == 0 && !loadingSearch && allProductsSuggested?.length > 0"
           class="w-100 d-flex justify-content-start align-items-start"
+          data-id="13d952b8"
         >
           <div
             class="w-100 d-flex justify-content-start align-items-start"
             infiniteScroll
             (scrolled)="infiniteScrollSearchMethod()"
+            data-id="cd9b087e"
           >
-            <h2>{{ 'Le sugerimos estos productos' | translate }}:</h2>
+            <h2 data-id="45c91806">{{ 'Le sugerimos estos productos' | translate }}:</h2>
             <!--            <app-product *ngFor='let products of allProductsSuggested' [product]='products' fxFlex.lt-md='100'></app-product>-->
           </div>
 
@@ -287,11 +328,13 @@
           *ngIf="loading && !loadingSearch"
           class="mb-3 mt-3 d-flex justify-content-center align-items-center"
           style="height: 80vh"
+          data-id="f8aaed30"
         >
           <mat-spinner
             color="primary"
             diameter="25"
             class="d-flex justify-content-center align-items-center"
+            data-id="c8241874"
           ></mat-spinner>
         </span>
 
@@ -379,6 +422,7 @@
         <div
           *ngIf="!loading && allProducts?.length > 0"
           class="mt-4 mb-4 see-more-btn d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-3fc19e"
+          data-id="a6b2ed4e"
         >
           <!--          <button (click)="goToFirstPage($event)" *ngIf="numberOfSearch > 0  &&-->
           <!--            allProductsResponse.length > initLimit" mat-stroked-button>-->

@@ -1,6 +1,6 @@
-<mat-dialog-content>
-  <blockquote>
-    <p>
+<mat-dialog-content data-id="c7d7a25f">
+  <blockquote data-id="b67c8d01">
+    <p data-id="5c2b905b">
       {{
         'Usted dejará nuestro sistema y navegará hacia la pasarela online, marque CONFIRMAR para proseguir con su cancelación'
           | translate
@@ -9,15 +9,18 @@
   </blockquote>
 </mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button class="mr-3" mat-button mat-dialog-close>{{ 'Cancelar' | translate }}</button>
+<mat-dialog-actions align="end" data-id="6321b70a">
+  <button class="mr-3" mat-button mat-dialog-close data-id="e3dd7e10">
+    {{ 'Cancelar' | translate }}
+  </button>
   <form
     action="https://www.administracomercios.com/index.php"
     method="post"
     ngNoForm
     target="_self"
+    data-id="fa750d95"
   >
-    <div id="inputsHiddenBid"></div>
+    <div id="inputsHiddenBid" data-id="683f09c8"></div>
     <button
       aria-label="Confirm"
       color="primary"
@@ -26,6 +29,7 @@
       mat-flat-button
       type="submit"
       value="Enviar"
+      data-id="ba1d60f9"
     >
       {{ 'CONFIRMAR' | translate }}
     </button>

@@ -1,22 +1,24 @@
-<div class="product-dialog">
-  <div class="close-btn-outer">
-    <button (click)="close()" color="warn" mat-mini-fab>
-      <mat-icon>close</mat-icon>
+<div class="product-dialog" data-id="61c240ac">
+  <div class="close-btn-outer" data-id="cf9fb44b">
+    <button (click)="close()" color="warn" mat-mini-fab data-id="1f42a6c4">
+      <mat-icon data-id="e2d48c54">close</mat-icon>
     </button>
   </div>
-  <div mat-dialog-content>
+  <div mat-dialog-content data-id="f9acc188">
     <div
       class="d-flex d-sm-flex flex-column flex-sm-column justify-content-start align-items-start justify-content-sm-start align-items-sm-start"
+      data-id="d31c89b2"
     >
-      <div class="flex-sh-100 flex-sh-50 flex-sh-sm-initial">
-        <div class="swiper-container h-100">
-          <div class="swiper-wrapper">
+      <div class="flex-sh-100 flex-sh-50 flex-sh-sm-initial" data-id="432ed286">
+        <div class="swiper-container h-100" data-id="ed2a146e">
+          <div class="swiper-wrapper" data-id="c735c641">
             <img
               *ngIf="product.Images && product.Images.length"
               [src]="imageUrl + product.Images[0].image"
               alt
               class="productImage"
               lazyImg
+              data-id="04c8c7f9"
             />
             <img
               *ngIf="!(product.Images && product.Images.length)"
@@ -24,6 +26,7 @@
               class="productImage"
               lazyImg
               src="/assets/images/noImage.jpg"
+              data-id="07adab0d"
             />
           </div>
         </div>
@@ -32,75 +35,97 @@
         ngClass.gt-sm="px-2 m-0"
         ngClass.lt-sm="mt-2"
         class="flex-sh-100 flex-sh-50 flex-sh-sm-initial"
+        data-id="4fa0aca2"
       >
-        <div class="product-right">
-          <div class="product-details">
-            <h1 class="nameProduct mb-10">
+        <div class="product-right" data-id="c3f03021">
+          <div class="product-details" data-id="83c269cb">
+            <h1 class="nameProduct mb-10" data-id="52372d8b">
               {{ product.name[language] ? product.name[language] : product.name['es'] }}
             </h1>
-            <div *ngIf="product.offerValue">
-              <h4 class="mb-10">
-                <del>{{ currencyService.getPriceLabel(product) }}</del>
-                <span class="offer ml-2">
-                  <span class="mx-0 px-0">-</span>
-                  <span *ngIf="product.isPercent" class="mx-0 px-0"
+            <div *ngIf="product.offerValue" data-id="9e2bcf9d">
+              <h4 class="mb-10" data-id="2be84cd0">
+                <del data-id="77add53e">{{ currencyService.getPriceLabel(product) }}</del>
+                <span class="offer ml-2" data-id="c3e01263">
+                  <span class="mx-0 px-0" data-id="574c1b1a">-</span>
+                  <span *ngIf="product.isPercent" class="mx-0 px-0" data-id="972abbab"
                     >{{ product.offerValue }}%
                   </span>
-                  <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                  <span *ngIf="!product.isPercent" class="mx-0 px-0" data-id="780bfb60"
                     >${{ product.offerValue }}</span
                   >
                 </span>
               </h4>
-              <h3 class="price mb-10">{{ currencyService.getOfferLabel(product) }}</h3>
+              <h3 class="price mb-10" data-id="6a51b445">
+                {{ currencyService.getOfferLabel(product) }}
+              </h3>
             </div>
 
-            <div *ngIf="!product.offerValue">
-              <h3 class="price mb-10">{{ currencyService.getPriceLabel(product) }}</h3>
+            <div *ngIf="!product.offerValue" data-id="25cb3c03">
+              <h3 class="price mb-10" data-id="4e61cead">
+                {{ currencyService.getPriceLabel(product) }}
+              </h3>
             </div>
 
-            <p class="mat-body-2" style="font-size: 15px">
+            <p class="mat-body-2" style="font-size: 15px" data-id="3299ea8c">
               {{ 'Compra a partir de ' | translate }}
               {{ product.minSale }}
               {{ ' unidades' | translate }}
             </p>
 
-            <div class="discription">
-              <p class="bold">{{ 'Product details' | translate }}</p>
-              <p>
+            <div class="discription" data-id="0f3361b3">
+              <p class="bold" data-id="0efb9668">{{ 'Product details' | translate }}</p>
+              <p data-id="7111f0d7">
                 {{ utilsServ.parserLanguage(product.shortDescription, language) }}
               </p>
             </div>
           </div>
 
-          <ng-container *ngIf="product.type == 'physical'">
-            <div class="py-1 mt-15">
-              <p>
-                <span class="text-muted fw-500">{{ 'Avalibility:' | translate }}</span>
-                <span *ngIf="counter <= product.Physical.stock" class="avalibility"
-                  ><span class="ml-3" style="color: #4caf50 !important; font-weight: 500">{{
-                    'In Stock' | translate
-                  }}</span></span
+          <ng-container *ngIf="product.type == 'physical'" data-id="1ca18483">
+            <div class="py-1 mt-15" data-id="0a457c03">
+              <p data-id="800c7f0a">
+                <span class="text-muted fw-500" data-id="ac550a0a">{{
+                  'Avalibility:' | translate
+                }}</span>
+                <span
+                  *ngIf="counter <= product.Physical.stock"
+                  class="avalibility"
+                  data-id="eb6018dd"
+                  ><span
+                    class="ml-3"
+                    style="color: #4caf50 !important; font-weight: 500"
+                    data-id="b173bfbe"
+                    >{{ 'In Stock' | translate }}</span
+                  ></span
                 >
                 <span
                   *ngIf="counter > product.Physical.stock"
                   class="avalibility"
                   style="color: #f33927 !important; font-weight: 500"
-                  ><span class="red ml-3">{{ 'Out of Stock' | translate }}</span></span
+                  data-id="2f52a2a2"
+                  ><span class="red ml-3" data-id="e99fbb93">{{
+                    'Out of Stock' | translate
+                  }}</span></span
                 >
               </p>
             </div>
-            <div class="quantity mt-15">
-              <span class="text-muted fw-500">{{ 'Quantity:' | translate }}</span>
-              <div class="text-muted d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column">
-                <div class="d-flex justify-content-center align-items-start">
-                  <div class="addQuantity">
+            <div class="quantity mt-15" data-id="9daebd75">
+              <span class="text-muted fw-500" data-id="e0d05e3f">{{
+                'Quantity:' | translate
+              }}</span>
+              <div
+                class="text-muted d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column"
+                data-id="b8fe0f8b"
+              >
+                <div class="d-flex justify-content-center align-items-start" data-id="543e17e0">
+                  <div class="addQuantity" data-id="ba7992a1">
                     <button
                       (click)="decrement()"
                       [disabled]="counter <= product.minSale"
                       class="leftBtn"
                       matTooltip="Remove"
+                      data-id="eb0305d6"
                     >
-                      <mat-icon>keyboard_arrow_left</mat-icon>
+                      <mat-icon data-id="f59587f3">keyboard_arrow_left</mat-icon>
                     </button>
                     <input
                       [min]="product.minSale"
@@ -110,14 +135,16 @@
                       readonly="true"
                       type="text"
                       value="{{ counter }}"
+                      data-id="618ad381"
                     />
                     <button
                       (click)="increment()"
                       [disabled]="counter > product.stock || counter >= product.maxSale"
                       class="rightBtn"
                       matTooltip="Add"
+                      data-id="21ad476e"
                     >
-                      <mat-icon>keyboard_arrow_right</mat-icon>
+                      <mat-icon data-id="b6f1e350">keyboard_arrow_right</mat-icon>
                     </button>
                   </div>
                 </div>
@@ -127,6 +154,7 @@
 
           <div
             class="buttons mt-20 d-flex d-xs-flex flex-column flex-xs-column justify-content-start align-items-center justify-content-xs-start align-items-xs-center"
+            data-id="8eda16df"
           >
             <button
               (click)="addToCart(product, counter)"
@@ -134,6 +162,7 @@
               color="primary"
               mat-raised-button
               ngClass.lt-sm="w-80"
+              data-id="0dbd6c10"
             >
               {{ 'ADD TO CART' | translate }}
             </button>
@@ -143,6 +172,7 @@
               color="primary"
               mat-raised-button
               ngClass.lt-sm="w-80"
+              data-id="5c1c1435"
             >
               {{ 'VIEW DETAIL' | translate }}
             </button>

@@ -1,33 +1,48 @@
-<mat-sidenav-container *ngIf="appService.businessConfig?.Business?.status !== 'blockPayment'">
+<mat-sidenav-container
+  *ngIf="appService.businessConfig?.Business?.status !== 'blockPayment'"
+  data-id="f77b6d8c"
+>
   <!-- Vista movil menu -->
-  <mat-sidenav #start [opened]="false" class="DrawerMobileView" mode="over">
-    <mat-list class="position-relative">
-      <mat-list-item>
-        <mat-icon> person</mat-icon>
+  <mat-sidenav #start [opened]="false" class="DrawerMobileView" mode="over" data-id="53df1213">
+    <mat-list class="position-relative" data-id="665dc6b7">
+      <mat-list-item data-id="a3594bd6">
+        <mat-icon data-id="6e8a30d3"> person</mat-icon>
         &nbsp;
-        <span class="mat-body-2" style="font-size: 19px"> {{ '¡Hola' | translate }}, </span>
+        <span class="mat-body-2" style="font-size: 19px" data-id="03fa3ba3">
+          {{ '¡Hola' | translate }},
+        </span>
         &nbsp;
-        <span *ngIf="loggedInUser" class="mat-body-2" style="font-size: 19px">
+        <span *ngIf="loggedInUser" class="mat-body-2" style="font-size: 19px" data-id="8b8c6044">
           {{ loggedInUser.name }}!
         </span>
 
-        <a *ngIf="!loggedInUser" class="mat-body-2" href="/my-account" style="font-size: 19px">
+        <a
+          *ngIf="!loggedInUser"
+          class="mat-body-2"
+          href="/my-account"
+          style="font-size: 19px"
+          data-id="b7bc2df9"
+        >
           {{ 'Inicia Sesión' | translate }}!
         </a>
 
-        <span (click)="start.toggle()" class="sidebar-close-btn">
-          <mat-icon>close</mat-icon>
+        <span (click)="start.toggle()" class="sidebar-close-btn" data-id="83aa06db">
+          <mat-icon data-id="73027163">close</mat-icon>
         </span>
       </mat-list-item>
     </mat-list>
 
-    <mat-divider></mat-divider>
+    <mat-divider data-id="3012bf3c"></mat-divider>
 
-    <div class="sidebar-nav-items d-flex flex-column justify-content-start align-items-stretch">
+    <div
+      class="sidebar-nav-items d-flex flex-column justify-content-start align-items-stretch"
+      data-id="b08138cb"
+    >
       <app-sidebar
         *ngFor="let item of navItems"
         [item]="item"
         (itemSelected)="start.toggle()"
+        data-id="129acea2"
       ></app-sidebar>
       <!--            <a mat-list-item class="link-nav-a" href="/become-a-seller">-->
       <!--              <mat-icon class="mr-3">card_membership</mat-icon>-->
@@ -37,31 +52,35 @@
         (click)="createYourBusiness()"
         class="link-nav-a"
         *ngIf="appService.businessConfig?.showDigitalContract && !this.loggedInUser?.Business"
+        data-id="8e57de56"
       >
-        <mat-icon class="mr-3">card_membership</mat-icon>
-        <span class="mat-body-2" style="font-size: 15px">{{ 'Crea tu negocio' | translate }}</span>
+        <mat-icon class="mr-3" data-id="41581ca5">card_membership</mat-icon>
+        <span class="mat-body-2" style="font-size: 15px" data-id="f2e0aec1">{{
+          'Crea tu negocio' | translate
+        }}</span>
       </div>
     </div>
 
-    <mat-divider *ngFor="let item of [1, 2, 3, 4]"></mat-divider>
+    <mat-divider *ngFor="let item of [1, 2, 3, 4]" data-id="42816e22"></mat-divider>
 
-    <mat-list>
-      <mat-list-item>
-        <span class="mat-body-2" style="font-size: 19px">
+    <mat-list data-id="30da0464">
+      <mat-list-item data-id="1fe8c74c">
+        <span class="mat-body-2" style="font-size: 19px" data-id="8c27d6ef">
           {{ 'Configuración' | translate }}
         </span>
       </mat-list-item>
     </mat-list>
 
-    <mat-nav-list>
+    <mat-nav-list data-id="0f960fdd">
       <a
         (click)="onShowProfile()"
         *ngIf="loggedInUser"
         mat-list-item
         class="d-flex justify-content-start align-items-center"
+        data-id="217e054b"
       >
-        <mat-icon>build</mat-icon>
-        <span class="ml-3">{{ 'Profile' | translate }}</span>
+        <mat-icon data-id="a81b26d6">build</mat-icon>
+        <span class="ml-3" data-id="378b5f00">{{ 'Profile' | translate }}</span>
       </a>
 
       <a
@@ -69,9 +88,10 @@
         *ngIf="loggedInUser"
         mat-list-item
         class="d-flex justify-content-start align-items-center"
+        data-id="2bbb7c69"
       >
-        <mat-icon>book</mat-icon>
-        <span class="ml-3">{{ 'Mis contactos' | translate }}</span>
+        <mat-icon data-id="b292d44e">book</mat-icon>
+        <span class="ml-3" data-id="2f80b01a">{{ 'Mis contactos' | translate }}</span>
       </a>
 
       <a
@@ -79,9 +99,10 @@
         *ngIf="loggedInUser"
         mat-list-item
         class="d-flex justify-content-start align-items-center"
+        data-id="9e51af00"
       >
-        <mat-icon>no_encryption</mat-icon>
-        <span class="ml-3">{{ 'Cambiar contraseña' | translate }}</span>
+        <mat-icon data-id="6f4445cf">no_encryption</mat-icon>
+        <span class="ml-3" data-id="ca3a8daf">{{ 'Cambiar contraseña' | translate }}</span>
       </a>
 
       <!--      <a #langMenuTrigger='matMenuTrigger' [matMenuTriggerFor]='langMenu1' fxLayoutAlign='start center' mat-list-item>-->
@@ -113,14 +134,16 @@
         [overlapTrigger]="false"
         class="app-dropdown"
         xPosition="before"
+        data-id="41b963df"
       >
         <button
           (click)="changeCurrency(cur)"
           *ngFor="let cur of currencies"
           mat-menu-item
           class="d-flex justify-content-start align-items-center"
+          data-id="0abf3b7a"
         >
-          <span>{{ cur?.name }}</span>
+          <span data-id="9d0dd9bd">{{ cur?.name }}</span>
         </button>
       </mat-menu>
 
@@ -132,14 +155,21 @@
         "
         class="link-nav-a"
         mat-list-item
+        data-id="a0d57d7a"
       >
-        <mat-icon>edit</mat-icon>
-        <span class="ml-3">{{ 'Ir a la administración' | translate }}</span>
+        <mat-icon data-id="4243223b">edit</mat-icon>
+        <span class="ml-3" data-id="046c07d2">{{ 'Ir a la administración' | translate }}</span>
       </a>
 
-      <a (click)="onLogout()" *ngIf="loggedInUser" class="link-nav-a" mat-list-item>
-        <mat-icon>exit_to_app</mat-icon>
-        <span class="ml-3">{{ 'Logout' | translate }}</span>
+      <a
+        (click)="onLogout()"
+        *ngIf="loggedInUser"
+        class="link-nav-a"
+        mat-list-item
+        data-id="699fcb7d"
+      >
+        <mat-icon data-id="1a90bbee">exit_to_app</mat-icon>
+        <span class="ml-3" data-id="fe32d65f">{{ 'Logout' | translate }}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -152,43 +182,60 @@
     fixedInViewport
     mode="over"
     position="end"
+    data-id="fd8a4479"
   >
-    <mat-list class="position-relative">
-      <mat-list-item>
-        <mat-icon> notifications</mat-icon>
+    <mat-list class="position-relative" data-id="8e1ad15d">
+      <mat-list-item data-id="051d6adc">
+        <mat-icon data-id="f148e2d8"> notifications</mat-icon>
         &nbsp;
-        <span class="mat-body-2" style="font-size: 19px">
+        <span class="mat-body-2" style="font-size: 19px" data-id="ecec7146">
           {{ 'Notificaciones' | translate }}
         </span>
 
-        <span (click)="notificationBar.toggle()" class="sidebar-close-btn">
-          <mat-icon>close</mat-icon>
+        <span (click)="notificationBar.toggle()" class="sidebar-close-btn" data-id="ec5e0d83">
+          <mat-icon data-id="39d3828f">close</mat-icon>
         </span>
       </mat-list-item>
     </mat-list>
 
-    <mat-divider></mat-divider>
+    <mat-divider data-id="24be97c3"></mat-divider>
 
-    <app-panel-notifications (closePanel)="notificationBar.toggle()"></app-panel-notifications>
+    <app-panel-notifications
+      (closePanel)="notificationBar.toggle()"
+      data-id="49a3547d"
+    ></app-panel-notifications>
   </mat-sidenav>
 
   <!-- Todos excepto vista movil -->
-  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none">
-    <div class="container-header d-flex justify-content-between align-items-center">
+  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none" data-id="3722d5a3">
+    <div
+      class="container-header d-flex justify-content-between align-items-center"
+      data-id="d66730b1"
+    >
       <img
         alt="logo"
         class="Logo-img d-inline d-sm-none"
         (click)="metaAdd()"
         routerLink="/"
         [src]="logo"
+        data-id="e43137ad"
       />
-      <button (click)="start.toggle()" mat-icon-button class="d-sm-block-i d-none-i">
-        <mat-icon>menu</mat-icon>
+      <button
+        (click)="start.toggle()"
+        mat-icon-button
+        class="d-sm-block-i d-none-i"
+        data-id="559e6732"
+      >
+        <mat-icon data-id="bcbb3b4f">menu</mat-icon>
       </button>
 
-      <div class="search-form d-flex justify-content-start align-items-center flex-sh-0">
+      <div
+        class="search-form d-flex justify-content-start align-items-center flex-sh-0"
+        data-id="55075657"
+      >
         <div
           class="search-form d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-d9913a"
+          data-id="b3dbc07d"
         >
           <!-- ======== -->
           <!-- Location -->
@@ -198,55 +245,76 @@
             (click)="
               tour?.getCurrentStep()?.isOpen() ? $event.stopPropagation() : openSetLocation()
             "
+            data-id="f6dd0f2a"
           >
-            <div class="nl-logo">
-              <mat-icon>room</mat-icon>
+            <div class="nl-logo" data-id="ab9a325f">
+              <mat-icon data-id="35cab445">room</mat-icon>
             </div>
-            <div *ngIf="business || province" class="nl-titles d-flex flex-column">
-              <ng-container *ngIf="business">
-                <div class="nl-province">{{ business?.name }}</div>
-                <div class="nl-municipality">{{ province?.name }}</div>
+            <div
+              *ngIf="business || province"
+              class="nl-titles d-flex flex-column"
+              data-id="14915344"
+            >
+              <ng-container *ngIf="business" data-id="780cd197">
+                <div class="nl-province" data-id="ca3fb5d6">{{ business?.name }}</div>
+                <div class="nl-municipality" data-id="6a08be14">{{ province?.name }}</div>
               </ng-container>
-              <ng-container *ngIf="!business">
-                <div class="nl-province">{{ province?.name }}</div>
-                <div class="nl-municipality">{{ municipality?.name }}</div>
+              <ng-container *ngIf="!business" data-id="f5eb6eb4">
+                <div class="nl-province" data-id="683ce93d">{{ province?.name }}</div>
+                <div class="nl-municipality" data-id="b00b29be">{{ municipality?.name }}</div>
               </ng-container>
             </div>
 
-            <div *ngIf="!business && !province" class="nl-titles d-flex flex-column">
+            <div
+              *ngIf="!business && !province"
+              class="nl-titles d-flex flex-column"
+              data-id="4b572215"
+            >
               <!-- <span></span>
               <span></span>
               <span></span>
               <span></span> -->
-              <div class="nl-province">{{ 'Comprar en...' | translate }}</div>
-              <div class="nl-municipality">{{ 'Escoger ubicación' | translate }}</div>
+              <div class="nl-province" data-id="7b67b383">{{ 'Comprar en...' | translate }}</div>
+              <div class="nl-municipality" data-id="91899f40">
+                {{ 'Escoger ubicación' | translate }}
+              </div>
             </div>
           </div>
 
           <!-- ======== -->
           <!-- SEARCHING -->
-          <div class="form-wrap flex-sh-NaN">
+          <div class="form-wrap flex-sh-NaN" data-id="197edb52">
             <input
               (keyup.enter)="onSearch()"
               [formControl]="searchForm"
               placeholder="{{ 'Buscar en la tienda...' | translate }}"
               type="text"
               [matAutocomplete]="auto"
+              data-id="854e6697"
             />
             <mat-spinner
               *ngIf="this.loadingProducts"
               color="primary"
               diameter="30"
               class="spinner-loading"
+              data-id="6a7aac12"
             ></mat-spinner>
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectElement($event)">
-              <mat-option *ngFor="let option of filteredOptions" [value]="option">
-                <div [innerHTML]="option.showValue" class="text-filter"></div>
+            <mat-autocomplete
+              #auto="matAutocomplete"
+              (optionSelected)="onSelectElement($event)"
+              data-id="01a5e06b"
+            >
+              <mat-option
+                *ngFor="let option of filteredOptions"
+                [value]="option"
+                data-id="d26d03cf"
+              >
+                <div [innerHTML]="option.showValue" class="text-filter" data-id="d949a29b"></div>
               </mat-option>
             </mat-autocomplete>
 
-            <button (click)="onSearch()" class="btn-search">
-              <mat-icon>search</mat-icon>
+            <button (click)="onSearch()" class="btn-search" data-id="edd23d67">
+              <mat-icon data-id="a575ec44">search</mat-icon>
             </button>
           </div>
         </div>
@@ -255,18 +323,20 @@
       <div
         class="userWidgets d-flex justify-content-end align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
         ngClass.xs="w-100"
+        data-id="7f9159b7"
       >
-        <div class="d-flex justify-content-end align-items-center flex-sh-75">
-          <div class="widget-text mx-2">
+        <div class="d-flex justify-content-end align-items-center flex-sh-75" data-id="d556df4b">
+          <div class="widget-text mx-2" data-id="8d80ff6a">
             <a
               #langMenuTrigger="matMenuTrigger"
               [matMenuTriggerFor]="langMenu"
               mat-button
               matTooltip="{{ 'Change language' | translate }}"
+              data-id="f2dd0d1f"
             >
-              <img [src]="flag?.image" height="24" width="24" />
-              <span class="flag-menu-title d-none d-sm-inline"></span>
-              <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon"
+              <img [src]="flag?.image" height="24" width="24" data-id="3dccbf53" />
+              <span class="flag-menu-title d-none d-sm-inline" data-id="3c98ca4f"></span>
+              <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="68b867f0"
                 >arrow_drop_down</mat-icon
               >
             </a>
@@ -275,10 +345,16 @@
               [overlapTrigger]="false"
               class="app-dropdown"
               xPosition="before"
+              data-id="c3621e56"
             >
-              <span>
-                <button (click)="changeLang(flag)" *ngFor="let flag of flags" mat-menu-item>
-                  <img [src]="flag.image" width="18" /> {{ flag?.name }}
+              <span data-id="6389d5d7">
+                <button
+                  (click)="changeLang(flag)"
+                  *ngFor="let flag of flags"
+                  mat-menu-item
+                  data-id="eef776a0"
+                >
+                  <img [src]="flag.image" width="18" data-id="c25fe56d" /> {{ flag?.name }}
                 </button>
               </span>
             </mat-menu>
@@ -304,20 +380,31 @@
           mat-button
           [matMenuTriggerFor]="currencyMenu"
           #currencyMenuTrigger="matMenuTrigger"
+          data-id="1fc8a334"
         >
-          <span class="flag-menu-title">{{ currency?.name | translate }}</span>
-          <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          <span class="flag-menu-title" data-id="81b74cff">{{ currency?.name | translate }}</span>
+          <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="2ca079bc"
+            >arrow_drop_down</mat-icon
+          >
         </a>
         <mat-menu
           #currencyMenu="matMenu"
           [overlapTrigger]="false"
           xPosition="before"
           class="app-dropdown menu-currency"
+          data-id="430f3385"
         >
-          <span>
-            <span class="px-2 mt-1 title-mat-menu">{{ 'Currencies' | translate }}:</span>
-            <button mat-menu-item *ngFor="let cur of currencies" (click)="changeCurrency(cur)">
-              <span>&gt; {{ cur?.name | translate }}</span>
+          <span data-id="b44a50a9">
+            <span class="px-2 mt-1 title-mat-menu" data-id="124975c1"
+              >{{ 'Currencies' | translate }}:</span
+            >
+            <button
+              mat-menu-item
+              *ngFor="let cur of currencies"
+              (click)="changeCurrency(cur)"
+              data-id="ec234a98"
+            >
+              <span data-id="b615c7a7">&gt; {{ cur?.name | translate }}</span>
             </button>
           </span>
         </mat-menu>
@@ -336,7 +423,7 @@
 
         <!-- ================================ -->
         <!-- CART MENU -->
-        <app-shopping-widgets class="button-web-currency"></app-shopping-widgets>
+        <app-shopping-widgets class="button-web-currency" data-id="3dc66b13"></app-shopping-widgets>
 
         <!-- ================================ -->
         <!-- NOTIFICATIONS -->
@@ -344,11 +431,13 @@
           *ngIf="loggedInUser"
           class="px-3 d-flex justify-content-start align-items-center"
           style="color: white"
+          data-id="75cc582b"
         >
-          <button (click)="notificationBar.toggle()" mat-icon-button>
+          <button (click)="notificationBar.toggle()" mat-icon-button data-id="e3b38286">
             <mat-icon
               [matBadge]="notificationsService.getUnreadNotifications()"
               matBadgeColor="accent"
+              data-id="76f73b64"
               >notifications
             </mat-icon>
           </button>
@@ -361,9 +450,10 @@
           [routerLink]="['/my-account']"
           class="px-3 d-flex justify-content-start align-items-center d-inline"
           routerLinkActive="router-link-active"
+          data-id="429fbfc0"
         >
-          <mat-icon>person</mat-icon>
-          <span class="d-xs-none d-sm-none">{{ 'Account' | translate }}</span>
+          <mat-icon data-id="75bc09b0">person</mat-icon>
+          <span class="d-xs-none d-sm-none" data-id="a19c5549">{{ 'Account' | translate }}</span>
         </a>
 
         <a
@@ -372,15 +462,19 @@
           [matMenuTriggerFor]="userMenu"
           class="px-0 pl-2 d-flex justify-content-start align-items-center d-inline"
           mat-icon-button
+          data-id="ade033da"
         >
           <!--          <img *ngIf='!this.loggedInUser?.avatar' alt='Profile'-->
           <!--               class='profileImage' src='assets/images/avatars/profile2.png' />-->
-          <mat-icon *ngIf="!this.loggedInUser?.avatar" alt="Profile"> account_circle </mat-icon>
+          <mat-icon *ngIf="!this.loggedInUser?.avatar" alt="Profile" data-id="b21c290b">
+            account_circle
+          </mat-icon>
           <img
             *ngIf="this.loggedInUser?.avatar"
             [src]="urlImage + loggedInUser?.avatar"
             alt="Profile"
             class="profileImage"
+            data-id="8b908fc8"
           />
         </a>
 
@@ -389,33 +483,37 @@
           [overlapTrigger]="false"
           class="app-dropdown"
           xPosition="before"
+          data-id="5a179bc1"
         >
-          <button *ngIf="this.loggedInUser" mat-menu-item>
-            <strong>{{ this.loggedInUser.name }} {{ this.loggedInUser.lastName || '' }}</strong>
+          <button *ngIf="this.loggedInUser" mat-menu-item data-id="d4ece03b">
+            <strong data-id="b846be5a"
+              >{{ this.loggedInUser.name }} {{ this.loggedInUser.lastName || '' }}</strong
+            >
           </button>
 
-          <button [routerLink]="['/my-orders']" mat-menu-item>
-            <mat-icon>receipt</mat-icon>
-            <span class="mat-body-1">{{ 'Mis órdenes' | translate }}</span>
+          <button [routerLink]="['/my-orders']" mat-menu-item data-id="4a19f4ce">
+            <mat-icon data-id="5dff8a87">receipt</mat-icon>
+            <span class="mat-body-1" data-id="f9d1d96a">{{ 'Mis órdenes' | translate }}</span>
           </button>
 
           <button
             [routerLink]="['/referred']"
             mat-menu-item
             *ngIf="appService.businessConfig?.giftRulesReferrer"
+            data-id="8cf55ea8"
           >
-            <mat-icon>person_add</mat-icon>
-            <span class="mat-body-1">{{ 'Referidos' | translate }}</span>
+            <mat-icon data-id="164905eb">person_add</mat-icon>
+            <span class="mat-body-1" data-id="e63029fd">{{ 'Referidos' | translate }}</span>
           </button>
 
-          <button (click)="onShowProfile()" mat-menu-item>
-            <mat-icon>build</mat-icon>
-            <span class="mat-body-1">{{ 'Profile' | translate }}</span>
+          <button (click)="onShowProfile()" mat-menu-item data-id="58b909c5">
+            <mat-icon data-id="099e9591">build</mat-icon>
+            <span class="mat-body-1" data-id="45027029">{{ 'Profile' | translate }}</span>
           </button>
 
-          <button (click)="onShowMyContacts()" mat-menu-item>
-            <mat-icon>book</mat-icon>
-            <span class="mat-body-1">{{ 'Mis contactos' | translate }}</span>
+          <button (click)="onShowMyContacts()" mat-menu-item data-id="12952e96">
+            <mat-icon data-id="9bff6cd3">book</mat-icon>
+            <span class="mat-body-1" data-id="1faace6b">{{ 'Mis contactos' | translate }}</span>
           </button>
 
           <button
@@ -425,15 +523,18 @@
               (loggedInUserService.isAdminOrOwnerUser() || loggedInUserService.isMessengerUser())
             "
             mat-menu-item
+            data-id="b20f885a"
           >
-            <mat-icon>edit</mat-icon>
-            <a id="linkNavBack" style="display: none"></a>
-            <span class="mat-body-1">{{ 'Administración' | translate }}</span>
+            <mat-icon data-id="46351e64">edit</mat-icon>
+            <a id="linkNavBack" style="display: none" data-id="d0989a66"></a>
+            <span class="mat-body-1" data-id="7b8cd475">{{ 'Administración' | translate }}</span>
           </button>
 
-          <button (click)="onChangePass()" *ngIf="loggedInUser" mat-menu-item>
-            <mat-icon>settings</mat-icon>
-            <span class="mat-body-1">{{ 'Cambie la contraseña' | translate }}</span>
+          <button (click)="onChangePass()" *ngIf="loggedInUser" mat-menu-item data-id="f7ae5e73">
+            <mat-icon data-id="fe171c5f">settings</mat-icon>
+            <span class="mat-body-1" data-id="694cb0b5">{{
+              'Cambie la contraseña' | translate
+            }}</span>
           </button>
 
           <!-- ------------------------- -->
@@ -446,18 +547,19 @@
               !this.loggedInUser?.Business
             "
             mat-menu-item
+            data-id="f1c9ca46"
           >
-            <mat-icon>shopping_basket</mat-icon>
-            <span class="mat-body-1">{{ 'Crea tu negocio' | translate }}</span>
+            <mat-icon data-id="0b7a7be3">shopping_basket</mat-icon>
+            <span class="mat-body-1" data-id="1abbd7e7">{{ 'Crea tu negocio' | translate }}</span>
           </div>
           <!--                    <a *ngIf="loggedInUser" mat-menu-item href="{{urlToCreateBusiness}}" target="_blank">-->
           <!--                      <mat-icon>shopping_basket</mat-icon>-->
           <!--                      <span class="mat-body-1">{{ 'Crea tu negocio' | translate }}</span>-->
           <!--                    </a>-->
 
-          <button (click)="onLogout()" mat-menu-item>
-            <mat-icon>exit_to_app</mat-icon>
-            <span class="mat-body-1">{{ 'Logout' | translate }}</span>
+          <button (click)="onLogout()" mat-menu-item data-id="8c4acafa">
+            <mat-icon data-id="21ffc215">exit_to_app</mat-icon>
+            <span class="mat-body-1" data-id="62ddad44">{{ 'Logout' | translate }}</span>
           </button>
         </mat-menu>
       </div>
@@ -465,40 +567,51 @@
   </div>
 
   <!--Home Header En vista movil -->
-  <div class="home-header-2 p-2 d-sm-block d-none">
-    <div class="d-flex flex-column justify-content-start align-items-stretch">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="main-logo-container d-flex justify-content-start align-items-center">
-          <button (click)="start.toggle()" class="mr-2" mat-icon-button>
-            <mat-icon>menu</mat-icon>
+  <div class="home-header-2 p-2 d-sm-block d-none" data-id="a7408fc2">
+    <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="87fe6c44">
+      <div class="d-flex justify-content-between align-items-center" data-id="b6a60784">
+        <div
+          class="main-logo-container d-flex justify-content-start align-items-center"
+          data-id="3ca7343b"
+        >
+          <button (click)="start.toggle()" class="mr-2" mat-icon-button data-id="30741d5d">
+            <mat-icon data-id="8ac5346b">menu</mat-icon>
           </button>
-          <img alt="logo" class="logo-img-main" routerLink="/" [src]="logo" />
+          <img alt="logo" class="logo-img-main" routerLink="/" [src]="logo" data-id="831aaada" />
         </div>
 
-        <div class="userWidgets m-0 p-0 d-flex justify-content-start align-items-center">
+        <div
+          class="userWidgets m-0 p-0 d-flex justify-content-start align-items-center"
+          data-id="6c318a4a"
+        >
           <a
             class="button-currency ml-3 d-flex justify-content-center align-items-center"
             mat-button
             [matMenuTriggerFor]="currencyMenu"
             #currencyMenuTrigger="matMenuTrigger"
+            data-id="d76b3f05"
           >
-            <span class="flag-menu-title">{{ currency?.name | translate }}</span>
-            <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+            <span class="flag-menu-title" data-id="81b37552">{{ currency?.name | translate }}</span>
+            <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="7d73f525"
+              >arrow_drop_down</mat-icon
+            >
           </a>
           <mat-menu
             #currencyMenu="matMenu"
             [overlapTrigger]="false"
             xPosition="before"
             class="app-dropdown"
+            data-id="003e75d8"
           >
-            <span>
+            <span data-id="e956441c">
               <button
                 mat-menu-item
                 *ngFor="let cur of currencies; let i = index"
                 [disabled]="i === 0"
                 (click)="changeCurrency(cur)"
+                data-id="558fe59b"
               >
-                <span>{{ cur?.name | translate }} {{ i }}</span>
+                <span data-id="1dbf01f7">{{ cur?.name | translate }} {{ i }}</span>
               </button>
             </span>
           </mat-menu>
@@ -508,22 +621,25 @@
             [routerLink]="['/my-account']"
             routerLinkActive="router-link-active"
             class="d-flex justify-content-start align-items-center d-inline"
+            data-id="cd519686"
           >
-            <mat-icon>person</mat-icon>
-            <span class="d-xs-none d-sm-none">{{ 'Account' | translate }}</span>
+            <mat-icon data-id="66550614">person</mat-icon>
+            <span class="d-xs-none d-sm-none" data-id="68b30c9a">{{ 'Account' | translate }}</span>
           </a>
 
-          <app-shopping-widgets></app-shopping-widgets>
+          <app-shopping-widgets data-id="4d9f6735"></app-shopping-widgets>
 
           <a
             *ngIf="loggedInUser"
             style="color: white"
             class="d-flex justify-content-start align-items-center"
+            data-id="7be7417e"
           >
-            <button (click)="notificationBar.toggle()" mat-icon-button>
+            <button (click)="notificationBar.toggle()" mat-icon-button data-id="ce4d5642">
               <mat-icon
                 [matBadge]="notificationsService.getUnreadNotifications()"
                 matBadgeColor="accent"
+                data-id="d45bd066"
                 >notifications
               </mat-icon>
             </button>
@@ -531,8 +647,11 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center align-items-start">
-        <div class="mobile-search d-flex justify-content-start align-items-center">
+      <div class="d-flex justify-content-center align-items-start" data-id="45929833">
+        <div
+          class="mobile-search d-flex justify-content-start align-items-center"
+          data-id="a2e51e87"
+        >
           <input
             (keyup.enter)="onSearch()"
             [formControl]="searchForm"
@@ -540,21 +659,24 @@
             type="search"
             [matAutocomplete]="auto"
             class="flex-sh-0"
+            data-id="cdd678e1"
           />
           <mat-spinner
             *ngIf="this.loadingProducts"
             color="primary"
             diameter="30"
             class="spinner-loading"
+            data-id="b1a1b125"
           ></mat-spinner>
-          <button (click)="onSearch()">
-            <mat-icon>search</mat-icon>
+          <button (click)="onSearch()" data-id="f7c2d61f">
+            <mat-icon data-id="d30258a2">search</mat-icon>
           </button>
         </div>
       </div>
 
       <div
         class="showCategories d-flex d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center d-md-flex justify-content-sm-center justify-content-md-center align-items-md-center"
+        data-id="50b4473f"
       >
         <!--        <a [routerLink]="['']"-->
         <!--           [routerLinkActiveOptions]="{ exact: true }"-->
@@ -568,6 +690,7 @@
           class="itemCategory"
           mat-button
           routerLinkActive="router-link-active"
+          data-id="6ca7639b"
         >
           {{ 'Nuestras tiendas' | translate }}</a
         >
@@ -577,6 +700,7 @@
           mat-button
           routerLinkActive="router-link-active"
           *ngIf="appService.businessConfig?.showAllProducts"
+          data-id="e0c83386"
         >
           {{ 'Todos los productos' | translate }}</a
         >
@@ -588,6 +712,7 @@
           [routerLink]="['/products/search']"
           class="itemCategory"
           mat-button
+          data-id="ce2c3989"
           >{{ category.name | parseLang: utilsService.getLang() }}</a
         >
       </div>
@@ -596,38 +721,46 @@
   <div
     (click)="openSetLocation()"
     class="mobile-location d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-f9d6f6 d-sm-block d-none"
+    data-id="de6264c0"
   >
-    <div class="nl-logo d-flex justify-content-center align-items-center">
-      <mat-icon>room</mat-icon>
+    <div class="nl-logo d-flex justify-content-center align-items-center" data-id="2a386dec">
+      <mat-icon data-id="488f237c">room</mat-icon>
     </div>
-    <div *ngIf="!business && !province">{{ 'Comprar en...' | translate }}</div>
-    <div *ngIf="province && !business">{{ province?.name }}, {{ municipality?.name }}</div>
-    <div *ngIf="business">{{ business?.name }}, {{ province?.name }}</div>
+    <div *ngIf="!business && !province" data-id="716a822e">{{ 'Comprar en...' | translate }}</div>
+    <div *ngIf="province && !business" data-id="325a165a">
+      {{ province?.name }}, {{ municipality?.name }}
+    </div>
+    <div *ngIf="business" data-id="499b8221">{{ business?.name }}, {{ province?.name }}</div>
   </div>
 
-  <div class="menu-container1">
+  <div class="menu-container1" data-id="d72d124f">
     <!--    <app-menu [_categories]="categories"></app-menu>-->
-    <app-menu></app-menu>
+    <app-menu data-id="2f9bca44"></app-menu>
   </div>
 
-  <router-outlet></router-outlet>
+  <router-outlet data-id="2625c877"></router-outlet>
 
   <!--  <app-footer-two *ngIf="!url.includes('my-account')"></app-footer-two>-->
-  <app-footer *ngIf="!url?.includes('my-account')"></app-footer>
+  <app-footer *ngIf="!url?.includes('my-account')" data-id="d9edd3a0"></app-footer>
 </mat-sidenav-container>
 
 <mat-sidenav-container
   fullscreen
   *ngIf="appService.businessConfig?.Business?.status === 'blockPayment'"
+  data-id="bd3b35ac"
 >
-  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none">
-    <div class="container-header d-flex justify-content-between align-items-center">
+  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none" data-id="28bb358a">
+    <div
+      class="container-header d-flex justify-content-between align-items-center"
+      data-id="2cc0eb79"
+    >
       <img
         alt="logo"
         class="Logo-img d-inline d-sm-none"
         (click)="metaAdd()"
         routerLink="/"
         [src]="logo"
+        data-id="f74d69ad"
       />
     </div>
   </div>
@@ -644,8 +777,9 @@
       margin: 0 auto;
     "
     class="mt-3"
+    data-id="ee39defa"
   >
-    <h1 style="color: white !important">
+    <h1 style="color: white !important" data-id="c22b32f0">
       Esta tienda online se encuentra mantenimiento, disculpe por las molestias ocasionadas
     </h1>
   </div>

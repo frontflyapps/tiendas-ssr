@@ -1,4 +1,4 @@
-<div class="container-product-details" style="min-height: 80vh !important">
+<div class="container-product-details" style="min-height: 80vh !important" data-id="e1f65b54">
   <!--  <div *ngIf='isLoading' class='loading-shade-full'>-->
   <!--    <mat-spinner *ngIf='isLoading' color='accent'></mat-spinner>-->
   <!--  </div>-->
@@ -19,47 +19,60 @@
   <div
     *ngIf="!this.errorPage && !isLoading"
     class="details-wrapper sec-padding d-flex flex-wrap pt-3"
+    data-id="c94ba599"
   >
-    <div class="h-100 d-flex flex-column flex-sh-75 flex-sh-md-100">
-      <div class="d-flex justify-content-start align-items-start flex-sh-100 flex-md-wrap">
+    <div class="h-100 d-flex flex-column flex-sh-75 flex-sh-md-100" data-id="c0481d27">
+      <div
+        class="d-flex justify-content-start align-items-start flex-sh-100 flex-md-wrap"
+        data-id="e24d106b"
+      >
         <!--    NAME PRODUCT AND PRICE    -->
         <div
           class="product-right my-0 flex-column justify-content-start align-items-start d-md-flex-i d-none-i"
+          data-id="aa50d516"
         >
           <div
             class="product-details my-0 d-flex flex-column justify-content-start align-items-start"
+            data-id="61d2efc1"
           >
-            <h1 class="nameProductVariant">
+            <h1 class="nameProductVariant" data-id="de8a3997">
               {{ product?.name[language] ? product?.name[language] : product?.name['es'] }}
             </h1>
-            <div *ngIf="product.offerValue && product.status !== 'comingSoon'">
-              <h4 class="mb-10">
-                <del>{{ product | parsePriceProduct }}</del>
-                <span class="offer ml-2">
-                  <span class="mx-0 px-0">-</span>
-                  <span *ngIf="product.isPercent" class="mx-0 px-0"
+            <div *ngIf="product.offerValue && product.status !== 'comingSoon'" data-id="1340b45d">
+              <h4 class="mb-10" data-id="5ed66847">
+                <del data-id="5e152b2a">{{ product | parsePriceProduct }}</del>
+                <span class="offer ml-2" data-id="0eb43025">
+                  <span class="mx-0 px-0" data-id="1ec26967">-</span>
+                  <span *ngIf="product.isPercent" class="mx-0 px-0" data-id="b8453ec9"
                     >{{ product.offerValue }}%
                   </span>
-                  <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                  <span *ngIf="!product.isPercent" class="mx-0 px-0" data-id="1aaec6c6"
                     >${{ product.offerValue }}</span
                   >
                 </span>
               </h4>
-              <h3 class="price mb-10">{{ product | parsePriceProduct: 'offert' }}</h3>
+              <h3 class="price mb-10" data-id="631f61cd">
+                {{ product | parsePriceProduct: 'offert' }}
+              </h3>
             </div>
 
             <div
               *ngIf="!product.offerValue && product.status !== 'comingSoon'"
               class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-841f4c"
+              data-id="9796c64a"
             >
-              <h3 class="price mb-10">{{ product | parsePriceProduct }}</h3>
+              <h3 class="price mb-10" data-id="897a67b3">{{ product | parsePriceProduct }}</h3>
             </div>
 
             <div
               class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-e10c48"
+              data-id="141d135f"
             >
-              <span class="location-span" *ngIf="appService.businessConfig.showLocationSpanGeneral"
-                ><mat-icon>room</mat-icon>&nbsp;<strong>{{
+              <span
+                class="location-span"
+                *ngIf="appService.businessConfig.showLocationSpanGeneral"
+                data-id="f391e610"
+                ><mat-icon data-id="970225c3">room</mat-icon>&nbsp;<strong data-id="77841751">{{
                   product.Business?.Province?.name | parseLang: utilsService.getLang()
                 }}</strong>
                 {{
@@ -72,9 +85,15 @@
           </div>
         </div>
         <!--    IMAGES    -->
-        <div class="d-flex justify-content-center align-items-center flex-sh-100">
+        <div
+          class="d-flex justify-content-center align-items-center flex-sh-100"
+          data-id="9a7f4d5b"
+        >
           <!-- CARD -->
-          <mat-card class="my-product mat-elevation-z0 d-flex-i d-md-none-i flex-row-i">
+          <mat-card
+            class="my-product mat-elevation-z0 d-flex-i d-md-none-i flex-row-i"
+            data-id="fba660d7"
+          >
             <!--            <button matTooltip="{{ 'Zoom for a image' | translate }}" id="zoomBtn" mat-icon-button-->
             <!--                    (click)="openZoomViewer()">-->
             <!--              <mat-icon>fullscreen</mat-icon>-->
@@ -85,12 +104,14 @@
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
               class="d-sm-inline d-none"
+              data-id="8f4e09e6"
             >
-              <mat-icon>share</mat-icon>
+              <mat-icon data-id="ad392d4b">share</mat-icon>
             </button>
             <div
               *ngIf="product?.Images && product?.Images?.length"
               class="p-2 mt-2 d-flex flex-column justify-content-center align-items-center"
+              data-id="2856eb45"
             >
               <div
                 *ngFor="let image of arrayImages; let i = index"
@@ -99,17 +120,19 @@
                   'mini-images-container': !image.selected,
                   'mini-images-container-selected': image.selected
                 }"
+                data-id="acb5175b"
               >
                 <img
                   lazyImg
                   [src]="image?.image"
                   onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+                  data-id="16efdf61"
                 />
               </div>
             </div>
-            <div class="w-100 d-flex justify-content-center align-items-center">
-              <ng-container *ngIf="product?.Images && product?.Images.length">
-                <ng-container *ngFor="let image of arrayImages; let i = index">
+            <div class="w-100 d-flex justify-content-center align-items-center" data-id="6f71c07c">
+              <ng-container *ngIf="product?.Images && product?.Images.length" data-id="60b53fd3">
+                <ng-container *ngFor="let image of arrayImages; let i = index" data-id="75a452dd">
                   <!--                  <img *ngIf="image.selected"-->
                   <!--                       onerror="this.onerror=null;this.src='assets/images/noImage.jpg';" -->
                   <!--                       [src]="image.image" (click)="openZoomViewer()" class="ImageProduct" />-->
@@ -122,6 +145,7 @@
                     [thumbImage]="image.image"
                     [zoomMode]="'hover'"
                     class="lib-ngx-image-zoom"
+                    data-id="633eb580"
                   >
                   </lib-ngx-image-zoom>
                 </ng-container>
@@ -132,12 +156,16 @@
                 src="/assets/images/noImage.jpg"
                 alt
                 class="ImageProduct"
+                data-id="737aad4c"
               />
             </div>
           </mat-card>
           <!-- XS CARD -->
-          <mat-card class="mat-elevation-z0 w-100 d-md-flex-i d-none-i flex-row-i">
-            <span *ngIf="product?.justPublished" class="just-published">
+          <mat-card
+            class="mat-elevation-z0 w-100 d-md-flex-i d-none-i flex-row-i"
+            data-id="70e4cc7a"
+          >
+            <span *ngIf="product?.justPublished" class="just-published" data-id="4564026e">
               {{ 'NUEVO' | translate }}
             </span>
             <button
@@ -146,28 +174,32 @@
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
               class="d-sm-inline d-none"
+              data-id="25144955"
             >
-              <mat-icon>share</mat-icon>
+              <mat-icon data-id="060e5a06">share</mat-icon>
             </button>
-            <div class="d-flex justify-content-center align-items-center w-100">
-              <div class="main-slider">
+            <div class="d-flex justify-content-center align-items-center w-100" data-id="09138730">
+              <div class="main-slider" data-id="43a2fdd8">
                 <!-- SWIPER -->
-                <swiper-container class="mainSwiper h-100">
+                <swiper-container class="mainSwiper h-100" data-id="4759c177">
                   <swiper-slide
                     *ngFor="let image of arrayImages; let i = index"
                     class="d-flex justify-content-center align-items-center"
+                    data-id="fc4a9c71"
                   >
                     <div
                       class="slide-item swiper-lazy d-flex justify-content-center align-items-center"
+                      data-id="2a035034"
                     >
                       <div
                         class="container-carrusel d-flex justify-content-center align-items-center"
+                        data-id="4939b3b6"
                       >
-                        <img [src]="image.image" class="img-swiper" />
+                        <img [src]="image.image" class="img-swiper" data-id="164eeba0" />
                       </div>
                     </div>
                   </swiper-slide>
-                  <div class="swiper-pagination white"></div>
+                  <div class="swiper-pagination white" data-id="1fa9e135"></div>
                 </swiper-container>
               </div>
               <img
@@ -176,6 +208,7 @@
                 src="/assets/images/noImage.jpg"
                 alt
                 class="ImageProduct"
+                data-id="21a100df"
               />
             </div>
           </mat-card>
@@ -184,45 +217,52 @@
         <div
           *ngIf="!isLoading"
           class="flex-sh-100 flex-sh-md-90 flex-sh-35 flex-sh-md-initial px-3 m-0"
+          data-id="68f2dc46"
         >
-          <div class="product-right d-flex flex-column">
-            <div class="product-details d-flex flex-column">
-              <h1 class="nameProduct d-xs-none d-sm-none d-md-none">
+          <div class="product-right d-flex flex-column" data-id="f8b1a998">
+            <div class="product-details d-flex flex-column" data-id="99f45826">
+              <h1 class="nameProduct d-xs-none d-sm-none d-md-none" data-id="ed45889f">
                 {{ product.name[language] ? product.name[language] : product.name['es'] }}
               </h1>
               <div
                 *ngIf="product.offerValue && product.status !== 'comingSoon'"
                 class="d-xs-none d-sm-none d-md-none"
+                data-id="3e9183f8"
               >
-                <h1 class="mb-10">
-                  <del>{{ product | parsePriceProduct }}</del>
-                  <span class="offer ml-2">
-                    <span class="mx-0 px-0">-</span>
-                    <span *ngIf="product.isPercent" class="mx-0 px-0"
+                <h1 class="mb-10" data-id="0c2126bb">
+                  <del data-id="1b9bec10">{{ product | parsePriceProduct }}</del>
+                  <span class="offer ml-2" data-id="ce436869">
+                    <span class="mx-0 px-0" data-id="86d85bac">-</span>
+                    <span *ngIf="product.isPercent" class="mx-0 px-0" data-id="f9fad358"
                       >{{ product.offerValue }}%
                     </span>
-                    <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                    <span *ngIf="!product.isPercent" class="mx-0 px-0" data-id="e5f41c29"
                       >${{ product.offerValue }}</span
                     >
                   </span>
                 </h1>
-                <h3 class="price mb-10">{{ product | parsePriceProduct: 'offert' }}</h3>
+                <h3 class="price mb-10" data-id="c84b7c07">
+                  {{ product | parsePriceProduct: 'offert' }}
+                </h3>
               </div>
 
               <div
                 *ngIf="!product.offerValue && product.status !== 'comingSoon'"
                 class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-0d90b8 d-xs-none d-sm-none d-md-none"
+                data-id="1b8a2904"
               >
-                <h3 class="price mb-10">{{ product | parsePriceProduct }}</h3>
+                <h3 class="price mb-10" data-id="751db709">{{ product | parsePriceProduct }}</h3>
               </div>
 
               <div
                 class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-51a35a d-xs-none d-sm-none d-md-none"
+                data-id="3f9abcad"
               >
                 <span
                   class="location-span"
                   *ngIf="appService.businessConfig.showLocationSpanGeneral"
-                  ><mat-icon>room</mat-icon>&nbsp;<strong>{{
+                  data-id="2e539438"
+                  ><mat-icon data-id="8fe5f38b">room</mat-icon>&nbsp;<strong data-id="fd545e5c">{{
                     product.Business?.Province?.name | parseLang: utilsService.getLang()
                   }}</strong>
                   {{
@@ -232,14 +272,15 @@
                   }}</span
                 >
               </div>
-              <div *ngIf="!loadingRelated">
+              <div *ngIf="!loadingRelated" data-id="208bcd0c">
                 <div
                   *ngFor="let carrusel of relatedProduct; let i = index"
                   class="d-flex flex-column justify-content-start align-items-start"
+                  data-id="dd9474a0"
                 >
-                  <span class="title-variant">{{ carrusel.name }}</span>
+                  <span class="title-variant" data-id="a46bbbc3">{{ carrusel.name }}</span>
                   <!--                  <span class='subtitle-variant'>{{carrusel.description}}</span>-->
-                  <div class="main-slider-variants">
+                  <div class="main-slider-variants" data-id="5017c776">
                     <swiper-container
                       class="h-100 my-6"
                       slides-per-view="7"
@@ -253,17 +294,21 @@
                       lazy="true"
                       preload-images="true"
                       pagination-clickable="true"
+                      data-id="e7e37b30"
                     >
-                      <div class="swiper-wrapper h-100">
+                      <div class="swiper-wrapper h-100" data-id="0ffd7752">
                         <div
                           class="swiper-slide swiper-slide-variants d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-552b0c"
                           *ngFor="let variant of carrusel.Recomendeds"
+                          data-id="e1584bd2"
                         >
                           <div
                             class="slide-item swiper-lazy mx-10 d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-2822db"
+                            data-id="9778e169"
                           >
                             <div
                               class="container-carrusel-variants d-flex justify-content-center align-items-center"
+                              data-id="12d4da35"
                             >
                               <a
                                 [queryParams]="{
@@ -274,10 +319,12 @@
                                 }"
                                 [routerLink]="['/product']"
                                 class="product-link"
+                                data-id="54634dfc"
                               >
                                 <img
                                   [src]="imageUrl + variant.RecomendedProduct.Images[0].image"
                                   class="img-swiper-variant mx-10"
+                                  data-id="1becafea"
                                 />
                               </a>
                             </div>
@@ -285,22 +332,30 @@
                         </div>
                       </div>
                     </swiper-container>
-                    <div class="swiper-pagination white"></div>
+                    <div class="swiper-pagination white" data-id="78ecd375"></div>
                   </div>
                 </div>
               </div>
               <!--                        <app-skeleton-loading-cards *ngIf="loadingRelated" [setConfiguration]="{ xs: 1, sm: 2, md: 2, lg: 3 }">-->
               <!--                        </app-skeleton-loading-cards>-->
-              <p class="mat-body-2" style="font-size: 15px">
+              <p class="mat-body-2" style="font-size: 15px" data-id="71f1cc0e">
                 {{ 'Compra a partir de ' | translate }}
                 {{ product.minSale }}
                 {{ ' unidades' | translate }}
               </p>
 
-              <p *ngIf="product.shortDescription == null" class="module line-clamp mt-1 mb-2">
+              <p
+                *ngIf="product.shortDescription == null"
+                class="module line-clamp mt-1 mb-2"
+                data-id="fdeb9807"
+              >
                 No tiene descripcion
               </p>
-              <p *ngIf="product.shortDescription != null" class="module line-clamp mt-1 mb-2">
+              <p
+                *ngIf="product.shortDescription != null"
+                class="module line-clamp mt-1 mb-2"
+                data-id="c95e22cb"
+              >
                 {{
                   product.shortDescription[language]
                     ? product.shortDescription[language]
@@ -310,37 +365,43 @@
               <p
                 class="mat-body-2 uppercase mb-2"
                 matTooltip="{{ 'Rango de precios por cantidad de unidades a comprar' | translate }}"
+                data-id="ec9f7d5d"
               >
                 {{ 'Precios de venta según la cantidad a comprar' | translate }}
               </p>
               <div
                 style="border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee"
                 class="d-flex justify-content-start align-items-center"
+                data-id="dd8f6d84"
               >
                 <div
                   *ngFor="let item of product.PriceRanges"
                   [matTooltip]="'entre ' + item.min + ' y ' + item.max + ' unidades'"
                   class="mx-2 py-3 d-flex flex-column justify-content-start align-items-start"
                   style="width: 80px"
+                  data-id="0b5c2bc1"
                 >
-                  <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>
-                  <p *ngIf="product.offerValue" class="mat-body-2">
+                  <p class="mat-body-1" data-id="451d7622">{{ item.min }} - {{ item.max }}</p>
+                  <p *ngIf="product.offerValue" class="mat-body-2" data-id="ad0a85b5">
                     {{ item.priceOffer | currencyProduct: product.currency }}
                   </p>
-                  <p *ngIf="!product.offerValue" class="mat-body-2">
+                  <p *ngIf="!product.offerValue" class="mat-body-2" data-id="b1e6aeff">
                     {{ item.price | currencyProduct: product.currency }}
                   </p>
                 </div>
               </div>
-              <div>
-                <div class="py-1 mt-15">
-                  <p *ngIf="product.status !== 'comingSoon'">
-                    <span class="text-muted fw-500">{{ 'Avalibility:' | translate }}</span>
+              <div data-id="d033f737">
+                <div class="py-1 mt-15" data-id="1ba320aa">
+                  <p *ngIf="product.status !== 'comingSoon'" data-id="bdbf84ce">
+                    <span class="text-muted fw-500" data-id="c278e07b">{{
+                      'Avalibility:' | translate
+                    }}</span>
                     <span
                       class="avalibility"
                       style="color: #4caf50 !important; font-weight: 500"
                       *ngIf="counter < product?.Stock?.quantity ? product?.Stock?.quantity : 0"
-                      ><span class="ml-3"
+                      data-id="d7a06156"
+                      ><span class="ml-3" data-id="127e9965"
                         >{{
                           'Disponible en la
                       tienda' | translate
@@ -357,9 +418,13 @@
                     <span
                       *ngIf="counter > product?.Stock?.quantity ? product?.Stock?.quantity : 0"
                       class="avalibility"
-                      ><span class="ml-3" style="color: #f33927 !important; font-weight: 500">{{
-                        'No disponible, está agotado' | translate
-                      }}</span></span
+                      data-id="05edf9e4"
+                      ><span
+                        class="ml-3"
+                        style="color: #f33927 !important; font-weight: 500"
+                        data-id="452a2def"
+                        >{{ 'No disponible, está agotado' | translate }}</span
+                      ></span
                     >
                   </p>
                   <div
@@ -369,6 +434,7 @@
                       (counter < product?.Stock?.quantity ? product?.Stock?.quantity : 0)
                     "
                     class="my-2"
+                    data-id="68c7b707"
                   >
                     <div
                       [ngClass]="{
@@ -378,18 +444,25 @@
                         disponibilityLow: product?.Stock?.quantity <= 5
                       }"
                       class="d-flex justify-content-center align-items-center"
+                      data-id="c25bb93c"
                     >
-                      <span class="text-availability" *ngIf="!loadingAvailability">
+                      <span
+                        class="text-availability"
+                        *ngIf="!loadingAvailability"
+                        data-id="45d886c8"
+                      >
                         {{ product?.Stock?.quantity + ' disponibles' }}
                       </span>
                       <span
                         *ngIf="loadingAvailability"
                         class="d-flex justify-content-center align-items-center"
+                        data-id="be400ed9"
                       >
                         <mat-spinner
                           color="primary"
                           diameter="20"
                           class="d-flex justify-content-center align-items-center"
+                          data-id="e38411d0"
                         ></mat-spinner>
                       </span>
                     </div>
@@ -399,22 +472,29 @@
                     class="mat-body-2 uppercase my-3 coming-soon-text"
                     *ngIf="product.status === 'comingSoon'"
                     matTooltip="{{ 'Este producto estará a la venta próximamente' | translate }}"
+                    data-id="ad2818f3"
                   >
                     {{ 'Próximamente' | translate }}
                   </p>
                 </div>
-                <div class="quantity" *ngIf="product.status !== 'comingSoon'">
-                  <span class="text-muted fw-500">{{ 'Quantity' | translate }}:</span>
-                  <div class="text-muted d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column">
-                    <div class="d-flex justify-content-center align-items-start">
-                      <div class="addQuantity">
+                <div class="quantity" *ngIf="product.status !== 'comingSoon'" data-id="63458f51">
+                  <span class="text-muted fw-500" data-id="568e9586"
+                    >{{ 'Quantity' | translate }}:</span
+                  >
+                  <div
+                    class="text-muted d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column"
+                    data-id="2a1bd81d"
+                  >
+                    <div class="d-flex justify-content-center align-items-start" data-id="157b008f">
+                      <div class="addQuantity" data-id="250b6544">
                         <button
                           (click)="decrement()"
                           [disabled]="counter <= product.minSale"
                           class="leftBtn"
                           matTooltip="Remove"
+                          data-id="f1e800c6"
                         >
-                          <mat-icon>keyboard_arrow_left</mat-icon>
+                          <mat-icon data-id="e15dce3a">keyboard_arrow_left</mat-icon>
                         </button>
                         <input
                           [min]="product.minSale"
@@ -425,14 +505,16 @@
                           matTooltip="{{ 'Cantidad de unidades a adquirir' | translate }}"
                           type="text"
                           value="{{ counter }}"
+                          data-id="a2df2b29"
                         />
                         <button
                           (click)="increment()"
                           [disabled]="counter > product.stock || counter >= product.maxSale"
                           class="rightBtn"
                           matTooltip="Add"
+                          data-id="6e229ea5"
                         >
-                          <mat-icon>keyboard_arrow_right</mat-icon>
+                          <mat-icon data-id="235f8ccd">keyboard_arrow_right</mat-icon>
                         </button>
                       </div>
                     </div>
@@ -443,6 +525,7 @@
               <div
                 class="buttons mt-20 d-flex justify-content-start align-items-center d-xs-flex justify-content-center justify-content-xs-center align-items-xs-center"
                 *ngIf="product.typeAddCart === 'glasses' && product.status !== 'comingSoon'"
+                data-id="3d9970ed"
               >
                 <button
                   (click)="addLenses(product, counter)"
@@ -451,6 +534,7 @@
                   mat-raised-button
                   ngClass.sm="w-80"
                   ngClass.xs="w-80"
+                  data-id="15659ed7"
                 >
                   {{ 'CHOOSES LENSES' | translate }}
                 </button>
@@ -459,6 +543,7 @@
               <div
                 class="buttons d-flex justify-content-start align-items-center d-xs-flex justify-content-center justify-content-xs-center align-items-xs-center"
                 *ngIf="product.status !== 'comingSoon'"
+                data-id="ca7ce11b"
               >
                 <button
                   (click)="addToCart(product, counter)"
@@ -466,6 +551,7 @@
                   color="primary"
                   mat-raised-button
                   ngClass.lt-sm="w-100"
+                  data-id="f2248f48"
                 >
                   {{ 'ADD TO CART' | translate }}
                 </button>
@@ -476,6 +562,7 @@
                   color="primary"
                   mat-raised-button
                   ngClass.lt-sm="w-100"
+                  data-id="4ac47dc5"
                 >
                   {{ 'BUY NOW' | translate }}
                 </button>
@@ -488,20 +575,28 @@
       <div
         *ngIf="!isLoading"
         class="d-flex justify-content-start align-items-start flex-sh-100 flex-sh-md-75"
+        data-id="2380ff60"
       >
-        <mat-tab-group [selectedIndex]="indexTab" ngClass.gt-sm="w-95" ngClass.lt-md="w-100">
-          <mat-tab label="{{ 'Details' | translate }}">
-            <div class="full-desc text-muted">
+        <mat-tab-group
+          [selectedIndex]="indexTab"
+          ngClass.gt-sm="w-95"
+          ngClass.lt-md="w-100"
+          data-id="5b584122"
+        >
+          <mat-tab label="{{ 'Details' | translate }}" data-id="8b7f6901">
+            <div class="full-desc text-muted" data-id="6160f23b">
               <div
                 *ngIf="product.description == null"
                 [id]="'ProductId' + product.id"
                 [innerHTML]="'No tiene descripcion'"
                 class="InnerHtmlContent"
+                data-id="41a877bf"
               ></div>
               <div
                 *ngIf="product.description != null"
                 [innerHTML]="this.utilsService.parserLanguage(product.description, language)"
                 class="InnerHtmlContent"
+                data-id="f0771c78"
               ></div>
               <!--<p class="my-3">
                 <span style="font-weight: 600; font-size: 16px">
@@ -515,64 +610,76 @@
           <mat-tab
             label="{{ 'Ficha técnica' | translate }}"
             *ngIf="product?.dataSheetUrl && product?.dataSheetUrl !== null"
+            data-id="8862c256"
           >
             <div
               class="full-desc text-muted d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-3cb926"
+              data-id="f2e93628"
             >
-              <span>{{ product?.dataSheetName }}</span>
+              <span data-id="41b46867">{{ product?.dataSheetName }}</span>
               <button
                 (click)="downloadFile(product)"
                 aria-label="Download Data Sheet"
                 class="mr-2"
                 color="primary"
                 mat-mini-fab
+                data-id="09242521"
               >
-                <mat-icon>file_download</mat-icon>
+                <mat-icon data-id="52c26f6d">file_download</mat-icon>
               </button>
               <!--              <a id="downloadLink" style="display: none;"></a>-->
             </div>
           </mat-tab>
 
-          <mat-tab *ngIf="loggedInUser" label="{{ 'Reviews' | translate }}">
-            <div class="d-flex">
-              <div class="full-desc lh px-4" ngClass.lt-md="px-0">
+          <mat-tab *ngIf="loggedInUser" label="{{ 'Reviews' | translate }}" data-id="a333ac43">
+            <div class="d-flex" data-id="902ebd16">
+              <div class="full-desc lh px-4" ngClass.lt-md="px-0" data-id="eb9d48b4">
                 <div
                   *ngFor="let review of allReviews"
                   class="content d-flex justify-content-start align-items-center"
+                  data-id="1d8c9e43"
                 >
                   <img
                     *ngIf="review.Client.avatar"
                     [src]="imageUrl + review.Client.avatar"
                     alt="image"
                     class="review-author"
+                    data-id="a4481183"
                   />
                   <img
                     *ngIf="!review.Client.avatar"
                     [src]="'/assets/images/avatars/profile2.png'"
                     alt="image"
                     class="review-author"
+                    data-id="51b1831d"
                   />
                   <div
                     class="ml-2 text-list d-flex flex-column justify-content-start align-items-start"
+                    data-id="b37134bf"
                   >
-                    <span class="name mat-body-2"
+                    <span class="name mat-body-2" data-id="a3b3093f"
                       >{{ review.Client.name + ' ' + (review.Client.lastname || '') }}
-                      <span class="text-muted"
-                        ><small>&nbsp;{{ review.createdAt | date: 'shortDate' }}</small>
+                      <span class="text-muted" data-id="ae207347"
+                        ><small data-id="17b6d9cb"
+                          >&nbsp;{{ review.createdAt | date: 'shortDate' }}</small
+                        >
                       </span>
                     </span>
                     <!-- <p>
                       <guajiritos-rating [config]="{label:'estrellas',readOnly:true,size:'12px'}" [value]="review.rating">
                       </guajiritos-rating>
                     </p> -->
-                    <p class="mat-body-1" ngClass.lt-md="mat-caption">{{ review.review }}</p>
+                    <p class="mat-body-1" ngClass.lt-md="mat-caption" data-id="4df18531">
+                      {{ review.review }}
+                    </p>
                     <button
                       (click)="onEditReview(review)"
                       *ngIf="loggedInUser.id == review.ClientId"
                       class="editBtn"
                       mat-icon-button
+                      data-id="3ff893b2"
                     >
-                      <mat-icon>edit</mat-icon>
+                      <mat-icon data-id="0b128522">edit</mat-icon>
                     </button>
                   </div>
                 </div>
@@ -580,6 +687,7 @@
                 <div
                   *ngIf="this.queryReviews.offset < this.queryReviews.total"
                   class="py-3 d-flex justify-content-center align-items-center"
+                  data-id="f5653d4c"
                 >
                   <button
                     (click)="onGetMorePriviews()"
@@ -587,24 +695,30 @@
                     class="px-4"
                     color="accent"
                     mat-stroked-button
+                    data-id="538c219a"
                   >
                     {{ 'LOAD MORE...' | translate }}
                   </button>
                 </div>
 
-                <div class="writte-reviews mt-3">
-                  <h4 class="my-2 mat-title">{{ 'LEAVE YOUR REVIEW' | translate }}</h4>
-                  <div class="divider"></div>
-                  <p class="mt-2 text-muted">
+                <div class="writte-reviews mt-3" data-id="61c52e04">
+                  <h4 class="my-2 mat-title" data-id="ca86886a">
+                    {{ 'LEAVE YOUR REVIEW' | translate }}
+                  </h4>
+                  <div class="divider" data-id="a7253b83"></div>
+                  <p class="mt-2 text-muted" data-id="e062c60e">
                     {{
                       'Your email address will not be published. Required fields are marked *'
                         | translate
                     }}
                   </p>
 
-                  <form [formGroup]="reviewForm" class="d-flex">
-                    <h3 class="mt-2 d-flex justify-content-start align-items-center">
-                      <span class="mr-2">{{ 'Your Rating: ' | translate }}</span>
+                  <form [formGroup]="reviewForm" class="d-flex" data-id="8c9d5fd4">
+                    <h3
+                      class="mt-2 d-flex justify-content-start align-items-center"
+                      data-id="b05cf230"
+                    >
+                      <span class="mr-2" data-id="bfb171cb">{{ 'Your Rating: ' | translate }}</span>
                       <guajiritos-rating
                         [config]="{
                           label: 'estrellas',
@@ -613,13 +727,14 @@
                           showClearBtn: true
                         }"
                         [formControl]="reviewForm.controls['rating']"
+                        data-id="8cc1a5b5"
                       >
                       </guajiritos-rating>
                     </h3>
 
-                    <div class="flex-sh-100 flex-sh-100 flex-sh-sm-initial">
-                      <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>{{ 'Post content' | translate }}</mat-label>
+                    <div class="flex-sh-100 flex-sh-100 flex-sh-sm-initial" data-id="86002ccc">
+                      <mat-form-field appearance="outline" class="w-100" data-id="81a24f8e">
+                        <mat-label data-id="6507eb17">{{ 'Post content' | translate }}</mat-label>
                         <textarea
                           #message
                           [formControl]="reviewForm.controls['review']"
@@ -628,12 +743,16 @@
                           placeholder="{{ 'Post content' | translate }}"
                           required
                           rows="3"
+                          data-id="92fdfc4c"
                         ></textarea>
-                        <mat-hint align="end">{{ message.value.length }} / 250</mat-hint>
+                        <mat-hint align="end" data-id="916916d0"
+                          >{{ message.value.length }} / 250</mat-hint
+                        >
                       </mat-form-field>
                     </div>
                     <div
                       class="button-wrap px-1 mt-2 d-flex justify-content-end align-items-start flex-sh-100 flex-sh-100 flex-sh-sm-initial"
+                      data-id="ed3d4f5d"
                     >
                       <button
                         (click)="onPostReview()"
@@ -641,6 +760,7 @@
                         color="accent"
                         mat-raised-button
                         type="submit"
+                        data-id="3eddcf7e"
                       >
                         {{ 'Submit Review' | translate }}
                       </button>
@@ -653,8 +773,8 @@
         </mat-tab-group>
       </div>
 
-      <div class="d-sm-block d-none">
-        <ng-container [ngTemplateOutlet]="providerDetails"></ng-container>
+      <div class="d-sm-block d-none" data-id="ee00da3b">
+        <ng-container [ngTemplateOutlet]="providerDetails" data-id="62a00bbe"></ng-container>
       </div>
 
       <!--      <div *ngIf="relatedProduct.length" class="products pt-5">-->
@@ -676,27 +796,33 @@
         infiniteScroll
         [infiniteScrollDistance]="0.5"
         (scrolled)="loadProducts()"
+        data-id="08b29645"
       >
         <div
           class="d-flex flex-md-column align-items-md-start align-item-center justify-content-between"
+          data-id="c49313a3"
         >
-          <div class="title">
-            <h4 class="widget-title">{{ 'Otros productos del negocio' | translate }}</h4>
+          <div class="title" data-id="c7564c2c">
+            <h4 class="widget-title" data-id="95d14fa1">
+              {{ 'Otros productos del negocio' | translate }}
+            </h4>
           </div>
           <mat-form-field
             appearance="outline"
             class="auto-complete-search"
             style="min-width: 310px"
+            data-id="b87a0a45"
           >
-            <mat-label>{{ 'Buscar en este local' | translate }}</mat-label>
+            <mat-label data-id="88387bad">{{ 'Buscar en este local' | translate }}</mat-label>
             <input
               [formControl]="searchProductControl"
               aria-label="Number"
               matInput
               placeholder="Buscar lo que desea...?"
               type="text"
+              data-id="b7c9508b"
             />
-            <mat-icon matSuffix>search</mat-icon>
+            <mat-icon matSuffix data-id="bcbef0e0">search</mat-icon>
             <!--            [matAutocomplete]="auto"-->
             <!--            <mat-autocomplete #auto="matAutocomplete">-->
             <!--              <mat-option *ngFor="let option of allProductsOnMenuToShow | async" [value]="option">-->
@@ -709,23 +835,26 @@
         <div
           *ngIf="allProductsOnMenu.length >= 0"
           class="w-100 d-flex justify-content-start align-items-start flex-wrap"
+          data-id="c72b2417"
         >
           <app-product
             *ngFor="let products of allProductsOnMenu"
             [product]="products"
             class="flex-sh-md-100"
             style="width: initial"
+            data-id="a3f4af63"
           ></app-product>
-          <ng-container *ngIf="allProductsOnMenu.length == 0">
-            <h3 class="py-4" style="text-align: center">
+          <ng-container *ngIf="allProductsOnMenu.length == 0" data-id="7f0703f4">
+            <h3 class="py-4" style="text-align: center" data-id="2de58821">
               {{ 'No hay producto con ese criterio de búsqueda' | translate }}
             </h3>
           </ng-container>
         </div>
 
-        <div *ngIf="loadingMenu || loadingProducts" class="my-3">
+        <div *ngIf="loadingMenu || loadingProducts" class="my-3" data-id="f2fadb8c">
           <app-skeleton-loading-cards
             [setConfiguration]="{ xs: 1, sm: 2, md: 2, lg: 3 }"
+            data-id="951cc558"
           ></app-skeleton-loading-cards>
         </div>
       </div>
@@ -760,25 +889,38 @@
       <!--      </div>-->
     </div>
 
-    <div class="d-flex justify-content-start align-items-start flex-sh-md-100 flex-sh-25 flex-wrap">
-      <div class="d-block d-sm-none">
-        <ng-container [ngTemplateOutlet]="providerDetails"></ng-container>
+    <div
+      class="d-flex justify-content-start align-items-start flex-sh-md-100 flex-sh-25 flex-wrap"
+      data-id="a1aa5f08"
+    >
+      <div class="d-block d-sm-none" data-id="ca9cfc1a">
+        <ng-container [ngTemplateOutlet]="providerDetails" data-id="7b50e3bb"></ng-container>
       </div>
 
       <div
         class="info-bar d-flex d-xs-none d-sm-none"
         style="border-radius: 4px !important"
         ngClass.gt-md="m-0"
+        data-id="bea323a8"
       >
-        <div *ngFor="let item of allBicons; let i = index" class="mt-16 flex-sh-100">
+        <div
+          *ngFor="let item of allBicons; let i = index"
+          class="mt-16 flex-sh-100"
+          data-id="30d20ec2"
+        >
           <mat-card
             class="light-block d-flex justify-content-start align-items-center"
             [ngClass]="{ 'no-border': i === allBicons.length - 1 }"
+            data-id="7590ce4d"
           >
-            <mat-icon class="mat-icon-xlg m-0 icon-common-bicon">{{ item.icon }}</mat-icon>
-            <div class="content ml-4">
-              <p class="uppercase">{{ utilsService.parserLanguage(item.title, language) }}</p>
-              <span class="text-muted m-0">{{
+            <mat-icon class="mat-icon-xlg m-0 icon-common-bicon" data-id="ed941f7c">{{
+              item.icon
+            }}</mat-icon>
+            <div class="content ml-4" data-id="fa3fa2e7">
+              <p class="uppercase" data-id="789686ec">
+                {{ utilsService.parserLanguage(item.title, language) }}
+              </p>
+              <span class="text-muted m-0" data-id="aa4bda4e">{{
                 utilsService.parserLanguage(item.subTitle, language)
               }}</span>
             </div>
@@ -786,32 +928,35 @@
         </div>
       </div>
 
-      <div style="width: 100%">
-        <mat-divider class="my-2"></mat-divider>
+      <div style="width: 100%" data-id="a37e8bc3">
+        <mat-divider class="my-2" data-id="aecf2c67"></mat-divider>
         <a
           (click)="onAddtoCartNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
+          data-id="76630801"
         >
-          <mat-icon class="mr-2"> shopping_cart</mat-icon>
+          <mat-icon class="mr-2" data-id="a81e64ec"> shopping_cart</mat-icon>
           {{ 'Añadir al carrito' | translate }}
         </a>
         <a
           (click)="onAddtoCompListNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
+          data-id="4e2a486f"
         >
-          <mat-icon class="mr-2"> compare_arrows</mat-icon>
+          <mat-icon class="mr-2" data-id="e91ba6a6"> compare_arrows</mat-icon>
           {{ 'Añadir a la lista de comparación' | translate }}
         </a>
 
         <a
           (click)="onGoToCheckouNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
+          data-id="a04c381a"
         >
-          <mat-icon class="mr-2"> slideshow</mat-icon>
+          <mat-icon class="mr-2" data-id="b9f2003c"> slideshow</mat-icon>
           {{ 'Comprar ahora' | translate }}
         </a>
 
-        <mat-divider class="my-2"></mat-divider>
+        <mat-divider class="my-2" data-id="6496b2a8"></mat-divider>
         <!-- <section *ngIf="!isLoading" class="d-sm-none">
           <share-button
             [description]="this.product?.name?.es + ': \n' + this.product?.shortDescription?.es"
@@ -842,30 +987,35 @@
         <mat-divider class="my-2 d-sm-none"></mat-divider> -->
       </div>
 
-      <ng-template #providerDetails>
-        <div style="width: 100%">
-          <h4 class="mat-body-2 uppercase">{{ 'Comprando en' | translate }}</h4>
+      <ng-template #providerDetails data-id="bae551ad">
+        <div style="width: 100%" data-id="1aaa3408">
+          <h4 class="mat-body-2 uppercase" data-id="ec90e8d5">{{ 'Comprando en' | translate }}</h4>
           <a
             class="list-compare-link no-decoration d-flex justify-content-start align-items-center"
+            data-id="a9230a92"
           >
             <img
               style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover"
               [src]="imageUrl + product?.Business?.logo"
               onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+              data-id="307184ca"
             />
 
-            <span class="ml-2">{{
+            <span class="ml-2" data-id="6656c6f8">{{
               product?.Business?.name | parseLang: utilsService.getLang()
             }}</span>
           </a>
           <a
             class="list-compare-link no-decoration d-flex justify-content-start align-items-center"
+            data-id="a7679a1f"
           >
-            <mat-icon class="mr-2 icon-common"> location_on</mat-icon>
-            <div class="d-flex flex-column">
-              <div>{{ product?.Business?.address | parseLang: utilsService.getLang() }}.</div>
-              <div>
-                <strong>
+            <mat-icon class="mr-2 icon-common" data-id="b2caa0e7"> location_on</mat-icon>
+            <div class="d-flex flex-column" data-id="a0878a68">
+              <div data-id="e1e972c2">
+                {{ product?.Business?.address | parseLang: utilsService.getLang() }}.
+              </div>
+              <div data-id="96f4ae1d">
+                <strong data-id="d0bbd888">
                   {{ product?.Business?.Province?.name | parseLang: utilsService.getLang() }},
                   {{ product?.Business?.Municipality?.name | parseLang: utilsService.getLang() }}
                 </strong>
@@ -873,33 +1023,45 @@
             </div>
           </a>
 
-          <a class="list-compare-link d-flex justify-content-start align-items-center">
-            <mat-icon class="mr-2 icon-common"> phone</mat-icon>
-            <a href="tel:{{ product?.Business?.cellphone }}">{{ product?.Business?.cellphone }}</a>
+          <a
+            class="list-compare-link d-flex justify-content-start align-items-center"
+            data-id="3a51c6a7"
+          >
+            <mat-icon class="mr-2 icon-common" data-id="8aa0d0e0"> phone</mat-icon>
+            <a href="tel:{{ product?.Business?.cellphone }}" data-id="a4063fed">{{
+              product?.Business?.cellphone
+            }}</a>
           </a>
-          <a class="list-compare-link d-flex justify-content-start align-items-center">
-            <mat-icon class="mr-2 icon-common"> mail</mat-icon>
-            <a class="email-text" href="mailto:{{ product?.Business?.email }}">{{
+          <a
+            class="list-compare-link d-flex justify-content-start align-items-center"
+            data-id="63603ec2"
+          >
+            <mat-icon class="mr-2 icon-common" data-id="8338134b"> mail</mat-icon>
+            <a class="email-text" href="mailto:{{ product?.Business?.email }}" data-id="44b364ca">{{
               product?.Business?.email
             }}</a>
           </a>
-          <mat-divider class="my-2"></mat-divider>
+          <mat-divider class="my-2" data-id="74ad1171"></mat-divider>
         </div>
       </ng-template>
 
-      <div class="popular-products mt-2 flex-sh-md-100">
-        <app-popular-products></app-popular-products>
+      <div class="popular-products mt-2 flex-sh-md-100" data-id="b9ab8e8d">
+        <app-popular-products data-id="c01cb019"></app-popular-products>
       </div>
     </div>
   </div>
 
   <!-- =========================================================== -->
   <!-- ======== on NO PRODUCT ================================== -->
-  <div *ngIf="errorPage" class="mb-4 d-flex flex-column">
+  <div *ngIf="errorPage" class="mb-4 d-flex flex-column" data-id="a95a8129">
     <section
       class="py-4 product-detail-not-found d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center justify-content-xs-start justify-content-sm-start transpilerClass-fxLayoutGap-9aaa6f transpilerClass-fxLayoutGap-a44a3f"
+      data-id="bbbcb2e3"
     >
-      <picture class="pdnf-picture flex-sh-50 flex-sh-xs-100 order-xs-2 order-sm-2">
+      <picture
+        class="pdnf-picture flex-sh-50 flex-sh-xs-100 order-xs-2 order-sm-2"
+        data-id="4644837b"
+      >
         <!--        <source srcset="assets/images/not-found-product.webp" type="image/webp">-->
         <!--        <source srcset="assets/images/not-found-product.png" type="image/png">-->
         <img
@@ -907,24 +1069,31 @@
           onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
           src="assets/images/not-found-product.png"
           type="image/png"
+          data-id="ac394f2e"
         />
       </picture>
 
       <div
         class="pdnf-right-side-text d-flex flex-column justify-content-center align-items-start flex-sh-50 flex-sh-xs-100 order-xs-1 order-sm-1"
+        data-id="c8f6d725"
       >
-        <div class="pdnf-1-text mb-4 order-xs-1 order-sm-1">{{ 'Upss' | translate }}...</div>
-        <div class="pdnf-2-text mb-1 order-xs-2 order-sm-2">{{ 'Lo sentimos' | translate }}</div>
-        <div class="pdnf-3-text mb-4 order-xs-3 order-sm-3">
+        <div class="pdnf-1-text mb-4 order-xs-1 order-sm-1" data-id="979e6a3d">
+          {{ 'Upss' | translate }}...
+        </div>
+        <div class="pdnf-2-text mb-1 order-xs-2 order-sm-2" data-id="4d00ffe4">
+          {{ 'Lo sentimos' | translate }}
+        </div>
+        <div class="pdnf-3-text mb-4 order-xs-3 order-sm-3" data-id="a9e3433a">
           {{ 'El producto que busca no se encuentra disponible' | translate }}
         </div>
 
-        <div class="pdnf-action-button order-xs-4 order-sm-4">
+        <div class="pdnf-action-button order-xs-4 order-sm-4" data-id="2245ce4c">
           <button
             [routerLink]="['/products/search']"
             color="primary"
             mat-flat-button
             ngClass.xs="mb-4"
+            data-id="a52833a4"
           >
             {{ 'Seguir comprando' | translate }}
           </button>
@@ -932,21 +1101,23 @@
       </div>
     </section>
 
-    <div *ngIf="featuredProducts.length" class="products pt-5 pb-0">
-      <div class="title">
-        <h4 class="widget-title">{{ 'FEATURED PRODUCTS' | translate }}</h4>
+    <div *ngIf="featuredProducts.length" class="products pt-5 pb-0" data-id="811ba27f">
+      <div class="title" data-id="3426e4cd">
+        <h4 class="widget-title" data-id="4dd28f43">{{ 'FEATURED PRODUCTS' | translate }}</h4>
       </div>
       <app-product-carousel-two
         *ngIf="!loadingFeatured"
         [btnColor]="'accent'"
         [grid]="{ '480': 1, '740': 2, '960': 2, '1024': 2, '1280': 3 }"
         [products]="featuredProducts"
+        data-id="372736bb"
       >
       </app-product-carousel-two>
-      <div *ngIf="loadingFeatured" class="my-3">
+      <div *ngIf="loadingFeatured" class="my-3" data-id="bf9b5132">
         <app-skeleton-loading-cards
           *ngIf="loadingFeatured"
           [setConfiguration]="{ xs: 1, sm: 2, md: 2, lg: 3 }"
+          data-id="4ee9ab87"
         >
         </app-skeleton-loading-cards>
       </div>
@@ -954,14 +1125,18 @@
   </div>
 </div>
 
-<div *ngIf="showZoom" class="popup" id="popup">
-  <div class="d-flex justify-content-end align-items-center">
-    <button (click)="this.showZoom = false" mat-icon-button>
-      <mat-icon class="mat-18">clear</mat-icon>
+<div *ngIf="showZoom" class="popup" id="popup" data-id="501d609d">
+  <div class="d-flex justify-content-end align-items-center" data-id="50dded3a">
+    <button (click)="this.showZoom = false" mat-icon-button data-id="387aa790">
+      <mat-icon class="mat-18" data-id="7fd0a04d">clear</mat-icon>
     </button>
   </div>
 
-  <div fxFlexFill class="d-flex flex-column justify-content-center align-items-center">
-    <img [src]="this.mainImage.image" />
+  <div
+    fxFlexFill
+    class="d-flex flex-column justify-content-center align-items-center"
+    data-id="3f97ab8b"
+  >
+    <img [src]="this.mainImage.image" data-id="9499e576" />
   </div>
 </div>

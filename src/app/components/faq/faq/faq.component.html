@@ -1,21 +1,30 @@
-<div class="faq">
-  <div class="container">
+<div class="faq" data-id="1b94e443">
+  <div class="container" data-id="a6feaed3">
     <div
       class="p-0 d-flex d-xs-flex flex-column flex-xs-column justify-content-center align-items-start"
+      data-id="0cdd3d80"
     >
-      <div class="questions p-0 flex-sh-100 flex-sh-70 flex-sh-sm-initial">
-        <h2 class="py-4" style="text-align: center">
+      <div class="questions p-0 flex-sh-100 flex-sh-70 flex-sh-sm-initial" data-id="8efe0965">
+        <h2 class="py-4" style="text-align: center" data-id="5d034c51">
           {{ 'Preguntas frecuentes' | translate }}
         </h2>
-        <div class="faq-wrap">
-          <mat-accordion>
-            <mat-expansion-panel *ngFor="let item of allFaqs; let i = index" class="my-3">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
+        <div class="faq-wrap" data-id="fa80194b">
+          <mat-accordion data-id="7af0f566">
+            <mat-expansion-panel
+              *ngFor="let item of allFaqs; let i = index"
+              class="my-3"
+              data-id="e1947d0f"
+            >
+              <mat-expansion-panel-header data-id="a8ff5e1e">
+                <mat-panel-title data-id="5f336c14">
                   {{ item.title | parseLang: lang }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <div [innerHtml]="item.text | parseLang: lang | safeHtml" class="ck-content"></div>
+              <div
+                [innerHtml]="item.text | parseLang: lang | safeHtml"
+                class="ck-content"
+                data-id="9118e847"
+              ></div>
             </mat-expansion-panel>
           </mat-accordion>
         </div>

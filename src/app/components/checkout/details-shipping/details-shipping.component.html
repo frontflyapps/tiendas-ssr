@@ -1,56 +1,86 @@
-<div class="dialog-content-wrapper">
-  <mat-toolbar class="mb-2" color="primary" id="toolbarHeader" matDialogTitle>
-    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
-      <span class="mat-title mb-0">{{ 'Shipping Rates Details' | translate }}</span>
-      <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
-        <mat-icon>close</mat-icon>
+<div class="dialog-content-wrapper" data-id="ce063fdb">
+  <mat-toolbar class="mb-2" color="primary" id="toolbarHeader" matDialogTitle data-id="d2dbe809">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="85f4023e">
+      <span class="mat-title mb-0" data-id="2a52002e">{{
+        'Shipping Rates Details' | translate
+      }}</span>
+      <button
+        (click)="dialogRef.close()"
+        aria-label="Close dialog"
+        mat-icon-button
+        data-id="944e471e"
+      >
+        <mat-icon data-id="bbbbd1b6">close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="my-dialog-content" mat-dialog-content>
-    <mat-card class="mat-elevation-z0">
-      <div class="responsive_table">
-        <table [dataSource]="dataSource" mat-table>
-          <ng-container matColumnDef="product">
-            <th *matHeaderCellDef class="text-center" mat-header-cell style="width: 10%">
-              <span class="mat-subheading-1">{{ 'Product' | translate }}</span>
+  <div class="my-dialog-content" mat-dialog-content data-id="af4f78a5">
+    <mat-card class="mat-elevation-z0" data-id="885694ce">
+      <div class="responsive_table" data-id="c813bc5a">
+        <table [dataSource]="dataSource" mat-table data-id="4a8f340b">
+          <ng-container matColumnDef="product" data-id="9caa62c8">
+            <th
+              *matHeaderCellDef
+              class="text-center"
+              mat-header-cell
+              style="width: 10%"
+              data-id="54152f69"
+            >
+              <span class="mat-subheading-1" data-id="9871787d">{{ 'Product' | translate }}</span>
             </th>
-            <td *matCellDef="let element" class="pb-2" mat-cell>
-              <div class="d-flex justify-content-center align-items-center">
-                <span *ngIf="element?.Product" class="mat-body-2 line-clamp">{{
+            <td *matCellDef="let element" class="pb-2" mat-cell data-id="eb29ecf0">
+              <div class="d-flex justify-content-center align-items-center" data-id="46563fb5">
+                <span *ngIf="element?.Product" class="mat-body-2 line-clamp" data-id="24159610">{{
                   utilsService.parserLanguage(element?.Product?.name, language)
                 }}</span>
               </div>
             </td>
-            <td *matFooterCellDef class="text-center" mat-footer-cell>
-              <div class="d-flex justify-content-center align-items-center">
-                <span class="footer">{{ 'Total' }}</span>
+            <td *matFooterCellDef class="text-center" mat-footer-cell data-id="d4181968">
+              <div class="d-flex justify-content-center align-items-center" data-id="0a706556">
+                <span class="footer" data-id="34996122">{{ 'Total' }}</span>
               </div>
             </td>
           </ng-container>
 
-          <ng-container matColumnDef="price">
-            <th *matHeaderCellDef class="text-center" mat-header-cell style="width: 10%">
-              <span class="mat-subheading-1">{{ 'Price' | translate }}</span>
+          <ng-container matColumnDef="price" data-id="c96c19c6">
+            <th
+              *matHeaderCellDef
+              class="text-center"
+              mat-header-cell
+              style="width: 10%"
+              data-id="1eb62111"
+            >
+              <span class="mat-subheading-1" data-id="ec6221c7">{{ 'Price' | translate }}</span>
             </th>
-            <td *matCellDef="let element" mat-cell>
-              <div class="d-flex justify-content-center align-items-center">
-                <span *ngIf="element?.price" class="mat-body-2">{{
+            <td *matCellDef="let element" mat-cell data-id="5f8654ab">
+              <div class="d-flex justify-content-center align-items-center" data-id="773b2ab5">
+                <span *ngIf="element?.price" class="mat-body-2" data-id="25f59fd6">{{
                   element?.price | currencyMarket: marketCard
                 }}</span>
               </div>
             </td>
-            <td *matFooterCellDef mat-footer-cell>
-              <div class="d-flex justify-content-center align-items-center">
-                <span class="footer">{{ getTotalCost() | currencyMarket: marketCard }}</span>
+            <td *matFooterCellDef mat-footer-cell data-id="1b06be42">
+              <div class="d-flex justify-content-center align-items-center" data-id="df56cf8b">
+                <span class="footer" data-id="86118785">{{
+                  getTotalCost() | currencyMarket: marketCard
+                }}</span>
               </div>
             </td>
           </ng-container>
 
-          <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
-          <tr *matRowDef="let row; columns: displayedColumns" class="rowData" mat-row></tr>
-          <tr *matFooterRowDef="displayedColumns" mat-footer-row></tr>
+          <tr
+            *matHeaderRowDef="displayedColumns; sticky: true"
+            mat-header-row
+            data-id="d721d793"
+          ></tr>
+          <tr
+            *matRowDef="let row; columns: displayedColumns"
+            class="rowData"
+            mat-row
+            data-id="13d388b6"
+          ></tr>
+          <tr *matFooterRowDef="displayedColumns" mat-footer-row data-id="83d0c2d0"></tr>
         </table>
       </div>
     </mat-card>

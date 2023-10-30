@@ -2,53 +2,69 @@
   *ngIf="this.loadingSearch"
   class="loading-shade-full"
   style="background: rgba(0, 0, 0, 0.08) !important"
+  data-id="2187d21a"
 >
-  <mat-spinner *ngIf="this.loadingSearch" color="primary" diameter="60"></mat-spinner>
+  <mat-spinner
+    *ngIf="this.loadingSearch"
+    color="primary"
+    diameter="60"
+    data-id="2cda5c74"
+  ></mat-spinner>
 </div>
 
-<div class="blog-column">
-  <div class="container">
-    <ng-container *ngIf="blogArray.length">
-      <div class="blog-list-wrapper sec-padding d-flex justify-content-start align-items-start">
-        <div class="search mb-30 w-100 d-sm-block d-none">
+<div class="blog-column" data-id="395a958c">
+  <div class="container" data-id="540bec5d">
+    <ng-container *ngIf="blogArray.length" data-id="d001a6cf">
+      <div
+        class="blog-list-wrapper sec-padding d-flex justify-content-start align-items-start"
+        data-id="51520c8a"
+      >
+        <div class="search mb-30 w-100 d-sm-block d-none" data-id="f3ea9f5f">
           <input
             [(ngModel)]="searchText"
             class="form-control"
             placeholder="{{ 'Search...' | translate }}"
             type="search"
+            data-id="896a869a"
           />
           <button
             (click)="onSearchArticle()"
             [disabled]="searchText === null"
             mat-button
             type="submit"
+            data-id="1e541752"
           >
-            <mat-icon> search </mat-icon>
+            <mat-icon data-id="38ab1823"> search </mat-icon>
           </button>
         </div>
 
         <div
           ngClass.gt-sm="pr-3"
           class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100 flex-sh-70 flex-sh-sm-initial"
+          data-id="3c583d60"
         >
           <div
             *ngFor="let item of blogArray; let i = index"
             [id]="'element' + item.id"
             class="main-blog-panel"
+            data-id="87f6dd33"
           >
             <a
               [routerLink]="['/blog', item.id]"
               class="single-blog-list d-flex d-sm-flex flex-column flex-sm-column"
+              data-id="7d841f0e"
             >
-              <mat-card class="cardArticle">
-                <mat-card-content>
+              <mat-card class="cardArticle" data-id="480937cd">
+                <mat-card-content data-id="4c3a6bc7">
                   <div
                     class="d-flex d-sm-flex flex-column flex-sm-column justify-content-start align-items-stretch"
+                    data-id="db09e5ed"
                   >
                     <div
                       class="image-box d-flex justify-content-center align-items-stretch flex-sh-100 flex-sh-50 flex-sh-sm-initial"
+                      data-id="68ae14a8"
                     >
-                      <a *ngIf="item.link" [href]="item.link" target="_blank">
+                      <a *ngIf="item.link" [href]="item.link" target="_blank" data-id="7bece820">
                         <img
                           [alt]="item.title[language]"
                           [ngClass]="{
@@ -57,6 +73,7 @@
                           }"
                           [src]="imageUrl + item.image"
                           lazyImg
+                          data-id="0612d134"
                         />
                       </a>
 
@@ -69,20 +86,24 @@
                         }"
                         [src]="imageUrl + item.image"
                         lazyImg
+                        data-id="db54a53d"
                       />
                     </div>
-                    <div class="text-box flex-sh-100 flex-sh-50 flex-sh-sm-initial">
-                      <h4 style="text-transform: none !important">
+                    <div
+                      class="text-box flex-sh-100 flex-sh-50 flex-sh-sm-initial"
+                      data-id="602d32d8"
+                    >
+                      <h4 style="text-transform: none !important" data-id="990568c5">
                         {{ utilsService.parserLanguage(item.title, language) }}
                       </h4>
 
-                      <ul class="d-flex">
-                        <li>
-                          <i class="material-icons">access_time </i
+                      <ul class="d-flex" data-id="d249102f">
+                        <li data-id="8aff485e">
+                          <i class="material-icons" data-id="fe9bd17c">access_time </i
                           >{{ item.createdAt | date: 'short' }}
                         </li>
-                        <li>
-                          <i class="material-icons">person </i
+                        <li data-id="6d0ee4d1">
+                          <i class="material-icons" data-id="f2a87d97">person </i
                           >{{ item.Creator.name + ' ' + item.Creator.lastName }}
                         </li>
                         <!-- <li><i class="material-icons">sms</i>05 Comments</li> -->
@@ -91,8 +112,9 @@
                       <div
                         *ngIf="!item.expandable"
                         class="d-flex flex-column justify-content-start align-items-stretch"
+                        data-id="2ac529de"
                       >
-                        <p class="module1 line-clamp1">
+                        <p class="module1 line-clamp1" data-id="84277f6d">
                           {{ utilsService.parserLanguage(item.sumarize, language) }}
                         </p>
                       </div>
@@ -103,46 +125,59 @@
             </a>
           </div>
         </div>
-        <div class="sidebar flex-sh-100 flex-sh-30 flex-sh-sm-initial">
-          <div class="blog-sidebar">
-            <div class="search mb-30 d-sm-none">
+        <div class="sidebar flex-sh-100 flex-sh-30 flex-sh-sm-initial" data-id="1c780b9d">
+          <div class="blog-sidebar" data-id="628d0fd2">
+            <div class="search mb-30 d-sm-none" data-id="c50a16a9">
               <input
                 [(ngModel)]="searchText"
                 class="form-control"
                 placeholder="{{ 'Search...' | translate }}"
                 type="search"
+                data-id="af586a2d"
               />
-              <button (click)="onSearchArticle()" mat-button type="submit">
-                <mat-icon> search </mat-icon>
+              <button (click)="onSearchArticle()" mat-button type="submit" data-id="4265cb5f">
+                <mat-icon data-id="ff9f000c"> search </mat-icon>
               </button>
             </div>
-            <div class="single-sidebar-widget mb-30">
-              <div class="post-widget">
-                <div class="title">
-                  <h4>{{ 'Latest News' | translate }}</h4>
-                  <div class="decor-line"></div>
+            <div class="single-sidebar-widget mb-30" data-id="44b6e791">
+              <div class="post-widget" data-id="24162777">
+                <div class="title" data-id="95f64a03">
+                  <h4 data-id="98f89158">{{ 'Latest News' | translate }}</h4>
+                  <div class="decor-line" data-id="38a8e88a"></div>
                 </div>
-                <ul>
-                  <li *ngFor="let item of latestArray; let i = index" class="d-flex">
-                    <div class="icon-box flex-sh-100 flex-sh-30 flex-sh-sm-initial">
-                      <img [src]="imageUrl + item.image" alt="Awesome Image" />
+                <ul data-id="b3902f66">
+                  <li
+                    *ngFor="let item of latestArray; let i = index"
+                    class="d-flex"
+                    data-id="7296e078"
+                  >
+                    <div
+                      class="icon-box flex-sh-100 flex-sh-30 flex-sh-sm-initial"
+                      data-id="de0b3d0f"
+                    >
+                      <img [src]="imageUrl + item.image" alt="Awesome Image" data-id="953e9609" />
                     </div>
-                    <div class="text-box flex-sh-100 flex-sh-70 flex-sh-sm-initial">
-                      <h5>{{ utilsService.parserLanguage(item.title, language) }}</h5>
-                      <span>{{ item.createdAt | date: 'short' }}</span>
+                    <div
+                      class="text-box flex-sh-100 flex-sh-70 flex-sh-sm-initial"
+                      data-id="a72b52ac"
+                    >
+                      <h5 data-id="ab18ab38">
+                        {{ utilsService.parserLanguage(item.title, language) }}
+                      </h5>
+                      <span data-id="340be7ac">{{ item.createdAt | date: 'short' }}</span>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="single-sidebar-widget mb-30">
-              <div class="tags-widget post-widget">
-                <div class="title">
-                  <h4>{{ 'Tags widget' | translate }}</h4>
+            <div class="single-sidebar-widget mb-30" data-id="ab47c0ce">
+              <div class="tags-widget post-widget" data-id="4f24926c">
+                <div class="title" data-id="b1c65075">
+                  <h4 data-id="33d93027">{{ 'Tags widget' | translate }}</h4>
                 </div>
-                <ul class="list-inline">
-                  <li *ngFor="let tag of tags">
-                    <a>{{ tag }}</a>
+                <ul class="list-inline" data-id="82a73b01">
+                  <li *ngFor="let tag of tags" data-id="39ebe8d2">
+                    <a data-id="3da43305">{{ tag }}</a>
                   </li>
                 </ul>
               </div>
@@ -176,6 +211,7 @@
       <div
         *ngIf="this.query.offset < this.query.total"
         class="py-3 d-flex justify-content-center align-items-center"
+        data-id="70d9b8b6"
       >
         <button
           (click)="onGetMore()"
@@ -183,6 +219,7 @@
           class="px-4"
           color="accent"
           mat-stroked-button
+          data-id="7e9f7a4c"
         >
           {{ 'LOAD MORE...' | translate }}
         </button>
@@ -192,9 +229,15 @@
     <div
       *ngIf="isEmptyArray"
       class="sec-padding d-flex flex-column justify-content-center align-items-center"
+      data-id="ec5244ab"
     >
-      <img alt="Empty" src="/assets/images/empty.svg" style="height: 160px; width: 160px" />
-      <h3 class="text-muted mt-3">
+      <img
+        alt="Empty"
+        src="/assets/images/empty.svg"
+        style="height: 160px; width: 160px"
+        data-id="3c94335a"
+      />
+      <h3 class="text-muted mt-3" data-id="7cc906ef">
         {{ 'The blog articles is empty' | translate }}
       </h3>
     </div>

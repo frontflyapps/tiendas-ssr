@@ -1,20 +1,35 @@
-<div class="product-container d-flex flex-column d-xs-block d-sm-block d-md-block d-none">
-  <h2 class="mb-2 flex-sh-100" style="color: initial; font-weight: 500">
+<div
+  class="product-container d-flex flex-column d-xs-block d-sm-block d-md-block d-none"
+  data-id="3daeef6b"
+>
+  <h2 class="mb-2 flex-sh-100" style="color: initial; font-weight: 500" data-id="da4950dc">
     {{ products.name | i18nField: translateService.currentLang }}
   </h2>
-  <div class="d-flex justify-content-between align-items-start flex-wrap">
-    <div *ngFor="let product of products.value" class="container-product mb-2">
-      <div *ngIf="product?.Business?.Province" class="location-label-sm d-sm-block d-none">
-        <span>
-          <mat-icon>room</mat-icon>&nbsp;<strong>{{
+  <div class="d-flex justify-content-between align-items-start flex-wrap" data-id="1cebe601">
+    <div *ngFor="let product of products.value" class="container-product mb-2" data-id="71da21ba">
+      <div
+        *ngIf="product?.Business?.Province"
+        class="location-label-sm d-sm-block d-none"
+        data-id="ea026f39"
+      >
+        <span data-id="2aefe07c">
+          <mat-icon data-id="557edd51">room</mat-icon>&nbsp;<strong data-id="f55c68c7">{{
             product.Business?.Province?.name | parseLang: utilsService.getLang()
           }}</strong>
         </span>
       </div>
-      <div *ngIf="inLoading" class="loading-shade-main" style="height: 100%; width: 100%">
-        <mat-spinner [diameter]="40"></mat-spinner>
+      <div
+        *ngIf="inLoading"
+        class="loading-shade-main"
+        style="height: 100%; width: 100%"
+        data-id="400dc988"
+      >
+        <mat-spinner [diameter]="40" data-id="618ab1b7"></mat-spinner>
       </div>
-      <div class="product-img d-flex flex-column transpilerClass-fxLayoutGap-888b96">
+      <div
+        class="product-img d-flex flex-column transpilerClass-fxLayoutGap-888b96"
+        data-id="9a51e8b6"
+      >
         <a
           [queryParams]="{
             productId: product.id,
@@ -24,8 +39,9 @@
           }"
           [routerLink]="['/product']"
           style="position: relative"
+          data-id="125e73a2"
         >
-          <span *ngIf="product?.justPublished" class="just-published">
+          <span *ngIf="product?.justPublished" class="just-published" data-id="a702a8bc">
             {{ 'NUEVO' | translate }}
           </span>
           <img
@@ -35,15 +51,17 @@
             lazyImg
             class="productImage"
             onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+            data-id="9dd3d8e2"
           />
           <img
             *ngIf="!(product.Images && product.Images.length)"
             alt="No Image"
             lazyImg
             src="assets/images/noImage.jpg"
+            data-id="cbba963e"
           />
         </a>
-        <div class="moduleTitle line-clampTitle p-2">
+        <div class="moduleTitle line-clampTitle p-2" data-id="8a5c7788">
           <a
             [queryParams]="{
               productId: product.id,
@@ -53,21 +71,25 @@
             }"
             [routerLink]="['/product']"
             class="product-link"
+            data-id="04af16c2"
           >
-            <h4 class="mat-body-2">{{ utilsService.parserLanguage(product.name, language) }}</h4>
+            <h4 class="mat-body-2" data-id="37e7c926">
+              {{ utilsService.parserLanguage(product.name, language) }}
+            </h4>
           </a>
         </div>
 
-        <div class="d-flex justify-content-end align-items-end">
+        <div class="d-flex justify-content-end align-items-end" data-id="0adc947b">
           <span
             class="coming-soon-text"
             *ngIf="product.status === 'comingSoon'"
             style="margin-top: 4rem"
+            data-id="76608f09"
             >{{ 'Próximamente' | translate }}</span
           >
         </div>
 
-        <div class="price p-2" *ngIf="product.status !== 'comingSoon'">
+        <div class="price p-2" *ngIf="product.status !== 'comingSoon'" data-id="dd3f96d1">
           <a
             [queryParams]="{
               productId: product.id,
@@ -77,16 +99,17 @@
             }"
             [routerLink]="['/product']"
             class="product-link"
+            data-id="9c86011c"
           >
-            <ng-container *ngIf="product.offerValue">
-              <p class="deletePrice m-0">
-                <del>{{ product | parsePriceProduct }}</del>
-                <span class="offer ml-2">
-                  <span class="mx-0 px-0">-</span>
-                  <span *ngIf="product.isPercent" class="mx-0 px-0"
+            <ng-container *ngIf="product.offerValue" data-id="1239fcf6">
+              <p class="deletePrice m-0" data-id="8692120d">
+                <del data-id="14a61390">{{ product | parsePriceProduct }}</del>
+                <span class="offer ml-2" data-id="9e2ca462">
+                  <span class="mx-0 px-0" data-id="89b63113">-</span>
+                  <span *ngIf="product.isPercent" class="mx-0 px-0" data-id="a5bc4849"
                     >{{ product.offerValue }}%
                   </span>
-                  <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                  <span *ngIf="!product.isPercent" class="mx-0 px-0" data-id="a8ed43cd"
                     >${{ product.offerValue }}</span
                   >
                 </span>
@@ -94,11 +117,16 @@
               <p
                 class="mat-body-2 m-0"
                 matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+                data-id="3ab0c00f"
               >
                 {{ product | parsePriceProduct: 'offert' }}
               </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="mat-body-2 mr-2" style="font-size: 12px; color: #757474">
+              <div class="d-flex justify-content-between align-items-center" data-id="46ef9d41">
+                <p
+                  class="mat-body-2 mr-2"
+                  style="font-size: 12px; color: #757474"
+                  data-id="e195747b"
+                >
                   {{ 'Desde ' | translate }}
                   {{ product.minSale }}
                   {{ ' unidad' | translate }}
@@ -109,18 +137,19 @@
                   mat-mini-fab
                   matTooltip="{{ 'Añadir al carrito' | translate }}"
                   style="z-index: 10"
+                  data-id="9c652527"
                 >
-                  <mat-icon>shopping_cart</mat-icon>
+                  <mat-icon data-id="e9fd945c">shopping_cart</mat-icon>
                 </button>
               </div>
             </ng-container>
           </a>
-          <ng-container *ngIf="!product.offerValue">
-            <p class="mat-body-2 m-0" style="height: 40px">
+          <ng-container *ngIf="!product.offerValue" data-id="abda671c">
+            <p class="mat-body-2 m-0" style="height: 40px" data-id="77a00b4d">
               {{ product | parsePriceProduct }}
             </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <p class="mat-body-2 mr-2" style="font-size: 12px; color: #757474">
+            <div class="d-flex justify-content-between align-items-center" data-id="d18eac19">
+              <p class="mat-body-2 mr-2" style="font-size: 12px; color: #757474" data-id="fd43d85c">
                 {{ 'Desde ' | translate }}
                 {{ product.minSale }}
                 {{ ' unidad' | translate }}
@@ -131,8 +160,9 @@
                 mat-mini-fab
                 matTooltip="{{ 'Añadir al carrito' | translate }}"
                 style="z-index: 10"
+                data-id="615eb885"
               >
-                <mat-icon>shopping_cart</mat-icon>
+                <mat-icon data-id="0d98e789">shopping_cart</mat-icon>
               </button>
             </div>
           </ng-container>

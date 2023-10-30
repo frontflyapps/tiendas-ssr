@@ -10,9 +10,13 @@
 
 <!-- ------------------------------------------------------------ -->
 <!-- -- Carusel ---------------------------------------------- -->
-<app-main-carousel *ngIf="!showStatic && slides.length > 0" [slides]="slides"></app-main-carousel>
+<app-main-carousel
+  *ngIf="!showStatic && slides.length > 0"
+  [slides]="slides"
+  data-id="67fde67b"
+></app-main-carousel>
 
-<div class="container mt-3">
+<div class="container mt-3" data-id="eaebeba8">
   <!-- BANNER TEMPORAL -->
   <!--  <div-->
   <!--    style="-->
@@ -39,28 +43,34 @@
   </app-skeleton-loading-cards> -->
 </div>
 
-<div class="home-1-wrap">
-  <div *ngIf="allBicons.length > 0" class="info-bar-four-wrapper">
-    <div class="container my-4">
+<div class="home-1-wrap" data-id="eeaab528">
+  <div *ngIf="allBicons.length > 0" class="info-bar-four-wrapper" data-id="676ee4d5">
+    <div class="container my-4" data-id="3c7c7cfe">
       <div
         class="info-bar-four"
         style="display: flex; flex-wrap: wrap; justify-content: space-around"
+        data-id="2f8131fe"
       >
         <div
           *ngFor="let item of allBicons; let i = index"
           class="card-wrap card-promo"
           style="width: auto; flex-grow: 1"
+          data-id="b41ccc06"
         >
-          <mat-card [ngClass]="{ 'no-bd': i === allBicons.length - 1 }" class="light-block">
-            <div class="d-flex justify-content-start align-items-center">
-              <div class="flex-sh-20">
-                <mat-icon class="mat-icon-xlg m-0">{{ item.icon }}</mat-icon>
+          <mat-card
+            [ngClass]="{ 'no-bd': i === allBicons.length - 1 }"
+            class="light-block"
+            data-id="7e51d3bd"
+          >
+            <div class="d-flex justify-content-start align-items-center" data-id="eee8fab5">
+              <div class="flex-sh-20" data-id="cf55715c">
+                <mat-icon class="mat-icon-xlg m-0" data-id="bd8c21d6">{{ item.icon }}</mat-icon>
               </div>
-              <div class="content flex-sh-80">
-                <p class="uppercase">
+              <div class="content flex-sh-80" data-id="38f333ec">
+                <p class="uppercase" data-id="c68d230d">
                   {{ item.title | parseLang: utilsService.getLang() }}
                 </p>
-                <span class="text-muted m-0 mt-2 word-break">{{
+                <span class="text-muted m-0 mt-2 word-break" data-id="d05c6b4c">{{
                   item.subTitle | parseLang: utilsService.getLang()
                 }}</span>
               </div>
@@ -71,8 +81,11 @@
     </div>
   </div>
 
-  <ng-container *ngIf="arraySectionProducts.length == 0 && !loadingAllProduct && !loadingProducts">
-    <h3 class="mat-title py-4" style="text-align: center">
+  <ng-container
+    *ngIf="arraySectionProducts.length == 0 && !loadingAllProduct && !loadingProducts"
+    data-id="e73ada5e"
+  >
+    <h3 class="mat-title py-4" style="text-align: center" data-id="76f5e2f3">
       {{ 'No hay ningún producto disponible' | translate }}
     </h3>
   </ng-container>
@@ -82,12 +95,20 @@
     infiniteScroll
     [infiniteScrollDistance]="0.8"
     (scrolled)="loadProducts()"
+    data-id="98055dd4"
   >
-    <div *ngIf="arraySectionProducts.length >= 0">
-      <div *ngFor="let card of arraySectionProducts; let i = index; trackBy: identify">
+    <div *ngIf="arraySectionProducts.length >= 0" data-id="05fc5f7c">
+      <div
+        *ngFor="let card of arraySectionProducts; let i = index; trackBy: identify"
+        data-id="b8704d6d"
+      >
         <!--BANNER-->
-        <div class="main-banner" *ngIf="card.visualType?.type === 'businessPromotion'">
-          <ng-template *ngIf="!applyStyle && card?.image">
+        <div
+          class="main-banner"
+          *ngIf="card.visualType?.type === 'businessPromotion'"
+          data-id="76d5c690"
+        >
+          <ng-template *ngIf="!applyStyle && card?.image" data-id="24a3e9fe">
             <app-banner-promotion
               [ngClass]="{
                 'banner-horizontal': visualizationSections[i] === 'slim',
@@ -95,53 +116,66 @@
               }"
               [_imageBigPromo]="imageUrl + card?.image"
               [_image]="card"
+              data-id="fcd8e23a"
             ></app-banner-promotion>
           </ng-template>
-          <ng-template *ngIf="applyStyle && card?.imageXs">
+          <ng-template *ngIf="applyStyle && card?.imageXs" data-id="3c96f027">
             <app-banner-promotion
               [_imageBigPromo]="imageUrl + card?.imageXs"
               [_image]="card"
+              data-id="23ad8769"
             ></app-banner-promotion>
           </ng-template>
         </div>
         <!--CATEGORIES-->
-        <div *ngIf="card.visualType?.type === 'categories'">
-          <div class="container">
-            <div class="products sec-padding">
-              <div class="products-four d-block d-xs-none d-sm-none d-md-none">
-                <h1 style="color: initial">
+        <div *ngIf="card.visualType?.type === 'categories'" data-id="e255eef7">
+          <div class="container" data-id="f8f0e648">
+            <div class="products sec-padding" data-id="8c0133a3">
+              <div class="products-four d-block d-xs-none d-sm-none d-md-none" data-id="29a75435">
+                <h1 style="color: initial" data-id="b0f986fa">
                   {{ card.name | i18nField: translateService.currentLang }}
                 </h1>
                 <app-product-carousel
                   *ngIf="card.value"
                   [btnColor]="'accent'"
                   [products]="card.value"
+                  data-id="05736451"
                 >
                 </app-product-carousel>
-                <div *ngIf="loadingFeatured" class="my-3">
+                <div *ngIf="loadingFeatured" class="my-3" data-id="86c9b0b6">
                   <app-skeleton-loading-cards
                     *ngIf="!card.value"
                     [setConfiguration]="{ xs: 1, sm: 2, md: 3, lg: 4 }"
+                    data-id="1fdb4e3c"
                   >
                   </app-skeleton-loading-cards>
                 </div>
               </div>
-              <div class="d-xs-block d-sm-block d-none d-sm-none d-md-none">
+              <div class="d-xs-block d-sm-block d-none d-sm-none d-md-none" data-id="835b8fbf">
                 <app-product-grid
                   *ngIf="card.value && card.visualType?.typeVisualization === 'grid'"
                   [products]="card"
+                  data-id="fc1a4c21"
                 >
                 </app-product-grid>
-                <div *ngIf="card.value && card.visualType?.typeVisualization === 'carousel'">
-                  <h1 style="color: initial">
+                <div
+                  *ngIf="card.value && card.visualType?.typeVisualization === 'carousel'"
+                  data-id="268e749f"
+                >
+                  <h1 style="color: initial" data-id="7976f8f6">
                     {{ card.name | i18nField: translateService.currentLang }}
                   </h1>
-                  <app-product-carousel [btnColor]="'accent'" [products]="card.value">
+                  <app-product-carousel
+                    [btnColor]="'accent'"
+                    [products]="card.value"
+                    data-id="7eab78ef"
+                  >
                   </app-product-carousel>
                 </div>
                 <app-product-list
                   *ngIf="card.value && card.visualType?.typeVisualization === 'list'"
                   [products]="card"
+                  data-id="e9215f2f"
                 >
                 </app-product-list>
               </div>
@@ -191,13 +225,13 @@
   </span> -->
 
   <!-- ---------------------- Big promo --------------------------- -->
-  <section *ngIf="allArticles?.length">
-    <div class="featured-products-wrap">
-      <div class="container">
-        <div class="products sec-padding bg">
-          <div class="products-four">
-            <h3 class="uppercase">{{ 'Latest From Our Blog' | translate }}</h3>
-            <section style="padding-top: 26px">
+  <section *ngIf="allArticles?.length" data-id="8f2ea7a7">
+    <div class="featured-products-wrap" data-id="8b00cbe6">
+      <div class="container" data-id="996679a4">
+        <div class="products sec-padding bg" data-id="63bd7581">
+          <div class="products-four" data-id="61192076">
+            <h3 class="uppercase" data-id="8d484ff1">{{ 'Latest From Our Blog' | translate }}</h3>
+            <section style="padding-top: 26px" data-id="a6cc5299">
               <!-- <app-blog-section></app-blog-section> -->
             </section>
           </div>

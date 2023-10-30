@@ -1,48 +1,65 @@
-<div class="dialog-content-wrapper">
-  <mat-toolbar *ngIf="action == 'confirmed'" id="successPay" matDialogTitle>
-    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
-      <mat-icon>done_all</mat-icon>
-      <span class="mat-title mb-0">{{ 'Pago Confirmado' | translate }}</span>
-      <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
-        <mat-icon>close</mat-icon>
+<div class="dialog-content-wrapper" data-id="49439aa4">
+  <mat-toolbar *ngIf="action == 'confirmed'" id="successPay" matDialogTitle data-id="ca0fcaad">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="b270256c">
+      <mat-icon data-id="07eda804">done_all</mat-icon>
+      <span class="mat-title mb-0" data-id="c7ff579d">{{ 'Pago Confirmado' | translate }}</span>
+      <button
+        (click)="dialogRef.close()"
+        aria-label="Close dialog"
+        mat-icon-button
+        data-id="b2c4d864"
+      >
+        <mat-icon data-id="2f9a449d">close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-  <mat-toolbar *ngIf="action == 'cancelled'" id="cancelledPay" matDialogTitle>
-    <mat-toolbar-row class="d-flex justify-content-between align-items-center">
-      <mat-icon>cancel</mat-icon>
-      <span class="mat-title mb-0">{{ 'Pago Cancelado' | translate }}</span>
-      <button (click)="dialogRef.close()" aria-label="Close dialog" mat-icon-button>
-        <mat-icon>close</mat-icon>
+  <mat-toolbar *ngIf="action == 'cancelled'" id="cancelledPay" matDialogTitle data-id="875477f0">
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="dc54712b">
+      <mat-icon data-id="efeee65e">cancel</mat-icon>
+      <span class="mat-title mb-0" data-id="94011726">{{ 'Pago Cancelado' | translate }}</span>
+      <button
+        (click)="dialogRef.close()"
+        aria-label="Close dialog"
+        mat-icon-button
+        data-id="55745227"
+      >
+        <mat-icon data-id="65cc7dd4">close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="my-dialog-content" mat-dialog-content>
-    <div class="pyro">
-      <div class="before"></div>
-      <div class="after"></div>
+  <div class="my-dialog-content" mat-dialog-content data-id="5fd9f5c6">
+    <div class="pyro" data-id="300c71c9">
+      <div class="before" data-id="47edc10f"></div>
+      <div class="after" data-id="6c7825b5"></div>
     </div>
 
     <div
       *ngIf="this.selectedPayment"
       class="container-bulling w-100 d-flex flex-column justify-content-start align-items-stretch"
+      data-id="42223608"
     >
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center" data-id="ab3a56f9">
         <div
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="3d1911ad"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{ 'Id de pago' | translate }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{ selectedPayment.order }}</span>
+          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="517e86aa">{{
+            'Id de pago' | translate
+          }}</span>
+          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="35ae44c6">{{
+            selectedPayment.order
+          }}</span>
         </div>
 
         <div
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="61b8af98"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="4074a86d">{{
             'fecha de creación' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="4c79d213">{{
             selectedPayment.createdAt | date: 'short'
           }}</span>
         </div>
@@ -50,42 +67,45 @@
         <div
           *ngIf="selectedPayment.cancelledAt"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="ecfd1947"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="27cee845">{{
             'fecha de cancelación' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="9421092c">{{
             selectedPayment.cancelledAt | date: 'short'
           }}</span>
         </div>
       </div>
 
-      <mat-divider class="my-2"></mat-divider>
+      <mat-divider class="my-2" data-id="416cc6b8"></mat-divider>
 
-      <div class="mt-1 d-flex justify-content-start align-items-center">
+      <div class="mt-1 d-flex justify-content-start align-items-center" data-id="b4b5206a">
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="5304c61e"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="6a5fe6ec">
             {{ 'Country' | translate }}
           </span>
-          <span>
+          <span data-id="6c234287">
             {{ utilsService.parserLanguage(selectedPayment.Country.name, language) }}
           </span>
         </div>
 
-        <ng-container *ngIf="selectedPayment.CountryId != 59">
+        <ng-container *ngIf="selectedPayment.CountryId != 59" data-id="97771e19">
           <div
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            data-id="17d21b29"
           >
-            <span class="mat-caption color-grey-800">
+            <span class="mat-caption color-grey-800" data-id="24f14723">
               {{ 'City' | translate }}
             </span>
-            <span>
+            <span data-id="84b80781">
               {{ this.selectedPayment.city }}
             </span>
           </div>
@@ -94,25 +114,27 @@
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            data-id="c155e7c5"
           >
-            <span class="mat-caption color-grey-800">
+            <span class="mat-caption color-grey-800" data-id="d1ca4b52">
               {{ 'Region / Province / State' | translate }}
             </span>
-            <span>
+            <span data-id="98818720">
               {{ this.selectedPayment.regionProvinceState }}
             </span>
           </div>
         </ng-container>
-        <ng-container *ngIf="selectedPayment.CountryId == 59">
+        <ng-container *ngIf="selectedPayment.CountryId == 59" data-id="d255d8c4">
           <div
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            data-id="eba4882b"
           >
-            <span class="mat-caption color-grey-800">
+            <span class="mat-caption color-grey-800" data-id="5f20f6b9">
               {{ 'Municipio' | translate }}
             </span>
-            <span>
+            <span data-id="f4c06586">
               {{ this.selectedPayment.Municipality?.name }}
             </span>
           </div>
@@ -121,11 +143,12 @@
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
             class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            data-id="357c53c8"
           >
-            <span class="mat-caption color-grey-800">
+            <span class="mat-caption color-grey-800" data-id="d0769a70">
               {{ 'Provincia' | translate }}
             </span>
-            <span>
+            <span data-id="14b685f5">
               {{ this.selectedPayment.Province?.name }}
             </span>
           </div>
@@ -135,11 +158,12 @@
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="bb759737"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="5d962989">
             {{ 'Dirección' | translate }}
           </span>
-          <span>
+          <span data-id="6dc12cb6">
             {{ this.selectedPayment.address.street }} {{ this.selectedPayment.address.number }}
             {{ this.selectedPayment.address.between }}
           </span>
@@ -148,11 +172,12 @@
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="f2bcd5d0"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="8c3c15f6">
             {{ 'Teléfono' | translate }}
           </span>
-          <span>
+          <span data-id="d5d10847">
             {{ this.selectedPayment.phone }}
           </span>
         </div>
@@ -160,28 +185,30 @@
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="5074049e"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="4c932b2e">
             {{ 'Client' | translate }}
           </span>
-          <span>
+          <span data-id="3fe21fc2">
             {{ this.selectedPayment.name + ' ' + (this.selectedPayment.lastname || '') }}
           </span>
         </div>
       </div>
 
-      <mat-divider class="d-xs-none"></mat-divider>
+      <mat-divider class="d-xs-none" data-id="12f6a3c8"></mat-divider>
 
-      <div class="mt-1 d-flex justify-content-start align-items-center">
+      <div class="mt-1 d-flex justify-content-start align-items-center" data-id="4310db03">
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="6380762f"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="433aafe3">
             {{ 'No. of order' | translate }}
           </span>
-          <span>
+          <span data-id="ae635502">
             {{ this.selectedPayment.order }}
           </span>
         </div>
@@ -190,20 +217,21 @@
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="9a90e98d"
         >
-          <ng-container *ngIf="this.selectedPayment.status == 'cancelled'">
-            <span class="mat-caption color-grey-800">
+          <ng-container *ngIf="this.selectedPayment.status == 'cancelled'" data-id="130f5c9a">
+            <span class="mat-caption color-grey-800" data-id="73f685e5">
               {{ 'Devolución' | translate }}
             </span>
-            <span>
+            <span data-id="7cf13593">
               {{ this.selectedPayment.cancelRefund | currency: this.selectedPayment.currency }}
             </span>
           </ng-container>
-          <ng-container *ngIf="this.selectedPayment.status != 'cancelled'">
-            <span class="mat-caption color-grey-800">
+          <ng-container *ngIf="this.selectedPayment.status != 'cancelled'" data-id="776b3608">
+            <span class="mat-caption color-grey-800" data-id="b5d0658f">
               {{ 'Amount' | translate }}
             </span>
-            <span>
+            <span data-id="b94e909a">
               {{ this.selectedPayment.amount | currency: this.selectedPayment.currency }}
             </span>
           </ng-container>
@@ -213,11 +241,12 @@
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="e42d16ce"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="af39ec51">
             {{ 'Status' | translate }}
           </span>
-          <span [class]="this.status[this.selectedPayment.status].class">
+          <span [class]="this.status[this.selectedPayment.status].class" data-id="0d158fc8">
             {{
               this.utilsService.parserLanguage(
                 this.status[this.selectedPayment.status].status,
@@ -228,18 +257,19 @@
         </div>
       </div>
 
-      <mat-divider class="d-xs-none"></mat-divider>
+      <mat-divider class="d-xs-none" data-id="c334eeef"></mat-divider>
 
-      <div class="mt-1 d-flex justify-content-start align-items-center">
+      <div class="mt-1 d-flex justify-content-start align-items-center" data-id="d4b8f8f0">
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="0b0f9d21"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="ab28d6d9">
             {{ 'TPV' | translate }}
           </span>
-          <span>
+          <span data-id="a5e9b7bd">
             {{ this.selectedPayment.paymentType }}
           </span>
         </div>
@@ -248,28 +278,29 @@
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          data-id="57e5bf8a"
         >
-          <span class="mat-caption color-grey-800">
+          <span class="mat-caption color-grey-800" data-id="a05ecde6">
             {{ 'Email' | translate }}
           </span>
-          <span>
+          <span data-id="32d91972">
             {{ this.selectedPayment.email }}
           </span>
         </div>
       </div>
 
-      <mat-divider class="d-xs-none"></mat-divider>
+      <mat-divider class="d-xs-none" data-id="eb6fb763"></mat-divider>
 
-      <ng-container *ngIf="this.selectedPayment.status == 'cancelled'">
-        <p class="mat-title my-2" ngClass.xs="mat-body-2">
+      <ng-container *ngIf="this.selectedPayment.status == 'cancelled'" data-id="3f476c16">
+        <p class="mat-title my-2" ngClass.xs="mat-body-2" data-id="84817802">
           {{ 'Comentario acerca de la cancelación' | translate }}
         </p>
-        <blockquote class="cancelNote">
-          <p>{{ selectedPayment.cancelNote }}</p>
+        <blockquote class="cancelNote" data-id="06a44a29">
+          <p data-id="82235432">{{ selectedPayment.cancelNote }}</p>
         </blockquote>
       </ng-container>
 
-      <div class="mt-3 d-flex justify-content-end align-items-center">
+      <div class="mt-3 d-flex justify-content-end align-items-center" data-id="24ffbede">
         <button
           (click)="onGetVoucher(this.selectedPayment)"
           *ngIf="
@@ -279,8 +310,9 @@
           color="primary"
           mat-stroked-button
           matTooltip="{{ 'Obtener el vouvher de pago' | translate }}"
+          data-id="1f7eae80"
         >
-          <mat-icon>cloud_download</mat-icon>
+          <mat-icon data-id="ecedb5b3">cloud_download</mat-icon>
           {{ 'VOUCHER' | translate }}
         </button>
 
@@ -289,6 +321,7 @@
           class="mx-2"
           color="primary"
           mat-flat-button
+          data-id="1bc30d3f"
         >
           {{ 'ACEPTAR' | translate }}
         </button>

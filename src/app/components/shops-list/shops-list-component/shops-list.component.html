@@ -1,4 +1,4 @@
-<div class="list-header">
+<div class="list-header" data-id="ecdc96b6">
   <!--  <img fxHide.xs fxHide.sm class='banner-shop-img' [src]='bannerDefault'>-->
   <img
     class="banner-shop-img d-xs-inline d-sm-inline d-md-inline d-xs-none d-sm-none d-md-none"
@@ -7,6 +7,7 @@
         ? apiURL + appService.businessConfig?.imageBanner1
         : bannerDefault
     "
+    data-id="c5c5520f"
   />
   <img
     class="banner-shop-img d-xs-inline d-sm-inline d-md-inline d-none"
@@ -15,58 +16,74 @@
         ? apiURL + appService.businessConfig?.imageBanner1Xs
         : bannerDefault
     "
+    data-id="cf821ea5"
   />
 </div>
-<div class="container mt-5">
-  <div class="search-shops d-flex flex-column justify-content-center align-items-center">
-    <h2 class="mb-3">{{ 'Buscar' | translate }}</h2>
+<div class="container mt-5" data-id="d171fd6a">
+  <div
+    class="search-shops d-flex flex-column justify-content-center align-items-center"
+    data-id="650e9833"
+  >
+    <h2 class="mb-3" data-id="0ae9517c">{{ 'Buscar' | translate }}</h2>
     <!-- SEARCHING -->
-    <div class="input-search d-flex flex-sh-NaN">
+    <div class="input-search d-flex flex-sh-NaN" data-id="50b09507">
       <input
         [formControl]="businessName"
         (keyup.enter)="onSearchBusiness()"
         placeholder="{{ 'Buscar tienda...' | translate }}"
         type="text"
+        data-id="c77ee289"
       />
-      <button class="btn-search" (click)="onSearchBusiness()">
-        <mat-icon>search</mat-icon>
+      <button class="btn-search" (click)="onSearchBusiness()" data-id="091352e7">
+        <mat-icon data-id="4736eedf">search</mat-icon>
       </button>
     </div>
   </div>
 
-  <div class="pt-5 d-flex justify-content-center align-items-center flex-wrap gap-5">
-    <ng-container *ngFor="let business of allBusiness; let i = index">
-      <a *ngIf="business.url" [href]="business?.url" target="_blank">
-        <div class="shop-card">
-          <div class="card-content">
+  <div
+    class="pt-5 d-flex justify-content-center align-items-center flex-wrap gap-5"
+    data-id="f3d05ec9"
+  >
+    <ng-container *ngFor="let business of allBusiness; let i = index" data-id="348402ae">
+      <a *ngIf="business.url" [href]="business?.url" target="_blank" data-id="8881ec92">
+        <div class="shop-card" data-id="162bba32">
+          <div class="card-content" data-id="3cd38f86">
             <img
               class="mb-3"
               style="object-fit: contain"
               [src]="apiURL + business.logo"
               lazyImg
               onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+              data-id="83f183aa"
             />
-            <h2 class="mb-3 link line-clamp2">{{ business.name }}</h2>
-            <p class="line-clamp8">{{ business.description }}</p>
-            <button style="margin-top: 1rem" mat-stroked-button>
+            <h2 class="mb-3 link line-clamp2" data-id="0a1b7f8e">{{ business.name }}</h2>
+            <p class="line-clamp8" data-id="27da3a56">{{ business.description }}</p>
+            <button style="margin-top: 1rem" mat-stroked-button data-id="920e0d5a">
               {{ 'Ir a tienda' | translate }}
             </button>
           </div>
         </div>
       </a>
-      <a *ngIf="!business.url" target="_blank">
-        <div class="shop-card" [ngClass.gt-xs]="{ 'mr-5': i != 2 || i != 5 || i != 8 }">
-          <div class="card-content">
+      <a *ngIf="!business.url" target="_blank" data-id="89318333">
+        <div
+          class="shop-card"
+          [ngClass.gt-xs]="{ 'mr-5': i != 2 || i != 5 || i != 8 }"
+          data-id="4fc302bd"
+        >
+          <div class="card-content" data-id="4bcf9821">
             <img
               class="mb-3"
               style="object-fit: contain"
               [src]="apiURL + business.logo"
               lazyImg
               onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+              data-id="81059369"
             />
-            <h2 class="mb-3 link line-clamp2">{{ business.name }}</h2>
-            <p class="line-clamp8">{{ business.description }}</p>
-            <p style="margin-top: 1rem">{{ 'Tienda en construcción' | translate }}</p>
+            <h2 class="mb-3 link line-clamp2" data-id="01d20647">{{ business.name }}</h2>
+            <p class="line-clamp8" data-id="0636da62">{{ business.description }}</p>
+            <p style="margin-top: 1rem" data-id="36cbc723">
+              {{ 'Tienda en construcción' | translate }}
+            </p>
           </div>
         </div>
       </a>
@@ -78,5 +95,6 @@
     [length]="this.query.total"
     [pageSizeOptions]="pageSizeOptions"
     [pageSize]="query.limit"
+    data-id="70d02da9"
   ></mat-paginator>
 </div>
