@@ -1,6 +1,6 @@
 @media (min-width: 1200px) and (max-width: 1480px) {
   .product-dialog {
-    .mat-dialog-content {
+    .mat-mdc-dialog-content {
       max-width: 70vw;
 
       .product-right {
@@ -18,7 +18,7 @@
 
 @media (max-width: 1199px) {
   .product-dialog {
-    .mat-dialog-content {
+    .mat-mdc-dialog-content {
       max-width: 70vw;
 
       .product-right {
@@ -1151,13 +1151,13 @@
     }
 
     .product-dialog {
-      .mat-dialog-content {
+      .mat-mdc-dialog-content {
         max-width: 73vw !important;
       }
     }
 
     .product-dialog {
-      .mat-dialog-content {
+      .mat-mdc-dialog-content {
         max-width: 52vw;
 
         .product-right {

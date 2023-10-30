@@ -3064,7 +3064,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 ****************************************/
 
 .product-dialog {
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     overflow: visible;
   }
 
@@ -3139,7 +3139,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
     }
   }
 
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     .close-btn-outer button {
       position: absolute;
       right: -44px;
@@ -3170,7 +3170,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
   line-height: 22px;
 }
 
-.product-dialog .mat-dialog-content {
+.product-dialog .mat-mdc-dialog-content {
   max-width: 54vw;
   min-width: 20cm;
 }
