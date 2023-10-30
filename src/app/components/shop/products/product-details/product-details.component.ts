@@ -28,7 +28,6 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { LANDING_PAGE, PRODUCT_COUNT } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
-import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -56,6 +55,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf, NgFor, NgClass, NgTemplateOutlet, DatePipe } from '@angular/common';
+import { PlatformService } from 'src/app/core/services/platform/platform.service';
+import Swiper from 'swiper';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -117,8 +118,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   changeImage = false;
   language: any;
   _unsubscribeAll: Subject<any>;
-  public config: SwiperConfigInterface = {};
-  public configVariants: SwiperConfigInterface = {};
   loggedInUser: any = null;
   reviewForm: UntypedFormGroup;
   loadingReviews = false;
@@ -169,14 +168,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     filter: { filterText: '' },
   };
 
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination',
-    clickable: true,
-  };
-  private paginationVariants: SwiperPaginationInterface = {
-    clickable: true,
-  };
-
   indexTab = 0;
   errorPage = false;
 
@@ -205,6 +196,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     public spinner: NgxSpinnerService,
     private breakpointObserver: BreakpointObserver,
     public appService: BusinessConfigService,
+    private platformService: PlatformService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
@@ -482,7 +474,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    this.initConfig();
+    this.initSwiper();
   }
 
   goProduct(product) {
@@ -508,33 +500,43 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     // [routerLink]="['/product']"
   }
 
-  initConfig() {
-    this.config = {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      keyboard: true,
-      navigation: true,
-      pagination: this.pagination,
-      grabCursor: true,
-      loop: false,
-      preloadImages: false,
-      lazy: true,
-      autoplay: false,
-      effect: 'fade',
-    };
-    this.configVariants = {
-      slidesPerView: 7,
-      spaceBetween: 20,
-      keyboard: true,
-      navigation: true,
-      pagination: this.paginationVariants,
-      grabCursor: true,
-      loop: false,
-      preloadImages: true,
-      lazy: true,
-      autoplay: false,
-      effect: 'slide',
-    };
+  initSwiper() {
+    if (this.platformService.isBrowser) {
+      const mainSwiper = new Swiper('.mainSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        keyboard: true,
+        navigation: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        grabCursor: true,
+        loop: false,
+        // preloadImages: false,
+        // lazy: true,
+        autoplay: false,
+        effect: 'fade',
+      });
+
+      mainSwiper.init();
+
+      new Swiper('.variantSwiper', {
+        slidesPerView: 7,
+        spaceBetween: 20,
+        keyboard: true,
+        navigation: true,
+        pagination: {
+          clickable: true,
+        },
+        grabCursor: true,
+        loop: false,
+        // preloadImages: true,
+        // lazy: true,
+        autoplay: false,
+        effect: 'slide',
+      });
+    }
   }
 
   downloadFile(product) {
