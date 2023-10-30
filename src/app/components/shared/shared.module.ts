@@ -13,7 +13,7 @@ import { DialogUploadMediaComponent } from './dialog-upload-media/dialog-upload-
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { DialogPhoneComponent } from './dialog-phone/dialog-phone.component';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -30,7 +30,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     TranslateModule,
     DialogCaptchaModule,
     MatToolbarModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,

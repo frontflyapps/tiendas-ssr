@@ -58,7 +58,7 @@ export class ReferredLayoutComponent implements OnInit {
         this.spinner.hide();
         this.loading = false;
       },
-      error: (error) => {
+      error: () => {
         this.spinner.hide();
         //this.hasLink = false;
         this.loading = false;

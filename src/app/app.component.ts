@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { CssOptions } from 'guachos-cu-down-list';
 import { Subject } from 'rxjs';
 import { EncryptDecryptService } from './core/services/encrypt-decrypt.service';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
@@ -25,10 +24,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent {
   title = 'ecommerce-sophia-new';
   uploadFileStartSubject: Subject<any>;
-  cssOptions: CssOptions = {
-    color: 'primary',
-    width: '40%',
-  };
 
   localDatabaseUsers = environment.localDatabaseUsers;
 
@@ -68,11 +63,11 @@ export class AppComponent {
     this.initSystem();
   }
 
-  public onFinishFile(event) {
+  public onFinishFile() {
     this.showToastr.showInfo(`El archivo se ha subido al sistema exitósamente`);
   }
 
-  public onProgress(event) {
+  public onProgress() {
     // this.uploadFilesService.emitUploadProgress(event);
   }
 
@@ -86,7 +81,7 @@ export class AppComponent {
     });
   }
 
-  public onCancelFile(event) {
+  public onCancelFile() {
     this.showToastr.showInfo(`La subida del  archivo ha sido cancelada`);
   }
 
@@ -94,7 +89,7 @@ export class AppComponent {
 
   initSystem() {
     const isCookieAccount = this.storageService.check('account');
-    const userLogged = this.loggedInUserService.getLoggedInUser();
+    // const userLogged = this.loggedInUserService.getLoggedInUser();
 
     if (isCookieAccount) {
       try {
@@ -103,7 +98,7 @@ export class AppComponent {
           next: (user) => {
             this.loggedInUserService.updateUserProfile(user.data);
           },
-          error: (error) => {
+          error: () => {
             this.loggedInUserService.setLoggedInUser(null);
             this.loggedInUserService.removeCookies();
             this.loggedInUserService.$loggedInUserUpdated.next(null);

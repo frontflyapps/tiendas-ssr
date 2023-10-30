@@ -15,7 +15,6 @@ import { LoggedInUserService } from '../../../../core/services/loggedInUser/logg
 import { takeUntil } from 'rxjs/operators';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
-import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { TranslateModule } from '@ngx-translate/core';

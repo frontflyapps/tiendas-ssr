@@ -12,9 +12,7 @@ import { CurrencyService } from '../../../../core/services/currency/currency.ser
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { UtilsService } from 'src/app/core/services/utils/utils.service';
-import { ConfirmationDialogFrontComponent } from 'src/app/components/shared/confirmation-dialog-front/confirmation-dialog-front.component';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
@@ -22,7 +20,7 @@ import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pi
 import { ParseLangPipe } from '../../../../core/pipes/parse-lang.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
@@ -39,7 +37,7 @@ import { NgIf } from '@angular/common';
     MatProgressSpinnerModule,
     RouterLink,
     LazyImgDirective,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatButtonModule,
     MatTooltipModule,
     TranslateModule,
@@ -48,7 +46,6 @@ import { NgIf } from '@angular/common';
   ],
 })
 export class ProductComponent implements OnInit, OnDestroy {
-  @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();
   @Input() product: any;
   inLoading = false;
   _unsubscribeAll: Subject<any>;

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { EditProfileComponent } from '../../main/edit-profile/edit-profile.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { IUser } from '../../../core/classes/user.class';
 import { environment } from 'environments/environment';

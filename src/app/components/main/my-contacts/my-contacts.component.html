@@ -309,7 +309,7 @@
   </div>
 
   <ng-container *ngIf="!onCreateContact">
-    <div mat-dialog-actions class="d-flex justify-content-end align-items-start">
+    <div mat-dialog-actions align="end" class="d-flex justify-content-end align-items-start">
       <button (click)="onCreateContactFn()" color="primary" mat-flat-button>
         <mat-icon>add</mat-icon>
         {{ 'Nuevo' | translate }}

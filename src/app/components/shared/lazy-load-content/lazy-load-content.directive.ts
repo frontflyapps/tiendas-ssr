@@ -1,9 +1,9 @@
-import { Directive, ElementRef, EventEmitter, Output } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@angular/core';
 
 @Directive({
   selector: '[deferLoad]',
 })
-export class LazyLoadContentDirective {
+export class LazyLoadContentDirective implements AfterViewInit {
   @Output() public deferLoad: EventEmitter<any> = new EventEmitter();
 
   private _intersectionObserver?: IntersectionObserver;

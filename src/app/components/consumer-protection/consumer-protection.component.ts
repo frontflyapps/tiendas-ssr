@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
 import { takeUntil } from 'rxjs/operators';
@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink, MatIconModule, TranslateModule, ParseLangPipe, SafeHtmlPipe],
 })
-export class ConsumerProtectionComponent implements OnInit {
+export class ConsumerProtectionComponent implements OnInit, OnDestroy {
   language = null;
   _unsubscribeAll: Subject<any> = new Subject();
   text: undefined;

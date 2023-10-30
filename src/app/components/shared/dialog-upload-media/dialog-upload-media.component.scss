@@ -6,7 +6,7 @@
     border-top-right-radius: 6px !important;
   }
 
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     padding: 0;
     // width: 85vw !important; ///parametro ajustable
 
@@ -45,7 +45,7 @@
     }
   }
 
-  .mat-dialog-actions {
+  .mat-mdc-dialog-actions {
     padding: 16px 16px;
     display: flex !important;
     flex-wrap: wrap !important;
@@ -57,7 +57,7 @@
     margin: 0px !important;
   }
 
-  .mat-dialog-content {
+  .mat-mdc-dialog-content {
     display: block;
     margin: 0 !important;
     // padding: 0 24px;

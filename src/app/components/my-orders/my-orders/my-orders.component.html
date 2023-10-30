@@ -236,10 +236,10 @@
                         {{ utilsService.parserLanguage(paymentItem?.Product?.name, language) }}
                       </h2>
                       <div class="my-2">
-                        <guachos-rating
+                        <guajiritos-rating
                           [config]="{ readOnly: true }"
                           [value]="paymentItem.Product.rating"
-                        ></guachos-rating>
+                        ></guajiritos-rating>
                       </div>
                       <h3 class="price">
                         {{ paymentItem?.price | currency: selectedOrder.productCurrency }}

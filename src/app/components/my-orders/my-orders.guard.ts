@@ -20,7 +20,9 @@ export class MyOrdersGuard {
   ) {}
 
   canActivate(
+    //eslint-disable-next-line
     next: ActivatedRouteSnapshot,
+    //eslint-disable-next-line
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.loggedInUserService.getLoggedInUser()) {
@@ -35,6 +37,7 @@ export class MyOrdersGuard {
     }
   }
 
+  //eslint-disable-next-line
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;

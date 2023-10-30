@@ -17,7 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 
 @NgModule({
   imports: [
@@ -31,7 +31,7 @@ import { GuachosRatingModule } from 'guachos-rating';
     MatCardModule,
     MatTooltipModule,
     MatAutocompleteModule,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatDialogModule,
     MatChipsModule,
     MatListModule,

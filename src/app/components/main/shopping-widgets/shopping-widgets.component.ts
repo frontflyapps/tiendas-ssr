@@ -165,7 +165,7 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
 
   public removeItem(item: any) {
     this.spinner.show();
-    this.cartService.removeFromCart(item).then((responseData) => {
+    this.cartService.removeFromCart(item).then(() => {
       this.spinner.hide();
       // this.globalFacadeService.updateCartState(responseData || []);
       // this.globalFacadeService.updateBusinessState(responseData[0].Business || {});

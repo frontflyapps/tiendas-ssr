@@ -15,7 +15,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { IUser } from 'src/app/core/classes/user.class';
-import { Product } from 'src/app/modals/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +23,7 @@ export class CartService implements OnDestroy {
   // Array
   public $cartItemsUpdated: BehaviorSubject<any> = new BehaviorSubject([]);
   public $paymentUpdate: Subject<any> = new Subject();
-  public observer: Subscriber<{}>;
+  public observer: Subscriber<any>;
 
   url = environment.apiUrl + 'cart';
   urlCheckoutData = environment.apiUrl + 'checkout';
@@ -188,7 +187,6 @@ export class CartService implements OnDestroy {
       }
       if (product.type == 'onRequest') {
         if (await this.checkIfUserWantToRequestProduct()) {
-          const productId = product.id;
           this.router
             .navigate(['checkout/product-on-request'], {
               queryParams: { productId: product.id.toString() },
@@ -213,18 +211,18 @@ export class CartService implements OnDestroy {
    */
   private postProductToCart(productName, dataForPost) {
     this.spinner.show();
-    let message;
+
     return this.postCart(dataForPost)
       .then((data) => {
         this.carts = data.data;
         this.spinner.hide();
-        message =
-          this.translate.instant('The product ') +
-          '  ' +
-          productName +
-          '  ' +
-          this.translate.instant(' has been added to cart.');
-        status = 'success';
+        // const message =
+        //   this.translate.instant('The product ') +
+        //   '  ' +
+        //   productName +
+        //   '  ' +
+        //   this.translate.instant(' has been added to cart.');
+        // status = 'success';
         // this.snackBar.open(message, '×', { panelClass: ['succes'], verticalPosition: 'top', duration: 5000 });
         this.showToastr.showSucces(
           this.translate.instant(
@@ -311,6 +309,7 @@ export class CartService implements OnDestroy {
    *
    * @returns Return a Cart Interface
    */
+  // eslint-disable-next-line
   _newSimpleCart(Product?, Business?, Stock?): Cart {
     return {
       CartItems: [],
@@ -342,7 +341,6 @@ export class CartService implements OnDestroy {
 
   public async addToCartQuickly(product: any, quantity: number) {
     let message, status;
-    const hasItem = false;
     const productName = product.name[this.language]
       ? product.name[this.language]
       : product.name['es'];
@@ -661,9 +659,9 @@ export class CartService implements OnDestroy {
       const index = cart.CartItems.findIndex((itemX) => itemX.ProductId == item.ProductId);
 
       if (index > -1) {
-        const product = cart.CartItems[index].Product;
-        const quantity = cart.CartItems[index].quantity;
-        const price = this.getPriceofProduct(product, quantity);
+        // const product = cart.CartItems[index].Product;
+        // const quantity = cart.CartItems[index].quantity;
+        // const price = this.getPriceofProduct(product, quantity);
         cart.CartItems.splice(index, 1);
         cart.totalPrice = this._calcTotalPrice(cart);
         if (cart.CartItems.length == 0) {

@@ -26,7 +26,9 @@ export class BecomeASellerGuard {
   ) {}
 
   canActivate(
+    //eslint-disable-next-line
     next: ActivatedRouteSnapshot,
+    //eslint-disable-next-line
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.loggedInUserService.getLoggedInUser()) {
@@ -44,6 +46,7 @@ export class BecomeASellerGuard {
     }
   }
 
+  //eslint-disable-next-line
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     console.log(this.loggedInUserService.getLoggedInUser());
     if (this.loggedInUserService.getLoggedInUser()) {

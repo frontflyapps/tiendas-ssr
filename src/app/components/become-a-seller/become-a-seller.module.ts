@@ -17,9 +17,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { GuachosImagePickerModule } from 'guachos-image-picker';
+import { GuajiritosImagePicker } from '@guajiritos/image-picker';
 import { BankService } from '../../core/services/bank/bank.service';
-import { MatDivider, MatDividerModule } from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
@@ -43,7 +43,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    GuachosImagePickerModule,
+    GuajiritosImagePicker,
     MatCheckboxModule,
     BecomeASellerComponent,
   ],

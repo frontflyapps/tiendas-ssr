@@ -1,18 +1,18 @@
 .app-confirm-create-business {
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     padding: 0;
 
-    .mat-dialog-content {
+    .mat-mdc-dialog-content {
       margin: 0;
       padding: 0 24px;
     }
 
-    .mat-dialog-actions {
+    .mat-mdc-dialog-actions {
       padding: 10px 24px;
       margin-bottom: 0;
     }
 
-    .mat-dialog-content {
+    .mat-mdc-dialog-content {
       max-height: 85vh;
     }
   }

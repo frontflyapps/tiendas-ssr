@@ -13,7 +13,7 @@ import { NgxMaterialTimepickerTheme, NgxMaterialTimepickerModule } from 'ngx-mat
 import * as moment from 'moment';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MyContactsComponent } from '../../main/my-contacts/my-contacts.component';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
@@ -60,7 +60,7 @@ import { MatIconModule } from '@angular/material/icon';
     TranslateModule,
   ],
 })
-export class ReceiverFormComponent implements OnInit, OnDestroy {
+export class ReceiverFormComponent implements OnDestroy {
   loadingPayment: boolean;
   CI_Length = 11;
   form: FormGroup;
@@ -123,8 +123,6 @@ export class ReceiverFormComponent implements OnInit, OnDestroy {
     this.buildForm();
   }
 
-  ngOnInit(): void {}
-
   buildForm() {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
@@ -170,7 +168,7 @@ export class ReceiverFormComponent implements OnInit, OnDestroy {
   }
 
   onAddContact() {
-    const dialogRef = this.dialog.open(MyContactsComponent, {
+    this.dialog.open(MyContactsComponent, {
       panelClass: 'app-my-contacts',
       maxWidth: '100vw',
       maxHeight: '100vh',

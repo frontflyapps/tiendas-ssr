@@ -68,7 +68,7 @@ export class ProductVerticalComponent implements OnInit, OnDestroy {
     // this.productService.getAllProducts(this.queryAll).subscribe((data: any) => {
     //   this.allProducts = data.data;
     // });
-    this.productService.updatedProducts$.subscribe((response) => {
+    this.productService.updatedProducts$.subscribe(() => {
       if (this.appService.businessConfig?.frontDataProduct === 'normal') {
         this.setServiceGetProduct();
         this.getPFDFromStorage();

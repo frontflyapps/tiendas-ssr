@@ -10,13 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatButtonModule, TranslateModule],
 })
-export class ForbiddenAccessComponent implements OnInit {
+export class ForbiddenAccessComponent {
   constructor(private router: Router) {}
-
-  ngOnInit() {
-    const lock = document.querySelector('#lock');
-    const key = document.querySelector('#key');
-  }
 
   onBacktoHome() {
     this.router.navigate(['']);

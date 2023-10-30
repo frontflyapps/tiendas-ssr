@@ -2,6 +2,7 @@
 @import '@guajiritos/layouts/flex';
 @import './common-important-layout.scss';
 @import './common-flex-sh.scss';
+@import './common-size.scss';
 
 // --------Global Styles for the Project-------------- ///
 
@@ -395,7 +396,7 @@ h4 {
   }
 }
 
-.mat-dialog-content {
+.mat-mdc-dialog-content {
   max-height: 80vh;
 }
 

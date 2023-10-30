@@ -8,7 +8,6 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartService } from '../../shared/services/cart.service';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 import { environment } from 'environments/environment';
-import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';

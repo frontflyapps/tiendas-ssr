@@ -99,8 +99,8 @@ export class CategoriesMComponent implements OnInit, OnDestroy {
   }
 
   getCategories() {
-    this.brandService.getAllCategories().subscribe(
-      (data) => {
+    this.brandService.getAllCategories().subscribe({
+      next: (data) => {
         this.setDataOnGetCategories(data.data);
 
         const _response: any = {};
@@ -108,8 +108,8 @@ export class CategoriesMComponent implements OnInit, OnDestroy {
         _response.timespan = new Date().getTime();
         this.localStorageService.setOnStorage(CATEGORIES_DATA, _response);
       },
-      (error) => (this.brandService.allCategories = []),
-    );
+      error: () => (this.brandService.allCategories = []),
+    });
   }
 
   setDataOnGetCategories(categories) {

@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./outdated-version.component.scss'],
   standalone: true,
 })
-export class OutdatedVersionComponent implements OnInit {
+export class OutdatedVersionComponent {
   constructor() {}
-
-  ngOnInit() {}
 }

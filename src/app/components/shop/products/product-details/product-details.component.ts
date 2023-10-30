@@ -28,14 +28,10 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { LANDING_PAGE, PRODUCT_COUNT } from '../../../../core/classes/global.const';
 import { LocalStorageService } from '../../../../core/services/localStorage/localStorage.service';
-import { ConfirmationDialogFrontComponent } from '../../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
-import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
-import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { DialogPrescriptionComponent } from '../dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
-import { SwiperOptions } from 'swiper/types';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
 import { CurrencyProductPipe } from '../../../../core/pipes/currency.pipe';
 import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pipe';
@@ -49,7 +45,7 @@ import { ProductComponent } from '../product/product.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
@@ -59,6 +55,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf, NgFor, NgClass, NgTemplateOutlet, DatePipe } from '@angular/common';
+import { PlatformService } from 'src/app/core/services/platform/platform.service';
+import Swiper from 'swiper';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -79,7 +77,7 @@ import { NgIf, NgFor, NgClass, NgTemplateOutlet, DatePipe } from '@angular/commo
     FormsModule,
     MatTabsModule,
     ReactiveFormsModule,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatFormFieldModule,
     MatInputModule,
     NgTemplateOutlet,
@@ -120,8 +118,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   changeImage = false;
   language: any;
   _unsubscribeAll: Subject<any>;
-  public config: SwiperConfigInterface = {};
-  public configVariants: SwiperConfigInterface = {};
   loggedInUser: any = null;
   reviewForm: UntypedFormGroup;
   loadingReviews = false;
@@ -172,14 +168,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     filter: { filterText: '' },
   };
 
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination',
-    clickable: true,
-  };
-  private paginationVariants: SwiperPaginationInterface = {
-    clickable: true,
-  };
-
   indexTab = 0;
   errorPage = false;
 
@@ -208,6 +196,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     public spinner: NgxSpinnerService,
     private breakpointObserver: BreakpointObserver,
     public appService: BusinessConfigService,
+    private platformService: PlatformService,
   ) {
     this._unsubscribeAll = new Subject<any>();
     this.language = this.loggedInUserService.getLanguage()
@@ -231,12 +220,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       });
 
     this.getProductProfile();
-    this.cartService.$cartItemsUpdated
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
-        // this.spinner.show();
-        this.getProductProfile('cart');
-      });
+    this.cartService.$cartItemsUpdated.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+      // this.spinner.show();
+      this.getProductProfile('cart');
+    });
 
     // this.route.queryParams.subscribe((query) => {
     //   const productId = query.productId;
@@ -321,7 +308,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data: any) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
       });
 
@@ -405,7 +392,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         _responseCP.timespan = new Date().getTime();
         this.localStorageService.setOnStorage(PRODUCT_COUNT, _responseCP);
       })
-      .catch((error) => {
+      .catch(() => {
         this.loadingFeatured = false;
       });
   }
@@ -461,7 +448,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
           clearTimeout(timeOut);
         }, 200);
       },
-      (error) => {
+      () => {
         const timeOut = setTimeout(() => {
           this.loadingMenu = false;
           this.loadingProducts = false;
@@ -487,7 +474,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    this.initConfig();
+    this.initSwiper();
   }
 
   goProduct(product) {
@@ -513,33 +500,43 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     // [routerLink]="['/product']"
   }
 
-  initConfig() {
-    this.config = {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      keyboard: true,
-      navigation: true,
-      pagination: this.pagination,
-      grabCursor: true,
-      loop: false,
-      preloadImages: false,
-      lazy: true,
-      autoplay: false,
-      effect: 'fade',
-    };
-    this.configVariants = {
-      slidesPerView: 7,
-      spaceBetween: 20,
-      keyboard: true,
-      navigation: true,
-      pagination: this.paginationVariants,
-      grabCursor: true,
-      loop: false,
-      preloadImages: true,
-      lazy: true,
-      autoplay: false,
-      effect: 'slide',
-    };
+  initSwiper() {
+    if (this.platformService.isBrowser) {
+      const mainSwiper = new Swiper('.mainSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        keyboard: true,
+        navigation: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        grabCursor: true,
+        loop: false,
+        // preloadImages: false,
+        // lazy: true,
+        autoplay: false,
+        effect: 'fade',
+      });
+
+      mainSwiper.init();
+
+      new Swiper('.variantSwiper', {
+        slidesPerView: 7,
+        spaceBetween: 20,
+        keyboard: true,
+        navigation: true,
+        pagination: {
+          clickable: true,
+        },
+        grabCursor: true,
+        loop: false,
+        // preloadImages: true,
+        // lazy: true,
+        autoplay: false,
+        effect: 'slide',
+      });
+    }
   }
 
   downloadFile(product) {
@@ -730,17 +727,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   getReviews() {
     this.loadingReviews = true;
-    this.productsService.getReviews(this.queryReviews, { ProductId: this.product?.id }).subscribe(
-      (data) => {
+    this.productsService.getReviews(this.queryReviews, { ProductId: this.product?.id }).subscribe({
+      next: (data) => {
         this.allReviews = this.allReviews.concat(data.data.flat());
         this.queryReviews.offset += data.meta.pagination.count;
         this.queryReviews.total = data.meta.pagination.total;
         this.loadingReviews = false;
       },
-      (error) => {
+      error: () => {
         this.loadingReviews = false;
       },
-    );
+    });
   }
 
   onGetMorePriviews() {

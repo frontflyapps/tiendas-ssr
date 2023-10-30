@@ -88,7 +88,7 @@ export class EditOrderComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.applyResolution();
   }
 
@@ -177,7 +177,7 @@ export class EditOrderComponent implements OnInit {
         this.showToastr.showInfo('Se actualizado la orden', 'Info', 8000);
         this.dialogRef.close(true);
       },
-      (error) => {
+      () => {
         // this.spinner.hide();
       },
     );

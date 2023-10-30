@@ -121,7 +121,7 @@ export class ConfirmPaymentOkComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.innerWidth = window.innerWidth;
     this.applyStyle = this.innerWidth <= 600;
   }
@@ -141,8 +141,6 @@ export class ConfirmPaymentOkComponent implements OnInit {
       );
     }
   }
-
-  ngOnDestroy(): void {}
 
   onGetVoucher(payment): void {
     const urlDownload = environment.apiUrl + 'payment/' + payment.id + '/voucher';

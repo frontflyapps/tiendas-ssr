@@ -182,7 +182,6 @@ export class LoggedInUserService {
   }
 
   public isOwnerOfABussines(OwnerId: string) {
-    const flag = false;
     const user = this.getLoggedInUser();
     if (!user) {
       return false;

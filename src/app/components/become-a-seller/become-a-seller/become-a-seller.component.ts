@@ -13,8 +13,8 @@ import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { RegionsService } from '../../../core/services/regions/regions.service';
 import { BusinessService } from '../../../core/services/business/business.service';
-import { ImagePickerConf } from 'guachos-image-picker';
-import { CUBAN_PHONE_START_5, EMAIL_REGEX, NIT, PHONE } from '../../../core/classes/regex.const';
+import { ImagePickerConf } from '@guajiritos/image-picker';
+import { EMAIL_REGEX, NIT, PHONE } from '../../../core/classes/regex.const';
 import { DOCUMENT, NgIf, NgFor } from '@angular/common';
 import { Subject } from 'rxjs';
 import { UtilsService } from '../../../core/services/utils/utils.service';
@@ -163,7 +163,7 @@ export class BecomeASellerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.basicForm.valueChanges.subscribe((data) => {
+    this.basicForm.valueChanges.subscribe(() => {
       this.isBasicInfoChanged = true;
     });
   }
@@ -321,7 +321,7 @@ export class BecomeASellerComponent implements OnInit {
         this.spinner.hide();
         this.router.navigate(['']).then();
       },
-      (e) => {
+      () => {
         this.spinner.hide();
       },
     );

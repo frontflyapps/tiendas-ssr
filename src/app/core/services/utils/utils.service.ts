@@ -73,7 +73,6 @@ export class UtilsService {
     let msg = alternative;
     if (error.errors && error.errors?.length) {
       msg = error.errors.map(
-        //@ts-ignore
         (item) =>
           (item.field ? this.translateService.instant(item.field) + ':  ' : '') +
           ' ' +
@@ -81,7 +80,6 @@ export class UtilsService {
       );
     } else if (error.error.errors) {
       msg = error.error.errors.map(
-        //@ts-ignore
         (item) =>
           (item.field ? this.translateService.instant(item.field) + ':  ' : '') +
           ' ' +
@@ -89,7 +87,6 @@ export class UtilsService {
       );
     } else if (error.error && error.error?.length) {
       msg = error.error.map(
-        //@ts-ignore
         (item) =>
           (item.field ? this.translateService.instant(item.field) + ':  ' : '') +
           ' ' +
@@ -103,7 +100,7 @@ export class UtilsService {
       this.showToastr
         .showError(msg, 'Error', 5000)
         .toastRef.afterClosed()
-        .subscribe((data) => {
+        .subscribe(() => {
           this.showErrorState = false;
         });
     }
@@ -112,7 +109,7 @@ export class UtilsService {
       this.showToastr
         .showError(msg, 'Error', 5000)
         .toastRef.afterClosed()
-        .subscribe((data) => {
+        .subscribe(() => {
           this.showErrorState = false;
         });
     }
@@ -145,6 +142,7 @@ export class UtilsService {
     this.showSnackbar.showError(msg, 8000);
   }
 
+  //eslint-disable-next-line
   getImage(imageUrl: string): Observable<Blob> {
     return this.httpClient.get(this.urlImage, { responseType: 'blob' });
   }
@@ -172,48 +170,6 @@ export class UtilsService {
     // } catch (error) {
     //   return 'es';
     // }
-  }
-
-  public isObjectEquals(x: any, y: any): boolean {
-    if (x === y) {
-      return true;
-    }
-
-    if (!(x instanceof Object) || !(y instanceof Object)) {
-      return false;
-    }
-
-    if (x.constructor !== y.constructor) {
-      return false;
-    }
-
-    for (const p in x) {
-      if (!x.hasOwnProperty(p)) {
-        continue;
-      }
-
-      if (!y.hasOwnProperty(p)) {
-        return false;
-      }
-
-      if (x[p] === y[p]) {
-        continue;
-      }
-
-      if (typeof x[p] !== 'object') {
-        return false;
-      }
-
-      if (!this.isObjectEquals(x[p], y[p])) {
-        return false;
-      }
-    }
-    for (const p in y) {
-      if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) {
-        return false;
-      }
-    }
-    return true;
   }
 
   keyPressAlpha(event: any) {
@@ -268,7 +224,7 @@ export class UtilsService {
 
   keyLettersNumberForEmail(event: any) {
     const inp = String.fromCharCode(event.keyCode);
-    if (/[a-zA-Z0-9@._\-]/.test(inp)) {
+    if (/[a-zA-Z0-9@._-]/.test(inp)) {
       return true;
     } else {
       event.preventDefault();

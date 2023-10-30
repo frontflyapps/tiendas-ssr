@@ -7,7 +7,7 @@ export class CompressImageService {
   constructor() {}
 
   resizedataURL(datas, maxWidth, maxHeight, quality?): Promise<any> {
-    return new Promise(async function (resolve, reject) {
+    return new Promise((resolve) => {
       const img = document.createElement('img');
       img.src = datas;
       quality = quality ? quality : 0.7;

@@ -10,17 +10,15 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatButtonModule, TranslateModule],
 })
-export class MyFriendsComponent implements OnInit {
+export class MyFriendsComponent {
   @Input() referredUsers = 0;
   @Input() paymentUsers = 0;
-  @Output() close: EventEmitter<any> = new EventEmitter();
+  @Output() eventClose = new EventEmitter<any>();
 
   constructor(
     private showToastr: ShowToastrService,
     private translateService: TranslateService,
   ) {}
-
-  ngOnInit(): void {}
 
   claim() {
     //TODO Logica de reclamar el premio

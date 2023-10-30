@@ -10,8 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatButtonModule, RouterLink, TranslateModule],
 })
-export class NotFoundComponent implements OnInit {
+export class NotFoundComponent {
   constructor() {}
-
-  ngOnInit() {}
 }

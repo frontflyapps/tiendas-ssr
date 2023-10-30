@@ -113,7 +113,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         _response.timespan = new Date().getTime();
         this.localStorageService.setOnStorage(CATEGORIES_DATA, _response);
       },
-      (error) => (this.brandService.allCategories = []),
+      () => (this.brandService.allCategories = []),
     );
   }
 

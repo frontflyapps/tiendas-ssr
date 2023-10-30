@@ -281,7 +281,7 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.applyResolution();
   }
 
@@ -323,7 +323,7 @@ export class MainHomeComponent implements OnInit, OnDestroy {
 
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
       });
   }
@@ -349,8 +349,7 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     // console.log(pfd);
     if (pfd) {
       Object.entries(pfd).sort(() => Math.random() - 0.5);
-      Object.entries(pfd?.categories).forEach((item) => {
-        // @ts-ignore
+      Object.entries(pfd?.categories).forEach((item: [string, Array<any>]) => {
         const arr: any[] = item[1].map((itemId) =>
           pfd.products.find((itemProduct) => itemProduct.id === itemId),
         );
@@ -440,7 +439,7 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     console.log('load');
     if (!this.loadingProducts) {
       this.loadingProducts = true;
-      this.productService.getSectionsIds().subscribe((data) => {
+      this.productService.getSectionsIds().subscribe(() => {
         setTimeout(() => {
           this.loadingProducts = false;
         }, 500);

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GuachosImagePickerModule } from 'guachos-image-picker';
+import { GuajiritosImagePicker } from '@guajiritos/image-picker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
@@ -21,9 +21,9 @@ export interface ImageConf {
   templateUrl: './guachos-image.component.html',
   styleUrls: ['./guachos-image.component.scss'],
   standalone: true,
-  imports: [NgIf, MatButtonModule, MatIconModule, GuachosImagePickerModule],
+  imports: [NgIf, MatButtonModule, MatIconModule, GuajiritosImagePicker],
 })
-export class GuachosImageComponent implements OnInit {
+export class GuachosImageComponent {
   @Input() imageSrc: any;
   @Input() config?: ImageConf;
   @Input() isEdit = false;
@@ -32,8 +32,6 @@ export class GuachosImageComponent implements OnInit {
   editing = false;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   onImageChange(event: any) {
     this.isEdit = false;

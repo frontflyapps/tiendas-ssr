@@ -15,10 +15,8 @@ import { HttpLoaderFactory } from './core/services/translate-factory/translate-l
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'environments/environment';
-import { CuDownloadListModule } from 'guachos-cu-down-list';
 import { HttpErrorInterceptorService } from './core/services/interceptors/http-error-interceptor.service';
 import { CurrencyPipe, registerLocaleData } from '@angular/common';
-import { HttpSSRLogInterceptorService } from './core/services/interceptors/http-ssr-log-interceptor.service';
 import localeEs from '@angular/common/locales/es';
 import { register as swiperRegister } from 'swiper/element/bundle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -27,12 +25,8 @@ import { BusinessConfigService } from './core/services/business-config/business-
 import { switchMap } from 'rxjs';
 import { handleObservable } from './core/utils/api';
 
-import {
-  MAT_AUTOCOMPLETE_SCROLL_STRATEGY,
-  MatAutocompleteModule,
-} from '@angular/material/autocomplete';
-import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 
 //https://swiperjs.com/element#install--register-from-npm
 swiperRegister();
@@ -50,9 +44,8 @@ registerLocaleData(localeEs, 'es');
     ReactiveFormsModule,
     AppRoutingModule,
     MatSnackBarModule,
-    // CuDownloadListModule,
     MatAutocompleteModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     MatDialogModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({

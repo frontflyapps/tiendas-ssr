@@ -11,7 +11,7 @@ import {
 import { Product } from './../../../modals/product.model';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProductDialogComponent } from '../products/product-dialog/product-dialog.component';
 import { CartService } from './../../shared/services/cart.service';
@@ -22,8 +22,6 @@ import { LoggedInUserService } from './../../../core/services/loggedInUser/logge
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { ConfirmationDialogFrontComponent } from '../../shared/confirmation-dialog-front/confirmation-dialog-front.component';
-import { DialogPrescriptionComponent } from '../products/dialog-prescription/dialog-prescription.component';
-import { DialogNoCartSelectedComponent } from '../../checkout/no-cart-selected/no-cart-selected.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { ParsePriceProduct } from '../../../core/pipes/parse-price-product.pipe';
@@ -31,7 +29,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { LazyImgDirective } from '../../../core/directives/lazy-img/lazy-img.directive';
 import { MatCardModule } from '@angular/material/card';
 import { NgIf, NgFor } from '@angular/common';
@@ -47,7 +45,7 @@ import { NgIf, NgFor } from '@angular/common';
     MatCardModule,
     RouterLink,
     LazyImgDirective,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatTooltipModule,
     MatButtonModule,
     MatIconModule,
@@ -56,7 +54,6 @@ import { NgIf, NgFor } from '@angular/common';
   ],
 })
 export class ProductCarouselTwoComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();
   @Input() products: any[] = [];
   @Input() btnColor: any = 'primary';
   @Input() grid = { 480: 1, 740: 2, 960: 2, 1024: 3, 1280: 4 };

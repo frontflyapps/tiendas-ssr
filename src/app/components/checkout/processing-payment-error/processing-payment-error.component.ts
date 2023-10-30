@@ -55,8 +55,8 @@ export class ProcessingPaymentErrorComponent implements OnInit {
     } else {
       this.payService
         .setCompleteTranferPayment({ transaction_uuid: this.transaction_uuid, status: 'KO' })
-        .subscribe(
-          (data) => {
+        .subscribe({
+          next: () => {
             this.showCancelled = true;
             this.loadingSearch = false;
             this.showToastr.showInfo(
@@ -65,12 +65,12 @@ export class ProcessingPaymentErrorComponent implements OnInit {
               8000,
             );
           },
-          (error) => {
+          error: () => {
             this.showCancelled = false;
             this.showError = true;
             this.loadingSearch = false;
           },
-        );
+        });
     }
   }
 }

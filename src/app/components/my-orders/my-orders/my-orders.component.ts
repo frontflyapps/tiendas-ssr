@@ -10,7 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { forkJoin, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { debounceTime, switchMap, takeUntil } from 'rxjs/operators';
 import {
   UntypedFormBuilder,
@@ -21,7 +21,7 @@ import {
 } from '@angular/forms';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from 'environments/environment';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -34,7 +34,7 @@ import { CancelOrderComponent } from '../cancel-order/cancel-order.component';
 import { EditOrderComponent } from '../edit-order/edit-order.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
@@ -61,7 +61,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     NgClass,
     MatButtonModule,
     RouterLink,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatDividerModule,
     MatTooltipModule,
     UpperCasePipe,
@@ -236,7 +236,7 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.innerWidth = window.innerWidth;
     this.applyStyle = this.innerWidth <= 600;
   }
@@ -313,32 +313,32 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onSearch() {
     this.loadingSearch = true;
-    this.ordersService.getAllPayment(this.query, this.param).subscribe(
-      (data) => {
+    this.ordersService.getAllPayment(this.query, this.param).subscribe({
+      next: (data) => {
         this.allOrders = [...data.data];
         this.query.offset += data.meta.pagination.count;
         this.query.total = data.meta.pagination.total;
         this.loadingSearch = false;
       },
-      (error) => {
+      error: () => {
         this.loadingSearch = false;
       },
-    );
+    });
   }
 
   onLoadMore() {
     this.loadingSearch = true;
-    this.ordersService.getAllPayment(this.query, this.param).subscribe(
-      (data) => {
+    this.ordersService.getAllPayment(this.query, this.param).subscribe({
+      next: (data) => {
         this.allOrders = this.allOrders.concat(data.data);
         this.query.offset += data.meta.pagination.count;
         this.query.total = data.meta.pagination.total;
         this.loadingSearch = false;
       },
-      (e) => {
+      error: () => {
         this.loadingSearch = false;
       },
-    );
+    });
   }
 
   onSelectOrder(item) {

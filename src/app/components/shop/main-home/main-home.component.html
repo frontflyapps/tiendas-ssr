@@ -87,9 +87,7 @@
       <div *ngFor="let card of arraySectionProducts; let i = index; trackBy: identify">
         <!--BANNER-->
         <div class="main-banner" *ngIf="card.visualType?.type === 'businessPromotion'">
-          <ng-container *ngIf="applyStyle && card?.imageXs; then bannerPromo1Xs; else bannerPromo1">
-          </ng-container>
-          <ng-template #bannerPromo1>
+          <ng-template *ngIf="!applyStyle && card?.image">
             <app-banner-promotion
               [ngClass]="{
                 'banner-horizontal': visualizationSections[i] === 'slim',
@@ -99,7 +97,7 @@
               [_image]="card"
             ></app-banner-promotion>
           </ng-template>
-          <ng-template #bannerPromo1Xs>
+          <ng-template *ngIf="applyStyle && card?.imageXs">
             <app-banner-promotion
               [_imageBigPromo]="imageUrl + card?.imageXs"
               [_image]="card"

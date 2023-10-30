@@ -10,7 +10,7 @@ import { FRONT_PRODUCT_DATA } from '../../../../core/classes/global.const';
 import { UtilsService } from '../../../../core/services/utils/utils.service';
 import { GlobalStateOfCookieService } from '../../../../core/services/request-cookie-secure/global-state-of-cookie.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
 import { RouterLink } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
@@ -27,7 +27,7 @@ import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
     NgFor,
     RouterLink,
     LazyImgDirective,
-    GuachosRatingModule,
+    GuajiritosRating,
     CurrencyPipe,
     TranslateModule,
   ],

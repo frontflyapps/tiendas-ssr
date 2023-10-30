@@ -16,7 +16,7 @@
   <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
     <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
   </div>
-  <div class="image-layout d-flex justify-content-center align-items-center flex-sh-md-35">
+  <div class="image-layout d-flex justify-content-center align-items-center flex-sh-md-35 mw-md-35">
     <a
       [queryParams]="{
         productId: product?.id,
@@ -25,7 +25,7 @@
         sharedImage: product?.sharedImage
       }"
       [routerLink]="['/product']"
-      class="product-link d-flex justify-content-center align-items-center flex-sh-NaN"
+      class="product-link d-flex justify-content-center align-items-center flex-sh-100"
     >
       <img
         *ngIf="product.Images && product.Images.length"
@@ -47,9 +47,7 @@
 
   <div
     (click)="onGoToProduct(product)"
-    class="product-info-wrapper d-flex flex-column"
-    ngClass.gt-sm="p-3"
-    ngClass.lt-md="p-2 w-100"
+    class="product-info-wrapper d-flex flex-column p-3 p-md-2 w-md-100"
   >
     <div class="d-flex justify-content-between align-items-center">
       <span class="category">
@@ -77,7 +75,7 @@
     <!-- <div style="flex: 1 1 100%"></div> -->
 
     <div class="mt-2">
-      <guachos-rating [config]="{ readOnly: true }" [value]="product.rating"></guachos-rating>
+      <guajiritos-rating [config]="{ readOnly: true }" [value]="product.rating"></guajiritos-rating>
     </div>
     <!-- <p fxHide.xs class="module line-clamp mt-1 mb-2">
       {{(product?.shortDescription[language])?product?.shortDescription[language]:product?.shortDescription['es']}}</p> -->

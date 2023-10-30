@@ -4,10 +4,11 @@
     "es2021": true
   },
   "extends": [
+    "plugin:@angular-eslint/recommended",
+    "plugin:@angular-eslint/template/process-inline-templates",
+    "plugin:deprecation/recommended",
     "plugin:import/typescript",
-    "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -15,11 +16,12 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["prettier", "@typescript-eslint", "import"],
+  "plugins": ["prettier", "@typescript-eslint", "import", "deprecation"],
   "rules": {
     "@typescript-eslint/no-empty-function": "off",
     "no-empty": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "import/no-cycle": 2
+    "import/no-cycle": 2,
+    "deprecation/deprecation": "error"
   }
 }

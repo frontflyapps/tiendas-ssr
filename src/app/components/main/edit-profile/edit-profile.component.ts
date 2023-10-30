@@ -14,12 +14,12 @@ import { AuthenticationService } from '../../../core/services/authentication/aut
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { ImagePickerConf } from 'guachos-image-picker';
+import { ImagePickerConf } from '@guajiritos/image-picker';
 import { IDENTITY_PASSPORT } from '../../../core/classes/regex.const';
 import { PhoneCodeService } from '../../../core/services/phone-code/phone-codes.service';
 import { environment } from 'environments/environment';
 import { BusinessConfigService } from 'src/app/core/services/business-config/business-config.service';
-import { GuachosGeneralAutocompleteModule } from 'guachos-general-autocomplete';
+import { GuajiritosGeneralAutocomplete } from '@guajiritos/general-autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgIf } from '@angular/common';
@@ -46,7 +46,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     NgIf,
     MatFormFieldModule,
     MatInputModule,
-    GuachosGeneralAutocompleteModule,
+    GuajiritosGeneralAutocomplete,
     TranslateModule,
   ],
 })
@@ -103,7 +103,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event): void {
+  onResize(): void {
     this.innerWidth = window.innerWidth;
     this.applyStyle = this.innerWidth <= 600;
   }
@@ -177,7 +177,7 @@ export class EditProfileComponent implements OnInit {
     };
   }
 
-  onSelectSliderChange(event) {
+  onSelectSliderChange() {
     if (this.isChangePass) {
       this.isChangePass = false;
       this.form.removeControl('password');

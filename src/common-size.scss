@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use 'breakpoints';
+
+$percentIntervals: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
+
+@each $i in $percentIntervals {
+  .mw-#{$i} {
+    max-width: #{$i * 1%};
+  }
+
+  .mh-#{$i} {
+    max-height: #{$i * 1%};
+  }
+
+  .w-#{$i} {
+    width: #{$i * 1%};
+  }
+
+  .h-#{$i} {
+    height: #{$i * 1%};
+  }
+
+  @each $breakpoint in map.keys(breakpoints.$breakpoints) {
+    @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+      .mw-#{$breakpoint}-#{$i} {
+        max-width: #{$i * 1%};
+      }
+      .mh-#{$breakpoint}-#{$i} {
+        max-height: #{$i * 1%};
+      }
+
+      .w-#{$breakpoint}-#{$i} {
+        width: #{$i * 1%};
+      }
+
+      .h-#{$breakpoint}-#{$i} {
+        height: #{$i * 1%};
+      }
+    }
+  }
+}

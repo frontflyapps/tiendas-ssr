@@ -13,7 +13,7 @@ export class MatPaginatorI18nService extends MatPaginatorIntl {
   public constructor(private translate: TranslateService) {
     super();
 
-    this.translate.onLangChange.subscribe((e: Event) => {
+    this.translate.onLangChange.subscribe(() => {
       this.getAndInitTranslations();
     });
 

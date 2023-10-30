@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatDialogModule, MatButtonModule, RouterLink, TranslateModule],
 })
-export class DialogNoCartSelectedComponent implements OnInit {
+export class DialogNoCartSelectedComponent {
   loggedInUser: any;
   launchTM: any;
   link: any = undefined;
@@ -29,8 +29,6 @@ export class DialogNoCartSelectedComponent implements OnInit {
   ) {
     this.dialogRef.disableClose = true;
   }
-
-  ngOnInit() {}
 
   close() {
     this.dialogRef.close();

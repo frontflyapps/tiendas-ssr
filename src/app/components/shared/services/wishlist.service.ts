@@ -8,7 +8,7 @@ import { StorageService } from 'src/app/core/services/storage/storage.service';
   providedIn: 'root',
 })
 export class WishlistService {
-  observer: Subscriber<{}>;
+  observer: Subscriber<any>;
   // Get product from Localstorage
   products = JSON.parse(this.storageService.getItem('wishlistItem')) || [];
 
@@ -35,16 +35,15 @@ export class WishlistService {
 
   // Add to wishlist
   public addToWishlist(product: Product): Product | boolean {
-    let message, status;
     let item: Product | boolean = false;
+
     if (this.hasProduct(product)) {
       item = this.products.filter((item) => item.id === product.id)[0];
-      const index = this.products.indexOf(item);
     } else {
       this.products.push(product);
     }
-    message = 'El producto ' + product.name + ' ha sido añadido a la lista de deseos.';
-    status = 'éxito';
+    const message = 'El producto ' + product.name + ' ha sido añadido a la lista de deseos.';
+    const status = 'éxito';
     this.snackBar.open(message, '×', {
       panelClass: [status],
       verticalPosition: 'top',

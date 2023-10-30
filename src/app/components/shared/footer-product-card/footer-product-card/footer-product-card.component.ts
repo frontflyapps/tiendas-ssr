@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-  OnDestroy,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core';
 import { CurrencyService } from '../../../../core/services/currency/currency.service';
 import { CartService } from '../../services/cart.service';
 import { LoggedInUserService } from '../../../../core/services/loggedInUser/logged-in-user.service';
@@ -15,7 +9,6 @@ import { UtilsService } from 'src/app/core/services/utils/utils.service';
 import { ConfirmationDialogFrontComponent } from '../../confirmation-dialog-front/confirmation-dialog-front.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-// import { DialogPrescriptionComponent } from '../../../shop/products/dialog-prescription/dialog-prescription.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'environments/environment';
 import { ParsePriceProduct } from '../../../../core/pipes/parse-price-product.pipe';
@@ -23,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DebounceClickDirective } from '../../../../core/directives/debounce-click/debounce-click.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { GuachosRatingModule } from 'guachos-rating';
+import { GuajiritosRating } from '@guajiritos/rating';
 import { NgIf, NgFor } from '@angular/common';
 @Component({
   selector: 'app-footer-product-card',
@@ -34,7 +27,7 @@ import { NgIf, NgFor } from '@angular/common';
     NgIf,
     NgFor,
     RouterLink,
-    GuachosRatingModule,
+    GuajiritosRating,
     MatTooltipModule,
     MatButtonModule,
     DebounceClickDirective,
@@ -70,10 +63,8 @@ export class FooterProductCardComponent implements OnDestroy {
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
     this.loggedInUserService.$loggedInUserUpdated
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((dataLogged: any) => {
-        setTimeout((t) => {
-          this.loggedInUser = this.loggedInUserService.getLoggedInUser();
-        }, 0);
+      .subscribe(() => {
+        this.loggedInUser = this.loggedInUserService.getLoggedInUser();
       });
 
     this.pathToRedirect = this.route.snapshot.routeConfig.path;
@@ -143,10 +134,10 @@ export class FooterProductCardComponent implements OnDestroy {
       } else {
         this.cartService
           .addToCart(product, product.minSale)
-          .then((data) => {
+          .then(() => {
             this.inLoading = false;
           })
-          .catch((error) => {
+          .catch(() => {
             this.inLoading = false;
           });
       }

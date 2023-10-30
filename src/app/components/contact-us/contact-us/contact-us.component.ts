@@ -12,7 +12,6 @@ import {
 } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { LoggedInUserService } from 'src/app/core/services/loggedInUser/logged-in-user.service';
-import { CUBAN_PHONE_START_5 } from '../../../core/classes/regex.const';
 import { environment } from 'environments/environment';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 const EMAIL_REGEX =
+  // eslint-disable-next-line
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 @Component({
