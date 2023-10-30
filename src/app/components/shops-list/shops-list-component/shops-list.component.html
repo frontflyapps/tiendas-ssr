@@ -34,10 +34,10 @@
     </div>
   </div>
 
-  <div class="pt-5 d-flex justify-content-center align-items-center">
+  <div class="pt-5 d-flex justify-content-center align-items-center flex-wrap gap-5">
     <ng-container *ngFor="let business of allBusiness; let i = index">
       <a *ngIf="business.url" [href]="business?.url" target="_blank">
-        <div class="shop-card" [ngClass.gt-xs]="{ 'mr-5': i != 2 || i != 5 || i != 8 }">
+        <div class="shop-card">
           <div class="card-content">
             <img
               class="mb-3"
