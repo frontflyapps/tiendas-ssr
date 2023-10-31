@@ -1,7 +1,8 @@
-<div class>
+<div class data-id="9cbf6d1f">
   <div
     class="showCategoriesMenu d-flex d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center d-md-flex justify-content-sm-center justify-content-md-center align-items-md-center d-sm-block d-none"
     id="showCategoriesMenu"
+    data-id="de3c4349"
   >
     <!--    <a [routerLink]="['']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="router-link-active"-->
     <!--       class="itemCategory"-->
@@ -15,6 +16,7 @@
       mat-button
       routerLinkActive="router-link-active"
       [routerLinkActiveOptions]="{ exact: true }"
+      data-id="3d75b389"
       >{{ 'Nuestras tiendas' | translate }}</a
     >
     <a
@@ -23,6 +25,7 @@
       mat-button
       routerLinkActive="router-link-active"
       [routerLinkActiveOptions]="{ exact: true }"
+      data-id="e66503b7"
       >{{ 'Todos los productos' | translate }}</a
     >
     <!--    <a [routerLink]="['/pages/compare']" routerLinkActive="router-link-active" class="itemCategory" mat-button>{{-->
@@ -60,6 +63,7 @@
       [ngClass]="category.active ? 'router-link-active' : ''"
       class="itemCategory"
       mat-button
+      data-id="8ab39abf"
       >{{ category.name | parseLang: utilsSer.getLang() }}</a
     >
   </div>

@@ -3,8 +3,14 @@
   *ngIf="this.loadingSearch"
   class="loading-shade-full"
   style="background: rgba(0, 0, 0, 0.08) !important"
+  data-id="e3b1718a"
 >
-  <mat-spinner *ngIf="this.loadingSearch" color="primary" diameter="60"></mat-spinner>
+  <mat-spinner
+    *ngIf="this.loadingSearch"
+    color="primary"
+    diameter="60"
+    data-id="b195d9c0"
+  ></mat-spinner>
 </div>
 <mat-horizontal-stepper
   #stepper
@@ -12,39 +18,47 @@
   *ngIf="!this.loadingSearch && supplementArray?.length > 0"
   labelPosition="bottom"
   class="billing-details"
+  data-id="4ffb8a3f"
 >
-  <mat-step [stepControl]="supplementForm.get('supplementType')">
-    <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none">{{
+  <mat-step [stepControl]="supplementForm.get('supplementType')" data-id="09887e24">
+    <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none" data-id="ff9645e2">{{
       'Escoja lentes' | translate
     }}</ng-template>
-    <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none">{{
+    <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none" data-id="84ddf662">{{
       'Escoja lentes' | translate
     }}</ng-template>
-    <h3 class="my-3 title-supplement">{{ supplementArray[0]?.name }}</h3>
-    <h5 class="my-3 subtitle-supplement">{{ supplementArray[0]?.description }}</h5>
+    <h3 class="my-3 title-supplement" data-id="7e183e18">{{ supplementArray[0]?.name }}</h3>
+    <h5 class="my-3 subtitle-supplement" data-id="beb2c727">
+      {{ supplementArray[0]?.description }}
+    </h5>
     <div
       class="w-100 mb-3 pb-3 row-supplement d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column justify-content-start align-items-center transpilerClass-fxLayoutGap-e2873f"
+      data-id="a3a9fd3e"
     >
       <div
         *ngFor="let element of supplementArray[0].Recomendeds; let j = index"
         class="mb-1 d-flex flex-column justify-content-start align-items-center"
+        data-id="879c45ec"
       >
         <div
           [ngClass]="{ itemSelected: element.checked, itemUnselected: !element.checked }"
           (click)="onChangeSelection($event, 0, j, stepper)"
           class="d-flex flex-column justify-content-start align-items-center"
+          data-id="ad997bda"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
+            data-id="6486c182"
           />
           <div
             style="text-align: center"
             class="d-flex flex-column justify-content-start align-items-center"
+            data-id="5354a0e9"
           >
-            <span class="mx-2 my-2"
-              ><strong>{{
+            <span class="mx-2 my-2" data-id="380b483b"
+              ><strong data-id="1ec507ad">{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
               }}</strong></span
             >
@@ -52,12 +66,21 @@
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
               class="mx-2 pt-2 d-flex flex-column justify-content-start align-items-start"
               style="width: 80px"
+              data-id="c7815054"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
-              <p *ngIf="element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="57ef88e7"
+              >
                 {{ item?.priceOffer | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
-              <p *ngIf="!element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="!element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="327ffa49"
+              >
                 {{ item?.price | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
             </div>
@@ -65,6 +88,7 @@
               *ngIf="!element.checked"
               class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
+              data-id="7dfb5fa1"
             >
               radio_button_unchecked
             </mat-icon>
@@ -72,6 +96,7 @@
               *ngIf="element.checked"
               class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
+              data-id="92880971"
             >
               task_alt
             </mat-icon>
@@ -81,36 +106,57 @@
     </div>
   </mat-step>
 
-  <mat-step disabled="supplementForm.get('supplementType').value" [stepControl]="form">
-    <mat-dialog-content>
-      <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none">{{
+  <mat-step
+    disabled="supplementForm.get('supplementType').value"
+    [stepControl]="form"
+    data-id="08f55323"
+  >
+    <mat-dialog-content data-id="cadac197">
+      <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none" data-id="9a827e16">{{
         'Insertar receta médica' | translate
       }}</ng-template>
-      <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none">{{
+      <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none" data-id="4750e4d7">{{
         'Insertar receta médica' | translate
       }}</ng-template>
-      <div class="w-100 mb-3 pb-3 row-supplement d-xs-block d-sm-block d-md-block d-none">
+      <div
+        class="w-100 mb-3 pb-3 row-supplement d-xs-block d-sm-block d-md-block d-none"
+        data-id="8f363178"
+      >
         <div
           class="mb-3 d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-39a2fd"
+          data-id="8ec19430"
         >
-          <span style="width: 80px">{{ 'ESFERA' | translate }}</span>
-          <span style="width: 80px">{{ 'CILINDRO' | translate }}</span>
-          <span style="width: 60px">{{ 'EJE' | translate }}</span>
+          <span style="width: 80px" data-id="24e4d2a7">{{ 'ESFERA' | translate }}</span>
+          <span style="width: 80px" data-id="158b5e29">{{ 'CILINDRO' | translate }}</span>
+          <span style="width: 60px" data-id="aff14619">{{ 'EJE' | translate }}</span>
         </div>
         <div
           class="container-selects mb-3 d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-8658da"
+          data-id="8261dca0"
         >
-          <span class="text-axis">Ojo derecho</span>
-          <mat-select [formControl]="form.get('right')" class="input-axis">
-            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-              <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <span class="text-axis" data-id="4f1bae31">Ojo derecho</span>
+          <mat-select [formControl]="form.get('right')" class="input-axis" data-id="139bc449">
+            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="ed03d104">
+              <mat-option
+                *ngFor="let measure of sign.sign"
+                [value]="measure.value"
+                data-id="bcca63e1"
+              >
                 {{ measure.viewValue }}
               </mat-option>
             </mat-optgroup>
           </mat-select>
-          <mat-select [formControl]="form.get('cylinderRight')" class="input-axis">
-            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-              <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <mat-select
+            [formControl]="form.get('cylinderRight')"
+            class="input-axis"
+            data-id="c1a7a122"
+          >
+            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="8f6ffca7">
+              <mat-option
+                *ngFor="let measure of sign.sign"
+                [value]="measure.value"
+                data-id="b7e4a165"
+              >
                 {{ measure.viewValue }}
               </mat-option>
             </mat-optgroup>
@@ -121,31 +167,48 @@
             type="number"
             class="input-axis"
             [required]="form.get('cylinderRight').value"
+            data-id="ab3f0422"
           />
         </div>
-        <mat-error *ngIf="form.get('right').hasError('required')">
-          {{ 'Derecho' | translate }} <strong>{{ 'is required' | translate }}</strong>
+        <mat-error *ngIf="form.get('right').hasError('required')" data-id="0d38f911">
+          {{ 'Derecho' | translate }}
+          <strong data-id="0740ff6b">{{ 'is required' | translate }}</strong>
         </mat-error>
-        <mat-error *ngIf="form.get('cylinderRight').hasError('required')">
-          {{ 'Cilindro derecho' | translate }} <strong>{{ 'is required' | translate }}</strong>
+        <mat-error *ngIf="form.get('cylinderRight').hasError('required')" data-id="f32e2820">
+          {{ 'Cilindro derecho' | translate }}
+          <strong data-id="979632c8">{{ 'is required' | translate }}</strong>
         </mat-error>
-        <mat-error *ngIf="form.get('axisRight').hasError('required')">
-          {{ 'Eje derecho' | translate }} <strong>{{ 'is required' | translate }}</strong>
+        <mat-error *ngIf="form.get('axisRight').hasError('required')" data-id="0e8c758d">
+          {{ 'Eje derecho' | translate }}
+          <strong data-id="53e7d7e8">{{ 'is required' | translate }}</strong>
         </mat-error>
         <div
           class="container-selects mb-3 d-flex justify-content-end align-items-end transpilerClass-fxLayoutGap-e47819"
+          data-id="687eeccc"
         >
-          <span class="text-axis">Ojo izquierdo</span>
-          <mat-select [formControl]="form.get('left')" class="input-axis">
-            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-              <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <span class="text-axis" data-id="8be20c8c">Ojo izquierdo</span>
+          <mat-select [formControl]="form.get('left')" class="input-axis" data-id="b960129b">
+            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="2404c88e">
+              <mat-option
+                *ngFor="let measure of sign.sign"
+                [value]="measure.value"
+                data-id="1fb1b282"
+              >
                 {{ measure.viewValue }}
               </mat-option>
             </mat-optgroup>
           </mat-select>
-          <mat-select [formControl]="form.get('cylinderLeft')" class="input-axis">
-            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-              <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <mat-select
+            [formControl]="form.get('cylinderLeft')"
+            class="input-axis"
+            data-id="f2186f2c"
+          >
+            <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="d87686e3">
+              <mat-option
+                *ngFor="let measure of sign.sign"
+                [value]="measure.value"
+                data-id="630f8fef"
+              >
                 {{ measure.viewValue }}
               </mat-option>
             </mat-optgroup>
@@ -156,21 +219,28 @@
             type="number"
             class="input-axis"
             [required]="form.get('cylinderLeft').value"
+            data-id="153989a3"
           />
         </div>
-        <mat-error *ngIf="form.get('left').hasError('required')">
-          {{ 'Izquierdo' | translate }} <strong>{{ 'is required' | translate }}</strong>
+        <mat-error *ngIf="form.get('left').hasError('required')" data-id="17b45235">
+          {{ 'Izquierdo' | translate }}
+          <strong data-id="3b9cc585">{{ 'is required' | translate }}</strong>
         </mat-error>
-        <mat-error *ngIf="form.get('cylinderLeft').hasError('required')">
-          {{ 'Cilindro izquierdo' | translate }} <strong>{{ 'is required' | translate }}</strong>
+        <mat-error *ngIf="form.get('cylinderLeft').hasError('required')" data-id="7c8b5e08">
+          {{ 'Cilindro izquierdo' | translate }}
+          <strong data-id="258b948b">{{ 'is required' | translate }}</strong>
         </mat-error>
-        <mat-error *ngIf="form.get('axisLeft').hasError('required')">
-          {{ 'Eje izquierdo' | translate }} <strong>{{ 'is required' | translate }}</strong>
+        <mat-error *ngIf="form.get('axisLeft').hasError('required')" data-id="f8bedb67">
+          {{ 'Eje izquierdo' | translate }}
+          <strong data-id="437800bb">{{ 'is required' | translate }}</strong>
         </mat-error>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex flex-column">
-            <div class="container-add d-flex justify-content-center align-items-center">
-              <h4>ADD</h4>
+        <div class="d-flex justify-content-between align-items-center" data-id="135cce56">
+          <div class="d-flex flex-column" data-id="fc135586">
+            <div
+              class="container-add d-flex justify-content-center align-items-center"
+              data-id="c453a4fd"
+            >
+              <h4 data-id="2a12e614">ADD</h4>
               <!--            <mat-form-field appearance='outline' class='select'>-->
               <!--              <mat-label>{{'ADD'}}</mat-label>-->
               <input
@@ -186,6 +256,7 @@
                     .get('supplementType')
                     .value?.RecomendedProduct?.name?.es.includes('Bifocales')
                 "
+                data-id="edb948ae"
               />
 
               <!--            <mat-error *ngIf="form.get('left').hasError('pattern')">-->
@@ -193,13 +264,17 @@
               <!--            </mat-error>-->
               <!--            </mat-form-field>-->
             </div>
-            <mat-error *ngIf="form.get('add').hasError('required')">
-              {{ 'ADD' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-error *ngIf="form.get('add').hasError('required')" data-id="0cd23695">
+              {{ 'ADD' | translate }}
+              <strong data-id="526a58b1">{{ 'is required' | translate }}</strong>
             </mat-error>
           </div>
 
-          <div class="container-dp d-flex justify-content-center align-items-center">
-            <h4 class="text-dp" style="text-align: center">DISTANCIA PUPILAR</h4>
+          <div
+            class="container-dp d-flex justify-content-center align-items-center"
+            data-id="324c736b"
+          >
+            <h4 class="text-dp" style="text-align: center" data-id="994858b8">DISTANCIA PUPILAR</h4>
             <!--            <mat-form-field appearance='outline' class='select'>-->
             <!--              <mat-label>{{'Distancia'}}</mat-label>-->
             <input
@@ -207,6 +282,7 @@
               matInput
               type="text"
               class="input-dp"
+              data-id="c7ab9186"
             />
             <!--              <mat-error *ngIf="form.get('pupillaryDistance').hasError('required')">-->
             <!--                {{ 'La medida de la distancia pupilar' | translate }} <strong>{{ 'is required' | translate }}</strong>-->
@@ -218,71 +294,80 @@
           </div>
         </div>
       </div>
-      <table class="table w-100 d-block d-xs-none d-sm-none d-md-none">
-        <tr>
-          <th mat-header-cell></th>
-          <th mat-header-cell>
-            <span>{{ 'ESFERA' | translate }}</span>
+      <table class="table w-100 d-block d-xs-none d-sm-none d-md-none" data-id="53e99e91">
+        <tr data-id="eed71069">
+          <th mat-header-cell data-id="f4a0dc47"></th>
+          <th mat-header-cell data-id="1e4c9d5f">
+            <span data-id="41f366de">{{ 'ESFERA' | translate }}</span>
           </th>
-          <th mat-header-cell>
-            <span>{{ 'CILINDRO' | translate }}</span>
+          <th mat-header-cell data-id="4108e3c4">
+            <span data-id="2d7f34a3">{{ 'CILINDRO' | translate }}</span>
           </th>
-          <th mat-header-cell>
-            <span>{{ 'EJE' | translate }}</span>
+          <th mat-header-cell data-id="340e3dcc">
+            <span data-id="185a8a0e">{{ 'EJE' | translate }}</span>
           </th>
         </tr>
-        <tr>
-          <th class="pb-2" mat-cell>
-            <span>Ojo izquierdo</span>
+        <tr data-id="89fd0af9">
+          <th class="pb-2" mat-cell data-id="a0ca28d8">
+            <span data-id="c118df22">Ojo izquierdo</span>
           </th>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select">
-              <mat-label>{{ 'Izquierdo' }}</mat-label>
-              <mat-select [formControl]="form.get('left')">
-                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-                  <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <td class="pb-2" mat-cell data-id="3c9cd1cf">
+            <mat-form-field appearance="outline" class="select" data-id="2c8ac161">
+              <mat-label data-id="60cfddd7">{{ 'Izquierdo' }}</mat-label>
+              <mat-select [formControl]="form.get('left')" data-id="35c418f8">
+                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="5675e5a1">
+                  <mat-option
+                    *ngFor="let measure of sign.sign"
+                    [value]="measure.value"
+                    data-id="510c4c23"
+                  >
                     {{ measure.viewValue }}
                   </mat-option>
                 </mat-optgroup>
               </mat-select>
-              <mat-error *ngIf="form.get('left').hasError('required')">
+              <mat-error *ngIf="form.get('left').hasError('required')" data-id="30e2b02a">
                 {{ 'La medida del ojo izquierdo' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="ad44856c">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </td>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select">
-              <mat-label>{{ 'Izquierdo' }}</mat-label>
-              <mat-select [formControl]="form.get('cylinderLeft')">
-                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-                  <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <td class="pb-2" mat-cell data-id="6680fe0c">
+            <mat-form-field appearance="outline" class="select" data-id="2f1f62fd">
+              <mat-label data-id="f4a747e1">{{ 'Izquierdo' }}</mat-label>
+              <mat-select [formControl]="form.get('cylinderLeft')" data-id="937f47f2">
+                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="62cf8a06">
+                  <mat-option
+                    *ngFor="let measure of sign.sign"
+                    [value]="measure.value"
+                    data-id="99203b36"
+                  >
                     {{ measure.viewValue }}
                   </mat-option>
                 </mat-optgroup>
               </mat-select>
-              <mat-error *ngIf="form.get('cylinderLeft').hasError('required')">
+              <mat-error *ngIf="form.get('cylinderLeft').hasError('required')" data-id="9bc2c6e6">
                 {{ 'La medida del cilindro izquierdo' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="3291b7cc">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--                  <mat-error *ngIf="form.get('cylinderLeft').hasError('pattern')">-->
               <!--                    {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
               <!--                  </mat-error>-->
             </mat-form-field>
           </td>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select-axis">
-              <mat-label>{{ 'Izquierdo' }}</mat-label>
+          <td class="pb-2" mat-cell data-id="b6e7d3c6">
+            <mat-form-field appearance="outline" class="select-axis" data-id="2397d78f">
+              <mat-label data-id="20d37225">{{ 'Izquierdo' }}</mat-label>
               <input
                 [formControl]="form.get('axisLeft')"
                 matInput
                 type="number"
                 placeholder="{{ 'Eje izquierdo' | translate }}"
                 [required]="form.get('cylinderLeft').value"
+                data-id="80be3435"
               />
-              <mat-error *ngIf="form.get('axisLeft').hasError('required')">
+              <mat-error *ngIf="form.get('axisLeft').hasError('required')" data-id="2d7c5bb3">
                 {{ 'La medida del eje izquierdo' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="26141619">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--                  <mat-error *ngIf="form.get('axisLeft').hasError('pattern')">-->
               <!--                    {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
@@ -290,62 +375,71 @@
             </mat-form-field>
           </td>
         </tr>
-        <tr>
-          <th class="pb-2" mat-cell>
-            <span>Ojo derecho</span>
+        <tr data-id="1a8912ea">
+          <th class="pb-2" mat-cell data-id="2230d280">
+            <span data-id="995f14cc">Ojo derecho</span>
           </th>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select">
-              <mat-label>{{ 'Derecho' | translate }}</mat-label>
-              <mat-select [formControl]="form.get('right')">
-                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-                  <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+          <td class="pb-2" mat-cell data-id="a7523248">
+            <mat-form-field appearance="outline" class="select" data-id="d98b91bb">
+              <mat-label data-id="ea0b737f">{{ 'Derecho' | translate }}</mat-label>
+              <mat-select [formControl]="form.get('right')" data-id="ef2bc8a7">
+                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="5a65ba7a">
+                  <mat-option
+                    *ngFor="let measure of sign.sign"
+                    [value]="measure.value"
+                    data-id="43eb29fc"
+                  >
                     {{ measure.viewValue }}
                   </mat-option>
                 </mat-optgroup>
               </mat-select>
-              <mat-error *ngIf="form.get('right').hasError('required')">
+              <mat-error *ngIf="form.get('right').hasError('required')" data-id="45771ad8">
                 {{ 'La medida del ojo derecho' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="128ff2e6">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--            <mat-error *ngIf="form.get('left').hasError('pattern')">-->
               <!--              {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
               <!--            </mat-error>-->
             </mat-form-field>
           </td>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select">
-              <mat-label>{{ 'Cilindro derecho' | translate }}</mat-label>
+          <td class="pb-2" mat-cell data-id="a3114894">
+            <mat-form-field appearance="outline" class="select" data-id="81526eb1">
+              <mat-label data-id="42a75cb6">{{ 'Cilindro derecho' | translate }}</mat-label>
 
-              <mat-select [formControl]="form.get('cylinderRight')">
-                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name">
-                  <mat-option *ngFor="let measure of sign.sign" [value]="measure.value">
+              <mat-select [formControl]="form.get('cylinderRight')" data-id="66d63678">
+                <mat-optgroup *ngFor="let sign of signArray" [label]="sign.name" data-id="f5033746">
+                  <mat-option
+                    *ngFor="let measure of sign.sign"
+                    [value]="measure.value"
+                    data-id="a023b24d"
+                  >
                     {{ measure.viewValue }}
                   </mat-option>
                 </mat-optgroup>
               </mat-select>
-              <mat-error *ngIf="form.get('cylinderRight').hasError('required')">
+              <mat-error *ngIf="form.get('cylinderRight').hasError('required')" data-id="1fd2f1ae">
                 {{ 'La medida del cilindro derecho' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="98919dd2">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--            <mat-error *ngIf="form.get('cylinderLeft').hasError('pattern')">-->
               <!--              {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
               <!--            </mat-error>-->
             </mat-form-field>
           </td>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select-axis">
-              <mat-label>{{ 'Derecho' | translate }}</mat-label>
+          <td class="pb-2" mat-cell data-id="f3aef9c0">
+            <mat-form-field appearance="outline" class="select-axis" data-id="dc2c0412">
+              <mat-label data-id="34b1c96e">{{ 'Derecho' | translate }}</mat-label>
               <input
                 [formControl]="form.get('axisRight')"
                 matInput
                 type="number"
                 placeholder="{{ 'Eje derecho' | translate }}"
                 [required]="form.get('cylinderRight').value"
+                data-id="04bff539"
               />
-              <mat-error *ngIf="form.get('axisRight').hasError('required')">
+              <mat-error *ngIf="form.get('axisRight').hasError('required')" data-id="b1779568">
                 {{ 'La medida del eje derecho' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="5ef5239e">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--            <mat-error *ngIf="form.get('axisLeft').hasError('pattern')">-->
               <!--              {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
@@ -353,13 +447,13 @@
             </mat-form-field>
           </td>
         </tr>
-        <tr>
-          <th class="pb-2" mat-cell>
-            <span>ADD</span>
+        <tr data-id="85110147">
+          <th class="pb-2" mat-cell data-id="05c05a30">
+            <span data-id="342f3b99">ADD</span>
           </th>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select-axis">
-              <mat-label>{{ 'add' | translate }}</mat-label>
+          <td class="pb-2" mat-cell data-id="9ec4695f">
+            <mat-form-field appearance="outline" class="select-axis" data-id="7fdef207">
+              <mat-label data-id="f1a5fee9">{{ 'add' | translate }}</mat-label>
               <input
                 [formControl]="form.get('add')"
                 matInput
@@ -373,48 +467,61 @@
                     .get('supplementType')
                     .value?.RecomendedProduct?.name?.es.includes('Bifocales')
                 "
+                data-id="e8e4bc45"
               />
-              <mat-error *ngIf="form.get('add').hasError('required') && form.get('add').invalid">
-                {{ 'add' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="form.get('add').hasError('required') && form.get('add').invalid"
+                data-id="7aecf2f2"
+              >
+                {{ 'add' | translate }}
+                <strong data-id="40ea3edf">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--            <mat-error *ngIf="form.get('axisLeft').hasError('pattern')">-->
               <!--              {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
               <!--            </mat-error>-->
             </mat-form-field>
           </td>
-          <td class="pb-2" mat-cell>
-            <mat-form-field appearance="outline" class="select-axis">
-              <mat-label>{{ 'Distancia pupilar' }}</mat-label>
+          <td class="pb-2" mat-cell data-id="72d53297">
+            <mat-form-field appearance="outline" class="select-axis" data-id="c60858b8">
+              <mat-label data-id="0dd038ba">{{ 'Distancia pupilar' }}</mat-label>
               <input
                 [formControl]="form.get('pupillaryDistance')"
                 matInput
                 type="number"
                 placeholder="{{ 'Eje derecho' | translate }}"
                 [required]="form.get('pupillaryDistance').value"
+                data-id="ff143b25"
               />
-              <mat-error *ngIf="form.get('pupillaryDistance').hasError('required')">
+              <mat-error
+                *ngIf="form.get('pupillaryDistance').hasError('required')"
+                data-id="4b1cad82"
+              >
                 {{ 'Distancia pupilar' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="81484990">{{ 'is required' | translate }}</strong>
               </mat-error>
               <!--            <mat-error *ngIf="form.get('axisLeft').hasError('pattern')">-->
               <!--              {{ 'Ojo izquierdo' | translate }} <strong>{{ 'wrong' | translate }}</strong>-->
               <!--            </mat-error>-->
             </mat-form-field>
           </td>
-          <td class="pb-2" mat-cell></td>
+          <td class="pb-2" mat-cell data-id="9bb920c4"></td>
         </tr>
       </table>
-      <div class="d-flex flex-column">
-        <h2 class="title-prescription-image">{{ 'Subir imagen de receta' | translate }}</h2>
-        <div class="d-flex justify-content-start align-items-start">
+      <div class="d-flex flex-column" data-id="7b58709b">
+        <h2 class="title-prescription-image" data-id="7b53c766">
+          {{ 'Subir imagen de receta' | translate }}
+        </h2>
+        <div class="d-flex justify-content-start align-items-start" data-id="d8e74e03">
           <div
             class="container-image-prescription d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-9ca0f7"
             *ngIf="form.get('prescriptionImageName').value; else noPrescriptionImage"
+            data-id="0cc2634f"
           >
             <img
               [src]="imageUrl + form.get('prescriptionImageUrl').value"
               width="300px"
               height="300px"
+              data-id="36c818c6"
             />
             <button
               (click)="onUploadDataSheet()"
@@ -424,14 +531,16 @@
               mat-mini-fab
               style="font-size: 18px !important"
               matTooltip="Subir archivo que se mostrará en la descripción del producto"
+              data-id="87ebd277"
             >
-              <mat-icon>refresh</mat-icon>
+              <mat-icon data-id="af60631f">refresh</mat-icon>
             </button>
           </div>
-          <ng-template class="container-image-prescription" #noPrescriptionImage>
+          <ng-template class="container-image-prescription" #noPrescriptionImage data-id="5eef02f2">
             <div
               class="container-no-image-prescription d-flex justify-content-center align-items-center"
               (click)="onUploadDataSheet()"
+              data-id="54d01070"
             >
               <!--            <button (click)='onUploadDataSheet()'-->
               <!--                    aria-label='Subir videos'-->
@@ -439,7 +548,7 @@
               <!--                    matTooltip='Subir archivo que se mostrará en la descripción del producto'>-->
               <!--              <mat-icon (click)='onUploadDataSheet()'>photo_camera</mat-icon>-->
               <!--            </button>-->
-              <mat-icon class="icon-camera">photo_camera</mat-icon>
+              <mat-icon class="icon-camera" data-id="8d597cb8">photo_camera</mat-icon>
             </div>
           </ng-template>
           <!--        <mat-form-field appearance='outline' fxFlex>-->
@@ -463,9 +572,9 @@
       </div>
     </mat-dialog-content>
 
-    <mat-dialog-actions class="d-flex justify-content-between align-items-end">
+    <mat-dialog-actions class="d-flex justify-content-between align-items-end" data-id="43d7f27d">
       <!--      <div fxLayout='row' fxLayoutAlign='space-between end'>-->
-      <button class="mt-2" color="primary" mat-stroked-button matStepperPrevious>
+      <button class="mt-2" color="primary" mat-stroked-button matStepperPrevious data-id="b36f70c3">
         {{ 'Volver' | translate }}
       </button>
       <button
@@ -474,6 +583,7 @@
         color="primary"
         [disabled]="form.invalid"
         matStepperNext
+        data-id="d6921462"
       >
         {{ 'Siguiente' | translate }}
       </button>
@@ -481,36 +591,40 @@
     </mat-dialog-actions>
   </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none">{{
+  <mat-step data-id="4d0b515b">
+    <ng-template matStepLabel class="d-xs-none d-sm-none d-md-none" data-id="0a0c97d9">{{
       'Escoja lentes' | translate
     }}</ng-template>
-    <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none">{{
+    <ng-template class="d-xs-inline d-sm-inline d-md-inline d-none" data-id="12ed5a15">{{
       'Escoger lentes' | translate
     }}</ng-template>
 
-    <h3 class="my-3 title-supplement">{{ supplementArray[1]?.name }}</h3>
+    <h3 class="my-3 title-supplement" data-id="65e2aca0">{{ supplementArray[1]?.name }}</h3>
     <h5
       [ngClass]="{
         'subtitle-supplement': !supplementArray[1]?.seeDetails,
         'subtitle-supplement-desplegado': supplementArray[1]?.seeDetails
       }"
       class="my-1 subtitle-supplement"
+      data-id="df0f7c52"
     >
       {{ supplementArray[1]?.description }}
     </h5>
     <span
       (click)="supplementArray[1].seeDetails = !supplementArray[1].seeDetails"
       class="see-details d-flex justify-content-center align-items-center"
+      data-id="7aa56748"
     >
       {{ (!supplementArray[1]?.seeDetails ? 'Leer más' : 'Leer menos') | translate }}
     </span>
     <div
       class="w-100 mb-3 mt-3 pb-3 row-supplement d-flex justify-content-between align-items-center transpilerClass-fxLayoutGap-7c2f41"
+      data-id="97e458f3"
     >
       <div
         *ngFor="let element of supplementArray[1].Recomendeds; let j = index"
         class="d-flex flex-column justify-content-start align-items-center flex-sh-50"
+        data-id="e3436d11"
       >
         <div
           [ngClass]="{
@@ -519,18 +633,21 @@
           }"
           (click)="onChangeSelection($event, 1, j)"
           class="d-flex flex-column justify-content-start align-items-center"
+          data-id="46f2ceb0"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
+            data-id="aa632ff3"
           />
           <div
             style="text-align: center"
             class="d-flex flex-column justify-content-center align-items-center"
+            data-id="2f7f779d"
           >
-            <span class="mx-2 my-2"
-              ><strong>{{
+            <span class="mx-2 my-2" data-id="b65963dc"
+              ><strong data-id="1c6c64d8">{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
               }}</strong></span
             >
@@ -539,12 +656,21 @@
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
               class="mx-2 pt-2 d-flex flex-column justify-content-center align-items-center"
               style="width: 80px"
+              data-id="f3e39285"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
-              <p *ngIf="element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="5e93145c"
+              >
                 {{ item?.priceOffer | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
-              <p *ngIf="!element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="!element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="fa0cc24e"
+              >
                 {{ item?.price | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
             </div>
@@ -552,6 +678,7 @@
               *ngIf="!element.checked"
               class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
+              data-id="8edb6fd6"
             >
               radio_button_unchecked
             </mat-icon>
@@ -559,6 +686,7 @@
               *ngIf="element.checked"
               class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
+              data-id="b0fea0a1"
             >
               task_alt
             </mat-icon>
@@ -567,28 +695,32 @@
       </div>
     </div>
 
-    <h3 class="my-3 title-supplement">{{ supplementArray[2]?.name }}</h3>
+    <h3 class="my-3 title-supplement" data-id="702f275a">{{ supplementArray[2]?.name }}</h3>
     <h5
       [ngClass]="{
         'subtitle-supplement': !supplementArray[2]?.seeDetails,
         'subtitle-supplement-desplegado': supplementArray[2]?.seeDetails
       }"
       class="my-1 subtitle-supplement"
+      data-id="7414ee09"
     >
       {{ supplementArray[2]?.description }}
     </h5>
     <span
       (click)="supplementArray[2].seeDetails = !supplementArray[2].seeDetails"
       class="see-details d-flex justify-content-center align-items-center"
+      data-id="258f8486"
     >
       {{ (!supplementArray[2]?.seeDetails ? 'Leer más' : 'Leer menos') | translate }}
     </span>
     <div
       class="w-100 mb-3 mt-3 pb-3 row-supplement d-flex justify-content-between align-items-center transpilerClass-fxLayoutGap-0de8d1"
+      data-id="ab8b3ef9"
     >
       <div
         *ngFor="let element of supplementArray[2].Recomendeds; let j = index"
         class="d-flex flex-column justify-content-start align-items-center flex-sh-50"
+        data-id="4f0942f6"
       >
         <div
           [ngClass]="{
@@ -597,18 +729,21 @@
           }"
           (click)="onChangeSelection($event, 2, j)"
           class="d-flex flex-column justify-content-start align-items-center"
+          data-id="a87dd824"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
+            data-id="5f106af3"
           />
           <div
             style="text-align: center"
             class="d-flex flex-column justify-content-center align-items-center"
+            data-id="cf3227ea"
           >
-            <span class="mx-2 my-2"
-              ><strong>{{
+            <span class="mx-2 my-2" data-id="6ee463c7"
+              ><strong data-id="529a8eec">{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
               }}</strong></span
             >
@@ -617,12 +752,21 @@
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
               class="mx-2 pt-2 d-flex flex-column justify-content-center align-items-center"
               style="width: 80px"
+              data-id="29a1fef1"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
-              <p *ngIf="element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="5237f072"
+              >
                 {{ item?.priceOffer | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
-              <p *ngIf="!element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="!element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="d593ec8b"
+              >
                 {{ item?.price | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
             </div>
@@ -630,6 +774,7 @@
               *ngIf="!element.checked"
               class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
+              data-id="20f70d77"
             >
               radio_button_unchecked
             </mat-icon>
@@ -637,6 +782,7 @@
               *ngIf="element.checked"
               class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
+              data-id="251d32a8"
             >
               task_alt
             </mat-icon>
@@ -645,28 +791,32 @@
       </div>
     </div>
 
-    <h3 class="my-3 title-supplement">{{ supplementArray[3]?.name }}</h3>
+    <h3 class="my-3 title-supplement" data-id="17d9718a">{{ supplementArray[3]?.name }}</h3>
     <h5
       [ngClass]="{
         'subtitle-supplement': !supplementArray[3]?.seeDetails,
         'subtitle-supplement-desplegado': supplementArray[3]?.seeDetails
       }"
       class="my-1 subtitle-supplement"
+      data-id="7e48ac35"
     >
       {{ supplementArray[3]?.description }}
     </h5>
     <span
       (click)="supplementArray[3].seeDetails = !supplementArray[3].seeDetails"
       class="see-details d-flex justify-content-center align-items-center"
+      data-id="f046e6eb"
     >
       {{ (!supplementArray[3]?.seeDetails ? 'Leer más' : 'Leer menos') | translate }}
     </span>
     <div
       class="w-100 mb-3 mt-3 pb-3 row-supplement d-flex justify-content-between align-items-center transpilerClass-fxLayoutGap-130802"
+      data-id="93fb0e0c"
     >
       <div
         *ngFor="let element of supplementArray[3].Recomendeds; let j = index"
         class="d-flex flex-column justify-content-start align-items-center flex-sh-50"
+        data-id="a6d2151e"
       >
         <div
           [ngClass]="{
@@ -675,18 +825,21 @@
           }"
           (click)="onChangeSelection($event, 3, j)"
           class="d-flex flex-column justify-content-start align-items-center"
+          data-id="6f66f460"
         >
           <img
             *ngIf="element?.RecomendedProduct?.name.es !== 'Ninguno'"
             [src]="imageUrl + element?.RecomendedProduct?.Images[0]?.image"
             class="img-supplement mb-2"
+            data-id="09994b04"
           />
           <div
             style="text-align: center"
             class="d-flex flex-column justify-content-center align-items-center"
+            data-id="888deb82"
           >
-            <span class="mx-2 my-2"
-              ><strong>{{
+            <span class="mx-2 my-2" data-id="55d4cc2c"
+              ><strong data-id="b276c985">{{
                 element?.RecomendedProduct?.name | i18nField: translateService.currentLang
               }}</strong></span
             >
@@ -695,12 +848,21 @@
               *ngFor="let item of element?.RecomendedProduct?.PriceRanges"
               class="mx-2 pt-2 d-flex flex-column justify-content-center align-items-center"
               style="width: 80px"
+              data-id="1c9c74e6"
             >
               <!--                      <p class="mat-body-1">{{ item.min }} - {{ item.max }}</p>-->
-              <p *ngIf="element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="cd486da1"
+              >
                 {{ item?.priceOffer | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
-              <p *ngIf="!element?.RecomendedProduct?.offerValue" class="mat-body-2">
+              <p
+                *ngIf="!element?.RecomendedProduct?.offerValue"
+                class="mat-body-2"
+                data-id="5d5d7775"
+              >
                 {{ item?.price | currencyMarket: element?.RecomendedProduct?.market }}
               </p>
             </div>
@@ -708,6 +870,7 @@
               *ngIf="!element.checked"
               class="icon-unchecked d-flex justify-content-center align-items-center"
               color="primary"
+              data-id="d7adedec"
             >
               radio_button_unchecked
             </mat-icon>
@@ -715,6 +878,7 @@
               *ngIf="element.checked"
               class="icon-checked d-flex justify-content-center align-items-center"
               color="accent"
+              data-id="ed041c5b"
             >
               task_alt
             </mat-icon>
@@ -726,15 +890,22 @@
     <div
       *ngIf="!this.loadingSearch"
       class="d-flex d-xs-flex d-sm-flex d-md-flex justify-content-between align-items-end transpilerClass-fxLayoutGap-b29075"
+      data-id="d4d5cd0a"
     >
-      <button mat-stroked-button mat-dialog-close color="warn" (click)="close()">
+      <button mat-stroked-button mat-dialog-close color="warn" (click)="close()" data-id="3bf1ee8a">
         {{ 'Cancelar' | translate }}
       </button>
-      <div class="d-flex flex-column transpilerClass-fxLayoutGap-d595e3">
-        <button class="mt-2" mat-stroked-button color="primary" (click)="save()">
+      <div class="d-flex flex-column transpilerClass-fxLayoutGap-d595e3" data-id="3c9ea10d">
+        <button class="mt-2" mat-stroked-button color="primary" (click)="save()" data-id="5760f7b1">
           {{ 'Añadir al carrito' | translate }}
         </button>
-        <button class="mt-2" mat-raised-button color="primary" (click)="buyNow()">
+        <button
+          class="mt-2"
+          mat-raised-button
+          color="primary"
+          (click)="buyNow()"
+          data-id="09cc2f9e"
+        >
           {{ 'Comprar ahora' | translate }}
         </button>
       </div>

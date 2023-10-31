@@ -1,6 +1,6 @@
-<mat-dialog-content>
-  <blockquote>
-    <p>
+<mat-dialog-content data-id="a9c2cee7">
+  <blockquote data-id="37a382af">
+    <p data-id="a3bcc865">
       {{
         'Usted dejará nuestro sistema y navegará hacia la pasarela de pago, marque CONFIRMAR para proseguir. Para usuarios en Cuba es obligatorio el uso de VPN para acceder a la pasarela.'
           | translate
@@ -9,14 +9,15 @@
   </blockquote>
 </mat-dialog-content>
 
-<mat-dialog-actions align="end">
+<mat-dialog-actions align="end" data-id="c768400f">
   <form
     action="https://apibidpay.guajitech.com/v1/to-bidaiondo-redirect"
     method="post"
     ngNoForm
     target="_self"
+    data-id="365865ac"
   >
-    <div id="inputsHiddenBid"></div>
+    <div id="inputsHiddenBid" data-id="013f271b"></div>
     <button
       aria-label="Confirm"
       color="primary"
@@ -25,6 +26,7 @@
       mat-flat-button
       type="submit"
       value="Enviar"
+      data-id="d37bb4d6"
     >
       {{ 'CONFIRMAR' | translate }}
     </button>

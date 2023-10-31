@@ -1,25 +1,26 @@
-<mat-dialog-content style="position: relative">
+<mat-dialog-content style="position: relative" data-id="eb386171">
   <div
     class="d-flex flex-column justify-content-start align-items-center d-sm-flex justify-content-sm-start align-items-start align-items-sm-start"
+    data-id="c60d5974"
   >
-    <p ngClass.gt-sm="mat-body-2" ngClass.lt-md="mat-body-2">
+    <p ngClass.gt-sm="mat-body-2" ngClass.lt-md="mat-body-2" data-id="b9cd37a6">
       {{ 'Confirmación de pago usando Transfermóvil.' | translate }}
     </p>
-    <ul>
-      <div class="d-sm-none">
-        <li>
+    <ul data-id="81fa40c7">
+      <div class="d-sm-none" data-id="a72278a0">
+        <li data-id="63c123d3">
           {{ 'a. Abra la App de Transfermovil' | translate }}
         </li>
-        <li>
+        <li data-id="fcb76d09">
           {{ 'b. Busque la opción Pago en Línea.' | translate }}
         </li>
-        <li>
+        <li data-id="a9af6c9b">
           {{ 'c. Escanee el QR.' | translate }}
         </li>
-        <li>
+        <li data-id="ed39278d">
           {{ 'd. Proceda a ingresar los datos que la App solicita.' | translate }}
         </li>
-        <li>
+        <li data-id="e9a631dd">
           {{ 'e. Cuando concluya el pago, de clic en el botón LISTO.' | translate }}
         </li>
       </div>
@@ -28,27 +29,37 @@
         class="mt-2"
         color="primary"
         mat-flat-button
+        data-id="e1e921c6"
       >
         {{ 'Abrir la app de Transfermóvil' | translate }}</a
       >
     </ul>
   </div>
-  <div fxFlexFill class="d-flex flex-column justify-content-start align-items-center">
-    <img [src]="this.imgQR" class="mt-4" />
-    <div style="max-width: 20rem" class="d-flex justify-content-start align-items-end">
-      <span class="mat-title mt-3">
+  <div
+    fxFlexFill
+    class="d-flex flex-column justify-content-start align-items-center"
+    data-id="4e264963"
+  >
+    <img [src]="this.imgQR" class="mt-4" data-id="dff29f17" />
+    <div
+      style="max-width: 20rem"
+      class="d-flex justify-content-start align-items-end"
+      data-id="4fb67f52"
+    >
+      <span class="mat-title mt-3" data-id="75b5e9f6">
         {{ 'Total' | translate }}: &nbsp;{{ finalPrice | currencyMarket: currency }}
       </span>
     </div>
   </div>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions align="end" data-id="9fb84343">
   <button
     (click)="onCancelarTranfermovilPayment()"
     color="warn"
     mat-button
     mat-dialog-close
     title="{{ 'Pago listo, cerrar modal' | translate }}"
+    data-id="710fe8c5"
   >
     {{ 'Listo' | translate | uppercase }}
   </button>

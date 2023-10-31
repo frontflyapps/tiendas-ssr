@@ -1,16 +1,24 @@
 <div
   *ngIf="!create"
   class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column"
+  data-id="82754068"
 >
   <img
     *ngIf="!editing"
     [src]="imageSrc"
     [style]="config"
     class="d-flex justify-content-start align-items-start"
+    data-id="a3527ef0"
   />
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <button mat-raised-button *ngIf="!editing" (click)="onEdit(isEdit)" mat-icon-button>
-      <mat-icon>edit</mat-icon>
+  <div class="d-flex flex-column justify-content-center align-items-center" data-id="201ffe81">
+    <button
+      mat-raised-button
+      *ngIf="!editing"
+      (click)="onEdit(isEdit)"
+      mat-icon-button
+      data-id="99fb8706"
+    >
+      <mat-icon data-id="3849163b">edit</mat-icon>
     </button>
     <!--    <button mat-raised-button *ngIf='isEdit' (click)='onDelete($event)' mat-icon-button><mat-icon>delete</mat-icon></button>-->
   </div>
@@ -21,5 +29,6 @@
   ($imageChanged)="onImageChange($event)"
   [_config]="config"
   class="d-flex justify-content-start align-items-start"
+  data-id="52c83654"
 >
 </guajiritos-image-picker>

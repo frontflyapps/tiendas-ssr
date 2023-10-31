@@ -1,52 +1,70 @@
-<ng-container *ngIf="banners.length > 0">
-  <div class="d-flex justify-content-center align-items-center">
-    <ng-container *ngIf="banners.length === 1">
+<ng-container *ngIf="banners.length > 0" data-id="b4050129">
+  <div class="d-flex justify-content-center align-items-center" data-id="76e04f3e">
+    <ng-container *ngIf="banners.length === 1" data-id="c9c253af">
       <div
         *ngFor="let item of this.banners; let i = index"
         class="bannerCard p-3 my-2 d-flex flex-column justify-content-start align-items-stretch flex-sh-40 flex-sh-md-100"
+        data-id="95eeb2be"
       >
-        <div class="d-flex justify-content-start align-items-start">
+        <div class="d-flex justify-content-start align-items-start" data-id="03d4a967">
           <div
             class="pr-3 d-flex flex-column justify-content-start align-items-start flex-sh-50 flex-sh-md-100"
+            data-id="d3b2fec0"
           >
-            <h4 class="mat-title uppercase mb-0 module line-clamp" ngClass.lt-sm="mat-body-2">
+            <h4
+              class="mat-title uppercase mb-0 module line-clamp"
+              ngClass.lt-sm="mat-body-2"
+              data-id="e31aae58"
+            >
               {{ utilsService.parserLanguage(item.title, language) }}
             </h4>
             <!-- <p fxHide class="mat-body-1 module-text line-clamp-text mt-2">
               {{utilsService.parserLanguage(item.text,language)}}</p> -->
-            <a *ngIf="item.link" [href]="item.link" target="_blank">{{ 'See More' | translate }}</a>
+            <a *ngIf="item.link" [href]="item.link" target="_blank" data-id="b4f183b2">{{
+              'See More' | translate
+            }}</a>
           </div>
           <div
             class="image-section d-flex flex-column justify-content-start align-items-center flex-sh-50 flex-sh-md-100"
+            data-id="99fad64d"
           >
-            <img *ngIf="item.image" [src]="urlImage + item.image" />
-            <img *ngIf="!item.image" src="/assets/images/noImage.jpg" />
+            <img *ngIf="item.image" [src]="urlImage + item.image" data-id="50f5a250" />
+            <img *ngIf="!item.image" src="/assets/images/noImage.jpg" data-id="1a214fab" />
           </div>
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="banners.length > 1">
+    <ng-container *ngIf="banners.length > 1" data-id="4bf2e0ea">
       <div
         *ngFor="let item of this.banners; let i = index"
         [fxFlex]="90 / banners.length"
         class="bannerCard p-3 my-2 mx-2 d-flex flex-column justify-content-start align-items-stretch flex-sh-md-100"
+        data-id="d1239310"
       >
-        <div class="d-flex justify-content-start align-items-start">
+        <div class="d-flex justify-content-start align-items-start" data-id="6a0a79da">
           <div
             class="pr-3 d-flex flex-column justify-content-start align-items-start flex-sh-50 flex-sh-md-100"
+            data-id="a0f8ddaf"
           >
-            <h4 class="mat-title uppercase mb-0 module line-clamp" ngClass.lt-sm="mat-body-2">
+            <h4
+              class="mat-title uppercase mb-0 module line-clamp"
+              ngClass.lt-sm="mat-body-2"
+              data-id="96d89328"
+            >
               {{ utilsService.parserLanguage(item.title, language) }}
             </h4>
             <!-- <p fxHide class="mat-body-1 module-text line-clamp-text mt-2">
               {{utilsService.parserLanguage(item.text,language)}}</p> -->
-            <a *ngIf="item.link" [href]="item.link" target="_blank">{{ 'See More' | translate }}</a>
+            <a *ngIf="item.link" [href]="item.link" target="_blank" data-id="6878168d">{{
+              'See More' | translate
+            }}</a>
           </div>
           <div
             class="image-section d-flex flex-column justify-content-start align-items-center flex-sh-50 flex-sh-md-100"
+            data-id="2c0c8891"
           >
-            <img *ngIf="item.image" [src]="urlImage + item.image" />
-            <img *ngIf="!item.image" src="/assets/images/noImage.jpg" />
+            <img *ngIf="item.image" [src]="urlImage + item.image" data-id="7eeca720" />
+            <img *ngIf="!item.image" src="/assets/images/noImage.jpg" data-id="f8f35765" />
           </div>
         </div>
       </div>

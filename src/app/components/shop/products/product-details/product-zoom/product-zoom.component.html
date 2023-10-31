@@ -1,23 +1,24 @@
-<div class="d-flex justify-content-end align-items-center">
-  <button (click)="close()" class="close" color="warn" mat-mini-fab>
-    <mat-icon>close</mat-icon>
+<div class="d-flex justify-content-end align-items-center" data-id="510fdb44">
+  <button (click)="close()" class="close" color="warn" mat-mini-fab data-id="1e87951b">
+    <mat-icon data-id="c5c8f235">close</mat-icon>
   </button>
 </div>
 
-<div class="p-2" mat-dialog-content>
-  <div class="viewer d-flex justify-content-center align-items-stretch">
-    <img #zoomImage [src]="image.image" />
+<div class="p-2" mat-dialog-content data-id="e7eb9b10">
+  <div class="viewer d-flex justify-content-center align-items-stretch" data-id="daf3fe63">
+    <img #zoomImage [src]="image.image" data-id="9f8d6220" />
   </div>
 
-  <div class="controls d-flex">
+  <div class="controls d-flex" data-id="a0e3ad1f">
     <button
       (click)="zoomIn()"
       [disabled]="maxWidth === 100"
       class="zoom-in mx-2"
       color="primary"
       mat-mini-fab
+      data-id="a6b550a5"
     >
-      <mat-icon>zoom_in</mat-icon>
+      <mat-icon data-id="60fe5f5d">zoom_in</mat-icon>
     </button>
     <button
       (click)="zoomOut()"
@@ -25,8 +26,9 @@
       class="zoom-out mx-2"
       color="primary"
       mat-mini-fab
+      data-id="7e145ddd"
     >
-      <mat-icon>zoom_out</mat-icon>
+      <mat-icon data-id="4de7d32b">zoom_out</mat-icon>
     </button>
   </div>
 </div>

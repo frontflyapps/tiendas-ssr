@@ -1,16 +1,18 @@
-<div class="m-4 contentSize">
+<div class="m-4 contentSize" data-id="2a1e33cb">
   <app-invite-friend
     *ngIf="showinviteComponent; else friendComponent"
     [userLinkReferred]="userLinkReferred"
     (eventClose)="showComponent(componentName.MyFriendsComponent)"
+    data-id="875587ae"
   >
   </app-invite-friend>
 
-  <ng-template #friendComponent>
+  <ng-template #friendComponent data-id="82c9cbb4">
     <app-my-friends
       [referredUsers]="data?.ReferredPerson?.length"
       [paymentUsers]="data?.Payments?.length"
       (eventClose)="showComponent(componentName.InviteFriendComponent)"
+      data-id="efc0443b"
     >
     </app-my-friends>
   </ng-template>

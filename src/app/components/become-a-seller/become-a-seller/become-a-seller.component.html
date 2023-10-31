@@ -1,85 +1,103 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row class="d-flex justify-content-start align-items-center">
-    <a class="example-icon" href="#" mat-icon-button>
-      <mat-icon>arrow_back</mat-icon>
+<mat-toolbar color="primary" data-id="3bf89096">
+  <mat-toolbar-row class="d-flex justify-content-start align-items-center" data-id="1dabd308">
+    <a class="example-icon" href="#" mat-icon-button data-id="2add9f1c">
+      <mat-icon data-id="7e31c2ff">arrow_back</mat-icon>
     </a>
-    <img [src]="logo" style="height: 50px" alt="logo" />
-    <span class="example-spacer"></span>
+    <img [src]="logo" style="height: 50px" alt="logo" data-id="766c7674" />
+    <span class="example-spacer" data-id="95d86973"></span>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="w-100 mt-3 d-flex justify-content-start align-items-start">
+<div class="w-100 mt-3 d-flex justify-content-start align-items-start" data-id="49d4d118">
   <div
     class="stepperForm d-flex flex-column justify-content-start align-items-stretch flex-sh-md-100 flex-sh-70 flex-sh-sm-initial"
+    data-id="fa5febd0"
   >
-    <div class="container-stepper">
+    <div class="container-stepper" data-id="fe57b10d">
       <!--      <mat-horizontal-stepper #stepper [linear]="'true'" color='accent' labelPosition='bottom'>-->
       <!--        <mat-step>-->
-      <ng-template>{{ 'Información de su Negocio' | translate }}</ng-template>
+      <ng-template data-id="c40c1d46">{{ 'Información de su Negocio' | translate }}</ng-template>
 
       <div
         class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxLayoutGap-b9a2b6"
+        data-id="d92ca77b"
       >
-        <p class="mat-body-2 uppercase mb-1">{{ 'Logo del negocio' | translate }}*</p>
+        <p class="mat-body-2 uppercase mb-1" data-id="8cba941f">
+          {{ 'Logo del negocio' | translate }}*
+        </p>
         <app-guachos-image
           [create]="!imageSelected"
           [imageSrc]="imageBusiness"
           [config]="imagePickerConf"
           (imageChanged)="onImageChange($event)"
+          data-id="89f6bbee"
         ></app-guachos-image>
 
         <!-- NOMBRE DEL NEGOCIO -->
-        <p class="mat-body-2 uppercase mt-2 mb-1">
+        <p class="mat-body-2 uppercase mt-2 mb-1" data-id="74114cc6">
           {{ 'Datos iniciales' | translate }}
         </p>
 
-        <mat-form-field appearance="outline" class="form-field-width">
-          <mat-label>{{ 'Nombre del negocio' | translate }}</mat-label>
+        <mat-form-field appearance="outline" class="form-field-width" data-id="3ee9f9ec">
+          <mat-label data-id="5d0708b8">{{ 'Nombre del negocio' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('name')"
             (keypress)="utilsService.keyPressAlphaAndNumbers($event)"
             matInput
             placeholder="{{ 'Mi Negocio' | translate }}"
             type="text"
+            data-id="66d50afb"
           />
-          <mat-error *ngIf="basicForm.controls['name'].hasError('required')">
-            {{ 'Nombre' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error *ngIf="basicForm.controls['name'].hasError('required')" data-id="00472c5c">
+            {{ 'Nombre' | translate }}
+            <strong data-id="9f5dc749">{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
-        <mat-divider class="mt-3 mb-3"></mat-divider>
+        <mat-divider class="mt-3 mb-3" data-id="597d5c6b"></mat-divider>
 
         <!-- DATOS DE INSCRIPCIÓN DEL NEGOCIO -->
-        <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial">
-            <p class="mat-body-2 uppercase mb-1 mt-3">
+        <div
+          class="d-flex d-sm-flex justify-content-sm-between justify-content-between"
+          data-id="f1137786"
+        >
+          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial" data-id="a81b3ab5">
+            <p class="mat-body-2 uppercase mb-1 mt-3" data-id="c1306e91">
               {{ 'Datos de inscripcion' | translate }}
             </p>
 
-            <mat-form-field appearance="outline">
-              <mat-label>{{ 'Forma de gestión' }}</mat-label>
+            <mat-form-field appearance="outline" data-id="aa8e64b4">
+              <mat-label data-id="e1654689">{{ 'Forma de gestión' }}</mat-label>
               <mat-select
                 [formControl]="basicForm.controls['selfEmployed']"
                 (selectionChange)="selectSelfEmployed($event.value)"
+                data-id="b37cbeec"
               >
-                <mat-option *ngFor="let form of managementForm" [value]="form.value">
+                <mat-option
+                  *ngFor="let form of managementForm"
+                  [value]="form.value"
+                  data-id="a04803c3"
+                >
                   {{ form.viewValue }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="basicForm.controls['selfEmployed'].hasError('required')">
+              <mat-error
+                *ngIf="basicForm.controls['selfEmployed'].hasError('required')"
+                data-id="0e009040"
+              >
                 {{ 'Forma de gestión' | translate }}
-                <strong>{{ 'is required' | translate }}</strong>
+                <strong data-id="3d4443c6">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
 
-          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial">
-            <p class="mat-body-2 uppercase mb-1 mt-3">
+          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial" data-id="0aee6aac">
+            <p class="mat-body-2 uppercase mb-1 mt-3" data-id="ffc06354">
               {{ 'Número de Identificación Tributaria' | translate }}
             </p>
 
-            <mat-form-field appearance="outline" class="form-field-width">
-              <mat-label>{{ 'NIT' | translate }}</mat-label>
+            <mat-form-field appearance="outline" class="form-field-width" data-id="84b6eab4">
+              <mat-label data-id="e16914b2">{{ 'NIT' | translate }}</mat-label>
               <input
                 [formControl]="basicForm.controls['nit']"
                 matInput
@@ -87,34 +105,42 @@
                 type="text"
                 maxlength="11"
                 minlength="11"
+                data-id="77b08b0b"
               />
-              <mat-error *ngIf="basicForm.controls['nit'].hasError('required')">
-                {{ 'NIT' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+              <mat-error *ngIf="basicForm.controls['nit'].hasError('required')" data-id="00398104">
+                {{ 'NIT' | translate }}
+                <strong data-id="244a204c">{{ 'es requerido' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="basicForm.controls['nit'].hasError('pattern')">
-                {{ 'NIT ' | translate }} <strong>{{ 'incorrect' | translate }}</strong
+              <mat-error *ngIf="basicForm.controls['nit'].hasError('pattern')" data-id="b696b59b">
+                {{ 'NIT ' | translate }}
+                <strong data-id="3a1a5458">{{ 'incorrect' | translate }}</strong
                 >{{ ', debe ser un número de 11 dígitos' | translate }}
               </mat-error>
-              <mat-hint *ngIf="!basicForm.controls['nit'].value">
+              <mat-hint *ngIf="!basicForm.controls['nit'].value" data-id="1d7242d6">
                 {{ 'El NIT debe ser un número de 11 dígitos' | translate }}
               </mat-hint>
               <mat-hint
                 class="form-valid"
                 *ngIf="basicForm.controls['nit'].value && basicForm.controls['nit'].valid"
+                data-id="158298ec"
               >
                 {{ 'NIT válido' | translate }}
               </mat-hint>
             </mat-form-field>
           </div>
         </div>
-        <div *ngIf="basicForm.controls['selfEmployed'].value === false" class="d-flex">
-          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial">
-            <p class="mat-body-2 uppercase mb-1 mt-3">
+        <div
+          *ngIf="basicForm.controls['selfEmployed'].value === false"
+          class="d-flex"
+          data-id="7876019e"
+        >
+          <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial" data-id="ab94d266">
+            <p class="mat-body-2 uppercase mb-1 mt-3" data-id="c8f4dfc5">
               {{ 'Registro  de Empresas Estatales y Unidades Presupuestadas' | translate }}
             </p>
 
-            <mat-form-field appearance="outline" class="form-field-width">
-              <mat-label>{{ 'REUUP' | translate }}</mat-label>
+            <mat-form-field appearance="outline" class="form-field-width" data-id="dc62fcbf">
+              <mat-label data-id="c552cbc7">{{ 'REUUP' | translate }}</mat-label>
               <input
                 [formControl]="basicForm.controls['reuup']"
                 matInput
@@ -122,20 +148,27 @@
                 type="text"
                 maxlength="11"
                 minlength="11"
+                data-id="7527968e"
               />
-              <mat-error *ngIf="basicForm.controls['reuup'].hasError('required')">
-                {{ 'REUUP' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+              <mat-error
+                *ngIf="basicForm.controls['reuup'].hasError('required')"
+                data-id="29fb047f"
+              >
+                {{ 'REUUP' | translate }}
+                <strong data-id="b8d1bae9">{{ 'es requerido' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="basicForm.controls['reuup'].hasError('pattern')">
-                {{ 'REUUP ' | translate }} <strong>{{ 'incorrect' | translate }}</strong
+              <mat-error *ngIf="basicForm.controls['reuup'].hasError('pattern')" data-id="b0efa6d4">
+                {{ 'REUUP ' | translate }}
+                <strong data-id="2db55c85">{{ 'incorrect' | translate }}</strong
                 >{{ ', debe ser un número de 11 dígitos' | translate }}
               </mat-error>
-              <mat-hint *ngIf="!basicForm.controls['reuup'].value">
+              <mat-hint *ngIf="!basicForm.controls['reuup'].value" data-id="eb38acff">
                 {{ 'El REUUP debe ser un número de 11 dígitos' | translate }}
               </mat-hint>
               <mat-hint
                 class="form-valid"
                 *ngIf="basicForm.controls['reuup'].value && basicForm.controls['reuup'].valid"
+                data-id="d47b83a5"
               >
                 {{ 'REUUP válido' | translate }}
               </mat-hint>
@@ -144,13 +177,14 @@
         </div>
       </div>
 
-      <mat-divider class="mt-3 mb-3"></mat-divider>
+      <mat-divider class="mt-3 mb-3" data-id="8e775de7"></mat-divider>
 
       <!-- REPRESENTANTE -->
       <div
         class="d-flex justify-content-start align-items-center transpilerClass-fxLayoutGap-22be37"
+        data-id="231182f0"
       >
-        <p class="mat-body-2 uppercase mb-1">
+        <p class="mat-body-2 uppercase mb-1" data-id="6a2ffc59">
           {{ 'Representante legal del Negocio' | translate }}
         </p>
         <button
@@ -160,94 +194,152 @@
           class="mb-3"
           ngClass.xs="mb-3"
           (click)="fillLoggedInfo()"
+          data-id="fae8dd36"
         >
-          <mat-icon>edit_square</mat-icon>
+          <mat-icon data-id="43ccbe77">edit_square</mat-icon>
           {{ 'Llenar con mis datos' | translate }}
         </button>
       </div>
 
-      <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
-          <mat-label>{{ 'Nombre' | translate }}</mat-label>
+      <div
+        class="d-flex d-sm-flex justify-content-sm-between justify-content-between"
+        data-id="82ea79ee"
+      >
+        <mat-form-field
+          appearance="outline"
+          class="form-field-width flex-sh-50 flex-sh-sm-initial"
+          data-id="3c0aeadf"
+        >
+          <mat-label data-id="b20d5806">{{ 'Nombre' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('name')"
             (keypress)="utilsService.keyPressAlpha($event)"
             matInput
             placeholder="{{ 'Nombre del representante' | translate }}"
             type="text"
+            data-id="00946864"
           />
-          <mat-error *ngIf="basicForm.get('owner').get('name').hasError('required')">
-            {{ 'Nombre' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error
+            *ngIf="basicForm.get('owner').get('name').hasError('required')"
+            data-id="aeb70697"
+          >
+            {{ 'Nombre' | translate }}
+            <strong data-id="0c586f14">{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
-          <mat-label>{{ 'Apellidos' | translate }}</mat-label>
+        <mat-form-field
+          appearance="outline"
+          class="form-field-width flex-sh-50 flex-sh-sm-initial"
+          data-id="7f55df39"
+        >
+          <mat-label data-id="45692356">{{ 'Apellidos' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('lastName')"
             (keypress)="utilsService.keyPressAlpha($event)"
             matInput
             placeholder="{{ 'Apellidos del representante' | translate }}"
             type="text"
+            data-id="8520ef2a"
           />
-          <mat-error *ngIf="basicForm.get('owner').get('lastName').hasError('required')">
-            {{ 'Apellidos' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error
+            *ngIf="basicForm.get('owner').get('lastName').hasError('required')"
+            data-id="ba9babf9"
+          >
+            {{ 'Apellidos' | translate }}
+            <strong data-id="139b50e6">{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
       </div>
 
-      <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
-          <mat-label>{{ 'Número de identificación' | translate }}</mat-label>
+      <div
+        class="d-flex d-sm-flex justify-content-sm-between justify-content-between"
+        data-id="5747334d"
+      >
+        <mat-form-field
+          appearance="outline"
+          class="form-field-width flex-sh-50 flex-sh-sm-initial"
+          data-id="575e4362"
+        >
+          <mat-label data-id="81e03a17">{{ 'Número de identificación' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('ci')"
             (keypress)="utilsService.keyPressNumbers($event)"
             matInput
             placeholder="{{ 'Número de identificación del representante' | translate }}"
             type="text"
+            data-id="7ecb2e99"
           />
-          <mat-error *ngIf="basicForm.get('owner').get('ci').hasError('required')">
+          <mat-error
+            *ngIf="basicForm.get('owner').get('ci').hasError('required')"
+            data-id="de8b2929"
+          >
             {{ 'Número de identificación' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+            <strong data-id="7b7bfd35">{{ 'es requerido' | translate }}</strong>
           </mat-error>
           <mat-hint
             class="form-valid"
             *ngIf="basicForm.get('owner').get('ci').value && basicForm.get('owner').get('ci').valid"
+            data-id="5b1b2742"
           >
             {{ 'Número de identificación válido' | translate }}
           </mat-hint>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
-          <mat-label>{{ 'Cargo' | translate }}</mat-label>
+        <mat-form-field
+          appearance="outline"
+          class="form-field-width flex-sh-50 flex-sh-sm-initial"
+          data-id="194ed7b0"
+        >
+          <mat-label data-id="d6c82809">{{ 'Cargo' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('charge')"
             (keypress)="utilsService.keyPressAlpha($event)"
             matInput
             placeholder="{{ 'Cargo del representante' | translate }}"
             type="text"
+            data-id="c0194b05"
           />
-          <mat-error *ngIf="basicForm.get('owner').get('charge').hasError('required')">
-            {{ 'Cargo' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-error
+            *ngIf="basicForm.get('owner').get('charge').hasError('required')"
+            data-id="8a7f7b23"
+          >
+            {{ 'Cargo' | translate }}
+            <strong data-id="f3adf651">{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
       </div>
 
-      <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
-        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
-          <mat-label>{{ 'Teléfono' | translate }}</mat-label>
+      <div
+        class="d-flex d-sm-flex justify-content-sm-between justify-content-between"
+        data-id="e61e901a"
+      >
+        <mat-form-field
+          appearance="outline"
+          class="form-field-width flex-sh-50 flex-sh-sm-initial"
+          data-id="f0e4e6eb"
+        >
+          <mat-label data-id="c30fbe38">{{ 'Teléfono' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('phone')"
             (keypress)="utilsService.keyPressNumbers($event)"
             matInput
             placeholder="{{ 'Teléfono del representante' | translate }}"
             type="text"
+            data-id="0ee56aad"
           />
-          <mat-error *ngIf="basicForm.get('owner').get('phone').hasError('required')">
+          <mat-error
+            *ngIf="basicForm.get('owner').get('phone').hasError('required')"
+            data-id="b7692b88"
+          >
             {{ 'Teléfono del representante' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+            <strong data-id="53a1eaf2">{{ 'es requerido' | translate }}</strong>
           </mat-error>
-          <mat-error *ngIf="basicForm.get('owner').get('phone').hasError('pattern')">
-            {{ 'Teléfono celular debe tener ' | translate }} <strong>{{ '8' | translate }}</strong
+          <mat-error
+            *ngIf="basicForm.get('owner').get('phone').hasError('pattern')"
+            data-id="2b15d067"
+          >
+            {{ 'Teléfono celular debe tener ' | translate }}
+            <strong data-id="61041e71">{{ '8' | translate }}</strong
             >{{ ' dígitos o más' | translate }}
           </mat-error>
           <mat-hint
@@ -255,49 +347,66 @@
             *ngIf="
               basicForm.get('owner').get('phone').value && basicForm.get('owner').get('phone').valid
             "
+            data-id="02fe14e2"
           >
             {{ 'Teléfono del representante válido' | translate }}
           </mat-hint>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-sm-initial">
-          <mat-label>{{ 'Correo del representante' | translate }}</mat-label>
+        <mat-form-field
+          appearance="outline"
+          class="form-field-width flex-sh-50 flex-sh-sm-initial"
+          data-id="cdc941db"
+        >
+          <mat-label data-id="4546d79f">{{ 'Correo del representante' | translate }}</mat-label>
           <input
             [formControl]="basicForm.get('owner').get('email')"
             matInput
             required
             placeholder="ej: example@gmail.com"
             type="text"
+            data-id="94843f30"
           />
-          <mat-error *ngIf="basicForm.get('owner').get('email').hasError('required')">
+          <mat-error
+            *ngIf="basicForm.get('owner').get('email').hasError('required')"
+            data-id="f0517871"
+          >
             {{ 'Correo del representante' | translate }}
-            <strong>{{ 'es requerido' | translate }}</strong>
+            <strong data-id="ad717603">{{ 'es requerido' | translate }}</strong>
           </mat-error>
-          <mat-error *ngIf="basicForm.get('owner').get('email').hasError('pattern')">
+          <mat-error
+            *ngIf="basicForm.get('owner').get('email').hasError('pattern')"
+            data-id="9bb1cc68"
+          >
             {{ 'Correo del representante' | translate }}
-            <strong>{{ 'es inválido' | translate }}</strong>
+            <strong data-id="b56425c1">{{ 'es inválido' | translate }}</strong>
           </mat-error>
           <mat-hint
             class="form-valid"
             *ngIf="
               basicForm.get('owner').get('email').value && basicForm.get('owner').get('email').valid
             "
+            data-id="74f54afa"
           >
             {{ 'Correo del representante válido' | translate }}
           </mat-hint>
         </mat-form-field>
       </div>
 
-      <mat-divider class="mt-3 mb-3"></mat-divider>
+      <mat-divider class="mt-3 mb-3" data-id="7bcb4847"></mat-divider>
 
       <!-- CONTACTOS DEL NEGOCIO -->
-      <ng-container>
-        <div class="form-field-width d-flex flex-column justify-content-start align-items-stretch">
+      <ng-container data-id="0c818fbb">
+        <div
+          class="form-field-width d-flex flex-column justify-content-start align-items-stretch"
+          data-id="5cd6858f"
+        >
           <p
             class="mat-body-2 uppercase mb-1"
             [title]="
               'Sección donde pondra todos los contactos de su negocio, el número celular es obligatorio, lo contactarémos a este número en caso de tenerlo, para realizar una entrevista'
                 | translate
             "
+            data-id="7649554c"
           >
             {{ 'Contactos de la Empresa' | translate }}
             <mat-icon
@@ -306,36 +415,49 @@
                 'Sección donde pondrá todos los contactos de su negocio, el número celular es obligatorio, lo contactarémos a este número en caso de tenerlo, para realizar una entrevista'
                   | translate
               }}"
+              data-id="776015ec"
               >help
             </mat-icon>
           </p>
 
-          <div class="d-flex d-sm-flex justify-content-sm-between justify-content-between">
+          <div
+            class="d-flex d-sm-flex justify-content-sm-between justify-content-between"
+            data-id="d7ada429"
+          >
             <mat-form-field
               appearance="outline"
               class="form-field-width flex-sh-30 flex-sh-sm-initial"
+              data-id="e6f4741b"
             >
-              <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+              <mat-label data-id="702d1c6e">{{ 'Teléfono celular' | translate }}</mat-label>
               <input
                 [formControl]="basicForm.controls['cellphone']"
                 (keypress)="utilsService.keyPressNumbers($event)"
                 matInput
                 placeholder="ej: 52621645"
                 type="tel"
+                data-id="278209cf"
               />
-              <mat-icon class="greyIcon" matSuffix>smartphone</mat-icon>
-              <mat-error *ngIf="basicForm.controls['cellphone'].hasError('required')">
+              <mat-icon class="greyIcon" matSuffix data-id="8bd8740a">smartphone</mat-icon>
+              <mat-error
+                *ngIf="basicForm.controls['cellphone'].hasError('required')"
+                data-id="0342ad24"
+              >
                 {{ 'Teléfono celular' | translate }}
-                <strong>{{ 'es requerido' | translate }}</strong>
+                <strong data-id="3b633945">{{ 'es requerido' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="basicForm.controls['cellphone'].hasError('pattern')">
+              <mat-error
+                *ngIf="basicForm.controls['cellphone'].hasError('pattern')"
+                data-id="aa22837c"
+              >
                 {{ 'Teléfono celular debe tener ' | translate }}
-                <strong>{{ '8' | translate }}</strong
+                <strong data-id="0c830e4e">{{ '8' | translate }}</strong
                 >{{ ' dígitos o más' | translate }}
               </mat-error>
               <mat-hint
                 class="form-valid"
                 *ngIf="basicForm.get('cellphone').value && basicForm.get('cellphone').valid"
+                data-id="dc5d0690"
               >
                 {{ 'Teléfono celular de la empresa válido' | translate }}
               </mat-hint>
@@ -344,24 +466,31 @@
             <mat-form-field
               appearance="outline"
               class="form-field-width flex-sh-30 flex-sh-sm-initial"
+              data-id="80587d4d"
             >
-              <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
+              <mat-label data-id="b59cf19f">{{ 'Teléfono fijo' | translate }}</mat-label>
               <input
                 [formControl]="basicForm.controls['telephone']"
                 (keypress)="utilsService.keyPressNumbers($event)"
                 matInput
                 placeholder="ej: 7205 3519"
                 type="tel"
+                data-id="3a0d613a"
               />
-              <mat-icon class="greyIcon" matSuffix>phone</mat-icon>
+              <mat-icon class="greyIcon" matSuffix data-id="40bdc0cc">phone</mat-icon>
               <mat-hint
                 class="form-valid"
                 *ngIf="basicForm.get('telephone').value && basicForm.get('telephone').valid"
+                data-id="eed3bdc3"
               >
                 {{ 'Teléfono fijo de la empresa válido' | translate }}
               </mat-hint>
-              <mat-error *ngIf="basicForm.controls['telephone'].hasError('pattern')">
-                {{ 'Teléfono fijo debe tener ' | translate }} <strong>{{ '8' | translate }}</strong
+              <mat-error
+                *ngIf="basicForm.controls['telephone'].hasError('pattern')"
+                data-id="d543170b"
+              >
+                {{ 'Teléfono fijo debe tener ' | translate }}
+                <strong data-id="37025fe7">{{ '8' | translate }}</strong
                 >{{ ' dígitos o más' | translate }}
               </mat-error>
             </mat-form-field>
@@ -369,25 +498,32 @@
             <mat-form-field
               appearance="outline"
               class="form-field-width flex-sh-30 flex-sh-sm-initial"
+              data-id="08bb4c27"
             >
-              <mat-label>{{ 'Correo de la empresa' | translate }}</mat-label>
+              <mat-label data-id="22a0a81c">{{ 'Correo de la empresa' | translate }}</mat-label>
               <input
                 [formControl]="basicForm.controls['email']"
                 matInput
                 placeholder="ej: example@gmail.com"
                 required
                 type="text"
+                data-id="0d3730ab"
               />
-              <mat-icon class="greyIcon" matSuffix>mail</mat-icon>
-              <mat-error *ngIf="basicForm.controls['email'].hasError('required')">
-                {{ 'Correo de la empresa' }} <strong>{{ 'es requerido' }}</strong>
+              <mat-icon class="greyIcon" matSuffix data-id="db798cfb">mail</mat-icon>
+              <mat-error
+                *ngIf="basicForm.controls['email'].hasError('required')"
+                data-id="2042f993"
+              >
+                {{ 'Correo de la empresa' }}
+                <strong data-id="f42daba9">{{ 'es requerido' }}</strong>
               </mat-error>
-              <mat-error *ngIf="basicForm.controls['email'].hasError('pattern')">
-                {{ 'Correo de la empresa' }} <strong>{{ 'es inválido' }}</strong>
+              <mat-error *ngIf="basicForm.controls['email'].hasError('pattern')" data-id="b9711c7b">
+                {{ 'Correo de la empresa' }} <strong data-id="d19bec37">{{ 'es inválido' }}</strong>
               </mat-error>
               <mat-hint
                 class="form-valid"
                 *ngIf="basicForm.get('email').value && basicForm.get('email').valid"
+                data-id="096ea7d0"
               >
                 {{ 'Correo de la empresa es válido' | translate }}
               </mat-hint>
@@ -396,54 +532,81 @@
         </div>
       </ng-container>
 
-      <div>
-        <ng-template>{{ 'Localización' | translate }}</ng-template>
+      <div data-id="066b31a2">
+        <ng-template data-id="3ac2d31f">{{ 'Localización' | translate }}</ng-template>
 
-        <div class="form-field-width d-flex justify-content-between align-items-center">
+        <div
+          class="form-field-width d-flex justify-content-between align-items-center"
+          data-id="b7dbe5fb"
+        >
           <div
             class="d-flex flex-column justify-content-start align-items-start flex-sh-50 flex-sh-md-100"
+            data-id="d212eaed"
           >
-            <p class="mat-body-2 uppercase mb-1">
+            <p class="mat-body-2 uppercase mb-1" data-id="7de82d74">
               {{ 'Provincia' | translate }}
             </p>
-            <mat-form-field appearance="outline" class="form-field-width">
+            <mat-form-field appearance="outline" class="form-field-width" data-id="51e4037a">
               <mat-select
                 (selectionChange)="onSelectProvince($event.value)"
                 [formControl]="basicForm.controls['ProvinceId']"
                 placeholder="{{ 'Nombre de la provincia' | translate }}"
                 required
                 type="text"
+                data-id="f277626a"
               >
-                <mat-option *ngFor="let province of allProvinces" [value]="province.id">
+                <mat-option
+                  *ngFor="let province of allProvinces"
+                  [value]="province.id"
+                  data-id="e41aef42"
+                >
                   {{ province.name }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="basicForm.controls['ProvinceId'].hasError('required')">
-                {{ 'Provincia' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="basicForm.controls['ProvinceId'].hasError('required')"
+                data-id="ead5e859"
+              >
+                {{ 'Provincia' | translate }}
+                <strong data-id="7267c3d3">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
 
           <div
             class="d-flex flex-column justify-content-start align-items-start flex-sh-50 flex-sh-md-100"
+            data-id="acc1b5a6"
           >
-            <p class="mat-body-2 uppercase mb-1">
+            <p class="mat-body-2 uppercase mb-1" data-id="c9cacdcf">
               {{ 'Municipio' | translate }}
             </p>
 
-            <mat-form-field appearance="outline" class="form-field-width flex-sh-50 flex-sh-md-100">
+            <mat-form-field
+              appearance="outline"
+              class="form-field-width flex-sh-50 flex-sh-md-100"
+              data-id="90ed53ee"
+            >
               <mat-select
                 [formControl]="basicForm.controls['MunicipalityId']"
                 placeholder="{{ 'Nombre del Municipio' | translate }}"
                 required
                 type="text"
+                data-id="21955bc1"
               >
-                <mat-option *ngFor="let municipio of municipalities" [value]="municipio.id">
+                <mat-option
+                  *ngFor="let municipio of municipalities"
+                  [value]="municipio.id"
+                  data-id="fcd56fce"
+                >
                   {{ municipio.name }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="basicForm.controls['MunicipalityId'].hasError('required')">
-                {{ 'Municipio' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="basicForm.controls['MunicipalityId'].hasError('required')"
+                data-id="2931a78c"
+              >
+                {{ 'Municipio' | translate }}
+                <strong data-id="7ed8487a">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -451,46 +614,59 @@
 
         <!-- <google-map height="400px" width="100%" [zoom]="zoom" [center]="center" [options]="options"></google-map> -->
 
-        <p class="mat-body-2 uppercase mb-1">
+        <p class="mat-body-2 uppercase mb-1" data-id="cfe2e0a1">
           {{ 'Dirección' | translate }}
           <mat-icon
             class="iconHelp"
             matTooltip="{{
               'Dirección exacta de su negocio, verificaremos esta dirección' | translate
             }}"
+            data-id="e1098f4f"
             >help
           </mat-icon>
         </p>
 
-        <mat-form-field appearance="outline" class="form-field-width">
+        <mat-form-field appearance="outline" class="form-field-width" data-id="c7507db2">
           <input
             [formControl]="basicForm.controls['address']"
             matInput
             placeholder="ej: 39 #3022 e/ 30 y 36 , La Sierra, Playa"
             required
             type="text"
+            data-id="f5396cc6"
           />
-          <mat-icon class="greyIcon" matSuffix>location</mat-icon>
-          <mat-error *ngIf="basicForm.controls['address'].hasError('required')">
-            {{ 'Dirección' | translate }} <strong>{{ 'es requerido' | translate }}</strong>
+          <mat-icon class="greyIcon" matSuffix data-id="9c154f6e">location</mat-icon>
+          <mat-error *ngIf="basicForm.controls['address'].hasError('required')" data-id="d179b8b8">
+            {{ 'Dirección' | translate }}
+            <strong data-id="8851fccb">{{ 'es requerido' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
-        <mat-checkbox class="mb-4 mt-2" [formControl]="basicForm.controls['checked']">
+        <mat-checkbox
+          class="mb-4 mt-2"
+          [formControl]="basicForm.controls['checked']"
+          data-id="fae1ad91"
+        >
           {{ 'Al seleccionar esta opción usted acepta nuestos ' | translate }}
-          <a [href]="imageUrl + '2da35f81-5480-4295-862e-4c4e6d7a7455.pdf'" target="_blank"
-            ><strong>{{ 'Términos y condiciones' | translate }}</strong></a
+          <a
+            [href]="imageUrl + '2da35f81-5480-4295-862e-4c4e6d7a7455.pdf'"
+            target="_blank"
+            data-id="9e9d16bf"
+            ><strong data-id="9eeacd98">{{ 'Términos y condiciones' | translate }}</strong></a
           >
         </mat-checkbox>
       </div>
-      <div>
-        <button class="uppercase" mat-button>{{ 'Anterior' | translate }}</button>
+      <div data-id="1f614552">
+        <button class="uppercase" mat-button data-id="ecb422ef">
+          {{ 'Anterior' | translate }}
+        </button>
         <button
           (click)="onCreateBusiness()"
           [disabled]="basicForm.invalid || !basicForm.get('checked').value"
           class="uppercase"
           color="primary"
           mat-raised-button
+          data-id="9ab108fe"
         >
           {{ 'Enviar' | translate }}
         </button>
@@ -503,23 +679,24 @@
   <div
     id="questions-bar"
     class="questions d-flex flex-column justify-content-start align-items-stretch flex-sh-0"
+    data-id="43428f6d"
   >
-    <div class="row-line d-flex justify-content-start align-items-start">
-      <span class="mat-title mb-0 color-grey-800" style="font-weight: 600">{{
+    <div class="row-line d-flex justify-content-start align-items-start" data-id="75a2b68f">
+      <span class="mat-title mb-0 color-grey-800" style="font-weight: 600" data-id="26f9b0c6">{{
         'Preguntas frecuentes' | translate
       }}</span>
     </div>
 
-    <mat-accordion multi>
-      <mat-expansion-panel class="mat-elevation-z0">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span style="color: #0066c0">
+    <mat-accordion multi data-id="044257d0">
+      <mat-expansion-panel class="mat-elevation-z0" data-id="da4993fc">
+        <mat-expansion-panel-header data-id="5348c8de">
+          <mat-panel-title data-id="3f0da303">
+            <span style="color: #0066c0" data-id="4af7275c">
               {{ '¿Qué formato debe tener el número de teléfono?' | translate }}
             </span>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>
+        <p data-id="79679944">
           {{
             'Los números tienen que incluir un prefijo con el código de nuestro país. Formato correcto:5353612042 .'
               | translate
@@ -527,16 +704,16 @@
         </p>
       </mat-expansion-panel>
 
-      <mat-expansion-panel class="mat-elevation-z0">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span style="color: #0066c0">
+      <mat-expansion-panel class="mat-elevation-z0" data-id="e9933ff2">
+        <mat-expansion-panel-header data-id="7e9ce35a">
+          <mat-panel-title data-id="00458537">
+            <span style="color: #0066c0" data-id="b1735a5d">
               {{ '¿Es importante tener una cuenta de correo que use frecuentemente?' | translate }}
             </span>
           </mat-panel-title>
-          <mat-panel-description></mat-panel-description>
+          <mat-panel-description data-id="a5773237"></mat-panel-description>
         </mat-expansion-panel-header>
-        <p>
+        <p data-id="92da4131">
           {{
             'Además de enviar el pin de validación de la cuenta de vendedor, todas las notificaciones de ventas y entregas relacionadas con sus productos se harán a través de esta cuenta de correo'
               | translate

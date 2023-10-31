@@ -1,18 +1,23 @@
-<div class="price-slider">
-  <div class="d-flex justify-content-between align-items-center">
-    <mat-form-field appearance="outline" style="width: 120px; margin-right: 8px">
-      <mat-label style="text-transform: capitalize"> {{ 'min' | translate }}</mat-label>
+<div class="price-slider" data-id="afa06617">
+  <div class="d-flex justify-content-between align-items-center" data-id="7096933b">
+    <mat-form-field appearance="outline" style="width: 120px; margin-right: 8px" data-id="6e0a3d6e">
+      <mat-label style="text-transform: capitalize" data-id="fc44568e">
+        {{ 'min' | translate }}</mat-label
+      >
       <input
         (change)="priceFilter()"
         [formControl]="priceForm.get('priceFrom')"
         [min]="0"
         matInput
         type="number"
+        data-id="e503842b"
       />
     </mat-form-field>
     :
-    <mat-form-field appearance="outline" style="width: 120px; margin-right: 8px">
-      <mat-label style="text-transform: capitalize"> {{ 'max' | translate }}</mat-label>
+    <mat-form-field appearance="outline" style="width: 120px; margin-right: 8px" data-id="657f2f20">
+      <mat-label style="text-transform: capitalize" data-id="15bd38a3">
+        {{ 'max' | translate }}</mat-label
+      >
       <input
         (change)="priceFilter()"
         [formControl]="priceForm.get('priceTo')"
@@ -20,6 +25,7 @@
         [min]="priceForm.get('priceFrom')"
         matInput
         type="number"
+        data-id="ffb4837f"
       />
     </mat-form-field>
   </div>

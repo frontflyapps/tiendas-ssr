@@ -1,19 +1,31 @@
-<div class="container">
-  <div class="d-flex flex-column justify-content-start align-items-stretch">
-    <mat-card class="mx-auto my-3" id="CardLogin">
+<div class="container" data-id="1e92a258">
+  <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="32267e19">
+    <mat-card class="mx-auto my-3" id="CardLogin" data-id="80ed8e1a">
       <!-- <div *ngIf="inLoading" class="loading-shade">
         <mat-spinner *ngIf="inLoading"></mat-spinner>
       </div> -->
 
-      <div class="py-2 mt-2 d-flex flex-column justify-content-center align-items-start">
-        <img *ngIf="!showRegistrationForm" [src]="logo" class="login-logo mx-auto" />
+      <div
+        class="py-2 mt-2 d-flex flex-column justify-content-center align-items-start"
+        data-id="93d3dfea"
+      >
+        <img
+          *ngIf="!showRegistrationForm"
+          [src]="logo"
+          class="login-logo mx-auto"
+          data-id="6030101f"
+        />
       </div>
 
       <div
         class="mat-elevation-z8 d-flex flex-column justify-content-start align-items-stretch"
         id="CardBodyLoggin"
+        data-id="c7379161"
       >
-        <div class="w-100 p-2 mt-3 d-flex justify-content-center align-items-center">
+        <div
+          class="w-100 p-2 mt-3 d-flex justify-content-center align-items-center"
+          data-id="ca28e15c"
+        >
           <button
             (click)="onGoBefore()"
             *ngIf="
@@ -25,27 +37,52 @@
             "
             [routerLink]="['/my-account']"
             mat-icon-button
+            data-id="8b9e189b"
           >
-            <mat-icon>arrow_back</mat-icon>
+            <mat-icon data-id="d600d28b">arrow_back</mat-icon>
           </button>
-          <span *ngIf="showLoginForm" class="mat-title mb-0" ngClass.xs="mat-body-2">{{
-            'Sign in to your account' | translate
-          }}</span>
-          <span *ngIf="showRegistrationForm" class="mat-title mb-0" ngClass.xs="mat-body-2">{{
-            'Register and be part of us' | translate
-          }}</span>
-          <span *ngIf="showPinForm" class="mat-title mb-0" ngClass.xs="mat-body-2">{{
-            'User validation' | translate
-          }}</span>
-          <span *ngIf="showResetPassForm" class="mat-title mb-0" ngClass.xs="mat-body-2">{{
-            'Change your password' | translate
-          }}</span>
-          <span *ngIf="showNewPassForm" class="mat-title mb-0" ngClass.xs="mat-body-2">{{
-            'Create new password' | translate
-          }}</span>
-          <span *ngIf="showActivateForm" class="mat-title mb-0" ngClass.xs="mat-body-2">{{
-            'Validate account' | translate
-          }}</span>
+          <span
+            *ngIf="showLoginForm"
+            class="mat-title mb-0"
+            ngClass.xs="mat-body-2"
+            data-id="bce970dc"
+            >{{ 'Sign in to your account' | translate }}</span
+          >
+          <span
+            *ngIf="showRegistrationForm"
+            class="mat-title mb-0"
+            ngClass.xs="mat-body-2"
+            data-id="0913b537"
+            >{{ 'Register and be part of us' | translate }}</span
+          >
+          <span
+            *ngIf="showPinForm"
+            class="mat-title mb-0"
+            ngClass.xs="mat-body-2"
+            data-id="bd04c42e"
+            >{{ 'User validation' | translate }}</span
+          >
+          <span
+            *ngIf="showResetPassForm"
+            class="mat-title mb-0"
+            ngClass.xs="mat-body-2"
+            data-id="cd3f7f4e"
+            >{{ 'Change your password' | translate }}</span
+          >
+          <span
+            *ngIf="showNewPassForm"
+            class="mat-title mb-0"
+            ngClass.xs="mat-body-2"
+            data-id="a31eadc2"
+            >{{ 'Create new password' | translate }}</span
+          >
+          <span
+            *ngIf="showActivateForm"
+            class="mat-title mb-0"
+            ngClass.xs="mat-body-2"
+            data-id="4db521fd"
+            >{{ 'Validate account' | translate }}</span
+          >
         </div>
 
         <!-- =========================================================================== -->
@@ -53,10 +90,11 @@
         <div
           *ngIf="showLoginForm"
           class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+          data-id="afbe6706"
         >
-          <form [formGroup]="loginForm" class="login-form">
-            <mat-form-field appearance="outline" class="example-full-width mt-2">
-              <mat-label>{{ 'Email' | translate }}</mat-label>
+          <form [formGroup]="loginForm" class="login-form" data-id="0b71c2b7">
+            <mat-form-field appearance="outline" class="example-full-width mt-2" data-id="54bb900a">
+              <mat-label data-id="a42df92a">{{ 'Email' | translate }}</mat-label>
               <input
                 [disabled]="inLoading"
                 [formControl]="loginForm.controls['username']"
@@ -65,17 +103,25 @@
                 name="username"
                 placeholder="{{ 'Email' | translate }}"
                 required
+                data-id="867de9d5"
               />
-              <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
-                {{ 'Username' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="loginForm.controls['username'].hasError('required')"
+                data-id="8450379f"
+              >
+                {{ 'Username' | translate }}
+                <strong data-id="79c8b0b6">{{ 'is required' | translate }}</strong>
               </mat-error>
-              <mat-error *ngIf="loginForm.controls['username'].hasError('pattern')">
+              <mat-error
+                *ngIf="loginForm.controls['username'].hasError('pattern')"
+                data-id="c1ae2b9b"
+              >
                 {{ 'El nombre debe contener carateres alfanuméricos' | translate }}
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>{{ 'Password' | translate }}</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width" data-id="0bb7ef2a">
+              <mat-label data-id="a6986774">{{ 'Password' | translate }}</mat-label>
               <input
                 [disabled]="inLoading"
                 [formControl]="loginForm.controls['password']"
@@ -84,16 +130,26 @@
                 name="password"
                 placeholder="{{ 'Password' | translate }}"
                 type="{{ passType }}"
+                data-id="67bb8597"
               />
-              <mat-icon (click)="showPass()" class="grey-700" matSuffix style="cursor: pointer"
+              <mat-icon
+                (click)="showPass()"
+                class="grey-700"
+                matSuffix
+                style="cursor: pointer"
+                data-id="f54b6f26"
                 >remove_red_eye
               </mat-icon>
-              <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
-                {{ 'Password' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="loginForm.controls['username'].hasError('required')"
+                data-id="80316687"
+              >
+                {{ 'Password' | translate }}
+                <strong data-id="c9f7d262">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
 
-            <div class="mb-3 d-flex justify-content-center align-items-center">
+            <div class="mb-3 d-flex justify-content-center align-items-center" data-id="69c8c0a5">
               <button
                 (click)="
                   login(loginForm.controls['username'].value, loginForm.controls['password'].value)
@@ -103,8 +159,9 @@
                 color="primary"
                 mat-raised-button
                 type="submit"
+                data-id="d27a42e5"
               >
-                <span class="uppercase">{{ 'Entrar' | translate }}</span>
+                <span class="uppercase" data-id="ceda5b04">{{ 'Entrar' | translate }}</span>
               </button>
             </div>
 
@@ -116,11 +173,13 @@
             <div
               *ngIf="localDatabaseUsers"
               class="my-1 d-flex justify-content-center align-items-center"
+              data-id="9e63f4d4"
             >
               <a
                 [queryParams]="{ modal: 'password' }"
                 [routerLink]="['/my-account']"
                 class="uppercase mat-subheading-1 my-1 grey-700 span-link"
+                data-id="fcf12754"
                 >{{ 'Forgot my passsword' | translate }}</a
               >
             </div>
@@ -128,11 +187,13 @@
             <div
               *ngIf="localDatabaseUsers && businessConfig?.signUpType == 'normal'"
               class="my-1 d-flex justify-content-center align-items-center"
+              data-id="c723b842"
             >
               <a
                 [queryParams]="{ modal: 'validate' }"
                 [routerLink]="['/my-account']"
                 class="uppercase mat-subheading-1 my-1 grey-700 span-link"
+                data-id="ea916499"
                 >{{ 'Validate account' | translate }}</a
               >
             </div>
@@ -140,11 +201,13 @@
             <div
               *ngIf="localDatabaseUsers"
               class="my-1 d-flex justify-content-center align-items-center"
+              data-id="b448de13"
             >
               <a
                 [queryParams]="{ modal: 'registration' }"
                 [routerLink]="['/my-account']"
                 class="uppercase mat-subheading-1 my-1 grey-700 span-link"
+                data-id="cad6fe2c"
                 >{{ 'Register' | translate }}</a
               >
             </div>
@@ -165,79 +228,112 @@
 
         <!-- =========================================================================== -->
         <!-- REGISTRATION -->
-        <ng-container *ngIf="showRegistrationForm">
+        <ng-container *ngIf="showRegistrationForm" data-id="f5ce3e4c">
           <ng-container
             *ngIf="
               businessConfig?.signUpType == 'multiple' && showRegistrationForm;
               else noMultiple
             "
+            data-id="7cdb0330"
           >
-            <div class="mx-3 d-flex flex-column">
+            <div class="mx-3 d-flex flex-column" data-id="73987dc5">
               <mat-button-toggle-group
                 [formControl]="signUpTypesForm.get('signUpType')"
                 name="toggle"
                 aria-label="Favorite Color"
                 class="flex-sh-50"
+                data-id="acad8455"
               >
                 <mat-button-toggle
                   class="toggle-button flex-sh-50"
                   *ngFor="let type of signUpTypes"
                   [value]="type.value"
+                  data-id="a91ffe9f"
                   >{{ type.viewValue }}</mat-button-toggle
                 >
               </mat-button-toggle-group>
               <ng-container
                 *ngIf="signUpTypesForm.get('signUpType').value === 'normal'; else tcpRegistration"
+                data-id="517ee0f7"
               >
                 <div
                   class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+                  data-id="751f8f89"
                 >
-                  <form class="example-full-width">
-                    <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
-                      <div class="d-flex justify-content-between align-items-start">
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'Name' | translate }}</mat-label>
+                  <form class="example-full-width" data-id="1a23f485">
+                    <div
+                      class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
+                      data-id="228bd934"
+                    >
+                      <div
+                        class="d-flex justify-content-between align-items-start"
+                        data-id="0fcaa0bc"
+                      >
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="65ca3f6b"
+                        >
+                          <mat-label data-id="a39a2451">{{ 'Name' | translate }}</mat-label>
                           <input
                             [formControl]="registrationForm.controls['name']"
                             matInput
                             placeholder="{{ 'Name' | translate }}"
                             required
+                            data-id="f903c34b"
                           />
-                          <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
-                            {{ 'Name' | translate }}&nbsp;<strong>{{
+                          <mat-error
+                            *ngIf="registrationForm.controls['name'].hasError('required')"
+                            data-id="2dfb8f92"
+                          >
+                            {{ 'Name' | translate }}&nbsp;<strong data-id="d2f79bac">{{
                               'is required' | translate
                             }}</strong>
                           </mat-error>
-                          <mat-error *ngIf="registrationForm.controls['name'].hasError('pattern')">
+                          <mat-error
+                            *ngIf="registrationForm.controls['name'].hasError('pattern')"
+                            data-id="6b15a72c"
+                          >
                             {{ 'El nombre debe contener carateres alfanuméricos' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'Lastname' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="e76718fd"
+                        >
+                          <mat-label data-id="8d7bd5e3">{{ 'Lastname' | translate }}</mat-label>
                           <input
                             [formControl]="registrationForm.controls['lastname']"
                             matInput
                             placeholder="{{ 'Lastname' | translate }}"
                             required
+                            data-id="cbf06f4b"
                           />
                           <mat-error
                             *ngIf="registrationForm.controls['lastname'].hasError('required')"
+                            data-id="5c19dd1c"
                           >
-                            {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                            {{ 'Lastname' | translate }}&nbsp;<strong data-id="035f4983">{{
                               'is required' | translate
                             }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="registrationForm.controls['lastname'].hasError('pattern')"
+                            data-id="90678908"
                           >
                             {{ 'El apellido debe contener carateres alfanuméricos' | translate }}
                           </mat-error>
                         </mat-form-field>
                       </div>
 
-                      <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                        <mat-label>{{ 'Email' | translate }}</mat-label>
+                      <mat-form-field
+                        appearance="outline"
+                        class="flex-sh-50 flex-sh-md-100"
+                        data-id="cc1bca71"
+                      >
+                        <mat-label data-id="aab57960">{{ 'Email' | translate }}</mat-label>
                         <input
                           (keypress)="utilsService.keyLettersNumberForEmail($event)"
                           [formControl]="registrationForm.controls['email']"
@@ -247,17 +343,27 @@
                           name="email"
                           placeholder="{{ 'Email' | translate }}"
                           required
+                          data-id="8446a6d8"
                         />
-                        <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
-                          {{ 'Email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                        <mat-error
+                          *ngIf="registrationForm.controls['email'].hasError('required')"
+                          data-id="cf39f3a7"
+                        >
+                          {{ 'Email' | translate }}
+                          <strong data-id="0d62ea31">{{ 'is required' | translate }}</strong>
                         </mat-error>
-                        <mat-error *ngIf="registrationForm.controls['email'].hasError('pattern')">
-                          {{ 'Email' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+                        <mat-error
+                          *ngIf="registrationForm.controls['email'].hasError('pattern')"
+                          data-id="b54deee9"
+                        >
+                          {{ 'Email' | translate }}
+                          <strong data-id="2004f91e">{{ 'incorrecto' | translate }}</strong>
                         </mat-error>
                       </mat-form-field>
 
                       <div
                         class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-2085bb"
+                        data-id="377761e9"
                       >
                         <guajiritos-general-autocomplete
                           [withoutPaddingBottom]="false"
@@ -269,14 +375,18 @@
                           [url]="phoneCodesService.url"
                           [formControl]="registrationForm.get('PhoneCallingCodeId')"
                           class="flex-sh-30 flex-sh-md-30"
+                          data-id="c5aeb0b4"
                         ></guajiritos-general-autocomplete>
 
                         <mat-form-field
                           appearance="outline"
                           id="phone"
                           class="flex-sh-70 flex-sh-md-70"
+                          data-id="4fe37b91"
                         >
-                          <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+                          <mat-label data-id="f4a35854">{{
+                            'Teléfono celular' | translate
+                          }}</mat-label>
                           <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                           <input
                             (keypress)="utilsService.keyPressNumbers($event)"
@@ -284,12 +394,14 @@
                             matInput
                             autocomplete="off"
                             placeholder="{{ 'Teléfono...' | translate }}"
+                            data-id="4f6345a9"
                           />
                           <mat-hint
                             *ngIf="
                               registrationForm.get('phone').value &&
                               registrationForm.get('phone').valid
                             "
+                            data-id="18f291fe"
                           >
                             {{ 'Número válido' | translate }}
                           </mat-hint>
@@ -299,34 +411,47 @@
                                 registrationForm.controls['phone'].hasError('maxlength')) &&
                               !registrationForm.controls['phone'].hasError('pattern')
                             "
+                            data-id="81ae8a9f"
                           >
-                            {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                              '8 caracteres, Ex: 51234567' | translate
-                            }}</strong>
+                            {{ 'Longitud del número' | translate }}&nbsp;<strong
+                              data-id="27e6c8b1"
+                              >{{ '8 caracteres, Ex: 51234567' | translate }}</strong
+                            >
                           </mat-error>
                         </mat-form-field>
                       </div>
 
                       <div
                         class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
+                        data-id="64f610a6"
                       >
-                        <mat-form-field appearance="outline" class="example-full-width flex-sh-50">
-                          <mat-label>{{ 'Password' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="example-full-width flex-sh-50"
+                          data-id="b5825026"
+                        >
+                          <mat-label data-id="953b7492">{{ 'Password' | translate }}</mat-label>
                           <input
                             [formControl]="fromPassRegister.controls['password']"
                             matInput
                             placeholder="{{ 'Password' | translate }}"
                             required
                             type="{{ passType }}"
+                            data-id="2e297afd"
                           />
-                          <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                          <mat-icon
+                            (click)="showPass()"
+                            class="grey-600"
+                            matSuffix
+                            data-id="0f325556"
                             >remove_red_eye</mat-icon
                           >
                           <mat-error
                             *ngIf="fromPassRegister.controls['password'].hasError('required')"
+                            data-id="f8373144"
                           >
                             {{ 'Password' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="ca482d4e">{{ 'is required' | translate }}</strong>
                           </mat-error>
 
                           <mat-error
@@ -334,9 +459,10 @@
                               fromPassRegister.hasError('mismatch') &&
                               !fromPassRegister.controls['password'].hasError('pattern')
                             "
+                            data-id="ed00729e"
                           >
                             {{ 'Password' | translate }}
-                            <strong>{{ 'most be equals' | translate }}</strong>
+                            <strong data-id="0c74bb77">{{ 'most be equals' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
@@ -348,8 +474,11 @@
                           }"
                           appearance="outline"
                           class="example-full-width flex-sh-50"
+                          data-id="e74cf2f2"
                         >
-                          <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
+                          <mat-label data-id="613d5024">{{
+                            'Repita la contraseña' | translate
+                          }}</mat-label>
                           <input
                             [formControl]="fromPassRegister.controls['repeat']"
                             [ngClass]="{ 'ng-invalid': fromPassRegister.hasError('mismatch') }"
@@ -357,8 +486,13 @@
                             placeholder="{{ 'Repita la contraseña' | translate }}"
                             required
                             type="{{ passType }}"
+                            data-id="ec336b34"
                           />
-                          <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                          <mat-icon
+                            (click)="showPass()"
+                            class="grey-600"
+                            matSuffix
+                            data-id="18cb451a"
                             >remove_red_eye</mat-icon
                           >
                           <mat-error
@@ -366,25 +500,33 @@
                               fromPassRegister.hasError('mismatch') &&
                               !fromPassRegister.controls['password'].hasError('pattern')
                             "
+                            data-id="36ae00f4"
                           >
                             {{ 'Password' | translate }}
-                            <strong>{{ 'most be equals' | translate }}</strong>
+                            <strong data-id="21e888f7">{{ 'most be equals' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
                       </div>
-                      <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
+                      <mat-error
+                        *ngIf="fromPassRegister.controls['password'].hasError('pattern')"
+                        data-id="46b27a59"
+                      >
                         {{
                           'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                             | translate
                         }}
                       </mat-error>
 
-                      <mat-checkbox [formControl]="registrationForm.get('checkAge')" class="d-flex">
-                        <span
+                      <mat-checkbox
+                        [formControl]="registrationForm.get('checkAge')"
+                        class="d-flex"
+                        data-id="bd122465"
+                      >
+                        <span data-id="a67c1b8e"
                           >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                          <br />
+                          <br data-id="d2094371" />
                         </span>
-                        <a [routerLink]="['/term-conditions']">
+                        <a [routerLink]="['/term-conditions']" data-id="fef93b56">
                           {{ 'términos y condiciones' | translate }}
                         </a>
                       </mat-checkbox>
@@ -396,70 +538,107 @@
                         </ngx-recaptcha2>
                       </div> -->
 
-                      <div class="pt-4 d-flex justify-content-center align-items-center">
+                      <div
+                        class="pt-4 d-flex justify-content-center align-items-center"
+                        data-id="c5d5d52f"
+                      >
                         <button
                           (click)="onSignUp()"
                           [disabled]="registrationForm.invalid"
                           class="RegisterBtn"
                           color="primary"
                           mat-raised-button
+                          data-id="7526111c"
                         >
-                          <span class="uppercase color-white">{{ 'Register' | translate }}</span>
+                          <span class="uppercase color-white" data-id="00b226ef">{{
+                            'Register' | translate
+                          }}</span>
                         </button>
                       </div>
                     </div>
                   </form>
                 </div>
               </ng-container>
-              <ng-template #tcpRegistration>
-                <ng-container>
+              <ng-template #tcpRegistration data-id="aff5f10d">
+                <ng-container data-id="e4e26e0c">
                   <div
                     class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+                    data-id="a9e1b759"
                   >
-                    <form class="example-full-width">
+                    <form class="example-full-width" data-id="cf810dd5">
                       <div
                         class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
+                        data-id="418e8d7f"
                       >
-                        <div class="d-flex justify-content-between align-items-start">
-                          <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                            <mat-label>{{ 'Name' | translate }}</mat-label>
+                        <div
+                          class="d-flex justify-content-between align-items-start"
+                          data-id="d1ba15d0"
+                        >
+                          <mat-form-field
+                            appearance="outline"
+                            class="flex-sh-50 flex-sh-md-100"
+                            data-id="66719898"
+                          >
+                            <mat-label data-id="32732c0d">{{ 'Name' | translate }}</mat-label>
                             <input
                               [formControl]="regTcpForm.controls['name']"
                               matInput
                               placeholder="{{ 'Name' | translate }}"
                               required
+                              data-id="09caed40"
                             />
-                            <mat-error *ngIf="regTcpForm.controls['name'].hasError('required')">
-                              {{ 'Name' | translate }}&nbsp;<strong>{{
+                            <mat-error
+                              *ngIf="regTcpForm.controls['name'].hasError('required')"
+                              data-id="549867b8"
+                            >
+                              {{ 'Name' | translate }}&nbsp;<strong data-id="d6f8afb5">{{
                                 'is required' | translate
                               }}</strong>
                             </mat-error>
-                            <mat-error *ngIf="regTcpForm.controls['name'].hasError('pattern')">
+                            <mat-error
+                              *ngIf="regTcpForm.controls['name'].hasError('pattern')"
+                              data-id="7204cb4b"
+                            >
                               {{ 'El nombre debe contener solo letras' | translate }}
                             </mat-error>
                           </mat-form-field>
 
-                          <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                            <mat-label>{{ 'Lastname' | translate }}</mat-label>
+                          <mat-form-field
+                            appearance="outline"
+                            class="flex-sh-50 flex-sh-md-100"
+                            data-id="bec2fcdf"
+                          >
+                            <mat-label data-id="5dfd1976">{{ 'Lastname' | translate }}</mat-label>
                             <input
                               [formControl]="regTcpForm.controls['lastname']"
                               matInput
                               placeholder="{{ 'Lastname' | translate }}"
                               required
+                              data-id="ebfb5a69"
                             />
-                            <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('required')">
-                              {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                            <mat-error
+                              *ngIf="regTcpForm.controls['lastname'].hasError('required')"
+                              data-id="5ba0e1a1"
+                            >
+                              {{ 'Lastname' | translate }}&nbsp;<strong data-id="29fd75bf">{{
                                 'is required' | translate
                               }}</strong>
                             </mat-error>
-                            <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('pattern')">
+                            <mat-error
+                              *ngIf="regTcpForm.controls['lastname'].hasError('pattern')"
+                              data-id="bca410bb"
+                            >
                               {{ 'El apellido debe contener solo letras' | translate }}
                             </mat-error>
                           </mat-form-field>
                         </div>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'Email' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="248d43d6"
+                        >
+                          <mat-label data-id="e7e79334">{{ 'Email' | translate }}</mat-label>
                           <input
                             (keypress)="utilsService.keyLettersNumberForEmail($event)"
                             [formControl]="regTcpForm.controls['email']"
@@ -469,42 +648,66 @@
                             name="email"
                             placeholder="{{ 'Email' | translate }}"
                             required
+                            data-id="e1f664dd"
                           />
-                          <mat-error *ngIf="regTcpForm.controls['email'].hasError('required')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['email'].hasError('required')"
+                            data-id="04be76e6"
+                          >
                             {{ 'Email' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="eed6b4c2">{{ 'is required' | translate }}</strong>
                           </mat-error>
-                          <mat-error *ngIf="regTcpForm.controls['email'].hasError('pattern')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['email'].hasError('pattern')"
+                            data-id="4c3644de"
+                          >
                             {{ 'Email' | translate }}
-                            <strong>{{ 'incorrecto' | translate }}</strong>
+                            <strong data-id="de017dee">{{ 'incorrecto' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'No. de Identidad' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="6f91ff62"
+                        >
+                          <mat-label data-id="aadf5281">{{
+                            'No. de Identidad' | translate
+                          }}</mat-label>
                           <input
                             matInput
                             placeholder="{{ 'No. de Identidad' | translate }}"
                             required
                             (keypress)="utilsService.keyPressNumbers($event)"
                             [formControl]="regTcpForm.controls['ci']"
+                            data-id="ae8bf037"
                           />
-                          <mat-error *ngIf="regTcpForm.controls['ci'].hasError('required')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['ci'].hasError('required')"
+                            data-id="f3335183"
+                          >
                             {{ 'No. de Identidad' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="b2535a51">{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
                               regTcpForm.controls['ci'].hasError('minlength') ||
                               regTcpForm.controls['ci'].hasError('maxlength')
                             "
+                            data-id="178d42c1"
                           >
                             {{ 'El número de identidad debe contener 11 dígitos' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'No. de Licencia TCP' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="3ad7111b"
+                        >
+                          <mat-label data-id="48e666b1">{{
+                            'No. de Licencia TCP' | translate
+                          }}</mat-label>
 
                           <input
                             matInput
@@ -512,24 +715,35 @@
                             required
                             (keypress)="utilsService.keyPressAlphaAndNumbersModUsername($event)"
                             [formControl]="regTcpForm.controls['licenceTCP']"
+                            data-id="4092b697"
                           />
 
-                          <mat-error *ngIf="regTcpForm.controls['licenceTCP'].hasError('required')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['licenceTCP'].hasError('required')"
+                            data-id="1fba8dba"
+                          >
                             {{ 'No. de Licencia TCP' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="33fbfacd">{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
                               regTcpForm.controls['licenceTCP'].hasError('minlength') ||
                               regTcpForm.controls['licenceTCP'].hasError('maxlength')
                             "
+                            data-id="7e997b43"
                           >
                             {{ 'El No. de Licencia TCP debe contener 11 dígitos' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'No. carnet ONAT' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="8b9f1d4f"
+                        >
+                          <mat-label data-id="ac5ec2f0">{{
+                            'No. carnet ONAT' | translate
+                          }}</mat-label>
 
                           <input
                             matInput
@@ -537,18 +751,28 @@
                             required
                             (keypress)="utilsService.keyPressAlphaAndNumbersModUsername($event)"
                             [formControl]="regTcpForm.controls['ciONAT']"
+                            data-id="e4078caa"
                           />
 
-                          <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('required')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['ciONAT'].hasError('required')"
+                            data-id="e02def14"
+                          >
                             {{ 'No. carnet ONAT' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="e6b2aea2">{{ 'is required' | translate }}</strong>
                           </mat-error>
-                          <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('pattern')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['ciONAT'].hasError('pattern')"
+                            data-id="192c8368"
+                          >
                             {{ 'No. carnet ONAT debe contener 11 números' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <div class="d-flex justify-content-between align-items-start">
+                        <div
+                          class="d-flex justify-content-between align-items-start"
+                          data-id="aecf44a1"
+                        >
                           <guajiritos-general-autocomplete
                             [withoutPaddingBottom]="false"
                             [label]="'Código de teléfono'"
@@ -559,13 +783,17 @@
                             [url]="phoneCodesService.url"
                             [formControl]="regTcpForm.get('PhoneCallingCodeId')"
                             class="flex-sh-30 flex-sh-md-30"
+                            data-id="b227b6c4"
                           ></guajiritos-general-autocomplete>
                           <mat-form-field
                             id="phone"
                             appearance="outline"
                             class="flex-sh-70 flex-sh-md-100"
+                            data-id="9ba37807"
                           >
-                            <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+                            <mat-label data-id="f305a2f9">{{
+                              'Teléfono celular' | translate
+                            }}</mat-label>
                             <!--                            <span matPrefix class="mr-2">+ 53</span>-->
                             <input
                               matInput
@@ -573,14 +801,16 @@
                               required
                               (keypress)="utilsService.keyPressNumbers($event)"
                               [formControl]="regTcpForm.get('phoneCel')"
+                              data-id="822d1dac"
                             />
-                            <mat-hint *ngIf="!regTcpForm.get('phoneCel').value">
+                            <mat-hint *ngIf="!regTcpForm.get('phoneCel').value" data-id="f3817c36">
                               {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
                             </mat-hint>
                             <mat-hint
                               *ngIf="
                                 regTcpForm.get('phoneCel').value && regTcpForm.get('phoneCel').valid
                               "
+                              data-id="ae176b92"
                             >
                               {{ 'Número válido' | translate }}
                             </mat-hint>
@@ -590,89 +820,130 @@
                                   regTcpForm.controls['phoneCel'].hasError('maxlength')) &&
                                 !regTcpForm.controls['phoneCel'].hasError('pattern')
                               "
+                              data-id="ddc4b6d8"
                             >
-                              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
-                                '8 caracteres, Ex: 51234567' | translate
-                              }}</strong>
+                              {{ 'Longitud del número' | translate }}&nbsp;<strong
+                                data-id="62004831"
+                                >{{ '8 caracteres, Ex: 51234567' | translate }}</strong
+                              >
                             </mat-error>
-                            <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                              {{ 'El número' | translate }}&nbsp;<strong>{{
+                            <mat-error
+                              *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')"
+                              data-id="c28e5bec"
+                            >
+                              {{ 'El número' | translate }}&nbsp;<strong data-id="20620121">{{
                                 'debe empezar con 5, Ex: 51234567' | translate
                               }}</strong>
                             </mat-error>
                           </mat-form-field>
                         </div>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="6a8cdd27"
+                        >
+                          <mat-label data-id="a5171e2e">{{
+                            'Teléfono fijo' | translate
+                          }}</mat-label>
                           <input
                             matInput
                             placeholder="{{ 'Teléfono fijo' | translate }}"
                             required
                             (keypress)="utilsService.keyPressNumbers($event)"
                             [formControl]="regTcpForm.get('phone')"
+                            data-id="9e16d2d1"
                           />
 
-                          <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                            {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
+                          <mat-error
+                            *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')"
+                            data-id="fef8a0ec"
+                          >
+                            {{ 'Teléfono fijo' | translate }}&nbsp;<strong data-id="3025babc">{{
                               'is required' | translate
                             }}</strong>
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="mt-2 flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="mt-2 flex-sh-50 flex-sh-md-100"
+                          data-id="5d465917"
+                        >
+                          <mat-label data-id="2c546af9">{{
+                            'Actividad que desarrolla' | translate
+                          }}</mat-label>
 
                           <textarea
                             [formControl]="regTcpForm.get('activity')"
                             matInput
                             required
                             placeholder="{{ 'Descripción' | translate }}"
+                            data-id="81f63904"
                           ></textarea>
 
-                          <mat-error *ngIf="regTcpForm.controls['activity'].hasError('required')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['activity'].hasError('required')"
+                            data-id="ff1de9f6"
+                          >
                             {{ 'Actividad que desarrolla' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="3ae43ba5">{{ 'is required' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                          <mat-label>{{ 'Dirección' | translate }}</mat-label>
+                        <mat-form-field
+                          appearance="outline"
+                          class="flex-sh-50 flex-sh-md-100"
+                          data-id="ba68d42d"
+                        >
+                          <mat-label data-id="cba9c549">{{ 'Dirección' | translate }}</mat-label>
                           <input
                             matInput
                             placeholder="{{ 'Dirección' | translate }}"
                             required
                             [formControl]="regTcpForm.controls['address']"
+                            data-id="25c870a4"
                           />
-                          <mat-error *ngIf="regTcpForm.controls['address'].hasError('required')">
+                          <mat-error
+                            *ngIf="regTcpForm.controls['address'].hasError('required')"
+                            data-id="d59ef501"
+                          >
                             {{ 'Dirección' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="92be5e7a">{{ 'is required' | translate }}</strong>
                           </mat-error>
                         </mat-form-field>
 
                         <div
                           class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
+                          data-id="1ad9ebe5"
                         >
                           <mat-form-field
                             class="example-full-width flex-sh-50"
                             appearance="outline"
+                            data-id="39545e9e"
                           >
-                            <mat-label>{{ 'Password' | translate }}</mat-label>
+                            <mat-label data-id="cd78c851">{{ 'Password' | translate }}</mat-label>
                             <input
                               [formControl]="fromPassRegister.controls['password']"
                               matInput
                               placeholder="{{ 'Password' | translate }}"
                               required
                               type="{{ passType }}"
+                              data-id="57668a88"
                             />
-                            <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                            <mat-icon
+                              (click)="showPass()"
+                              class="grey-600"
+                              matSuffix
+                              data-id="8b15d317"
                               >remove_red_eye</mat-icon
                             >
                             <mat-error
                               *ngIf="fromPassRegister.controls['password'].hasError('required')"
+                              data-id="25e5c002"
                             >
                               {{ 'Password' | translate }}
-                              <strong>{{ 'is required' | translate }}</strong>
+                              <strong data-id="41a8ec6c">{{ 'is required' | translate }}</strong>
                             </mat-error>
 
                             <mat-error
@@ -680,9 +951,10 @@
                                 fromPassRegister.hasError('mismatch') &&
                                 !fromPassRegister.controls['password'].hasError('pattern')
                               "
+                              data-id="f852c0b8"
                             >
                               {{ 'Password' | translate }}
-                              <strong>{{ 'most be equals' | translate }}</strong>
+                              <strong data-id="8e2c614c">{{ 'most be equals' | translate }}</strong>
                             </mat-error>
                           </mat-form-field>
 
@@ -694,8 +966,11 @@
                             }"
                             appearance="outline"
                             class="example-full-width flex-sh-50"
+                            data-id="cb92b921"
                           >
-                            <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
+                            <mat-label data-id="68311f4e">{{
+                              'Repita la contraseña' | translate
+                            }}</mat-label>
                             <input
                               [formControl]="fromPassRegister.controls['repeat']"
                               [ngClass]="{ 'ng-invalid': fromPassRegister.hasError('mismatch') }"
@@ -703,8 +978,13 @@
                               placeholder="{{ 'Repita la contraseña' | translate }}"
                               required
                               type="{{ passType }}"
+                              data-id="d7960786"
                             />
-                            <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                            <mat-icon
+                              (click)="showPass()"
+                              class="grey-600"
+                              matSuffix
+                              data-id="0219105a"
                               >remove_red_eye</mat-icon
                             >
                             <mat-error
@@ -712,14 +992,16 @@
                                 fromPassRegister.hasError('mismatch') &&
                                 !fromPassRegister.controls['password'].hasError('pattern')
                               "
+                              data-id="0d83b7a1"
                             >
                               {{ 'Password' | translate }}
-                              <strong>{{ 'most be equals' | translate }}</strong>
+                              <strong data-id="b2719e81">{{ 'most be equals' | translate }}</strong>
                             </mat-error>
                           </mat-form-field>
                         </div>
                         <mat-error
                           *ngIf="fromPassRegister.controls['password'].hasError('pattern')"
+                          data-id="9e1a9813"
                         >
                           {{
                             'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
@@ -734,22 +1016,28 @@
                           </ngx-recaptcha2>
                         </div> -->
 
-                        <span class="section-title my-2" translate>Datos Financieros</span>
+                        <span class="section-title my-2" translate data-id="f6a0e9ef"
+                          >Datos Financieros</span
+                        >
 
-                        <mat-form-field appearance="outline">
-                          <mat-label>{{ 'Cuenta bancaria MLC' | translate }}</mat-label>
+                        <mat-form-field appearance="outline" data-id="0a5ddac5">
+                          <mat-label data-id="ff6023ad">{{
+                            'Cuenta bancaria MLC' | translate
+                          }}</mat-label>
                           <input
                             matInput
                             placeholder="{{ 'Cuenta bancaria MLC' | translate }}"
                             required
                             (keypress)="utilsService.keyPressNumbers($event)"
                             [formControl]="regTcpForm.controls['bankAccountCard26']"
+                            data-id="b696aa3c"
                           />
                           <mat-error
                             *ngIf="regTcpForm.controls['bankAccountCard26'].hasError('required')"
+                            data-id="faa94dc3"
                           >
                             {{ 'Cuenta bancaria MLC' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="1351d0a1">{{ 'is required' | translate }}</strong>
                           </mat-error>
 
                           <mat-error
@@ -757,24 +1045,27 @@
                               regTcpForm.controls['bankAccountCard26'].hasError('minlength') ||
                               regTcpForm.controls['bankAccountCard26'].hasError('maxlength')
                             "
+                            data-id="278c8681"
                           >
                             {{ 'Cuenta bancaria MLC debe tener 16 números' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline">
-                          <mat-label>{{ 'Banco' | translate }}</mat-label>
+                        <mat-form-field appearance="outline" data-id="7a41a21a">
+                          <mat-label data-id="4d998538">{{ 'Banco' | translate }}</mat-label>
                           <input
                             matInput
                             placeholder="{{ 'Banco' | translate }}"
                             required
                             [formControl]="regTcpForm.controls['bankNameCard26']"
+                            data-id="916a5450"
                           />
                           <mat-error
                             *ngIf="regTcpForm.controls['bankNameCard26'].hasError('required')"
+                            data-id="5c3157b5"
                           >
                             {{ 'Banco' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="209e9507">{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
@@ -782,39 +1073,48 @@
                               regTcpForm.controls['bankNameCard26'].hasError('maxlength') ||
                               regTcpForm.controls['bankNameCard26'].hasError('pattern')
                             "
+                            data-id="f7dfb070"
                           >
                             {{ 'Nombre del Banco inválido' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline">
-                          <mat-label>{{ 'Sucursal' | translate }}</mat-label>
+                        <mat-form-field appearance="outline" data-id="072f8db4">
+                          <mat-label data-id="a02b4799">{{ 'Sucursal' | translate }}</mat-label>
                           <input
                             matInput
                             placeholder="{{ 'Sucursal' | translate }}"
                             required
                             (keypress)="utilsService.keyPressNumbers($event)"
                             [formControl]="regTcpForm.controls['bankOfficeCard26']"
+                            data-id="30197b9e"
                           />
                           <mat-error
                             *ngIf="regTcpForm.controls['bankOfficeCard26'].hasError('required')"
+                            data-id="fb7b2c61"
                           >
                             {{ 'Sucursal' | translate }}
-                            <strong>{{ 'is required' | translate }}</strong>
+                            <strong data-id="b946d6b9">{{ 'is required' | translate }}</strong>
                           </mat-error>
                           <mat-error
                             *ngIf="
                               regTcpForm.controls['bankOfficeCard26'].hasError('minlength') ||
                               regTcpForm.controls['bankOfficeCard26'].hasError('maxlength')
                             "
+                            data-id="a61bfc86"
                           >
                             {{ 'Sucursal debe tener 4 números como máximo' | translate }}
                           </mat-error>
                         </mat-form-field>
 
-                        <div class="d-flex flex-column transpilerClass-fxLayoutGap-d1c016">
-                          <span class="section-title mb-2" translate>Documentos adjuntos</span>
-                          <span class="mat-caption section-sub-title" translate>
+                        <div
+                          class="d-flex flex-column transpilerClass-fxLayoutGap-d1c016"
+                          data-id="48feb251"
+                        >
+                          <span class="section-title mb-2" translate data-id="41206bba"
+                            >Documentos adjuntos</span
+                          >
+                          <span class="mat-caption section-sub-title" translate data-id="3e5d5247">
                             Estos documentos serán usados para validar su registro en nuestra
                             tienda. (Se admiten fotos o pdf de sus documentos TCP)
                           </span>
@@ -825,28 +1125,39 @@
                           [multiple]="false"
                           [label]="'Seleccione adjuntos'"
                           (uploadFile)="onSelectPdf($event)"
+                          data-id="0757b72a"
                         >
                         </app-upload-file>
 
-                        <mat-checkbox [formControl]="regTcpForm.get('checkAge')" class="d-flex">
-                          <span
+                        <mat-checkbox
+                          [formControl]="regTcpForm.get('checkAge')"
+                          class="d-flex"
+                          data-id="14da5502"
+                        >
+                          <span data-id="fe636385"
                             >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                            <br />
+                            <br data-id="83de5a1f" />
                           </span>
-                          <a [routerLink]="['/term-conditions']">
+                          <a [routerLink]="['/term-conditions']" data-id="8a6b8e9b">
                             {{ 'términos y condiciones' | translate }}
                           </a>
                         </mat-checkbox>
 
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div
+                          class="d-flex justify-content-center align-items-center"
+                          data-id="704c130d"
+                        >
                           <button
                             mat-raised-button
                             color="primary"
                             class="RegisterBtn"
                             [disabled]="regTcpForm.invalid || !selectedDocument"
                             (click)="onSignUpTCP()"
+                            data-id="6294554d"
                           >
-                            <span class="uppercase color-white">{{ 'Register' | translate }}</span>
+                            <span class="uppercase color-white" data-id="6af99807">{{
+                              'Register' | translate
+                            }}</span>
                           </button>
                         </div>
                       </div>
@@ -858,51 +1169,86 @@
           </ng-container>
         </ng-container>
 
-        <ng-template #noMultiple>
-          <ng-container *ngIf="businessConfig?.signUpType == 'tcp'; else normalRegitretion">
-            <div class="FormLayout d-flex flex-column justify-content-start align-items-stretch">
-              <form class="example-full-width">
-                <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                      <mat-label>{{ 'Name' | translate }}</mat-label>
+        <ng-template #noMultiple data-id="3657bf79">
+          <ng-container
+            *ngIf="businessConfig?.signUpType == 'tcp'; else normalRegitretion"
+            data-id="42c570a0"
+          >
+            <div
+              class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+              data-id="feb3a50e"
+            >
+              <form class="example-full-width" data-id="822a3e7d">
+                <div
+                  class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
+                  data-id="bfe08b0f"
+                >
+                  <div class="d-flex justify-content-between align-items-start" data-id="ca53baa2">
+                    <mat-form-field
+                      appearance="outline"
+                      class="flex-sh-50 flex-sh-md-100"
+                      data-id="133ea59f"
+                    >
+                      <mat-label data-id="89b67b9d">{{ 'Name' | translate }}</mat-label>
                       <input
                         [formControl]="regTcpForm.controls['name']"
                         matInput
                         placeholder="{{ 'Name' | translate }}"
                         required
+                        data-id="6a74fca6"
                       />
-                      <mat-error *ngIf="regTcpForm.controls['name'].hasError('required')">
-                        {{ 'Name' | translate }}&nbsp;<strong>{{
+                      <mat-error
+                        *ngIf="regTcpForm.controls['name'].hasError('required')"
+                        data-id="860a21c0"
+                      >
+                        {{ 'Name' | translate }}&nbsp;<strong data-id="7bb65984">{{
                           'is required' | translate
                         }}</strong>
                       </mat-error>
-                      <mat-error *ngIf="regTcpForm.controls['name'].hasError('pattern')">
+                      <mat-error
+                        *ngIf="regTcpForm.controls['name'].hasError('pattern')"
+                        data-id="3522ec52"
+                      >
                         {{ 'El nombre debe contener solo letras' | translate }}
                       </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                      <mat-label>{{ 'Lastname' | translate }}</mat-label>
+                    <mat-form-field
+                      appearance="outline"
+                      class="flex-sh-50 flex-sh-md-100"
+                      data-id="7095b6e3"
+                    >
+                      <mat-label data-id="da5565f2">{{ 'Lastname' | translate }}</mat-label>
                       <input
                         [formControl]="regTcpForm.controls['lastname']"
                         matInput
                         placeholder="{{ 'Lastname' | translate }}"
                         required
+                        data-id="a4319214"
                       />
-                      <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('required')">
-                        {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                      <mat-error
+                        *ngIf="regTcpForm.controls['lastname'].hasError('required')"
+                        data-id="28408780"
+                      >
+                        {{ 'Lastname' | translate }}&nbsp;<strong data-id="12b15a2f">{{
                           'is required' | translate
                         }}</strong>
                       </mat-error>
-                      <mat-error *ngIf="regTcpForm.controls['lastname'].hasError('pattern')">
+                      <mat-error
+                        *ngIf="regTcpForm.controls['lastname'].hasError('pattern')"
+                        data-id="d2067e46"
+                      >
                         {{ 'El apellido debe contener solo letras' | translate }}
                       </mat-error>
                     </mat-form-field>
                   </div>
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'Email' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="ebb65810"
+                  >
+                    <mat-label data-id="4b718c00">{{ 'Email' | translate }}</mat-label>
                     <input
                       (keypress)="utilsService.keyLettersNumberForEmail($event)"
                       [formControl]="regTcpForm.controls['email']"
@@ -912,40 +1258,64 @@
                       name="email"
                       placeholder="{{ 'Email' | translate }}"
                       required
+                      data-id="6f15d210"
                     />
-                    <mat-error *ngIf="regTcpForm.controls['email'].hasError('required')">
-                      {{ 'Email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                    <mat-error
+                      *ngIf="regTcpForm.controls['email'].hasError('required')"
+                      data-id="e4ac2820"
+                    >
+                      {{ 'Email' | translate }}
+                      <strong data-id="123bf050">{{ 'is required' | translate }}</strong>
                     </mat-error>
-                    <mat-error *ngIf="regTcpForm.controls['email'].hasError('pattern')">
-                      {{ 'Email' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+                    <mat-error
+                      *ngIf="regTcpForm.controls['email'].hasError('pattern')"
+                      data-id="8989acc0"
+                    >
+                      {{ 'Email' | translate }}
+                      <strong data-id="c6529a70">{{ 'incorrecto' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'No. de Identidad' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="d5af44ee"
+                  >
+                    <mat-label data-id="02c5bedd">{{ 'No. de Identidad' | translate }}</mat-label>
                     <input
                       matInput
                       placeholder="{{ 'No. de Identidad' | translate }}"
                       required
                       (keypress)="utilsService.keyPressNumbers($event)"
                       [formControl]="regTcpForm.controls['ci']"
+                      data-id="0f7a9898"
                     />
-                    <mat-error *ngIf="regTcpForm.controls['ci'].hasError('required')">
+                    <mat-error
+                      *ngIf="regTcpForm.controls['ci'].hasError('required')"
+                      data-id="ad21e3fa"
+                    >
                       {{ 'No. de Identidad' | translate }}
-                      <strong>{{ 'is required' | translate }}</strong>
+                      <strong data-id="c695e77f">{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="
                         regTcpForm.controls['ci'].hasError('minlength') ||
                         regTcpForm.controls['ci'].hasError('maxlength')
                       "
+                      data-id="6b584b98"
                     >
                       {{ 'El número de identidad debe contener 11 dígitos' | translate }}
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'No. de Licencia TCP' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="ca3a9391"
+                  >
+                    <mat-label data-id="ca8a8431">{{
+                      'No. de Licencia TCP' | translate
+                    }}</mat-label>
 
                     <input
                       matInput
@@ -953,24 +1323,33 @@
                       required
                       (keypress)="utilsService.keyPressAlphaAndNumbersModUsername($event)"
                       [formControl]="regTcpForm.controls['licenceTCP']"
+                      data-id="e971ee64"
                     />
 
-                    <mat-error *ngIf="regTcpForm.controls['licenceTCP'].hasError('required')">
+                    <mat-error
+                      *ngIf="regTcpForm.controls['licenceTCP'].hasError('required')"
+                      data-id="dbb8fc18"
+                    >
                       {{ 'No. de Licencia TCP' | translate }}
-                      <strong>{{ 'is required' | translate }}</strong>
+                      <strong data-id="d121baa0">{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="
                         regTcpForm.controls['licenceTCP'].hasError('minlength') ||
                         regTcpForm.controls['licenceTCP'].hasError('maxlength')
                       "
+                      data-id="10aa7b20"
                     >
                       {{ 'El No. de Licencia TCP debe contener 11 dígitos' | translate }}
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'No. carnet ONAT' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="50b1d0c3"
+                  >
+                    <mat-label data-id="a0edb498">{{ 'No. carnet ONAT' | translate }}</mat-label>
 
                     <input
                       matInput
@@ -978,37 +1357,47 @@
                       required
                       (keypress)="utilsService.keyPressAlphaAndNumbersModUsername($event)"
                       [formControl]="regTcpForm.controls['ciONAT']"
+                      data-id="50659737"
                     />
 
-                    <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('required')">
+                    <mat-error
+                      *ngIf="regTcpForm.controls['ciONAT'].hasError('required')"
+                      data-id="a09e015a"
+                    >
                       {{ 'No. carnet ONAT' | translate }}
-                      <strong>{{ 'is required' | translate }}</strong>
+                      <strong data-id="e8d06b2b">{{ 'is required' | translate }}</strong>
                     </mat-error>
-                    <mat-error *ngIf="regTcpForm.controls['ciONAT'].hasError('pattern')">
+                    <mat-error
+                      *ngIf="regTcpForm.controls['ciONAT'].hasError('pattern')"
+                      data-id="f348d2ff"
+                    >
                       {{ 'No. carnet ONAT debe contener 11 números' | translate }}
                     </mat-error>
                   </mat-form-field>
 
-                  <div class="d-flex justify-content-between align-items-start">
+                  <div class="d-flex justify-content-between align-items-start" data-id="281fbfac">
                     <mat-form-field
                       id="phone"
                       appearance="outline"
                       class="flex-sh-50 flex-sh-md-100"
+                      data-id="2a1c3f81"
                     >
-                      <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
-                      <span matPrefix class="mr-2">+ 53</span>
+                      <mat-label data-id="f5215f3a">{{ 'Teléfono celular' | translate }}</mat-label>
+                      <span matPrefix class="mr-2" data-id="47798bda">+ 53</span>
                       <input
                         matInput
                         placeholder="{{ 'Teléfono cubano...' | translate }}"
                         required
                         (keypress)="utilsService.keyPressNumbers($event)"
                         [formControl]="regTcpForm.get('phoneCel')"
+                        data-id="5ade0b9b"
                       />
-                      <mat-hint *ngIf="!regTcpForm.get('phoneCel').value">
+                      <mat-hint *ngIf="!regTcpForm.get('phoneCel').value" data-id="e45d0ffe">
                         {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
                       </mat-hint>
                       <mat-hint
                         *ngIf="regTcpForm.get('phoneCel').value && regTcpForm.get('phoneCel').valid"
+                        data-id="3aa400df"
                       >
                         {{ 'Número válido' | translate }}
                       </mat-hint>
@@ -1018,83 +1407,123 @@
                             regTcpForm.controls['phoneCel'].hasError('maxlength')) &&
                           !regTcpForm.controls['phoneCel'].hasError('pattern')
                         "
+                        data-id="ba502c46"
                       >
-                        {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+                        {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="3730891d">{{
                           '8 caracteres, Ex: 51234567' | translate
                         }}</strong>
                       </mat-error>
-                      <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                        {{ 'El número' | translate }}&nbsp;<strong>{{
+                      <mat-error
+                        *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')"
+                        data-id="54d958c2"
+                      >
+                        {{ 'El número' | translate }}&nbsp;<strong data-id="7b0b46ac">{{
                           'debe empezar con 5, Ex: 51234567' | translate
                         }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'Teléfono fijo' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="8a2ba656"
+                  >
+                    <mat-label data-id="256640f4">{{ 'Teléfono fijo' | translate }}</mat-label>
                     <input
                       matInput
                       placeholder="{{ 'Teléfono fijo' | translate }}"
                       required
                       (keypress)="utilsService.keyPressNumbers($event)"
                       [formControl]="regTcpForm.get('phone')"
+                      data-id="686377ec"
                     />
 
-                    <mat-error *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')">
-                      {{ 'Teléfono fijo' | translate }}&nbsp;<strong>{{
+                    <mat-error
+                      *ngIf="regTcpForm.controls['phoneCel'].hasError('pattern')"
+                      data-id="a922be39"
+                    >
+                      {{ 'Teléfono fijo' | translate }}&nbsp;<strong data-id="8285450a">{{
                         'is required' | translate
                       }}</strong>
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" class="mt-2 flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'Actividad que desarrolla' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="mt-2 flex-sh-50 flex-sh-md-100"
+                    data-id="4a20d585"
+                  >
+                    <mat-label data-id="540b836c">{{
+                      'Actividad que desarrolla' | translate
+                    }}</mat-label>
 
                     <textarea
                       [formControl]="regTcpForm.get('activity')"
                       matInput
                       required
                       placeholder="{{ 'Descripción' | translate }}"
+                      data-id="896d75dc"
                     ></textarea>
 
-                    <mat-error *ngIf="regTcpForm.controls['activity'].hasError('required')">
+                    <mat-error
+                      *ngIf="regTcpForm.controls['activity'].hasError('required')"
+                      data-id="31d18d78"
+                    >
                       {{ 'Actividad que desarrolla' | translate }}
-                      <strong>{{ 'is required' | translate }}</strong>
+                      <strong data-id="c11aab6c">{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'Dirección' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="24dd4946"
+                  >
+                    <mat-label data-id="a7832b92">{{ 'Dirección' | translate }}</mat-label>
                     <input
                       matInput
                       placeholder="{{ 'Dirección' | translate }}"
                       required
                       [formControl]="regTcpForm.controls['address']"
+                      data-id="2dc2a8b9"
                     />
-                    <mat-error *ngIf="regTcpForm.controls['address'].hasError('required')">
-                      {{ 'Dirección' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                    <mat-error
+                      *ngIf="regTcpForm.controls['address'].hasError('required')"
+                      data-id="abbc17b5"
+                    >
+                      {{ 'Dirección' | translate }}
+                      <strong data-id="8ee206ca">{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
 
                   <div
                     class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
+                    data-id="8f74cc0e"
                   >
-                    <mat-form-field class="example-full-width flex-sh-50" appearance="outline">
-                      <mat-label>{{ 'Password' | translate }}</mat-label>
+                    <mat-form-field
+                      class="example-full-width flex-sh-50"
+                      appearance="outline"
+                      data-id="6282a751"
+                    >
+                      <mat-label data-id="466c0094">{{ 'Password' | translate }}</mat-label>
                       <input
                         [formControl]="fromPassRegister.controls['password']"
                         matInput
                         placeholder="{{ 'Password' | translate }}"
                         required
                         type="{{ passType }}"
+                        data-id="fa8b3cad"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix data-id="2dcfa0b4"
                         >remove_red_eye</mat-icon
                       >
-                      <mat-error *ngIf="fromPassRegister.controls['password'].hasError('required')">
+                      <mat-error
+                        *ngIf="fromPassRegister.controls['password'].hasError('required')"
+                        data-id="07459249"
+                      >
                         {{ 'Password' | translate }}
-                        <strong>{{ 'is required' | translate }}</strong>
+                        <strong data-id="7f20db72">{{ 'is required' | translate }}</strong>
                       </mat-error>
 
                       <mat-error
@@ -1102,9 +1531,10 @@
                           fromPassRegister.hasError('mismatch') &&
                           !fromPassRegister.controls['password'].hasError('pattern')
                         "
+                        data-id="0b0345c6"
                       >
                         {{ 'Password' | translate }}
-                        <strong>{{ 'most be equals' | translate }}</strong>
+                        <strong data-id="a28590be">{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
 
@@ -1116,8 +1546,11 @@
                       }"
                       appearance="outline"
                       class="example-full-width flex-sh-50"
+                      data-id="8227039c"
                     >
-                      <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
+                      <mat-label data-id="cc76476d">{{
+                        'Repita la contraseña' | translate
+                      }}</mat-label>
                       <input
                         [formControl]="fromPassRegister.controls['repeat']"
                         [ngClass]="{ 'ng-invalid': fromPassRegister.hasError('mismatch') }"
@@ -1125,8 +1558,9 @@
                         placeholder="{{ 'Repita la contraseña' | translate }}"
                         required
                         type="{{ passType }}"
+                        data-id="0b59cc68"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix data-id="4813487c"
                         >remove_red_eye</mat-icon
                       >
                       <mat-error
@@ -1134,13 +1568,17 @@
                           fromPassRegister.hasError('mismatch') &&
                           !fromPassRegister.controls['password'].hasError('pattern')
                         "
+                        data-id="78412ea3"
                       >
                         {{ 'Password' | translate }}
-                        <strong>{{ 'most be equals' | translate }}</strong>
+                        <strong data-id="7ff05ce8">{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
-                  <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
+                  <mat-error
+                    *ngIf="fromPassRegister.controls['password'].hasError('pattern')"
+                    data-id="f2d58342"
+                  >
                     {{
                       'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                         | translate
@@ -1154,22 +1592,28 @@
                     </ngx-recaptcha2>
                   </div> -->
 
-                  <span class="section-title my-2" translate>Datos Financieros</span>
+                  <span class="section-title my-2" translate data-id="4d686f54"
+                    >Datos Financieros</span
+                  >
 
-                  <mat-form-field appearance="outline">
-                    <mat-label>{{ 'Cuenta bancaria MLC' | translate }}</mat-label>
+                  <mat-form-field appearance="outline" data-id="38b28d7b">
+                    <mat-label data-id="342c1fc3">{{
+                      'Cuenta bancaria MLC' | translate
+                    }}</mat-label>
                     <input
                       matInput
                       placeholder="{{ 'Cuenta bancaria MLC' | translate }}"
                       required
                       (keypress)="utilsService.keyPressNumbers($event)"
                       [formControl]="regTcpForm.controls['bankAccountCard26']"
+                      data-id="cb129f10"
                     />
                     <mat-error
                       *ngIf="regTcpForm.controls['bankAccountCard26'].hasError('required')"
+                      data-id="78b38977"
                     >
                       {{ 'Cuenta bancaria MLC' | translate }}
-                      <strong>{{ 'is required' | translate }}</strong>
+                      <strong data-id="fed28002">{{ 'is required' | translate }}</strong>
                     </mat-error>
 
                     <mat-error
@@ -1177,21 +1621,27 @@
                         regTcpForm.controls['bankAccountCard26'].hasError('minlength') ||
                         regTcpForm.controls['bankAccountCard26'].hasError('maxlength')
                       "
+                      data-id="6c923aa4"
                     >
                       {{ 'Cuenta bancaria MLC debe tener 16 números' | translate }}
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline">
-                    <mat-label>{{ 'Banco' | translate }}</mat-label>
+                  <mat-form-field appearance="outline" data-id="b2de644e">
+                    <mat-label data-id="e75da714">{{ 'Banco' | translate }}</mat-label>
                     <input
                       matInput
                       placeholder="{{ 'Banco' | translate }}"
                       required
                       [formControl]="regTcpForm.controls['bankNameCard26']"
+                      data-id="e44dc206"
                     />
-                    <mat-error *ngIf="regTcpForm.controls['bankNameCard26'].hasError('required')">
-                      {{ 'Banco' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                    <mat-error
+                      *ngIf="regTcpForm.controls['bankNameCard26'].hasError('required')"
+                      data-id="44c1b3f5"
+                    >
+                      {{ 'Banco' | translate }}
+                      <strong data-id="af7c3903">{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="
@@ -1199,36 +1649,48 @@
                         regTcpForm.controls['bankNameCard26'].hasError('maxlength') ||
                         regTcpForm.controls['bankNameCard26'].hasError('pattern')
                       "
+                      data-id="adb96044"
                     >
                       {{ 'Nombre del Banco inválido' | translate }}
                     </mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline">
-                    <mat-label>{{ 'Sucursal' | translate }}</mat-label>
+                  <mat-form-field appearance="outline" data-id="6e48fe5e">
+                    <mat-label data-id="918e320a">{{ 'Sucursal' | translate }}</mat-label>
                     <input
                       matInput
                       placeholder="{{ 'Sucursal' | translate }}"
                       required
                       (keypress)="utilsService.keyPressNumbers($event)"
                       [formControl]="regTcpForm.controls['bankOfficeCard26']"
+                      data-id="fc82708c"
                     />
-                    <mat-error *ngIf="regTcpForm.controls['bankOfficeCard26'].hasError('required')">
-                      {{ 'Sucursal' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                    <mat-error
+                      *ngIf="regTcpForm.controls['bankOfficeCard26'].hasError('required')"
+                      data-id="35032db2"
+                    >
+                      {{ 'Sucursal' | translate }}
+                      <strong data-id="e7359d7a">{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="
                         regTcpForm.controls['bankOfficeCard26'].hasError('minlength') ||
                         regTcpForm.controls['bankOfficeCard26'].hasError('maxlength')
                       "
+                      data-id="c2d2b94d"
                     >
                       {{ 'Sucursal debe tener 4 números como máximo' | translate }}
                     </mat-error>
                   </mat-form-field>
 
-                  <div class="d-flex flex-column transpilerClass-fxLayoutGap-2c5a4f">
-                    <span class="section-title mb-2" translate>Documentos adjuntos</span>
-                    <span class="mat-caption section-sub-title" translate>
+                  <div
+                    class="d-flex flex-column transpilerClass-fxLayoutGap-2c5a4f"
+                    data-id="17486f4f"
+                  >
+                    <span class="section-title mb-2" translate data-id="25f01ade"
+                      >Documentos adjuntos</span
+                    >
+                    <span class="mat-caption section-sub-title" translate data-id="4f4eaf49">
                       Estos documentos serán usados para validar su registro en nuestra tienda. (Se
                       admiten fotos o pdf de sus documentos TCP)
                     </span>
@@ -1239,71 +1701,107 @@
                     [multiple]="false"
                     [label]="'Seleccione adjuntos'"
                     (uploadFile)="onSelectPdf($event)"
+                    data-id="b8cfdcae"
                   >
                   </app-upload-file>
 
-                  <mat-checkbox [formControl]="regTcpForm.get('checkAge')" class="d-flex">
-                    <span
+                  <mat-checkbox
+                    [formControl]="regTcpForm.get('checkAge')"
+                    class="d-flex"
+                    data-id="95f20625"
+                  >
+                    <span data-id="82c5426a"
                       >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                      <br />
+                      <br data-id="3d609bf0" />
                     </span>
-                    <a [routerLink]="['/term-conditions']">
+                    <a [routerLink]="['/term-conditions']" data-id="4e32eb1b">
                       {{ 'términos y condiciones' | translate }}
                     </a>
                   </mat-checkbox>
 
-                  <div class="d-flex justify-content-center align-items-center">
+                  <div class="d-flex justify-content-center align-items-center" data-id="9a674e68">
                     <button
                       mat-raised-button
                       color="primary"
                       class="RegisterBtn"
                       [disabled]="regTcpForm.invalid || !selectedDocument"
                       (click)="onSignUpTCP()"
+                      data-id="0f1675bf"
                     >
-                      <span class="uppercase color-white">{{ 'Register' | translate }}</span>
+                      <span class="uppercase color-white" data-id="e38bc7c5">{{
+                        'Register' | translate
+                      }}</span>
                     </button>
                   </div>
                 </div>
               </form>
             </div>
           </ng-container>
-          <ng-template #normalRegitretion>
-            <div class="FormLayout d-flex flex-column justify-content-start align-items-stretch">
-              <form class="example-full-width">
-                <div class="pt-3 d-flex flex-column justify-content-around align-items-stretch">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                      <mat-label>{{ 'Name' | translate }}</mat-label>
+          <ng-template #normalRegitretion data-id="d5806e5c">
+            <div
+              class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+              data-id="9da4f7a5"
+            >
+              <form class="example-full-width" data-id="33da4650">
+                <div
+                  class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
+                  data-id="ce9093ff"
+                >
+                  <div class="d-flex justify-content-between align-items-start" data-id="ffe9a30c">
+                    <mat-form-field
+                      appearance="outline"
+                      class="flex-sh-50 flex-sh-md-100"
+                      data-id="d2b35439"
+                    >
+                      <mat-label data-id="c2ffb626">{{ 'Name' | translate }}</mat-label>
                       <input
                         [formControl]="registrationForm.controls['name']"
                         matInput
                         placeholder="{{ 'Name' | translate }}"
                         required
+                        data-id="692cad26"
                       />
-                      <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
-                        {{ 'Name' | translate }}&nbsp;<strong>{{
+                      <mat-error
+                        *ngIf="registrationForm.controls['name'].hasError('required')"
+                        data-id="d24c5925"
+                      >
+                        {{ 'Name' | translate }}&nbsp;<strong data-id="2a0d216e">{{
                           'is required' | translate
                         }}</strong>
                       </mat-error>
-                      <mat-error *ngIf="registrationForm.controls['name'].hasError('pattern')">
+                      <mat-error
+                        *ngIf="registrationForm.controls['name'].hasError('pattern')"
+                        data-id="e4af1a53"
+                      >
                         {{ 'El nombre debe contener carateres alfanuméricos' | translate }}
                       </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                      <mat-label>{{ 'Lastname' | translate }}</mat-label>
+                    <mat-form-field
+                      appearance="outline"
+                      class="flex-sh-50 flex-sh-md-100"
+                      data-id="25ee169d"
+                    >
+                      <mat-label data-id="ed398e77">{{ 'Lastname' | translate }}</mat-label>
                       <input
                         [formControl]="registrationForm.controls['lastname']"
                         matInput
                         placeholder="{{ 'Lastname' | translate }}"
                         required
+                        data-id="6e6f1dd7"
                       />
-                      <mat-error *ngIf="registrationForm.controls['lastname'].hasError('required')">
-                        {{ 'Lastname' | translate }}&nbsp;<strong>{{
+                      <mat-error
+                        *ngIf="registrationForm.controls['lastname'].hasError('required')"
+                        data-id="e65f8849"
+                      >
+                        {{ 'Lastname' | translate }}&nbsp;<strong data-id="cdb67a6b">{{
                           'is required' | translate
                         }}</strong>
                       </mat-error>
-                      <mat-error *ngIf="registrationForm.controls['lastname'].hasError('pattern')">
+                      <mat-error
+                        *ngIf="registrationForm.controls['lastname'].hasError('pattern')"
+                        data-id="414b410e"
+                      >
                         {{ 'El apellido debe contener carateres alfanuméricos' | translate }}
                       </mat-error>
                     </mat-form-field>
@@ -1323,8 +1821,12 @@
                     </mat-error>
                   </mat-form-field> -->
 
-                  <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-                    <mat-label>{{ 'Email' | translate }}</mat-label>
+                  <mat-form-field
+                    appearance="outline"
+                    class="flex-sh-50 flex-sh-md-100"
+                    data-id="a93b0f84"
+                  >
+                    <mat-label data-id="1611478b">{{ 'Email' | translate }}</mat-label>
                     <input
                       (keypress)="utilsService.keyLettersNumberForEmail($event)"
                       [formControl]="registrationForm.controls['email']"
@@ -1334,17 +1836,27 @@
                       name="email"
                       placeholder="{{ 'Email' | translate }}"
                       required
+                      data-id="a5292ea8"
                     />
-                    <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
-                      {{ 'Email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                    <mat-error
+                      *ngIf="registrationForm.controls['email'].hasError('required')"
+                      data-id="cedfdb59"
+                    >
+                      {{ 'Email' | translate }}
+                      <strong data-id="5850e4de">{{ 'is required' | translate }}</strong>
                     </mat-error>
-                    <mat-error *ngIf="registrationForm.controls['email'].hasError('pattern')">
-                      {{ 'Email' | translate }} <strong>{{ 'incorrecto' | translate }}</strong>
+                    <mat-error
+                      *ngIf="registrationForm.controls['email'].hasError('pattern')"
+                      data-id="43651ea9"
+                    >
+                      {{ 'Email' | translate }}
+                      <strong data-id="508754bb">{{ 'incorrecto' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
 
                   <div
                     class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-2fde8e"
+                    data-id="c8bd7a4c"
                   >
                     <guajiritos-general-autocomplete
                       [withoutPaddingBottom]="false"
@@ -1356,14 +1868,16 @@
                       [url]="phoneCodesService.url"
                       [formControl]="registrationForm.get('PhoneCallingCodeId')"
                       class="flex-sh-30 flex-sh-md-30"
+                      data-id="be882be9"
                     ></guajiritos-general-autocomplete>
 
                     <mat-form-field
                       appearance="outline"
                       id="phone"
                       class="flex-sh-70 flex-sh-md-70"
+                      data-id="73417653"
                     >
-                      <mat-label>{{ 'Teléfono celular' | translate }}</mat-label>
+                      <mat-label data-id="433e1af4">{{ 'Teléfono celular' | translate }}</mat-label>
                       <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
                       <input
                         (keypress)="utilsService.keyPressNumbers($event)"
@@ -1371,11 +1885,13 @@
                         matInput
                         autocomplete="off"
                         placeholder="{{ 'Teléfono...' | translate }}"
+                        data-id="35199b63"
                       />
                       <mat-hint
                         *ngIf="
                           registrationForm.get('phone').value && registrationForm.get('phone').valid
                         "
+                        data-id="7d880cf7"
                       >
                         {{ 'Número válido' | translate }}
                       </mat-hint>
@@ -1385,8 +1901,9 @@
                             registrationForm.controls['phone'].hasError('maxlength')) &&
                           !registrationForm.controls['phone'].hasError('pattern')
                         "
+                        data-id="6f7c2ac1"
                       >
-                        {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+                        {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="2a2fb6aa">{{
                           '8 caracteres, Ex: 51234567' | translate
                         }}</strong>
                       </mat-error>
@@ -1395,22 +1912,31 @@
 
                   <div
                     class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
+                    data-id="f56af463"
                   >
-                    <mat-form-field appearance="outline" class="example-full-width flex-sh-50">
-                      <mat-label>{{ 'Password' | translate }}</mat-label>
+                    <mat-form-field
+                      appearance="outline"
+                      class="example-full-width flex-sh-50"
+                      data-id="539f6340"
+                    >
+                      <mat-label data-id="4a4c97b1">{{ 'Password' | translate }}</mat-label>
                       <input
                         [formControl]="fromPassRegister.controls['password']"
                         matInput
                         placeholder="{{ 'Password' | translate }}"
                         required
                         type="{{ passType }}"
+                        data-id="91616a77"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix data-id="7297e052"
                         >remove_red_eye</mat-icon
                       >
-                      <mat-error *ngIf="fromPassRegister.controls['password'].hasError('required')">
+                      <mat-error
+                        *ngIf="fromPassRegister.controls['password'].hasError('required')"
+                        data-id="b1549345"
+                      >
                         {{ 'Password' | translate }}
-                        <strong>{{ 'is required' | translate }}</strong>
+                        <strong data-id="32830a4a">{{ 'is required' | translate }}</strong>
                       </mat-error>
 
                       <mat-error
@@ -1418,9 +1944,10 @@
                           fromPassRegister.hasError('mismatch') &&
                           !fromPassRegister.controls['password'].hasError('pattern')
                         "
+                        data-id="5259fd2a"
                       >
                         {{ 'Password' | translate }}
-                        <strong>{{ 'most be equals' | translate }}</strong>
+                        <strong data-id="04c211ae">{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
 
@@ -1432,8 +1959,11 @@
                       }"
                       appearance="outline"
                       class="example-full-width flex-sh-50"
+                      data-id="cc1523d7"
                     >
-                      <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
+                      <mat-label data-id="d3d13754">{{
+                        'Repita la contraseña' | translate
+                      }}</mat-label>
                       <input
                         [formControl]="fromPassRegister.controls['repeat']"
                         [ngClass]="{ 'ng-invalid': fromPassRegister.hasError('mismatch') }"
@@ -1441,8 +1971,9 @@
                         placeholder="{{ 'Repita la contraseña' | translate }}"
                         required
                         type="{{ passType }}"
+                        data-id="a3490956"
                       />
-                      <mat-icon (click)="showPass()" class="grey-600" matSuffix
+                      <mat-icon (click)="showPass()" class="grey-600" matSuffix data-id="f39c19fb"
                         >remove_red_eye</mat-icon
                       >
                       <mat-error
@@ -1450,25 +1981,33 @@
                           fromPassRegister.hasError('mismatch') &&
                           !fromPassRegister.controls['password'].hasError('pattern')
                         "
+                        data-id="de6d94d4"
                       >
                         {{ 'Password' | translate }}
-                        <strong>{{ 'most be equals' | translate }}</strong>
+                        <strong data-id="11bb2cb6">{{ 'most be equals' | translate }}</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
-                  <mat-error *ngIf="fromPassRegister.controls['password'].hasError('pattern')">
+                  <mat-error
+                    *ngIf="fromPassRegister.controls['password'].hasError('pattern')"
+                    data-id="8b80f87f"
+                  >
                     {{
                       'La contraseña debe contener 8 dígitos y al menos una mayúscula, una minúscula, un número y un caracter especial (.!@#$&amp;*~^)'
                         | translate
                     }}
                   </mat-error>
 
-                  <mat-checkbox [formControl]="registrationForm.get('checkAge')" class="d-flex">
-                    <span
+                  <mat-checkbox
+                    [formControl]="registrationForm.get('checkAge')"
+                    class="d-flex"
+                    data-id="eb8a2f2f"
+                  >
+                    <span data-id="ed60830c"
                       >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                      <br />
+                      <br data-id="6e7aa5fd" />
                     </span>
-                    <a [routerLink]="['/term-conditions']">
+                    <a [routerLink]="['/term-conditions']" data-id="304ac4a8">
                       {{ 'términos y condiciones' | translate }}
                     </a>
                   </mat-checkbox>
@@ -1480,15 +2019,21 @@
                     </ngx-recaptcha2>
                   </div> -->
 
-                  <div class="pt-4 d-flex justify-content-center align-items-center">
+                  <div
+                    class="pt-4 d-flex justify-content-center align-items-center"
+                    data-id="d508e797"
+                  >
                     <button
                       (click)="onSignUp()"
                       [disabled]="registrationForm.invalid"
                       class="RegisterBtn"
                       color="primary"
                       mat-raised-button
+                      data-id="bd834249"
                     >
-                      <span class="uppercase color-white">{{ 'Register' | translate }}</span>
+                      <span class="uppercase color-white" data-id="5981c926">{{
+                        'Register' | translate
+                      }}</span>
                     </button>
                   </div>
                 </div>
@@ -1501,37 +2046,45 @@
         <div
           *ngIf="showPinForm"
           class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+          data-id="96e7b77f"
         >
-          <form class="example-full-width">
-            <div class="d-flex flex-column justify-content-around align-items-stretch">
-              <span class="mat-subheader color-grey-700 mb-1">{{
+          <form class="example-full-width" data-id="a6d2a4ea">
+            <div
+              class="d-flex flex-column justify-content-around align-items-stretch"
+              data-id="a52ad0c9"
+            >
+              <span class="mat-subheader color-grey-700 mb-1" data-id="823da6cd">{{
                 'Enter the authentication pin sent to your email' | translate
               }}</span>
 
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>{{ 'Authentication pin' | translate }}</mat-label>
+              <mat-form-field appearance="outline" class="example-full-width" data-id="7400f3d1">
+                <mat-label data-id="4a3cbead">{{ 'Authentication pin' | translate }}</mat-label>
                 <input
                   [formControl]="pinForm.controls['pin']"
                   matInput
                   placeholder="{{ 'Authentication pin' | translate }}"
                   required
+                  data-id="5e3fc58b"
                 />
-                <mat-error *ngIf="pinForm.controls['pin'].hasError('required')">
-                  {{ 'Authentication pin' | translate }}&nbsp;<strong>{{
+                <mat-error *ngIf="pinForm.controls['pin'].hasError('required')" data-id="b5e10d2c">
+                  {{ 'Authentication pin' | translate }}&nbsp;<strong data-id="f804d727">{{
                     'is required' | translate
                   }}</strong>
                 </mat-error>
               </mat-form-field>
 
-              <div class="d-flex justify-content-center align-items-center">
+              <div class="d-flex justify-content-center align-items-center" data-id="8e9afa42">
                 <button
                   (click)="onCheckPin()"
                   [disabled]="!pinForm.valid || inLoading"
                   class="px-3"
                   color="primary"
                   mat-raised-button
+                  data-id="cef6604b"
                 >
-                  <span class="uppercase color-white">{{ 'Validate pin' | translate }}</span>
+                  <span class="uppercase color-white" data-id="3f9147b8">{{
+                    'Validate pin' | translate
+                  }}</span>
                 </button>
               </div>
             </div>
@@ -1547,46 +2100,62 @@
         <div
           *ngIf="showActivateForm"
           class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+          data-id="2a72de64"
         >
-          <form class="example-full-width">
-            <div class="d-flex flex-column justify-content-around align-items-stretch">
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>{{ 'Email' | translate }}</mat-label>
+          <form class="example-full-width" data-id="6ad74257">
+            <div
+              class="d-flex flex-column justify-content-around align-items-stretch"
+              data-id="a9d57ea5"
+            >
+              <mat-form-field appearance="outline" class="example-full-width" data-id="604e2225">
+                <mat-label data-id="640b6b53">{{ 'Email' | translate }}</mat-label>
                 <input
                   [formControl]="activateForm.controls['email']"
                   matInput
                   placeholder="{{ 'Email' | translate }}"
                   required
+                  data-id="67716622"
                 />
-                <mat-error *ngIf="activateForm.controls['email'].hasError('required')">
-                  {{ 'Email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+                <mat-error
+                  *ngIf="activateForm.controls['email'].hasError('required')"
+                  data-id="3e452816"
+                >
+                  {{ 'Email' | translate }}
+                  <strong data-id="13559af0">{{ 'is required' | translate }}</strong>
                 </mat-error>
               </mat-form-field>
 
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>{{ 'Authentication pin' | translate }}</mat-label>
+              <mat-form-field appearance="outline" class="example-full-width" data-id="54519994">
+                <mat-label data-id="5f1fd5e2">{{ 'Authentication pin' | translate }}</mat-label>
                 <input
                   [formControl]="activateForm.controls['pin']"
                   matInput
                   placeholder="{{ 'Authentication pin' | translate }}"
                   required
+                  data-id="af5f5bfd"
                 />
-                <mat-error *ngIf="activateForm.controls['pin'].hasError('required')">
-                  {{ 'Authentication pin' | translate }}&nbsp;<strong>{{
+                <mat-error
+                  *ngIf="activateForm.controls['pin'].hasError('required')"
+                  data-id="5b741983"
+                >
+                  {{ 'Authentication pin' | translate }}&nbsp;<strong data-id="f2fcb0b8">{{
                     'is required' | translate
                   }}</strong>
                 </mat-error>
               </mat-form-field>
 
-              <div class="d-flex justify-content-center align-items-center">
+              <div class="d-flex justify-content-center align-items-center" data-id="0b775514">
                 <button
                   (click)="onValidateAccount()"
                   [disabled]="!activateForm.valid || inLoading"
                   class="px-3"
                   color="primary"
                   mat-raised-button
+                  data-id="3638b4b7"
                 >
-                  <span class="uppercase color-white">{{ 'Activate account' | translate }}</span>
+                  <span class="uppercase color-white" data-id="ba850d0d">{{
+                    'Activate account' | translate
+                  }}</span>
                 </button>
               </div>
             </div>
@@ -1596,35 +2165,48 @@
         <div
           *ngIf="showResetPassForm"
           class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
+          data-id="f3d6d3a1"
         >
-          <form class="example-full-width">
-            <div class="d-flex flex-column justify-content-around align-items-stretch">
-              <span class="mat-subheader color-grey-700 mb-1">{{
+          <form class="example-full-width" data-id="29ab37b0">
+            <div
+              class="d-flex flex-column justify-content-around align-items-stretch"
+              data-id="355095a7"
+            >
+              <span class="mat-subheader color-grey-700 mb-1" data-id="0ca09b4d">{{
                 'Insert your email' | translate
               }}</span>
 
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>{{ 'Email' | translate }}</mat-label>
+              <mat-form-field appearance="outline" class="example-full-width" data-id="173e1a09">
+                <mat-label data-id="93961dcc">{{ 'Email' | translate }}</mat-label>
                 <input
                   [formControl]="insertEmailPassForm.controls['email']"
                   matInput
                   placeholder="{{ 'email' | translate }}"
                   required
+                  data-id="50799d7d"
                 />
-                <mat-error *ngIf="insertEmailPassForm.controls['email'].hasError('required')">
-                  {{ 'Email' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                <mat-error
+                  *ngIf="insertEmailPassForm.controls['email'].hasError('required')"
+                  data-id="455dfaf8"
+                >
+                  {{ 'Email' | translate }}&nbsp;<strong data-id="ed89c474">{{
+                    'is required' | translate
+                  }}</strong>
                 </mat-error>
               </mat-form-field>
 
-              <div class="d-flex justify-content-center align-items-center">
+              <div class="d-flex justify-content-center align-items-center" data-id="45726986">
                 <button
                   (click)="onSendEmail2ChangePass()"
                   [disabled]="!insertEmailPassForm.valid || inLoading"
                   class="w-70"
                   color="primary"
                   mat-raised-button
+                  data-id="e3d1cd9e"
                 >
-                  <span class="uppercase color-white">{{ 'Send' | translate }}</span>
+                  <span class="uppercase color-white" data-id="516da5a7">{{
+                    'Send' | translate
+                  }}</span>
                 </button>
               </div>
             </div>
@@ -1635,51 +2217,79 @@
           *ngIf="showNewPassForm"
           class="FormLayout d-flex flex-column justify-content-start align-items-stretch"
           style="max-height: 60vh; overflow-y: scroll"
+          data-id="e9e5046f"
         >
-          <div class="alert alert-primary" role="alert">
-            <span class="mat-body-2">{{ 'Insert the pin sent to your email' | translate }}</span>
+          <div class="alert alert-primary" role="alert" data-id="66506fd3">
+            <span class="mat-body-2" data-id="020602b4">{{
+              'Insert the pin sent to your email' | translate
+            }}</span>
           </div>
 
-          <form [formGroup]="changeToNewPassForm" class="login-form">
-            <mat-form-field appearance="outline" class="example-full-width mt-2">
-              <mat-label>{{ 'Código pin' | translate }}</mat-label>
+          <form [formGroup]="changeToNewPassForm" class="login-form" data-id="19c426fd">
+            <mat-form-field appearance="outline" class="example-full-width mt-2" data-id="d017d013">
+              <mat-label data-id="94d6547e">{{ 'Código pin' | translate }}</mat-label>
               <input
                 [disabled]="inLoading"
                 [formControl]="changeToNewPassForm.controls['pin']"
                 matInput
                 placeholder="{{ 'Código pin' | translate }}"
                 required
+                data-id="81a82835"
               />
-              <mat-error *ngIf="changeToNewPassForm.controls['pin'].hasError('required')">
-                {{ 'Código pin' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="changeToNewPassForm.controls['pin'].hasError('required')"
+                data-id="27fa691e"
+              >
+                {{ 'Código pin' | translate }}&nbsp;<strong data-id="3b2a5b94">{{
+                  'is required' | translate
+                }}</strong>
               </mat-error>
             </mat-form-field>
 
             <div
               class="mt-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-start align-items-xs-start align-items-sm-start"
+              data-id="d6f890f8"
             >
-              <mat-form-field appearance="outline" class="example-full-width flex-sh-100">
-                <mat-label>{{ 'Password' | translate }}</mat-label>
+              <mat-form-field
+                appearance="outline"
+                class="example-full-width flex-sh-100"
+                data-id="0fa75b6a"
+              >
+                <mat-label data-id="1932506c">{{ 'Password' | translate }}</mat-label>
                 <input
                   [formControl]="formPass.controls['password']"
                   matInput
                   placeholder="{{ 'Password' | translate }}"
                   required
                   type="{{ passType2 }}"
+                  data-id="eca776f6"
                 />
-                <mat-icon (click)="showPass2()" class="grey-600" matSuffix style="cursor: pointer"
+                <mat-icon
+                  (click)="showPass2()"
+                  class="grey-600"
+                  matSuffix
+                  style="cursor: pointer"
+                  data-id="757f56a8"
                   >remove_red_eye
                 </mat-icon>
-                <mat-error *ngIf="formPass.controls['password'].hasError('required')">
-                  {{ 'Password' | translate }}&nbsp;<strong>{{ 'is required' | translate }}</strong>
+                <mat-error
+                  *ngIf="formPass.controls['password'].hasError('required')"
+                  data-id="2060a614"
+                >
+                  {{ 'Password' | translate }}&nbsp;<strong data-id="c4866be8">{{
+                    'is required' | translate
+                  }}</strong>
                 </mat-error>
-                <mat-error *ngIf="formPass.hasError('mismatch')">
-                  {{ 'Password' | translate }}&nbsp;<strong
+                <mat-error *ngIf="formPass.hasError('mismatch')" data-id="eba015be">
+                  {{ 'Password' | translate }}&nbsp;<strong data-id="cf644f72"
                     >{{ 'must be equals' | translate }}.</strong
                   >
                 </mat-error>
-                <mat-error *ngIf="formPass.controls['password'].hasError('minLength')">
-                  {{ 'Password' | translate }}&nbsp;<strong>{{
+                <mat-error
+                  *ngIf="formPass.controls['password'].hasError('minLength')"
+                  data-id="ae2b3eb2"
+                >
+                  {{ 'Password' | translate }}&nbsp;<strong data-id="ea1564f4">{{
                     'must be at least 6 characters' | translate
                   }}</strong>
                 </mat-error>
@@ -1693,8 +2303,9 @@
                 }"
                 appearance="outline"
                 class="example-full-width flex-sh-100"
+                data-id="898767f9"
               >
-                <mat-label>{{ 'Repita la contraseña' | translate }}</mat-label>
+                <mat-label data-id="e5041ae3">{{ 'Repita la contraseña' | translate }}</mat-label>
                 <input
                   [formControl]="formPass.controls['repeat']"
                   [ngClass]="{ 'ng-invalid': formPass.hasError('mismatch') }"
@@ -1702,12 +2313,15 @@
                   placeholder="{{ 'Repita la contraseña' | translate }}"
                   required
                   type="{{ passType }}"
+                  data-id="fd5beef4"
                 />
-                <mat-icon (click)="showPass()" class="grey-600" matSuffix>remove_red_eye</mat-icon>
+                <mat-icon (click)="showPass()" class="grey-600" matSuffix data-id="c11a33ea"
+                  >remove_red_eye</mat-icon
+                >
               </mat-form-field>
             </div>
 
-            <div class="mb-3 d-flex justify-content-center align-items-center">
+            <div class="mb-3 d-flex justify-content-center align-items-center" data-id="1cc3166a">
               <button
                 (click)="
                   onNewPass(
@@ -1720,8 +2334,11 @@
                 color="primary"
                 mat-raised-button
                 type="submit"
+                data-id="0a2b010b"
               >
-                <span class="uppercase color-white">{{ 'Send' | translate }}</span>
+                <span class="uppercase color-white" data-id="f4ffb268">{{
+                  'Send' | translate
+                }}</span>
               </button>
             </div>
           </form>

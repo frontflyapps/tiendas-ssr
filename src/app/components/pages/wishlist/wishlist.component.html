@@ -1,71 +1,82 @@
-<div class="container">
-  <div class="cart-wrapper sec-padding">
+<div class="container" data-id="3f993f51">
+  <div class="cart-wrapper sec-padding" data-id="5ac42531">
     <div
       *ngIf="!wishlistItems.length"
       class="d-flex flex-column justify-content-around align-items-center"
+      data-id="f1692ea5"
     >
-      <mat-chip-list>
-        <mat-chip color="warn" selected="true"
+      <mat-chip-list data-id="da1f2f7f">
+        <mat-chip color="warn" selected="true" data-id="bf2484a6"
           >{{ 'YOU HAVE NO ITEMS IN YOUR WISHLIST' | translate }}.</mat-chip
         >
       </mat-chip-list>
-      <div>
+      <div data-id="337f72a9">
         <a
           [routerLink]="['']"
           class="btn-project mt-20"
           color="primary"
           mat-raised-button
           routerLinkActive="router-link-active"
+          data-id="001ad9ef"
         >
           {{ 'Continue shopping' | translate }}</a
         >
       </div>
     </div>
 
-    <mat-card *ngIf="wishlistItems.length" class="p-0">
-      <div class="mat-table cart-table">
-        <div class="mat-header-row">
-          <div class="mat-header-cell">{{ 'Product' | translate }}</div>
-          <div class="mat-header-cell">{{ 'Name' | translate }}</div>
-          <div class="mat-header-cell">{{ 'Price' | translate }}</div>
-          <div class="mat-header-cell text-center">
-            <div class="px-1">
-              <button color="warn" mat-raised-button>{{ 'Clear All' | translate }}</button>
+    <mat-card *ngIf="wishlistItems.length" class="p-0" data-id="fff60b1a">
+      <div class="mat-table cart-table" data-id="110a2e84">
+        <div class="mat-header-row" data-id="fd4a3294">
+          <div class="mat-header-cell" data-id="d44cac6c">{{ 'Product' | translate }}</div>
+          <div class="mat-header-cell" data-id="7bdb693a">{{ 'Name' | translate }}</div>
+          <div class="mat-header-cell" data-id="adeb424f">{{ 'Price' | translate }}</div>
+          <div class="mat-header-cell text-center" data-id="9cf0e7a4">
+            <div class="px-1" data-id="8e94309b">
+              <button color="warn" mat-raised-button data-id="1d614591">
+                {{ 'Clear All' | translate }}
+              </button>
             </div>
           </div>
         </div>
-        <div *ngFor="let item of wishlistItems" class="mat-row">
-          <div class="mat-cell">
-            <img *ngIf="item.images && item.images.length" [src]="item.images[0]" />
+        <div *ngFor="let item of wishlistItems" class="mat-row" data-id="45cdef03">
+          <div class="mat-cell" data-id="e678867b">
+            <img
+              *ngIf="item.images && item.images.length"
+              [src]="item.images[0]"
+              data-id="7d4fe990"
+            />
           </div>
-          <div class="mat-cell">
-            <a class="product-name">{{ item.name }}</a>
+          <div class="mat-cell" data-id="1128dac0">
+            <a class="product-name" data-id="0bb28eb4">{{ item.name }}</a>
           </div>
-          <div class="mat-cell price">{{ item.price | number: '1.2-2' }}</div>
+          <div class="mat-cell price" data-id="442e2743">{{ item.price | number: '1.2-2' }}</div>
 
-          <div class="mat-cell text-center">
-            <div class="p-1">
-              <mat-icon (click)="removeItem(item)" class="close">{{
+          <div class="mat-cell text-center" data-id="6b0d1c67">
+            <div class="p-1" data-id="704a63d6">
+              <mat-icon (click)="removeItem(item)" class="close" data-id="cc0c174c">{{
                 'close' | translate
               }}</mat-icon>
             </div>
           </div>
         </div>
-        <div class="mat-row">
-          <div class="mat-cell">
+        <div class="mat-row" data-id="628c11b4">
+          <div class="mat-cell" data-id="6e853ee9">
             <a
               [routerLink]="['/product/all']"
               class="btn-project"
               mat-raised-button
               routerLinkActive="router-link-active"
+              data-id="ff788cde"
               >{{ 'Continue shopping' | translate }}</a
             >
           </div>
-          <div class="mat-cell"></div>
-          <div class="mat-cell"></div>
+          <div class="mat-cell" data-id="79b2e6a7"></div>
+          <div class="mat-cell" data-id="2a6a972d"></div>
 
-          <div class="mat-cell text-center">
-            <a class="btn-project" mat-raised-button>{{ 'Proceed To Checkout' | translate }}</a>
+          <div class="mat-cell text-center" data-id="17981824">
+            <a class="btn-project" mat-raised-button data-id="a5a5e8eb">{{
+              'Proceed To Checkout' | translate
+            }}</a>
           </div>
         </div>
       </div>

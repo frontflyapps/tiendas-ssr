@@ -11,18 +11,27 @@
 <!--</mat-dialog-actions>-->
 <!--</div>-->
 
-<mat-toolbar id="successPay" matDialogTitle>
-  <mat-toolbar-row class="d-flex justify-content-between align-items-center">
-    <span class="mat-title mb-0">{{ '¡Bienvenido a ' | translate }}{{ bussiness }}!</span>
-    <button (click)="dialogRef.close(false)" aria-label="Close dialog" mat-icon-button>
-      <mat-icon>close</mat-icon>
+<mat-toolbar id="successPay" matDialogTitle data-id="1d632613">
+  <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="d4ff4030">
+    <span class="mat-title mb-0" data-id="d7b78005"
+      >{{ '¡Bienvenido a ' | translate }}{{ bussiness }}!</span
+    >
+    <button
+      (click)="dialogRef.close(false)"
+      aria-label="Close dialog"
+      mat-icon-button
+      data-id="8f316efe"
+    >
+      <mat-icon data-id="c5c816f7">close</mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-dialog-content class="mat-typography">
-  <h3>{{ 'Para comenzar a crear su negocio presione Iniciar Proceso.' | translate }}</h3>
-  <p>
+<mat-dialog-content class="mat-typography" data-id="67aec956">
+  <h3 data-id="8d91a775">
+    {{ 'Para comenzar a crear su negocio presione Iniciar Proceso.' | translate }}
+  </h3>
+  <p data-id="00750024">
     {{
       'A continuación debe completar todos los campos del formulario con la información requerida.'
         | translate
@@ -30,9 +39,15 @@
   </p>
 </mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button [mat-dialog-close]="false" mat-button>Cancel</button>
-  <button [mat-dialog-close]="true" mat-flat-button color="primary" cdkFocusInitial>
+<mat-dialog-actions align="end" data-id="f86fdb2b">
+  <button [mat-dialog-close]="false" mat-button data-id="c68f22ac">Cancel</button>
+  <button
+    [mat-dialog-close]="true"
+    mat-flat-button
+    color="primary"
+    cdkFocusInitial
+    data-id="4d80cbfa"
+  >
     Iniciar Proceso
   </button>
 </mat-dialog-actions>

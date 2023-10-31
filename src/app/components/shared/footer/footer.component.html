@@ -1,6 +1,7 @@
-<footer class="pt-3">
+<footer class="pt-3" data-id="071d65ff">
   <div
     class="d-flex flex-column justify-content-center align-items-center d-xs-flex d-sm-flex justify-content-xs-start justify-content-sm-start align-items-xs-center align-items-sm-center"
+    data-id="3a96e1d9"
   >
     <!--<a
       class="item-selector mx-3 my-2"
@@ -19,51 +20,66 @@
         </button>
       </span>
     </mat-menu>-->
-    <div class="col d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column">
-      <div class="col-1 d-flex flex-column align-items-start">
-        <a [routerLink]="['']" class="mat-button" mat-button>
-          <span>{{ 'Inicio' | translate }}</span>
+    <div class="col d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column" data-id="65dbb0ec">
+      <div class="col-1 d-flex flex-column align-items-start" data-id="44be738b">
+        <a [routerLink]="['']" class="mat-button" mat-button data-id="26ea01a2">
+          <span data-id="cc4abdd1">{{ 'Inicio' | translate }}</span>
         </a>
-        <a [routerLink]="['about']" class="mat-button" mat-button>
-          <span>{{ 'Quiénes somos' | translate }}</span>
+        <a [routerLink]="['about']" class="mat-button" mat-button data-id="8468658d">
+          <span data-id="de79f4d6">{{ 'Quiénes somos' | translate }}</span>
         </a>
-        <a (click)="onShowProfile()" *ngIf="loggedInUser" class="mat-button" mat-button>
-          <span>{{ 'Tu cuenta' | translate }}</span>
+        <a
+          (click)="onShowProfile()"
+          *ngIf="loggedInUser"
+          class="mat-button"
+          mat-button
+          data-id="439780a0"
+        >
+          <span data-id="8ef4a7ce">{{ 'Tu cuenta' | translate }}</span>
         </a>
         <a
           [routerLink]="['shops-list']"
           *ngIf="appService.businessConfig?.canShowOurBussiness"
           mat-button
           class="d-flex justify-content-start align-items-center"
+          data-id="79796244"
         >
-          <span>{{ 'Nuestras tiendas' | translate }}</span>
+          <span data-id="07e225bf">{{ 'Nuestras tiendas' | translate }}</span>
         </a>
       </div>
-      <div class="col-2 d-flex flex-column align-items-start">
-        <a [routerLink]="['/faq']" class="mat-button" mat-button>
-          <span>{{ 'Ayuda' | translate }}</span>
+      <div class="col-2 d-flex flex-column align-items-start" data-id="8e9b793d">
+        <a [routerLink]="['/faq']" class="mat-button" mat-button data-id="84a66e86">
+          <span data-id="8c1edd7a">{{ 'Ayuda' | translate }}</span>
         </a>
-        <a *ngIf="loggedInUser" [routerLink]="['my-orders']" class="mat-button" mat-button>
-          <span>{{ 'Tus pedidos' | translate }}</span>
+        <a
+          *ngIf="loggedInUser"
+          [routerLink]="['my-orders']"
+          class="mat-button"
+          mat-button
+          data-id="b8b9456d"
+        >
+          <span data-id="feee9926">{{ 'Tus pedidos' | translate }}</span>
         </a>
         <a
           [routerLink]="['privacy-policy']"
           mat-button
           class="d-flex justify-content-start align-items-center"
+          data-id="41c74f05"
         >
-          <span>{{ 'Políticas de privacidad' | translate }}</span>
+          <span data-id="0ff0f115">{{ 'Políticas de privacidad' | translate }}</span>
         </a>
         <a
           [routerLink]="['term-conditions']"
           mat-button
           class="d-flex justify-content-start align-items-center"
+          data-id="e4835be6"
         >
-          <span>{{ 'Términos y condiciones' | translate }}</span>
+          <span data-id="92fb59b7">{{ 'Términos y condiciones' | translate }}</span>
         </a>
       </div>
     </div>
 
-    <div class="d-flex">
+    <div class="d-flex" data-id="d46427b4">
       <!--      <a #langMenuTrigger="matMenuTrigger"-->
       <!--         [matMenuTriggerFor]="langMenu"-->
       <!--         class="item-selector mx-3 my-2"-->
@@ -81,22 +97,29 @@
       <!--      </span>-->
       <!--      </mat-menu>-->
 
-      <a [routerLink]="['/contact-us']" class="item-selector mx-3 my-2" mat-button>
+      <a
+        [routerLink]="['/contact-us']"
+        class="item-selector mx-3 my-2"
+        mat-button
+        data-id="61be7bc9"
+      >
         {{ 'Contact us' | translate }}
       </a>
     </div>
 
-    <div style="padding-bottom: 16px"></div>
+    <div style="padding-bottom: 16px" data-id="08b2cdbb"></div>
   </div>
 
   <div
     class="footer-bottom-color d-flex flex-column justify-content-center align-items-center transpilerClass-fxLayoutGap-80f22c"
+    data-id="91d9db2f"
   >
     <div
       class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-608e47"
+      data-id="252fe619"
     >
-      <div class="image-footer" ngClass.lt-sm="img-footer">
-        <img alt="footer logo" class="mt-4 footer-logo" [src]="logo" />
+      <div class="image-footer" ngClass.lt-sm="img-footer" data-id="94c6afe2">
+        <img alt="footer logo" class="mt-4 footer-logo" [src]="logo" data-id="947fbcfb" />
       </div>
       <!--      <div class='etecsa-footer' ngClass.lt-sm="etecsa-img-footer">-->
       <!--        <img alt='etecsa logo' class="mt-4"  src='assets/images/logo-etecsa.svg'>-->
@@ -106,56 +129,75 @@
     <div
       class="py-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center align-items-center transpilerClass-fxLayoutGap-ea15c8 transpilerClass-fxLayoutGap-1a0327"
       id="footer-contacts"
+      data-id="26bbc649"
     >
       <div
         *ngIf="appService.businessConfig?.contactsFooter.phone"
         class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-4cdb31"
+        data-id="27c64537"
       >
-        <mat-icon>phone</mat-icon>
-        <span>{{ appService.businessConfig?.contactsFooter?.phone }}</span>
+        <mat-icon data-id="c48391b7">phone</mat-icon>
+        <span data-id="4f4dac7d">{{ appService.businessConfig?.contactsFooter?.phone }}</span>
       </div>
 
       <div
         *ngIf="appService.businessConfig?.contactsFooter.email"
         class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-946f46"
+        data-id="e239d0bb"
       >
-        <mat-icon>email</mat-icon>
-        <a class="email-text" href="mailto:{{ appService.businessConfig?.contactsFooter.email }}">{{
-          appService.businessConfig?.contactsFooter?.email
-        }}</a>
+        <mat-icon data-id="7b058c24">email</mat-icon>
+        <a
+          class="email-text"
+          href="mailto:{{ appService.businessConfig?.contactsFooter.email }}"
+          data-id="b5d8a3eb"
+          >{{ appService.businessConfig?.contactsFooter?.email }}</a
+        >
       </div>
 
       <div
         *ngIf="appService.businessConfig?.contactsFooter.address"
         class="d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-ff19b5"
+        data-id="4e4c0b95"
       >
-        <mat-icon>location_on</mat-icon>
-        <span>{{ appService.businessConfig?.contactsFooter?.address }}</span>
+        <mat-icon data-id="0c7b3365">location_on</mat-icon>
+        <span data-id="0ec973c3">{{ appService.businessConfig?.contactsFooter?.address }}</span>
       </div>
     </div>
 
-    <div class="d-flex justify-content-end align-items-center flex-sh-75 d-sm-block d-none">
-      <div class="widget-text mx-2">
+    <div
+      class="d-flex justify-content-end align-items-center flex-sh-75 d-sm-block d-none"
+      data-id="87390547"
+    >
+      <div class="widget-text mx-2" data-id="2c7989bb">
         <a
           #langMenuTrigger="matMenuTrigger"
           [matMenuTriggerFor]="langMenu"
           mat-icon-button
           matTooltip="{{ 'Change language' | translate }}"
           style="display: inline"
+          data-id="a276576a"
         >
-          <img [src]="flag?.image" height="24" width="24" />
-          <span class="flag-menu-title d-none d-sm-inline"></span>
-          <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          <img [src]="flag?.image" height="24" width="24" data-id="309f26f6" />
+          <span class="flag-menu-title d-none d-sm-inline" data-id="7966ceca"></span>
+          <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="bc115092"
+            >arrow_drop_down</mat-icon
+          >
         </a>
         <mat-menu
           #langMenu="matMenu"
           [overlapTrigger]="false"
           class="app-dropdown"
           xPosition="before"
+          data-id="be1efd92"
         >
-          <span>
-            <button (click)="changeLang(flag)" *ngFor="let flag of flags" mat-menu-item>
-              <img [src]="flag.image" width="18" /> {{ flag?.name }}
+          <span data-id="4001e32d">
+            <button
+              (click)="changeLang(flag)"
+              *ngFor="let flag of flags"
+              mat-menu-item
+              data-id="c37938a6"
+            >
+              <img [src]="flag.image" width="18" data-id="f98047d6" /> {{ flag?.name }}
             </button>
           </span>
         </mat-menu>
@@ -172,21 +214,25 @@
         appService.businessConfig?.contactsFooter?.socialNetworks?.instagram ||
         appService.businessConfig?.contactsFooter?.socialNetworks?.telegram
       "
+      data-id="5ce67e2d"
     >
       <li
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.facebook"
         class="d-flex justify-content-center align-items-center"
+        data-id="2399822f"
       >
         <a
           class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.facebook"
           target="_blank"
+          data-id="db67acce"
         >
           <!--          <i class="fab fa-facebook-f" style="font-size: 18px"></i>-->
           <img
             alt="Facebook logo"
             src="assets/images/social-media/outline/logo-facebook.svg"
             style="filter: invert(1); border-radius: 50%"
+            data-id="81dce47a"
           />
         </a>
       </li>
@@ -194,17 +240,20 @@
       <li
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.twitter"
         class="d-flex justify-content-center align-items-center"
+        data-id="a06fdf58"
       >
         <a
           class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.twitter"
           target="_blank"
+          data-id="7dfba5af"
         >
           <!--          <i class="fab fa-twitter" style="font-size: 18px"></i>-->
           <img
             alt="Facebook logo"
             src="assets/images/social-media/outline/logo-twitter.svg"
             style="filter: invert(1); border-radius: 50%"
+            data-id="8c4ea2f2"
           />
         </a>
       </li>
@@ -212,17 +261,20 @@
       <li
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin"
         class="d-flex justify-content-center align-items-center"
+        data-id="9cf653a1"
       >
         <a
           class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.linkedin"
           target="_blank"
+          data-id="58abc481"
         >
           <!--          <i class="fab fa-linkedin-in" style="font-size: 18px"></i>-->
           <img
             alt="Facebook logo"
             src="assets/images/social-media/outline/logo-linkedin.svg"
             style="filter: invert(1); border-radius: 50%"
+            data-id="3f924f21"
           />
         </a>
       </li>
@@ -230,17 +282,20 @@
       <li
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.youtube"
         class="d-flex justify-content-center align-items-center"
+        data-id="2afa0bd2"
       >
         <a
           class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.youtube"
           target="_blank"
+          data-id="01d8ebed"
         >
           <!--          <i class="fab fa-youtube" style="font-size: 18px"></i>-->
           <img
             alt="Facebook logo"
             src="assets/images/social-media/outline/logo-youtube.svg"
             style="filter: invert(1); border-radius: 50%"
+            data-id="47b3ae4f"
           />
         </a>
       </li>
@@ -248,17 +303,20 @@
       <li
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.instagram"
         class="d-flex justify-content-center align-items-center"
+        data-id="6964b65f"
       >
         <a
           class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.instagram"
           target="_blank"
+          data-id="77e0e81b"
         >
           <!--          <i class="fab fa-instagram" style="font-size: 18px"></i>-->
           <img
             alt="Facebook logo"
             src="assets/images/social-media/outline/logo-instagram.svg"
             style="filter: invert(1); border-radius: 50%"
+            data-id="c6ec7453"
           />
         </a>
       </li>
@@ -266,17 +324,20 @@
       <li
         *ngIf="appService.businessConfig?.contactsFooter?.socialNetworks?.telegram"
         class="d-flex justify-content-center align-items-center"
+        data-id="e296a8cc"
       >
         <a
           class="icon-redes d-flex justify-content-center align-items-center"
           [href]="appService.businessConfig?.contactsFooter?.socialNetworks?.telegram"
           target="_blank"
+          data-id="9a780769"
         >
           <!--                              <i class="fab fa-facebook" style="font-size: 18px"></i>-->
           <img
             alt="Facebook logo"
             src="assets/images/social-media/outline/logo-telegram.svg"
             style="filter: invert(1); border-radius: 50%"
+            data-id="74a3e924"
           />
         </a>
       </li>
@@ -284,12 +345,13 @@
 
     <div
       class="mb-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-center transpilerClass-fxLayoutGap-1162c6 transpilerClass-fxLayoutGap-3da205"
+      data-id="58881e2e"
     >
-      <span>Copyright© {{ year }}.</span>
+      <span data-id="2de68ad6">Copyright© {{ year }}.</span>
 
-      <span>{{ 'Todos los derechos reservados' | translate }}.</span>
+      <span data-id="1e396941">{{ 'Todos los derechos reservados' | translate }}.</span>
 
-      <span>{{ 'v' | translate }}{{ version }}</span>
+      <span data-id="a25a2867">{{ 'v' | translate }}{{ version }}</span>
     </div>
 
     <!--      <div class="mb-3" *ngIf='showPoweredBy' fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="4px">-->

@@ -2,25 +2,29 @@
   *ngIf="inLoading"
   style="height: 80vh"
   class="d-flex justify-content-center align-items-center"
+  data-id="a26040f8"
 >
-  <mat-spinner *ngIf="inLoading" [diameter]="60"></mat-spinner>
+  <mat-spinner *ngIf="inLoading" [diameter]="60" data-id="e5ec2c55"></mat-spinner>
 </div>
 
 <div
   class="mb-20 mt-10 d-flex flex-column justify-content-center align-items-center"
   *ngIf="!inLoading && data"
+  data-id="db36f5ea"
 >
-  <h2 class="mb-2">{{ data.message | i18nField: translateService.currentLang }}</h2>
+  <h2 class="mb-2" data-id="592022da">
+    {{ data.message | i18nField: translateService.currentLang }}
+  </h2>
 
-  <div class="d-flex justify-content-center align-items-center">
-    <img [src]="data.image" class="mr-2 img-captcha" />
-    <button mat-icon-button mat-raised-button (click)="refreshData()">
-      <mat-icon>refresh</mat-icon>
+  <div class="d-flex justify-content-center align-items-center" data-id="45abb16f">
+    <img [src]="data.image" class="mr-2 img-captcha" data-id="d0eebe16" />
+    <button mat-icon-button mat-raised-button (click)="refreshData()" data-id="cba2c0b6">
+      <mat-icon data-id="35934fa2">refresh</mat-icon>
     </button>
   </div>
 
-  <mat-form-field appearance="outline" class="example-full-width mt-2">
-    <mat-label>{{ 'Resultado' | translate }}</mat-label>
+  <mat-form-field appearance="outline" class="example-full-width mt-2" data-id="512d0145">
+    <mat-label data-id="7a0eac01">{{ 'Resultado' | translate }}</mat-label>
     <input
       [formControl]="form.get('value')"
       autocomplete="username"
@@ -28,18 +32,22 @@
       name="username"
       placeholder="{{ 'Resultado' | translate }}"
       required
+      data-id="057db14e"
     />
-    <mat-error *ngIf="form.get('value').hasError('required')">
-      {{ 'Resultado' | translate }} <strong>{{ 'is required' | translate }}</strong>
+    <mat-error *ngIf="form.get('value').hasError('required')" data-id="57130bcd">
+      {{ 'Resultado' | translate }}
+      <strong data-id="d0e7cfe7">{{ 'is required' | translate }}</strong>
     </mat-error>
-    <mat-error *ngIf="form.get('value').hasError('pattern')">
+    <mat-error *ngIf="form.get('value').hasError('pattern')" data-id="226cfaa8">
       {{ 'El resultado debe contener números' | translate }}
     </mat-error>
   </mat-form-field>
 
-  <mat-dialog-actions class="d-flex justify-content-end align-items-end">
+  <mat-dialog-actions class="d-flex justify-content-end align-items-end" data-id="6b7c73af">
     <!--    <div fxLayout='row' fxLayoutAlign='end end'>-->
-    <button mat-raised-button color="primary" (click)="sendData()">Enviar</button>
+    <button mat-raised-button color="primary" (click)="sendData()" data-id="8c067b84">
+      Enviar
+    </button>
     <!--    </div>-->
   </mat-dialog-actions>
 </div>

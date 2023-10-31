@@ -4,51 +4,58 @@
     productDataService.popularProducts.length > 0 ||
     productDataService.featuredProducts.length > 0
   "
+  data-id="029fd7f1"
 >
-  <div class="vertical-products sec-padding">
+  <div class="vertical-products sec-padding" data-id="1ee36179">
     <div
       class="p-0 d-flex d-xs-flex flex-column flex-xs-column justify-content-start align-items-start"
+      data-id="6cf495eb"
     >
       <!-- ULTIMOS PRODUCTOS -->
-      <ng-container *ngIf="productDataService.allProducts.length > 0">
-        <div class="product-panel flex-sh-100 flex-sh-35 flex-sh-xs-initial">
-          <div class="widget-column">
-            <div class="title">
-              <h4 class="widget-title">{{ 'Latest Products' | translate }}</h4>
+      <ng-container *ngIf="productDataService.allProducts.length > 0" data-id="2a7a2052">
+        <div class="product-panel flex-sh-100 flex-sh-35 flex-sh-xs-initial" data-id="956de881">
+          <div class="widget-column" data-id="6ce6e659">
+            <div class="title" data-id="19531fd3">
+              <h4 class="widget-title" data-id="00343345">{{ 'Latest Products' | translate }}</h4>
             </div>
             <app-footer-product-card
               [Products]="productDataService.allProducts.slice(0, 3)"
               [language]="language"
+              data-id="29bb8e29"
             ></app-footer-product-card>
           </div>
         </div>
       </ng-container>
 
       <!-- MAS VENDIDOS -->
-      <ng-container *ngIf="productDataService.bestSellerProducts.length > 0">
-        <div class="product-panel flex-sh-100 flex-sh-35 flex-sh-xs-initial">
-          <div class="widget-column">
-            <div class="title">
-              <h4 class="widget-title">{{ 'Top Selling Products' | translate }}</h4>
+      <ng-container *ngIf="productDataService.bestSellerProducts.length > 0" data-id="f6ef6f73">
+        <div class="product-panel flex-sh-100 flex-sh-35 flex-sh-xs-initial" data-id="e35f7ce0">
+          <div class="widget-column" data-id="0fd34a5c">
+            <div class="title" data-id="f7c896d4">
+              <h4 class="widget-title" data-id="38f3d727">
+                {{ 'Top Selling Products' | translate }}
+              </h4>
             </div>
             <app-footer-product-card
               [Products]="productDataService.bestSellerProducts.slice(0, 3)"
               [language]="language"
+              data-id="a05a04a8"
             ></app-footer-product-card>
           </div>
         </div>
       </ng-container>
 
       <!-- DESTACADOS -->
-      <ng-container *ngIf="productDataService.featuredProducts.length > 0">
-        <div class="product-panel flex-sh-100 flex-sh-35 flex-sh-xs-initial">
-          <div class="widget-column footer-product-card">
-            <div class="title">
-              <h4 class="widget-title">{{ 'Featured Products' | translate }}</h4>
+      <ng-container *ngIf="productDataService.featuredProducts.length > 0" data-id="99a43dc1">
+        <div class="product-panel flex-sh-100 flex-sh-35 flex-sh-xs-initial" data-id="4b8b6bf9">
+          <div class="widget-column footer-product-card" data-id="166ece4c">
+            <div class="title" data-id="3931dc68">
+              <h4 class="widget-title" data-id="9716a282">{{ 'Featured Products' | translate }}</h4>
             </div>
             <app-footer-product-card
               [Products]="productDataService.featuredProducts.slice(0, 3)"
               [language]="language"
+              data-id="2dbaf77f"
             ></app-footer-product-card>
           </div>
         </div>

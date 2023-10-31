@@ -1,41 +1,73 @@
 <div
   class="blog-container d-flex flex-column d-xs-flex d-sm-flex justify-content-sm-center justify-content-center align-items-sm-center align-items-center"
+  data-id="13cc2cf3"
 >
-  <ng-container *ngIf="allArticles.length === 1">
+  <ng-container *ngIf="allArticles.length === 1" data-id="67b978cf">
     <div
       *ngFor="let article of allArticles; let i = index"
       class="blog flex-sh-sm-100 flex-sh-50 flex-sh-xs-initial"
+      data-id="0760a0b3"
     >
-      <div class="info">
-        <div class="img-box">
-          <a [routerLink]="['/blog', article.id]">
-            <img *ngIf="article.image" [src]="imageUrl + article.image" alt lazyImg />
+      <div class="info" data-id="cfe2c932">
+        <div class="img-box" data-id="8622a028">
+          <a [routerLink]="['/blog', article.id]" data-id="f3cbf84e">
+            <img
+              *ngIf="article.image"
+              [src]="imageUrl + article.image"
+              alt
+              lazyImg
+              data-id="7bd2e3b0"
+            />
           </a>
 
-          <img *ngIf="!article.image" alt lazyImg src="/assets/images/noImage.jpg" />
+          <img
+            *ngIf="!article.image"
+            alt
+            lazyImg
+            src="/assets/images/noImage.jpg"
+            data-id="41fe6beb"
+          />
         </div>
-        <div class="text-box d-flex flex-column">
-          <h4>{{ utilsService.parserLanguage(article.title, language) }}</h4>
-          <p class="module line-clamp">
+        <div class="text-box d-flex flex-column" data-id="f4217213">
+          <h4 data-id="0f0a81f0">{{ utilsService.parserLanguage(article.title, language) }}</h4>
+          <p class="module line-clamp" data-id="a5200de7">
             {{ utilsService.parserLanguage(article.sumarize, language) }}
           </p>
-          <a [routerLink]="['/blog', article.id]" class="mt-2">{{ 'See More' | translate }}</a>
+          <a [routerLink]="['/blog', article.id]" class="mt-2" data-id="c980aaa1">{{
+            'See More' | translate
+          }}</a>
         </div>
       </div>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="allArticles.length > 1">
-    <div *ngFor="let article of allArticles; let i = index" class="blog flex-sh-0">
-      <div class="info">
-        <div class="img-box">
-          <a [routerLink]="['/blog']">
-            <img *ngIf="article.image" [src]="imageUrl + article.image" alt lazyImg />
+  <ng-container *ngIf="allArticles.length > 1" data-id="a7628b0f">
+    <div
+      *ngFor="let article of allArticles; let i = index"
+      class="blog flex-sh-0"
+      data-id="e98a7a4b"
+    >
+      <div class="info" data-id="4b52705e">
+        <div class="img-box" data-id="e4d56a11">
+          <a [routerLink]="['/blog']" data-id="8c09da5e">
+            <img
+              *ngIf="article.image"
+              [src]="imageUrl + article.image"
+              alt
+              lazyImg
+              data-id="5a2c1b2d"
+            />
           </a>
 
-          <img *ngIf="!article.image" alt lazyImg src="/assets/images/noImage.jpg" />
+          <img
+            *ngIf="!article.image"
+            alt
+            lazyImg
+            src="/assets/images/noImage.jpg"
+            data-id="e0d6d8bf"
+          />
         </div>
-        <div class="text-box d-flex flex-column">
+        <div class="text-box d-flex flex-column" data-id="7f9798e8">
           <h4
             class="module line-clamp mb-2"
             style="
@@ -43,13 +75,16 @@
               height: 3.2rem !important;
               text-transform: none !important;
             "
+            data-id="19f0d2f4"
           >
             {{ utilsService.parserLanguage(article.title, language) }}
           </h4>
-          <p class="module line-clamp">
+          <p class="module line-clamp" data-id="a5f0e958">
             {{ utilsService.parserLanguage(article.sumarize, language) }}
           </p>
-          <a [routerLink]="['/blog', article.id]" class="mt-2">{{ 'See More' | translate }}</a>
+          <a [routerLink]="['/blog', article.id]" class="mt-2" data-id="9e4bcfc4">{{
+            'See More' | translate
+          }}</a>
         </div>
       </div>
     </div>

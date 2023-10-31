@@ -1,12 +1,17 @@
-<div class="TEST">
-  <h3>{{ 'Compartir en:' | translate }}</h3>
-  <mat-divider class="my-2"></mat-divider>
-  <div (click)="openLink($event)" class="my-3 d-flex justify-content-start align-items-start">
+<div class="TEST" data-id="620e750d">
+  <h3 data-id="c0a4700c">{{ 'Compartir en:' | translate }}</h3>
+  <mat-divider class="my-2" data-id="c36a977c"></mat-divider>
+  <div
+    (click)="openLink($event)"
+    class="my-3 d-flex justify-content-start align-items-start"
+    data-id="235f9d6b"
+  >
     <share-button
       *ngIf="facebook"
       [description]="data.description"
       [title]="data.title"
       button="facebook"
+      data-id="934a6410"
     >
     </share-button>
     <share-button
@@ -14,6 +19,7 @@
       [description]="data.description"
       [title]="data.title"
       button="whatsapp"
+      data-id="512647f9"
     >
     </share-button>
     <share-button
@@ -21,6 +27,7 @@
       [description]="data.description"
       [title]="data.title"
       button="telegram"
+      data-id="33887eb1"
     >
     </share-button>
     <share-button
@@ -28,6 +35,7 @@
       [description]="data.description"
       [title]="data.title"
       button="email"
+      data-id="98a83db6"
     >
     </share-button>
   </div>

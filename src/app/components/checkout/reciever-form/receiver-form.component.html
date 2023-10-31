@@ -1,35 +1,44 @@
-<div class="container-checkout checkout sec-padding my-5">
+<div class="container-checkout checkout sec-padding my-5" data-id="f41b8f2a">
   <div
     class="billing-details flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
     ngClass.gt-sm="pr-5"
     ngClass.sm="pr-2"
     ngClass.xs="pr-0"
+    data-id="36234cf7"
   >
-    <div class="header-title">
-      <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4">
+    <div class="header-title" data-id="49b813da">
+      <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="f749ad43">
         {{ 'Billing Details' | translate }}
       </h3>
     </div>
 
-    <div [formGroup]="form" class="d-flex justify-content-start align-items-start">
+    <div
+      [formGroup]="form"
+      class="d-flex justify-content-start align-items-start"
+      data-id="980351bd"
+    >
       <div
         ngClass.sm="mt-2"
         ngClass.xs="mt-2"
         class="d-flex flex-column justify-content-start align-items-stretch flex-sh-100"
+        data-id="465cc9db"
       >
         <div
           class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-c95051"
+          data-id="bc3f914b"
         >
           <p
             class="mat-body-2 my-2"
             style="text-transform: uppercase"
             title="{{ 'Información del cliente que obtendrá los productos' | translate }}"
+            data-id="3310fb07"
           >
             {{ 'Datos personales del destinatario' | translate }}
             <mat-icon
               class="iconHelp"
               matTooltip="{{ 'Información del cliente que obtendrá los productos' | translate }}"
               style="cursor: pointer"
+              data-id="69822749"
               >help
             </mat-icon>
           </p>
@@ -40,66 +49,79 @@
             color="primary"
             mat-stroked-button
             ngClass.xs="mb-3"
+            data-id="781610fe"
           >
-            <mat-icon>book</mat-icon>
+            <mat-icon data-id="092289cc">book</mat-icon>
             {{ 'Contactos guardados' | translate }}
           </button>
-          <mat-menu #menuContacts="matMenu">
-            <ng-container *ngFor="let contact of contactsService.allContacts">
-              <button (click)="onSelectContact(contact)" mat-menu-item>
-                <mat-icon *ngIf="!contact.selected">person_outline</mat-icon>
+          <mat-menu #menuContacts="matMenu" data-id="1714e421">
+            <ng-container *ngFor="let contact of contactsService.allContacts" data-id="6de184f7">
+              <button (click)="onSelectContact(contact)" mat-menu-item data-id="d1c08365">
+                <mat-icon *ngIf="!contact.selected" data-id="a241ccee">person_outline</mat-icon>
                 <mat-icon
                   *ngIf="contact.selected"
                   matTooltip="{{ 'Contacto predeterminado' | translate }}"
+                  data-id="78f886b0"
                   >star</mat-icon
                 >
-                <span>{{ contact.name }}&nbsp;{{ contact.lastName }}</span>
+                <span data-id="2aceef48">{{ contact.name }}&nbsp;{{ contact.lastName }}</span>
               </button>
             </ng-container>
-            <button (click)="onAddContact()" mat-menu-item style="border-top: 4px solid #e7e4e4">
-              <mat-icon>playlist_add</mat-icon>
-              <span>{{ 'Agregar / Editar' | translate }}</span>
+            <button
+              (click)="onAddContact()"
+              mat-menu-item
+              style="border-top: 4px solid #e7e4e4"
+              data-id="f6fd76d6"
+            >
+              <mat-icon data-id="e853848c">playlist_add</mat-icon>
+              <span data-id="e835a46a">{{ 'Agregar / Editar' | translate }}</span>
             </button>
           </mat-menu>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center" data-id="b58a1391">
           <mat-form-field
             appearance="outline"
             class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+            data-id="6a87c399"
           >
-            <mat-label>{{ 'Name' | translate }}</mat-label>
+            <mat-label data-id="c105b938">{{ 'Name' | translate }}</mat-label>
             <input
               [formControl]="this.form.controls['name']"
               matInput
               placeholder="{{ 'Name' | translate }}"
               required
               (keypress)="utilsService.keyPressAlpha($event)"
+              data-id="dcb20a56"
             />
-            <mat-error *ngIf="form.controls['name'].hasError('required')">
-              {{ 'Name' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-error *ngIf="form.controls['name'].hasError('required')" data-id="222eb12e">
+              {{ 'Name' | translate }}
+              <strong data-id="0d86665c">{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
           <mat-form-field
             appearance="outline"
             class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+            data-id="b71136dc"
           >
-            <mat-label>{{ 'Lastname' | translate }}</mat-label>
+            <mat-label data-id="8af0b07b">{{ 'Lastname' | translate }}</mat-label>
             <input
               [formControl]="this.form.controls['lastName']"
               matInput
               placeholder="{{ 'Lastname' | translate }}"
               required
               (keypress)="utilsService.keyPressAlpha($event)"
+              data-id="fcabb450"
             />
-            <mat-error *ngIf="form.controls['lastName'].hasError('required')">
-              {{ 'Lastname' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-error *ngIf="form.controls['lastName'].hasError('required')" data-id="231a5e48">
+              {{ 'Lastname' | translate }}
+              <strong data-id="91dc64dc">{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
         </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'Email' | translate }}</mat-label>
+        <mat-form-field appearance="outline" data-id="5c083f5f">
+          <mat-label data-id="8da4bb58">{{ 'Email' | translate }}</mat-label>
           <input
             [formControl]="this.form.controls['email']"
             (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -107,12 +129,15 @@
             placeholder="{{ 'Mail for order confirmation and customer contact ' | translate }}"
             required
             type="email"
+            data-id="833b1659"
           />
-          <mat-error *ngIf="form.controls['email'].hasError('required')">
-            {{ 'Email' | translate }} <strong>{{ 'is required' | translate }}</strong>
+          <mat-error *ngIf="form.controls['email'].hasError('required')" data-id="8feb821f">
+            {{ 'Email' | translate }}
+            <strong data-id="c7731902">{{ 'is required' | translate }}</strong>
           </mat-error>
-          <mat-error *ngIf="form.controls['email'].hasError('pattern')">
-            {{ 'Email' | translate }} <strong>{{ 'incorrect' | translate }}</strong>
+          <mat-error *ngIf="form.controls['email'].hasError('pattern')" data-id="5bee85e6">
+            {{ 'Email' | translate }}
+            <strong data-id="155a99a3">{{ 'incorrect' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
@@ -120,6 +145,7 @@
           class="mat-body-2 my-2"
           style="text-transform: uppercase"
           title="{{ 'Datos adicionales del cliente que obtendrá los productos' | translate }}"
+          data-id="39572059"
         >
           {{ 'Datos del destinatario' | translate }}
           <mat-icon
@@ -128,15 +154,20 @@
               'Datos adicionales del cliente que obtendrá los productos' | translate
             }}"
             style="cursor: pointer"
+            data-id="35985c27"
             >help
           </mat-icon>
         </p>
 
         <!-- SOLO PARA CUBANOS -->
-        <ng-container *ngIf="onlyCubanPeople">
-          <div class="d-flex justify-content-between align-items-center">
-            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-              <mat-label>{{ 'Provincia' | translate }}</mat-label>
+        <ng-container *ngIf="onlyCubanPeople" data-id="81cd197b">
+          <div class="d-flex justify-content-between align-items-center" data-id="12674f4b">
+            <mat-form-field
+              appearance="outline"
+              class="flex-sh-50 flex-sh-md-100"
+              data-id="44ae3806"
+            >
+              <mat-label data-id="db4da7e0">{{ 'Provincia' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="onSelectProvince($event.value)"
                 [compareWith]="compareById"
@@ -144,18 +175,31 @@
                 placeholder="{{ 'Nombre de la provincia' | translate }}"
                 required
                 type="text"
+                data-id="0a6d6409"
               >
-                <mat-option *ngFor="let province of allProvinces" [value]="province.id">
+                <mat-option
+                  *ngFor="let province of allProvinces"
+                  [value]="province.id"
+                  data-id="3067f588"
+                >
                   {{ province.name }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="form.controls['ProvinceId'].hasError('required')">
-                {{ 'Provincia' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="form.controls['ProvinceId'].hasError('required')"
+                data-id="cd0716d0"
+              >
+                {{ 'Provincia' | translate }}
+                <strong data-id="41ce0e09">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="flex-sh-50 flex-sh-md-100">
-              <mat-label>{{ 'Municipio' | translate }}</mat-label>
+            <mat-form-field
+              appearance="outline"
+              class="flex-sh-50 flex-sh-md-100"
+              data-id="0f6aad4d"
+            >
+              <mat-label data-id="05642e71">{{ 'Municipio' | translate }}</mat-label>
               <mat-select
                 (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
                 [compareWith]="compareById"
@@ -163,17 +207,29 @@
                 placeholder="{{ 'Nombre del Municipio' | translate }}"
                 required
                 type="text"
+                data-id="4e77f7f0"
               >
-                <mat-option *ngFor="let municipio of municipalities" [value]="municipio.id">
+                <mat-option
+                  *ngFor="let municipio of municipalities"
+                  [value]="municipio.id"
+                  data-id="3f9caee0"
+                >
                   {{ municipio.name }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="form.controls['MunicipalityId'].hasError('required')">
-                {{ 'Municipio' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="form.controls['MunicipalityId'].hasError('required')"
+                data-id="f396554e"
+              >
+                {{ 'Municipio' | translate }}
+                <strong data-id="56e0e03c">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
-          <mat-error *ngIf="form.controls['ProvinceId'].hasError('forbiddenProvince')">
+          <mat-error
+            *ngIf="form.controls['ProvinceId'].hasError('forbiddenProvince')"
+            data-id="7dc381db"
+          >
             {{ '**Esta localización no coincide con la del envío seleccionado.**' | translate }}
           </mat-error>
         </ng-container>
@@ -241,57 +297,73 @@
         <!--          </div>-->
         <!--        </ng-container>-->
 
-        <div formGroupName="address">
-          <div class="d-flex transpilerClass-fxLayoutGap-56b70b">
-            <mat-form-field appearance="outline" class="flex-sh-80">
-              <mat-label>{{ 'Calle' | translate }}</mat-label>
+        <div formGroupName="address" data-id="2582490b">
+          <div class="d-flex transpilerClass-fxLayoutGap-56b70b" data-id="2bf83149">
+            <mat-form-field appearance="outline" class="flex-sh-80" data-id="2f6c276f">
+              <mat-label data-id="5f20aa6f">{{ 'Calle' | translate }}</mat-label>
               <input
                 formControlName="street"
                 matInput
                 placeholder="{{ 'Calle' | translate }}"
                 required
                 type="text"
+                data-id="caf72401"
               />
-              <mat-error *ngIf="this.form.controls['address']?.get('street')?.hasError('required')">
-                {{ 'Calle' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="this.form.controls['address']?.get('street')?.hasError('required')"
+                data-id="e8f1d8a5"
+              >
+                {{ 'Calle' | translate }}
+                <strong data-id="61b4e446">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline" class="flex-sh-20">
-              <mat-label>{{ 'Número' | translate }}</mat-label>
+            <mat-form-field appearance="outline" class="flex-sh-20" data-id="41b21e37">
+              <mat-label data-id="e6940c33">{{ 'Número' | translate }}</mat-label>
               <input
                 formControlName="number"
                 matInput
                 placeholder="{{ 'Número' | translate }}"
                 required
                 type="text"
+                data-id="cc1f8fb7"
               />
-              <mat-error *ngIf="form.controls['address']?.get('number')?.hasError('required')">
-                {{ 'Número' | translate }} <strong>{{ 'is required' | translate }}</strong>
+              <mat-error
+                *ngIf="form.controls['address']?.get('number')?.hasError('required')"
+                data-id="ad972efe"
+              >
+                {{ 'Número' | translate }}
+                <strong data-id="7f597a62">{{ 'is required' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
-          <mat-form-field appearance="outline">
-            <mat-label>{{ 'Entre calles' | translate }}</mat-label>
+          <mat-form-field appearance="outline" data-id="a4fff225">
+            <mat-label data-id="f280beba">{{ 'Entre calles' | translate }}</mat-label>
             <input
               formControlName="between"
               matInput
               placeholder="{{ 'Entre calles' | translate }}"
               required
               type="text"
+              data-id="2e05d735"
             />
-            <mat-error *ngIf="form.controls['address']?.get('between')?.hasError('required')">
-              {{ 'Entre' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-error
+              *ngIf="form.controls['address']?.get('between')?.hasError('required')"
+              data-id="32d87de8"
+            >
+              {{ 'Entre' | translate }}
+              <strong data-id="f6f02929">{{ 'is required' | translate }}</strong>
             </mat-error>
           </mat-form-field>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center" data-id="5454b4de">
           <mat-form-field
             appearance="outline"
             id="CI"
             class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+            data-id="eb7f0608"
           >
-            <mat-label>{{ 'Identity card' | translate }}</mat-label>
+            <mat-label data-id="1fb1eb3a">{{ 'Identity card' | translate }}</mat-label>
             <input
               (keypress)="utilsService.keyPressAlphaAndNumbers($event)"
               [formControl]="this.form.controls['dni']"
@@ -299,14 +371,16 @@
               placeholder="{{ 'Identity card' | translate }}"
               required
               type="text"
+              data-id="04077d3b"
             />
-            <mat-hint>{{ 'Asegúrese de escribirlo correctamente' }}</mat-hint>
-            <mat-error *ngIf="form.controls['dni'].hasError('required')">
-              {{ 'Identity card' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-hint data-id="84c1998b">{{ 'Asegúrese de escribirlo correctamente' }}</mat-hint>
+            <mat-error *ngIf="form.controls['dni'].hasError('required')" data-id="b311c1f9">
+              {{ 'Identity card' | translate }}
+              <strong data-id="70d0bfeb">{{ 'is required' | translate }}</strong>
             </mat-error>
-            <mat-error *ngIf="form.controls['dni'].hasError('minlength')">
+            <mat-error *ngIf="form.controls['dni'].hasError('minlength')" data-id="1b0483bf">
               {{ 'Longitud mínima' | translate }}
-              <strong>{{ CI_Length }} {{ 'caracteres' | translate }}</strong>
+              <strong data-id="3dc93eab">{{ CI_Length }} {{ 'caracteres' | translate }}</strong>
             </mat-error>
           </mat-form-field>
 
@@ -314,24 +388,27 @@
             appearance="outline"
             id="phone-checkout"
             class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+            data-id="e2e229e8"
           >
-            <mat-label>{{ 'Phone' | translate }}</mat-label>
-            <span class="mr-2" matPrefix>+ 53</span>
+            <mat-label data-id="9feea5eb">{{ 'Phone' | translate }}</mat-label>
+            <span class="mr-2" matPrefix data-id="1a213606">+ 53</span>
             <input
               (keypress)="utilsService.keyPressNumbers($event)"
               [formControl]="this.form.controls['phone']"
               matInput
               placeholder="{{ 'Phone' | translate }}"
               required
+              data-id="f52acb9e"
             />
-            <mat-hint *ngIf="!form.get('phone').value">
+            <mat-hint *ngIf="!form.get('phone').value" data-id="7db9d84a">
               {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}
             </mat-hint>
-            <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid">
+            <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid" data-id="05758c70">
               {{ 'Número válido' | translate }}
             </mat-hint>
-            <mat-error *ngIf="form.controls['phone'].hasError('required')">
-              {{ 'Phone' | translate }} <strong>{{ 'is required' | translate }}</strong>
+            <mat-error *ngIf="form.controls['phone'].hasError('required')" data-id="fddfd5db">
+              {{ 'Phone' | translate }}
+              <strong data-id="7bf6d3d4">{{ 'is required' | translate }}</strong>
             </mat-error>
             <mat-error
               *ngIf="
@@ -339,53 +416,67 @@
                   form.controls['phone'].hasError('maxlength')) &&
                 !form.controls['phone'].hasError('pattern')
               "
+              data-id="50edfcec"
             >
-              {{ 'Longitud del número' | translate }}&nbsp;<strong>{{
+              {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="50d3462a">{{
                 '8 caracteres, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
-            <mat-error *ngIf="form.controls['phone'].hasError('pattern')">
-              {{ 'El número' | translate }}&nbsp;<strong>{{
+            <mat-error *ngIf="form.controls['phone'].hasError('pattern')" data-id="f1c3493a">
+              {{ 'El número' | translate }}&nbsp;<strong data-id="d58e20cc">{{
                 'debe empezar con 5, Ex: 51234567' | translate
               }}</strong>
             </mat-error>
           </mat-form-field>
 
           <!--CUSTOM FIELDS-->
-          <ng-container *ngIf="customFields?.length > 0 && fields">
-            <p class="mat-body-2 my-2" style="text-transform: uppercase">
+          <ng-container *ngIf="customFields?.length > 0 && fields" data-id="95197b69">
+            <p class="mat-body-2 my-2" style="text-transform: uppercase" data-id="073ef0bf">
               {{ 'Datos especiales' | translate }}
               <mat-icon
                 class="iconHelp"
                 matTooltip="{{ 'Datos especiales que solicita el negocio.' | translate }}"
                 style="cursor: pointer"
+                data-id="f25e9a3b"
                 >help
               </mat-icon>
             </p>
 
-            <ng-container *ngFor="let element of fields">
-              <ng-container [ngSwitch]="element.type">
-                <ng-container *ngSwitchCase="'DATE'">
-                  <mat-form-field formGroupName="data" appearance="outline">
-                    <mat-label>{{ element?.name }}</mat-label>
+            <ng-container *ngFor="let element of fields" data-id="62ac4e70">
+              <ng-container [ngSwitch]="element.type" data-id="98980dcd">
+                <ng-container *ngSwitchCase="'DATE'" data-id="b1081541">
+                  <mat-form-field formGroupName="data" appearance="outline" data-id="c3d2363f">
+                    <mat-label data-id="786be7bf">{{ element?.name }}</mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker"
                       [min]="minDate"
                       formControlName="{{ element?.name }}"
+                      data-id="d376979c"
                     />
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="picker"
+                      data-id="6a402bc1"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker data-id="62495b3a"></mat-datepicker>
                     <mat-error
                       *ngIf="form.controls['data']?.get(element?.name)?.hasError('required')"
+                      data-id="3368740e"
                     >
-                      {{ element?.name }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ element?.name }}
+                      <strong data-id="e769fd64">{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
                 </ng-container>
-                <ng-container *ngSwitchCase="'TIME'">
-                  <mat-form-field formGroupName="data" appearance="outline" class="time-icon-style">
-                    <mat-label>{{ element?.name }}</mat-label>
+                <ng-container *ngSwitchCase="'TIME'" data-id="7e29390d">
+                  <mat-form-field
+                    formGroupName="data"
+                    appearance="outline"
+                    class="time-icon-style"
+                    data-id="ab9a86d5"
+                  >
+                    <mat-label data-id="a10c7706">{{ element?.name }}</mat-label>
                     <input
                       matInput
                       [ngxTimepicker]="toggleTimepicker"
@@ -394,40 +485,50 @@
                       [format]="24"
                       formControlName="{{ element?.name }}"
                       readonly
+                      data-id="dff3dc42"
                     />
                     <ngx-material-timepicker-toggle
                       matSuffix
                       [for]="toggleTimepicker"
+                      data-id="66a66626"
                     ></ngx-material-timepicker-toggle>
                     <ngx-material-timepicker
                       #toggleTimepicker
                       [theme]="timePickerTheme"
+                      data-id="30b12a75"
                     ></ngx-material-timepicker>
                     <mat-error
                       *ngIf="form.controls['data']?.get(element?.name)?.hasError('required')"
+                      data-id="6cfe9138"
                     >
-                      {{ element?.name }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ element?.name }}
+                      <strong data-id="be777a18">{{ 'is required' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
                 </ng-container>
-                <ng-container *ngSwitchDefault>
-                  <mat-form-field formGroupName="data" appearance="outline">
-                    <mat-label>{{ element?.name }}</mat-label>
+                <ng-container *ngSwitchDefault data-id="136e313e">
+                  <mat-form-field formGroupName="data" appearance="outline" data-id="a25cbf24">
+                    <mat-label data-id="fab22c96">{{ element?.name }}</mat-label>
                     <input
                       matInput
                       formControlName="{{ element?.name }}"
                       placeholder="{{ element?.name }}"
                       [required]="isRequiredField(element?.name)"
+                      data-id="cec5bbd6"
                     />
                     <mat-error
                       *ngIf="form.controls['data']?.get(element?.name)?.hasError('required')"
+                      data-id="cf9aa647"
                     >
-                      {{ element?.name }} <strong>{{ 'is required' | translate }}</strong>
+                      {{ element?.name }}
+                      <strong data-id="0094f6af">{{ 'is required' | translate }}</strong>
                     </mat-error>
                     <mat-error
                       *ngIf="form.controls['data']?.get(element?.name)?.hasError('pattern')"
+                      data-id="9edcf276"
                     >
-                      {{ element?.name }} <strong>{{ 'is invalid' | translate }}</strong>
+                      {{ element?.name }}
+                      <strong data-id="0e84e3ff">{{ 'is invalid' | translate }}</strong>
                     </mat-error>
                   </mat-form-field>
                 </ng-container>
@@ -438,8 +539,8 @@
         </div>
       </div>
 
-      <div class="add-info">
-        <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4">
+      <div class="add-info" data-id="1c4b0bbf">
+        <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="76ce05ef">
           {{ 'Aditional information' | translate }}
         </h3>
       </div>
@@ -447,8 +548,9 @@
         class="mt-1 flex-sh-100 flex-sh-100 flex-sh-sm-initial"
         ngClass.sm="mt-1"
         ngClass.xs="mt-1"
+        data-id="84d29cfe"
       >
-        <mat-form-field appearance="outline" class="w-100">
+        <mat-form-field appearance="outline" class="w-100" data-id="29a7ff2a">
           <textarea
             [formControl]="this.form.controls['info']"
             matInput
@@ -456,17 +558,24 @@
               'Some information about your address or something important' | translate
             }}"
             rows="2"
+            data-id="5aebad1d"
           ></textarea>
         </mat-form-field>
       </div>
 
-      <div class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN">
-        <button mat-stroked-button matStepperPrevious>{{ 'Atrás' | translate }}</button>
+      <div
+        class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN"
+        data-id="b6a37a3c"
+      >
+        <button mat-stroked-button matStepperPrevious data-id="1d064a47">
+          {{ 'Atrás' | translate }}
+        </button>
         <button
           (click)="onGoToPayment()"
           [disabled]="form.invalid"
           color="primary"
           mat-raised-button
+          data-id="546080b7"
         >
           {{ 'Continuar' | translate }}
         </button>

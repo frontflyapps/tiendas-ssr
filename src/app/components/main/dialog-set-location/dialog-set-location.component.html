@@ -1,10 +1,11 @@
-<h2 class="mb-2" mat-dialog-title>{{ 'Elige tu ubicación' | translate }}</h2>
-<mat-dialog-content class="mat-typography d-flex flex-column">
+<h2 class="mb-2" mat-dialog-title data-id="c59dc1de">{{ 'Elige tu ubicación' | translate }}</h2>
+<mat-dialog-content class="mat-typography d-flex flex-column" data-id="6b63c336">
   <div
     class="mb-3 d-flex justify-content-center align-items-center transpilerClass-fxLayoutGap-2ed3b7"
+    data-id="1d1c13bb"
   >
-    <mat-icon color="primary" class="icon-info">info</mat-icon>
-    <p style="font-size: 16px">
+    <mat-icon color="primary" class="icon-info" data-id="2c26ecd6">info</mat-icon>
+    <p style="font-size: 16px" data-id="fa68c8c4">
       {{
         'Los primeros resultados de búsqueda, serán los mas cercanos a la ubicación seleccionada.'
           | translate
@@ -12,7 +13,7 @@
     </p>
   </div>
 
-  <h3>{{ 'Provincia' | translate }}</h3>
+  <h3 data-id="bf07ed25">{{ 'Provincia' | translate }}</h3>
   <guajiritos-general-autocomplete
     [label]="'Provincia'"
     [isRequired]="true"
@@ -24,10 +25,11 @@
     [filterString]="'filter[$and][name][$like]'"
     [valueId]="false"
     [withoutPaddingBottom]="false"
+    data-id="c190f447"
   ></guajiritos-general-autocomplete>
 
-  <ng-container *ngIf="this.locationForm.get('province').value">
-    <h3>{{ 'Municipio' | translate }}</h3>
+  <ng-container *ngIf="this.locationForm.get('province').value" data-id="3e2e8d35">
+    <h3 data-id="2677dd50">{{ 'Municipio' | translate }}</h3>
 
     <guajiritos-general-autocomplete
       [label]="'Municipio'"
@@ -41,6 +43,7 @@
       [filterString]="'filter[$and][name][$like]'"
       [valueId]="false"
       [withoutPaddingBottom]="false"
+      data-id="87fc2ec7"
     ></guajiritos-general-autocomplete>
   </ng-container>
 
@@ -115,9 +118,15 @@
   <!--  </mat-form-field>-->
 </mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>{{ 'Cancelar' | translate }}</button>
-  <button [mat-dialog-close]="setDataResponse()" cdkFocusInitial color="accent" mat-flat-button>
+<mat-dialog-actions align="end" data-id="aa3a2926">
+  <button mat-button mat-dialog-close data-id="2960eb98">{{ 'Cancelar' | translate }}</button>
+  <button
+    [mat-dialog-close]="setDataResponse()"
+    cdkFocusInitial
+    color="accent"
+    mat-flat-button
+    data-id="01005696"
+  >
     {{ 'Listo' | translate }}
   </button>
 </mat-dialog-actions>

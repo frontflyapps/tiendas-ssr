@@ -1,28 +1,36 @@
-<h3>{{ 'Compartir en:' }}</h3>
-<mat-divider class="my-2"></mat-divider>
-<div (click)="openLink($event)" class="my-3 d-flex justify-content-start align-items-start">
+<h3 data-id="381e7cdd">{{ 'Compartir en:' }}</h3>
+<mat-divider class="my-2" data-id="7e21c716"></mat-divider>
+<div
+  (click)="openLink($event)"
+  class="my-3 d-flex justify-content-start align-items-start"
+  data-id="31a1a58e"
+>
   <share-button
     [description]="this.product?.name?.es + ': \n' + this.product?.shortDescription?.es"
     [title]="this.product?.name?.es"
     button="facebook"
+    data-id="c475bd98"
   >
   </share-button>
   <share-button
     [description]="this.product?.name?.es + ': \n' + this.product?.shortDescription?.es"
     [title]="this.product?.name?.es"
     button="whatsapp"
+    data-id="49fc23a9"
   >
   </share-button>
   <share-button
     [description]="this.product?.name?.es + ': \n' + this.product?.shortDescription?.es"
     [title]="this.product?.name?.es"
     button="telegram"
+    data-id="21a7ffe3"
   >
   </share-button>
   <share-button
     [description]="this.product?.name?.es + ': \n' + this.product?.shortDescription?.es"
     [title]="this.product?.name?.es"
     button="email"
+    data-id="a179aae1"
   >
   </share-button>
 </div>

@@ -1,18 +1,20 @@
-<div class="m-3 d-flex flex-column justify-content-start align-items-stretch">
-  <ng-container *ngIf="showFileLoaded">
+<div class="m-3 d-flex flex-column justify-content-start align-items-stretch" data-id="0421d38f">
+  <ng-container *ngIf="showFileLoaded" data-id="7b463b9c">
     <img
       *ngIf="fileLoaded.type == 'image'"
       [src]="imageUrl + fileLoaded.file"
       alt="image"
       class="imageContainer"
+      data-id="d4f3924f"
     />
-    <video *ngIf="fileLoaded.type == 'video'" class="videoContainer" controls>
-      <source [src]="imageUrl + fileLoaded.file" type="video/mp4" />
+    <video *ngIf="fileLoaded.type == 'video'" class="videoContainer" controls data-id="df7f620a">
+      <source [src]="imageUrl + fileLoaded.file" type="video/mp4" data-id="7872dd13" />
     </video>
   </ng-container>
   <div
     class="width-stepper mt-2 d-flex flex-column justify-content-start align-items-start"
     style="position: relative"
+    data-id="b3aef462"
   >
     <!-- ============================================== -->
     <!-- ORIGEN DEL ARCHIVO -->
@@ -51,7 +53,7 @@
     <!--      </mat-select>-->
     <!--    </mat-form-field>-->
 
-    <ng-container *ngIf="this.form.get('type').valid">
+    <ng-container *ngIf="this.form.get('type').valid" data-id="345ea9da">
       <!-- Inputs File -->
       <input
         #fileInput
@@ -62,6 +64,7 @@
         id="file-uploader-input"
         placeholder="{{ 'Subir Archivo' }}"
         type="file"
+        data-id="470a2a8d"
       />
 
       <input
@@ -73,15 +76,20 @@
         id="file-uploader-input"
         placeholder="{{ 'https://examplevideo.someserver.io' }}"
         type="text"
+        data-id="fe6b61b1"
       />
 
       <!-- Label -->
-      <label class="mt-1" for="file-uploader-input">{{
+      <label class="mt-1" for="file-uploader-input" data-id="14d73fc8">{{
         'Seleccione archivo a subir' | translate
       }}</label>
 
       <!-- Hint -->
-      <p *ngIf="this.form.get('type').value == 'externalMedia'" class="mat-caption">
+      <p
+        *ngIf="this.form.get('type').value == 'externalMedia'"
+        class="mat-caption"
+        data-id="ec7db19e"
+      >
         *Nota no copie el link, copie el código fuente del embebido del video, por ejemplo en el
         caso de youtube seleccione la opcion "Copy embed link"
       </p>
@@ -94,8 +102,9 @@
         mat-mini-fab
         matTooltip="Subir el archivo"
         style="position: absolute; bottom: 8px; right: 16px"
+        data-id="c8080706"
       >
-        <mat-icon>backup</mat-icon>
+        <mat-icon data-id="a3f3d075">backup</mat-icon>
       </button>
 
       <button
@@ -105,8 +114,9 @@
         mat-mini-fab
         matTooltip="Subir el link"
         style="position: absolute; bottom: 8px; right: 16px"
+        data-id="b769b250"
       >
-        <mat-icon>backup</mat-icon>
+        <mat-icon data-id="d4afd9c2">backup</mat-icon>
       </button>
     </ng-container>
   </div>
@@ -115,11 +125,14 @@
   <div
     *ngIf="form.get('file').value != undefined"
     class="my-3 width-stepper d-flex justify-content-between align-items-start"
+    data-id="35d1213b"
   >
-    <p style="font-size: 12px">
-      <strong>formato:</strong> &nbsp; <span>{{ form.get('file').value.type }}</span>
+    <p style="font-size: 12px" data-id="6b585c54">
+      <strong data-id="169e2ea4">formato:</strong> &nbsp;
+      <span data-id="c06f7620">{{ form.get('file').value.type }}</span>
       &nbsp; &nbsp; &nbsp;
-      <strong>tamaño:</strong> &nbsp; <span>{{ this.computedSize() }}</span>
+      <strong data-id="beac92c0">tamaño:</strong> &nbsp;
+      <span data-id="552131fe">{{ this.computedSize() }}</span>
     </p>
   </div>
 
@@ -127,25 +140,32 @@
   <div
     *ngIf="this.showUploadingProgress"
     class="px-2 width-stepper d-flex justify-content-between align-items-center"
+    data-id="ab3a3b07"
   >
-    <span class="mat-caption cut-text" matTooltip="{{ this.metaDataUploading.fileName }}">{{
-      this.metaDataUploading.fileName
-    }}</span>
+    <span
+      class="mat-caption cut-text"
+      matTooltip="{{ this.metaDataUploading.fileName }}"
+      data-id="59a28b91"
+      >{{ this.metaDataUploading.fileName }}</span
+    >
     <mat-progress-bar
       *ngIf="this.metaDataUploading.status == 'uploading'"
       [value]="this.metaDataUploading.progress"
       class="mx-2 flex-sh-0"
       mode="determinate"
+      data-id="78990660"
     ></mat-progress-bar>
     <span
       *ngIf="this.metaDataUploading.status == 'completed'"
       class="mx-2 mat-caption successMsg flex-sh-0"
+      data-id="b1550b1a"
     >
       Completado Exitósamente
     </span>
     <span
       *ngIf="this.metaDataUploading.status == 'error'"
       class="mx-2 mat-caption errorMsg flex-sh-0"
+      data-id="88dc5c05"
     >
       Error
     </span>
@@ -153,6 +173,7 @@
       *ngIf="this.metaDataUploading.status == 'uploading'"
       class="mat-caption"
       style="width: 40px"
+      data-id="9816d141"
       >{{ this.metaDataUploading.progress }}%</span
     >
     <!-- <span *ngIf="item.status != 'uploading'" class="mat-caption" style="width:40px;">

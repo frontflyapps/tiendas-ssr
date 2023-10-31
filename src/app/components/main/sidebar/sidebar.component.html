@@ -1,4 +1,4 @@
-<ng-container *ngIf="showNavItem(item.displayName)">
+<ng-container *ngIf="showNavItem(item.displayName)" data-id="cbaeeed5">
   <a
     (click)="onItemSelected(item)"
     [ngClass]="{
@@ -9,21 +9,26 @@
     class="menu-list-item grey-700 d-flex justify-content-start align-items-center"
     mat-list-item
     matRipple
+    data-id="616018df"
   >
-    <div class="menu-icons d-flex justify-content-start align-items-center">
-      <mat-icon *ngIf="item.material && item.iconName" style="padding-bottom: 16px">{{
-        item.iconName
-      }}</mat-icon>
-      <span class="mat-body-1 ml-3" style="font-size: 15px">{{
+    <div class="menu-icons d-flex justify-content-start align-items-center" data-id="4ba87895">
+      <mat-icon
+        *ngIf="item.material && item.iconName"
+        style="padding-bottom: 16px"
+        data-id="48d97ac5"
+        >{{ item.iconName }}</mat-icon
+      >
+      <span class="mat-body-1 ml-3" style="font-size: 15px" data-id="58a6eb56">{{
         item.displayName | translate
       }}</span>
     </div>
 
-    <span *ngIf="item.children && item.children.length" class="flex-sh-0">
-      <span class="flex-sh-0"></span>
+    <span *ngIf="item.children && item.children.length" class="flex-sh-0" data-id="4e93f4c7">
+      <span class="flex-sh-0" data-id="f9f60e97"></span>
       <mat-icon
         [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'"
         style="margin: 0px !important"
+        data-id="3fad8ef5"
       >
         expand_more
       </mat-icon>
@@ -33,14 +38,20 @@
       [matBadge]="item.badgeCount"
       matBadgePosition="after"
       style="transform: translateY(-5px); margin-left: 12px"
+      data-id="3fe90a0d"
     >
     </span>
-    <div class="tabActive"></div>
+    <div class="tabActive" data-id="ae68d243"></div>
   </a>
-  <mat-divider *ngIf="item.divider" class="my-2"></mat-divider>
+  <mat-divider *ngIf="item.divider" class="my-2" data-id="e75fa698"></mat-divider>
 
-  <div *ngIf="expanded">
-    <app-sidebar *ngFor="let child of item.children" [depth]="depth + 1" [item]="child">
+  <div *ngIf="expanded" data-id="b25a1300">
+    <app-sidebar
+      *ngFor="let child of item.children"
+      [depth]="depth + 1"
+      [item]="child"
+      data-id="684d4ed0"
+    >
     </app-sidebar>
   </div>
 </ng-container>

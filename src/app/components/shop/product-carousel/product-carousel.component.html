@@ -1,5 +1,5 @@
-<ng-container *ngIf="products.length > 2 || isHandset">
-  <div style="overflow: hidden">
+<ng-container *ngIf="products.length > 2 || isHandset" data-id="ab7ec0e3">
+  <div style="overflow: hidden" data-id="53dd5a63">
     <swiper-container
       class="product-item"
       slides-per-view="auto"
@@ -15,13 +15,18 @@
       breakpoints-960-slides-per-view="3"
       breakpoints-1024-slides-per-view="3"
       breakpoints-1248-slides-per-view="4"
+      data-id="fd5c6dc3"
     >
-      <swiper-slide *ngFor="let product of products" class="swiper-slide">
-        <mat-card class="cardProduct d-flex flex-column" style="position: relative">
-          <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
-            <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
+      <swiper-slide *ngFor="let product of products" class="swiper-slide" data-id="7f023843">
+        <mat-card
+          class="cardProduct d-flex flex-column"
+          style="position: relative"
+          data-id="1d609e54"
+        >
+          <div *ngIf="inLoading" class="loading-shade" style="height: 100%" data-id="0a229f13">
+            <mat-spinner *ngIf="inLoading" [diameter]="40" data-id="12327999"></mat-spinner>
           </div>
-          <div class="product-img">
+          <div class="product-img" data-id="1342d57a">
             <a
               [queryParams]="{
                 productId: product?.id,
@@ -31,6 +36,7 @@
               }"
               [routerLink]="['/product']"
               class="product-link"
+              data-id="47e81e34"
             >
               <img
                 *ngIf="product?.Images && product?.Images?.length"
@@ -39,6 +45,7 @@
                 class="imageProduct"
                 lazyImg
                 onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+                data-id="2060b100"
               />
               <img
                 *ngIf="!(product?.Images && product?.Images?.length)"
@@ -46,11 +53,12 @@
                 class="imageProduct"
                 lazyImg
                 src="assets/images/noImage.jpg"
+                data-id="f37ca547"
               />
             </a>
           </div>
 
-          <div class="product-info-wrapper py-2 px-3">
+          <div class="product-info-wrapper py-2 px-3" data-id="bb5db913">
             <a
               [queryParams]="{
                 productId: product?.id,
@@ -61,42 +69,45 @@
               [routerLink]="['/product']"
               class="product-link"
               style="position: relative"
+              data-id="9f650cb8"
             >
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="category">
+              <div class="d-flex justify-content-between align-items-center" data-id="265b2c2a">
+                <span class="category" data-id="5c2d70fb">
                   {{ utilsService.parserLanguage(product?.Category?.name, language) }}
                 </span>
-                <span *ngIf="product?.justPublished" class="just-published">
+                <span *ngIf="product?.justPublished" class="just-published" data-id="a9154b95">
                   {{ 'NUEVO' | translate }}
                 </span>
               </div>
 
-              <div class="moduleTitle line-clampTitle">
-                <h4 class="mat-body-2">
+              <div class="moduleTitle line-clampTitle" data-id="28c69d26">
+                <h4 class="mat-body-2" data-id="89ad354c">
                   {{ utilsService.parserLanguage(product?.name, language) }}
                 </h4>
               </div>
 
-              <div class="mt-2">
+              <div class="mt-2" data-id="d1c6d7b5">
                 <guajiritos-rating
                   [config]="{ readOnly: true }"
                   [value]="product?.rating"
+                  data-id="ae92d77a"
                 ></guajiritos-rating>
               </div>
               <!-- <p class="module line-clamp mt-1 mb-2">
                 {{utilsService.parserLanguage(product.shortDescription,language)}}</p> -->
             </a>
 
-            <div class="d-flex justify-content-end align-items-end">
+            <div class="d-flex justify-content-end align-items-end" data-id="74c72005">
               <span
                 class="coming-soon-text"
                 *ngIf="product.status === 'comingSoon'"
                 style="margin-top: 2rem"
+                data-id="de5311bc"
                 >{{ 'Próximamente' | translate }}</span
               >
             </div>
 
-            <div class="price" *ngIf="product.status !== 'comingSoon'">
+            <div class="price" *ngIf="product.status !== 'comingSoon'" data-id="a8909466">
               <a
                 [queryParams]="{
                   productId: product?.id,
@@ -106,16 +117,17 @@
                 }"
                 [routerLink]="['/product']"
                 class="product-link"
+                data-id="6da1d3ff"
               >
-                <ng-container *ngIf="product?.offerValue">
-                  <p class="deletePrice m-0">
-                    <del>{{ product | parsePriceProduct }}</del>
-                    <span class="offer ml-2">
-                      <span class="mx-0 px-0">-</span>
-                      <span *ngIf="product.isPercent" class="mx-0 px-0"
+                <ng-container *ngIf="product?.offerValue" data-id="c6e3e704">
+                  <p class="deletePrice m-0" data-id="92c41ee1">
+                    <del data-id="0ea26e7a">{{ product | parsePriceProduct }}</del>
+                    <span class="offer ml-2" data-id="6ece2e42">
+                      <span class="mx-0 px-0" data-id="50ee98bb">-</span>
+                      <span *ngIf="product.isPercent" class="mx-0 px-0" data-id="25ff2755"
                         >{{ product?.offerValue }}%
                       </span>
-                      <span *ngIf="!product.isPercent" class="mx-0 px-0"
+                      <span *ngIf="!product.isPercent" class="mx-0 px-0" data-id="97ed1c48"
                         >${{ product?.offerValue }}</span
                       >
                     </span>
@@ -123,15 +135,16 @@
                   <p
                     class="mat-body-2 m-0"
                     matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+                    data-id="023d2348"
                   >
                     {{ product | parsePriceProduct: 'offert' }}
                   </p>
                 </ng-container>
-                <ng-container *ngIf="!product?.offerValue">
-                  <p class="mat-body-2 m-0">
+                <ng-container *ngIf="!product?.offerValue" data-id="6506a3f0">
+                  <p class="mat-body-2 m-0" data-id="6c4450de">
                     {{ product | parsePriceProduct }}
                   </p>
-                  <p class="mat-body-2 m-0" style="font-size: 15px">
+                  <p class="mat-body-2 m-0" style="font-size: 15px" data-id="a089aef5">
                     {{ 'Desde ' | translate }}
                     {{ product?.minSale }}
                     {{ ' unidad' | translate }}
@@ -146,23 +159,24 @@
               mat-mini-fab
               matTooltip="{{ 'Añadir al carrito' | translate }}"
               style="z-index: 10"
+              data-id="fcd077f4"
             >
-              <mat-icon>shopping_cart</mat-icon>
+              <mat-icon data-id="537b823d">shopping_cart</mat-icon>
             </button>
 
-            <div class="icons d-flex flex-column">
+            <div class="icons d-flex flex-column" data-id="cc2112fb">
               <!--<a (click)="openProductDialog(product)">
                 <mat-icon>info</mat-icon>
               </a>-->
-              <a (click)="addToCompare(product)">
-                <mat-icon>compare_arrows</mat-icon>
+              <a (click)="addToCompare(product)" data-id="87fd79d5">
+                <mat-icon data-id="dc900eee">compare_arrows</mat-icon>
               </a>
             </div>
           </div>
 
-          <div *ngIf="product?.Business?.Province" class="location-label">
-            <span>
-              <mat-icon>room</mat-icon>&nbsp;<strong>{{
+          <div *ngIf="product?.Business?.Province" class="location-label" data-id="0a8547a9">
+            <span data-id="5614ecca">
+              <mat-icon data-id="f34d19b3">room</mat-icon>&nbsp;<strong data-id="c1444397">{{
                 product?.Business?.Province?.name
               }}</strong>
               {{
@@ -184,17 +198,22 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="products.length <= 2 && !isHandset">
+<ng-container *ngIf="products.length <= 2 && !isHandset" data-id="8c95e4cd">
   <div
     class="product-item swiper-container d-flex flex-column justify-content-start align-items-stretch"
+    data-id="a18c5ca6"
   >
-    <div class="d-flex justify-content-start align-items-center">
-      <div *ngFor="let product of products" class="pl-1 pr-3">
-        <mat-card class="cardProduct2 d-flex flex-column" style="position: relative">
-          <div *ngIf="inLoading" class="loading-shade" style="height: 100%">
-            <mat-spinner *ngIf="inLoading" [diameter]="40"></mat-spinner>
+    <div class="d-flex justify-content-start align-items-center" data-id="2d86332d">
+      <div *ngFor="let product of products" class="pl-1 pr-3" data-id="140dd977">
+        <mat-card
+          class="cardProduct2 d-flex flex-column"
+          style="position: relative"
+          data-id="f5341219"
+        >
+          <div *ngIf="inLoading" class="loading-shade" style="height: 100%" data-id="22bb4517">
+            <mat-spinner *ngIf="inLoading" [diameter]="40" data-id="d40ce4f4"></mat-spinner>
           </div>
-          <div class="product-img">
+          <div class="product-img" data-id="e60bd1dc">
             <a
               [queryParams]="{
                 productId: product?.id,
@@ -204,6 +223,7 @@
               }"
               [routerLink]="['/product']"
               class="product-link"
+              data-id="140c5bec"
             >
               <img
                 *ngIf="product?.Images && product?.Images?.length"
@@ -213,6 +233,7 @@
                 class="imageProduct"
                 lazyImg
                 onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+                data-id="fcbc1c7a"
               />
 
               <img
@@ -221,10 +242,11 @@
                 class="imageProduct"
                 lazyImg
                 src="assets/images/noImage.jpg"
+                data-id="f3e85532"
               />
             </a>
           </div>
-          <div class="product-info-wrapper py-2 px-3 pb-3">
+          <div class="product-info-wrapper py-2 px-3 pb-3" data-id="ba112e0b">
             <a
               [queryParams]="{
                 productId: product?.id,
@@ -234,37 +256,39 @@
               }"
               [routerLink]="['/product']"
               class="product-link"
+              data-id="e431f0b1"
             >
-              <span class="mat-caption" style="font-size: 0.8rem !important">
+              <span class="mat-caption" style="font-size: 0.8rem !important" data-id="c2483b1e">
                 {{ utilsService.parserLanguage(product?.Category?.name, language) }}
               </span>
 
-              <div class="moduleTitle line-clampTitle">
-                <h4 class="mat-body-2">
+              <div class="moduleTitle line-clampTitle" data-id="c6f0b50f">
+                <h4 class="mat-body-2" data-id="177cd566">
                   {{ utilsService.parserLanguage(product.name, language) }}
                 </h4>
               </div>
 
-              <div class="mt-2">
+              <div class="mt-2" data-id="063ab566">
                 <guajiritos-rating
                   [config]="{ readOnly: true }"
                   [value]="product?.rating"
+                  data-id="bdbd9098"
                 ></guajiritos-rating>
               </div>
               <!-- <p class="module line-clamp mt-1 mb-2">
                 {{utilsService.parserLanguage(product.shortDescription,language)}}</p> -->
             </a>
 
-            <div class="price">
-              <ng-container *ngIf="product?.offerValue">
-                <p class="deletePrice">
-                  <del>{{ product | parsePriceProduct }}</del>
-                  <span class="offer ml-2">
-                    <span class="mx-0 px-0">-</span>
-                    <span *ngIf="product?.isPercent" class="mx-0 px-0"
+            <div class="price" data-id="a426b9a0">
+              <ng-container *ngIf="product?.offerValue" data-id="1ef70b32">
+                <p class="deletePrice" data-id="a86cba62">
+                  <del data-id="255b05fd">{{ product | parsePriceProduct }}</del>
+                  <span class="offer ml-2" data-id="3d74bbcc">
+                    <span class="mx-0 px-0" data-id="0950ca72">-</span>
+                    <span *ngIf="product?.isPercent" class="mx-0 px-0" data-id="fc2750bf"
                       >{{ product?.offerValue }}%
                     </span>
-                    <span *ngIf="!product?.isPercent" class="mx-0 px-0"
+                    <span *ngIf="!product?.isPercent" class="mx-0 px-0" data-id="f1bc453a"
                       >${{ product?.offerValue }}</span
                     >
                   </span>
@@ -272,15 +296,16 @@
                 <p
                   class="mat-body-2"
                   matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+                  data-id="74b8c351"
                 >
                   {{ product | parsePriceProduct: 'offert' }}
                 </p>
               </ng-container>
-              <ng-container *ngIf="!product?.offerValue">
-                <p class="mat-body-2">
+              <ng-container *ngIf="!product?.offerValue" data-id="36b57e1a">
+                <p class="mat-body-2" data-id="4437babe">
                   {{ product | parsePriceProduct }}
                 </p>
-                <p class="mat-body-2" style="font-size: 15px">
+                <p class="mat-body-2" style="font-size: 15px" data-id="9d994d88">
                   {{ 'Desde ' | translate }}
                   {{ product?.minSale }}
                   {{ ' unidad' | translate }}
@@ -293,19 +318,20 @@
               mat-mini-fab
               matTooltip="{{ 'Añadir al carrito' | translate }}"
               style="z-index: 10"
+              data-id="db87f522"
             >
-              <mat-icon>shopping_cart</mat-icon>
+              <mat-icon data-id="c433daf8">shopping_cart</mat-icon>
             </button>
 
-            <div class="icons d-flex flex-column">
+            <div class="icons d-flex flex-column" data-id="f29be368">
               <!-- <a (click)="addToWishlist(product)">
                       <mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon>
                     </a> -->
               <!--<a (click)="openProductDialog(product)">
                   <mat-icon>info</mat-icon>
                 </a>-->
-              <a (click)="addToCompare(product)">
-                <mat-icon>compare_arrows</mat-icon>
+              <a (click)="addToCompare(product)" data-id="a7653fa5">
+                <mat-icon data-id="c021aa5e">compare_arrows</mat-icon>
               </a>
             </div>
           </div>

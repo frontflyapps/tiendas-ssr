@@ -1,9 +1,9 @@
-<ng-container *ngIf="Products?.length > 0">
+<ng-container *ngIf="Products?.length > 0" data-id="dca94634">
   <!--  <div class="widget-column">-->
   <!--    <div class="title">-->
   <!--      <h4 class="widget-title">{{ 'Featured Products' | translate }}</h4>-->
   <!--    </div>-->
-  <ul class="product-list footer-product-card">
+  <ul class="product-list footer-product-card" data-id="0c6b1f74">
     <li
       *ngFor="let product of Products"
       [queryParams]="{
@@ -14,8 +14,9 @@
       }"
       [routerLink]="['/product']"
       class="list-product d-flex"
+      data-id="91b9fd03"
     >
-      <div class="media-image">
+      <div class="media-image" data-id="bfda60ae">
         <a
           [queryParams]="{
             productId: product?.id,
@@ -24,6 +25,7 @@
             sharedImage: product?.sharedImage
           }"
           [routerLink]="['/product']"
+          data-id="56ce281f"
         >
           <img
             *ngIf="product.Images && product.Images.length"
@@ -32,6 +34,7 @@
             class="small"
             lazyImg
             onerror="this.onerror=null;this.src='assets/images/noImage.jpg';"
+            data-id="35ccd14f"
           />
 
           <img
@@ -40,10 +43,11 @@
             class="small"
             lazyImg
             src="assets/images/noImage.jpg"
+            data-id="f81ecc95"
           />
         </a>
       </div>
-      <div class="media-body">
+      <div class="media-body" data-id="51ba45d4">
         <a
           [queryParams]="{
             productId: product?.id,
@@ -52,39 +56,46 @@
             sharedImage: product?.sharedImage
           }"
           [routerLink]="['/product']"
+          data-id="686dc940"
         >
-          <span class="module line-clamp">{{
+          <span class="module line-clamp" data-id="4d9ad096">{{
             product.name[language] ? product.name[language] : product.name['es']
           }}</span>
         </a>
-        <div class="mt-2">
+        <div class="mt-2" data-id="8f6091fe">
           <guajiritos-rating
             [config]="{ readOnly: true }"
             [value]="product.rating"
+            data-id="1d4577f5"
           ></guajiritos-rating>
         </div>
-        <div class="price">
-          <ng-container *ngIf="product.offerValue">
-            <p class="deletePrice m-0">
-              <del>{{ product | parsePriceProduct }}</del>
-              <span class="offer ml-2">
-                <span class="mx-0 px-0">-</span>
-                <span *ngIf="product.isPercent" class="mx-0 px-0">{{ product.offerValue }}% </span>
-                <span *ngIf="!product.isPercent" class="mx-0 px-0">${{ product.offerValue }}</span>
+        <div class="price" data-id="7f4b85ea">
+          <ng-container *ngIf="product.offerValue" data-id="10e7df75">
+            <p class="deletePrice m-0" data-id="0c0ce881">
+              <del data-id="9d59179b">{{ product | parsePriceProduct }}</del>
+              <span class="offer ml-2" data-id="7d6f8590">
+                <span class="mx-0 px-0" data-id="bfbe6edb">-</span>
+                <span *ngIf="product.isPercent" class="mx-0 px-0" data-id="8f91cbe8"
+                  >{{ product.offerValue }}%
+                </span>
+                <span *ngIf="!product.isPercent" class="mx-0 px-0" data-id="089a63fe"
+                  >${{ product.offerValue }}</span
+                >
               </span>
             </p>
             <p
               class="mat-body-2 m-0"
               matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
+              data-id="5eafa44e"
             >
               {{ product | parsePriceProduct: 'offert' }}
             </p>
           </ng-container>
-          <ng-container *ngIf="!product.offerValue">
-            <p class="mat-body-2 m-0">
+          <ng-container *ngIf="!product.offerValue" data-id="15fbdf68">
+            <p class="mat-body-2 m-0" data-id="3bbfff43">
               {{ product | parsePriceProduct }}
             </p>
-            <p class="mat-body-2 m-0" style="font-size: 15px">
+            <p class="mat-body-2 m-0" style="font-size: 15px" data-id="d3b0bb89">
               {{ 'Desde ' | translate }}
               {{ product.minSale }}
               {{ ' unidad' | translate }}
@@ -101,8 +112,9 @@
         mat-mini-fab
         matTooltip="{{ 'Añadir al carrito' | translate }}"
         style="z-index: 10"
+        data-id="2fef0a57"
       >
-        <mat-icon>shopping_cart</mat-icon>
+        <mat-icon data-id="9603df68">shopping_cart</mat-icon>
       </button>
     </li>
   </ul>

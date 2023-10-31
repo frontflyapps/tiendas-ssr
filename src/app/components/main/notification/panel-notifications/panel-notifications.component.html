@@ -1,24 +1,26 @@
-<div class="d-flex flex-column">
-  <div style="padding-top: 0px; padding-bottom: 4px" class="flex-sh-100">
+<div class="d-flex flex-column" data-id="5327d0a5">
+  <div style="padding-top: 0px; padding-bottom: 4px" class="flex-sh-100" data-id="02c3b907">
     <app-notification-item
       (closeModal)="onClosePanel($event)"
       (eliminarNotificacion)="onEliminarNotification($event)"
       (markAsReadNotification)="onMarckAsRead($event)"
       *ngFor="let notification of this.notificationsService.getNotifications()"
       [notificacion]="notification"
+      data-id="8d0a2a4b"
     >
     </app-notification-item>
   </div>
 
-  <div class="Paginacion d-flex justify-content-center align-items-center">
+  <div class="Paginacion d-flex justify-content-center align-items-center" data-id="bf48bba9">
     <button
       (click)="onCargarMasNotificaciones()"
       [disabled]="this.notificationsService.getCount() >= this.notificationsService.getTotal()"
       class="CargarMasBtn"
       color="primary"
       mat-button
+      data-id="b2caf025"
     >
-      <span style="font-weight: 600">{{ 'VER MÁS...' | translate }}</span>
+      <span style="font-weight: 600" data-id="667655b9">{{ 'VER MÁS...' | translate }}</span>
     </button>
   </div>
 </div>

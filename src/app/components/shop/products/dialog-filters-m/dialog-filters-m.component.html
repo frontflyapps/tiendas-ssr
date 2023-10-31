@@ -1,51 +1,66 @@
-<div class="d-flex justify-content-between align-items-start">
-  <h2 mat-dialog-title>{{ 'Filtros de búsqueda' | translate }}</h2>
-  <mat-icon (click)="close()">close</mat-icon>
+<div class="d-flex justify-content-between align-items-start" data-id="5ccb6d91">
+  <h2 mat-dialog-title data-id="1039fa26">{{ 'Filtros de búsqueda' | translate }}</h2>
+  <mat-icon (click)="close()" data-id="028b0320">close</mat-icon>
 </div>
-<mat-dialog-content class="my-filters">
-  <mat-accordion [multi]="true">
+<mat-dialog-content class="my-filters" data-id="4f7487ed">
+  <mat-accordion [multi]="true" data-id="bdead18f">
     <mat-expansion-panel
       [expanded]="this.categoriesIds.length"
       class="mat-elevation-z0 no-border bg-acordion"
+      data-id="863e04b7"
     >
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h3>{{ 'Categories' | translate }}</h3>
+      <mat-expansion-panel-header data-id="a9191557">
+        <mat-panel-title data-id="1d96a53f">
+          <h3 data-id="5c05c33a">{{ 'Categories' | translate }}</h3>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <app-categories-m
         (categoryChanged)="onCategoriesChanged($event)"
         [categoriesIds]="this.categoriesIds"
+        data-id="fcfeb377"
       ></app-categories-m>
     </mat-expansion-panel>
 
-    <mat-expansion-panel [expanded]="true" class="mat-elevation-z0 no-border bg-acordion">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h3>{{ 'Brands' | translate }}</h3>
+    <mat-expansion-panel
+      [expanded]="true"
+      class="mat-elevation-z0 no-border bg-acordion"
+      data-id="f18e3291"
+    >
+      <mat-expansion-panel-header data-id="25f67d06">
+        <mat-panel-title data-id="43ad8f48">
+          <h3 data-id="14ecd9b7">{{ 'Brands' | translate }}</h3>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="brands">
+      <div class="brands" data-id="a0d298c1">
         <app-brands-m
           (brandChanged)="onBrandsChanged($event)"
           [brandsIds]="this.brandsIds"
+          data-id="c7b6f469"
         ></app-brands-m>
       </div>
     </mat-expansion-panel>
 
-    <mat-expansion-panel [expanded]="true" class="mat-elevation-z0 no-border bg-acordion">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <span>{{ 'Price' | translate }}</span>
+    <mat-expansion-panel
+      [expanded]="true"
+      class="mat-elevation-z0 no-border bg-acordion"
+      data-id="b41e9bf8"
+    >
+      <mat-expansion-panel-header data-id="916adc8b">
+        <mat-panel-title data-id="6f27d5dc">
+          <span data-id="3a480b4b">{{ 'Price' | translate }}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-price (priceFilters)="updatePriceFilters($event)" [reset]="resetPrices"></app-price>
+      <app-price
+        (priceFilters)="updatePriceFilters($event)"
+        [reset]="resetPrices"
+        data-id="e9f6097c"
+      ></app-price>
     </mat-expansion-panel>
   </mat-accordion>
 </mat-dialog-content>
-<div class="d-flex justify-content-end align-items-end">
-  <mat-dialog-actions>
-    <button (click)="save()" class="mat-raised-button mat-primary">
+<div class="d-flex justify-content-end align-items-end" data-id="6c82be70">
+  <mat-dialog-actions data-id="801cec8a">
+    <button (click)="save()" class="mat-raised-button mat-primary" data-id="a9221b17">
       {{ 'Guardar' | translate }}
     </button>
   </mat-dialog-actions>
