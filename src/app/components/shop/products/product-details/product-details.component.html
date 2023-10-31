@@ -93,6 +93,7 @@
           <mat-card
             class="my-product mat-elevation-z0 d-flex-i d-md-none-i flex-row-i"
             data-id="fba660d7"
+            style="border: none; box-shadow: none"
           >
             <!--            <button matTooltip="{{ 'Zoom for a image' | translate }}" id="zoomBtn" mat-icon-button-->
             <!--                    (click)="openZoomViewer()">-->
@@ -103,7 +104,7 @@
               id="shareBtn"
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
-              class="d-sm-inline d-none"
+              class="d-md-block-i d-none-i"
               data-id="8f4e09e6"
             >
               <mat-icon data-id="ad392d4b">share</mat-icon>
@@ -216,10 +217,10 @@
         <!--    VARIANTS    -->
         <div
           *ngIf="!isLoading"
-          class="flex-sh-100 flex-sh-md-90 flex-sh-35 flex-sh-md-initial px-3 m-0"
+          class="flex-sh-35 flex-sh-lg-90 flex-sh-md-100 px-3 m-0"
           data-id="68f2dc46"
         >
-          <div class="product-right d-flex flex-column" data-id="f8b1a998">
+          <div class="product-right d-flex flex-column mt-3" data-id="f8b1a998">
             <div class="product-details d-flex flex-column" data-id="99f45826">
               <h1 class="nameProduct d-xs-none d-sm-none d-md-none" data-id="ed45889f">
                 {{ product.name[language] ? product.name[language] : product.name['es'] }}
