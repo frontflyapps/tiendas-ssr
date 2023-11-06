@@ -6,19 +6,16 @@
       expanded: expanded
     }"
     [ngStyle]="{ 'padding-left': depth * 16 + 'px' }"
-    class="menu-list-item grey-700 d-flex justify-content-start align-items-center"
+    class="menu-list-item grey-700 d-flex justify-content-start align-items-center my-2"
     mat-list-item
     matRipple
     data-id="616018df"
   >
     <div class="menu-icons d-flex justify-content-start align-items-center" data-id="4ba87895">
-      <mat-icon
-        *ngIf="item.material && item.iconName"
-        style="padding-bottom: 16px"
-        data-id="48d97ac5"
-        >{{ item.iconName }}</mat-icon
-      >
-      <span class="mat-body-1 ml-3" style="font-size: 15px" data-id="58a6eb56">{{
+      <mat-icon *ngIf="item.material && item.iconName" data-id="48d97ac5">{{
+        item.iconName
+      }}</mat-icon>
+      <span class="mat-body-1 ml-3 mb-0" style="font-size: 15px" data-id="58a6eb56">{{
         item.displayName | translate
       }}</span>
     </div>

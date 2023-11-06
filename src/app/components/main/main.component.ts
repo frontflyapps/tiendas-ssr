@@ -854,7 +854,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
     // Initiate the tour
     if (!this.storageService.getItem('location-attention') && location?.province != null) {
-      this.tour.start();
+      // this.tour.start();  //TODO start the tour
     }
   }
 }

@@ -108,24 +108,22 @@
           *ngIf="card.visualType?.type === 'businessPromotion'"
           data-id="76d5c690"
         >
-          <ng-template *ngIf="!applyStyle && card?.image" data-id="24a3e9fe">
-            <app-banner-promotion
-              [ngClass]="{
-                'banner-horizontal': visualizationSections[i] === 'slim',
-                'banner-vertical': visualizationSections[i] === 'broad'
-              }"
-              [_imageBigPromo]="imageUrl + card?.image"
-              [_image]="card"
-              data-id="fcd8e23a"
-            ></app-banner-promotion>
-          </ng-template>
-          <ng-template *ngIf="applyStyle && card?.imageXs" data-id="3c96f027">
-            <app-banner-promotion
-              [_imageBigPromo]="imageUrl + card?.imageXs"
-              [_image]="card"
-              data-id="23ad8769"
-            ></app-banner-promotion>
-          </ng-template>
+          <app-banner-promotion
+            *ngIf="!breakpointsService.current.md && card?.image"
+            [ngClass]="{
+              'banner-horizontal': visualizationSections[i] === 'slim',
+              'banner-vertical': visualizationSections[i] === 'broad'
+            }"
+            [_imageBigPromo]="imageUrl + card?.image"
+            [_image]="card"
+            data-id="fcd8e23a"
+          ></app-banner-promotion>
+          <app-banner-promotion
+            *ngIf="breakpointsService.current.md && card?.imageXs"
+            [_imageBigPromo]="imageUrl + card?.imageXs"
+            [_image]="card"
+            data-id="23ad8769"
+          ></app-banner-promotion>
         </div>
         <!--CATEGORIES-->
         <div *ngIf="card.visualType?.type === 'categories'" data-id="e255eef7">

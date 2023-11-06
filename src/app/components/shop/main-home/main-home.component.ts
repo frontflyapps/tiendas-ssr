@@ -34,6 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MainCarouselComponent } from '../main-carousel/main-carousel.component';
 import { NgIf, NgFor, NgClass } from '@angular/common';
+import { BreakpointsService } from 'src/app/core/services/breakpoints/breakpoints.service';
 
 export interface ProductInterface {
   name: string;
@@ -162,8 +163,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   bigBanner1 = null;
   bigBanner2 = null;
 
-  public applyStyle: boolean;
-
   /////////////////////////////////////////////////////////////////////////////////
 
   constructor(
@@ -181,6 +180,7 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private productService: ProductService,
     private globalStateOfCookieService: GlobalStateOfCookieService,
+    public breakpointsService: BreakpointsService,
   ) {
     this.productService.updatedSectionsProduct$.subscribe(() => {
       this.sectionProducts = this.productService.sections;
@@ -276,15 +276,9 @@ export class MainHomeComponent implements OnInit, OnDestroy {
       keywords: environment.meta.mainPage.keywords,
       shareImg: environment.meta.mainPage.shareImg,
     });
-
-    this.applyResolution();
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(): void {
-    this.applyResolution();
-  }
-
   ngOnInit() {
     this.globalStateOfCookieService.getCookieState()
       ? this.initComponent()
@@ -563,11 +557,5 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._unsubscribeAll.next(true);
     this._unsubscribeAll.complete();
-  }
-
-  private applyResolution() {
-    // TODO fix this comment (Cupull)
-    // const innerWidth = window.innerWidth;
-    // this.applyStyle = innerWidth <= 600;
   }
 }

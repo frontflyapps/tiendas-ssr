@@ -144,6 +144,14 @@ app-main,
     background-color: #fff;
   }
 
+  .configuration-item {
+    .mat-mdc-list-item-unscoped-content {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: start !important;
+    }
+  }
+
   .sidebar-nav-items {
     padding: 14px 16px;
 

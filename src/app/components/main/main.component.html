@@ -76,7 +76,7 @@
         (click)="onShowProfile()"
         *ngIf="loggedInUser"
         mat-list-item
-        class="d-flex justify-content-start align-items-center"
+        class="configuration-item"
         data-id="217e054b"
       >
         <mat-icon data-id="a81b26d6">build</mat-icon>
@@ -87,7 +87,7 @@
         (click)="onShowMyContacts()"
         *ngIf="loggedInUser"
         mat-list-item
-        class="d-flex justify-content-start align-items-center"
+        class="configuration-item"
         data-id="2bbb7c69"
       >
         <mat-icon data-id="b292d44e">book</mat-icon>
@@ -98,7 +98,7 @@
         (click)="onChangePass()"
         *ngIf="loggedInUser"
         mat-list-item
-        class="d-flex justify-content-start align-items-center"
+        class="configuration-item"
         data-id="9e51af00"
       >
         <mat-icon data-id="6f4445cf">no_encryption</mat-icon>
@@ -153,7 +153,7 @@
           loggedInUser &&
           (loggedInUserService.isAdminOrOwnerUser() || loggedInUserService.isMessengerUser())
         "
-        class="link-nav-a"
+        class="link-nav-a configuration-item"
         mat-list-item
         data-id="a0d57d7a"
       >
@@ -164,7 +164,7 @@
       <a
         (click)="onLogout()"
         *ngIf="loggedInUser"
-        class="link-nav-a"
+        class="link-nav-a configuration-item"
         mat-list-item
         data-id="699fcb7d"
       >
