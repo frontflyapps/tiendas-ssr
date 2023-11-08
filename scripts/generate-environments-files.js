@@ -126,5 +126,5 @@ const htmlFilenames = getFiles('./src/app').filter((file) => file.endsWith('.htm
 
 htmlFilenames.forEach((htmlFilename) => {
   addDataTestId(htmlFilename);
-  exec(`node ./node_modules/.bin/prettier --write ${htmlFilename}`);
+  exec(`./node_modules/.bin/prettier --write ${htmlFilename}`);
 });
