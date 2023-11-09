@@ -5,7 +5,7 @@ listNames.forEach((name, index) => {
   const child = spawn('ng', ['run', `${name}:serve-ssr`, '--port', 4000 + index], {
     env: {
       ...process.env,
-      NG_APP_NAME: name,
+      // NG_APP_NAME: name,
     },
   });
 

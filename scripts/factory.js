@@ -224,14 +224,11 @@ function updatePackageJSON(data, name) {
   data.scripts[joinStr('<<<<<<<<<<<<<<<', name, '>>>>>>>>>>>>>>>')] = '';
   //generate env files
   delete data.scripts[joinStr('generate:env:', name)];
-  data.scripts[joinStr('generate:env:', name)] = joinStr(
-    'NG_APP_NAME=',
-    name,
-    ' node ./scripts/generate-environments-files',
-  );
-
-  // start:ssr(SSR)
-  delete data.scripts[joinStr('start:ssr:', name)];
+  (data.scripts[
+    joinStr('generate:env:', name)
+  ] = `node ./scripts/generate-environments-files ${name}`),
+    // start:ssr(SSR)
+    delete data.scripts[joinStr('start:ssr:', name)];
   data.scripts[joinStr('start:ssr:', name)] = joinStr(
     'npm run generate:env:',
     name,

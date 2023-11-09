@@ -4,9 +4,11 @@
 var fs = require('fs');
 const { exec } = require('child_process');
 const cheerio = require('cheerio');
-const { environmentFactory, appName } = require('./utils');
+const { environmentFactory } = require('./utils');
 const { v4 } = require('uuid');
 const { getFiles } = require('./utils');
+
+const [, , appName] = process.argv;
 
 // generate env files
 exec('mkdir -p ./environments');

@@ -6,8 +6,6 @@ const fs = require('fs');
 
 const useApiTest = true;
 
-const appName = process.env.NG_APP_NAME || process.env.STORYBOOK_APP_NAME;
-
 const environmentFactory = (overrides) => {
   return {
     production: false,
@@ -119,6 +117,5 @@ function getFiles(path, files = []) {
 
 module.exports = {
   environmentFactory,
-  appName,
   getFiles,
 };
