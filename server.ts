@@ -7,13 +7,12 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { AppServerModule } from './src/main.server';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
-import { environment } from 'environments/environment';
 import compression from 'compresion';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), `dist/${environment.appName}/browser`);
+  const distFolder = join(process.cwd(), `dist/browser`);
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? 'index.original.html'
     : 'index';

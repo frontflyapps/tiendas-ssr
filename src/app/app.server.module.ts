@@ -17,7 +17,7 @@ import { environment } from 'environments/environment';
 const initDOM = () => {
   // Use the browser index.html as template for the mock window
   const template = fs
-    .readFileSync(path.join(process.cwd(), `dist/${environment.appName}/browser`, 'index.html'))
+    .readFileSync(path.join(process.cwd(), `dist/browser`, 'index.html'))
     .toString();
 
   // Shim for the global window and document objects.
