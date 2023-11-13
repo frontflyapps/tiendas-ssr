@@ -1,5 +1,4 @@
 var fs = require('fs');
-const angularJsonData = require('../angular.json');
 
 function getProject(name) {
   const appDir = `src/${name}`;
@@ -215,8 +214,21 @@ function saveJson(filename, data) {
 }
 
 const generateAngularJson = (name) => {
-  let newAngularJsonData = JSON.parse(JSON.stringify(angularJsonData));
-  newAngularJsonData.projects['tienda-ssr'] = getProject(name);
+  let newAngularJsonData = {
+    $schema: './node_modules/@angular/cli/lib/config/schema.json',
+    version: 1,
+    newProjectRoot: 'projects',
+    cli: {
+      cache: {
+        environment: 'local',
+        enabled: true,
+      },
+    },
+    projects: {
+      ['tienda-ssr']: getProject(name),
+    },
+  };
+
   saveJson('angular.json', newAngularJsonData);
 };
 
