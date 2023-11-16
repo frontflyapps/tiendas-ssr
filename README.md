@@ -47,7 +47,7 @@ Tiendas-SSR
     `MiBulevar-Ofa`,
     `DCero`,
     `ITH`,
-    `MiBulevar-Aligan `,
+    `MiBulevar-Aligan`,
     `MiBulevar-TiendasPatrimonio`,
     `Donato`,
     `LaCeiba`,
