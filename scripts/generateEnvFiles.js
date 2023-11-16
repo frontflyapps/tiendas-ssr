@@ -3,10 +3,6 @@ const { exec } = require('child_process');
 const { environmentFactory } = require('./utils');
 const { getFiles } = require('./utils');
 
-// generate env files
-exec('mkdir -p ./environments');
-exec('sleep 1s');
-
 function generateDevEnvironments(appName) {
   if (!appName) return;
 

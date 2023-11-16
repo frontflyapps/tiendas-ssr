@@ -1,0 +1,305 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "cli": {
+    "cache": {
+      "environment": "local",
+      "enabled": true
+    }
+  },
+  "projects": {
+    "tienda-ssr": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@ngx-env/builder:browser",
+          "options": {
+            "outputPath": "dist/browser",
+            "index": "src/VeoVeo/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/VeoVeo/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "src/VeoVeo/assets/app.scss",
+              "src/VeoVeo/assets/scss/helpers/_helpers.scss",
+              "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
+              "src/common-styles.scss",
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/VeoVeo/assets",
+                "/assets"
+              ]
+            },
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "buffer",
+              "rxjs",
+              "rxjs/internal/observable/of",
+              "rxjs/internal/Subject",
+              "crypto-js",
+              "resize-observer",
+              "@angular/common/locales/es",
+              "socket.io-client",
+              "socket.io",
+              "socket.io-parser",
+              "jspdf",
+              "ngx-material-timepicker"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@ngx-env/builder:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "tienda-ssr:build:production"
+            },
+            "development": {
+              "browserTarget": "tienda-ssr:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@ngx-env/builder:extract-i18n",
+          "options": {
+            "browserTarget": "tienda-ssr:build"
+          }
+        },
+        "test": {
+          "builder": "@ngx-env/builder:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "favicon-16x16.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-32x32.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-192x192.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-512x512.png",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/VeoVeo/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/VeoVeo/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "src/VeoVeo/assets/app.scss",
+              "src/VeoVeo/assets/scss/helpers/_helpers.scss",
+              "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
+              "src/common-styles.scss",
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/VeoVeo/assets",
+                "/assets"
+              ]
+            },
+            "scripts": []
+          }
+        },
+        "server": {
+          "builder": "@ngx-env/builder:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/VeoVeo/assets",
+                "/assets"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "tienda-ssr:build:development",
+              "serverTarget": "tienda-ssr:server:development"
+            },
+            "production": {
+              "browserTarget": "tienda-ssr:build:production",
+              "serverTarget": "tienda-ssr:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tienda-ssr:build:production",
+              "serverTarget": "tienda-ssr:server:production"
+            },
+            "development": {
+              "browserTarget": "tienda-ssr:build:development",
+              "serverTarget": "tienda-ssr:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "tienda-ssr:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "tienda-ssr:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook"
+          }
+        }
+      }
+    }
+  }
+}
