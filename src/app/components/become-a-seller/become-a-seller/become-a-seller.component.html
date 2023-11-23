@@ -65,7 +65,6 @@
             <p class="mat-body-2 uppercase mb-1 mt-3" data-id="c1306e91">
               {{ 'Datos de inscripcion' | translate }}
             </p>
-
             <mat-form-field appearance="outline" data-id="aa8e64b4">
               <mat-label data-id="e1654689">{{ 'Forma de gestión' }}</mat-label>
               <mat-select
@@ -91,11 +90,12 @@
             </mat-form-field>
           </div>
 
+          <div style="margin-right: 12px;"></div>
+
           <div class="d-flex flex-column flex-sh-50 flex-sh-sm-initial" data-id="0aee6aac">
             <p class="mat-body-2 uppercase mb-1 mt-3" data-id="ffc06354">
               {{ 'Número de Identificación Tributaria' | translate }}
             </p>
-
             <mat-form-field appearance="outline" class="form-field-width" data-id="84b6eab4">
               <mat-label data-id="e16914b2">{{ 'NIT' | translate }}</mat-label>
               <input
@@ -128,7 +128,10 @@
               </mat-hint>
             </mat-form-field>
           </div>
+    
         </div>
+    
+    
         <div
           *ngIf="basicForm.controls['selfEmployed'].value === false"
           class="d-flex"
@@ -676,6 +679,7 @@
       <!--      </mat-horizontal-stepper>-->
     </div>
   </div>
+ 
   <div
     id="questions-bar"
     class="questions d-flex flex-column justify-content-start align-items-stretch flex-sh-0"
@@ -722,4 +726,5 @@
       </mat-expansion-panel>
     </mat-accordion>
   </div>
+
 </div>

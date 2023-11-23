@@ -1,7 +1,7 @@
 export const PASARELA_BASE = 'peoplegoto';
   
   export const environment = {
-  "appName": "VeoVeo",
+  "appName": "PymesBulevar",
   "production": false,
   "defaultLanguage": "es",
   "currencyInternational": "USD",
@@ -16,16 +16,16 @@ export const PASARELA_BASE = 'peoplegoto';
   "timeToResearchLandingPageData": 10000,
   "timeToResearchMenuData": 10000,
   "timeToResearchCategoriesData": 10000,
-  "url": "https://www.veoveofashion.com/",
-  "urlAboutUs": "https://www.veoveofashion.com/",
+  "url": "http://tienda.pymesbulevar.com:4308",
+  "urlAboutUs": "http://tienda.pymesbulevar.com:4308",
   "address": "Tienda Guajiritos",
   "localDatabaseUsers": true,
   "contacts": {
-    "phone": "",
-    "email": "",
-    "address": ""
+    "phone": "(+53) 5 0928310",
+    "email": "comunicación@pymesbulevar.com",
+    "address": "Madrid, España"
   },
-  "adminService": "https://admin.veoveofashion.com/",
+  "adminService": "http://admintienda.tiendalocal.com/",
   "mainDomain": "tienda.guajiritos.com",
   "tokenBusiness": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IkJ1c2luZXNzSWQiOjEsImlkIjoxLCJkYXRlIjoiMjAyMS0wOS0xM1QwMTo0NToxOC4wMDBaIiwibmFtZSI6IlRpZW5kYSIsImVtYWlsIjoidGllbmRhQGxvY2FsaG9zdC5jb20ifSwiaWF0IjoxNjMxNDk3NTkxfQ.FF5-276rI9SJmtebVo0spV8Y2wdOZPok7LlUxtTDwh0",
   "meta": {
@@ -47,6 +47,7 @@ export const PASARELA_BASE = 'peoplegoto';
     "typescript": "~5.1.3"
   },
   "apiUrl": "https://api.guajiritos.com/v1/",
-  "imageUrl": "https://cdntienda.guajiritos.com/"
+  "imageUrl": "https://cdntienda.guajiritos.com/",
+  "googleAnalyticsId": "G-89XMR5BEXV"
 };
     
