@@ -4,10 +4,10 @@
   "scripts": {
     "test": "ng test",
     "generate": "node ./scripts/generate",
-    "start": "ng run tienda-ssr:serve-ssr --port 4308",
+    "start": "yarn generate && ng run tienda-ssr:serve-ssr --port 4308",
     "serve": "node dist/server/main.js",
-    "build": "rm -rf ./dist && ng build tienda-ssr && ng run tienda-ssr:server",
-    "build:stats": "rm -rf ./dist && ng build tienda-ssr --stats-json && ng run tienda-ssr:server --stats-json",
+    "build": "yarn generate && rm -rf ./dist && ng build tienda-ssr && ng run tienda-ssr:server",
+    "build:stats": "yarn generate && rm -rf ./dist && ng build tienda-ssr --stats-json && ng run tienda-ssr:server --stats-json",
     "prerender": "ng run tienda-ssr:prerender",
     "prettier": "prettier --write 'src/**/*.{js,ts,html,scss}'",
     "lint": "eslint src/app --ext js,ts",
