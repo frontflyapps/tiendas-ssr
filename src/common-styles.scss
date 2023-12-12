@@ -649,6 +649,10 @@ h4 {
   margin: 0 0 20px !important;
 }
 
+.mdc-button__label {
+  white-space: nowrap;
+}
+
 guajiritos-image-picker {
   .image-holder {
     border: solid 1px gray;
