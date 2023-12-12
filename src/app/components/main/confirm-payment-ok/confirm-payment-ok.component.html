@@ -2,7 +2,9 @@
   <mat-toolbar *ngIf="action == 'confirmed'" id="successPay" matDialogTitle data-id="ca0fcaad">
     <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="b270256c">
       <mat-icon data-id="07eda804">done_all</mat-icon>
-      <span class="mat-title mb-0" data-id="c7ff579d">{{ 'Pago Confirmado' | translate }}</span>
+      <span class="mat-headline-6 mb-0" data-id="c7ff579d">{{
+        'Pago Confirmado' | translate
+      }}</span>
       <button
         (click)="dialogRef.close()"
         aria-label="Close dialog"
@@ -16,7 +18,7 @@
   <mat-toolbar *ngIf="action == 'cancelled'" id="cancelledPay" matDialogTitle data-id="875477f0">
     <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="dc54712b">
       <mat-icon data-id="efeee65e">cancel</mat-icon>
-      <span class="mat-title mb-0" data-id="94011726">{{ 'Pago Cancelado' | translate }}</span>
+      <span class="mat-headline-6 mb-0" data-id="94011726">{{ 'Pago Cancelado' | translate }}</span>
       <button
         (click)="dialogRef.close()"
         aria-label="Close dialog"
@@ -44,10 +46,10 @@
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
           data-id="3d1911ad"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="517e86aa">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="517e86aa">{{
             'Id de pago' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="35ae44c6">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="35ae44c6">{{
             selectedPayment.order
           }}</span>
         </div>
@@ -56,10 +58,10 @@
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
           data-id="61b8af98"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="4074a86d">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="4074a86d">{{
             'fecha de creación' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="4c79d213">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="4c79d213">{{
             selectedPayment.createdAt | date: 'short'
           }}</span>
         </div>
@@ -69,10 +71,10 @@
           class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
           data-id="ecfd1947"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="27cee845">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="27cee845">{{
             'fecha de cancelación' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="9421092c">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="9421092c">{{
             selectedPayment.cancelledAt | date: 'short'
           }}</span>
         </div>
@@ -292,7 +294,7 @@
       <mat-divider class="d-xs-none" data-id="eb6fb763"></mat-divider>
 
       <ng-container *ngIf="this.selectedPayment.status == 'cancelled'" data-id="3f476c16">
-        <p class="mat-title my-2" ngClass.xs="mat-body-2" data-id="84817802">
+        <p class="mat-headline-6 my-2" ngClass.xs="mat-body-2" data-id="84817802">
           {{ 'Comentario acerca de la cancelación' | translate }}
         </p>
         <blockquote class="cancelNote" data-id="06a44a29">

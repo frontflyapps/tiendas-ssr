@@ -17,10 +17,10 @@
       style="height: 400px"
       data-id="bcc7eddb"
     >
-      <div class="loading-dots mat-title" data-id="1f579843">
+      <div class="loading-dots mat-headline-6" data-id="1f579843">
         {{ 'Procesando los datos' | translate }}
       </div>
-      <div class="loading-dots mat-subheading-1" data-id="e0791a38">
+      <div class="loading-dots mat-body-1" data-id="e0791a38">
         {{ 'Cargando pasarela de pago' | translate }}...
       </div>
     </div>
@@ -88,7 +88,7 @@
                         data-id="78c2a40b"
                       >
                         <img [src]="pay.logo" class="pay-method-icon" data-id="58bc9070" />
-                        <span class="mat-body-2 uppercase pay-method-name" data-id="6bac848b">
+                        <span class="mat-subtitle-2 uppercase pay-method-name" data-id="6bac848b">
                           <!-- {{ pay.name }}-->
                         </span>
                       </div>
@@ -115,7 +115,7 @@
                         data-id="34a2c94d"
                       >
                         <img [src]="pay.logo" class="pay-method-icon" data-id="269bf38e" />
-                        <span class="mat-body-2 uppercase pay-method-name" data-id="0d6e9879">
+                        <span class="mat-subtitle-2 uppercase pay-method-name" data-id="0d6e9879">
                           <!-- {{ pay.name }} -->
                         </span>
                       </div>
@@ -143,7 +143,7 @@
                         data-id="30613a5a"
                       >
                         <img [src]="pay.logo" class="pay-method-icon" data-id="49dec411" />
-                        <span class="mat-body-2 uppercase pay-method-name" data-id="80ec60f1">
+                        <span class="mat-subtitle-2 uppercase pay-method-name" data-id="80ec60f1">
                           <!-- {{ pay.name }} -->
                         </span>
                       </div>
@@ -176,7 +176,7 @@
           >
             <ng-container *ngIf="!loadingPayment" data-id="b9c0b33c">
               <p
-                class="mat-body-2 my-2"
+                class="mat-subtitle-2 my-2"
                 style="text-transform: uppercase"
                 *ngIf="
                   !multiTransfermovil ||
@@ -208,7 +208,7 @@
                         [value]="currency"
                         data-id="4c700cde"
                       >
-                        <span class="mat-body-2" data-id="374b664b">
+                        <span class="mat-subtitle-2" data-id="374b664b">
                           {{ currency }}
                         </span>
                       </mat-option>
@@ -234,7 +234,7 @@
                         [value]="currency.value"
                         data-id="756d144f"
                       >
-                        <span class="mat-body-2" data-id="50c6f7a0">
+                        <span class="mat-subtitle-2" data-id="50c6f7a0">
                           {{ currency.name }}
                         </span>
                       </mat-option>
@@ -277,7 +277,7 @@
                 class="order-xs-1 order-sm-1"
                 data-id="dafbf8e4"
               >
-                <span class="mat-body-2" data-id="a6a7f241">{{
+                <span class="mat-subtitle-2" data-id="a6a7f241">{{
                   'Solicitar envío a domicilio' | translate
                 }}</span>
               </mat-checkbox>
@@ -553,7 +553,7 @@
                 data-id="98ccd8aa"
               >
                 <p
-                  class="mat-body-2 my-2"
+                  class="mat-subtitle-2 my-2"
                   style="text-transform: uppercase"
                   title="{{ 'Información del cliente que obtendrá los productos' | translate }}"
                   data-id="44160c35"
@@ -698,7 +698,7 @@
               </mat-form-field>
 
               <p
-                class="mat-body-2 my-2"
+                class="mat-subtitle-2 my-2"
                 style="text-transform: uppercase"
                 *ngIf="canBeDelivery || showAddress"
                 title="{{ 'Datos adicionales del cliente que obtendrá los productos' | translate }}"
@@ -804,7 +804,7 @@
                 *ngIf="!onlyCubanPeople && (canBeDelivery || showAddress)"
                 data-id="b31316cb"
               >
-                <p class="mat-body-2 my-2" style="text-transform: uppercase" data-id="5fc032ce">
+                <p class="mat-subtitle-2 my-2" style="text-transform: uppercase" data-id="5fc032ce">
                   {{ "Customer's location data" | translate }}
                   <mat-icon
                     class="iconHelp"
@@ -1079,7 +1079,11 @@
 
                 <!----------------CUSTOM FIELDS------------------>
                 <ng-container *ngIf="customFields?.length > 0 && fields" data-id="54869278">
-                  <p class="mat-body-2 my-2" style="text-transform: uppercase" data-id="0524fe71">
+                  <p
+                    class="mat-subtitle-2 my-2"
+                    style="text-transform: uppercase"
+                    data-id="0524fe71"
+                  >
                     {{ 'Datos especiales' | translate }}
                     <mat-icon
                       class="iconHelp"
@@ -1345,7 +1349,7 @@
                           data-id="d6b2a0d1"
                         >
                           <p
-                            class="mat-body-2 my-2"
+                            class="mat-subtitle-2 my-2"
                             style="text-transform: uppercase"
                             data-id="f55c7851"
                           >
@@ -1364,7 +1368,7 @@
                           data-id="15b9b780"
                         >
                           <p
-                            class="mat-body-2 my-2"
+                            class="mat-subtitle-2 my-2"
                             style="text-transform: uppercase"
                             data-id="7016d918"
                           >

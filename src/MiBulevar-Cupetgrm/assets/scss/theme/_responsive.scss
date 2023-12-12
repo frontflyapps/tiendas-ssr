@@ -1202,7 +1202,7 @@
               flex-direction: column;
 
               .shopping-option {
-                .mat-radio-group {
+                .mat-mdc-radio-group {
                   display: flex;
                   flex-direction: column;
                 }
@@ -1223,7 +1223,7 @@
     }
 
     .commerce-buttons {
-      .mat-button {
+      .mat-mdc-button {
         padding-right: 10px !important;
       }
     }
