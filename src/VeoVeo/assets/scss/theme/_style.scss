@@ -267,7 +267,12 @@ a {
 
 .mat-mdc-raised-button.mat-primary {
   background-color: $theme-main;
-  color: $font-color;
+  color: $white;
+
+  &:disabled {
+    background-color: #0000001f;
+    color: #00000042;
+  }
 }
 
 .mat-mdc-input-element {
