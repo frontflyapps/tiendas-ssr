@@ -654,3 +654,8 @@ h4 {
 .mdc-button__label {
   white-space: nowrap;
 }
+
+/* Aplicando estilos a los mensajes de errores en los formularios */
+.mat-mdc-form-field-subscript-wrapper {
+  font-size: 75% !important;
+}

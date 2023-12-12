@@ -1747,10 +1747,13 @@
                   class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
                   data-id="ce9093ff"
                 >
-                  <div class="d-flex justify-content-between align-items-start" data-id="ffe9a30c">
+                  <div
+                    class="d-flex flex-wrap justify-content-between align-items-start"
+                    data-id="ffe9a30c"
+                  >
                     <mat-form-field
                       appearance="outline"
-                      class="flex-sh-50 flex-sh-md-100"
+                      class="flex-sh-48 flex-sh-md-100"
                       data-id="d2b35439"
                     >
                       <mat-label data-id="c2ffb626">{{ 'Name' | translate }}</mat-label>
@@ -1821,11 +1824,7 @@
                     </mat-error>
                   </mat-form-field> -->
 
-                  <mat-form-field
-                    appearance="outline"
-                    class="flex-sh-50 flex-sh-md-100"
-                    data-id="a93b0f84"
-                  >
+                  <mat-form-field appearance="outline" class="flex-sh-100" data-id="a93b0f84">
                     <mat-label data-id="1611478b">{{ 'Email' | translate }}</mat-label>
                     <input
                       (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -1855,7 +1854,7 @@
                   </mat-form-field>
 
                   <div
-                    class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-2fde8e"
+                    class="w-100 d-flex flex-sh-100 transpilerClass-fxLayoutGap-2fde8e"
                     data-id="c8bd7a4c"
                   >
                     <guajiritos-general-autocomplete
@@ -1867,7 +1866,7 @@
                       [filterString]="['filter[$and][code][$like]']"
                       [url]="phoneCodesService.url"
                       [formControl]="registrationForm.get('PhoneCallingCodeId')"
-                      class="flex-sh-30 flex-sh-md-30"
+                      class="flex-sh-28 flex-sh-md-30"
                       data-id="be882be9"
                     ></guajiritos-general-autocomplete>
 
@@ -1916,7 +1915,7 @@
                   >
                     <mat-form-field
                       appearance="outline"
-                      class="example-full-width flex-sh-50"
+                      class="example-full-width flex-sh-48 flex-sh-md-100"
                       data-id="539f6340"
                     >
                       <mat-label data-id="4a4c97b1">{{ 'Password' | translate }}</mat-label>
@@ -1941,6 +1940,7 @@
 
                       <mat-error
                         *ngIf="
+                          !fromPassRegister.controls['password'].hasError('required') &&
                           fromPassRegister.hasError('mismatch') &&
                           !fromPassRegister.controls['password'].hasError('pattern')
                         "
@@ -1958,7 +1958,7 @@
                         'ng-valid': !fromPassRegister.hasError('mismatch')
                       }"
                       appearance="outline"
-                      class="example-full-width flex-sh-50"
+                      class="example-full-width flex-sh-48 flex-sh-md-100"
                       data-id="cc1523d7"
                     >
                       <mat-label data-id="d3d13754">{{
