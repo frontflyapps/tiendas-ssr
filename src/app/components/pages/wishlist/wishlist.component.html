@@ -5,11 +5,11 @@
       class="d-flex flex-column justify-content-around align-items-center"
       data-id="f1692ea5"
     >
-      <mat-chip-list data-id="da1f2f7f">
-        <mat-chip color="warn" selected="true" data-id="bf2484a6"
-          >{{ 'YOU HAVE NO ITEMS IN YOUR WISHLIST' | translate }}.</mat-chip
+      <mat-chip-listbox data-id="da1f2f7f">
+        <mat-chip-option color="warn" selected="true" data-id="bf2484a6"
+          >{{ 'YOU HAVE NO ITEMS IN YOUR WISHLIST' | translate }}.</mat-chip-option
         >
-      </mat-chip-list>
+      </mat-chip-listbox>
       <div data-id="337f72a9">
         <a
           [routerLink]="['']"
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <mat-card *ngIf="wishlistItems.length" class="p-0" data-id="fff60b1a">
+    <mat-card appearance="outlined" *ngIf="wishlistItems.length" class="p-0" data-id="fff60b1a">
       <div class="mat-table cart-table" data-id="110a2e84">
         <div class="mat-header-row" data-id="fd4a3294">
           <div class="mat-header-cell" data-id="d44cac6c">{{ 'Product' | translate }}</div>

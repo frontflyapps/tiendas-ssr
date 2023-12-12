@@ -13,6 +13,7 @@
   }
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
 mat-checkbox a {
   color: -webkit-link;
   cursor: pointer;
@@ -65,21 +66,22 @@ mat-checkbox a {
 }
 
 #CI {
-  .mat-input-element {
+  .mat-mdc-input-element {
     text-transform: uppercase;
   }
 
-  .mat-input-element::placeholder {
+  .mat-mdc-input-element::placeholder {
     text-transform: none;
   }
 }
 
 ::ng-deep #phone-checkout.mat-form-field-appearance-outline {
+  /*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   .mat-form-field-prefix {
     top: 0 !important;
   }
 
-  .mat-input-element {
+  .mat-mdc-input-element {
     font: caption;
   }
 }
@@ -90,7 +92,7 @@ mat-checkbox a {
     width: 60px !important;
     height: 60px !important;
     position: relative;
-
+    /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
     ::ng-deep .mat-radio-label {
       border: 1px solid #e3e3e3;
       border-radius: 8px;
@@ -98,7 +100,7 @@ mat-checkbox a {
       height: 100%;
       overflow: hidden;
     }
-
+    /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
     ::ng-deep .mat-radio-label-content {
       padding: 0 !important;
       margin: 0 !important;
@@ -106,7 +108,7 @@ mat-checkbox a {
       height: 100% !important;
     }
   }
-
+  /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
   ::ng-deep .mat-radio-container {
     display: none;
   }
@@ -154,7 +156,7 @@ li {
       min-width: 320px !important;
     }
 
-    .mat-form-field {
+    .mat-mdc-form-field {
       width: 100%;
     }
 
@@ -397,6 +399,7 @@ li {
   }
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
 .mat-radio-label-content {
   color: $grey5;
   font-weight: 400;
@@ -453,6 +456,7 @@ li {
   }
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
 ::ng-deep .mat-radio-label-content {
   width: 100% !important;
   margin: 8px 0px !important;

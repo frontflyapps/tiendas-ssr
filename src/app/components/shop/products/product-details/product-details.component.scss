@@ -574,7 +574,8 @@ h1 {
           margin-top: 10px;
         }
 
-        .mat-list-item {
+        .mat-mdc-list-item {
+          /*TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version.*/
           .mat-list-item-content {
             align-items: start !important;
           }
@@ -582,7 +583,7 @@ h1 {
       }
 
       .writte-reviews {
-        .mat-form-field {
+        .mat-mdc-form-field {
           width: 100%;
         }
       }
@@ -728,7 +729,7 @@ h1 {
   z-index: 1;
 }
 
-.mat-list-base .mat-list-item.mat-3-line,
+.mat-mdc-list-base .mat-mdc-list-item.mat-3-line,
 .mat-list-base .mat-list-option.mat-3-line {
   height: 100% !important;
   margin-bottom: 20px;
