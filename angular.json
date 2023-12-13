@@ -24,7 +24,7 @@
           "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/browser",
-            "index": "src/VeoVeo/index.html",
+            "index": "src/undefined/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -34,61 +34,61 @@
             "assets": [
               {
                 "glob": "favicon-16x16.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "favicon-32x32.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "favicon.ico",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "apple-touch-icon.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "android-chrome-192x192.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "android-chrome-512x512.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "manifest.webmanifest",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "site.webmanifest",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/VeoVeo/assets",
+                "input": "src/undefined/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/VeoVeo/assets/app.scss",
-              "src/VeoVeo/assets/scss/helpers/_helpers.scss",
-              "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
+              "src/undefined/assets/app.scss",
+              "src/undefined/assets/scss/helpers/_helpers.scss",
+              "src/undefined/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/VeoVeo/assets",
+                "src/undefined/assets",
                 "/assets"
               ]
             },
@@ -159,61 +159,61 @@
             "assets": [
               {
                 "glob": "favicon-16x16.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "favicon-32x32.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "favicon.ico",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "apple-touch-icon.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "android-chrome-192x192.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "android-chrome-512x512.png",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "manifest.webmanifest",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "site.webmanifest",
-                "input": "src/VeoVeo/",
+                "input": "src/undefined/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/VeoVeo/assets",
+                "input": "src/undefined/assets",
                 "output": "/assets/"
               }
             ],
             "styles": [
-              "src/VeoVeo/assets/app.scss",
-              "src/VeoVeo/assets/scss/helpers/_helpers.scss",
-              "src/VeoVeo/assets/scss/mixins/_breakpoints.scss",
+              "src/undefined/assets/app.scss",
+              "src/undefined/assets/scss/helpers/_helpers.scss",
+              "src/undefined/assets/scss/mixins/_breakpoints.scss",
               "src/common-styles.scss",
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/VeoVeo/assets",
+                "src/undefined/assets",
                 "/assets"
               ]
             },
@@ -229,7 +229,7 @@
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/VeoVeo/assets",
+                "src/undefined/assets",
                 "/assets"
               ]
             }
