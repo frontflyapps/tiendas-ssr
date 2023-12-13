@@ -37,6 +37,7 @@
         <mat-spinner *ngIf="inLoading" data-id="4a104cf6"></mat-spinner>
       </div>
       <mat-card
+        appearance="outlined"
         *ngFor="let cart of carts"
         class="p-0 mb-4"
         style="border-radius: 8px"
@@ -103,7 +104,7 @@
                   </span>
                 </p>
                 <p
-                  class="mat-body-2 m-0"
+                  class="mat-subtitle-2 m-0"
                   matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
                   data-id="690eaf32"
                 >
@@ -111,10 +112,10 @@
                 </p>
               </ng-container>
               <ng-container *ngIf="!item.Product.offerValue" data-id="5b0b3e30">
-                <p class="mat-body-2 m-0" data-id="98e3225f">
+                <p class="mat-subtitle-2 m-0" data-id="98e3225f">
                   {{ item.Product | parsePriceProduct }}
                 </p>
-                <p class="mat-body-2 m-0" style="font-size: 15px" data-id="08a65d5b">
+                <p class="mat-subtitle-2 m-0" style="font-size: 15px" data-id="08a65d5b">
                   {{ 'Desde ' | translate }}
                   {{ item.Product.minSale }}
                   {{ ' unidades' | translate }}
@@ -237,7 +238,7 @@
                 data-id="d708cc5f"
               />
 
-              <span class="mat-body-2 ml-2 uppercase" data-id="81fa5d81">{{
+              <span class="mat-subtitle-2 ml-2 uppercase" data-id="81fa5d81">{{
                 cart.Business?.name
               }}</span>
             </div>
@@ -321,7 +322,7 @@
             data-id="7d03d387"
           />
 
-          <span class="mat-body-2 ml-2 uppercase" data-id="83588d44">{{
+          <span class="mat-subtitle-2 ml-2 uppercase" data-id="83588d44">{{
             cart.Business?.name
           }}</span>
         </div>
@@ -361,6 +362,7 @@
         </mat-toolbar>
 
         <mat-card
+          appearance="outlined"
           *ngFor="let item of cart.CartItems"
           class="pt-0 my-2 px-0"
           ngClass.sm="w-75 mx-auto"
@@ -428,7 +430,7 @@
                     </span>
                   </p>
                   <p
-                    class="mat-body-2 mb-0"
+                    class="mat-subtitle-2 mb-0"
                     matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
                     style="text-align: left"
                     data-id="60b6d733"
@@ -443,7 +445,7 @@
                 </ng-container>
                 <ng-container *ngIf="!item.Product.offerValue" data-id="3025592f">
                   <p
-                    class="mat-body-2"
+                    class="mat-subtitle-2"
                     style="text-align: left; font-size: 1.1rem"
                     data-id="d488c819"
                   >

@@ -112,19 +112,21 @@ h6 {
   position: relative;
 }
 
-.mat-raised-button:not([class*='mat-elevation-z']) {
+.mat-mdc-raised-button:not([class*='mat-elevation-z']) {
   box-shadow: none;
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of slider that may no longer apply for the MDC version.*/
 .mat-slider-track-fill {
   background-color: $theme-main;
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of slider that may no longer apply for the MDC version.*/
 .mat-primary .mat-slider-thumb {
   background-color: $theme-main;
 }
 
-.mat-raised-button.mat-warn {
+.mat-mdc-raised-button.mat-warn {
   background-color: $theme-main-red;
 }
 
@@ -139,11 +141,13 @@ h6 {
 //   background-color: rgba(255, 193, 17, 0.8) !important;
 //   position: fixed;
 // }
-.mat-form-field.mat-focused .mat-form-field-label {
+/*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
+.mat-mdc-form-field.mat-focused .mat-form-field-label {
   color: $theme-main;
 }
 
-.mat-form-field.mat-focused .mat-form-field-ripple {
+/*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
+.mat-mdc-form-field.mat-focused .mat-form-field-ripple {
   background-color: $theme-main;
 }
 
@@ -162,12 +166,12 @@ h6 {
   overflow: hidden;
 }
 
-.mat-menu-panel {
+.mat-mdc-menu-panel {
   min-width: 100% !important;
   max-width: 100% !important;
 }
 
-.mat-mini-fab.mat-accent {
+.mat-mdc-mini-fab.mat-accent {
   background-color: $theme-main;
 }
 
@@ -180,7 +184,7 @@ a {
   text-align: center !important;
 }
 
-.mat-snack-bar-container.error {
+.mat-mdc-snack-bar-container.error {
   color: white;
   border-radius: 4px !important;
   box-sizing: border-box !important;
@@ -193,12 +197,12 @@ a {
   transform-origin: center !important;
   border: 1.8px solid #f44336 !important;
 
-  .mat-simple-snackbar-action {
+  .mat-mdc-snack-bar-action {
     color: #f44336 !important;
     padding: 2px !important;
   }
 
-  .mat-simple-snackbar-action button {
+  .mat-mdc-snack-bar-action button {
     color: #f44336 !important;
     max-height: 36px;
     min-width: 36px;
@@ -214,7 +218,7 @@ a {
   }
 }
 
-.mat-snack-bar-container.succes {
+.mat-mdc-snack-bar-container.succes {
   color: white;
   border-radius: 4px !important;
   box-sizing: border-box !important;
@@ -227,7 +231,7 @@ a {
   transform-origin: center !important;
   border: 1.8px solid #4caf50;
 
-  .mat-simple-snackbar-action {
+  .mat-mdc-snack-bar-action {
     color: #4caf50 !important;
   }
 }
@@ -240,29 +244,33 @@ a {
   color: $font-color;
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
 .mat-radio-label-content {
   color: $grey7;
   font-weight: 400;
 }
 
-.mat-chip.mat-standard-chip.mat-chip-selected.mat-warn {
+/*TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
+.mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-warn {
   background-color: $theme-main-red;
 }
 
-.mat-radio-button.mat-accent .mat-radio-inner-circle {
+/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+.mat-mdc-radio-button.mat-accent .mat-radio-inner-circle {
   background: $theme-main-red !important;
 }
 
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+.mat-mdc-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: $theme-main-red !important;
 }
 
-.mat-raised-button.mat-primary {
+.mat-mdc-raised-button.mat-primary {
   background-color: $theme-main;
   color: $font-color;
 }
 
-.mat-input-element {
+.mat-mdc-input-element {
   caret-color: $theme-main !important;
 }
 
@@ -567,6 +575,7 @@ span {
 /*  shopping widgets styles */
 .commerce-buttons {
   .flex-row-button {
+    /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
     .mat-button-wrapper {
       .cart-count-wrapper {
         position: absolute;
@@ -586,7 +595,7 @@ span {
 .spCard-main {
   width: 100%;
 
-  .mat-menu-content {
+  .mat-mdc-menu-content {
     width: 320px !important;
     max-width: 100%;
   }
@@ -894,8 +903,8 @@ span {
   }
 }
 
-.mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+.mat-mdc-tab-group.mat-primary .mat-ink-bar,
+.mat-mdc-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: $theme-main !important;
 }
 
@@ -1393,7 +1402,7 @@ span {
     .main-menu-wrapper-2 {
       .top-navbar {
         background: $white;
-
+        /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
         .mat-button-wrapper {
           display: flex;
           flex-direction: row;
@@ -1407,6 +1416,7 @@ span {
         }
 
         .commerce-buttons {
+          /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
           .mat-button-wrapper {
             .cart-count-wrapper {
               position: absolute;
@@ -1491,7 +1501,7 @@ span {
           }
         }
       }
-
+      /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
       .mat-tab-labels {
         display: flex;
         flex-direction: row;
@@ -1894,15 +1904,17 @@ span {
           }
         }
       }
-
+      /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
+      /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
       .mat-tab-body-wrapper {
-        .mat-tab-body {
+        .mat-mdc-tab-body {
+          /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
           .mat-tab-body-content {
             height: 100%;
           }
         }
       }
-
+      /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
       .mat-tab-labels {
         display: flex;
         flex-direction: row;
@@ -1981,7 +1993,7 @@ span {
   .main-menu {
     margin: 0 auto;
 
-    a.mat-button {
+    a.mat-mdc-button {
       text-transform: capitalize;
       color: #fff;
       font-size: 1em;
@@ -1996,7 +2008,7 @@ span {
 *  Menu-2 styles
 ****************************************/
 
-.mat-menu-content {
+.mat-mdc-menu-content {
   width: 245px;
   padding-top: 0;
   padding-bottom: 0;
@@ -2004,7 +2016,7 @@ span {
   border-top: unset !important;
   //border-top: 4px solid $theme-main !important;
 
-  .mat-menu-item {
+  .mat-mdc-menu-item {
     border-bottom: 1px dashed $gray-lighter;
   }
 }
@@ -2016,7 +2028,7 @@ span {
 .menu-container2 {
   background: $theme-main;
 
-  a.mat-button {
+  a.mat-mdc-button {
     text-transform: uppercase;
     color: $font-color;
     font-size: 1em;
@@ -2429,6 +2441,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
         background: #ffffff;
 
         .flex-row-button {
+          /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
           .mat-button-wrapper {
             display: flex;
             flex-direction: row;
@@ -2466,7 +2479,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
   .main-menu {
     margin: 0 auto;
 
-    a.mat-button {
+    a.mat-mdc-button {
       text-transform: uppercase;
       color: #383838;
       font-size: 1em;
@@ -2612,7 +2625,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 *  Menu-5 styles
 ****************************************/
 
-.mat-menu-content {
+.mat-mdc-menu-content {
   width: 245px;
   padding-top: 0;
   padding-bottom: 0;
@@ -2620,7 +2633,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
   //border-top: 4px solid $theme-main !important;
   border-top: unset !important;
 
-  .mat-menu-item {
+  .mat-mdc-menu-item {
     border-bottom: 1px dashed $gray-lighter;
   }
 }
@@ -2634,7 +2647,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
   .container {
     background: $grey9;
 
-    a.mat-button {
+    a.mat-mdc-button {
       text-transform: uppercase;
       color: $font-color;
       font-size: 1em;
@@ -2701,7 +2714,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
       position: absolute;
       top: 69px;
     }
-
+    /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
     .mat-tab-labels {
       display: flex;
       flex-direction: row;
@@ -3053,6 +3066,7 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 
 .price-slider {
   .filter-price {
+    /*TODO(mdc-migration): The following rule targets internal classes of slider that may no longer apply for the MDC version.*/
     .mat-slider-horizontal {
       min-width: 110px;
     }
@@ -3204,11 +3218,11 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 .mega-menu-pane {
   max-width: 100%;
 
-  .mat-menu-panel {
+  .mat-mdc-menu-panel {
     width: 65rem !important;
     max-width: 100% !important;
 
-    .mat-menu-content {
+    .mat-mdc-menu-content {
       width: 100% !important;
     }
   }
@@ -3221,11 +3235,11 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
 .brands-items {
   margin-top: 20px;
 
-  .mat-radio-button {
+  .mat-mdc-radio-button {
     margin-bottom: 15px;
   }
-
-  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+  .mat-mdc-radio-button.mat-accent .mat-radio-inner-circle {
     background: $theme-main-red !important;
   }
 }
@@ -3290,11 +3304,11 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
       width: 100% !important;
     }
 
-    .mat-form-field {
+    .mat-mdc-form-field {
       caret-color: $theme-main !important;
       font-size: 14px !important;
 
-      .mat-input-element {
+      .mat-mdc-input-element {
         caret-color: $theme-main !important;
       }
     }
@@ -3326,24 +3340,24 @@ mat-sidenav.filter-sidenav.mat-drawer.mat-sidenav.ng-tns-c15-4.ng-trigger.ng-tri
   outline: none;
   width: 100%;
 
-  .mat-list-item.active {
+  .mat-mdc-list-item.active {
     background-color: mat-color($theme-main, 50);
   }
 
   &:hover,
   &:focus {
-    > .mat-list-item:not(.expanded) {
+    > .mat-mdc-list-item:not(.expanded) {
       background-color: mat-color($theme-main, 100) !important;
     }
   }
 }
 
-.mat-list-item {
+.mat-mdc-list-item {
   padding: 10px 0;
   display: flex;
   width: auto;
   height: 48px;
-
+  /*TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version.*/
   .mat-list-item-content {
     display: flex;
     flex-direction: row;

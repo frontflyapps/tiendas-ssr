@@ -68,7 +68,11 @@
                           class="d-flex justify-content-start align-items-center"
                           data-id="73f9afbc"
                         >
-                          <span class="mat-title mb-0" style="font-size: 17px" data-id="411fa4af">
+                          <span
+                            class="mat-headline-6 mb-0"
+                            style="font-size: 17px"
+                            data-id="411fa4af"
+                          >
                             {{ item.PaymentItems.length + 'x' }}
                             {{ ' types of product' | translate }}
                           </span>
@@ -78,10 +82,10 @@
                           class="d-flex justify-content-between align-items-center"
                           data-id="8eff1825"
                         >
-                          <span class="mat-body-1 color-grey-700" data-id="0db786b2">
+                          <span class="mat-body-2 color-grey-700" data-id="0db786b2">
                             <span
                               [style.color]="this.status[item.status]?.primary"
-                              class="mat-body-1"
+                              class="mat-body-2"
                               data-id="01270155"
                               >{{
                                 this.utilsService.parserLanguage(
@@ -94,7 +98,7 @@
                         </div>
 
                         <p
-                          class="mat-body-1 color-grey-700"
+                          class="mat-body-2 color-grey-700"
                           style="font-size: 14px"
                           *ngIf="item.address"
                           data-id="c8a6e8ae"
@@ -105,7 +109,7 @@
 
                         <p
                           *ngIf="item.CountryId != 59 && item.Municipality && item.Province"
-                          class="mat-body-1 color-grey-700"
+                          class="mat-body-2 color-grey-700"
                           style="font-size: 14px"
                           data-id="15702447"
                         >
@@ -118,7 +122,7 @@
                           }}
                         </p>
                         <p
-                          class="mat-body-1 color-grey-700"
+                          class="mat-body-2 color-grey-700"
                           style="font-size: 14px"
                           data-id="a3805081"
                         >
@@ -155,7 +159,7 @@
                           {{ item.amount | currency: item.currency }}
                         </span>
                         <span
-                          class="mat-body-1 color-grey-700"
+                          class="mat-body-2 color-grey-700"
                           style="font-size: 19px"
                           data-id="311af677"
                         >
@@ -310,7 +314,7 @@
                     </div>
 
                     <div class="flex-sh-100 flex-sh-50 flex-sh-md-initial" data-id="3c61a619">
-                      <h2 class="mat-title mb-0" data-id="633a7d31">
+                      <h2 class="mat-headline-6 mb-0" data-id="633a7d31">
                         {{ utilsService.parserLanguage(paymentItem?.Product?.name, language) }}
                       </h2>
                       <div class="my-2" data-id="dfa84191">
@@ -395,10 +399,10 @@
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     data-id="4da9524f"
                   >
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="25c3d54b">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="25c3d54b">{{
                       'Id de pago' | translate
                     }}</span>
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="0deb2166">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="0deb2166">{{
                       selectedOrder.order
                     }}</span>
                   </div>
@@ -407,10 +411,10 @@
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     data-id="10ca3e2a"
                   >
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="709bf7f7">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="709bf7f7">{{
                       'fecha de creación' | translate
                     }}</span>
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="9401edf1">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="9401edf1">{{
                       selectedOrder.createdAt | date: 'short'
                     }}</span>
                   </div>
@@ -420,10 +424,10 @@
                     class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
                     data-id="8a5b1e9d"
                   >
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="abff058d">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="abff058d">{{
                       'fecha de cancelación' | translate
                     }}</span>
-                    <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="bc9a179a">{{
+                    <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="bc9a179a">{{
                       selectedOrder.cancelledAt | date: 'short'
                     }}</span>
                   </div>
@@ -690,7 +694,7 @@
 
                 <ng-container *ngIf="this.selectedOrder.status == 'error'" data-id="a77b3eea">
                   <p
-                    class="mat-title my-2"
+                    class="mat-headline-6 my-2"
                     ngClass.xs="mat-body-2"
                     style="color: #e53935"
                     data-id="97cfe260"
@@ -703,7 +707,7 @@
                 </ng-container>
 
                 <ng-container *ngIf="this.selectedOrder.status == 'cancelled'" data-id="68ef2668">
-                  <p class="mat-title my-2" ngClass.xs="mat-body-2" data-id="53e958f9">
+                  <p class="mat-headline-6 my-2" ngClass.xs="mat-body-2" data-id="53e958f9">
                     {{ 'Comentario acerca de la cancelación' | translate }}
                   </p>
                   <blockquote class="cancelNote" data-id="43f44b62">
@@ -799,7 +803,7 @@
                 data-id="86baba73"
               >
                 <span
-                  class="mat-subheading-1 color-grey-800"
+                  class="mat-body-1 color-grey-800"
                   ngClass.xs="mb-1"
                   style="font-weight: 600"
                   data-id="760dd935"
@@ -830,7 +834,7 @@
                         data-id="2b31ce53"
                       />
 
-                      <span class="mat-body-2 ml-2 uppercase" data-id="762918d1">{{
+                      <span class="mat-subtitle-2 ml-2 uppercase" data-id="762918d1">{{
                         this.selectedOrder?.Business?.name
                       }}</span>
                     </div>
@@ -879,7 +883,7 @@
                   data-id="2255081c"
                 >
                   <span
-                    class="mat-subheading-1 color-grey-800 mt-3"
+                    class="mat-body-1 color-grey-800 mt-3"
                     ngClass.xs="mb-1"
                     style="font-weight: 600"
                     data-id="dfa196e2"
@@ -913,7 +917,7 @@
                           data-id="64315bd1"
                         />
 
-                        <span class="mat-body-2 ml-2 uppercase" data-id="4daf92ff">{{
+                        <span class="mat-subtitle-2 ml-2 uppercase" data-id="4daf92ff">{{
                           this.selectedOrder?.ShippingBusiness?.name
                         }}</span>
                       </div>

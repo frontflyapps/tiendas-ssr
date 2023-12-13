@@ -24,7 +24,7 @@ body {
     overflow-x: auto !important;
   }
 
-  .mat-table {
+  .mat-mdc-table {
     min-width: 800px;
   }
 }
@@ -367,6 +367,7 @@ h4 {
   margin-bottom: 0px !important;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
 .mat-tab-body-content {
   height: 100%;
   overflow: auto;
@@ -391,6 +392,7 @@ h4 {
 }
 
 .remove-material-form-padding-bottom {
+  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   .mat-form-field-wrapper {
     padding-bottom: 0px !important;
   }
@@ -406,7 +408,7 @@ h4 {
   border-top-right-radius: 8px;
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
   font-size: 12.5px !important;
   line-height: 1.225;
 }
@@ -640,7 +642,7 @@ h4 {
   }
 }
 
-.mat-mini-fab {
+.mat-mdc-mini-fab {
   width: 46px !important;
   height: 46px !important;
 }
@@ -657,4 +659,9 @@ guajiritos-image-picker {
   .image-holder {
     border: solid 1px gray;
   }
+}
+
+/* Aplicando estilos a los mensajes de errores en los formularios */
+.mat-mdc-form-field-subscript-wrapper {
+  font-size: 75% !important;
 }

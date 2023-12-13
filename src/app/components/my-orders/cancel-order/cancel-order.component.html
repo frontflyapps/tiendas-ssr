@@ -22,7 +22,7 @@
       >
 
       <ng-container *ngIf="order.status == 'confirmed'" data-id="b565b050">
-        <p class="mat-body-2 uppercase py-2" data-id="488bf24e">
+        <p class="mat-subtitle-2 uppercase py-2" data-id="488bf24e">
           {{ 'Comentario respecto a la cancelación' | translate }}
         </p>
         <mat-form-field
@@ -46,10 +46,10 @@
       </ng-container>
 
       <ng-container data-id="5b427c19">
-        <p class="mat-body-2 uppercase mb-1" data-id="98b1f5a4">
+        <p class="mat-subtitle-2 uppercase mb-1" data-id="98b1f5a4">
           {{ 'Cancellation policies' | translate }}
         </p>
-        <mat-card class="mat-elevation-z0" data-id="9756643d">
+        <mat-card appearance="outlined" class="mat-elevation-z0" data-id="9756643d">
           <div class="responsive_table" data-id="b9be7e86">
             <table [dataSource]="dataSource" mat-table data-id="96c8ac6e">
               <ng-container matColumnDef="minHour" data-id="1b0aeb55">
@@ -57,7 +57,7 @@
                   <span class="mat-caption" data-id="2e9a0e1b">{{ 'Desde' | translate }}</span>
                 </th>
                 <td *matCellDef="let element" mat-cell data-id="cb095f10">
-                  <span class="mat-body-2" data-id="8214d623"
+                  <span class="mat-subtitle-2" data-id="8214d623"
                     >{{ element?.minHour }} {{ 'h' }}</span
                   >
                 </td>
@@ -68,7 +68,7 @@
                   <span class="mat-caption" data-id="26c9cc67">{{ 'Hasta' | translate }}</span>
                 </th>
                 <td *matCellDef="let element" mat-cell data-id="2f49cb4a">
-                  <span class="mat-body-2" data-id="e88b5da6"
+                  <span class="mat-subtitle-2" data-id="e88b5da6"
                     >{{ element?.maxHour }} {{ 'h' }}</span
                   >
                 </td>
@@ -79,7 +79,9 @@
                   <span class="mat-caption" data-id="6f2ff285">{{ 'Valor' | translate }}</span>
                 </th>
                 <td *matCellDef="let element" mat-cell data-id="195a8cc9">
-                  <span class="mat-body-2" data-id="29e76986">{{ element?.value }} {{ '%' }}</span>
+                  <span class="mat-subtitle-2" data-id="29e76986"
+                    >{{ element?.value }} {{ '%' }}</span
+                  >
                 </td>
               </ng-container>
 
@@ -99,7 +101,7 @@
         </mat-card>
 
         <mat-checkbox *ngIf="ruleApply" [formControl]="form.controls['rule']" data-id="9a01a626">
-          <span class="mat-body-2" data-id="bee52c93">{{
+          <span class="mat-subtitle-2" data-id="bee52c93">{{
             'Accept our cancellation policies' | translate | uppercase
           }}</span>
         </mat-checkbox>
@@ -170,10 +172,10 @@
       >
 
       <ng-container data-id="787cb7ea">
-        <p class="mat-body-2 uppercase mb-1" data-id="9a01776f">
+        <p class="mat-subtitle-2 uppercase mb-1" data-id="9a01776f">
           {{ 'Cancellation policies' | translate }}
         </p>
-        <mat-card class="mat-elevation-z0" data-id="a3030967">
+        <mat-card appearance="outlined" class="mat-elevation-z0" data-id="a3030967">
           <div class="responsive_table" data-id="077bf6ed">
             <table [dataSource]="dataSource" mat-table data-id="c93a7713">
               <ng-container matColumnDef="minHour" data-id="369cd1e1">
@@ -181,7 +183,7 @@
                   <span class="mat-caption" data-id="6d7ccfe8">{{ 'Desde' | translate }}</span>
                 </th>
                 <td *matCellDef="let element" mat-cell data-id="9b0b5115">
-                  <span class="mat-body-2" data-id="3716e815"
+                  <span class="mat-subtitle-2" data-id="3716e815"
                     >{{ element?.minHour }} {{ 'h' }}</span
                   >
                 </td>
@@ -192,7 +194,7 @@
                   <span class="mat-caption" data-id="4f8c65ab">{{ 'Hasta' | translate }}</span>
                 </th>
                 <td *matCellDef="let element" mat-cell data-id="3c9a7dfc">
-                  <span class="mat-body-2" data-id="7797d1a6"
+                  <span class="mat-subtitle-2" data-id="7797d1a6"
                     >{{ element?.maxHour }} {{ 'h' }}</span
                   >
                 </td>
@@ -203,7 +205,9 @@
                   <span class="mat-caption" data-id="3a13b6de">{{ 'Valor' | translate }}</span>
                 </th>
                 <td *matCellDef="let element" mat-cell data-id="9bc5d986">
-                  <span class="mat-body-2" data-id="d651cc44">{{ element?.value }} {{ '%' }}</span>
+                  <span class="mat-subtitle-2" data-id="d651cc44"
+                    >{{ element?.value }} {{ '%' }}</span
+                  >
                 </td>
               </ng-container>
 

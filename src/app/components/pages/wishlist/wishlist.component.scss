@@ -4,11 +4,11 @@
   .mat-mdc-card {
     text-align: center;
 
-    .cart-table.mat-table {
+    .cart-table.mat-mdc-table {
       display: block;
       overflow-x: auto;
 
-      .mat-row {
+      .mat-mdc-row {
         min-height: 100px;
         min-height: 100px;
         border-bottom: 1px solid $grey2;
@@ -47,8 +47,8 @@
         }
       }
 
-      .mat-cell,
-      .mat-header-cell {
+      .mat-mdc-cell,
+      .mat-mdc-header-cell {
         flex: 1;
         overflow: hidden;
         word-wrap: break-word;
@@ -61,8 +61,8 @@
     }
   }
 
-  .mat-row,
-  .mat-header-row {
+  .mat-mdc-row,
+  .mat-mdc-header-row {
     display: flex;
     border-bottom-width: 1px;
     border-bottom: 1px solid $grey6 !important;
