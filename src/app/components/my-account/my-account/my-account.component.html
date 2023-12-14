@@ -149,13 +149,16 @@
               </mat-error>
             </mat-form-field>
 
-            <div class="mb-3 d-flex justify-content-center align-items-center" data-id="69c8c0a5">
+            <div
+              class="mb-3 d-flex justify-content-center align-items-center box-sizing: border-box display: flex; place-content: center"
+              data-id="69c8c0a5"
+            >
               <button
                 (click)="
                   login(loginForm.controls['username'].value, loginForm.controls['password'].value)
                 "
                 [disabled]="!loginForm.valid || inLoading"
-                class="mx-3 w-70"
+                class="mx-3 w-40"
                 color="primary"
                 mat-raised-button
                 type="submit"
@@ -181,6 +184,20 @@
                 class="uppercase mat-body-1 my-1 grey-700 span-link"
                 data-id="fcf12754"
                 >{{ 'Forgot my passsword' | translate }}</a
+              >
+            </div>
+
+            <div
+              *ngIf="localDatabaseUsers"
+              class="my-1 d-flex justify-content-center align-items-center"
+              data-id="ce003cbf"
+            >
+              <a
+                [queryParams]="{ modal: 'validate' }"
+                [routerLink]="['/my-account']"
+                class="uppercase mat-body-1 my-1 grey-700 span-link"
+                data-id="ed2efff3"
+                >{{ 'Validate account' | translate }}</a
               >
             </div>
 
@@ -1910,7 +1927,7 @@
                   </div>
 
                   <div
-                    class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
+                    class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column flex-md-column gap-4 justify-content-between align-items-center align-items-xs-start align-items-sm-start"
                     data-id="f56af463"
                   >
                     <mat-form-field
@@ -2199,7 +2216,7 @@
                 <button
                   (click)="onSendEmail2ChangePass()"
                   [disabled]="!insertEmailPassForm.valid || inLoading"
-                  class="w-70"
+                  class="w-30"
                   color="primary"
                   mat-raised-button
                   data-id="e3d1cd9e"
