@@ -187,7 +187,6 @@
               >
             </div>
 
-
             <div
               *ngIf="localDatabaseUsers && businessConfig?.signUpType == 'normal'"
               class="my-1 d-flex justify-content-center align-items-center"
@@ -2203,7 +2202,7 @@
                 <button
                   (click)="onSendEmail2ChangePass()"
                   [disabled]="!insertEmailPassForm.valid || inLoading"
-                  class="w-30"
+                  class="w-70"
                   color="primary"
                   mat-raised-button
                   data-id="e3d1cd9e"
