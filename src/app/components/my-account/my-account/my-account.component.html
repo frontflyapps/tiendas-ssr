@@ -158,7 +158,7 @@
                   login(loginForm.controls['username'].value, loginForm.controls['password'].value)
                 "
                 [disabled]="!loginForm.valid || inLoading"
-                class="mx-3 w-40"
+                class="mx-3 w-70"
                 color="primary"
                 mat-raised-button
                 type="submit"
@@ -187,19 +187,6 @@
               >
             </div>
 
-            <div
-              *ngIf="localDatabaseUsers"
-              class="my-1 d-flex justify-content-center align-items-center"
-              data-id="ce003cbf"
-            >
-              <a
-                [queryParams]="{ modal: 'validate' }"
-                [routerLink]="['/my-account']"
-                class="uppercase mat-body-1 my-1 grey-700 span-link"
-                data-id="ed2efff3"
-                >{{ 'Validate account' | translate }}</a
-              >
-            </div>
 
             <div
               *ngIf="localDatabaseUsers && businessConfig?.signUpType == 'normal'"
