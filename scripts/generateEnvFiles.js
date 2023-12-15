@@ -3,6 +3,32 @@ const { exec } = require('child_process');
 const { environmentFactory } = require('./utils');
 const { getFiles } = require('./utils');
 
+const createEnvironmentsFolder = async () => {
+  const path = './environments';
+
+  return new Promise((resolve) => {
+    fs.access(path, (error) => {
+      // To check if the given directory
+      // already exists or not
+      if (error) {
+        // If current directory does not exist
+        // then create it
+        fs.mkdir(path, (error) => {
+          if (error) {
+            console.log(error);
+          } else {
+            resolve();
+            // console.log('New Directory created successfully !!');
+          }
+        });
+      } else {
+        resolve();
+        // console.log('Given Directory already exists !!');
+      }
+    });
+  });
+};
+
 function generateDevEnvironments(appName) {
   if (!appName) return;
 
@@ -59,7 +85,9 @@ function generateProdEnvironments(appName) {
   });
 }
 
-const generateEnvFiles = (name) => {
+const generateEnvFiles = async (name) => {
+  await createEnvironmentsFolder();
+
   generateDevEnvironments(name);
   generateProdEnvironments(name);
 
