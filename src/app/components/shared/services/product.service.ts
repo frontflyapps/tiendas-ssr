@@ -282,7 +282,15 @@ export class ProductService {
       httpParams = httpParams.append('limit', data.limit.toString());
     }
     if (data.value) {
-      httpParams = httpParams.append('filter[$and][value][$like]', '%' + data.value + '%');
+      if (data.value?.value) {
+        const valueLowerCase = data.value.value.toLowerCase();
+        const valueTrim = valueLowerCase.trim();
+        httpParams = httpParams.append('filter[$and][value][$like]', '%' + valueTrim + '%');
+      } else {
+        const valueLowerCase = data.value.toLowerCase();
+        const valueTrim = valueLowerCase.trim();
+        httpParams = httpParams.append('filter[$and][value][$like]', '%' + valueTrim + '%');
+      }
     }
     return this.httpClient.get<any>(this.urlFinder, { params: httpParams });
   }

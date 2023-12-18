@@ -32,6 +32,7 @@ export class Product {
   typeAddCart?: string;
   tags?: ProductTags[];
   colors?: ProductColor[];
+  SupplementPrices?: SupplementPrice[];
 
   constructor(
     id?: number,
@@ -71,4 +72,12 @@ export class Product {
 // Color Filter
 export interface ColorFilter {
   color?: ProductColor;
+}
+
+export interface SupplementPrice {
+  name: string;
+  market: string;
+  price: number;
+  gateway: string;
+  currency: string;
 }

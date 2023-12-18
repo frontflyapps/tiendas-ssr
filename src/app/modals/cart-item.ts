@@ -48,4 +48,6 @@ export interface CartItem {
   name?: any;
   offerGiftDiscount?: any;
   totalPrice?: number;
+  supplementData?: any;
+  hasSupplementData?: boolean;
 }

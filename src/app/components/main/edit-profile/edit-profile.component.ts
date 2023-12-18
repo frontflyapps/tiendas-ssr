@@ -1,4 +1,3 @@
-import { CompressImageService } from '../../../core/services/image/compress-image.service';
 import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import {
@@ -9,7 +8,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
-import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-snackbar.service';
 import { AuthenticationService } from '../../../core/services/authentication/authentication.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UtilsService } from '../../../core/services/utils/utils.service';
@@ -27,6 +25,7 @@ import { GuachosImageComponent } from '../../shared/guachos-image/guachos-image.
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -92,8 +91,7 @@ export class EditProfileComponent implements OnInit {
     public utilsService: UtilsService,
     private authService: AuthenticationService,
     private translate: TranslateService,
-    private showSnackbar: ShowSnackbarService,
-    private compressImage: CompressImageService,
+    private showToastr: ShowToastrService,
     public phoneCodesService: PhoneCodeService,
     public appService: BusinessConfigService,
   ) {
@@ -221,7 +219,7 @@ export class EditProfileComponent implements OnInit {
     this.authService.editProfile(data).subscribe(
       (newProfile) => {
         this.loggedInUserService.setNewProfile(newProfile.data);
-        this.showSnackbar.showSucces(this.translate.instant('Profile updated successfully'));
+        this.showToastr.showSucces(this.translate.instant('Profile updated successfully'));
         this.spinner.hide();
         this.dialogRef.close(true);
       },

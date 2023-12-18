@@ -626,7 +626,7 @@ export class CartService implements OnDestroy {
       }
       return true;
     } catch (error) {
-      this.showSnackbar.showError(this.translate.instant('Error', error.message), 8000);
+      this.showToastr.showError(this.translate.instant('Error', error.message), undefined, 8000);
       return false;
     }
   }
