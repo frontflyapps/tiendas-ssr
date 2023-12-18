@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoggedInUserService } from './../../core/services/loggedInUser/logged-in-user.service';
-import { ShowSnackbarService } from './../../core/services/show-snackbar/show-snackbar.service';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class CheckoutGuard {
     private loggedInUserService: LoggedInUserService,
     private translateService: TranslateService,
     private route: Router,
-    private showSnackBar: ShowSnackbarService,
+    private showToastr: ShowToastrService,
     private storageService: StorageService,
   ) {}
 
@@ -23,10 +23,11 @@ export class CheckoutGuard {
       return true;
     } else {
       this.storageService.setItem('isRegisterToPay', 'true');
-      this.showSnackBar.showSucces(
+      this.showToastr.showSucces(
         this.translateService.instant(
           'You need to be logged in to pay, please register or create an account',
         ),
+        undefined,
         8000,
       );
       this.route.navigate(['/my-account']);
@@ -39,10 +40,11 @@ export class CheckoutGuard {
       return true;
     } else {
       this.storageService.setItem('isRegisterToPay', 'true');
-      this.showSnackBar.showSucces(
+      this.showToastr.showSucces(
         this.translateService.instant(
           'You need to be logged in to pay, please register or create an account',
         ),
+        undefined,
         8000,
       );
       this.route.navigate(['/my-account']);

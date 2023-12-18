@@ -108,7 +108,11 @@
               >
             </div>
 
-            <div class="price" *ngIf="product.status !== 'comingSoon'" data-id="a8909466">
+            <div
+              class="price d-flex justify-content-center align-items-center"
+              *ngIf="product.status !== 'comingSoon'"
+              data-id="a8909466"
+            >
               <a
                 [queryParams]="{
                   productId: product?.id,
@@ -117,7 +121,7 @@
                   sharedImage: product?.sharedImage
                 }"
                 [routerLink]="['/product']"
-                class="product-link"
+                class="product-link d-flex"
                 data-id="6da1d3ff"
               >
                 <ng-container *ngIf="product?.offerValue" data-id="c6e3e704">
@@ -307,11 +311,22 @@
                 <p class="mat-subtitle-2" data-id="4437babe">
                   {{ product | parsePriceProduct }}
                 </p>
-                <p class="mat-subtitle-2" style="font-size: 15px" data-id="9d994d88">
+                <div
+                  [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                  *ngFor="let price of product?.SupplementPrices"
+                  class="d-flex transpilerClass-fxLayoutGap-7550c6"
+                  data-id="ec93dde3"
+                >
+                  <p class="mat-body-2 m-0 mr-1" data-id="73444d55">+</p>
+                  <p class="mat-body-2 m-0 price-offer" data-id="ce3e0727">
+                    {{ price?.price + price?.currency }}
+                  </p>
+                </div>
+                <!-- <p class="mat-subtitle-2" style="font-size: 15px" data-id="9d994d88">
                   {{ 'Desde ' | translate }}
                   {{ product?.minSale }}
                   {{ ' unidad' | translate }}
-                </p>
+                </p> -->
               </ng-container>
             </div>
             <button

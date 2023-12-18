@@ -139,7 +139,7 @@ export class UtilsService {
     } else {
       msg = error.error.message;
     }
-    this.showSnackbar.showError(msg, 8000);
+    this.showToastr.showError(msg, undefined, 8000);
   }
 
   //eslint-disable-next-line

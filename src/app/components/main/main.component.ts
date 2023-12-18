@@ -294,8 +294,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       MunicipalityId: this.municipality?.id || null,
     };
 
-    console.log(this.searchForm.value);
-
     if (this.searchForm.value) {
       this.productService.getFinderSearch(body).subscribe((response) => {
         this.options = response.data;
@@ -304,7 +302,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
           map((value) => this._filter(value || '')),
         );
         this.loadingProducts = false;
-        console.log(this.options);
       });
     }
 
@@ -329,7 +326,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public onSelectElement(event?: any) {
-    console.log(event.option.value);
+    if (this.searchForm.value?.value) {
+      this.searchForm.setValue(event.option.value.value);
+    }
+
     this.router.navigate(['/products/search'], {
       queryParams: { filterText: event.option.value.value },
     });
@@ -337,7 +337,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private _filter = (value: string): string[] => {
     let filterValue;
-    console.log(value);
+
     if (typeof value === 'string') {
       filterValue = value.toLowerCase();
       const newArray: any[] = [];
@@ -350,16 +350,11 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
         //   return obj;
         // });
         this.options.forEach(function (obj) {
-          console.log(value);
-          console.log(obj);
           const temp: string = '<strong class="resaltado">' + filterValue + '</strong>';
-          console.log(temp);
           obj.showValue = obj.value.replace(filterValue, temp);
-          console.log(obj);
           newArray.push(obj);
         });
         this.options = newArray;
-        console.log(this.options);
         return this.options;
       } else {
         return this.options;

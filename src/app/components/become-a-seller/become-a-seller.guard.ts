@@ -10,8 +10,8 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoggedInUserService } from './../../core/services/loggedInUser/logged-in-user.service';
-import { ShowSnackbarService } from './../../core/services/show-snackbar/show-snackbar.service';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
+import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class BecomeASellerGuard {
     private loggedInUserService: LoggedInUserService,
     private translateService: TranslateService,
     private route: Router,
-    private showSnackBar: ShowSnackbarService,
+    private showToastr: ShowToastrService,
     private storageService: StorageService,
   ) {}
 
@@ -35,10 +35,11 @@ export class BecomeASellerGuard {
       return true;
     } else {
       this.storageService.setItem('isRegisterToBecomeASeller', 'true');
-      this.showSnackBar.showSucces(
+      this.showToastr.showSucces(
         this.translateService.instant(
           'Debe iniciar sesión para entrar en la creación de cuenta de vendedor',
         ),
+        undefined,
         8000,
       );
       this.route.navigate(['/my-account']);
@@ -50,14 +51,14 @@ export class BecomeASellerGuard {
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     console.log(this.loggedInUserService.getLoggedInUser());
     if (this.loggedInUserService.getLoggedInUser()) {
-      console.log('entra aqui');
       return true;
     } else {
       this.storageService.setItem('isRegisterToBecomeASeller', 'true');
-      this.showSnackBar.showSucces(
+      this.showToastr.showSucces(
         this.translateService.instant(
           'Debe iniciar sesión para entrar en la creación de cuenta de vendedor',
         ),
+        undefined,
         8000,
       );
       this.route.navigate(['/my-account']);

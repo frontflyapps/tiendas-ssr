@@ -136,6 +136,15 @@
           <p class="mat-subtitle-2 m-0 price-offer" data-id="d52dde44">
             {{ product | parsePriceProduct: 'offert' }}
           </p>
+          <div
+            [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+            *ngFor="let price of product?.SupplementPrices"
+            class="d-flex transpilerClass-fxLayoutGap-a7de39"
+            data-id="a5a1953a"
+          >
+            <h3 class="price mb-10" data-id="97079597">+</h3>
+            <h3 class="price mb-10" data-id="d6783750">{{ price?.price + price?.currency }}</h3>
+          </div>
           <!-- <p class="mat-body-2 m-0" style="font-size: 15px;">
             {{'Desde'|translate}}
             {{product?.minSale}}
@@ -143,7 +152,21 @@
           </p> -->
         </div>
 
-        <div *ngIf="!product?.offerValue" data-id="4741af83">
+        <div *ngIf="!product?.offerValue" class="d-flex" data-id="b788f4ce">
+          <p class="mat-body-2 m-0 price-offer" data-id="ee0e54d4">
+            {{ product | parsePriceProduct }}
+          </p>
+          <div
+            [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+            *ngFor="let price of product?.SupplementPrices"
+            class="d-flex transpilerClass-fxLayoutGap-23c4ad"
+            data-id="d81a6f50"
+          >
+            <p class="mat-body-2 m-0 price-offer" data-id="caee5d3f">+</p>
+            <p class="mat-body-2 m-0 price-offer" data-id="69afa36a">
+              {{ price?.price + price?.currency }}
+            </p>
+          </div>
           <p class="mat-subtitle-2 m-0 price-offer" data-id="2a3d9f60">
             {{ product | parsePriceProduct }}
           </p>

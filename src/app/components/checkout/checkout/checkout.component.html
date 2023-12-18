@@ -9,7 +9,12 @@
 >
   <mat-spinner *ngIf="!loading" diameter="60" color="primary" data-id="d2349fd2"></mat-spinner>
 </div>
-<div class="container-checkout" ngClass.lt-md="px-2" *ngIf="loading" data-id="6fb02895">
+<div
+  class="container-checkout"
+  ngClass.lt-md="px-2"
+  *ngIf="loading && !this.cart.hasSupplementData"
+  data-id="6fb02895"
+>
   <div class="checkout sec-padding" data-id="2b72e3cf">
     <div
       *ngIf="loadingPayment"
@@ -643,7 +648,6 @@
                     matInput
                     placeholder="{{ 'Name' | translate }}"
                     required
-                    (keypress)="utilsService.keyPressAlpha($event)"
                     data-id="c5ad1ab0"
                   />
                   <mat-error *ngIf="form.controls['name'].hasError('required')" data-id="fe4c0c52">
@@ -662,7 +666,6 @@
                     matInput
                     placeholder="{{ 'Lastname' | translate }}"
                     required
-                    (keypress)="utilsService.keyPressAlpha($event)"
                     data-id="c6dc01af"
                   />
                   <mat-error
@@ -1548,5 +1551,1954 @@
     <!--        <div *ngIf="loadingPayment" class="loader" style="width: 100%; min-height: 500px; height: 100%"></div>-->
     <!--      </div>-->
     <!--    </div>-->
+  </div>
+</div>
+
+<div
+  class="container-checkout d-flex justify-content-center align-items-center"
+  ngClass.lt-md="px-2"
+  *ngIf="loading && cart.hasSupplementData"
+  data-id="e7a2a894"
+>
+  <div
+    *ngIf="loadingPayment"
+    class="w-100 my-3 d-flex flex-column justify-content-center align-items-center"
+    style="height: 400px"
+    data-id="d4095b5c"
+  >
+    <div class="loading-dots mat-headline-6" data-id="2ef266a7">
+      {{ 'Procesando los datos' | translate }}
+    </div>
+    <div class="loading-dots mat-body-1" data-id="2882fba6">
+      {{ 'Cargando pasarela de pago' | translate }}...
+    </div>
+  </div>
+  <div
+    *ngIf="!loadingPayment && businessConfig"
+    class="billing-details transpilerClass-fxFlex-1d5c35 transpilerClass-fxFlex-4d2253 transpilerClass-fxFlex-95bdec"
+    ngClass.gt-sm="pr-5"
+    ngClass.sm="pr-2"
+    ngClass.xs="pr-0"
+    data-id="5d58bef5"
+  >
+    <mat-horizontal-stepper
+      #stepper
+      [linear]="'true'"
+      [selectedIndex]="stepIndex"
+      labelPosition="bottom"
+      class="billing-details"
+      data-id="b4639d72"
+    >
+      <mat-step
+        [completed]="hasPaySupplement"
+        *ngFor="let supplement of cart.supplementData"
+        data-id="e940e040"
+      >
+        <ng-template matStepLabel data-id="31342d37">{{
+          'Pago de suplementos' | translate
+        }}</ng-template>
+        <div *ngIf="!loadingPayment" class="header-title" data-id="2eb751c1">
+          <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="78363b64">
+            {{ 'Billing Details' | translate }}
+          </h3>
+        </div>
+
+        <div
+          *ngIf="!loadingPayment"
+          [formGroup]="form"
+          class="d-flex justify-content-start align-items-start"
+          data-id="044932dc"
+        >
+          <div
+            ngClass.sm="mt-2"
+            ngClass.xs="mt-2"
+            class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-d5a152"
+            data-id="afc567ba"
+          >
+            <div
+              class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-8a6533"
+              data-id="9e3a334a"
+            >
+              <p
+                class="mat-subtitle-2 my-2"
+                style="text-transform: uppercase"
+                title="{{ 'Información del comprador' | translate }}"
+                data-id="8f35375f"
+              >
+                {{ 'Datos personales del comprador' | translate }}
+                <mat-icon
+                  class="iconHelp"
+                  matTooltip="{{ 'Información del comprador' | translate }}"
+                  style="cursor: pointer"
+                  data-id="866cb117"
+                  >help
+                </mat-icon>
+              </p>
+
+              <div
+                class="d-flex flex-column d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column"
+                data-id="ecafc43c"
+              >
+                <button
+                  aria-label="Example icon-button with a menu"
+                  color="primary"
+                  mat-stroked-button
+                  class="mb-3"
+                  ngClass.xs="mb-3"
+                  (click)="fillLoggedInfoSupplement()"
+                  data-id="ef0efdfd"
+                >
+                  <mat-icon data-id="2a060ee3">book</mat-icon>
+                  {{ 'Llenar con mis datos' | translate }}
+                </button>
+
+                <button
+                  [matMenuTriggerFor]="menuContacts"
+                  aria-label="Example icon-button with a menu"
+                  color="primary"
+                  mat-stroked-button
+                  ngClass.xs="mb-3"
+                  data-id="31a4c074"
+                >
+                  <mat-icon data-id="a43f4105">book</mat-icon>
+                  {{ 'Contactos guardados' | translate }}
+                </button>
+                <mat-menu #menuContacts="matMenu" data-id="44bcb17e">
+                  <ng-container
+                    *ngFor="let contact of contactsService.allContacts"
+                    data-id="6b2ed979"
+                  >
+                    <button
+                      (click)="onSelectContactSupplement(contact)"
+                      mat-menu-item
+                      data-id="4eb3484c"
+                    >
+                      <mat-icon *ngIf="!contact.selected" data-id="7a0dae09"
+                        >person_outline</mat-icon
+                      >
+                      <mat-icon
+                        *ngIf="contact.selected"
+                        matTooltip="{{ 'Contacto predeterminado' | translate }}"
+                        data-id="49bcad44"
+                        >star</mat-icon
+                      >
+                      <span data-id="d12c6533">{{ contact.name }}&nbsp;{{ contact.lastName }}</span>
+                    </button>
+                  </ng-container>
+                  <button
+                    (click)="onAddContact()"
+                    mat-menu-item
+                    style="border-top: 4px solid #e7e4e4"
+                    data-id="4c43f22b"
+                  >
+                    <mat-icon data-id="b1d1e7db">playlist_add</mat-icon>
+                    <span data-id="240b1408">{{ 'Agregar / Editar' | translate }}</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center" data-id="e30b63ed">
+              <mat-form-field
+                appearance="outline"
+                class="transpilerClass-fxFlex-f62521 transpilerClass-fxFlex-15ac0c transpilerClass-fxFlex-fc4c90"
+                data-id="71fbff98"
+              >
+                <mat-label data-id="5395eb8b">{{ 'Name' | translate }}</mat-label>
+                <input
+                  [formControl]="this.supplementForm.controls['name']"
+                  matInput
+                  placeholder="{{ 'Name' | translate }}"
+                  required
+                  data-id="8bc5b835"
+                />
+                <mat-error
+                  *ngIf="supplementForm.controls['name'].hasError('required')"
+                  data-id="a5f4cb22"
+                >
+                  {{ 'Name' | translate }}
+                  <strong data-id="50b62aee">{{ 'is required' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                class="transpilerClass-fxFlex-d5a896 transpilerClass-fxFlex-8576c9 transpilerClass-fxFlex-e09e67"
+                data-id="eb582faf"
+              >
+                <mat-label data-id="4bf8f309">{{ 'Lastname' | translate }}</mat-label>
+                <input
+                  [formControl]="this.supplementForm.controls['lastName']"
+                  matInput
+                  placeholder="{{ 'Lastname' | translate }}"
+                  required
+                  data-id="e71ebda9"
+                />
+                <mat-error
+                  *ngIf="supplementForm.controls['lastName'].hasError('required')"
+                  data-id="26ee5199"
+                >
+                  {{ 'Lastname' | translate }}
+                  <strong data-id="5ea9fc9e">{{ 'is required' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" data-id="bb855e35">
+              <mat-label data-id="6e256f51">{{ 'Email' | translate }}</mat-label>
+              <input
+                [formControl]="this.form.controls['email']"
+                (keypress)="utilsService.keyLettersNumberForEmail($event)"
+                matInput
+                placeholder="{{ 'Mail for order confirmation and customer contact ' | translate }}"
+                required
+                type="email"
+                data-id="9a73f1ed"
+              />
+              <mat-error
+                *ngIf="supplementForm.controls['email'].hasError('required')"
+                data-id="02486f8c"
+              >
+                {{ 'Email' | translate }}
+                <strong data-id="92e86912">{{ 'is required' | translate }}</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="supplementForm.controls['email'].hasError('pattern')"
+                data-id="17fd2ab6"
+              >
+                {{ 'Email' | translate }}
+                <strong data-id="13b9481c">{{ 'incorrect' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <div class="d-flex justify-content-between align-items-center" data-id="2c3d7784">
+              <mat-form-field
+                appearance="outline"
+                id="CI"
+                class="transpilerClass-fxFlex-aa8a5f transpilerClass-fxFlex-7c3920 transpilerClass-fxFlex-db9664"
+                data-id="df6053b0"
+              >
+                <mat-label data-id="8fea1734">{{ 'Identity card' | translate }}</mat-label>
+                <input
+                  (keypress)="utilsService.keyPressAlphaAndNumbers($event)"
+                  [formControl]="this.supplementForm.controls['dni']"
+                  matInput
+                  placeholder="{{ 'Identity card' | translate }}"
+                  [required]="businessConfig.isDniRequired"
+                  type="text"
+                  data-id="624b35f6"
+                />
+                <mat-hint data-id="4491a879">{{
+                  'Asegúrese de escribirlo correctamente'
+                }}</mat-hint>
+                <mat-error
+                  *ngIf="supplementForm.controls['dni'].hasError('required')"
+                  data-id="be0f26ce"
+                >
+                  {{ 'Identity card' | translate }}
+                  <strong data-id="bb56ed56">{{ 'is required' | translate }}</strong>
+                </mat-error>
+                <mat-error
+                  *ngIf="supplementForm.controls['dni'].hasError('minlength')"
+                  data-id="a1869657"
+                >
+                  {{ 'Longitud mínima' | translate }}
+                  <strong data-id="9f02b8ef">{{ CI_Length }} {{ 'caracteres' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <div
+                class="w-100 d-flex transpilerClass-fxFlex-0e2a0d transpilerClass-fxFlex-30cf23 transpilerClass-fxLayoutGap-5eed52"
+                data-id="3723cd96"
+              >
+                <guachos-general-autocomplete
+                  [withoutPaddingBottom]="false"
+                  [label]="'Código telefónico'"
+                  [valueId]="true"
+                  [displayOptions]="callingCodeDisplayOptions"
+                  [field]="['code']"
+                  [filterString]="['filter[$and][code][$like]']"
+                  [url]="phoneCodesService.url"
+                  [formControl]="supplementForm.get('PhoneCallingCodeId')"
+                  class="transpilerClass-fxFlex-ef170d transpilerClass-fxFlex-9477db"
+                  data-id="429f60d2"
+                ></guachos-general-autocomplete>
+
+                <mat-form-field
+                  appearance="outline"
+                  id="phone"
+                  class="transpilerClass-fxFlex-0fe96f transpilerClass-fxFlex-e51381"
+                  data-id="4c6f8c76"
+                >
+                  <mat-label data-id="6c2feb9e">{{ 'Teléfono celular' | translate }}</mat-label>
+                  <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
+                  <input
+                    (keypress)="utilsService.keyPressNumbers($event)"
+                    [formControl]="supplementForm.get('phone')"
+                    matInput
+                    autocomplete="off"
+                    placeholder="{{ 'Teléfono...' | translate }}"
+                    data-id="2f48cb2b"
+                  />
+                  <mat-hint
+                    *ngIf="supplementForm.get('phone').value && supplementForm.get('phone').valid"
+                    data-id="73edb257"
+                  >
+                    {{ 'Número válido' | translate }}
+                  </mat-hint>
+                  <mat-error
+                    *ngIf="
+                      (supplementForm.controls['phone'].hasError('minlength') ||
+                        supplementForm.controls['phone'].hasError('maxlength')) &&
+                      !supplementForm.controls['phone'].hasError('pattern')
+                    "
+                    data-id="10a239d8"
+                  >
+                    {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="a145dea1">{{
+                      '8 caracteres, Ex: 51234567' | translate
+                    }}</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-100 d-flex" data-id="4416e4cc">
+          <mat-divider class="w-100 my-3" data-id="94fd5a98"></mat-divider>
+        </div>
+
+        <div class="p-2 my-3" data-id="50611681">
+          <!-- METODOS DE PAGO -->
+          <div class="paymentFinal" id="payment-method" data-id="b58ebd77">
+            <mat-radio-group
+              [formControl]="supplementForm.get('paymentType')"
+              class="d-flex justify-content-center align-items-start transpilerClass-fxLayoutGap-500757"
+              data-id="eec09f29"
+            >
+              <mat-radio-button
+                [value]="supplement.gateway.id"
+                class="radio-button-national"
+                data-id="efff8a5d"
+              >
+                <!-- {{this.onlyCubanPeople}} - {{cart?.market}}-->
+                <div
+                  [ngClass]="{
+                    'payment-active':
+                      supplementForm.get('paymentType').value === supplement.gateway.id
+                  }"
+                  class="pay-method-container d-flex justify-content-start align-items-center"
+                  data-id="5e4dac09"
+                >
+                  <img [src]="supplement.gateway.logo" class="pay-method-icon" data-id="6b3aaffb" />
+                  <span class="mat-subtitle-2 uppercase pay-method-name" data-id="4656f6bb">
+                    <!-- {{ pay.name }}-->
+                  </span>
+                </div>
+              </mat-radio-button>
+              <!--            <ng-container *ngFor="let pay of paymentsSupplement">-->
+              <!--              <ng-container-->
+              <!--                *ngIf="this.onlyCubanPeople && supplement?.market === 'national' && pay?.market === 'national'"-->
+              <!--              >-->
+              <!--                &lt;!&ndash; fxFlex="50%" fxFlex.lt-sm="100%" &ndash;&gt;-->
+              <!--                <mat-radio-button [value]="pay.id" class="radio-button-national">-->
+              <!--                  &lt;!&ndash; {{this.onlyCubanPeople}} - {{cart?.market}}&ndash;&gt;-->
+              <!--                  <div-->
+              <!--                    [ngClass]="{ 'payment-active': supplementForm.get('paymentType').value === pay.id }"-->
+              <!--                    class="pay-method-container"-->
+              <!--                    fxLayout="row"-->
+              <!--                    fxLayoutAlign="start center"-->
+              <!--                  >-->
+              <!--                    <img [src]="pay.logo" class="pay-method-icon" />-->
+              <!--                    <span class="mat-body-2 uppercase pay-method-name">-->
+              <!--                              &lt;!&ndash; {{ pay.name }}&ndash;&gt;-->
+              <!--                            </span>-->
+              <!--                  </div>-->
+              <!--                </mat-radio-button>-->
+              <!--              </ng-container>-->
+
+              <!--              <ng-container-->
+              <!--                *ngIf="-->
+              <!--                          this.onlyCubanPeople && supplement?.market === 'international' && pay?.market === 'international'-->
+              <!--                        ">-->
+              <!--                <mat-radio-button-->
+              <!--                  *ngIf="this.onlyCubanPeople && supplement?.market === 'international'"-->
+              <!--                  [value]="pay.id"-->
+              <!--                  class="radio-button-international"-->
+              <!--                >-->
+              <!--                  <div-->
+              <!--                    [ngClass]="{ 'payment-active': supplementForm.get('paymentType').value === pay.id }"-->
+              <!--                    class="pay-method-container"-->
+              <!--                    fxLayoutAlign="start center"-->
+              <!--                  >-->
+              <!--                    <img [src]="pay.logo" class="pay-method-icon" />-->
+              <!--                    <span class="mat-body-2 uppercase pay-method-name">-->
+              <!--                              &lt;!&ndash; {{ pay.name }} &ndash;&gt;-->
+              <!--                            </span>-->
+              <!--                  </div>-->
+              <!--                </mat-radio-button>-->
+              <!--              </ng-container>-->
+              <!--            </ng-container>-->
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="add-info mb-3 d-flex d-xs-none d-sm-none d-md-none" data-id="bfdd97ae">
+          <mat-checkbox
+            [formControl]="supplementForm.get('checkAge')"
+            class="d-flex"
+            data-id="4cfdf419"
+          >
+            <span data-id="2fddd97c"
+              >{{ 'Al comprar en la tienda usted acepta nuestros' | translate }}
+              <!--                      <br>-->
+            </span>
+            <a [routerLink]="['/term-conditions']" data-id="c702186b">
+              {{ 'términos y condiciones' | translate }}
+            </a>
+          </mat-checkbox>
+        </div>
+
+        <div
+          class="add-info mb-3 d-flex d-xs-block d-sm-block d-md-block d-none"
+          data-id="0c901264"
+        >
+          <mat-checkbox
+            [formControl]="supplementForm.get('checkAge')"
+            class="d-flex"
+            data-id="e9729609"
+          >
+            <span data-id="e0553a58"
+              >{{ 'Al comprar en la tienda usted acepta nuestros' | translate }}
+              <br data-id="4d426168" />
+            </span>
+            <a [routerLink]="['/term-conditions']" data-id="3a12c318">
+              {{ 'términos y condiciones' | translate }}
+            </a>
+          </mat-checkbox>
+        </div>
+
+        <mat-divider data-id="0f697501"></mat-divider>
+
+        <div
+          class="mainOrder-wrapper d-flex flex-column transpilerClass-fxFlex-2c847c"
+          data-id="43d7a648"
+        >
+          <div *ngIf="!loadingPayment" class="main-order" data-id="e4972a7d">
+            <div class="order-box" data-id="cbd79c51">
+              <ul *ngIf="buyProducts.length <= 0" class="quantity" data-id="fef68edf">
+                <li class="empty-checkout" data-id="dbc101ac">
+                  {{ 'There are no products in cart' | translate }}
+                </li>
+              </ul>
+
+              <!-- =====TOTAL=====-->
+              <ul class="total my-3" data-id="5216eecf">
+                <li
+                  class="total-supplement d-flex justify-content-between align-items-center"
+                  data-id="7b1c4c52"
+                >
+                  {{ 'Total' | translate }}
+                  <span class="count px-2 total-supplement" data-id="ba97c2a5">{{
+                    supplement.totalSupplementPrice + ' ' + supplement.currency
+                  }}</span>
+                </li>
+              </ul>
+
+              <div
+                class="w-100 d-flex justify-content-center align-items-stretch"
+                data-id="d82fe0be"
+              >
+                <a id="pasarelaLink" style="display: none" data-id="b1e1a7ad"></a>
+              </div>
+            </div>
+          </div>
+          <mat-divider data-id="917071f6"></mat-divider>
+
+          <div
+            *ngIf="!loadingPayment"
+            class="actions-buttons my-3 d-flex justify-content-end align-items-end transpilerClass-fxFlex-e03e93"
+            data-id="60d1776b"
+          >
+            <button
+              (click)="onPayOrderSupplement()"
+              [disabled]="
+                supplementForm.invalid ||
+                !buyProducts.length ||
+                (supplementForm.controls['paymentType'].value !== 'visa' &&
+                  supplementForm.controls['paymentType'].value !== 'express' &&
+                  supplementForm.controls['paymentType'].value !== 'masterCard' &&
+                  supplementForm.controls['paymentType'].value !== 'dinners-club-internacional' &&
+                  supplementForm.controls['paymentType'].value !== 'jcb' &&
+                  supplementForm.controls['paymentType'].value !== 'maestro' &&
+                  supplementForm.controls['paymentType'].value !== 'electron' &&
+                  supplementForm.controls['paymentType'].value !== 'tarjeta-virtual' &&
+                  supplementForm.controls['paymentType'].value !== 'bizum' &&
+                  supplementForm.controls['paymentType'].value !== 'iupay' &&
+                  supplementForm.controls['paymentType'].value !== 'discover-global' &&
+                  supplementForm.controls['paymentType'].value !== 'peoplegoto' &&
+                  supplementForm.controls['paymentType'].value !== 'paypal' &&
+                  supplementForm.controls['paymentType'].value !== 'multisafepay' &&
+                  supplementForm.controls['paymentType'].value !== 'tropipay' &&
+                  supplementForm.controls['paymentType'].value !== 'enzona' &&
+                  supplementForm.controls['paymentType'].value !== 'transfermovil')
+              "
+              color="primary"
+              mat-raised-button
+              data-id="6c92c0f2"
+            >
+              {{ 'Pagar' | translate }}
+            </button>
+          </div>
+
+          <div
+            *ngIf="loadingPayment"
+            class="loader"
+            style="width: 100%; min-height: 500px; height: 100%"
+            data-id="0ff7a1c5"
+          ></div>
+        </div>
+      </mat-step>
+      <mat-step
+        *ngIf="businessConfig?.shippingType == 'normal' || businessConfig?.shippingType == 'fixed'"
+        [completed]="!noGateway && !form.get('ShippingBusinessId').invalid"
+        data-id="5dc40e69"
+      >
+        <ng-template matStepLabel data-id="e9db8d3d">{{ 'Datos de pago' | translate }}</ng-template>
+        <p class="my-2" *ngIf="form.get('paymentType').value" data-id="e30c77a0">
+          <strong data-id="52fb86c6">{{
+            'Seleccione una pasarela para efectuar el pago' | translate
+          }}</strong>
+        </p>
+        <div class="p-2" data-id="ea858af1">
+          <!-- METODOS DE PAGO -->
+          <div class="paymentFinal" id="payment-method" data-id="d27f65c3">
+            <!--  fxLayout.lt-sm="column"  -->
+            <mat-radio-group
+              [formControl]="form.get('paymentType')"
+              *ngIf="!onMarket"
+              class="d-flex justify-content-center align-items-start transpilerClass-fxLayoutGap-7347ab"
+              data-id="18d6372b"
+            >
+              <ng-container *ngFor="let pay of payments" data-id="a25cb535">
+                <ng-container
+                  *ngIf="
+                    this.onlyCubanPeople &&
+                    cart?.market === 'national' &&
+                    pay?.market === 'national'
+                  "
+                  data-id="c046bb4a"
+                >
+                  <!-- fxFlex="50%" fxFlex.lt-sm="100%" -->
+                  <mat-radio-button
+                    [value]="pay.id"
+                    class="radio-button-national"
+                    data-id="327ec492"
+                  >
+                    <!-- {{this.onlyCubanPeople}} - {{cart?.market}}-->
+                    <div
+                      [ngClass]="{ 'payment-active': form.get('paymentType').value === pay.id }"
+                      class="pay-method-container d-flex justify-content-start align-items-center"
+                      data-id="0ff9c3ee"
+                    >
+                      <img [src]="pay.logo" class="pay-method-icon" data-id="1311e489" />
+                      <span class="mat-subtitle-2 uppercase pay-method-name" data-id="d756b821">
+                        <!-- {{ pay.name }}-->
+                      </span>
+                    </div>
+                  </mat-radio-button>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="
+                    this.onlyCubanPeople &&
+                    cart?.market === 'international' &&
+                    pay?.market === 'international'
+                  "
+                  data-id="0db277a1"
+                >
+                  <mat-radio-button
+                    *ngIf="this.onlyCubanPeople && cart?.market === 'international'"
+                    [value]="pay.id"
+                    class="radio-button-international"
+                    data-id="6347277a"
+                  >
+                    <div
+                      [ngClass]="{ 'payment-active': form.get('paymentType').value === pay.id }"
+                      class="pay-method-container d-flex justify-content-start align-items-center"
+                      data-id="b3252116"
+                    >
+                      <img [src]="pay.logo" class="pay-method-icon" data-id="9f572204" />
+                      <span class="mat-subtitle-2 uppercase pay-method-name" data-id="3dbbc5e6">
+                        <!-- {{ pay.name }} -->
+                      </span>
+                    </div>
+                  </mat-radio-button>
+                </ng-container>
+              </ng-container>
+            </mat-radio-group>
+            <mat-radio-group
+              [formControl]="form.get('paymentType')"
+              *ngIf="onMarket"
+              class="d-flex justify-content-center align-items-start transpilerClass-fxLayoutGap-627388"
+              data-id="13b2992d"
+            >
+              <ng-container *ngFor="let pay of payments" data-id="f5a358e1">
+                <ng-container data-id="7e4d4a40">
+                  <mat-radio-button
+                    *ngIf="pay.market === 'international'"
+                    [value]="pay.id"
+                    class="radio-button-international"
+                    data-id="d825993f"
+                  >
+                    <div
+                      [ngClass]="{ 'payment-active': form.get('paymentType').value === pay.id }"
+                      class="pay-method-container d-flex justify-content-start align-items-center"
+                      data-id="d427cf2f"
+                    >
+                      <img [src]="pay.logo" class="pay-method-icon" data-id="ab675e3f" />
+                      <span class="mat-subtitle-2 uppercase pay-method-name" data-id="d095d8a7">
+                        <!-- {{ pay.name }} -->
+                      </span>
+                    </div>
+                  </mat-radio-button>
+                </ng-container>
+              </ng-container>
+            </mat-radio-group>
+          </div>
+        </div>
+        <!-- ============================================ -->
+        <!-- SELECTOR DE MONEDAS -->
+        <!-- ============================================ -->
+        <ng-container
+          *ngIf="
+            !loadingPayment &&
+            (form.controls['paymentType'].value === 'visa' ||
+              form.controls['paymentType'].value === 'express' ||
+              form.controls['paymentType'].value === 'masterCard' ||
+              form.controls['paymentType'].value === 'dinners-club-internacional' ||
+              form.controls['paymentType'].value === 'jcb' ||
+              form.controls['paymentType'].value === 'maestro' ||
+              form.controls['paymentType'].value === 'electron' ||
+              form.controls['paymentType'].value === 'tarjeta-virtual' ||
+              form.controls['paymentType'].value === 'bizum' ||
+              form.controls['paymentType'].value === 'iupay' ||
+              form.controls['paymentType'].value === 'discover-global' ||
+              multiTransfermovil)
+          "
+          data-id="9ce7eadc"
+        >
+          <ng-container *ngIf="!loadingPayment" data-id="5b1959de">
+            <p
+              class="mat-subtitle-2 my-2"
+              style="text-transform: uppercase"
+              *ngIf="
+                !multiTransfermovil ||
+                (multiTransfermovil && form.get('paymentType').value === 'transfermovil')
+              "
+              data-id="54cb9387"
+            >
+              {{ 'Selecciones moneda para realizar su pago' | translate }}
+            </p>
+            <div class="d-flex" data-id="5bebaa98">
+              <mat-form-field
+                appearance="outline"
+                *ngIf="!multiTransfermovil"
+                class="transpilerClass-fxFlex-2f5cf2 transpilerClass-fxFlex-5e9539"
+                data-id="63e6704a"
+              >
+                <mat-label data-id="7206a1eb">{{ 'Currency' | translate }}</mat-label>
+                <mat-select
+                  [formControl]="form.controls['currency']"
+                  placeholder="{{ 'Currency' | translate }}"
+                  (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
+                  data-id="041212c6"
+                >
+                  <ng-container *ngFor="let currency of currencies" data-id="95b4b881">
+                    <mat-option
+                      *ngIf="
+                        !(currency === 'EUR' && form.get('paymentType').value === 'transfermovil')
+                      "
+                      [value]="currency"
+                      data-id="e121ec51"
+                    >
+                      <span class="mat-subtitle-2" data-id="a1e4ec0e">
+                        {{ currency }}
+                      </span>
+                    </mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                *ngIf="multiTransfermovil && form.get('paymentType').value === 'transfermovil'"
+                class="transpilerClass-fxFlex-d8157f transpilerClass-fxFlex-ae07d6"
+                data-id="d8e2674b"
+              >
+                <mat-label data-id="8d91a62d">{{ 'Currency' | translate }}</mat-label>
+                <mat-select
+                  [formControl]="form.controls['currency']"
+                  placeholder="{{ 'Currency' | translate }}"
+                  (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
+                  data-id="8cdd9881"
+                >
+                  <ng-container *ngFor="let currency of currenciesTuUse" data-id="cd49ba38">
+                    <mat-option
+                      *ngIf="form.get('paymentType').value === 'transfermovil'"
+                      [value]="currency.value"
+                      data-id="49e5f3d9"
+                    >
+                      <span class="mat-subtitle-2" data-id="0bb99f8b">
+                        {{ currency.name }}
+                      </span>
+                    </mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ng-container>
+        </ng-container>
+        <!--------- SHIPPING DETAILS ----------->
+        <ng-container
+          *ngIf="form.controls['currency'].value && form.get('paymentType').value"
+          data-id="7db391f1"
+        >
+          <p
+            class="my-3"
+            *ngIf="
+              form.get('paymentType').value?.length !== 1 &&
+              form.get('paymentType').value?.length !== 2 &&
+              form.get('paymentType').value?.length !== 3 &&
+              form.get('paymentType').value?.length !== 4
+            "
+            data-id="5f11d7ed"
+          >
+            <strong data-id="63675ac6">{{ 'Shipping Details' | translate }}</strong>
+          </p>
+
+          <div class="d-flex justify-content-start align-items-center" data-id="1bfa8c54">
+            <mat-checkbox
+              ngClass.xs="mb-2"
+              style="margin-bottom: 12px"
+              (change)="onChangeShippingRequired($event)"
+              *ngIf="
+                form.get('paymentType').value?.length !== 1 &&
+                form.get('paymentType').value?.length !== 2 &&
+                form.get('paymentType').value?.length !== 3 &&
+                form.get('paymentType').value?.length !== 4
+              "
+              [formControl]="form.get('shippingRequired')"
+              class="order-xs-1 order-sm-1"
+              data-id="6bff58f4"
+            >
+              <span class="mat-subtitle-2" data-id="caa94d5d">{{
+                'Solicitar envío a domicilio' | translate
+              }}</span>
+            </mat-checkbox>
+          </div>
+
+          <!--SELECTORE DE PROVINCIA Y MUNICIPIOS-->
+          <div
+            *ngIf="
+              showShipping &&
+              form.get('paymentType').value?.length !== 1 &&
+              form.get('paymentType').value?.length !== 2 &&
+              form.get('paymentType').value?.length !== 3 &&
+              form.get('paymentType').value?.length !== 4
+            "
+            class="d-flex justify-content-between align-items-center"
+            data-id="26535fcc"
+          >
+            <mat-form-field
+              appearance="outline"
+              class="transpilerClass-fxFlex-ffa8ab transpilerClass-fxFlex-71f0c6"
+              data-id="b8b5c48e"
+            >
+              <mat-label data-id="536deddd">{{ 'Provincia' | translate }}</mat-label>
+              <mat-select
+                (selectionChange)="onSelectProvince($event.value)"
+                [compareWith]="compareById"
+                [formControl]="form.controls['ProvinceId']"
+                placeholder="{{ 'Nombre de la provincia' | translate }}"
+                type="text"
+                data-id="ebdef5e5"
+              >
+                <mat-option
+                  *ngFor="let province of allProvinces"
+                  [value]="province.id"
+                  data-id="b5e890f6"
+                >
+                  {{ province.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error
+                *ngIf="form.controls['ProvinceId'].hasError('required')"
+                data-id="bb3d0902"
+              >
+                {{ 'Provincia' | translate }}
+                <strong data-id="a72cef76">{{ 'is required' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field
+              appearance="outline"
+              class="transpilerClass-fxFlex-ac1178 transpilerClass-fxFlex-f3a73b"
+              data-id="9b57cbbe"
+            >
+              <mat-label data-id="3e814f77">{{ 'Municipio' | translate }}</mat-label>
+              <mat-select
+                (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
+                [compareWith]="compareById"
+                [formControl]="form.controls['MunicipalityId']"
+                placeholder="{{ 'Nombre del Municipio' | translate }}"
+                type="text"
+                data-id="0f0909b5"
+              >
+                <mat-option
+                  *ngFor="let municipio of municipalities"
+                  [value]="municipio.id"
+                  data-id="3e9f292c"
+                >
+                  {{ municipio.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error
+                *ngIf="form.controls['MunicipalityId'].hasError('required')"
+                data-id="69a90bfa"
+              >
+                {{ 'Municipio' | translate }}
+                <strong data-id="0b3e0274">{{ 'is required' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <p class="p-3" *ngIf="shippingIsRequired" data-id="74283819">
+            *{{ 'El envío es requerido para comprar en este negocio.' | translate }}
+          </p>
+          <div
+            *ngIf="showShipping"
+            class="w-100 mb-3 shippingList-box d-flex flex-column justify-content-start align-items-start"
+            data-id="7bb63c4e"
+          >
+            <!------Load Shipping Options------>
+            <div
+              *ngIf="loadingShipping"
+              class="loading-shade"
+              style="height: 100%"
+              data-id="87e0cce2"
+            >
+              <mat-spinner *ngIf="inLoading" [diameter]="40" data-id="900f83da"></mat-spinner>
+            </div>
+
+            <div
+              *ngIf="buscoShipping && !shippingData.length"
+              class="d-flex justify-content-between align-items-center"
+              data-id="ac1fcde6"
+            >
+              <mat-icon
+                style="min-width: 60px; width: 60px; height: 60px; font-size: 47px"
+                color="accent"
+                data-id="ac6a4eee"
+                >info</mat-icon
+              >
+              <h1 data-id="647b2011">
+                {{ 'Lo sentimos! No hay envíos disponibles para el municipio:' | translate }}
+                <b data-id="3092bbb2">{{ selectedMunicipality?.name }}</b>
+              </h1>
+            </div>
+
+            <div
+              class="px-2 pt-2 w-100 d-flex justify-content-start align-items-center"
+              style="background-color: #e3e3e3; border-radius: 8px"
+              *ngIf="buscoShipping && !shippingData.length"
+              data-id="a5deeec2"
+            >
+              <mat-icon
+                style="min-width: 40px; width: 40px; height: 40px; font-size: 30px"
+                color="accent"
+                data-id="3f36b0b7"
+                >help</mat-icon
+              >
+              <h5 data-id="146f7ebd">
+                {{
+                  'Desmarque la opción de solicitar envío para poder continuar con la compra.'
+                    | translate
+                }}
+              </h5>
+            </div>
+
+            <!--------------------------------->
+
+            <!------Shipping List------->
+            <mat-radio-group
+              [formControl]="form.get('ShippingBusinessId')"
+              class="w-100"
+              (change)="onShippingSelected($event)"
+              data-id="f9a5e3d5"
+            >
+              <div
+                *ngFor="let shipping of shippingData"
+                class="mb-2 d-flex justify-content-start align-items-center"
+                data-id="5f6afa09"
+              >
+                <mat-radio-button
+                  class="w-100 d-flex justify-content-center align-items-center transpilerClass-fxFlex-83df96"
+                  matTooltip="{{ shipping?.Business?.name }}"
+                  style="height: 50px"
+                  [value]="shipping"
+                  data-id="91ab4619"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center transpilerClass-fxFlex-e75ca3"
+                    data-id="3bdd968e"
+                  >
+                    <div
+                      class="d-flex justify-content-start align-items-center transpilerClass-fxFlex-2af74b transpilerClass-fxFlex-4d70c5"
+                      data-id="f43620c6"
+                    >
+                      <div
+                        class="d-flex flex-column justify-content-start align-items-start"
+                        data-id="28683200"
+                      >
+                        <span class="ml-2 mat-caption" style="color: black" data-id="ab5d9378">
+                          {{ shipping.shippingItems[0]?.Shipping?.Province?.name }},
+                          {{ shipping.shippingItems[0]?.Shipping?.Municipality?.name }}
+                        </span>
+                        <div class="d-flex d-sm-flex flex-column flex-sm-column" data-id="160362ef">
+                          <span class="ml-2 mat-caption" style="color: black" data-id="50147f44">
+                            {{ 'Entrega a través de ' | translate }}
+                          </span>
+                          <span class="ml-2 mat-caption" style="color: black" data-id="b76ce44d">
+                            ({{ shipping?.Business?.name }})
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      class="taxAmount transpilerClass-fxFlex-61605c"
+                      style="font-size: 20px"
+                      data-id="825bcc92"
+                    >
+                      {{
+                        shipping.totalPrice || 0
+                          | currencyProduct: shipping.shippingItems[0]?.Shipping?.currency
+                      }}
+                    </span>
+                  </div>
+                </mat-radio-button>
+              </div>
+            </mat-radio-group>
+            <!--------------------------->
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!cart?.hasShippingBusiness" data-id="12cc2e21">
+          <p class="tex-align-center p-4" data-id="dbb05e4b">
+            {{ 'No hay envío para estos productos' | translate }}
+          </p>
+        </ng-container>
+        <!--          <ng-container >-->
+        <h1 *ngIf="noGateway" class="tex-align-center p-4 color-red-500" data-id="fd3c12cb">
+          {{ 'Este negocio no tiene método de pago permitido' }}
+        </h1>
+        <!--          </ng-container>-->
+        <!---------------------->
+
+        <div
+          class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-bee6e6"
+          data-id="a3618839"
+        >
+          <!--          <button [routerLink]="['/products/search']" mat-stroked-button matStepperPrevious>-->
+          <!--            {{ 'Atrás' | translate }}-->
+          <!--          </button>-->
+
+          <button
+            id="buttonFirstStep"
+            color="primary"
+            mat-raised-button
+            matStepperNext
+            [disabled]="
+              noGateway ||
+              form.get('ShippingBusinessId').invalid ||
+              (shippingIsRequired && !form.get('ShippingBusinessId').value) ||
+              form.get('paymentType').value?.length == 1 ||
+              form.get('paymentType').value?.length == 2 ||
+              form.get('paymentType').value?.length == 3 ||
+              form.get('paymentType').value?.length == 4
+            "
+            data-id="2e7464a1"
+          >
+            {{ 'Continuar' | translate }}
+          </button>
+        </div>
+      </mat-step>
+      <mat-step [completed]="!form.invalid" data-id="efb4cf41">
+        <ng-template matStepLabel data-id="8a1074b2">{{ 'Destinatario' | translate }}</ng-template>
+
+        <div *ngIf="!loadingPayment" class="header-title" data-id="f5833149">
+          <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="4151f016">
+            {{ 'Billing Details' | translate }}
+          </h3>
+        </div>
+
+        <div
+          *ngIf="!loadingPayment"
+          [formGroup]="form"
+          class="d-flex justify-content-start align-items-start"
+          data-id="da0aa513"
+        >
+          <div
+            ngClass.sm="mt-2"
+            ngClass.xs="mt-2"
+            class="d-flex flex-column justify-content-start align-items-stretch transpilerClass-fxFlex-c63f3b"
+            data-id="fa9aa139"
+          >
+            <div
+              class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start align-items-xs-end align-items-sm-end transpilerClass-fxLayoutGap-44912e"
+              data-id="b7dcbe6d"
+            >
+              <p
+                class="mat-subtitle-2 my-2"
+                style="text-transform: uppercase"
+                title="{{ 'Información del cliente que obtendrá los productos' | translate }}"
+                data-id="b206031b"
+              >
+                {{ 'Datos personales del destinatario' | translate }}
+                <mat-icon
+                  class="iconHelp"
+                  matTooltip="{{
+                    'Información del cliente que obtendrá los productos' | translate
+                  }}"
+                  style="cursor: pointer"
+                  data-id="1d1c4f35"
+                  >help
+                </mat-icon>
+              </p>
+
+              <div
+                class="d-flex flex-column d-xs-flex d-sm-flex flex-xs-column flex-sm-column d-md-flex flex-md-column"
+                data-id="0799a4cc"
+              >
+                <button
+                  aria-label="Example icon-button with a menu"
+                  color="primary"
+                  mat-stroked-button
+                  class="mb-3"
+                  ngClass.xs="mb-3"
+                  (click)="fillLoggedInfo()"
+                  data-id="21ad01db"
+                >
+                  <mat-icon data-id="8d6fdb4f">book</mat-icon>
+                  {{ 'Llenar con mis datos' | translate }}
+                </button>
+
+                <button
+                  [matMenuTriggerFor]="menuContacts"
+                  aria-label="Example icon-button with a menu"
+                  color="primary"
+                  mat-stroked-button
+                  ngClass.xs="mb-3"
+                  data-id="8d84be2d"
+                >
+                  <mat-icon data-id="16decad4">book</mat-icon>
+                  {{ 'Contactos guardados' | translate }}
+                </button>
+                <mat-menu #menuContacts="matMenu" data-id="7ea3d25e">
+                  <ng-container
+                    *ngFor="let contact of contactsService.allContacts"
+                    data-id="fd3ebc60"
+                  >
+                    <button (click)="onSelectContact(contact)" mat-menu-item data-id="ab1a8109">
+                      <mat-icon *ngIf="!contact.selected" data-id="79aa6dfc"
+                        >person_outline</mat-icon
+                      >
+                      <mat-icon
+                        *ngIf="contact.selected"
+                        matTooltip="{{ 'Contacto predeterminado' | translate }}"
+                        data-id="aa0d2e7d"
+                        >star</mat-icon
+                      >
+                      <span data-id="642982b1">{{ contact.name }}&nbsp;{{ contact.lastName }}</span>
+                    </button>
+                  </ng-container>
+                  <button
+                    (click)="onAddContact()"
+                    mat-menu-item
+                    style="border-top: 4px solid #e7e4e4"
+                    data-id="f562302f"
+                  >
+                    <mat-icon data-id="85f16d12">playlist_add</mat-icon>
+                    <span data-id="d57c2e0d">{{ 'Agregar / Editar' | translate }}</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center" data-id="ab72db94">
+              <mat-form-field
+                appearance="outline"
+                class="transpilerClass-fxFlex-9d6800 transpilerClass-fxFlex-c4b607 transpilerClass-fxFlex-64abb8"
+                data-id="496af628"
+              >
+                <mat-label data-id="a03c5b1d">{{ 'Name' | translate }}</mat-label>
+                <input
+                  [formControl]="this.form.controls['name']"
+                  matInput
+                  placeholder="{{ 'Name' | translate }}"
+                  required
+                  data-id="102e6e50"
+                />
+                <mat-error *ngIf="form.controls['name'].hasError('required')" data-id="e4eb85b1">
+                  {{ 'Name' | translate }}
+                  <strong data-id="392dceed">{{ 'is required' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                class="transpilerClass-fxFlex-5c4570 transpilerClass-fxFlex-d97136 transpilerClass-fxFlex-efe7b7"
+                data-id="0e7fc2d4"
+              >
+                <mat-label data-id="5e8b692c">{{ 'Lastname' | translate }}</mat-label>
+                <input
+                  [formControl]="this.form.controls['lastName']"
+                  matInput
+                  placeholder="{{ 'Lastname' | translate }}"
+                  required
+                  data-id="b5731b2d"
+                />
+                <mat-error
+                  *ngIf="form.controls['lastName'].hasError('required')"
+                  data-id="45c50d50"
+                >
+                  {{ 'Lastname' | translate }}
+                  <strong data-id="d2d3fdb9">{{ 'is required' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" data-id="ea3cb5c8">
+              <mat-label data-id="ced065f0">{{ 'Email' | translate }}</mat-label>
+              <input
+                [formControl]="this.form.controls['email']"
+                (keypress)="utilsService.keyLettersNumberForEmail($event)"
+                matInput
+                placeholder="{{ 'Mail for order confirmation and customer contact ' | translate }}"
+                required
+                type="email"
+                data-id="98b19b17"
+              />
+              <mat-error *ngIf="form.controls['email'].hasError('required')" data-id="709c3221">
+                {{ 'Email' | translate }}
+                <strong data-id="ac0bb8bd">{{ 'is required' | translate }}</strong>
+              </mat-error>
+              <mat-error *ngIf="form.controls['email'].hasError('pattern')" data-id="593c3e64">
+                {{ 'Email' | translate }}
+                <strong data-id="ad751c3a">{{ 'incorrect' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <p
+              class="mat-subtitle-2 my-2"
+              style="text-transform: uppercase"
+              *ngIf="canBeDelivery || showAddress"
+              title="{{ 'Datos adicionales del cliente que obtendrá los productos' | translate }}"
+              data-id="4e41ca5e"
+            >
+              {{ 'Datos del destinatario' | translate }}
+              <mat-icon
+                class="iconHelp"
+                *ngIf="canBeDelivery || showAddress"
+                matTooltip="{{
+                  'Datos adicionales del cliente que obtendrá los productos' | translate
+                }}"
+                style="cursor: pointer"
+                data-id="06ce584a"
+                >help
+              </mat-icon>
+            </p>
+
+            <!-- SOLO PARA CUBANOS -->
+            <ng-container
+              *ngIf="onlyCubanPeople && (canBeDelivery || showAddress)"
+              data-id="0fb0be3d"
+            >
+              <div class="d-flex justify-content-between align-items-center" data-id="60add7ca">
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-f88825 transpilerClass-fxFlex-939698"
+                  data-id="0d57e9a9"
+                >
+                  <mat-label data-id="17578eae">{{ 'Provincia' | translate }}</mat-label>
+                  <mat-select
+                    (selectionChange)="onSelectProvince($event.value)"
+                    [compareWith]="compareById"
+                    [formControl]="form.controls['ProvinceId']"
+                    [disabled]="form.get('shippingRequired').value"
+                    placeholder="{{ 'Nombre de la provincia' | translate }}"
+                    type="text"
+                    [required]="showAddress"
+                    data-id="91c0ae6e"
+                  >
+                    <mat-option
+                      *ngFor="let province of allProvinces"
+                      [value]="province.id"
+                      data-id="c973beb5"
+                    >
+                      {{ province.name }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error
+                    *ngIf="form.controls['ProvinceId'].hasError('required')"
+                    data-id="31ac2112"
+                  >
+                    {{ 'Provincia' | translate }}
+                    <strong data-id="99a3f543">{{ 'is required' | translate }}</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-97b24a transpilerClass-fxFlex-6c1cf0"
+                  data-id="afa739e0"
+                >
+                  <mat-label data-id="42fd478c">{{ 'Municipio' | translate }}</mat-label>
+                  <mat-select
+                    (selectionChange)="form.controls['ShippingBusinessId'].setValue(null)"
+                    [compareWith]="compareById"
+                    [formControl]="form.controls['MunicipalityId']"
+                    [disabled]="form.get('shippingRequired').value"
+                    placeholder="{{ 'Nombre del Municipio' | translate }}"
+                    type="text"
+                    [required]="showAddress"
+                    data-id="915071d9"
+                  >
+                    <mat-option
+                      *ngFor="let municipio of municipalities"
+                      [value]="municipio.id"
+                      data-id="50dbcbc9"
+                    >
+                      {{ municipio.name }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error
+                    *ngIf="form.controls['MunicipalityId'].hasError('required')"
+                    data-id="d1cdc59d"
+                  >
+                    {{ 'Municipio' | translate }}
+                    <strong data-id="18eafdb8">{{ 'is required' | translate }}</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <mat-error
+                *ngIf="form.controls['ProvinceId'].hasError('forbiddenProvince')"
+                data-id="91ee5a2a"
+              >
+                {{ '**Esta localización no coincide con la del envío seleccionado.**' | translate }}
+              </mat-error>
+            </ng-container>
+
+            <!-- SOLO PARA EXTRANJEROS -->
+            <ng-container
+              *ngIf="!onlyCubanPeople && (canBeDelivery || showAddress)"
+              data-id="048f8268"
+            >
+              <p class="mat-subtitle-2 my-2" style="text-transform: uppercase" data-id="bc522b97">
+                {{ "Customer's location data" | translate }}
+                <mat-icon
+                  class="iconHelp"
+                  matTooltip="{{
+                    'Country, city, region and more information about the shipping location'
+                      | translate
+                  }}"
+                  style="cursor: pointer"
+                  data-id="2f04e694"
+                  >help
+                </mat-icon>
+              </p>
+
+              <mat-form-field appearance="outline" data-id="8cf281e2">
+                <mat-label data-id="ccb18a4d">{{ 'Country' | translate }}</mat-label>
+                <mat-select
+                  [compareWith]="compareById"
+                  [formControl]="form.controls['CountryId']"
+                  placeholder="{{ 'Country name' | translate }}"
+                  required
+                  type="text"
+                  data-id="b0da2707"
+                >
+                  <mat-option
+                    *ngFor="let country of allCountries"
+                    [value]="country.id"
+                    data-id="6aaa372b"
+                  >
+                    {{ utilsService.parserLanguage(country.name, language) }}
+                  </mat-option>
+                </mat-select>
+                <mat-error
+                  *ngIf="form.controls['CountryId'].hasError('required')"
+                  data-id="b617164e"
+                >
+                  {{ 'Country' | translate }}
+                  <strong data-id="e2bb767b">{{ 'is required' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <div class="d-flex justify-content-between align-items-center" data-id="b04aff0b">
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-10b13f transpilerClass-fxFlex-bcbfda"
+                  data-id="8d6cb524"
+                >
+                  <mat-label data-id="4ecd029d">{{ 'City' | translate }}</mat-label>
+                  <input
+                    [formControl]="this.form.controls['city']"
+                    matInput
+                    placeholder="{{ 'City' | translate }}"
+                    required
+                    type="text"
+                    data-id="a44eaff8"
+                  />
+                  <mat-error *ngIf="form.controls['city'].hasError('required')" data-id="4d27e8b2">
+                    {{ 'City' | translate }}
+                    <strong data-id="32e70b3c">{{ 'is required' | translate }}</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-f99eaf transpilerClass-fxFlex-9d3667"
+                  data-id="4344fd9e"
+                >
+                  <mat-label data-id="7a4e1ec3">{{
+                    'State / Province / Region' | translate
+                  }}</mat-label>
+                  <input
+                    [formControl]="this.form.controls['regionProvinceState']"
+                    matInput
+                    placeholder="{{ 'State / Province / Region' | translate }}"
+                    required
+                    type="text"
+                    data-id="c045e2c3"
+                  />
+                  <mat-error
+                    *ngIf="form.controls['regionProvinceState'].hasError('required')"
+                    data-id="6ee71879"
+                  >
+                    {{ 'State / Province / Region' | translate }}
+                    <strong data-id="f6ad15e9">{{ 'is required' | translate }}</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </ng-container>
+
+            <div formGroupName="address" *ngIf="canBeDelivery || showAddress" data-id="35f3e96c">
+              <div class="d-flex transpilerClass-fxLayoutGap-ea7c0c" data-id="72b79f8e">
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-451859"
+                  data-id="6069d4ad"
+                >
+                  <mat-label data-id="1d13afe2">{{ 'Calle' | translate }}</mat-label>
+                  <input
+                    formControlName="street"
+                    matInput
+                    placeholder="{{ 'Calle' | translate }}"
+                    required
+                    type="text"
+                    data-id="39205d4f"
+                  />
+                  <mat-error
+                    *ngIf="this.form.controls['address']?.get('street')?.hasError('required')"
+                    data-id="678ae4e7"
+                  >
+                    {{ 'Calle' | translate }}
+                    <strong data-id="4aef82b1">{{ 'is required' | translate }}</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field
+                  appearance="outline"
+                  class="transpilerClass-fxFlex-5d2ce3"
+                  data-id="9c08a96f"
+                >
+                  <mat-label data-id="ca98f387">{{ 'Número' | translate }}</mat-label>
+                  <input
+                    formControlName="number"
+                    matInput
+                    placeholder="{{ 'Número' | translate }}"
+                    required
+                    type="text"
+                    data-id="77a33114"
+                  />
+                  <mat-error
+                    *ngIf="form.controls['address']?.get('number')?.hasError('required')"
+                    data-id="dff160ae"
+                  >
+                    {{ 'Número' | translate }}
+                    <strong data-id="8529fa62">{{ 'is required' | translate }}</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <mat-form-field appearance="outline" data-id="897d1f75">
+                <mat-label data-id="ee4bd46e">{{ 'Entre calles' | translate }}</mat-label>
+                <input
+                  formControlName="between"
+                  matInput
+                  placeholder="{{ 'Entre calles' | translate }}"
+                  required
+                  type="text"
+                  data-id="68e436fc"
+                />
+                <mat-error
+                  *ngIf="form.controls['address']?.get('between')?.hasError('required')"
+                  data-id="510c6253"
+                >
+                  {{ 'Entre' | translate }}
+                  <strong data-id="0f34a2b2">{{ 'is required' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center" data-id="1b6b8a72">
+              <mat-form-field
+                appearance="outline"
+                id="CI"
+                class="transpilerClass-fxFlex-968065 transpilerClass-fxFlex-14255b transpilerClass-fxFlex-7c9ffa"
+                data-id="0f497f49"
+              >
+                <mat-label data-id="9c70d16c">{{ 'Identity card' | translate }}</mat-label>
+                <input
+                  (keypress)="utilsService.keyPressAlphaAndNumbers($event)"
+                  [formControl]="this.form.controls['dni']"
+                  matInput
+                  placeholder="{{ 'Identity card' | translate }}"
+                  [required]="businessConfig.isDniRequired"
+                  type="text"
+                  data-id="cfafd967"
+                />
+                <mat-hint data-id="716a1bdc">{{
+                  'Asegúrese de escribirlo correctamente'
+                }}</mat-hint>
+                <mat-error *ngIf="form.controls['dni'].hasError('required')" data-id="ab94fb33">
+                  {{ 'Identity card' | translate }}
+                  <strong data-id="830f67b2">{{ 'is required' | translate }}</strong>
+                </mat-error>
+                <mat-error *ngIf="form.controls['dni'].hasError('minlength')" data-id="855c3007">
+                  {{ 'Longitud mínima' | translate }}
+                  <strong data-id="50ab7792">{{ CI_Length }} {{ 'caracteres' | translate }}</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <div
+                class="w-100 d-flex transpilerClass-fxFlex-559650 transpilerClass-fxFlex-40e9b7 transpilerClass-fxLayoutGap-f3dd5c"
+                data-id="a6e74004"
+              >
+                <guachos-general-autocomplete
+                  [withoutPaddingBottom]="false"
+                  [label]="'Código telefónico'"
+                  [valueId]="true"
+                  [displayOptions]="callingCodeDisplayOptions"
+                  [field]="['code']"
+                  [filterString]="['filter[$and][code][$like]']"
+                  [url]="phoneCodesService.url"
+                  [formControl]="form.get('PhoneCallingCodeId')"
+                  class="transpilerClass-fxFlex-8f95cb transpilerClass-fxFlex-ddc15d"
+                  data-id="a54ccbdb"
+                ></guachos-general-autocomplete>
+
+                <mat-form-field
+                  appearance="outline"
+                  id="phone"
+                  class="transpilerClass-fxFlex-246a65 transpilerClass-fxFlex-b19bef"
+                  data-id="9fc994f8"
+                >
+                  <mat-label data-id="364d7d3c">{{ 'Teléfono celular' | translate }}</mat-label>
+                  <!--                      <span class="mr-2" matPrefix>+ 53</span>-->
+                  <input
+                    (keypress)="utilsService.keyPressNumbers($event)"
+                    [formControl]="form.get('phone')"
+                    matInput
+                    autocomplete="off"
+                    placeholder="{{ 'Teléfono...' | translate }}"
+                    data-id="7a661f7c"
+                  />
+                  <mat-hint
+                    *ngIf="form.get('phone').value && form.get('phone').valid"
+                    data-id="3912eae5"
+                  >
+                    {{ 'Número válido' | translate }}
+                  </mat-hint>
+                  <mat-error
+                    *ngIf="
+                      (form.controls['phone'].hasError('minlength') ||
+                        form.controls['phone'].hasError('maxlength')) &&
+                      !form.controls['phone'].hasError('pattern')
+                    "
+                    data-id="3be79f20"
+                  >
+                    {{ 'Longitud del número' | translate }}&nbsp;<strong data-id="ea25377d">{{
+                      '8 caracteres, Ex: 51234567' | translate
+                    }}</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <!--                <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="48" fxFlex.md="48" id="phone-checkout">-->
+              <!--                  <mat-label>{{ 'Phone' | translate }}</mat-label>-->
+              <!--                  <span class="mr-2" matPrefix>+ 53</span>-->
+              <!--                  <input-->
+              <!--                    (keypress)="utilsService.keyPressNumbers($event)"-->
+              <!--                    [formControl]="this.form.controls['phone']"-->
+              <!--                    matInput-->
+              <!--                    placeholder="{{ 'Phone' | translate }}"-->
+              <!--                    required-->
+              <!--                  />-->
+              <!--                  <mat-hint *ngIf="!form.get('phone').value">-->
+              <!--                    {{ 'Escriba un teléfono móvil cubano, Ex: 51234567' | translate }}-->
+              <!--                  </mat-hint>-->
+              <!--                  <mat-hint *ngIf="form.get('phone').value && form.get('phone').valid">-->
+              <!--                    {{ 'Número válido' | translate }}-->
+              <!--                  </mat-hint>-->
+              <!--                  <mat-error *ngIf="form.controls['phone'].hasError('required')">-->
+              <!--                    {{ 'Phone' | translate }} <strong>{{ 'is required' | translate }}</strong>-->
+              <!--                  </mat-error>-->
+              <!--                  <mat-error-->
+              <!--                    *ngIf="-->
+              <!--                      (form.controls['phone'].hasError('minlength') || form.controls['phone'].hasError('maxlength')) &&-->
+              <!--                      !form.controls['phone'].hasError('pattern')-->
+              <!--                    "-->
+              <!--                  >-->
+              <!--                    {{ 'Longitud del número' | translate }}&nbsp;<strong>{{-->
+              <!--                      '8 caracteres, Ex: 51234567' | translate-->
+              <!--                    }}</strong>-->
+              <!--                  </mat-error>-->
+              <!--                  <mat-error *ngIf="form.controls['phone'].hasError('pattern')">-->
+              <!--                    {{ 'El número' | translate }}&nbsp;<strong>{{-->
+              <!--                      'debe empezar con 5, Ex: 51234567' | translate-->
+              <!--                    }}</strong>-->
+              <!--                  </mat-error>-->
+              <!--                </mat-form-field>-->
+
+              <!----------------CUSTOM FIELDS------------------>
+              <ng-container *ngIf="customFields?.length > 0 && fields" data-id="90a1c049">
+                <p class="mat-subtitle-2 my-2" style="text-transform: uppercase" data-id="e73856ed">
+                  {{ 'Datos especiales' | translate }}
+                  <mat-icon
+                    class="iconHelp"
+                    matTooltip="{{ 'Datos especiales que solicita el negocio.' | translate }}"
+                    style="cursor: pointer"
+                    data-id="004a640b"
+                    >help
+                  </mat-icon>
+                </p>
+
+                <ng-container *ngFor="let element of fields" data-id="5815305f">
+                  <ng-container [ngSwitch]="element.type" data-id="608e8b68">
+                    <ng-container *ngSwitchCase="'DATE'" data-id="16e4067f">
+                      <mat-form-field formGroupName="data" appearance="outline" data-id="4e99c989">
+                        <mat-label data-id="8aadf37b">{{ element?.name }}</mat-label>
+                        <input
+                          matInput
+                          [matDatepicker]="picker"
+                          [min]="minDate"
+                          formControlName="{{ element?.name }}"
+                          data-id="5fcddd39"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker"
+                          data-id="e2dce966"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker #picker data-id="75421b33"></mat-datepicker>
+                        <mat-error
+                          *ngIf="form.controls['data']?.get(element?.name)?.hasError('required')"
+                          data-id="64eb20b5"
+                        >
+                          {{ element?.name }}
+                          <strong data-id="d342dff4">{{ 'is required' | translate }}</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'TIME'" data-id="a2016e6f">
+                      <mat-form-field
+                        formGroupName="data"
+                        appearance="outline"
+                        class="time-icon-style"
+                        data-id="57435276"
+                      >
+                        <mat-label data-id="2833c293">{{ element?.name }}</mat-label>
+                        <input
+                          matInput
+                          [ngxTimepicker]="toggleTimepicker"
+                          [min]="minHour"
+                          [max]="maxHour"
+                          [format]="24"
+                          formControlName="{{ element?.name }}"
+                          readonly
+                          data-id="7dec861f"
+                        />
+                        <ngx-material-timepicker-toggle
+                          matSuffix
+                          [for]="toggleTimepicker"
+                          data-id="0325bc40"
+                        ></ngx-material-timepicker-toggle>
+                        <ngx-material-timepicker
+                          #toggleTimepicker
+                          [theme]="timePickerTheme"
+                          data-id="f1fe6041"
+                        ></ngx-material-timepicker>
+                        <mat-error
+                          *ngIf="form.controls['data']?.get(element?.name)?.hasError('required')"
+                          data-id="29173eff"
+                        >
+                          {{ element?.name }}
+                          <strong data-id="67df80e3">{{ 'is required' | translate }}</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault data-id="02769877">
+                      <mat-form-field formGroupName="data" appearance="outline" data-id="3f71c8e0">
+                        <mat-label data-id="acfca92c">{{ element?.name }}</mat-label>
+                        <input
+                          matInput
+                          formControlName="{{ element?.name }}"
+                          placeholder="{{ element?.name }}"
+                          [required]="isRequiredField(element?.name)"
+                          data-id="9b07dba1"
+                        />
+                        <mat-error
+                          *ngIf="form.controls['data']?.get(element?.name)?.hasError('required')"
+                          data-id="b0ae8d1c"
+                        >
+                          {{ element?.name }}
+                          <strong data-id="45a5febb">{{ 'is required' | translate }}</strong>
+                        </mat-error>
+                        <mat-error
+                          *ngIf="form.controls['data']?.get(element?.name)?.hasError('pattern')"
+                          data-id="c627650d"
+                        >
+                          {{ element?.name }}
+                          <strong data-id="f24e39e3">{{ 'is invalid' | translate }}</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              <!------------------------------------------->
+            </div>
+          </div>
+
+          <div class="add-info" data-id="c3582668">
+            <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="edebcf46">
+              {{ 'Aditional information' | translate }}
+            </h3>
+          </div>
+          <div
+            class="mt-1 transpilerClass-fxFlex-99e4ac transpilerClass-fxFlex-58cc29"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+            data-id="f6d0a7eb"
+          >
+            <mat-form-field appearance="outline" class="w-100" data-id="0e706f3c">
+              <textarea
+                [formControl]="this.form.controls['info']"
+                matInput
+                placeholder="{{
+                  'Some information about your address or something important' | translate
+                }}"
+                rows="2"
+                data-id="5c994a89"
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div class="add-info mb-3 d-flex d-xs-none d-sm-none d-md-none" data-id="ee8d9e70">
+            <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex" data-id="1bbdc615">
+              <span data-id="0bd8b78a"
+                >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                <!--                      <br>-->
+              </span>
+              <a [routerLink]="['/term-conditions']" data-id="c16c6d25">
+                {{ 'términos y condiciones' | translate }}
+              </a>
+            </mat-checkbox>
+          </div>
+
+          <div
+            class="add-info mb-3 d-flex d-xs-block d-sm-block d-md-block d-none"
+            data-id="2f2d291a"
+          >
+            <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex" data-id="adfe77fe">
+              <span data-id="e8b85dec"
+                >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
+                <br data-id="93adb4dc" />
+              </span>
+              <a [routerLink]="['/term-conditions']" data-id="895fe272">
+                {{ 'términos y condiciones' | translate }}
+              </a>
+            </mat-checkbox>
+          </div>
+
+          <h1 *ngIf="noGateway" class="tex-align-center p-4 color-red-500" data-id="4c6986f6">
+            {{ 'Este negocio no tiene método de pago permitido' }}
+          </h1>
+
+          <div
+            class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-b71aa8"
+            data-id="8932966e"
+          >
+            <button mat-stroked-button matStepperPrevious data-id="7d5844b5">
+              {{ 'Atrás' | translate }}
+            </button>
+            <button
+              id="buttonSecondStep"
+              (click)="onGoToPayment()"
+              [disabled]="noGateway || form.invalid"
+              color="primary"
+              mat-raised-button
+              matStepperNext
+              data-id="0a3ba3be"
+            >
+              {{ 'Continuar' | translate }}
+            </button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step data-id="b9481b5f">
+        <ng-template matStepLabel data-id="64e25dd9">{{ 'Resumen' | translate }}</ng-template>
+        <!-- =================================================================== -->
+        <!-- PASARELA DE PAGO -->
+        <!-- =================================================================== -->
+        <div
+          class="mainOrder-wrapper d-flex flex-column transpilerClass-fxFlex-75d2bc transpilerClass-fxFlex-6d7385 transpilerClass-fxFlex-92ef3c"
+          data-id="14858137"
+        >
+          <div *ngIf="!loadingPayment" class="main-order" data-id="a2aa58fd">
+            <div class="order-box" data-id="0aae3678">
+              <ul *ngIf="buyProducts.length <= 0" class="quantity" data-id="d808f573">
+                <li class="empty-checkout" data-id="a1067c0e">
+                  {{ 'There are no products in cart' | translate }}
+                </li>
+              </ul>
+
+              <ul *ngIf="!loadingCart && showShipping" class="total-amount" data-id="a5cb5d85">
+                <li data-id="93b0314d">
+                  {{ 'Subtotal' | translate }}:
+                  <!--                    <span style='font-size: 20px'></span>-->
+
+                  <span class="amount px-2" data-id="97f4ba09">{{
+                    getTotalAmountCurrency() | currencyProduct: form.controls['currency'].value
+                  }}</span>
+                </li>
+              </ul>
+
+              <!-- ============================================ -->
+              <!-- DESCUENTO APLICADO -->
+              <ul *ngIf="!loadingCart && showShipping" class="total-amount" data-id="36ca746a">
+                <li data-id="482d10b0">
+                  {{ 'Descuento aplicado' | translate }}:
+                  <!--                    <span style='font-size: 20px'></span>-->
+                  <span class="amount px-2" data-id="15669649">{{
+                    cart.offerGiftDiscount.discountGift
+                      | currencyProduct: form.controls['currency'].value
+                  }}</span>
+                </li>
+              </ul>
+
+              <!-- ============================================ -->
+              <!-- TARIFA DE ENVIO -->
+              <ul *ngIf="showShipping" class="total" data-id="3ba7ac36">
+                <li data-id="ec3ff007">
+                  {{ 'Tarifa de envío' | translate }}:
+
+                  <span class="count px-2" data-id="7bcd803f">
+                    {{
+                      getShippingSelectedPrice() | currencyProduct: form.controls['currency'].value
+                    }}
+                  </span>
+                </li>
+              </ul>
+              <div
+                *ngIf="!loadingCart"
+                class="mb-3 pb-3 d-flex flex-column justify-content-start align-items-start"
+                style="border-bottom: 1px solid #e5e5e5"
+                data-id="e923b6fc"
+              >
+                <div
+                  class="w-100 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center justify-content-xs-start justify-content-sm-start"
+                  ngClass.gt-xs="pt-1"
+                  data-id="22e701ff"
+                >
+                  <div class="order-xs-2 order-sm-2" data-id="8ea1d7ba">
+                    <!-- ------------------------------------------------- -->
+                    <!-- DESCRIPTION OF ADDRESS BUSINESS -->
+                    <ng-container data-id="0ada358b">
+                      <!-- ============================================ -->
+                      <ng-container
+                        *ngIf="form.controls['paymentType'].value === 'bidaiondo'"
+                        data-id="b3768ad5"
+                      >
+                        <p
+                          class="mat-subtitle-2 my-2"
+                          style="text-transform: uppercase"
+                          data-id="9dba2547"
+                        >
+                          {{ 'Información de Pago' | translate }}
+                        </p>
+                        <span class="mb-2" data-id="e42d42dd">{{
+                          'Las compras realizadas en el sitio deben exceder el importe de 15.00. Si su compra no alcanza este mínimo, no podremos procesar su orden.'
+                            | translate
+                        }}</span>
+                      </ng-container>
+
+                      <!-- INFO DIRECCION DEL NEGOCIO -->
+                      <div
+                        *ngIf="!showShipping && buyProducts.length > 0 && hasPickUpPlace"
+                        class="mb-3 d-flex flex-column"
+                        data-id="b72b33e5"
+                      >
+                        <p
+                          class="mat-subtitle-2 my-2"
+                          style="text-transform: uppercase"
+                          data-id="dbcfee7b"
+                        >
+                          {{ 'Recogida' | translate }}
+                        </p>
+                        <span class="mb-2" data-id="8f30c8a6">{{
+                          'Payment will be made at the Business office' | translate
+                        }}</span>
+                        <div class="mb-1 font-weight-400" style="color: #585858" data-id="aacaadea">
+                          {{ 'Negocio' | translate }}:
+                          <span class="font-weight-600" data-id="44b268c2">{{
+                            theBusiness?.name || '-'
+                          }}</span>
+                        </div>
+                        <div class="mb-1 font-weight-400" style="color: #585858" data-id="5fc90751">
+                          {{ 'Dirección' | translate }}:
+                          <span class="font-weight-600" data-id="6156778e">{{
+                            theBusiness?.address || '-'
+                          }}</span>
+                        </div>
+                        <div class="mb-1 font-weight-400" style="color: #585858" data-id="3f947819">
+                          {{ 'Email' | translate }}:
+                          <span class="font-weight-600" data-id="b4f208c1">{{
+                            theBusiness?.email || '-'
+                          }}</span>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ======LOADING====== -->
+              <ng-container *ngIf="loadingCart" data-id="f2d32b38">
+                <div
+                  class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
+                  style="border-radius: 4px"
+                  data-id="d285e6af"
+                ></div>
+                <div
+                  class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
+                  style="border-radius: 4px"
+                  data-id="9ba631ab"
+                ></div>
+                <div
+                  class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
+                  style="border-radius: 4px"
+                  data-id="660a2230"
+                ></div>
+                <div
+                  class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
+                  style="border-radius: 4px"
+                  data-id="fbd7d37e"
+                ></div>
+                <div
+                  class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
+                  style="border-radius: 4px"
+                  data-id="296380f2"
+                ></div>
+                <div
+                  class="py-2 my-2 w-100 loader d-flex justify-content-start align-items-center"
+                  style="border-radius: 4px"
+                  data-id="7fc336f7"
+                ></div>
+              </ng-container>
+
+              <!-- DESCUENTO APLICADO -->
+              <ul class="total-amount" *ngIf="!showShipping" data-id="f68c50d3">
+                <li data-id="7aa03752">
+                  {{ 'Descuento aplicado' | translate }}:
+                  <!--                    <span></span>-->
+                  <span class="amount px-2" data-id="fdbead92">{{
+                    cart.offerGiftDiscount.discountGift
+                      | currencyProduct: form.controls['currency'].value
+                  }}</span>
+                </li>
+              </ul>
+
+              <!-- =====TOTAL=====-->
+              <ul class="total" data-id="6a78a531">
+                <li data-id="e1a5faf5">
+                  {{ 'Total' | translate }}
+                  <span class="count px-2" data-id="ff7c2025">{{
+                    getTotalWithShippingIncludedCurrency()
+                      | currencyProduct: form.controls['currency'].value
+                  }}</span>
+                </li>
+              </ul>
+
+              <div
+                class="w-100 d-flex justify-content-center align-items-stretch"
+                data-id="9e7fafc4"
+              >
+                <a id="pasarelaLink" style="display: none" data-id="0977f756"></a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            *ngIf="!loadingPayment"
+            class="actions-buttons d-flex justify-content-between align-items-start transpilerClass-fxFlex-e1bfd6"
+            data-id="1d29894e"
+          >
+            <!--              <button (click)="onGoToInfoDataToPay()" mat-stroked-button>{{ 'Atrás' | translate }}</button>-->
+            <button matStepperPrevious mat-stroked-button data-id="9b204cee">
+              {{ 'Atrás' | translate }}
+            </button>
+            <button
+              (click)="onPayOrder()"
+              [disabled]="
+                form.invalid ||
+                !buyProducts.length ||
+                (form.controls['paymentType'].value !== 'visa' &&
+                  form.controls['paymentType'].value !== 'express' &&
+                  form.controls['paymentType'].value !== 'masterCard' &&
+                  form.controls['paymentType'].value !== 'dinners-club-internacional' &&
+                  form.controls['paymentType'].value !== 'jcb' &&
+                  form.controls['paymentType'].value !== 'maestro' &&
+                  form.controls['paymentType'].value !== 'electron' &&
+                  form.controls['paymentType'].value !== 'tarjeta-virtual' &&
+                  form.controls['paymentType'].value !== 'bizum' &&
+                  form.controls['paymentType'].value !== 'iupay' &&
+                  form.controls['paymentType'].value !== 'discover-global' &&
+                  form.controls['paymentType'].value !== 'peoplegoto' &&
+                  form.controls['paymentType'].value !== 'paypal' &&
+                  form.controls['paymentType'].value !== 'multisafepay' &&
+                  form.controls['paymentType'].value !== 'tropipay' &&
+                  form.controls['paymentType'].value !== 'enzona' &&
+                  form.controls['paymentType'].value !== 'transfermovil')
+              "
+              color="primary"
+              mat-raised-button
+              data-id="aaba6088"
+            >
+              {{ 'Pagar' | translate }}
+            </button>
+          </div>
+
+          <div
+            *ngIf="loadingPayment"
+            class="loader"
+            style="width: 100%; min-height: 500px; height: 100%"
+            data-id="bf976cf2"
+          ></div>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
   </div>
 </div>
