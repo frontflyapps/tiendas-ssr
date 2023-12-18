@@ -11,6 +11,8 @@ export interface Cart {
   Business?: IBusiness;
   hasShippingBusiness?: boolean;
   offerGiftDiscount?: any;
+  supplementData?: any;
+  hasSupplementData?: boolean;
 }
 
 export interface IBusiness {
