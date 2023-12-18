@@ -82,7 +82,11 @@ export class DialogTranfermovilQrComponent implements OnInit, OnDestroy {
   }
 
   onCancelarTranfermovilPayment() {
-    this.router.navigate(['/my-orders'], { queryParams: { r: 't' } }).then();
+    if (this.data.supplement) {
+      this.dialogRef.close(true);
+    } else {
+      this.router.navigate(['/my-orders'], { queryParams: { r: 't' } }).then();
+    }
     // window.location.assign(`${environment.url}/my-orders`);
 
     // const dialogRef = this.dialog.open(ConfirmationDialogFrontComponent, {

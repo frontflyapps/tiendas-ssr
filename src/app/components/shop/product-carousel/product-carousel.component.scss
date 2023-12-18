@@ -1,3 +1,4 @@
+@import 'scss/mixins/breakpoints';
 @import 'app';
 
 .pl-36 {
@@ -232,4 +233,8 @@
 
 .swiper-button-next:after {
   display: none;
+}
+
+.transpilerClass-fxLayoutGap-7550c6 {
+  gap: 8px;
 }

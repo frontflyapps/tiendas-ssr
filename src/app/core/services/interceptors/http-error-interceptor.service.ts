@@ -51,7 +51,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
         if (error.error instanceof ErrorEvent) {
           // client-side error
           errorMessage = `Error del lado del cliente: ${error.error.message}`;
-          this.showSnackbar.showError(errorMessage);
+          this.showToastr.showError(errorMessage, 'Error');
         } else {
           errorMessage = error.error;
           this.processingBackendError(error);

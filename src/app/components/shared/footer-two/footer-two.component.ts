@@ -6,7 +6,6 @@ import { takeUntil } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
 import { Subject } from 'rxjs';
-import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-snackbar.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { environment } from 'environments/environment';
@@ -15,6 +14,7 @@ import { NgFor } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 
 @Component({
   selector: 'app-footer-two',
@@ -51,7 +51,7 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
 
   constructor(
     private loggedInUserService: LoggedInUserService,
-    private showSnackbar: ShowSnackbarService,
+    private showToastr: ShowToastrService,
     private httpClient: HttpClient,
     private utilsService: UtilsService,
     private fb: UntypedFormBuilder,
@@ -122,10 +122,11 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
   onSubscribetoPublications() {
     const data = this.form.value;
     if (!this.loggedInUser) {
-      this.showSnackbar.showSucces(
+      this.showToastr.showSucces(
         this.translateService.instant(
           'You need to be logged in to subscribe it into ours publication, please register or create an account',
         ),
+        undefined,
         8000,
       );
       this.router.navigate(['/my-account']);
@@ -133,10 +134,11 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
       this.httpClient.post<any>(environment.apiUrl + 'subscribe', { email: data.email }).subscribe(
         () => {
           this.loggedInUserService.setNewProfile({ isSubscribed: 1 });
-          this.showSnackbar.showSucces(
+          this.showToastr.showSucces(
             this.translateService.instant(
               'You have successfully subscribed to our newsletter, your email will receive announcements of new blog posts and new products that go on sale',
             ),
+            undefined,
             8000,
           );
         },
@@ -150,8 +152,9 @@ export class FooterTwoComponent implements OnInit, OnDestroy {
     this.httpClient.patch<any>(environment.apiUrl + 'subscribe', { email: data.email }).subscribe(
       () => {
         this.loggedInUserService.setNewProfile({ isSubscribed: 0 });
-        this.showSnackbar.showSucces(
+        this.showToastr.showSucces(
           this.translateService.instant('You have successfully unsubscribe to our newsletter'),
+          undefined,
           8000,
         );
       },
