@@ -54,6 +54,15 @@
               <h3 class="price mb-10" data-id="631f61cd">
                 {{ product | parsePriceProduct: 'offert' }}
               </h3>
+              <div
+                [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                *ngFor="let price of product?.SupplementPrices"
+                class="d-flex transpilerClass-fxLayoutGap-2d664e"
+                data-id="015827c3"
+              >
+                <h3 class="price mb-10" data-id="3bc3db58">+</h3>
+                <h3 class="price mb-10" data-id="e7e64708">{{ price?.price + price?.currency }}</h3>
+              </div>
             </div>
 
             <div
@@ -62,6 +71,15 @@
               data-id="9796c64a"
             >
               <h3 class="price mb-10" data-id="897a67b3">{{ product | parsePriceProduct }}</h3>
+              <div
+                [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                *ngFor="let price of product?.SupplementPrices"
+                class="d-flex transpilerClass-fxLayoutGap-ba7723"
+                data-id="aa4faeee"
+              >
+                <h3 class="price mb-10" data-id="e596f8f7">+</h3>
+                <h3 class="price mb-10" data-id="788560b5">{{ price?.price + price?.currency }}</h3>
+              </div>
             </div>
 
             <div
@@ -247,6 +265,17 @@
                 <h3 class="price mb-10" data-id="c84b7c07">
                   {{ product | parsePriceProduct: 'offert' }}
                 </h3>
+                <div
+                  [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                  *ngFor="let price of product?.SupplementPrices"
+                  class="d-flex transpilerClass-fxLayoutGap-aba8e7"
+                  data-id="4b42daab"
+                >
+                  <h3 class="price mb-10" data-id="beff5226">+</h3>
+                  <h3 class="price mb-10" data-id="94fb0822">
+                    {{ price?.price + price?.currency }}
+                  </h3>
+                </div>
               </div>
 
               <div
@@ -255,6 +284,17 @@
                 data-id="1b8a2904"
               >
                 <h3 class="price mb-10" data-id="751db709">{{ product | parsePriceProduct }}</h3>
+                <div
+                  [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                  *ngFor="let price of product?.SupplementPrices"
+                  class="d-flex transpilerClass-fxLayoutGap-f39369"
+                  data-id="475d7c48"
+                >
+                  <h3 class="price mb-10" data-id="8ecaca2e">+</h3>
+                  <h3 class="price mb-10" data-id="95bdb850">
+                    {{ price?.price + price?.currency }}
+                  </h3>
+                </div>
               </div>
 
               <div
@@ -419,9 +459,9 @@
                     >
 
                     <span
-                      *ngIf="counter > product?.Stock?.quantity ? product?.Stock?.quantity : 0"
+                      *ngIf="counter > product?.Stock?.quantity ? product?.Stock?.quantity == 0 : 0"
                       class="avalibility"
-                      data-id="05edf9e4"
+                      data-id="95e17755"
                       ><span
                         class="ml-3"
                         style="color: #f33927 !important; font-weight: 500"
@@ -434,10 +474,10 @@
                     *ngIf="
                       product.status !== 'comingSoon' &&
                       businessConfig?.showQuantityProductFront &&
-                      (counter < product?.Stock?.quantity ? product?.Stock?.quantity : 0)
+                      (counter <= product?.Stock?.quantity ? product?.Stock?.quantity : 0)
                     "
                     class="my-2"
-                    data-id="68c7b707"
+                    data-id="eed61a48"
                   >
                     <div
                       [ngClass]="{
@@ -454,7 +494,11 @@
                         *ngIf="!loadingAvailability"
                         data-id="45d886c8"
                       >
-                        {{ product?.Stock?.quantity + ' disponibles' }}
+                        {{
+                          product?.Stock?.quantity &gt; 1
+                            ? product?.Stock?.quantity + ' disponibles'
+                            : product?.Stock?.quantity + ' disponible'
+                        }}
                       </span>
                       <span
                         *ngIf="loadingAvailability"
@@ -555,6 +599,7 @@
                   mat-raised-button
                   ngClass.lt-sm="w-100"
                   data-id="f2248f48"
+                  [disabled]="product?.Stock?.quantity == 0"
                 >
                   {{ 'ADD TO CART' | translate }}
                 </button>
@@ -566,6 +611,7 @@
                   mat-raised-button
                   ngClass.lt-sm="w-100"
                   data-id="4ac47dc5"
+                  [disabled]="product?.Stock?.quantity == 0"
                 >
                   {{ 'BUY NOW' | translate }}
                 </button>
@@ -938,6 +984,7 @@
           (click)="onAddtoCartNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
           data-id="76630801"
+          *ngIf="product?.Stock?.quantity > 0"
         >
           <mat-icon class="mr-2" data-id="a81e64ec"> shopping_cart</mat-icon>
           {{ 'Añadir al carrito' | translate }}
@@ -955,6 +1002,7 @@
           (click)="onGoToCheckouNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
           data-id="a04c381a"
+          *ngIf="product?.Stock?.quantity > 0"
         >
           <mat-icon class="mr-2" data-id="b9f2003c"> slideshow</mat-icon>
           {{ 'Comprar ahora' | translate }}
