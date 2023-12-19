@@ -11,7 +11,6 @@ function getProject(name) {
 
   const styles = [
     `${assetsDir}/app.scss`,
-    `${assetsDir}/scss/helpers/_helpers.scss`,
     `${assetsDir}/scss/mixins/_breakpoints.scss`,
     'src/common-styles.scss',
     // fixing the issue "Could not find Angular Material core theme"
