@@ -32,6 +32,7 @@ Tiendas-SSR
 ### Step 3
 
 - Set the env variable `APP_NAME` in the store's deploy with one of the `<appName>` values.
+- Set the env variable `PROD` (dafault value es `false` using testing apis) in the store's deploy with `true` to use the production apis.
 
 ### Step 4
 
