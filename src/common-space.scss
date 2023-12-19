@@ -1,0 +1,212 @@
+@use 'sass:map';
+@use 'breakpoints';
+
+$spaceamounts: (
+  2,
+  4,
+  6,
+  8,
+  10,
+  12,
+  14,
+  16,
+  18,
+  20,
+  22,
+  24,
+  26,
+  28,
+  30,
+  32,
+  36,
+  38,
+  40,
+  42,
+  48,
+  50,
+  52,
+  54,
+  58,
+  60
+); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  // /////////////////// m and p
+  .m-#{$space} {
+    margin: #{$space}px !important;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px !important;
+  }
+
+  @each $breakpoint in map.keys(breakpoints.$breakpoints) {
+    @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+      .m-#{$breakpoint}-#{$space} {
+        margin: #{$space}px !important;
+      }
+
+      .p-#{$breakpoint}-#{$space} {
+        padding: #{$space}px !important;
+      }
+    }
+  }
+  //////////////////// mx and my
+  .mx-#{$space} {
+    margin-left: #{$space}px !important;
+    margin-right: #{$space}px !important;
+  }
+
+  .px-#{$space} {
+    padding-left: #{$space}px !important;
+    padding-right: #{$space}px !important;
+  }
+
+  .my-#{$space} {
+    margin-top: #{$space}px !important;
+    margin-bottom: #{$space}px !important;
+  }
+
+  .py-#{$space} {
+    padding-top: #{$space}px !important;
+    padding-bottom: #{$space}px !important;
+  }
+
+  @each $breakpoint in map.keys(breakpoints.$breakpoints) {
+    @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+      .mx-#{$breakpoint}-#{$space} {
+        margin-left: #{$space}px !important;
+        margin-right: #{$space}px !important;
+      }
+
+      .px-#{$breakpoint}-#{$space} {
+        padding-left: #{$space}px !important;
+        padding-right: #{$space}px !important;
+      }
+
+      .my-#{$breakpoint}-#{$space} {
+        margin-top: #{$space}px !important;
+        margin-bottom: #{$space}px !important;
+      }
+
+      .py-#{$breakpoint}-#{$space} {
+        padding-top: #{$space}px !important;
+        padding-bottom: #{$space}px !important;
+      }
+    }
+  }
+
+  //////////////////  mb mt ml mr
+
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+
+    @each $breakpoint in map.keys(breakpoints.$breakpoints) {
+      @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+        .m#{str-slice($side, 0, 1)}-#{$breakpoint}-#{$space} {
+          margin-#{$side}: #{$space}px !important;
+        }
+
+        .p#{str-slice($side, 0, 1)}-#{$breakpoint}-#{$space} {
+          padding-#{$side}: #{$space}px !important;
+        }
+      }
+    }
+  }
+}
+
+// /////////////////// m and p (auto)
+.m-auto {
+  margin: auto !important;
+}
+
+.p-auto {
+  padding: auto !important;
+}
+
+@each $breakpoint in map.keys(breakpoints.$breakpoints) {
+  @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+    .m-#{$breakpoint}-auto {
+      margin: auto !important;
+    }
+
+    .p-#{$breakpoint}-auto {
+      padding: auto !important;
+    }
+  }
+}
+//////////////////// mx and my (auto)
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.px-auto {
+  padding-left: auto !important;
+  padding-right: auto !important;
+}
+
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.py-auto {
+  padding-top: auto !important;
+  padding-bottom: auto !important;
+}
+
+@each $breakpoint in map.keys(breakpoints.$breakpoints) {
+  @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+    .mx-#{$breakpoint}-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .px-#{$breakpoint}-auto {
+      padding-left: auto !important;
+      padding-right: auto !important;
+    }
+
+    .my-#{$breakpoint}-auto {
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+    }
+
+    .py-#{$breakpoint}-auto {
+      padding-top: auto !important;
+      padding-bottom: auto !important;
+    }
+  }
+}
+
+//////////////////  mb mt ml mr (auto)
+
+@each $side in $sides {
+  .m#{str-slice($side, 0, 1)}-auto {
+    margin-#{$side}: auto !important;
+  }
+
+  .p#{str-slice($side, 0, 1)}-auto {
+    padding-#{$side}: auto !important;
+  }
+
+  @each $breakpoint in map.keys(breakpoints.$breakpoints) {
+    @media (max-width: map.get(breakpoints.$breakpoints, $breakpoint)) {
+      .m#{str-slice($side, 0, 1)}-#{$breakpoint}-auto {
+        margin-#{$side}: auto !important;
+      }
+
+      .p#{str-slice($side, 0, 1)}-#{$breakpoint}-auto {
+        padding-#{$side}: auto !important;
+      }
+    }
+  }
+}

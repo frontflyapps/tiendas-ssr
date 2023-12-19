@@ -3,6 +3,7 @@
 @import './common-important-layout.scss';
 @import './common-flex-sh.scss';
 @import './common-size.scss';
+@import './common-space.scss';
 
 // --------Global Styles for the Project-------------- ///
 
@@ -11,6 +12,17 @@ body {
     zoom: 85%;
     -webkit-zoom: 85%;
   }
+}
+
+body,
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 @media only screen and (max-width: 480px) {

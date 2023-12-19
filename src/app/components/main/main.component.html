@@ -330,7 +330,7 @@
         ngClass.xs="w-100"
         data-id="7f9159b7"
       >
-        <div class="d-flex justify-content-end align-items-center flex-sh-75" data-id="d556df4b">
+        <div class="d-flex justify-content-end align-items-center flex-sh-74" data-id="d556df4b">
           <div class="widget-text mx-2" data-id="8d80ff6a">
             <a
               #langMenuTrigger="matMenuTrigger"
@@ -366,20 +366,6 @@
           </div>
         </div>
 
-        <!--        <a [routerLink]="['/pages/compare']"-->
-        <!--           class='px-3'-->
-        <!--           fxLayoutAlign='start center'-->
-        <!--           matTooltip='Comparar productos'-->
-        <!--           routerLinkActive='router-link-active'>-->
-
-        <!--          <mat-icon *ngIf='compareItems.length' [matBadge]='compareItems.length'-->
-        <!--                    matBadgeColor='accent'>compare_arrows-->
-        <!--          </mat-icon>-->
-
-        <!--          <mat-icon *ngIf='!compareItems.length'>compare_arrows</mat-icon>-->
-        <!--          <span fxHide fxShow='false'>{{ 'Comparar productos' | translate }}</span>-->
-        <!--        </a>-->
-
         <a
           class="px-3 d-flex justify-content-start align-items-center"
           mat-button
@@ -409,22 +395,10 @@
               (click)="changeCurrency(cur)"
               data-id="ec234a98"
             >
-              <span data-id="b615c7a7">&gt; {{ cur?.name | translate }}</span>
+              <span data-id="b615c7a7">{{ cur?.name | translate }}</span>
             </button>
           </span>
         </mat-menu>
-
-        <!-- <a class="px-3" fxLayoutAlign="start center" mat-button [matMenuTriggerFor]="langMenu" #langMenuTrigger="matMenuTrigger">
-          <img [src]="flag.image" width="18">
-          <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
-        </a>
-        <mat-menu #langMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
-          <span>
-            <button mat-menu-item *ngFor="let flag of flags" (click)="changeLang(flag)">
-              <img [src]="flag.image" width="18"> {{flag?.name}}
-            </button>
-          </span>
-        </mat-menu> -->
 
         <!-- ================================ -->
         <!-- CART MENU -->
