@@ -1,7 +1,10 @@
-<div class="d-flex flex-column justify-content-around align-items-center" data-id="3d15cfbd">
+<div
+  class="d-flex flex-column justify-content-around align-items-center my-15px"
+  data-id="3d15cfbd"
+>
   <!-- Get Link -->
   <div
-    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    class="w-100 m-4 d-flex flex-row flex-sm-column d-sm-flex gap-4 justify-content-center align-items-center"
     data-id="337332a1"
   >
     <div class="d-flex justify-content-start align-items-center flex-sh-5" data-id="fef9b672">
@@ -18,7 +21,7 @@
         color="primary"
         (click)="copyLink()"
         [cdkCopyToClipboard]="userLinkReferred ?? ''"
-        class="w-100"
+        class="w-100 px-15px"
         data-id="da6e25aa"
       >
         {{ 'Copiar enlace' | translate }}
@@ -28,7 +31,7 @@
 
   <!-- Comparte -->
   <div
-    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    class="w-100 m-4 d-flex flex-row flex-sm-column d-sm-flex gap-4 justify-content-center align-items-center my-15px"
     data-id="a428b2aa"
   >
     <div class="d-flex justify-content-start align-items-center flex-sh-5" data-id="acbc8a01">
@@ -44,7 +47,7 @@
         mat-flat-button
         color="primary"
         (click)="windowOpen()"
-        class="w-100"
+        class="w-100 px-15px"
         data-id="60fefa8e"
       >
         {{ 'Compartir enlace' | translate }}
@@ -53,7 +56,7 @@
   </div>
   <!-- Check -->
   <div
-    class="w-100 m-4 d-flex flex-column d-sm-flex justify-content-center align-items-center"
+    class="w-100 m-4 d-flex flex-row flex-sm-column gap-4 d-sm-flex justify-content-center align-items-center my-15px"
     data-id="b605fb8e"
   >
     <div class="d-flex justify-content-start align-items-center flex-sh-5" data-id="189b7ac0">
@@ -69,7 +72,7 @@
         mat-flat-button
         color="primary"
         (click)="eventClose.emit()"
-        class="w-100"
+        class="w-100 px-15px"
         data-id="26540a9b"
       >
         {{ 'Comprobar' | translate }}
