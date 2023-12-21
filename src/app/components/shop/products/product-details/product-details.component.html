@@ -632,7 +632,7 @@
       >
         <mat-tab-group [selectedIndex]="indexTab" class="w-100" data-id="5b584122">
           <mat-tab label="{{ 'Details' | translate }}" data-id="8b7f6901">
-            <div class="full-desc text-muted" data-id="6160f23b">
+            <div class="full-desc text-muted  mt-20px" data-id="6160f23b">
               <div
                 *ngIf="product.description == null"
                 [id]="'ProductId' + product.id"
@@ -643,7 +643,7 @@
               <div
                 *ngIf="product.description != null"
                 [innerHTML]="this.utilsService.parserLanguage(product.description, language)"
-                class="InnerHtmlContent"
+                class="InnerHtmlContent "
                 data-id="f0771c78"
               ></div>
               <!--<p class="my-3">
