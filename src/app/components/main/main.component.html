@@ -212,7 +212,7 @@
   </mat-sidenav>
 
   <!-- Todos excepto vista movil -->
-  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none" data-id="3722d5a3">
+  <div [class.py-2px]="!loggedInUser" class="home-header d-sm-none" data-id="3722d5a3">
     <div
       class="container-header d-flex justify-content-between align-items-center"
       data-id="d66730b1"
@@ -225,12 +225,7 @@
         [src]="logo"
         data-id="e43137ad"
       />
-      <button
-        (click)="start.toggle()"
-        mat-icon-button
-        class="d-sm-block-i d-none-i"
-        data-id="559e6732"
-      >
+      <button (click)="start.toggle()" mat-icon-button class="d-sm-block d-none" data-id="559e6732">
         <mat-icon data-id="bcbb3b4f">menu</mat-icon>
       </button>
 
@@ -637,7 +632,8 @@
             placeholder="{{ 'Buscar...' | translate }}"
             type="search"
             [matAutocomplete]="auto"
-            class="flex-sh-0 mw-initial"
+            class="flex-sh-0"
+            style="max-width: initial"
             data-id="cdd678e1"
           />
           <mat-spinner
