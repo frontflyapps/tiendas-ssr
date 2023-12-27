@@ -367,8 +367,9 @@
           [matMenuTriggerFor]="currencyMenu"
           #currencyMenuTrigger="matMenuTrigger"
           data-id="1fc8a334"
+          style="font-weight: bold"
         >
-          <span class="flag-menu-title" data-id="81b74cff">{{ currency?.name | translate }}</span>
+          <span class="flag-menu-title" data-id="81b74cff">{{ currency?.name | translate }} $</span>
           <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="2ca079bc"
             >arrow_drop_down</mat-icon
           >
@@ -564,8 +565,11 @@
             [matMenuTriggerFor]="currencyMenu"
             #currencyMenuTrigger="matMenuTrigger"
             data-id="d76b3f05"
+            style="font-weight: bold"
           >
-            <span class="flag-menu-title" data-id="81b37552">{{ currency?.name | translate }}</span>
+            <span class="flag-menu-title" data-id="81b37552"
+              >{{ currency?.name | translate }} $</span
+            >
             <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="7d73f525"
               >arrow_drop_down</mat-icon
             >
