@@ -905,30 +905,57 @@ a {
   color: $font-color;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
-.mat-radio-label-content {
-  color: $grey7;
-  font-weight: 400;
+// /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+// .mat-radio-label-content {
+//   color: $grey7;
+//   font-weight: 400;
+// }
+
+// /*TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
+// .mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-warn {
+//   background-color: $theme-main-red;
+// }
+
+// /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+// .mat-mdc-radio-button.mat-accent .mat-radio-inner-circle {
+//   background: $theme-main-red !important;
+// }
+
+// /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+// .mat-mdc-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+//   border-color: $theme-main-red !important;
+// }
+
+// /////////////////////////////////////PRIMERY COLORS
+.mat-mdc-unelevated-button.mat-primary {
+  background-color: $theme-main !important;
+  color: $white !important;
+
+  &:disabled {
+    background-color: $theme-main-100 !important;
+    color: $font-color;
+  }
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
-.mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-warn {
-  background-color: $theme-main-red;
+.mat-mdc-fab.mat-primary,
+.mat-mdc-mini-fab.mat-primary {
+  background-color: $theme-main !important;
+  color: $white !important;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
-.mat-mdc-radio-button.mat-accent .mat-radio-inner-circle {
-  background: $theme-main-red !important;
+.mat-icon.mat-primary {
+  color: $theme-main !important;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
-.mat-mdc-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: $theme-main-red !important;
+// /////////////////////////////////////ACCENT COLORS
+.mat-mdc-unelevated-button.mat-accent {
+  background-color: $theme-main-accent !important;
+  color: $white !important;
 }
 
-.mat-mdc-raised-button.mat-primary {
-  background-color: $theme-main;
-  color: $font-color;
+.mat-badge-accent .mat-badge-content {
+  background-color: $theme-main-accent !important;
+  color: $white !important;
 }
 
 .mat-mdc-input-element {
