@@ -1,9 +1,6 @@
 @import 'app';
-@import '@guajiritos/layouts/flex';
-@import './common-important-layout.scss';
 @import './common-flex-sh.scss';
-@import './common-size.scss';
-@import './common-space.scss';
+@import './common-important.scss';
 
 // --------Global Styles for the Project-------------- ///
 
@@ -908,30 +905,57 @@ a {
   color: $font-color;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
-.mat-radio-label-content {
-  color: $grey7;
-  font-weight: 400;
+// /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+// .mat-radio-label-content {
+//   color: $grey7;
+//   font-weight: 400;
+// }
+
+// /*TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
+// .mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-warn {
+//   background-color: $theme-main-red;
+// }
+
+// /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+// .mat-mdc-radio-button.mat-accent .mat-radio-inner-circle {
+//   background: $theme-main-red !important;
+// }
+
+// /*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
+// .mat-mdc-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+//   border-color: $theme-main-red !important;
+// }
+
+// /////////////////////////////////////PRIMERY COLORS
+.mat-mdc-unelevated-button.mat-primary {
+  background-color: $theme-main !important;
+  color: $white !important;
+
+  &:disabled {
+    background-color: $theme-main-100 !important;
+    color: $font-color;
+  }
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
-.mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-warn {
-  background-color: $theme-main-red;
+.mat-mdc-fab.mat-primary,
+.mat-mdc-mini-fab.mat-primary {
+  background-color: $theme-main !important;
+  color: $white !important;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
-.mat-mdc-radio-button.mat-accent .mat-radio-inner-circle {
-  background: $theme-main-red !important;
+.mat-icon.mat-primary {
+  color: $theme-main !important;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version.*/
-.mat-mdc-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: $theme-main-red !important;
+// /////////////////////////////////////ACCENT COLORS
+.mat-mdc-unelevated-button.mat-accent {
+  background-color: $theme-main-accent !important;
+  color: $white !important;
 }
 
-.mat-mdc-raised-button.mat-primary {
-  background-color: $theme-main;
-  color: $font-color;
+.mat-badge-accent .mat-badge-content {
+  background-color: $theme-main-accent !important;
+  color: $white !important;
 }
 
 .mat-mdc-input-element {
@@ -952,126 +976,10 @@ a {
   background: $background;
 }
 
-.ml-10 {
-  margin-left: 10px;
-}
-
-.mb-5 {
-  margin-bottom: 5px !important;
-}
-
-.mb-10 {
-  margin-bottom: 10px !important;
-}
-
-.mb-15 {
-  margin-bottom: 15px !important;
-}
-
-.mb-20 {
-  margin-bottom: 20px !important;
-}
-
-.mb-30 {
-  margin-bottom: 30px !important;
-}
-
-.w-50 {
-  width: 50%;
-}
-
-.mr-10 {
-  margin-right: 10px !important;
-}
-
-.ml-10 {
-  margin-left: 10px !important;
-}
-
-.mt-20 {
-  margin-top: 20px !important;
-}
-
-.mt-15 {
-  margin-top: 15px !important;
-}
-
-.mt-40 {
-  margin-top: 40px !important;
-}
-
-.mt-15 {
-  margin-top: 15px;
-}
-
-.mt-10 {
-  margin-top: 10px !important;
-}
-
-.mb-15 {
-  margin-bottom: 15px !important;
-}
-
-.mr-7 {
-  margin-right: 7px !important;
-}
-
-.ml-7 {
-  margin-left: 7px !important;
-}
-
-.pb-0 {
-  padding-bottom: 0 !important;
-}
-
-.pt-0 {
-  padding-top: 0 !important;
-}
-
-.pl-15 {
-  padding-left: 15px;
-}
-
-.pr-15 {
-  padding-right: 15px;
-}
-
-.no-pdn {
-  padding: 0 !important;
-}
-
-.pt-20 {
-  padding-top: 20px !important;
-}
-
-.pl-5 {
-  padding-left: 5px !important;
-}
-
-.pr-5 {
-  padding-right: 5px !important;
-}
-
-.pr-50 {
-  padding-right: 50px !important;
-}
-
-.pt-40 {
-  padding-top: 40px !important;
-}
-
-.pt-60 {
-  padding-top: 60px !important;
-}
-
 .devider {
   padding-top: 15px;
   padding-bottom: 20px;
   border-top: 1px dashed $grey;
-}
-
-.w-100 {
-  width: 100% !important;
 }
 
 .text-muted {
@@ -1174,10 +1082,6 @@ a {
 
 .swiper-lazy-preloader {
   top: 18%;
-}
-
-.h-100 {
-  height: 100%;
 }
 
 /***************************************

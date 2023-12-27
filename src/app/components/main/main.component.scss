@@ -1,6 +1,23 @@
 @import 'scss/mixins/breakpoints';
 @import 'app';
 
+.menu-container1 {
+  background-color: $theme-main-400 !important;
+
+  .main-menu {
+    margin: 0 auto;
+
+    a.mat-mdc-button {
+      text-transform: capitalize;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 400;
+      padding: 0 25px;
+      line-height: 46px;
+    }
+  }
+}
+
 #nav-location {
   padding: 2px 4px;
   cursor: pointer;

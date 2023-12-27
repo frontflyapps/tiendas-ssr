@@ -16,6 +16,7 @@ function getProject(name) {
     // fixing the issue "Could not find Angular Material core theme"
     'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css',
     'node_modules/ngx-spinner/animations/ball-scale-multiple.css',
+    'node_modules/ngx-sharebuttons/themes/default.scss',
   ];
 
   const assets = [
