@@ -17,6 +17,117 @@
   margin-top: 0px !important;
 }
 
+.spCard-main {
+  width: 100%;
+
+  .mat-mdc-menu-content {
+    width: 320px !important;
+    max-width: 100%;
+  }
+
+  .spCard-dropdown {
+    background-color: $white;
+    padding: 2px 10px;
+    max-width: 320px;
+    z-index: 400;
+
+    .card-list-title {
+      padding: 0 0 10px 0;
+    }
+
+    h4 {
+      padding-bottom: 10px;
+    }
+
+    .new-product {
+      .product {
+        img {
+          width: 50px;
+        }
+      }
+
+      .close-circle {
+        flex: 1;
+
+        a {
+          cursor: pointer;
+          color: $grey3;
+          transition: 0.3s;
+          float: right;
+
+          padding: 8px;
+          border: 1px solid lightgrey;
+          border-radius: 4px;
+
+          &:hover {
+            color: $theme-main;
+          }
+
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .item {
+        padding: 10px 0;
+
+        .product {
+          margin-right: 6px;
+          background: $baners-background;
+          border-radius: 3px;
+        }
+
+        .desc {
+          p {
+            font-weight: 400;
+          }
+
+          span {
+            color: $grey;
+            font-size: 15px;
+            //margin-top: 5px;
+            /* padding-top: 7px; */
+            display: block;
+          }
+        }
+      }
+
+      .total {
+        padding-top: 15px;
+
+        p {
+          font-size: 15px;
+        }
+
+        span {
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .card-list-title {
+      a {
+        //color: $grey4;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      p {
+        color: $grey4;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .woo-message {
+      text-align: center;
+      padding: 0;
+      margin: 1.5em 0 0 0;
+    }
+  }
+}
 .deletePrice {
   font-size: 10px !important;
 }
@@ -41,5 +152,32 @@
   &:hover {
     text-decoration: underline;
     color: #2196f3 !important;
+  }
+}
+
+.commerce-buttons {
+  .flex-row-button {
+    /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
+    .mat-button-wrapper {
+      .cart-count-wrapper {
+        position: absolute;
+        top: -10px;
+        left: 30px;
+        background: $white;
+        height: 18px;
+        width: 18px;
+        line-height: 18px;
+        border-radius: 50%;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .commerce-buttons {
+    .mat-mdc-button {
+      padding-right: 10px !important;
+    }
   }
 }

@@ -1,4 +1,6 @@
 @import 'scss/mixins/breakpoints';
+@import 'app';
+
 .list-product {
   &:hover {
     img {
@@ -41,5 +43,101 @@
   .vertical-products .widget-column .title .widget-title {
     font-size: 18px;
     font-weight: 500;
+  }
+}
+
+@media (max-width: 599px) {
+  .vertical-products {
+    .product-panel {
+      &:not(:last-child) {
+        padding-right: 0px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+.vertical-products {
+  .widget-column {
+    .title {
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 1.25rem;
+
+      .widget-title {
+        font-size: 21px;
+        font-weight: 500;
+
+        &::before {
+          content: '';
+          left: 0;
+          position: absolute;
+          width: 100%;
+          height: 0.0625rem;
+          bottom: 0.34375rem;
+          background-color: $gray-lighter;
+        }
+
+        &::after {
+          content: '';
+          left: 0;
+          position: absolute;
+          width: 2.5rem;
+          height: 0.125rem;
+          background-color: $dark-font;
+          bottom: 0.3125rem;
+        }
+      }
+    }
+
+    .media-image {
+      background: $gray-lighter;
+      margin-right: 20px;
+      width: 80px !important;
+      height: 80px !important;
+      border-radius: 3px;
+
+      .small {
+        width: 80px !important;
+        height: 80px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+    }
+
+    .media-body {
+      span {
+        font-size: 17px;
+        text-transform: capitalize;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        line-height: 1;
+        color: $font-color;
+      }
+
+      .stars {
+        mat-icon {
+          color: $theme-main;
+          font-size: 17px;
+          line-height: 17px;
+          height: 17px;
+          width: 17px;
+          vertical-align: middle;
+        }
+      }
+
+      p.price {
+        margin-top: 5px;
+      }
+    }
+
+    .product-list {
+      li:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .product-panel:not(:last-child) {
+    padding-right: 30px;
   }
 }

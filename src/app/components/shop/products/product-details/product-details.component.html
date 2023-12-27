@@ -1,4 +1,8 @@
-<div class="container-product-details" style="min-height: 80vh !important" data-id="e1f65b54">
+<div
+  class="container-product-details px-md-16px"
+  style="min-height: 80vh !important"
+  data-id="e1f65b54"
+>
   <!--  <div *ngIf='isLoading' class='loading-shade-full'>-->
   <!--    <mat-spinner *ngIf='isLoading' color='accent'></mat-spinner>-->
   <!--  </div>-->
@@ -21,14 +25,14 @@
     class="details-wrapper sec-padding d-flex flex-wrap pt-3"
     data-id="c94ba599"
   >
-    <div class="h-100 d-flex flex-column flex-sh-75 flex-sh-md-100" data-id="c0481d27">
+    <div class="h-100 d-flex flex-column flex-sh-70 flex-sh-md-100" data-id="c0481d27">
       <div
         class="d-flex justify-content-start align-items-start flex-sh-100 flex-md-wrap"
         data-id="e24d106b"
       >
         <!--    NAME PRODUCT AND PRICE    -->
         <div
-          class="product-right my-0 flex-column justify-content-start align-items-start d-md-flex-i d-none-i"
+          class="product-right my-0 flex-column justify-content-start align-items-start d-md-flex d-none"
           data-id="aa50d516"
         >
           <div
@@ -110,7 +114,7 @@
           <!-- CARD -->
           <mat-card
             appearance="outlined"
-            class="my-product mat-elevation-z0 d-flex-i d-md-none-i flex-row-i"
+            class="my-product mat-elevation-z0 d-flex d-md-none flex-row"
             data-id="fba660d7"
             style="border: none; box-shadow: none"
           >
@@ -123,7 +127,7 @@
               id="shareBtn"
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
-              class="d-md-block-i d-none-i"
+              class="d-md-block d-none"
               data-id="8f4e09e6"
             >
               <mat-icon data-id="ad392d4b">share</mat-icon>
@@ -183,7 +187,7 @@
           <!-- XS CARD -->
           <mat-card
             appearance="outlined"
-            class="mat-elevation-z0 w-100 d-md-flex-i d-none-i flex-row-i"
+            class="mat-elevation-z0 w-100 d-md-flex d-none flex-row"
             data-id="70e4cc7a"
           >
             <span *ngIf="product?.justPublished" class="just-published" data-id="4564026e">
@@ -237,7 +241,7 @@
         <!--    VARIANTS    -->
         <div
           *ngIf="!isLoading"
-          class="flex-sh-35 flex-sh-lg-90 flex-sh-md-100 px-3 m-0"
+          class="flex-sh-34 flex-sh-lg-90 flex-sh-md-100 px-3 m-0"
           data-id="68f2dc46"
         >
           <div class="product-right d-flex flex-column mt-3" data-id="f8b1a998">
@@ -626,14 +630,9 @@
         class="d-flex justify-content-start align-items-start flex-sh-100 flex-sh-md-75"
         data-id="2380ff60"
       >
-        <mat-tab-group
-          [selectedIndex]="indexTab"
-          ngClass.gt-sm="w-95"
-          ngClass.lt-md="w-100"
-          data-id="5b584122"
-        >
+        <mat-tab-group [selectedIndex]="indexTab" class="w-100" data-id="5b584122">
           <mat-tab label="{{ 'Details' | translate }}" data-id="8b7f6901">
-            <div class="full-desc text-muted" data-id="6160f23b">
+            <div class="full-desc text-muted mt-20px" data-id="6160f23b">
               <div
                 *ngIf="product.description == null"
                 [id]="'ProductId' + product.id"
@@ -939,8 +938,9 @@
     </div>
 
     <div
-      class="d-flex justify-content-start align-items-start flex-sh-md-100 flex-sh-25 flex-wrap"
+      class="d-flex justify-content-start align-items-start flex-sh-md-100 flex-sh-30 flex-wrap"
       data-id="a1aa5f08"
+      style="height: fit-content"
     >
       <div class="d-block d-sm-none" data-id="ca9cfc1a">
         <ng-container [ngTemplateOutlet]="providerDetails" data-id="7b50e3bb"></ng-container>
@@ -960,6 +960,7 @@
           <mat-card
             appearance="outlined"
             class="light-block d-flex justify-content-start align-items-center"
+            style="border: none"
             [ngClass]="{ 'no-border': i === allBicons.length - 1 }"
             data-id="7590ce4d"
           >

@@ -22,7 +22,7 @@
     <mat-spinner *ngIf="inLoading" [diameter]="40" data-id="73310507"></mat-spinner>
   </div>
   <div
-    class="image-layout d-flex justify-content-center align-items-center flex-sh-md-35 mw-md-35"
+    class="image-layout d-flex justify-content-center align-items-center flex-sh-md-30"
     data-id="0f75171d"
   >
     <a
@@ -58,7 +58,7 @@
 
   <div
     (click)="onGoToProduct(product)"
-    class="product-info-wrapper d-flex flex-column p-3 p-md-2 w-md-100"
+    class="product-info-wrapper d-flex flex-column p-5px flex-sh-md-70"
     data-id="53e43045"
   >
     <div class="d-flex justify-content-between align-items-center" data-id="0b294772">
@@ -167,14 +167,6 @@
               {{ price?.price + price?.currency }}
             </p>
           </div>
-          <p class="mat-subtitle-2 m-0 price-offer" data-id="2a3d9f60">
-            {{ product | parsePriceProduct }}
-          </p>
-          <!-- <p class="mat-body-2 m-0" style="font-size: 15px;">
-            {{'Desde'|translate}}
-            {{product?.minSale}}
-            {{' unidades'|translate}}
-          </p> -->
         </div>
       </div>
     </div>

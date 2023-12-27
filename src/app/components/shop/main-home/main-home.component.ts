@@ -283,7 +283,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
     this.globalStateOfCookieService.getCookieState()
       ? this.initComponent()
       : this.setSubscriptionToCookie();
-    // this.frontProduct();
   }
 
   frontProduct() {
@@ -335,8 +334,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   identify(index, item) {
     return item.id;
   }
-
-  getSections() {}
 
   getCategoriesProducts() {
     const pfd = this.localStorageService.getFromStorage(FRONT_PRODUCT_DATA);
@@ -430,7 +427,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
   // }
 
   loadProducts() {
-    console.log('load');
     if (!this.loadingProducts) {
       this.loadingProducts = true;
       this.productService.getSectionsIds().subscribe(() => {

@@ -1,6 +1,78 @@
 @import 'scss/mixins/breakpoints';
 @import 'app';
 
+.info-bar-four-wrapper {
+  margin-top: 0;
+  border: none;
+  background: #fff;
+  // border-bottom: 1px solid #e5e5e5;
+
+  .info-bar-four {
+    .card-wrap {
+      padding: 16px 0;
+
+      .mat-mdc-card {
+        height: 70px;
+        box-sizing: border-box;
+        //box-shadow: none;
+        border-radius: 0;
+        border: none;
+        padding: 8px 16px;
+        border-right: 1px solid $theme-main-300;
+        box-shadow: none !important;
+        background: transparent;
+
+        .content {
+          p {
+            font-weight: 600;
+            font-size: 14.5px;
+          }
+        }
+
+        &.no-bd {
+          border-right: none;
+        }
+      }
+
+      .mat-icon {
+        color: $theme-main;
+        font-size: 41px;
+        margin-right: 10px;
+        line-height: 65px;
+        clear: both;
+        overflow: hidden;
+        /* display: block; */
+        width: auto;
+        height: 100%;
+        /* vertical-align: middle; */
+        padding: 0 3px;
+      }
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  .info-bar-four-wrapper {
+    border-bottom: none;
+
+    .info-bar-four {
+      border: none;
+
+      .card-wrap {
+        padding: 0;
+        // border-bottom: 1px solid $grey6;
+
+        .mat-mdc-card {
+          border: none;
+          min-height: 70px;
+          padding: 16px;
+          height: auto !important;
+        }
+      }
+    }
+  }
+}
+
 .blog-section {
   .section-title {
     margin-bottom: 40px;
