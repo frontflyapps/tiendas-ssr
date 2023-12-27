@@ -8,17 +8,22 @@
       <mat-list-item data-id="a3594bd6">
         <mat-icon data-id="6e8a30d3"> person</mat-icon>
         &nbsp;
-        <span class="mat-body-2" style="font-size: 19px" data-id="03fa3ba3">
+        <span class="mat-subtitle-2" style="font-size: 19px" data-id="03fa3ba3">
           {{ '¡Hola' | translate }},
         </span>
         &nbsp;
-        <span *ngIf="loggedInUser" class="mat-body-2" style="font-size: 19px" data-id="8b8c6044">
+        <span
+          *ngIf="loggedInUser"
+          class="mat-subtitle-2"
+          style="font-size: 19px"
+          data-id="8b8c6044"
+        >
           {{ loggedInUser.name }}!
         </span>
 
         <a
           *ngIf="!loggedInUser"
-          class="mat-body-2"
+          class="mat-subtitle-2"
           href="/my-account"
           style="font-size: 19px"
           data-id="b7bc2df9"
@@ -55,7 +60,7 @@
         data-id="8e57de56"
       >
         <mat-icon class="mr-3" data-id="41581ca5">card_membership</mat-icon>
-        <span class="mat-body-2" style="font-size: 15px" data-id="f2e0aec1">{{
+        <span class="mat-subtitle-2" style="font-size: 15px" data-id="f2e0aec1">{{
           'Crea tu negocio' | translate
         }}</span>
       </div>
@@ -65,7 +70,7 @@
 
     <mat-list data-id="30da0464">
       <mat-list-item data-id="1fe8c74c">
-        <span class="mat-body-2" style="font-size: 19px" data-id="8c27d6ef">
+        <span class="mat-subtitle-2" style="font-size: 19px" data-id="8c27d6ef">
           {{ 'Configuración' | translate }}
         </span>
       </mat-list-item>
@@ -188,7 +193,7 @@
       <mat-list-item data-id="051d6adc">
         <mat-icon data-id="f148e2d8"> notifications</mat-icon>
         &nbsp;
-        <span class="mat-body-2" style="font-size: 19px" data-id="ecec7146">
+        <span class="mat-subtitle-2" style="font-size: 19px" data-id="ecec7146">
           {{ 'Notificaciones' | translate }}
         </span>
 
@@ -207,7 +212,7 @@
   </mat-sidenav>
 
   <!-- Todos excepto vista movil -->
-  <div [class.py-2]="!loggedInUser" class="home-header d-sm-none" data-id="3722d5a3">
+  <div [class.py-2px]="!loggedInUser" class="home-header d-sm-none" data-id="3722d5a3">
     <div
       class="container-header d-flex justify-content-between align-items-center"
       data-id="d66730b1"
@@ -220,12 +225,7 @@
         [src]="logo"
         data-id="e43137ad"
       />
-      <button
-        (click)="start.toggle()"
-        mat-icon-button
-        class="d-sm-block-i d-none-i"
-        data-id="559e6732"
-      >
+      <button (click)="start.toggle()" mat-icon-button class="d-sm-block d-none" data-id="559e6732">
         <mat-icon data-id="bcbb3b4f">menu</mat-icon>
       </button>
 
@@ -325,7 +325,7 @@
         ngClass.xs="w-100"
         data-id="7f9159b7"
       >
-        <div class="d-flex justify-content-end align-items-center flex-sh-75" data-id="d556df4b">
+        <div class="d-flex justify-content-end align-items-center flex-sh-74" data-id="d556df4b">
           <div class="widget-text mx-2" data-id="8d80ff6a">
             <a
               #langMenuTrigger="matMenuTrigger"
@@ -361,28 +361,17 @@
           </div>
         </div>
 
-        <!--        <a [routerLink]="['/pages/compare']"-->
-        <!--           class='px-3'-->
-        <!--           fxLayoutAlign='start center'-->
-        <!--           matTooltip='Comparar productos'-->
-        <!--           routerLinkActive='router-link-active'>-->
-
-        <!--          <mat-icon *ngIf='compareItems.length' [matBadge]='compareItems.length'-->
-        <!--                    matBadgeColor='accent'>compare_arrows-->
-        <!--          </mat-icon>-->
-
-        <!--          <mat-icon *ngIf='!compareItems.length'>compare_arrows</mat-icon>-->
-        <!--          <span fxHide fxShow='false'>{{ 'Comparar productos' | translate }}</span>-->
-        <!--        </a>-->
-
         <a
           class="px-3 d-flex justify-content-start align-items-center"
           mat-button
           [matMenuTriggerFor]="currencyMenu"
           #currencyMenuTrigger="matMenuTrigger"
           data-id="1fc8a334"
+          style="font-weight: bold"
         >
-          <span class="flag-menu-title" data-id="81b74cff">{{ currency?.name | translate }}</span>
+          <span class="flag-menu-title" data-id="81b74cff"
+            >{{ currency?.name | translate }} $
+          </span>
           <mat-icon iconPositionEnd class="mat-icon-sm caret cur-icon" data-id="2ca079bc"
             >arrow_drop_down</mat-icon
           >
@@ -404,22 +393,10 @@
               (click)="changeCurrency(cur)"
               data-id="ec234a98"
             >
-              <span data-id="b615c7a7">&gt; {{ cur?.name | translate }}</span>
+              <span data-id="b615c7a7">{{ cur?.name | translate }}</span>
             </button>
           </span>
         </mat-menu>
-
-        <!-- <a class="px-3" fxLayoutAlign="start center" mat-button [matMenuTriggerFor]="langMenu" #langMenuTrigger="matMenuTrigger">
-          <img [src]="flag.image" width="18">
-          <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
-        </a>
-        <mat-menu #langMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
-          <span>
-            <button mat-menu-item *ngFor="let flag of flags" (click)="changeLang(flag)">
-              <img [src]="flag.image" width="18"> {{flag?.name}}
-            </button>
-          </span>
-        </mat-menu> -->
 
         <!-- ================================ -->
         <!-- CART MENU -->
@@ -493,7 +470,7 @@
 
           <button [routerLink]="['/my-orders']" mat-menu-item data-id="4a19f4ce">
             <mat-icon data-id="5dff8a87">receipt</mat-icon>
-            <span class="mat-body-1" data-id="f9d1d96a">{{ 'Mis órdenes' | translate }}</span>
+            <span class="mat-body-2" data-id="f9d1d96a">{{ 'Mis órdenes' | translate }}</span>
           </button>
 
           <button
@@ -503,17 +480,17 @@
             data-id="8cf55ea8"
           >
             <mat-icon data-id="164905eb">person_add</mat-icon>
-            <span class="mat-body-1" data-id="e63029fd">{{ 'Referidos' | translate }}</span>
+            <span class="mat-body-2" data-id="e63029fd">{{ 'Referidos' | translate }}</span>
           </button>
 
           <button (click)="onShowProfile()" mat-menu-item data-id="58b909c5">
             <mat-icon data-id="099e9591">build</mat-icon>
-            <span class="mat-body-1" data-id="45027029">{{ 'Profile' | translate }}</span>
+            <span class="mat-body-2" data-id="45027029">{{ 'Profile' | translate }}</span>
           </button>
 
           <button (click)="onShowMyContacts()" mat-menu-item data-id="12952e96">
             <mat-icon data-id="9bff6cd3">book</mat-icon>
-            <span class="mat-body-1" data-id="1faace6b">{{ 'Mis contactos' | translate }}</span>
+            <span class="mat-body-2" data-id="1faace6b">{{ 'Mis contactos' | translate }}</span>
           </button>
 
           <button
@@ -527,12 +504,12 @@
           >
             <mat-icon data-id="46351e64">edit</mat-icon>
             <a id="linkNavBack" style="display: none" data-id="d0989a66"></a>
-            <span class="mat-body-1" data-id="7b8cd475">{{ 'Administración' | translate }}</span>
+            <span class="mat-body-2" data-id="7b8cd475">{{ 'Administración' | translate }}</span>
           </button>
 
           <button (click)="onChangePass()" *ngIf="loggedInUser" mat-menu-item data-id="f7ae5e73">
             <mat-icon data-id="fe171c5f">settings</mat-icon>
-            <span class="mat-body-1" data-id="694cb0b5">{{
+            <span class="mat-body-2" data-id="694cb0b5">{{
               'Cambie la contraseña' | translate
             }}</span>
           </button>
@@ -550,7 +527,7 @@
             data-id="f1c9ca46"
           >
             <mat-icon data-id="0b7a7be3">shopping_basket</mat-icon>
-            <span class="mat-body-1" data-id="1abbd7e7">{{ 'Crea tu negocio' | translate }}</span>
+            <span class="mat-body-2" data-id="1abbd7e7">{{ 'Crea tu negocio' | translate }}</span>
           </div>
           <!--                    <a *ngIf="loggedInUser" mat-menu-item href="{{urlToCreateBusiness}}" target="_blank">-->
           <!--                      <mat-icon>shopping_basket</mat-icon>-->
@@ -559,7 +536,7 @@
 
           <button (click)="onLogout()" mat-menu-item data-id="8c4acafa">
             <mat-icon data-id="21ffc215">exit_to_app</mat-icon>
-            <span class="mat-body-1" data-id="62ddad44">{{ 'Logout' | translate }}</span>
+            <span class="mat-body-2" data-id="62ddad44">{{ 'Logout' | translate }}</span>
           </button>
         </mat-menu>
       </div>
@@ -659,6 +636,7 @@
             type="search"
             [matAutocomplete]="auto"
             class="flex-sh-0"
+            style="max-width: initial"
             data-id="cdd678e1"
           />
           <mat-spinner

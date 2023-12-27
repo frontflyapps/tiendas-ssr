@@ -76,7 +76,7 @@ app-my-orders {
       padding: 0px 0px;
     }
   }
-
+  /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
   .mat-tab-header-pagination-after,
   .mat-tab-header-rtl .mat-tab-header-pagination-before {
     padding-right: 0px !important;
@@ -93,7 +93,7 @@ app-my-orders {
     height: 4px !important;
     border-radius: 2px;
   }
-
+  /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
   .mat-tab-header-pagination-before,
   .mat-tab-header-rtl .mat-tab-header-pagination-after {
     padding-right: 0px !important;
@@ -219,11 +219,11 @@ app-my-orders {
       right: 16px;
     }
   }
-
+  /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
   .mat-tab-label-container {
     background-color: transparent !important;
   }
-
+  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   .mat-form-field-wrapper {
     padding-bottom: 8px !important;
   }

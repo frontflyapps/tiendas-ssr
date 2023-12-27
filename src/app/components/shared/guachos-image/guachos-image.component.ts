@@ -1,21 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GuajiritosImagePicker } from '@guajiritos/image-picker';
+import { GuajiritosImagePicker, ImagePickerConf } from '@guajiritos/image-picker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 
-export interface ImageConf {
-  width?: string;
-  height?: string;
-  borderRadius?: string;
-  domain?: string;
-  compressInitial?: boolean;
-  language?: string;
-  hideDeleteBtn?: boolean;
-  hideDownloadBtn?: boolean;
-  hideEditBtn?: boolean;
-  hideAddBtn?: boolean;
-}
 @Component({
   selector: 'app-guachos-image',
   templateUrl: './guachos-image.component.html',
@@ -25,7 +13,7 @@ export interface ImageConf {
 })
 export class GuachosImageComponent {
   @Input() imageSrc: any;
-  @Input() config?: ImageConf;
+  @Input() config?: ImagePickerConf;
   @Input() isEdit = false;
   @Input() create?: boolean;
   @Output() imageChanged: EventEmitter<any> = new EventEmitter<any>();

@@ -7,7 +7,7 @@
   outline: none;
   width: 100%;
 
-  .mat-list-item.active {
+  .mat-mdc-list-item.active {
     background-color: $theme-main;
     color: #fff;
     border-top-right-radius: 24px;
@@ -44,14 +44,14 @@
 
   &:hover,
   &:focus {
-    > .mat-list-item:not(.expanded) {
+    > .mat-mdc-list-item:not(.expanded) {
       border-radius: 16px;
       transition: border-radius 0.7s ease;
     }
   }
 }
 
-.mat-list-item {
+.mat-mdc-list-item {
   padding: 2px 0;
   position: relative;
   display: flex;

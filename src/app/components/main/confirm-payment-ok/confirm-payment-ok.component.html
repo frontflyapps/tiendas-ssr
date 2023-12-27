@@ -2,7 +2,9 @@
   <mat-toolbar *ngIf="action == 'confirmed'" id="successPay" matDialogTitle data-id="ca0fcaad">
     <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="b270256c">
       <mat-icon data-id="07eda804">done_all</mat-icon>
-      <span class="mat-title mb-0" data-id="c7ff579d">{{ 'Pago Confirmado' | translate }}</span>
+      <span class="mat-headline-6 mb-0" data-id="c7ff579d">{{
+        'Pago Confirmado' | translate
+      }}</span>
       <button
         (click)="dialogRef.close()"
         aria-label="Close dialog"
@@ -16,7 +18,7 @@
   <mat-toolbar *ngIf="action == 'cancelled'" id="cancelledPay" matDialogTitle data-id="875477f0">
     <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="dc54712b">
       <mat-icon data-id="efeee65e">cancel</mat-icon>
-      <span class="mat-title mb-0" data-id="94011726">{{ 'Pago Cancelado' | translate }}</span>
+      <span class="mat-headline-6 mb-0" data-id="94011726">{{ 'Pago Cancelado' | translate }}</span>
       <button
         (click)="dialogRef.close()"
         aria-label="Close dialog"
@@ -41,38 +43,38 @@
     >
       <div class="d-flex justify-content-between align-items-center" data-id="ab3a56f9">
         <div
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="3d1911ad"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="517e86aa">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="517e86aa">{{
             'Id de pago' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="35ae44c6">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="35ae44c6">{{
             selectedPayment.order
           }}</span>
         </div>
 
         <div
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="61b8af98"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="4074a86d">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="4074a86d">{{
             'fecha de creación' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="4c79d213">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="4c79d213">{{
             selectedPayment.createdAt | date: 'short'
           }}</span>
         </div>
 
         <div
           *ngIf="selectedPayment.cancelledAt"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="ecfd1947"
         >
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="27cee845">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="27cee845">{{
             'fecha de cancelación' | translate
           }}</span>
-          <span class="mb-0 mt-1 main-primary-700 mat-body-2" data-id="9421092c">{{
+          <span class="mb-0 mt-1 main-primary-700 mat-subtitle-2" data-id="9421092c">{{
             selectedPayment.cancelledAt | date: 'short'
           }}</span>
         </div>
@@ -84,7 +86,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="5304c61e"
         >
           <span class="mat-caption color-grey-800" data-id="6a5fe6ec">
@@ -99,7 +101,7 @@
           <div
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
-            class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
             data-id="17d21b29"
           >
             <span class="mat-caption color-grey-800" data-id="24f14723">
@@ -113,7 +115,7 @@
           <div
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
-            class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
             data-id="c155e7c5"
           >
             <span class="mat-caption color-grey-800" data-id="d1ca4b52">
@@ -128,7 +130,7 @@
           <div
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
-            class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
             data-id="eba4882b"
           >
             <span class="mat-caption color-grey-800" data-id="5f20f6b9">
@@ -142,7 +144,7 @@
           <div
             ngClass.gt-xs="py-3"
             ngClass.lt-sm="py-2 border-bottom"
-            class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+            class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
             data-id="357c53c8"
           >
             <span class="mat-caption color-grey-800" data-id="d0769a70">
@@ -157,7 +159,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="bb759737"
         >
           <span class="mat-caption color-grey-800" data-id="5d962989">
@@ -171,7 +173,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="f2bcd5d0"
         >
           <span class="mat-caption color-grey-800" data-id="8c3c15f6">
@@ -184,7 +186,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="5074049e"
         >
           <span class="mat-caption color-grey-800" data-id="4c932b2e">
@@ -202,7 +204,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="6380762f"
         >
           <span class="mat-caption color-grey-800" data-id="433aafe3">
@@ -216,7 +218,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="9a90e98d"
         >
           <ng-container *ngIf="this.selectedPayment.status == 'cancelled'" data-id="130f5c9a">
@@ -240,7 +242,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="e42d16ce"
         >
           <span class="mat-caption color-grey-800" data-id="af39ec51">
@@ -263,7 +265,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="0b0f9d21"
         >
           <span class="mat-caption color-grey-800" data-id="ab28d6d9">
@@ -277,7 +279,7 @@
         <div
           ngClass.gt-xs="py-3"
           ngClass.lt-sm="py-2 border-bottom"
-          class="d-flex flex-column justify-content-start align-items-start flex-sh-35 flex-sh-xs-100 flex-sh-sm-50"
+          class="d-flex flex-column justify-content-start align-items-start flex-sh-34 flex-sh-xs-100 flex-sh-sm-50"
           data-id="57e5bf8a"
         >
           <span class="mat-caption color-grey-800" data-id="a05ecde6">
@@ -292,7 +294,7 @@
       <mat-divider class="d-xs-none" data-id="eb6fb763"></mat-divider>
 
       <ng-container *ngIf="this.selectedPayment.status == 'cancelled'" data-id="3f476c16">
-        <p class="mat-title my-2" ngClass.xs="mat-body-2" data-id="84817802">
+        <p class="mat-headline-6 my-2" ngClass.xs="mat-body-2" data-id="84817802">
           {{ 'Comentario acerca de la cancelación' | translate }}
         </p>
         <blockquote class="cancelNote" data-id="06a44a29">

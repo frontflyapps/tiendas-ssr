@@ -22,7 +22,7 @@
     <mat-spinner *ngIf="inLoading" [diameter]="40" data-id="73310507"></mat-spinner>
   </div>
   <div
-    class="image-layout d-flex justify-content-center align-items-center flex-sh-md-35 mw-md-35"
+    class="image-layout d-flex justify-content-center align-items-center flex-sh-md-30"
     data-id="0f75171d"
   >
     <a
@@ -58,7 +58,7 @@
 
   <div
     (click)="onGoToProduct(product)"
-    class="product-info-wrapper d-flex flex-column p-3 p-md-2 w-md-100"
+    class="product-info-wrapper d-flex flex-column p-5px flex-sh-md-70"
     data-id="53e43045"
   >
     <div class="d-flex justify-content-between align-items-center" data-id="0b294772">
@@ -133,9 +133,18 @@
             <!-- <span style="color: #e53935; font-size: 12px;" class="ml-2 px-0">{{product?.offerValue}}<span
                 style="color: #e53935; font-size: 12px;" *ngIf="product?.isPercent">% </span>off</span> -->
           </p>
-          <p class="mat-body-2 m-0 price-offer" data-id="d52dde44">
+          <p class="mat-subtitle-2 m-0 price-offer" data-id="d52dde44">
             {{ product | parsePriceProduct: 'offert' }}
           </p>
+          <div
+            [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+            *ngFor="let price of product?.SupplementPrices"
+            class="d-flex transpilerClass-fxLayoutGap-a7de39"
+            data-id="a5a1953a"
+          >
+            <h3 class="price mb-10" data-id="97079597">+</h3>
+            <h3 class="price mb-10" data-id="d6783750">{{ price?.price + price?.currency }}</h3>
+          </div>
           <!-- <p class="mat-body-2 m-0" style="font-size: 15px;">
             {{'Desde'|translate}}
             {{product?.minSale}}
@@ -143,15 +152,21 @@
           </p> -->
         </div>
 
-        <div *ngIf="!product?.offerValue" data-id="4741af83">
-          <p class="mat-body-2 m-0 price-offer" data-id="2a3d9f60">
+        <div *ngIf="!product?.offerValue" class="d-flex" data-id="b788f4ce">
+          <p class="mat-body-2 m-0 price-offer" data-id="ee0e54d4">
             {{ product | parsePriceProduct }}
           </p>
-          <!-- <p class="mat-body-2 m-0" style="font-size: 15px;">
-            {{'Desde'|translate}}
-            {{product?.minSale}}
-            {{' unidades'|translate}}
-          </p> -->
+          <div
+            [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+            *ngFor="let price of product?.SupplementPrices"
+            class="d-flex transpilerClass-fxLayoutGap-23c4ad"
+            data-id="d81a6f50"
+          >
+            <p class="mat-body-2 m-0 price-offer" data-id="caee5d3f">+</p>
+            <p class="mat-body-2 m-0 price-offer" data-id="69afa36a">
+              {{ price?.price + price?.currency }}
+            </p>
+          </div>
         </div>
       </div>
     </div>

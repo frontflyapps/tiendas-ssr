@@ -1,17 +1,17 @@
 {
   "name": "tienda-ssr",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "test": "ng test",
     "generate": "node ./scripts/generate",
-    "start": "yarn generate && ng run tienda-ssr:serve-ssr --port 4308",
+    "start": "pnpm generate && ng run tienda-ssr:serve-ssr --port 4308",
     "serve": "node dist/server/main.js",
-    "build": "yarn generate && rm -rf ./dist && ng build tienda-ssr && ng run tienda-ssr:server",
-    "build:stats": "yarn generate && rm -rf ./dist && ng build tienda-ssr --stats-json && ng run tienda-ssr:server --stats-json",
+    "build": "pnpm generate && rm -rf ./dist && ng build tienda-ssr && ng run tienda-ssr:server",
+    "build:stats": "pnpm generate && rm -rf ./dist && ng build tienda-ssr --stats-json && ng run tienda-ssr:server --stats-json",
     "prerender": "ng run tienda-ssr:prerender",
     "prettier": "prettier --write 'src/**/*.{js,ts,html,scss}'",
     "lint": "eslint src/app --ext js,ts",
-    "lint:fix": "yarn prettier; yarn lint --fix",
+    "lint:fix": "pnpm prettier; pnpm lint --fix",
     "analyze:b:VeoVeo": "webpack-bundle-analyzer --port 8889 dist/browser/stats.json",
     "analyze:s:VeoVeo": "webpack-bundle-analyzer --port 8888 dist/server/stats.json"
   },

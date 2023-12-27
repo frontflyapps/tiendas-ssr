@@ -136,6 +136,7 @@ export class MyAccountComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private showSnackbar: ShowSnackbarService,
+    private showToastr: ShowToastrService,
     private loggedInUserService: LoggedInUserService,
     public phoneCodesService: PhoneCodeService,
     public utilsService: UtilsService,
@@ -263,10 +264,11 @@ export class MyAccountComponent implements OnInit {
           this.onCheckPin();
         });
       } else {
-        this.showSnackbar.showError(
+        this.showToastr.showError(
           this.translate.instant(
             'The email or pin are invalid the validation accont is going to fail',
           ),
+          undefined,
           8000,
         );
       }

@@ -1,7 +1,7 @@
 <div class="dialog-content-wrapper" data-id="ce063fdb">
   <mat-toolbar class="mb-2" color="primary" id="toolbarHeader" matDialogTitle data-id="d2dbe809">
     <mat-toolbar-row class="d-flex justify-content-between align-items-center" data-id="85f4023e">
-      <span class="mat-title mb-0" data-id="2a52002e">{{
+      <span class="mat-headline-6 mb-0" data-id="2a52002e">{{
         'Shipping Rates Details' | translate
       }}</span>
       <button
@@ -16,7 +16,7 @@
   </mat-toolbar>
 
   <div class="my-dialog-content" mat-dialog-content data-id="af4f78a5">
-    <mat-card class="mat-elevation-z0" data-id="885694ce">
+    <mat-card appearance="outlined" class="mat-elevation-z0" data-id="885694ce">
       <div class="responsive_table" data-id="c813bc5a">
         <table [dataSource]="dataSource" mat-table data-id="4a8f340b">
           <ng-container matColumnDef="product" data-id="9caa62c8">
@@ -27,13 +27,16 @@
               style="width: 10%"
               data-id="54152f69"
             >
-              <span class="mat-subheading-1" data-id="9871787d">{{ 'Product' | translate }}</span>
+              <span class="mat-body-1" data-id="9871787d">{{ 'Product' | translate }}</span>
             </th>
             <td *matCellDef="let element" class="pb-2" mat-cell data-id="eb29ecf0">
               <div class="d-flex justify-content-center align-items-center" data-id="46563fb5">
-                <span *ngIf="element?.Product" class="mat-body-2 line-clamp" data-id="24159610">{{
-                  utilsService.parserLanguage(element?.Product?.name, language)
-                }}</span>
+                <span
+                  *ngIf="element?.Product"
+                  class="mat-subtitle-2 line-clamp"
+                  data-id="24159610"
+                  >{{ utilsService.parserLanguage(element?.Product?.name, language) }}</span
+                >
               </div>
             </td>
             <td *matFooterCellDef class="text-center" mat-footer-cell data-id="d4181968">
@@ -51,11 +54,11 @@
               style="width: 10%"
               data-id="1eb62111"
             >
-              <span class="mat-subheading-1" data-id="ec6221c7">{{ 'Price' | translate }}</span>
+              <span class="mat-body-1" data-id="ec6221c7">{{ 'Price' | translate }}</span>
             </th>
             <td *matCellDef="let element" mat-cell data-id="5f8654ab">
               <div class="d-flex justify-content-center align-items-center" data-id="773b2ab5">
-                <span *ngIf="element?.price" class="mat-body-2" data-id="25f59fd6">{{
+                <span *ngIf="element?.price" class="mat-subtitle-2" data-id="25f59fd6">{{
                   element?.price | currencyMarket: marketCard
                 }}</span>
               </div>

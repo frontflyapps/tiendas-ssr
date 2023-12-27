@@ -1,4 +1,8 @@
-<div class="container-product-details" style="min-height: 80vh !important" data-id="e1f65b54">
+<div
+  class="container-product-details px-md-16px"
+  style="min-height: 80vh !important"
+  data-id="e1f65b54"
+>
   <!--  <div *ngIf='isLoading' class='loading-shade-full'>-->
   <!--    <mat-spinner *ngIf='isLoading' color='accent'></mat-spinner>-->
   <!--  </div>-->
@@ -21,14 +25,14 @@
     class="details-wrapper sec-padding d-flex flex-wrap pt-3"
     data-id="c94ba599"
   >
-    <div class="h-100 d-flex flex-column flex-sh-75 flex-sh-md-100" data-id="c0481d27">
+    <div class="h-100 d-flex flex-column flex-sh-70 flex-sh-md-100" data-id="c0481d27">
       <div
         class="d-flex justify-content-start align-items-start flex-sh-100 flex-md-wrap"
         data-id="e24d106b"
       >
         <!--    NAME PRODUCT AND PRICE    -->
         <div
-          class="product-right my-0 flex-column justify-content-start align-items-start d-md-flex-i d-none-i"
+          class="product-right my-0 flex-column justify-content-start align-items-start d-md-flex d-none"
           data-id="aa50d516"
         >
           <div
@@ -54,6 +58,15 @@
               <h3 class="price mb-10" data-id="631f61cd">
                 {{ product | parsePriceProduct: 'offert' }}
               </h3>
+              <div
+                [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                *ngFor="let price of product?.SupplementPrices"
+                class="d-flex transpilerClass-fxLayoutGap-2d664e"
+                data-id="015827c3"
+              >
+                <h3 class="price mb-10" data-id="3bc3db58">+</h3>
+                <h3 class="price mb-10" data-id="e7e64708">{{ price?.price + price?.currency }}</h3>
+              </div>
             </div>
 
             <div
@@ -62,6 +75,15 @@
               data-id="9796c64a"
             >
               <h3 class="price mb-10" data-id="897a67b3">{{ product | parsePriceProduct }}</h3>
+              <div
+                [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                *ngFor="let price of product?.SupplementPrices"
+                class="d-flex transpilerClass-fxLayoutGap-ba7723"
+                data-id="aa4faeee"
+              >
+                <h3 class="price mb-10" data-id="e596f8f7">+</h3>
+                <h3 class="price mb-10" data-id="788560b5">{{ price?.price + price?.currency }}</h3>
+              </div>
             </div>
 
             <div
@@ -91,7 +113,8 @@
         >
           <!-- CARD -->
           <mat-card
-            class="my-product mat-elevation-z0 d-flex-i d-md-none-i flex-row-i"
+            appearance="outlined"
+            class="my-product mat-elevation-z0 d-flex d-md-none flex-row"
             data-id="fba660d7"
             style="border: none; box-shadow: none"
           >
@@ -104,7 +127,7 @@
               id="shareBtn"
               mat-icon-button
               matTooltip="{{ 'Compartir en redes sociales' | translate }}"
-              class="d-md-block-i d-none-i"
+              class="d-md-block d-none"
               data-id="8f4e09e6"
             >
               <mat-icon data-id="ad392d4b">share</mat-icon>
@@ -163,7 +186,8 @@
           </mat-card>
           <!-- XS CARD -->
           <mat-card
-            class="mat-elevation-z0 w-100 d-md-flex-i d-none-i flex-row-i"
+            appearance="outlined"
+            class="mat-elevation-z0 w-100 d-md-flex d-none flex-row"
             data-id="70e4cc7a"
           >
             <span *ngIf="product?.justPublished" class="just-published" data-id="4564026e">
@@ -217,7 +241,7 @@
         <!--    VARIANTS    -->
         <div
           *ngIf="!isLoading"
-          class="flex-sh-35 flex-sh-lg-90 flex-sh-md-100 px-3 m-0"
+          class="flex-sh-34 flex-sh-lg-90 flex-sh-md-100 px-3 m-0"
           data-id="68f2dc46"
         >
           <div class="product-right d-flex flex-column mt-3" data-id="f8b1a998">
@@ -245,6 +269,17 @@
                 <h3 class="price mb-10" data-id="c84b7c07">
                   {{ product | parsePriceProduct: 'offert' }}
                 </h3>
+                <div
+                  [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                  *ngFor="let price of product?.SupplementPrices"
+                  class="d-flex transpilerClass-fxLayoutGap-aba8e7"
+                  data-id="4b42daab"
+                >
+                  <h3 class="price mb-10" data-id="beff5226">+</h3>
+                  <h3 class="price mb-10" data-id="94fb0822">
+                    {{ price?.price + price?.currency }}
+                  </h3>
+                </div>
               </div>
 
               <div
@@ -253,6 +288,17 @@
                 data-id="1b8a2904"
               >
                 <h3 class="price mb-10" data-id="751db709">{{ product | parsePriceProduct }}</h3>
+                <div
+                  [hidden]="!product?.SupplementPrices && product?.SupplementPrices?.length === 0"
+                  *ngFor="let price of product?.SupplementPrices"
+                  class="d-flex transpilerClass-fxLayoutGap-f39369"
+                  data-id="475d7c48"
+                >
+                  <h3 class="price mb-10" data-id="8ecaca2e">+</h3>
+                  <h3 class="price mb-10" data-id="95bdb850">
+                    {{ price?.price + price?.currency }}
+                  </h3>
+                </div>
               </div>
 
               <div
@@ -339,7 +385,7 @@
               </div>
               <!--                        <app-skeleton-loading-cards *ngIf="loadingRelated" [setConfiguration]="{ xs: 1, sm: 2, md: 2, lg: 3 }">-->
               <!--                        </app-skeleton-loading-cards>-->
-              <p class="mat-body-2" style="font-size: 15px" data-id="71f1cc0e">
+              <p class="mat-subtitle-2" style="font-size: 15px" data-id="71f1cc0e">
                 {{ 'Compra a partir de ' | translate }}
                 {{ product.minSale }}
                 {{ ' unidades' | translate }}
@@ -364,7 +410,7 @@
                 }}
               </p>
               <p
-                class="mat-body-2 uppercase mb-2"
+                class="mat-subtitle-2 uppercase mb-2"
                 matTooltip="{{ 'Rango de precios por cantidad de unidades a comprar' | translate }}"
                 data-id="ec9f7d5d"
               >
@@ -382,11 +428,11 @@
                   style="width: 80px"
                   data-id="0b5c2bc1"
                 >
-                  <p class="mat-body-1" data-id="451d7622">{{ item.min }} - {{ item.max }}</p>
-                  <p *ngIf="product.offerValue" class="mat-body-2" data-id="ad0a85b5">
+                  <p class="mat-body-2" data-id="451d7622">{{ item.min }} - {{ item.max }}</p>
+                  <p *ngIf="product.offerValue" class="mat-subtitle-2" data-id="ad0a85b5">
                     {{ item.priceOffer | currencyProduct: product.currency }}
                   </p>
-                  <p *ngIf="!product.offerValue" class="mat-body-2" data-id="b1e6aeff">
+                  <p *ngIf="!product.offerValue" class="mat-subtitle-2" data-id="b1e6aeff">
                     {{ item.price | currencyProduct: product.currency }}
                   </p>
                 </div>
@@ -417,9 +463,9 @@
                     >
 
                     <span
-                      *ngIf="counter > product?.Stock?.quantity ? product?.Stock?.quantity : 0"
+                      *ngIf="counter > product?.Stock?.quantity ? product?.Stock?.quantity == 0 : 0"
                       class="avalibility"
-                      data-id="05edf9e4"
+                      data-id="95e17755"
                       ><span
                         class="ml-3"
                         style="color: #f33927 !important; font-weight: 500"
@@ -432,10 +478,10 @@
                     *ngIf="
                       product.status !== 'comingSoon' &&
                       businessConfig?.showQuantityProductFront &&
-                      (counter < product?.Stock?.quantity ? product?.Stock?.quantity : 0)
+                      (counter <= product?.Stock?.quantity ? product?.Stock?.quantity : 0)
                     "
                     class="my-2"
-                    data-id="68c7b707"
+                    data-id="eed61a48"
                   >
                     <div
                       [ngClass]="{
@@ -452,7 +498,11 @@
                         *ngIf="!loadingAvailability"
                         data-id="45d886c8"
                       >
-                        {{ product?.Stock?.quantity + ' disponibles' }}
+                        {{
+                          product?.Stock?.quantity &gt; 1
+                            ? product?.Stock?.quantity + ' disponibles'
+                            : product?.Stock?.quantity + ' disponible'
+                        }}
                       </span>
                       <span
                         *ngIf="loadingAvailability"
@@ -470,7 +520,7 @@
                   </div>
 
                   <p
-                    class="mat-body-2 uppercase my-3 coming-soon-text"
+                    class="mat-subtitle-2 uppercase my-3 coming-soon-text"
                     *ngIf="product.status === 'comingSoon'"
                     matTooltip="{{ 'Este producto estará a la venta próximamente' | translate }}"
                     data-id="ad2818f3"
@@ -553,6 +603,7 @@
                   mat-raised-button
                   ngClass.lt-sm="w-100"
                   data-id="f2248f48"
+                  [disabled]="product?.Stock?.quantity == 0"
                 >
                   {{ 'ADD TO CART' | translate }}
                 </button>
@@ -564,6 +615,7 @@
                   mat-raised-button
                   ngClass.lt-sm="w-100"
                   data-id="4ac47dc5"
+                  [disabled]="product?.Stock?.quantity == 0"
                 >
                   {{ 'BUY NOW' | translate }}
                 </button>
@@ -578,14 +630,9 @@
         class="d-flex justify-content-start align-items-start flex-sh-100 flex-sh-md-75"
         data-id="2380ff60"
       >
-        <mat-tab-group
-          [selectedIndex]="indexTab"
-          ngClass.gt-sm="w-95"
-          ngClass.lt-md="w-100"
-          data-id="5b584122"
-        >
+        <mat-tab-group [selectedIndex]="indexTab" class="w-100" data-id="5b584122">
           <mat-tab label="{{ 'Details' | translate }}" data-id="8b7f6901">
-            <div class="full-desc text-muted" data-id="6160f23b">
+            <div class="full-desc text-muted mt-20px" data-id="6160f23b">
               <div
                 *ngIf="product.description == null"
                 [id]="'ProductId' + product.id"
@@ -658,7 +705,7 @@
                     class="ml-2 text-list d-flex flex-column justify-content-start align-items-start"
                     data-id="b37134bf"
                   >
-                    <span class="name mat-body-2" data-id="a3b3093f"
+                    <span class="name mat-subtitle-2" data-id="a3b3093f"
                       >{{ review.Client.name + ' ' + (review.Client.lastname || '') }}
                       <span class="text-muted" data-id="ae207347"
                         ><small data-id="17b6d9cb"
@@ -670,7 +717,7 @@
                       <guajiritos-rating [config]="{label:'estrellas',readOnly:true,size:'12px'}" [value]="review.rating">
                       </guajiritos-rating>
                     </p> -->
-                    <p class="mat-body-1" ngClass.lt-md="mat-caption" data-id="4df18531">
+                    <p class="mat-body-2" ngClass.lt-md="mat-caption" data-id="4df18531">
                       {{ review.review }}
                     </p>
                     <button
@@ -703,7 +750,7 @@
                 </div>
 
                 <div class="writte-reviews mt-3" data-id="61c52e04">
-                  <h4 class="my-2 mat-title" data-id="ca86886a">
+                  <h4 class="my-2 mat-headline-6" data-id="ca86886a">
                     {{ 'LEAVE YOUR REVIEW' | translate }}
                   </h4>
                   <div class="divider" data-id="a7253b83"></div>
@@ -891,8 +938,9 @@
     </div>
 
     <div
-      class="d-flex justify-content-start align-items-start flex-sh-md-100 flex-sh-25 flex-wrap"
+      class="d-flex justify-content-start align-items-start flex-sh-md-100 flex-sh-30 flex-wrap"
       data-id="a1aa5f08"
+      style="height: fit-content"
     >
       <div class="d-block d-sm-none" data-id="ca9cfc1a">
         <ng-container [ngTemplateOutlet]="providerDetails" data-id="7b50e3bb"></ng-container>
@@ -910,7 +958,9 @@
           data-id="30d20ec2"
         >
           <mat-card
+            appearance="outlined"
             class="light-block d-flex justify-content-start align-items-center"
+            style="border: none"
             [ngClass]="{ 'no-border': i === allBicons.length - 1 }"
             data-id="7590ce4d"
           >
@@ -935,6 +985,7 @@
           (click)="onAddtoCartNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
           data-id="76630801"
+          *ngIf="product?.Stock?.quantity > 0"
         >
           <mat-icon class="mr-2" data-id="a81e64ec"> shopping_cart</mat-icon>
           {{ 'Añadir al carrito' | translate }}
@@ -952,6 +1003,7 @@
           (click)="onGoToCheckouNav()"
           class="list-compare-link d-flex justify-content-start align-items-center"
           data-id="a04c381a"
+          *ngIf="product?.Stock?.quantity > 0"
         >
           <mat-icon class="mr-2" data-id="b9f2003c"> slideshow</mat-icon>
           {{ 'Comprar ahora' | translate }}
@@ -990,7 +1042,9 @@
 
       <ng-template #providerDetails data-id="bae551ad">
         <div style="width: 100%" data-id="1aaa3408">
-          <h4 class="mat-body-2 uppercase" data-id="ec90e8d5">{{ 'Comprando en' | translate }}</h4>
+          <h4 class="mat-subtitle-2 uppercase" data-id="ec90e8d5">
+            {{ 'Comprando en' | translate }}
+          </h4>
           <a
             class="list-compare-link no-decoration d-flex justify-content-start align-items-center"
             data-id="a9230a92"

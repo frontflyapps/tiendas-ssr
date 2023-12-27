@@ -1,6 +1,6 @@
 <div class="container" data-id="1e92a258">
   <div class="d-flex flex-column justify-content-start align-items-stretch" data-id="32267e19">
-    <mat-card class="mx-auto my-3" id="CardLogin" data-id="80ed8e1a">
+    <mat-card appearance="outlined" class="mx-auto my-3" id="CardLogin" data-id="80ed8e1a">
       <!-- <div *ngIf="inLoading" class="loading-shade">
         <mat-spinner *ngIf="inLoading"></mat-spinner>
       </div> -->
@@ -43,42 +43,42 @@
           </button>
           <span
             *ngIf="showLoginForm"
-            class="mat-title mb-0"
+            class="mat-headline-6 mb-0"
             ngClass.xs="mat-body-2"
             data-id="bce970dc"
             >{{ 'Sign in to your account' | translate }}</span
           >
           <span
             *ngIf="showRegistrationForm"
-            class="mat-title mb-0"
+            class="mat-headline-6 mb-0"
             ngClass.xs="mat-body-2"
             data-id="0913b537"
             >{{ 'Register and be part of us' | translate }}</span
           >
           <span
             *ngIf="showPinForm"
-            class="mat-title mb-0"
+            class="mat-headline-6 mb-0"
             ngClass.xs="mat-body-2"
             data-id="bd04c42e"
             >{{ 'User validation' | translate }}</span
           >
           <span
             *ngIf="showResetPassForm"
-            class="mat-title mb-0"
+            class="mat-headline-6 mb-0"
             ngClass.xs="mat-body-2"
             data-id="cd3f7f4e"
             >{{ 'Change your password' | translate }}</span
           >
           <span
             *ngIf="showNewPassForm"
-            class="mat-title mb-0"
+            class="mat-headline-6 mb-0"
             ngClass.xs="mat-body-2"
             data-id="a31eadc2"
             >{{ 'Create new password' | translate }}</span
           >
           <span
             *ngIf="showActivateForm"
-            class="mat-title mb-0"
+            class="mat-headline-6 mb-0"
             ngClass.xs="mat-body-2"
             data-id="4db521fd"
             >{{ 'Validate account' | translate }}</span
@@ -178,7 +178,7 @@
               <a
                 [queryParams]="{ modal: 'password' }"
                 [routerLink]="['/my-account']"
-                class="uppercase mat-subheading-1 my-1 grey-700 span-link"
+                class="uppercase mat-body-1 my-1 grey-700 span-link"
                 data-id="fcf12754"
                 >{{ 'Forgot my passsword' | translate }}</a
               >
@@ -192,7 +192,7 @@
               <a
                 [queryParams]="{ modal: 'validate' }"
                 [routerLink]="['/my-account']"
-                class="uppercase mat-subheading-1 my-1 grey-700 span-link"
+                class="uppercase mat-body-1 my-1 grey-700 span-link"
                 data-id="ea916499"
                 >{{ 'Validate account' | translate }}</a
               >
@@ -206,7 +206,7 @@
               <a
                 [queryParams]="{ modal: 'registration' }"
                 [routerLink]="['/my-account']"
-                class="uppercase mat-subheading-1 my-1 grey-700 span-link"
+                class="uppercase mat-body-1 my-1 grey-700 span-link"
                 data-id="cad6fe2c"
                 >{{ 'Register' | translate }}</a
               >
@@ -1747,10 +1747,13 @@
                   class="pt-3 d-flex flex-column justify-content-around align-items-stretch"
                   data-id="ce9093ff"
                 >
-                  <div class="d-flex justify-content-between align-items-start" data-id="ffe9a30c">
+                  <div
+                    class="d-flex flex-wrap justify-content-between align-items-start"
+                    data-id="ffe9a30c"
+                  >
                     <mat-form-field
                       appearance="outline"
-                      class="flex-sh-50 flex-sh-md-100"
+                      class="flex-sh-48 flex-sh-md-100"
                       data-id="d2b35439"
                     >
                       <mat-label data-id="c2ffb626">{{ 'Name' | translate }}</mat-label>
@@ -1821,11 +1824,7 @@
                     </mat-error>
                   </mat-form-field> -->
 
-                  <mat-form-field
-                    appearance="outline"
-                    class="flex-sh-50 flex-sh-md-100"
-                    data-id="a93b0f84"
-                  >
+                  <mat-form-field appearance="outline" class="flex-sh-100" data-id="a93b0f84">
                     <mat-label data-id="1611478b">{{ 'Email' | translate }}</mat-label>
                     <input
                       (keypress)="utilsService.keyLettersNumberForEmail($event)"
@@ -1855,7 +1854,7 @@
                   </mat-form-field>
 
                   <div
-                    class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-2fde8e"
+                    class="w-100 d-flex flex-sh-100 transpilerClass-fxLayoutGap-2fde8e"
                     data-id="c8bd7a4c"
                   >
                     <guajiritos-general-autocomplete
@@ -1867,7 +1866,7 @@
                       [filterString]="['filter[$and][code][$like]']"
                       [url]="phoneCodesService.url"
                       [formControl]="registrationForm.get('PhoneCallingCodeId')"
-                      class="flex-sh-30 flex-sh-md-30"
+                      class="flex-sh-28 flex-sh-md-30"
                       data-id="be882be9"
                     ></guajiritos-general-autocomplete>
 
@@ -1911,12 +1910,12 @@
                   </div>
 
                   <div
-                    class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-xs-start align-items-sm-start"
+                    class="d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-center align-items-sm-start"
                     data-id="f56af463"
                   >
                     <mat-form-field
                       appearance="outline"
-                      class="example-full-width flex-sh-50"
+                      class="example-full-width flex-sh-48 flex-sh-md-100"
                       data-id="539f6340"
                     >
                       <mat-label data-id="4a4c97b1">{{ 'Password' | translate }}</mat-label>
@@ -1941,6 +1940,7 @@
 
                       <mat-error
                         *ngIf="
+                          !fromPassRegister.controls['password'].hasError('required') &&
                           fromPassRegister.hasError('mismatch') &&
                           !fromPassRegister.controls['password'].hasError('pattern')
                         "
@@ -1958,7 +1958,7 @@
                         'ng-valid': !fromPassRegister.hasError('mismatch')
                       }"
                       appearance="outline"
-                      class="example-full-width flex-sh-50"
+                      class="example-full-width flex-sh-48 flex-sh-md-100"
                       data-id="cc1523d7"
                     >
                       <mat-label data-id="d3d13754">{{
@@ -2220,7 +2220,7 @@
           data-id="e9e5046f"
         >
           <div class="alert alert-primary" role="alert" data-id="66506fd3">
-            <span class="mat-body-2" data-id="020602b4">{{
+            <span class="mat-subtitle-2" data-id="020602b4">{{
               'Insert the pin sent to your email' | translate
             }}</span>
           </div>
@@ -2247,7 +2247,7 @@
             </mat-form-field>
 
             <div
-              class="mt-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-start align-items-xs-start align-items-sm-start"
+              class="flex-wrap mt-3 d-flex d-xs-flex d-sm-flex flex-xs-column flex-sm-column justify-content-between align-items-start align-items-xs-start align-items-sm-start"
               data-id="d6f890f8"
             >
               <mat-form-field

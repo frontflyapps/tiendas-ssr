@@ -58,8 +58,9 @@
           data-id="b41ccc06"
         >
           <mat-card
+            appearance="outlined"
             [ngClass]="{ 'no-bd': i === allBicons.length - 1 }"
-            class="light-block"
+            class="light-block pt-0"
             data-id="7e51d3bd"
           >
             <div class="d-flex justify-content-start align-items-center" data-id="eee8fab5">
@@ -85,7 +86,7 @@
     *ngIf="arraySectionProducts.length == 0 && !loadingAllProduct && !loadingProducts"
     data-id="e73ada5e"
   >
-    <h3 class="mat-title py-4" style="text-align: center" data-id="76f5e2f3">
+    <h3 class="mat-headline-6 py-4" style="text-align: center" data-id="76f5e2f3">
       {{ 'No hay ningún producto disponible' | translate }}
     </h3>
   </ng-container>

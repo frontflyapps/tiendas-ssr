@@ -12,7 +12,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LoggedInUserService } from '../../../core/services/loggedInUser/logged-in-user.service';
-import { ShowSnackbarService } from '../../../core/services/show-snackbar/show-snackbar.service';
 import { UtilsService } from '../../../core/services/utils/utils.service';
 import { UploadTypesEnum } from '../file-upload/upload-types.enum';
 import { environment } from 'environments/environment';
@@ -22,6 +21,7 @@ import { NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ShowToastrService } from 'src/app/core/services/show-toastr/show-toastr.service';
 
 @Component({
   selector: 'app-dialog-upload-media',
@@ -69,7 +69,7 @@ export class DialogUploadMediaComponent implements OnInit, OnDestroy {
     public spinner: NgxSpinnerService,
     public utilsService: UtilsService,
     // private uploadFilesService: UploadFilesService,
-    private showSnackbar: ShowSnackbarService,
+    private showToastr: ShowToastrService,
   ) {
     this.dialogRef.disableClose = true;
     this.loggedInUser = this.loggedInUserService.getLoggedInUser();
@@ -135,9 +135,10 @@ export class DialogUploadMediaComponent implements OnInit, OnDestroy {
     this.url = event.url + '';
     this.uuid = event.uuid + '';
     this.FileId = event.FileId;
-    this.showSnackbar.showSucces(
+    this.showToastr.showSucces(
       `Su video ha comenzado el proceso de subida, espere a que este completado el proceso para continuar con la creación o edición
       del mismo.`,
+      undefined,
       8000,
     );
     // this.uploadFilesService.emitUploadStart(event);

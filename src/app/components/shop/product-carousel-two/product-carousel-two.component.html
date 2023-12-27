@@ -2,7 +2,7 @@
   <div [swiper]="config" class="product-item swiper-container" data-id="97536c7b">
     <div class="swiper-wrapper h-100" data-id="898765e1">
       <div *ngFor="let product of products" class="swiper-slide" data-id="bb59f277">
-        <mat-card class="cardProduct d-flex flex-column" data-id="a8db5dce">
+        <mat-card appearance="outlined" class="cardProduct d-flex flex-column" data-id="a8db5dce">
           <div class="product-img" data-id="9383226e">
             <a
               [queryParams]="{
@@ -56,7 +56,7 @@
               </div>
 
               <div class="moduleTitle line-clampTitle" data-id="9e109a96">
-                <h4 class="mat-body-2" data-id="32c33c15">
+                <h4 class="mat-subtitle-2" data-id="32c33c15">
                   {{ utilsService.parserLanguage(product.name, language) }}
                 </h4>
               </div>
@@ -87,7 +87,7 @@
                   </span>
                 </p>
                 <p
-                  class="mat-body-2 m-0"
+                  class="mat-subtitle-2 m-0"
                   matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
                   data-id="4ead8b3c"
                 >
@@ -95,10 +95,10 @@
                 </p>
               </ng-container>
               <ng-container *ngIf="!product.offerValue" data-id="6738bb6b">
-                <p class="mat-body-2 m-0" data-id="cd1fbad4">
+                <p class="mat-subtitle-2 m-0" data-id="cd1fbad4">
                   {{ product | parsePriceProduct }}
                 </p>
-                <p class="mat-body-2 m-0" style="font-size: 15px" data-id="2759741a">
+                <p class="mat-subtitle-2 m-0" style="font-size: 15px" data-id="2759741a">
                   {{ 'Desde ' | translate }}
                   {{ product.minSale }}
                   {{ ' unidad' | translate }}
@@ -150,7 +150,7 @@
   >
     <div class="d-flex justify-content-start align-items-center" data-id="0ce824b4">
       <div *ngFor="let product of products" class="pr-3" data-id="bc67fcaa">
-        <mat-card class="cardProduct2 d-flex flex-column" data-id="9e91689e">
+        <mat-card appearance="outlined" class="cardProduct2 d-flex flex-column" data-id="9e91689e">
           <div class="product-img" data-id="33df49a9">
             <a
               [queryParams]="{
@@ -200,7 +200,7 @@
               </span>
 
               <div class="moduleTitle line-clampTitle" data-id="ef12400b">
-                <h4 class="mat-body-2" data-id="59d56c7c">
+                <h4 class="mat-subtitle-2" data-id="59d56c7c">
                   {{ utilsService.parserLanguage(product.name, language) }}
                 </h4>
               </div>
@@ -240,7 +240,7 @@
                   </span>
                 </p>
                 <p
-                  class="mat-body-2 m-0"
+                  class="mat-subtitle-2 m-0"
                   matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
                   data-id="4db79a36"
                 >
@@ -248,10 +248,10 @@
                 </p>
               </ng-container>
               <ng-container *ngIf="!product.offerValue" data-id="051d5bd3">
-                <p class="mat-body-2 m-0" data-id="e2ac3936">
+                <p class="mat-subtitle-2 m-0" data-id="e2ac3936">
                   {{ product | parsePriceProduct }}
                 </p>
-                <p class="mat-body-2 m-0" style="font-size: 15px" data-id="3e7176fd">
+                <p class="mat-subtitle-2 m-0" style="font-size: 15px" data-id="3e7176fd">
                   {{ 'Desde ' | translate }}
                   {{ product.minSale }}
                   {{ ' unidad' | translate }}
@@ -297,6 +297,7 @@
   >
     <div class="d-flex justify-content-start align-items-center" data-id="6ee6a5df">
       <mat-card
+        appearance="outlined"
         *ngFor="let product of products"
         class="cardProduct3 d-flex flex-column"
         data-id="66603765"
@@ -350,7 +351,7 @@
             </span>
 
             <div class="moduleTitle line-clampTitle" data-id="e63f95c7">
-              <h4 class="mat-body-2" data-id="83ba4b51">
+              <h4 class="mat-subtitle-2" data-id="83ba4b51">
                 {{ utilsService.parserLanguage(product.name, language) }}
               </h4>
             </div>
@@ -381,7 +382,7 @@
                 </span>
               </p>
               <p
-                class="mat-body-2 m-0"
+                class="mat-subtitle-2 m-0"
                 matTooltip="{{ 'Existe una oferta asociada a este producto' | translate }}"
                 data-id="29d50381"
               >
@@ -389,10 +390,10 @@
               </p>
             </ng-container>
             <ng-container *ngIf="!product.offerValue" data-id="28f73e8a">
-              <p class="mat-body-2 m-0" data-id="676b2f4c">
+              <p class="mat-subtitle-2 m-0" data-id="676b2f4c">
                 {{ product | parsePriceProduct }}
               </p>
-              <p class="mat-body-2 m-0" style="font-size: 15px" data-id="ca84cf93">
+              <p class="mat-subtitle-2 m-0" style="font-size: 15px" data-id="ca84cf93">
                 {{ 'Desde ' | translate }}
                 {{ product.minSale }}
                 {{ ' unidad' | translate }}
