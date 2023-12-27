@@ -294,7 +294,6 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onFilter() {
-    console.log(this.formSearch.get('filterText'));
     const value = this.formSearch.get('filterText').value;
     let searchValue = value || '';
     this.loadingSearch = true;
@@ -355,7 +354,6 @@ export class MyOrdersComponent implements OnInit, AfterViewInit, OnDestroy {
         }),
       )
       .subscribe((resp) => {
-        console.log(resp);
         this.selectedOrder.canEditPersonPayment = resp.data.length
           ? resp.data[0].canEditPersonPayment
           : true;

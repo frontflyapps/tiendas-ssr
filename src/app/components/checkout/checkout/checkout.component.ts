@@ -578,10 +578,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     // this.getAvalilablePaymentType();
     this.buildForm();
 
-    this.form.get('paymentType').valueChanges.subscribe(() => {
-      console.log(this.form.get('paymentType').value.length);
-      console.log(this.form.get('paymentType').value);
-    });
+    this.form.get('paymentType').valueChanges.subscribe(() => {});
 
     this.activateRoute.queryParams.subscribe((data) => {
       this.cartId = data.cartId;
@@ -668,7 +665,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       }
     });
     this.payments = auxPayments;
-    console.log(this.payments);
 
     if (this.businessConfig?.gateways) {
       if (this.businessConfig?.gateways.length > 0) {
@@ -706,7 +702,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         }
       });
     });
-    console.log(this.cart);
 
     this.spinner.hide();
   }
@@ -773,8 +768,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
      */
 
     this.form.controls['currency'].valueChanges.subscribe((data) => {
-      console.log(this.currencyInternational);
-      console.log(data);
       if (this.currencyInternational === data) {
         this.rate = 1;
       } else {
@@ -890,7 +883,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
    * @param data Shipping option selected
    */
   onShippingSelected(data) {
-    console.log(data);
     this.shippingSelected = data.value;
     this.form.get('ShippingBusinessId').setValue(data.value);
   }
@@ -905,7 +897,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   private calculateShippingRequired() {
-    console.log('llega aqui', this.showShipping);
     if (this.showShipping) {
       this.onRecalculateShipping();
     } else {
@@ -931,7 +922,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.loadingCart = true;
     this.cartService.getCartData({ cartId: this.cartId, cartItemIds: this.cartItemIds }).subscribe({
       next: (data) => {
-        console.log(data);
         if (data.CartItems.length === 0) {
           this.router.navigate(['']);
         } else {
@@ -983,7 +973,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data: any) => {
               if (data.length > 0) {
-                console.log(this.cart);
                 this.theBusiness = data[0].Business;
               }
             });
@@ -994,7 +983,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         }
       },
       error: (err) => {
-        console.log('________________________________________________________________');
         this.showToastr.showError(err.message);
         this.loadingCart = false;
       },
@@ -1007,22 +995,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   public getTotalWithShippingIncludedCurrency(): any {
     return this.getTotalWithShippingIncluded();
-
-    // console.log(this.currencyCheckoutPipe.transform({
-    //   currency: this.form.get('currency').value,
-    //   value: total,
-    //   rate: this.rate,
-    // }));
-    // return this.currencyCheckoutPipe.transform({
-    //   currency: this.form.get('currency').value,
-    //   value: total,
-    //   rate: this.rate,
-    // });
   }
 
   public getTotalWithShippingIncluded(): any {
-    // console.log(shipping);
-
     const total = this.getTotalAmountCurrency();
     const ShippingBusinessId = this.shippingSelected;
     if (ShippingBusinessId) {
@@ -1163,9 +1138,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           Validators.maxLength(8),
         ]);
     }
-    this.form.valueChanges.subscribe(() => {
-      console.log(this.form);
-    });
+    this.form.valueChanges.subscribe(() => {});
     this.form.updateValueAndValidity();
     this.supplementForm.updateValueAndValidity();
     this.updateValidatorsForChangeNationality(this.onlyCubanPeople);
@@ -1182,7 +1155,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   fillLoggedInfo() {
-    // console.log('businessConfig' + JSON.parse(this.businessConfig.gateways));
     this.form.get('name').setValue(this.loggedInUser?.name);
     this.form.get('lastName').setValue(this.loggedInUser?.lastName);
     this.form.get('phone').setValue(this.loggedInUser?.phone);
@@ -1199,7 +1171,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   fillLoggedInfoSupplement() {
-    // console.log('businessConfig' + JSON.parse(this.businessConfig.gateways));
     this.supplementForm.get('name').setValue(this.loggedInUser?.name);
     this.supplementForm.get('lastName').setValue(this.loggedInUser?.lastName);
     this.supplementForm.get('phone').setValue(this.loggedInUser?.phone);
@@ -1249,10 +1220,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         next: (item) => {
           this.shippingData = item?.shippings;
           this.fixedShipping = item;
-          console.log(this.fixedShipping);
           this.loading = true;
           this.loadingShipping = false;
-          console.log(item);
           this.canBeDelivery = item?.canBeDelivery;
           this.inLoading = false;
         },
@@ -1288,7 +1257,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           if (Array.isArray(dataShipping.shippings)) {
             this.shippingData = dataShipping.shippings;
             this.fixedShipping = dataShipping.shippings;
-            console.log(this.fixedShipping);
           } else {
             this.fixedShipping = dataShipping.shippings;
           }
@@ -1408,7 +1376,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     }
 
     const data = { ...this.form.value };
-    console.log(data);
     data.phone = '53' + data.phone;
 
     this.paymentType = JSON.parse(JSON.stringify(data.paymentType));
@@ -1472,7 +1439,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.loadingPayment = true;
 
     const data = { ...this.supplementForm.value };
-    console.log(data);
     data.phone = '53' + data.phone;
 
     this.paymentType = JSON.parse(JSON.stringify(data.paymentType));
@@ -1598,8 +1564,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       bodyData.currency = 'EUR';
       paymentMethod.subscribe(
         (data: any) => {
-          console.log(data);
-
           const dialogRef = this.dialog.open(DialogPgtConfirmToPayComponent, {
             width: '15cm',
             maxWidth: '100vw',
@@ -1626,8 +1590,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       bodyData.currency = 'EUR';
       paymentMethod.subscribe(
         (data: any) => {
-          console.log(data);
-
           const dialogRef = this.dialog.open(DialogAuthorizeConfirmToPayComponent, {
             width: '15cm',
             maxWidth: '100vw',
@@ -1654,8 +1616,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       bodyData.currency = 'USD';
       paymentMethod.subscribe(
         (data: any) => {
-          console.log(data);
-
           const dialogRef = this.dialog.open(DialogPaypalConfirmToPayComponent, {
             width: '15cm',
             maxWidth: '100vw',
@@ -1682,8 +1642,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       bodyData.currency = 'EUR';
       paymentMethod.subscribe(
         (data: any) => {
-          console.log(data);
-
           const dialogRef = this.dialog.open(DialogPaypalConfirmToPayComponent, {
             width: '15cm',
             maxWidth: '100vw',
@@ -1710,8 +1668,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       bodyData.currency = 'EUR';
       paymentMethod.subscribe(
         (data: any) => {
-          console.log(data);
-
           const dialogRef = this.dialog.open(DialogTropipayConfirmToPayComponent, {
             width: '15cm',
             maxWidth: '100vw',

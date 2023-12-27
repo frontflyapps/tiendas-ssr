@@ -127,7 +127,6 @@ export class DialogUploadMediaComponent implements OnInit, OnDestroy {
   }
 
   onNewFileLoaded(event) {
-    console.log('event returned 222', event);
     this.newFile = event;
   }
 

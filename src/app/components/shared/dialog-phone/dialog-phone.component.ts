@@ -54,7 +54,6 @@ export class DialogPhoneComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    console.log(this.data);
     this.buildForm();
   }
 
@@ -63,7 +62,6 @@ export class DialogPhoneComponent implements OnInit {
       phone: [this.data?.phone ?? null, [Validators.required]],
       PhoneCallingCodeId: [this.data?.PhoneCallingCodeId ?? null, [Validators.required]],
     });
-    console.log(this.form.value);
   }
 
   public validate() {

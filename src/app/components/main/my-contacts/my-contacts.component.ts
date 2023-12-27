@@ -212,17 +212,13 @@ export class MyContactsComponent implements OnInit, OnDestroy {
   onMarkAsFeaturedContact(contact) {
     contact.selected = !contact.selected;
     this.setEditingContactDefault(contact);
-    console.log(this.contactsService.allContacts);
   }
 
   genSubxProvince() {
-    console.log('entre a sobxxxxx');
     this.form
       .get('ProvinceId')
       .valueChanges.pipe(debounceTime(200))
       .subscribe((provinceIdCh) => {
-        console.log('provinceIdCh', provinceIdCh);
-        console.log('municipppp', this.municipalities);
         this.onFillMunicipalities(provinceIdCh);
       });
   }
@@ -320,7 +316,6 @@ export class MyContactsComponent implements OnInit, OnDestroy {
   }
 
   editContact(contact) {
-    console.log('hello editor', contact);
     this.isEditing = true;
 
     this.createForm();

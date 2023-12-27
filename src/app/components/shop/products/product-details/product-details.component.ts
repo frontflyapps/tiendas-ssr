@@ -227,14 +227,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
     // this.route.queryParams.subscribe((query) => {
     //   const productId = query.productId;
-    //   console.log(window.location.href);
     //   const stockId = query.stockId;
     //   this.productsService.productIdDetails = productId;
     //   this.isLoading = true;
     //   this.productsService.getProductById(productId, stockId).subscribe(
     //     (data) => {
     //       this.product = data.data;
-    //       console.log(this.product);
     //       this.getProductsByBusiness(this.product?.BusinessId, this.query);
     //       this.initStateView();
     //       this.isLoading = false;
@@ -250,8 +248,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   checkMinMaxValues(event, product): boolean {
-    console.log(event);
-    console.log(product);
     const currentAmountOnInput = +event.target.value;
     if (currentAmountOnInput < product?.minSale || currentAmountOnInput > product?.maxSale) {
       this.showToastr.showInfo(
@@ -434,13 +430,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.loadingMenu = true;
     this.productsService.getProductsByBusiness(businessId, query).subscribe(
       (data: any) => {
-        console.log('PRODUCTS ON MENU', data.data);
         this.totalProducts = data?.meta?.pagination?.total;
         let temp = this.allProductsOnMenu;
-        console.log(temp);
         temp = temp.concat(data.data.slice());
 
-        console.log(temp);
         this.allProductsOnMenu = temp;
         const timeOut = setTimeout(() => {
           this.loadingMenu = false;
@@ -464,7 +457,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       .getNewRecomendedProduct(this.product.id, 'recommended')
       .subscribe((data: any) => {
         this.relatedProduct = data.data;
-        console.log(this.relatedProduct);
         this.loadingRelated = false;
         //   const timeOut = setTimeout(() => {
         //     this.loadingRelated = false;
@@ -478,7 +470,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   goProduct(product) {
-    console.log(product);
     // const params = new URLSearchParams(productId: product?.Product?.id, stockId: product?.Product?.Stock?.id, name: item?.name?.es, product: item?.sharedImage);
     const params =
       '/product' +
@@ -491,7 +482,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
       product?.RecomendedProduct.name?.es +
       'sharedImage=' +
       product?.RecomendedProduct.sharedImage;
-    console.log(params);
     // window.location.href = params;
 
     //   [queryParams]="{ productId: item?.Product?.id, stockId: item?.Product?.Stock?.id,
@@ -615,7 +605,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
         this.productsService.getProductById(productId, stockId).subscribe(
           (data) => {
             this.product = data.data;
-            console.log(this.product);
             this.getProductsByBusiness(this.product?.BusinessId, this.query);
             this.initStateView();
             this.isLoading = false;
@@ -633,8 +622,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   // Add to cart
   public addToCart(product: any, quantity) {
-    console.log('entro aki');
-    console.log(product);
     const dataToSend = {
       goToPay: false,
       addToCart: true,
@@ -669,12 +656,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   // Add to cart
   public buyNow(product: Product, quantity) {
-    console.log(product);
-    console.log(quantity);
     if (quantity > 0) {
       try {
         this.cartService.addToCart(product, parseInt(quantity, 10), true).then((carts: Cart[]) => {
-          console.log(carts);
           for (const cart of carts) {
             const dataFind = cart.CartItems.find((cartItemx) => cartItemx?.ProductId == product.id);
             if (dataFind != undefined) {
@@ -683,7 +667,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
               const cartIds = cart?.CartItems
                 ? cart?.CartItems.map((i) => i.id)
                 : cart.CartItems.map((i) => i.id);
-              console.log(cartIds);
               this.router
                 .navigate(['/checkout'], { queryParams: { cartId, cartIds, BusinessId } })
                 .then();
@@ -804,8 +787,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     // this.productsService.addToCompare(this.product);
     // this.router.navigate(['/pages/compare']);
     // let ruta = this.route.snapshot.routeConfig.path;
-
-    console.log(this.route.snapshot.routeConfig.path.includes('checkout'));
   }
 
   onGoToCheckouNav() {
@@ -818,12 +799,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     if (this.loggedInUserService.getLoggedInUser()) {
       this.buyNow(this.product, this.counter);
     } else {
-      console.log(this.pathToRedirect);
-      console.log(this.paramsToUrlRedirect);
       // this.paramsToUrlRedirect.params.counter = this.counter;
       // this.paramsToUrlRedirect.goToPay = true;
       this.paramsToUrlRedirect.addToCart = true;
-      console.log(this.paramsToUrlRedirect);
       this.cartService.saveDataToAddToCart(dataToSend);
       this.cartService.redirectToLoginWithOrigin(
         this.pathToRedirect,

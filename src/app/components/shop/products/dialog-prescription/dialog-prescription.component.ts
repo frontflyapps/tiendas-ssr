@@ -231,8 +231,6 @@ export class DialogPrescriptionComponent implements OnInit {
           .value?.RecomendedProduct?.name?.es.includes('Bifocales')
       ) {
         this.form.get('add').setValidators(Validators.required);
-        console.log(this.form);
-        console.log('entro aki');
       } else {
         this.form.get('add').setValidators(null);
       }
@@ -253,9 +251,7 @@ export class DialogPrescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     // this.form.get('cylinderLeft').valueChanges.subscribe(item => {
-    //   console.log(item);
     //   if (item) {
-    //     console.log('entro');
     //     this.form.get('axisLeft').setValidators(Validators.required);
     //   } else {
     //     this.form.get('axisLeft').setValidators(null);
@@ -263,7 +259,6 @@ export class DialogPrescriptionComponent implements OnInit {
     // });
     // this.form.get('cylinderRight').valueChanges.subscribe(item => {
     //   if (item) {
-    //     console.log('entro');
     //     this.form.get('axisRight').setValidators(Validators.required);
     //   } else {
     //     this.form.get('axisRight').setValidators(null);
@@ -283,8 +278,6 @@ export class DialogPrescriptionComponent implements OnInit {
           .value?.RecomendedProduct?.name?.es.includes('Bifocales')
       ) {
         this.form.get('add').setValidators(Validators.required);
-        console.log(this.form);
-        console.log('entro aki');
       } else {
         this.form.get('add').setValidators(null);
       }
@@ -327,9 +320,7 @@ export class DialogPrescriptionComponent implements OnInit {
     });
   }
 
-  selectEye(element) {
-    console.log(element);
-  }
+  selectEye(element) {}
 
   createForm() {
     this.form = this.fb.group({
@@ -366,7 +357,6 @@ export class DialogPrescriptionComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result);
         this.form.get('prescriptionImageUrl').setValue(result.url.prescriptionUrl);
         this.form.get('prescriptionImageName').setValue(result.url.prescriptionName);
       }
@@ -381,9 +371,6 @@ export class DialogPrescriptionComponent implements OnInit {
   ) {
     // this.supplementArray[positionArrayFather].Recomendeds[positionArrayChild].checked = true;
 
-    console.log(positionArrayFather);
-    console.log(positionArrayChild);
-
     this.supplementArray[positionArrayFather].Recomendeds.forEach((item) => {
       if (
         item.RecomendedProduct.name.es !==
@@ -394,10 +381,6 @@ export class DialogPrescriptionComponent implements OnInit {
       } else {
         if (positionArrayFather === 0) {
           this.supplementForm.get('supplementType').setValue(item);
-
-          console.log(item.RecomendedProduct.name.es.includes('Progresivos'));
-          console.log(item.RecomendedProduct.name.es.includes('Bifocales'));
-          console.log(item);
 
           if (
             this.supplementForm
@@ -411,7 +394,6 @@ export class DialogPrescriptionComponent implements OnInit {
           } else {
             this.form.get('add').setValidators([]);
           }
-          console.log(this.form);
         } else if (positionArrayFather === 1) {
           this.supplementForm.get('supplementFilter').setValue(item);
           this.supplementForm.get('supplementDye').setValue(null);
@@ -444,7 +426,6 @@ export class DialogPrescriptionComponent implements OnInit {
     //   this.supplementForm.get('supplementColor').setValue(null);
     //   this.supplementForm.get('supplementDye').setValue(null);
     // }
-    console.log(this.supplementForm.value);
   }
 
   buyNow() {
@@ -471,7 +452,6 @@ export class DialogPrescriptionComponent implements OnInit {
           this.supplementForm.get('supplementFilter').value.RecomendedProduct.Stocks[0].uuid,
         );
       }
-      console.log(supplements);
       const dataToSend = {
         StockId: this.data.product.Stock.id,
         ProductId: this.data.product.Stock.id,
@@ -491,7 +471,6 @@ export class DialogPrescriptionComponent implements OnInit {
           .then((carts: Cart[]) => {
             this.loadingSearch = false;
             this.dialogRef.close(true);
-            console.log(carts);
             for (const cart of carts) {
               const dataFind = cart.CartItems.find(
                 (cartItemx) => cartItemx?.ProductId == this.data.product.id,
@@ -502,7 +481,6 @@ export class DialogPrescriptionComponent implements OnInit {
                 const cartIds = cart?.CartItems
                   ? cart?.CartItems.map((i) => i.id)
                   : cart.CartItems.map((i) => i.id);
-                console.log(cartIds);
                 this.router
                   .navigate(['/checkout'], { queryParams: { cartId, cartIds, BusinessId } })
                   .then();
@@ -542,7 +520,6 @@ export class DialogPrescriptionComponent implements OnInit {
           this.supplementForm.get('supplementFilter').value.RecomendedProduct.Stocks[0].uuid,
         );
       }
-      console.log(supplements);
       const dataToSend = {
         StockId: this.data.product.Stock.id,
         ProductId: this.data.product.Stock.id,
@@ -598,15 +575,11 @@ export class DialogPrescriptionComponent implements OnInit {
         this.cartService.redirectToLoginWithOrigin(this.pathToRedirect, this.paramsToUrlRedirect);
       }
     }
-
-    // console.log(dataToSend);
   }
 
   closeWithoutPrescription() {
     this.spinner.show();
     const supplements: any[] = [];
-
-    console.log(this.supplementForm.get('supplementType').value);
 
     if (this.supplementForm.get('supplementType').value) {
       supplements.push(
@@ -622,7 +595,6 @@ export class DialogPrescriptionComponent implements OnInit {
         ProductId: this.data.product.Stock.id,
         supplementIds: supplements,
       };
-      console.log(supplements);
 
       if (this.loggedInUserService.getLoggedInUser()) {
         if (this.data.quantity === 0) {
@@ -643,11 +615,9 @@ export class DialogPrescriptionComponent implements OnInit {
     }
 
     this.dialogRef.close(true);
-    console.log('closeWithoutPrescription');
   }
 
   close() {
     this.dialogRef.close();
-    console.log('close');
   }
 }

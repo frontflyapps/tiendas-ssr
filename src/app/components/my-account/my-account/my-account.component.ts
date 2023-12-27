@@ -164,7 +164,6 @@ export class MyAccountComponent implements OnInit {
 
     if (this.appService.businessConfig?.signUpType === 'multiple') {
       this.signUpTypesForm.get('signUpType').valueChanges.subscribe((item) => {
-        console.log(item);
         if (item === 'normal') {
           this.regTcpForm.disable();
           this.registrationForm.enable();
@@ -192,7 +191,6 @@ export class MyAccountComponent implements OnInit {
       this.urlToRedirect = data.urlToRedirect;
       if (JSON.parse(data.addToCart)) {
         this.dataToCart = this.cartService.getDataToAddToCart();
-        console.log(this.dataToCart);
       }
       // this.dataToCart = {
       //   goToPay: JSON.parse(data.goToPay),
@@ -200,7 +198,6 @@ export class MyAccountComponent implements OnInit {
       //   product: data.product,
       //   counter: JSON.parse(data.counter),
       // };
-      // console.log(this.dataToCart);
     });
   }
 
@@ -287,7 +284,6 @@ export class MyAccountComponent implements OnInit {
       this.insertEmailPassForm.value.email = this.queryParams.email;
     }
     if (this.queryParams.ref) {
-      console.log(this.queryParams);
       this.registrationForm.controls['code'].setValue(this.queryParams.ref);
     }
   }
@@ -506,9 +502,6 @@ export class MyAccountComponent implements OnInit {
         signUpType: ['normal'],
       });
     }
-
-    // console.log(this.regTcpForm.value);
-    // console.log(this.registrationForm.value);
   }
 
   createValidationForm() {
@@ -525,7 +518,6 @@ export class MyAccountComponent implements OnInit {
 
   createActivateForm() {
     this.route.queryParams.subscribe((data) => {
-      console.log(data);
       this.activateForm = this.fb.group({
         email: [data ? data?.email : null, [Validators.required, Validators.email]],
         pin: [data ? data?.pin : null, [Validators.required]],
@@ -574,7 +566,6 @@ export class MyAccountComponent implements OnInit {
                   this.cartService
                     .addToCart(this.dataToCart.product, this.dataToCart.counter)
                     .then((carts: Cart[]) => {
-                      console.log(carts);
                       for (const cart of carts) {
                         const dataFind = cart.CartItems.find(
                           (cartItemx) => cartItemx?.ProductId == this.dataToCart.product.id,
@@ -585,7 +576,6 @@ export class MyAccountComponent implements OnInit {
                           const cartIds = cart?.CartItems
                             ? cart?.CartItems.map((i) => i.id)
                             : cart.CartItems.map((i) => i.id);
-                          console.log(cartIds);
                           this.router
                             .navigate(['/checkout'], {
                               queryParams: { cartId, cartIds, BusinessId },
@@ -596,11 +586,9 @@ export class MyAccountComponent implements OnInit {
                       }
                     });
                   // await carts = this.loggedInUserService._getDataFromStorage('cartItem') || [];
-                  //  console.log(carts);
                   // const cartId =
                   // this.router.navigate(['/checkout'], { queryParams: { cartId, cartIds, BusinessId } }).then();
                 } else {
-                  console.log('entrooooooo');
                   this.cartService
                     .addToCart(this.dataToCart.product, this.dataToCart.counter)
                     .then();
@@ -708,7 +696,6 @@ export class MyAccountComponent implements OnInit {
     data.password = data.passwords.password;
     data.lastName = data.lastname;
     data.role = 'Client';
-    console.log(data);
     const token = localStorage.getItem('token');
     if (token != undefined) {
       data.token = token;
@@ -954,7 +941,6 @@ export class MyAccountComponent implements OnInit {
     //   fkId   : null,
     //   fkModel: 'UserId',
     // };
-    // console.log(this.pdfData);
     // this.selectedDocument = true;
   }
 

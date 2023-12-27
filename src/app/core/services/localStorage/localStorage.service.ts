@@ -41,8 +41,6 @@ export class LocalStorageService {
 
   setVersion() {
     const v: IVersionSystem = JSON.parse(this.storageService.getItem('_v'));
-    console.log('v', v?.version || 'No version');
-    console.log('v env', environment.versions.app);
     const evaluateVersion = v?.version !== environment.versions.app;
     if (!v || !v?.version || !v?.timespan || evaluateVersion) {
       this.diffTimeSpan(v);

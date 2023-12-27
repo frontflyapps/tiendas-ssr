@@ -221,9 +221,6 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     this.showUploadingProgress = true;
     this.fileUploadedChange = false;
 
-    console.log(this.type);
-    console.log(this.fileFor);
-
     this.fileFor[this.type](this.formData)
       .pipe(takeUntil(this._unsub))
       .subscribe(

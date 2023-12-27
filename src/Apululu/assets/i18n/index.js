@@ -20,7 +20,6 @@ async function translateLang(lang = 'en') {
         await waits(100);
         const data = result.data[0];
         dataLangJSON[key] = data;
-        console.log(i, '/', total, ' : ', Math.floor((i / total) * 100), '%');
       }
       i++;
     } catch (err) {

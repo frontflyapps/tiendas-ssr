@@ -51,7 +51,6 @@ export class AuthenticationService {
   }
 
   singUp(body): Observable<any> {
-    console.log('entro');
     if (body.file) {
       const formData = new FormData();
       for (const key in body) {

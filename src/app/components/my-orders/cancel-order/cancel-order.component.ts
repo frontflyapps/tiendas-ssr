@@ -83,7 +83,6 @@ export class CancelOrderComponent implements OnInit {
   ) {
     this.order = data.order;
     this.businessConfig = data.businessConfig;
-    console.log(data);
     this.cancellationRule = this.order?.cancellationRule;
     if (this.order.status == 'on-delivery') {
       this.cancellationText = `Este pago está en proceso de envío, por lo que para continuar con su cancelación,
@@ -119,7 +118,6 @@ export class CancelOrderComponent implements OnInit {
     const body = { id: this.order.id, cancelNote: cancelNote };
 
     // if (this.businessConfig?.cancelType === 'byEmail') {
-    //   console.log(this.order);
     //   let dialogRef: MatDialogRef<DialogCancelConfirmationEmailComponent, any>;
     //   dialogRef = this.dialog.open(DialogCancelConfirmationEmailComponent, {
     //     width: '650px',

@@ -74,6 +74,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NgIf, NgFor } from '@angular/common';
+import { handleObservable } from 'src/app/core/utils/api';
 
 @Component({
   selector: 'app-main',
@@ -261,13 +262,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.categoryMenuServ.filterText$.subscribe((item) => {
       this.searchForm.setValue(item);
     });
-    // this.getProducts();
-    // this.getProducts();
 
     this.searchForm.valueChanges
       .pipe(takeUntil(this._unsubscribeAll), debounceTime(500))
       .subscribe((value) => {
-        console.log(value);
         if (value) {
           this.getFilteredOptions(value);
         }
@@ -275,7 +273,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getProducts() {
-    this.loadingProducts = true;
     const body: any = {
       limit: this.initLimit,
       offset: this.queryProduct?.offset ? +this.queryProduct?.offset : 0,
@@ -295,33 +292,39 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     };
 
     if (this.searchForm.value) {
-      this.productService.getFinderSearch(body).subscribe((response) => {
-        this.options = response.data;
-        this.filteredOptions = this.searchForm.valueChanges.pipe(
-          startWith(''),
-          map((value) => this._filter(value || '')),
-        );
-        this.loadingProducts = false;
+      handleObservable(this.productService.getFinderSearch(body), {
+        onBusy: (loading) => {
+          this.loadingProducts = loading;
+        },
+        onAfterSuccess: (data) => {
+          this.options = data;
+          this.filteredOptions = this.searchForm.valueChanges.pipe(
+            startWith(''),
+            map((value) => this._filter(value || '')),
+          );
+        },
       });
     }
-
-    // this.loadingProducts = false;
   }
 
   getFilteredOptions(data) {
-    this.loadingProducts = true;
     const dataToSend = {
       limit: 10,
       value: data,
     };
-    this.productService.getFinderSearch(dataToSend).subscribe((response) => {
-      this.options = response.data;
-      this.filteredOptions = this._filter(this.searchForm.value);
-      // this.filteredOptions = this.searchForm.valueChanges.pipe(
-      //   startWith(''),
-      //   map(value => this._filter(value || '')),
-      // );
-      this.loadingProducts = false;
+
+    handleObservable(this.productService.getFinderSearch(dataToSend), {
+      onBusy: (loading) => {
+        this.loadingProducts = loading;
+      },
+      onAfterSuccess: (data) => {
+        this.options = data;
+        this.filteredOptions = this._filter(this.searchForm.value);
+        // this.filteredOptions = this.searchForm.valueChanges.pipe(
+        //   startWith(''),
+        //   map(value => this._filter(value || '')),
+        // );
+      },
     });
   }
 
@@ -342,13 +345,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       filterValue = value.toLowerCase();
       const newArray: any[] = [];
       if (this.options) {
-        // this.options = this.options.map(obj => {
-        //   console.log(obj);
-        //   const temp: string = '<strong>' + 'lec' + '</strong>';
-        //   console.log(temp);
-        //   obj.value = obj.value.replace(filterValue, temp);
-        //   return obj;
-        // });
         this.options.forEach(function (obj) {
           const temp: string = '<strong class="resaltado">' + filterValue + '</strong>';
           obj.showValue = obj.value.replace(filterValue, temp);
@@ -382,8 +378,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currency = this.currencyService.getCurrency();
 
     this.route.queryParams.subscribe((params) => {
-      console.log(params);
-
       this.searchForm.setValue(params.filterText);
     });
 
@@ -422,9 +416,9 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       });
     // //////////////////////////////////
     this.compareItemsObservable = this.productService.getComapreProducts();
-    this.compareItemsObservable
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((compareItems) => (this.compareItems = compareItems));
+    this.compareItemsObservable.pipe(takeUntil(this._unsubscribeAll)).subscribe((compareItems) => {
+      this.compareItems = compareItems;
+    });
 
     // if (localStorage.getItem('searchText')) {
     //   this.searchForm = new FormControl(JSON.parse(localStorage.getItem('searchText')), []);
@@ -497,7 +491,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onSearch() {
     const searchValue = this.searchForm.value;
-    console.log(this.searchForm.value);
     this.storageService.setItem('searchText', JSON.stringify(searchValue));
     if (searchValue && searchValue.length > 1) {
       this.router
@@ -518,7 +511,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public changeCurrency(currency: any) {
-    console.log(currency);
     this.currency = currency;
     this.currencyService.setCurrency(currency);
   }
@@ -564,47 +556,35 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onLogout(): void {
-    this.spinner.show();
-    this.authService
-      .logout()
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe({
-        next: () => {
-          this.loggedInUserService.setLoggedInUser(null);
-          this.loggedInUserService.removeCookies();
-          this.spinner.hide();
-          // localStorage.clear();
-          this.storageService.removeItem('token');
-          this.storageService.removeItem('user');
-          this.storageService.removeItem('cartItem');
-          this.cartService.$cartItemsUpdated.next(null);
-          this.loggedInUserService.$loggedInUserUpdated.next(null);
-          const message = this.translate.instant('User successfully unlogged');
-          this.showSnackbBar.showSucces(message, 5000);
-          if (this.route.snapshot.queryParams?.cartId) {
-            this.router.navigate(['']).then();
-          }
+    handleObservable(this.authService.logout(), {
+      onBusy: (val) => {
+        val ? this.spinner.show() : this.spinner.hide();
+      },
+      onAfterSuccess: () => {
+        this.loggedInUserService.setLoggedInUser(null);
+        this.loggedInUserService.removeCookies();
+        this.storageService.removeItem('token');
+        this.storageService.removeItem('user');
+        this.storageService.removeItem('cartItem');
+        this.cartService.$cartItemsUpdated.next(null);
+        this.loggedInUserService.$loggedInUserUpdated.next(null);
+        const message = this.translate.instant('User successfully unlogged');
+        this.showSnackbBar.showSucces(message, 5000);
+        if (this.route.snapshot.queryParams?.cartId) {
+          this.router.navigate(['']).then();
+        }
 
-          this.socketIoService.disconnect();
-        },
-        error: () => {
-          const message = this.translate.instant('User sing out unsuccessfully');
-          this.showSnackbBar.showError(message, 8000);
-          this.spinner.hide();
-          /*this.loggedInUserService.removeCookies();
-          this.loggedInUserService.setLoggedInUser(null);
-          this.socketIoService.disconnect();
-          localStorage.clear();
-          this.loggedInUserService.$loggedInUserUpdated.next(null);
-          this.router.navigate(['']);*/
-        },
-      });
+        this.socketIoService.disconnect();
+      },
+      onAfterFailed: () => {
+        const message = this.translate.instant('User sing out unsuccessfully');
+        this.showSnackbBar.showError(message, 8000);
+      },
+    });
   }
 
   onChangePass() {
     this.router.navigate(['/my-account/change-pass']).then();
-    // this.showPaymentSuccess(26);
-    // this.showPaymentCancellSuccess(25);
   }
 
   // ////////////// CREATE BUSINESS TRANSFERMOVIL ////////////////////////////////
@@ -629,7 +609,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   //   this.confirmCreateBusinessService
   //     .etecsaSignUp()
   //     .subscribe(dataResponse => {
-  //       console.log('dataResponse', dataResponse);
   //     });
   // }
 
@@ -651,7 +630,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((data: any) => {
         this.showPaymentCancellSuccess(data.Payment.id);
-        console.log('payment-cancelled');
         this.cartService.$paymentUpdate.next('');
         this.orderService.$orderItemsUpdated.next('');
       });
@@ -684,36 +662,40 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   showPaymentSuccess(id: string) {
-    this.orderService.getPayment(id).subscribe((data: any) => {
-      const dialogRef = this.dialog.open(ConfirmPaymentOkComponent, {
-        panelClass: 'app-reservation-payment-ok',
-        maxWidth: '100vw',
-        maxHeight: '100vh',
-        data: {
-          selectedPayment: data.data,
-          action: 'confirmed',
-        },
-      });
-      dialogRef.afterClosed().subscribe(() => {
-        window.location.reload();
-      });
+    handleObservable(this.orderService.getPayment(id), {
+      onAfterSuccess: (data) => {
+        const dialogRef = this.dialog.open(ConfirmPaymentOkComponent, {
+          panelClass: 'app-reservation-payment-ok',
+          maxWidth: '100vw',
+          maxHeight: '100vh',
+          data: {
+            selectedPayment: data,
+            action: 'confirmed',
+          },
+        });
+        dialogRef.afterClosed().subscribe(() => {
+          window.location.reload();
+        });
+      },
     });
   }
 
   showPaymentCancellSuccess(id: string) {
-    this.orderService.getPayment(id).subscribe((data: any) => {
-      const dialogRef = this.dialog.open(ConfirmPaymentOkComponent, {
-        panelClass: 'app-reservation-payment-ok',
-        maxWidth: '100vw',
-        maxHeight: '100vh',
-        data: {
-          selectedPayment: data.data,
-          action: 'cancelled',
-        },
-      });
-      dialogRef.afterClosed().subscribe(() => {
-        window.location.reload();
-      });
+    handleObservable(this.orderService.getPayment(id), {
+      onAfterSuccess: (data) => {
+        const dialogRef = this.dialog.open(ConfirmPaymentOkComponent, {
+          panelClass: 'app-reservation-payment-ok',
+          maxWidth: '100vw',
+          maxHeight: '100vh',
+          data: {
+            selectedPayment: data,
+            action: 'cancelled',
+          },
+        });
+        dialogRef.afterClosed().subscribe(() => {
+          window.location.reload();
+        });
+      },
     });
   }
 
@@ -764,16 +746,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private getMenu() {
-    this.categoryService.getMenu().subscribe((data: any) => {
-      console.log('-> data private getMenu()', data);
-
-      // let _response: any = {};
-      // _response['menu'] = JSON.parse(JSON.stringify(data.data));
-      // _response['timespan'] = new Date().getTime();
-      //
-      // this.localStorageService.setOnStorage(MENU_DATA, _response);
-
-      this.saveCategories(data.data);
+    handleObservable(this.categoryService.getMenu(), {
+      onAfterSuccess: (data) => {
+        this.saveCategories(data);
+      },
     });
   }
 

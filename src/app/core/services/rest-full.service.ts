@@ -62,7 +62,6 @@ export abstract class RestFullService<T> {
   getAll(query?: IPagination, params?: any): any {
     this.deleteKeysHttpParams();
     if (query) {
-      console.log('dfdfff', query);
       this.httpParams = this.httpParams.append(
         'limit',
         query?.limit ? query?.limit.toString() : '10',
@@ -83,11 +82,9 @@ export abstract class RestFullService<T> {
     } else {
       this.httpParams = this.httpParams.set('limit', '0');
       this.httpParams = this.httpParams.set('offset', '0');
-      console.log('dfdfff');
     }
 
     if (params) {
-      console.log(params);
       const keys = Object.keys(params);
       keys.forEach((key) => {
         if (params[key].type === 'range-date') {

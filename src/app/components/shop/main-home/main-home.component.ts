@@ -337,7 +337,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
 
   getCategoriesProducts() {
     const pfd = this.localStorageService.getFromStorage(FRONT_PRODUCT_DATA);
-    // console.log(pfd);
     if (pfd) {
       Object.entries(pfd).sort(() => Math.random() - 0.5);
       Object.entries(pfd?.categories).forEach((item: [string, Array<any>]) => {
@@ -522,7 +521,6 @@ export class MainHomeComponent implements OnInit, OnDestroy {
 
     // this.getFrontDataRequest()
     //   .then((data: any) => {
-    //     console.log('data', data);
     //     // this.frontProduct();
     //     this.loading = false;
     //     const dataResponse = JSON.parse(JSON.stringify(data.data));
