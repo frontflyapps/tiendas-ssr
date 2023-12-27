@@ -927,6 +927,13 @@ a {
 // }
 
 // /////////////////////////////////////PRIMERY COLORS
+.mat-step-icon-state-edit,
+.mat-step-icon-selected {
+  background-color: $theme-main !important;
+  color: $white !important;
+}
+
+.mat-mdc-raised-button.mat-primary,
 .mat-mdc-unelevated-button.mat-primary {
   background-color: $theme-main !important;
   color: $white !important;
@@ -935,6 +942,11 @@ a {
     background-color: $theme-main-100 !important;
     color: $font-color;
   }
+}
+
+.mat-mdc-outlined-button.mat-primary {
+  color: $theme-main !important;
+  border-color: $theme-main !important;
 }
 
 .mat-mdc-fab.mat-primary,
@@ -957,6 +969,24 @@ a {
   background-color: $theme-main-accent !important;
   color: $white !important;
 }
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control[data-indeterminate='true']:enabled
+  ~ .mdc-checkbox__background {
+  background-color: $theme-main-accent !important;
+  border-color: $theme-main-accent !important;
+}
+
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled
+  ~ .mdc-checkbox__background
+  .mdc-checkbox__checkmark {
+  color: $white !important;
+}
+
+///////////////////////////////////////
 
 .mat-mdc-input-element {
   caret-color: $theme-main !important;

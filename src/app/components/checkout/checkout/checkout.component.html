@@ -10,8 +10,7 @@
   <mat-spinner *ngIf="!loading" diameter="60" color="primary" data-id="d2349fd2"></mat-spinner>
 </div>
 <div
-  class="container-checkout"
-  ngClass.lt-md="px-2"
+  class="container-checkout px-md-2"
   *ngIf="loading && !this.cart.hasSupplementData"
   data-id="6fb02895"
 >
@@ -32,10 +31,7 @@
 
     <div
       *ngIf="!loadingPayment && businessConfig"
-      class="billing-details flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
-      ngClass.gt-sm="pr-5"
-      ngClass.sm="pr-2"
-      ngClass.xs="pr-0"
+      class="billing-details flex-sh-md-100 flex-sh-50 pr-5 pr-md-2 pr-xs-0"
       data-id="7d7c65da"
     >
       <mat-horizontal-stepper
@@ -297,12 +293,12 @@
                 form.get('paymentType').value?.length !== 3 &&
                 form.get('paymentType').value?.length !== 4
               "
-              class="d-flex justify-content-between align-items-center"
+              class="d-flex justify-content-between align-items-center flex-wrap"
               data-id="92998525"
             >
               <mat-form-field
                 appearance="outline"
-                class="flex-sh-50 flex-sh-md-100"
+                class="flex-sh-48 flex-sh-md-100"
                 data-id="3eabfbb8"
               >
                 <mat-label data-id="bfe4b2f0">{{ 'Provincia' | translate }}</mat-label>
@@ -333,7 +329,7 @@
 
               <mat-form-field
                 appearance="outline"
-                class="flex-sh-50 flex-sh-md-100"
+                class="flex-sh-48 flex-sh-md-100"
                 data-id="81070604"
               >
                 <mat-label data-id="41345229">{{ 'Municipio' | translate }}</mat-label>
@@ -498,7 +494,7 @@
           <!---------------------->
 
           <div
-            class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN"
+            class="actions-buttons d-flex justify-content-between align-items-start flex-sh-100"
             data-id="6a2d58c0"
           >
             <button
@@ -544,7 +540,7 @@
           <div
             *ngIf="!loadingPayment"
             [formGroup]="form"
-            class="d-flex justify-content-start align-items-start"
+            class="d-flex justify-content-start align-items-start flex-wrap"
             data-id="b73ce65c"
           >
             <div
@@ -636,10 +632,13 @@
                 </div>
               </div>
 
-              <div class="d-flex justify-content-between align-items-center" data-id="22149be7">
+              <div
+                class="d-flex justify-content-between align-items-center flex-wrap"
+                data-id="22149be7"
+              >
                 <mat-form-field
                   appearance="outline"
-                  class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+                  class="flex-sh-md-100 flex-sh-48"
                   data-id="ef238906"
                 >
                   <mat-label data-id="a228caa3">{{ 'Name' | translate }}</mat-label>
@@ -657,7 +656,7 @@
                 </mat-form-field>
                 <mat-form-field
                   appearance="outline"
-                  class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+                  class="flex-sh-md-100 flex-sh-48"
                   data-id="787470e0"
                 >
                   <mat-label data-id="163f46d6">{{ 'Lastname' | translate }}</mat-label>
@@ -725,10 +724,13 @@
                 *ngIf="onlyCubanPeople && (canBeDelivery || showAddress)"
                 data-id="2e4bbaff"
               >
-                <div class="d-flex justify-content-between align-items-center" data-id="19022e77">
+                <div
+                  class="d-flex justify-content-between align-items-center flex-wrap"
+                  data-id="19022e77"
+                >
                   <mat-form-field
                     appearance="outline"
-                    class="flex-sh-50 flex-sh-md-100"
+                    class="flex-sh-48 flex-sh-md-100"
                     data-id="afcd19c8"
                   >
                     <mat-label data-id="97869c3d">{{ 'Provincia' | translate }}</mat-label>
@@ -761,7 +763,7 @@
 
                   <mat-form-field
                     appearance="outline"
-                    class="flex-sh-50 flex-sh-md-100"
+                    class="flex-sh-48 flex-sh-md-100"
                     data-id="c3d0719f"
                   >
                     <mat-label data-id="2c7a8e81">{{ 'Municipio' | translate }}</mat-label>
@@ -958,11 +960,14 @@
                 </mat-form-field>
               </div>
 
-              <div class="d-flex justify-content-between align-items-center" data-id="a41bc5f2">
+              <div
+                class="d-flex justify-content-between align-items-center flex-wrap"
+                data-id="a41bc5f2"
+              >
                 <mat-form-field
                   appearance="outline"
                   id="CI"
-                  class="flex-sh-100 flex-sh-md-50 flex-sh-50 flex-sh-md-initial"
+                  class="flex-sh-48 flex-sh-md-100"
                   data-id="e729eb17"
                 >
                   <mat-label data-id="8c0f173d">{{ 'Identity card' | translate }}</mat-label>
@@ -991,7 +996,7 @@
                 </mat-form-field>
 
                 <div
-                  class="w-100 d-flex flex-sh-50 flex-sh-md-100 transpilerClass-fxLayoutGap-6fa278"
+                  class="w-100 d-flex flex-sh-md-100 flex-sh-48 transpilerClass-fxLayoutGap-6fa278"
                   data-id="b49f3377"
                 >
                   <guajiritos-general-autocomplete
@@ -1003,14 +1008,14 @@
                     [filterString]="['filter[$and][code][$like]']"
                     [url]="phoneCodesService.url"
                     [formControl]="form.get('PhoneCallingCodeId')"
-                    class="flex-sh-30"
+                    class="flex-sh-28"
                     data-id="8eb26cc5"
                   ></guajiritos-general-autocomplete>
 
                   <mat-form-field
                     appearance="outline"
                     id="phone"
-                    class="flex-sh-70 flex-sh-md-70"
+                    class="flex-sh-70"
                     data-id="7d718e94"
                   >
                     <mat-label data-id="6b101b3a">{{ 'Teléfono celular' | translate }}</mat-label>
@@ -1203,9 +1208,9 @@
             </div>
 
             <div class="add-info" data-id="b1a93572">
-              <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="96e4f7d7">
+              <p class="mat-subtitle-2 my-2 uppercase" data-id="edebcf46">
                 {{ 'Aditional information' | translate }}
-              </h3>
+              </p>
             </div>
             <div
               class="mt-1 flex-sh-100 flex-sh-100 flex-sh-sm-initial"
@@ -1226,26 +1231,11 @@
               </mat-form-field>
             </div>
 
-            <div class="add-info mb-3 d-flex d-xs-none d-sm-none d-md-none" data-id="e039d188">
-              <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex" data-id="88e701ce">
-                <span data-id="91a1d945"
-                  >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                  <!--                      <br>-->
-                </span>
-                <a [routerLink]="['/term-conditions']" data-id="59e29b50">
-                  {{ 'términos y condiciones' | translate }}
-                </a>
-              </mat-checkbox>
-            </div>
-
-            <div
-              class="add-info mb-3 d-flex d-xs-block d-sm-block d-md-block d-none"
-              data-id="5413dd43"
-            >
+            <div class="add-info mb-3" data-id="5413dd43">
               <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex" data-id="7c6d30b1">
                 <span data-id="2163f8cb"
                   >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                  <br data-id="e3d23f89" />
+                  <br class="d-none d-md-block" data-id="e3d23f89" />
                 </span>
                 <a [routerLink]="['/term-conditions']" data-id="f61462d8">
                   {{ 'términos y condiciones' | translate }}
@@ -1258,7 +1248,7 @@
             </h1>
 
             <div
-              class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN"
+              class="actions-buttons d-flex justify-content-between align-items-start flex-sh-100"
               data-id="50261678"
             >
               <button mat-stroked-button matStepperPrevious data-id="43834729">
@@ -1484,7 +1474,7 @@
 
             <div
               *ngIf="!loadingPayment"
-              class="actions-buttons d-flex justify-content-between align-items-start flex-sh-NaN"
+              class="actions-buttons d-flex justify-content-between align-items-start flex-sh-100"
               data-id="b4f8157b"
             >
               <!--              <button (click)="onGoToInfoDataToPay()" mat-stroked-button>{{ 'Atrás' | translate }}</button>-->
@@ -3184,9 +3174,9 @@
           </div>
 
           <div class="add-info" data-id="c3582668">
-            <h3 class="grey-800" ngClass.gt-sm="h2" ngClass.xs="h4" data-id="edebcf46">
+            <p class="mat-subtitle-2 my-2 uppercase" data-id="edebcf46">
               {{ 'Aditional information' | translate }}
-            </h3>
+            </p>
           </div>
           <div
             class="mt-1 transpilerClass-fxFlex-99e4ac transpilerClass-fxFlex-58cc29"
@@ -3206,26 +3196,12 @@
               ></textarea>
             </mat-form-field>
           </div>
-          <div class="add-info mb-3 d-flex d-xs-none d-sm-none d-md-none" data-id="ee8d9e70">
-            <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex" data-id="1bbdc615">
-              <span data-id="0bd8b78a"
-                >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                <!--                      <br>-->
-              </span>
-              <a [routerLink]="['/term-conditions']" data-id="c16c6d25">
-                {{ 'términos y condiciones' | translate }}
-              </a>
-            </mat-checkbox>
-          </div>
 
-          <div
-            class="add-info mb-3 d-flex d-xs-block d-sm-block d-md-block d-none"
-            data-id="2f2d291a"
-          >
+          <div class="add-info mb-3" data-id="2f2d291a">
             <mat-checkbox [formControl]="form.get('checkAge')" class="d-flex" data-id="adfe77fe">
               <span data-id="e8b85dec"
                 >{{ 'Al registrarse en la tienda usted acepta nuestros' | translate }}
-                <br data-id="93adb4dc" />
+                <br class="d-none d-md-block" data-id="93adb4dc" />
               </span>
               <a [routerLink]="['/term-conditions']" data-id="895fe272">
                 {{ 'términos y condiciones' | translate }}
