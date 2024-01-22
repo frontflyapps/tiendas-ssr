@@ -23,7 +23,6 @@ export class BannerPromotionComponent implements OnInit {
   @Input() set _image(value) {
     if (value) {
       this.image = value;
-      console.log(this.image);
     }
   }
 

@@ -88,7 +88,6 @@ export class CartComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.loggedInUser = this.loggedInUserService.getLoggedInUser();
         // if (this.loggedInUser) {
-        //   console.log('entro');
         //   this.cartService.getCart().then((dataCart: any) => {
         //     this.carts = dataCart.data;
         //   });

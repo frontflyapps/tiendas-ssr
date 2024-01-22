@@ -214,7 +214,6 @@ export class EditProfileComponent implements OnInit {
       delete data.password;
     }
     // data.id = this.loggedInUser.id;
-    console.log(data, '*****');
     this.spinner.show();
     this.authService.editProfile(data).subscribe(
       (newProfile) => {

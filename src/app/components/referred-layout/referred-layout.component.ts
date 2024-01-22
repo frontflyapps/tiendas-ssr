@@ -43,7 +43,6 @@ export class ReferredLayoutComponent implements OnInit {
   refreshData() {
     this.spinner.show();
     this.loading = true;
-    console.log(this.loggedInUser);
     const data = {
       personId: this.loggedInUser?.id,
     };

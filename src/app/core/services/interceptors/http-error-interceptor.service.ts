@@ -101,10 +101,8 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
       //   },
       // });
       // dialogRef.afterClosed().subscribe((result) => {
-      //   console.log(result);
       // });
       this.pathToRedirect = this.route.snapshot;
-      console.log('pathToRedirect' + this.pathToRedirect);
       if (err.url.includes(['payment'])) {
         this.router.navigate(['captcha'], { queryParams: { url: err.url } });
       } else {

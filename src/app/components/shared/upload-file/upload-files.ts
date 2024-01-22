@@ -42,8 +42,6 @@ export class UploadFilesService {
   }
 
   upload(formData, uuidParam, id) {
-    console.log('***************', id);
-
     return this.httpClient.post<any>(this.url, formData, {
       headers: new HttpHeaders({
         uuid: uuidParam,
@@ -72,7 +70,6 @@ export class UploadFilesService {
   }
 
   remove(id) {
-    console.log(id);
     return this.httpClient.delete<any>(this.urlId.replace(':id', id), this.httpOptions);
   }
 

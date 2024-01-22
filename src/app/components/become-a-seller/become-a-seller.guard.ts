@@ -49,7 +49,6 @@ export class BecomeASellerGuard {
 
   //eslint-disable-next-line
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-    console.log(this.loggedInUserService.getLoggedInUser());
     if (this.loggedInUserService.getLoggedInUser()) {
       return true;
     } else {

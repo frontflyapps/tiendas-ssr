@@ -166,14 +166,12 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     //     .filter((item) => item.ParentCategoryId == categoryId)
     //     .map((item) => {
     //       this.selection.select(item.id);
-    //       console.log('-> this.selection IIIFFFF', this.selection);
     //     });
     // } else {
     //   this.allCategories
     //     .filter((item) => item.ParentCategoryId == categoryId)
     //     .map((item) => {
     //       this.selection.deselect(item.id);
-    //       console.log('-> this.selection ELSEEE', this.selection);
     //     });
     // }
 

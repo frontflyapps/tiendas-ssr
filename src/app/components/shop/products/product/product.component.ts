@@ -24,7 +24,7 @@ import { GuajiritosRating } from '@guajiritos/rating';
 import { LazyImgDirective } from '../../../../core/directives/lazy-img/lazy-img.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product',
@@ -33,6 +33,7 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [
     NgIf,
+    NgFor,
     MatIconModule,
     MatProgressSpinnerModule,
     RouterLink,

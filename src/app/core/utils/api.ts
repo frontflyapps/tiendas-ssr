@@ -2,7 +2,7 @@ import { ApiOptions, ApiResponse } from '../classes/api.class';
 import { Observable, lastValueFrom } from 'rxjs';
 import { AnyRecord } from '../classes/general.class';
 
-export const handleObservable = <T extends AnyRecord>(
+export const handleObservable = <T extends any = any>(
   obs: Observable<ApiResponse<T>>,
   options?: ApiOptions<T>,
 ): void => {
@@ -15,6 +15,7 @@ export const handleObservable = <T extends AnyRecord>(
       onAfterSuccess?.(data.data);
     })
     .catch((e) => {
+      onBusy?.(false);
       onAfterFailed?.(e);
     });
 };

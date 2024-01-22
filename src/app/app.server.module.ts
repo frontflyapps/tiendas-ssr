@@ -12,7 +12,6 @@ import fs from 'fs';
  */
 // @ts-expect-error not matter(temporally)
 import domino from 'domino-ext';
-import { environment } from 'environments/environment';
 
 const initDOM = () => {
   // Use the browser index.html as template for the mock window

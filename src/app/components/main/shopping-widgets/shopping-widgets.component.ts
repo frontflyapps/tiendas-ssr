@@ -117,7 +117,6 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
 
     // if (this.loggedInUser) {
     //   this.cartService.getCart().then((data) => {
-    //     console.log('entro2');
     //     this.shoppingCarts = data.data;
     //
     //     if (Array.isArray(data.data) && data.data.length > 0) {
@@ -170,7 +169,6 @@ export class ShoppingWidgetsComponent implements OnInit, OnDestroy {
       // this.globalFacadeService.updateCartState(responseData || []);
       // this.globalFacadeService.updateBusinessState(responseData[0].Business || {});
     });
-    // console.log(item);
     // let productToDecrease = item.Product;
     // productToDecrease.Stock = item.Stock;
     // let quantity = -item.quantity;

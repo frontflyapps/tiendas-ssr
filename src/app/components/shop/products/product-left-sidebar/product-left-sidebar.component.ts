@@ -190,7 +190,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
       : 'es';
     this.route.queryParams.pipe(takeUntil(this._unsubscribeAll)).subscribe((data) => {
       this.isStarting = true;
-      console.log(data);
       // this.paramsSearch.categoryIds = data?.categoryIds ? data.categoryIds : this.paramsSearch.categoryIds;
       this.paramsSearch.categoryIds = data?.categoryIds ? data.categoryIds : [];
       this.paramsSearch.brandIds = data?.brandIds ? data.brandIds : [];
@@ -335,7 +334,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   }
 
   public onSelectOrder(event) {
-    console.log(this.form.value);
     this.queryProduct.order = event;
     // this.form.get('order').setValue(event);
     this.initValuesOnSearch();
@@ -565,7 +563,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
           this.categoryMenuServ.setFilterText(this.paramsSearch.filterText);
 
           this.storageService.setItem('searchText', JSON.stringify(null));
-          console.log(categoryIds);
         }
       } else {
         categoryIds = [this.paramsSearch.categoryIds];
@@ -616,16 +613,13 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
           // this.loading = true;
 
           if (this.form.get('order').value == null) {
-            console.log('entro');
             this.filterProducts(body.text, data.data);
           }
 
           this.allProducts = data.data;
           if (data?.suggested) {
             this.allProductsSuggested = data.suggested;
-            console.log(this.allProductsSuggested);
           }
-          console.log(this.allProducts);
           this.allProductsResponse = data.data;
           this.totalPages = data.meta.total / this.initLimit;
           this.totalProducts = data.meta.pagination.total;
@@ -730,7 +724,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
           );
       } else if (this.queryProduct.offset < this.queryProduct.total - 1) {
         this.queryProduct.offset = this.queryProduct.total;
-        console.log('asfhakjh');
         let brandIds: number[] = null;
         let categoryIds: number[] = null;
 
@@ -830,8 +823,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
   // }
 
   private filterProducts(name: string, arrProducts: any[]) {
-    console.log(name);
-    console.log(arrProducts);
     const arr1 = [];
     const arr2 = [];
     const arr3 = [];
@@ -842,18 +833,12 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
         this.allProducts = newArrayProducts;
       } else {
         arrProducts.forEach((product) => {
-          console.log(product.name.es.split(' ')[0].toLowerCase());
-
           const arrTemp1 = product.name.es.split(' ')[0].toLowerCase();
           let arrTemp2: any[] = product.name.es.split(' ');
           let temp = [];
           if (arrTemp2.includes('Combo')) {
             arrTemp2 = arrTemp2.map((item) => item.toLowerCase());
-            console.log(arrTemp2);
             temp = arrTemp2.filter((elemento) => elemento.includes('arroz'));
-            console.log(temp);
-            console.log(temp?.length);
-            console.log(temp?.length > 0);
           }
           arrTemp2.shift();
           arrTemp2 = arrTemp2.map((item) => item.toLowerCase());
@@ -874,7 +859,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
 
     // let newArrayProducts = [];
     // arrProducts.forEach((product) => {
-    //   console.log(product.name.es.split(' ')[0].toLowerCase());
     //   if (product.name.es.split(' ')[0].toLowerCase() === name) {
     //     newArrayProducts.push(product);
     //   }
@@ -902,8 +886,6 @@ export class ProductLeftSidebarComponent implements OnInit, OnDestroy {
     //   // }
     // });
     this.allProducts = newArrayProducts;
-    console.log(this.allProducts);
-    console.log(newArrayProducts);
   }
 
   OnPaginatorChange(event) {

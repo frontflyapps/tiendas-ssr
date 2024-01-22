@@ -147,7 +147,6 @@ export class BecomeASellerComponent implements OnInit {
 
     this.buildForm();
     this.fetchDaTa();
-    console.log(this.ownerInfo);
   }
 
   @HostListener('window:scroll', [])
@@ -218,8 +217,6 @@ export class BecomeASellerComponent implements OnInit {
       latitude: [this.firstStep ? this.firstStep.latitude : null, []],
       checked: [false, [Validators.required]],
     });
-
-    console.log(this.basicForm.value);
   }
 
   onImageChange(dataUri: any) {
@@ -259,9 +256,7 @@ export class BecomeASellerComponent implements OnInit {
   //   });
   // }
 
-  selectSelfEmployed(event: any) {
-    console.log(event);
-  }
+  selectSelfEmployed(event: any) {}
 
   saveInfo() {
     this.storageService.setItem('bs_image', this.imageBusiness);
@@ -296,7 +291,6 @@ export class BecomeASellerComponent implements OnInit {
   onCreateBusiness() {
     this.saveInfo();
     this.spinner.show();
-    console.log(this.ownerInfo);
     const data = {
       business: { ...this.basicForm.value },
       owner: { ...this.basicForm.get('owner')?.value },

@@ -47,8 +47,6 @@ export class UploadFileService {
       headers = new HttpHeaders().set('ProductId', productId.toString());
     }
 
-    console.log(data);
-
     return this.httpClient.post<any>(this.urlDataSheetFile, data, {
       headers,
       reportProgress: true,
@@ -61,8 +59,6 @@ export class UploadFileService {
     if (productId != undefined) {
       headers = new HttpHeaders().set('ProductId', productId.toString());
     }
-
-    console.log(data);
 
     return this.httpClient.post<any>(this.urlPrescriptionImageFile, data, {
       headers,
@@ -86,7 +82,6 @@ export class UploadFileService {
   }
 
   public createFile(data): Observable<any> {
-    console.log(data, 'la data que llega al servicio');
     return this.httpClient.post<any>(this.urlCircular, data, {
       reportProgress: true,
       observe: 'events',

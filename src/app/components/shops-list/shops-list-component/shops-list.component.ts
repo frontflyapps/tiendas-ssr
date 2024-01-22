@@ -62,7 +62,6 @@ export class ShopsListComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.query.total = data.meta.pagination.total;
         this.allBusiness = data.data;
-        console.log(this.allBusiness);
       });
   }
 

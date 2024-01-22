@@ -70,7 +70,6 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
 
   initConfig() {
     // const swiperEl = document.querySelector('#app-main-carousel-swiper-container');
-    // console.log('swiperEl---------------------------------', swiperEl);
     // if (swiperEl) {
     //   // swiper parameters
     //   const swiperOptions: SwiperOptions = {

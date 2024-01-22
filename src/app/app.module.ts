@@ -104,7 +104,7 @@ function initializeAppConfig(appService: BusinessConfigService) {
         {
           onAfterSuccess: (data) => {
             appService.businessConfig = data;
-            console.log('<<<<<<<<businessConfig>>>>>>>>', appService.businessConfig);
+            // console.log('<<<<<<<<businessConfig>>>>>>>>', appService.businessConfig);
             resolve();
           },
         },
