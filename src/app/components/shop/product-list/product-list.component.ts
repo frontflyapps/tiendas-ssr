@@ -42,7 +42,7 @@ import { NgFor, NgIf } from '@angular/common';
     I18nFieldPipe,
   ],
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnDestroy {
   @Input() products;
   inLoading = false;
 
@@ -90,8 +90,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
         this.isSmallDevice = data.matches;
       });
   }
-
-  ngOnInit(): void {}
 
   ngOnDestroy() {
     this._unsubscribeAll.next(true);
